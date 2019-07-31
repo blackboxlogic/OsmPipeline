@@ -17,7 +17,7 @@ using OsmSharp.IO.Xml;
 
 namespace OsmSharp.IO.API
 {
-	// TODO: breakout, tests, whitespace, logging, disposing, cite/license, throttling, namespace
+	// TODO: breakout, tests, whitespace, logging, disposing, cite/license, throttling, namespace, parameters
 	public class Client
 	{
 		/// <summary>
@@ -175,8 +175,11 @@ namespace OsmSharp.IO.API
 						{
 							Tags = new TagsCollection
 							{
-								new Tag {Key = "created_by", Value = "IsraelHiking.osm.org.il"},
-								new Tag {Key = "comment", Value = comment}
+								new Tag {Key = "created_by", Value = "https://github.com/blackboxlogic/OsmPipeline"},
+								new Tag {Key = "comment", Value = comment},
+								new Tag {Key = "bot", Value = "yes"},
+								new Tag {Key = "mechanical", Value = "yes"},
+								new Tag {Key = "description", Value = "https://wiki.openstreetmap.org/wiki/Automated_edits/blackboxlogic"}
 							}
 						}
 					}
