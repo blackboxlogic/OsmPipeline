@@ -17,28 +17,43 @@ namespace OsmPipeline
 
 		public static string PhoneNotCorrectFormat = 
 			@"['phone'!~'^\\+1\\-[0-9]{3}\\-[0-9]{3}\\-[0-9]{4}$']";
-		public static string NodePhone11DigitStartWith1 =
+		public static string Phone11DigitStartWith1 =
 			@"['phone'~'^([^0-9]*1)([^0-9]*[0-9]){10}[^0-9]*$']";
 		public static string Phone10DigitStartsWith207 =
 			@"['phone'~'^([^0-9]*2)([^0-9]*0)([^0-9]*7)([^0-9]*[0-9]){7}[^0-9]*$']";
 
 		private const string Url = "http://overpass-api.de/api/interpreter";
 
-		public static string BuildQuery(OsmGeoType geoType, bool includeMeta, OsmGeo location, params string[] filters)
+		public static string Query(OsmGeoType geoType, OsmGeo location, params string[] filters)
 		{
 			if (location.Type == OsmGeoType.Node || !location.Id.HasValue) throw new Exception();
 
 			long locationId = location.Id.Value +
 				(location.Type == OsmGeoType.Relation ? RelationIdToArea : WayIdToArea);
 
-			string meta = includeMeta ? " meta" : "";
-
-			return geoType + string.Concat(filters)
-				+ "(area: " + locationId + ");"
-				+ "out" + meta + ";";
+			return geoType.ToString().ToLower()
+				+ "\n    " + string.Join("\n    ", filters)
+				+ "\n(area:" + locationId + ");";
 		}
 
-		public static async Task<OsmSharp.API.Osm> Fetch(string query)
+		public static string Union(params string[] subqueries)
+		{
+			return "(" + string.Join("\n", subqueries) + ");";
+		}
+
+		public static string AddOut(string query, bool includeMeta = false)
+		{
+			if (includeMeta)
+			{
+				return $"{query}\nout meta;";
+			}
+			else
+			{
+				return $"{query}\nout;";
+			}
+		}
+
+		public static async Task<OsmSharp.API.Osm> Execute(string query)
 		{
 			var serializer = new XmlSerializer(typeof(OsmSharp.API.Osm));
 			var stream = await FetchStream(query);

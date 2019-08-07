@@ -35,8 +35,15 @@ namespace OsmPipeline
 
 		private static async Task<Osm> Open()
 		{
-			var query = OverpassAPI.BuildQuery(OsmGeoType.Node, true, Maine, OverpassAPI.Phone10DigitStartsWith207);
-			var osm = await OverpassAPI.Fetch(query);
+			var nodePhone10 = OverpassAPI.Query(OsmGeoType.Node, Maine, OverpassAPI.Phone10DigitStartsWith207);
+			var nodePhone11 = OverpassAPI.Query(OsmGeoType.Node, Maine, OverpassAPI.Phone11DigitStartWith1, OverpassAPI.PhoneNotCorrectFormat);
+			var wayPhone10 = OverpassAPI.Query(OsmGeoType.Way, Maine, OverpassAPI.Phone10DigitStartsWith207);
+			var wayPhone11 = OverpassAPI.Query(OsmGeoType.Way, Maine, OverpassAPI.Phone11DigitStartWith1, OverpassAPI.PhoneNotCorrectFormat);
+			var relPhone10 = OverpassAPI.Query(OsmGeoType.Relation, Maine, OverpassAPI.Phone10DigitStartsWith207);
+			var relPhone11 = OverpassAPI.Query(OsmGeoType.Relation, Maine, OverpassAPI.Phone11DigitStartWith1, OverpassAPI.PhoneNotCorrectFormat);
+			var query = OverpassAPI.Union(nodePhone10, nodePhone11, wayPhone10, wayPhone11, relPhone10, relPhone11);
+			query = OverpassAPI.AddOut(query, true);
+			var osm = await OverpassAPI.Execute(query);
 			return osm;
 		}
 
