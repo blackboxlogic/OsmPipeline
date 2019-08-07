@@ -60,7 +60,7 @@ namespace OsmPipeline
 			foreach (var element in elements)
 			{
 				var number = element.Tags["phone"];
-				if (Phones.TryFix(number, out string fixedPhone))
+				if (Phones.TryFix(number, "207", out string fixedPhone))
 				{
 					Console.WriteLine($"{element.Type}-{element.Id}:\t{number}\t-->\t{fixedPhone}");
 					element.Tags["phone"] = fixedPhone;
