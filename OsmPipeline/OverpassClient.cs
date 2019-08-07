@@ -4,15 +4,39 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
-using System.Xml;
 using System.Xml.Serialization;
+using OsmSharp;
 
 namespace OsmPipeline
 {
 	// Day Limit:10,000 queries, 5 gb
 	public static class OverpassAPI
 	{
+		private const long RelationIdToArea = 3600000000;
+		private const long WayIdToArea = 2400000000;
+
+		public static string PhoneNotCorrectFormat = 
+			@"['phone'!~'^\\+1\\-[0-9]{3}\\-[0-9]{3}\\-[0-9]{4}$']";
+		public static string NodePhone11DigitStartWith1 =
+			@"['phone'~'^([^0-9]*1)([^0-9]*[0-9]){10}[^0-9]*$']";
+		public static string Phone10DigitStartsWith207 =
+			@"['phone'~'^([^0-9]*2)([^0-9]*0)([^0-9]*7)([^0-9]*[0-9]){7}[^0-9]*$']";
+
 		private const string Url = "http://overpass-api.de/api/interpreter";
+
+		public static string BuildQuery(OsmGeoType geoType, bool includeMeta, OsmGeo location, params string[] filters)
+		{
+			if (location.Type == OsmGeoType.Node || !location.Id.HasValue) throw new Exception();
+
+			long locationId = location.Id.Value +
+				(location.Type == OsmGeoType.Relation ? RelationIdToArea : WayIdToArea);
+
+			string meta = includeMeta ? " meta" : "";
+
+			return geoType + string.Concat(filters)
+				+ "(area: " + locationId + ");"
+				+ "out" + meta + ";";
+		}
 
 		public static async Task<OsmSharp.API.Osm> Fetch(string query)
 		{

@@ -6,6 +6,7 @@ using OsmSharp;
 using OsmSharp.API;
 using OsmSharp.Changesets;
 using OsmSharp.IO.API;
+using OsmSharp.Tags;
 
 namespace OsmPipeline
 {
@@ -20,26 +21,21 @@ namespace OsmPipeline
 		private const string ChangeComment = EditGenerator;
 		private const string ChangeCreatedBy = EditGenerator;
 
-		private const ulong maine = 63512 + 3600000000;
-		private const ulong westbrook = 132501 + 3600000000;
-		private const ulong frenchtown = 707032430 + 2400000000;
+		private static Relation Maine = new Relation() { Id = 63512 };
+		private static Relation Westbrook = new Relation() { Id = 132501 };
+		private static Way Frenchtown = new Way() { Id = 707032430 };
 
 		static void Main(string[] args)
 		{
 			var osm = Open().Result;
 			var change = Edit(osm, EditGenerator, EditVersion).Result;
-			Save(change, ChangeComment, ChangeCreatedBy);
+			//Save(change, ChangeComment, ChangeCreatedBy);
 			Console.ReadKey(true);
 		}
 
 		private static async Task<Osm> Open()
 		{
-			string query =
-@"node
-  ['phone'~'^([^0-9]*1)?([^0-9]*[0-9]){10}[^0-9]*$']
-  ['phone'!~'^\\+1\\-[0-9]{3}\\-[0-9]{3}\\-[0-9]{4}$']
-  (area: " + westbrook + @");
-out meta;";
+			var query = OverpassAPI.BuildQuery(OsmGeoType.Node, true, Maine, OverpassAPI.Phone10DigitStartsWith207);
 			var osm = await OverpassAPI.Fetch(query);
 			return osm;
 		}
@@ -57,14 +53,15 @@ out meta;";
 			foreach (var element in elements)
 			{
 				var number = element.Tags["phone"];
-				var fixedPhone = Phones.Fix(number);
-				Console.WriteLine($"{element.Id}:\t{number}\t-->\t{fixedPhone}");
-				element.Tags["phone"] = fixedPhone;
+				if (Phones.TryFix(number, out string fixedPhone))
+				{
+					Console.WriteLine($"{element.Type}-{element.Id}:\t{number}\t-->\t{fixedPhone}");
+					element.Tags["phone"] = fixedPhone;
 
-				modify.Add(element);
+					modify.Add(element);
+				}
 			}
 
-			// TODO: Implement 'if-unused'
 			var change = new OsmChange()
 			{
 				Generator = generator,
@@ -81,30 +78,16 @@ out meta;";
 		{
 			BasicAuthClient basic = new BasicAuthClient(
 				OsmApiUrl, OsmUsername, OsmPassword);
-			var changesetId = await basic.CreateChangeset(comment); //, createdBy);
-			ValidateChangeset(change, changesetId);
+			var changeSetTags = new TagsCollection()
+			{
+				new Tag("comment", comment),
+				new Tag("created_by", createdBy),
+				new Tag("bot", "yes")
+			};
+			var changesetId = await basic.CreateChangeset(changeSetTags);
 			var diffResult = await basic.UploadChangeset(changesetId, change);
-			// Should I check the diffResult?
+			// What should I do with the diffResult?
 			await basic.CloseChangeset(changesetId);
-		}
-		private static void ValidateChangeset(OsmChange change, string changesetId)
-		{
-			var changeCount = change.Modify?.Length ?? 0
-				+ change.Delete?.Length ?? 0
-				+ change.Create?.Length ?? 0;
-
-			if (changeCount > MaxChangesPerChangeSet)
-			{
-				throw new Exception($"Too many changes in this changeset. {changeCount} > {MaxChangesPerChangeSet}");
-			}
-
-			if (new OsmGeo[][] { change.Delete, change.Modify }
-				.Where(a => a != null)
-				.SelectMany(a => a)
-				.Any(e => !e.Tags.ContainsKey("version")))
-			{
-				throw new Exception("All Delete and Modify elements must contain a 'version' tag.");
-			}
 		}
 	}
 }
