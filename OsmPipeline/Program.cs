@@ -16,11 +16,13 @@ namespace OsmPipeline
 		private const string EditGenerator = "OsmPipeline";
 		private const double EditVersion = .1;
 		private const string OsmApiUrl = "https://master.apis.dev.openstreetmap.org/api/0.6/";
+		// TODO: Fetch creds from a keyvault? from a config file? or?
 		private const string OsmUsername = "blackboxlogic+dev@gmail.com";
 		private const string OsmPassword = "********";
 		private const string ChangeComment = EditGenerator;
 		private const string ChangeCreatedBy = EditGenerator;
 
+		private static Relation USA = new Relation() { Id = 9331155 };
 		private static Relation Maine = new Relation() { Id = 63512 };
 		private static Relation Westbrook = new Relation() { Id = 132501 };
 		private static Way Frenchtown = new Way() { Id = 707032430 };
@@ -36,11 +38,11 @@ namespace OsmPipeline
 		private static async Task<Osm> Open()
 		{
 			var nodePhone10 = OverpassAPI.Query(OsmGeoType.Node, Maine, OverpassAPI.Phone10DigitStartsWith207);
-			var nodePhone11 = OverpassAPI.Query(OsmGeoType.Node, Maine, OverpassAPI.Phone11DigitStartWith1, OverpassAPI.PhoneNotCorrectFormat);
+			var nodePhone11 = OverpassAPI.Query(OsmGeoType.Node, Maine, OverpassAPI.Phone11DigitStartWith1, OverpassAPI.PhoneNotCorrectFilter);
 			var wayPhone10 = OverpassAPI.Query(OsmGeoType.Way, Maine, OverpassAPI.Phone10DigitStartsWith207);
-			var wayPhone11 = OverpassAPI.Query(OsmGeoType.Way, Maine, OverpassAPI.Phone11DigitStartWith1, OverpassAPI.PhoneNotCorrectFormat);
+			var wayPhone11 = OverpassAPI.Query(OsmGeoType.Way, Maine, OverpassAPI.Phone11DigitStartWith1, OverpassAPI.PhoneNotCorrectFilter);
 			var relPhone10 = OverpassAPI.Query(OsmGeoType.Relation, Maine, OverpassAPI.Phone10DigitStartsWith207);
-			var relPhone11 = OverpassAPI.Query(OsmGeoType.Relation, Maine, OverpassAPI.Phone11DigitStartWith1, OverpassAPI.PhoneNotCorrectFormat);
+			var relPhone11 = OverpassAPI.Query(OsmGeoType.Relation, Maine, OverpassAPI.Phone11DigitStartWith1, OverpassAPI.PhoneNotCorrectFilter);
 			var query = OverpassAPI.Union(nodePhone10, nodePhone11, wayPhone10, wayPhone11, relPhone10, relPhone11);
 			query = OverpassAPI.AddOut(query, true);
 			var osm = await OverpassAPI.Execute(query);

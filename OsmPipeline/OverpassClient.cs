@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
@@ -15,24 +17,24 @@ namespace OsmPipeline
 		private const long RelationIdToArea = 3600000000;
 		private const long WayIdToArea = 2400000000;
 
-		public static string PhoneNotCorrectFormat = 
-			@"['phone'!~'^\\+1\\-[0-9]{3}\\-[0-9]{3}\\-[0-9]{4}$']";
-		public static string Phone11DigitStartWith1 =
-			@"['phone'~'^([^0-9]*1)([^0-9]*[0-9]){10}[^0-9]*$']";
-		public static string Phone10DigitStartsWith207 =
-			@"['phone'~'^([^0-9]*2)([^0-9]*0)([^0-9]*7)([^0-9]*[0-9]){7}[^0-9]*$']";
+		public static Filter PhoneNotCorrectFilter =
+			new Filter("phone", Filter.Comp.NotLike, "^\\+1\\-[0-9]{3}\\-[0-9]{3}\\-[0-9]{4}$");
+		public static Filter Phone11DigitStartWith1 =
+			new Filter("phone", Filter.Comp.Like, "^([^0-9]*1)([^0-9]*[0-9]){10}[^0-9]*$");
+		public static Filter Phone10DigitStartsWith207 =
+			new Filter("phone", Filter.Comp.Like, "^([^0-9]*2)([^0-9]*0)([^0-9]*7)([^0-9]*[0-9]){7}[^0-9]*$']");
 
 		private const string Url = "http://overpass-api.de/api/interpreter";
 
-		public static string Query(OsmGeoType geoType, OsmGeo location, params string[] filters)
+		public static string Query(OsmGeoType geoType, OsmGeo location, params Filter[] filters)
 		{
-			if (location.Type == OsmGeoType.Node || !location.Id.HasValue) throw new Exception();
+			if (location?.Id == null || location.Type == OsmGeoType.Node) throw new Exception("location is invalid.");
 
 			long locationId = location.Id.Value +
 				(location.Type == OsmGeoType.Relation ? RelationIdToArea : WayIdToArea);
 
 			return geoType.ToString().ToLower()
-				+ "\n    " + string.Join("\n    ", filters)
+				+ string.Concat(filters.Select(f => "\n    " + f))
 				+ "\n(area:" + locationId + ");";
 		}
 
@@ -90,6 +92,40 @@ namespace OsmPipeline
 			var responseStream = await response.Content.ReadAsStreamAsync();
 
 			return responseStream;
+		}
+
+		public class Filter
+		{
+			public Filter(string key, Comp comp, string value)
+			{
+				Key = key;
+				Comparor = comp;
+				Value = value;
+			}
+
+			private Dictionary<Comp, string> Comparisons = new Dictionary<Comp, string>() {
+				{ Comp.Equal, "="},
+				{ Comp.NotEqual, "!="},
+				{ Comp.Like, "~"},
+				{ Comp.NotLike, "!~"}
+			};
+
+			public string Key;
+			public Comp Comparor;
+			public string Value;
+
+			public override string ToString()
+			{
+				return $"['{Key}'{Comparisons[Comparor]}'{Value}']";
+			}
+
+			public enum Comp
+			{
+				Equal,
+				NotEqual,
+				Like,
+				NotLike
+			}
 		}
 	}
 }
