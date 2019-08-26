@@ -2,11 +2,13 @@
 using System.Linq;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using System.IO;
 using OsmSharp;
 using OsmSharp.API;
 using OsmSharp.Changesets;
 using OsmSharp.IO.API;
 using OsmSharp.Tags;
+using System.Xml.Serialization;
 
 namespace OsmPipeline
 {
@@ -35,17 +37,42 @@ namespace OsmPipeline
 			Console.ReadKey(true);
 		}
 
-		private static async Task<Osm> Open()
+		private static async Task<Osm> Open(bool withCache = true)
 		{
-			var nodePhone10 = OverpassAPI.Query(OsmGeoType.Node, Maine, OverpassAPI.Phone10DigitStartsWith207);
-			var nodePhone11 = OverpassAPI.Query(OsmGeoType.Node, Maine, OverpassAPI.Phone11DigitStartWith1, OverpassAPI.PhoneNotCorrectFilter);
-			var wayPhone10 = OverpassAPI.Query(OsmGeoType.Way, Maine, OverpassAPI.Phone10DigitStartsWith207);
-			var wayPhone11 = OverpassAPI.Query(OsmGeoType.Way, Maine, OverpassAPI.Phone11DigitStartWith1, OverpassAPI.PhoneNotCorrectFilter);
-			var relPhone10 = OverpassAPI.Query(OsmGeoType.Relation, Maine, OverpassAPI.Phone10DigitStartsWith207);
-			var relPhone11 = OverpassAPI.Query(OsmGeoType.Relation, Maine, OverpassAPI.Phone11DigitStartWith1, OverpassAPI.PhoneNotCorrectFilter);
-			var query = OverpassAPI.Union(nodePhone10, nodePhone11, wayPhone10, wayPhone11, relPhone10, relPhone11);
+			var subQueries = new[] {
+				OverpassAPI.Query(OsmGeoType.Node, Maine,
+					new Filter("phone", Comp.Like, Phones.HasAnything),
+					new Filter("phone", Comp.NotLike, Phones.Correct)),
+				OverpassAPI.Query(OsmGeoType.Way, Maine,
+					new Filter("phone", Comp.Like, Phones.HasAnything),
+					new Filter("phone", Comp.NotLike, Phones.Correct)),
+				OverpassAPI.Query(OsmGeoType.Relation, Maine,
+					new Filter("phone", Comp.Like, Phones.HasAnything),
+					new Filter("phone", Comp.NotLike, Phones.Correct))
+			};
+			var query = OverpassAPI.Union(subQueries);
 			query = OverpassAPI.AddOut(query, true);
+
+			var serializer = new XmlSerializer(typeof(Osm));
+			if (withCache && File.Exists($"Overpass.txt"))
+			{
+				using (var fileStream = File.OpenRead($"Overpass.txt"))
+				{
+					return (Osm)serializer.Deserialize(fileStream);
+				}
+			}
+
+
 			var osm = await OverpassAPI.Execute(query);
+
+			if (withCache)
+			{
+				using (var fileStream = File.OpenWrite($"Overpass.txt"))
+				{
+					serializer.Serialize(fileStream, osm);
+				}
+			}
+
 			return osm;
 		}
 
@@ -54,20 +81,37 @@ namespace OsmPipeline
 			List<OsmGeo> modify = new List<OsmGeo>();
 			List<OsmGeo> delete = new List<OsmGeo>();
 			List<OsmGeo> create = new List<OsmGeo>();
-
+			List<OsmGeo> skip = new List<OsmGeo>();
 			var elements = new OsmGeo[][] { osm.Nodes, osm.Ways, osm.Relations }
 				.Where(a => a != null)
 				.SelectMany(a => a);
+			var tag = "phone";
 
 			foreach (var element in elements)
 			{
-				var number = element.Tags["phone"];
-				if (Phones.TryFix(number, "207", out string fixedPhone))
+				if (!element.Tags.TryGetValue(tag, out string value))
+					continue;
+				// https://en.wikipedia.org/wiki/List_of_country_calling_codes
+				if (Phones.TryFix(value, new[] { "207", "800", "888", "877" }, out string fixedValue))
 				{
-					Console.WriteLine($"{element.Type}-{element.Id}:\t{number}\t-->\t{fixedPhone}");
-					element.Tags["phone"] = fixedPhone;
-
+					Console.WriteLine($"{element.Type}-{element.Id}.{tag}:\t{value}\t-->\t{fixedValue}");
+					element.Tags[tag] = fixedValue;
 					modify.Add(element);
+				}
+				else
+				{
+					skip.Add(element);
+				}
+			}
+
+			Console.WriteLine($"{modify.Count + delete.Count + create.Count} changes.");
+			Console.WriteLine($"{skip.Count} skipped.");
+
+			foreach (var element in skip)
+			{
+				if (element.Tags.TryGetValue(tag, out string value))
+				{
+					Console.WriteLine($"{element.Type}-{element.Id}.{tag}:\t{value}\t-->\tCan not fix!");
 				}
 			}
 
@@ -79,6 +123,12 @@ namespace OsmPipeline
 				Delete = delete.ToArray(),
 				Create = create.ToArray()
 			};
+
+			using (var fileStream = File.OpenWrite("change.txt"))
+			{
+				var serializer = new XmlSerializer(typeof(OsmChange));
+				serializer.Serialize(fileStream, change);
+			}
 
 			return change;
 		}
