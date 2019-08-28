@@ -9,6 +9,8 @@ using OsmSharp.Changesets;
 using OsmSharp.IO.API;
 using OsmSharp.Tags;
 using System.Xml.Serialization;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 
 namespace OsmPipeline
 {
@@ -29,26 +31,41 @@ namespace OsmPipeline
 		private static Relation Westbrook = new Relation() { Id = 132501 };
 		private static Way Frenchtown = new Way() { Id = 707032430 };
 
+		private static string Tag = "phone";
+
 		static void Main(string[] args)
 		{
-			var osm = Open().Result;
-			var change = Edit(osm, EditGenerator, EditVersion).Result;
-			//Save(change, ChangeComment, ChangeCreatedBy);
-			Console.ReadKey(true);
+			IServiceCollection serviceCollection = new ServiceCollection();
+			serviceCollection.AddLogging(builder => builder.AddConsole().AddFilter(level => true));
+			var loggerFactory = serviceCollection.BuildServiceProvider().GetService<ILoggerFactory>();
+
+
+			var source = new Fittings.KMLFileSource("");
+			var dest = new Fittings.LoggingEnder<SharpKml.Dom.Element>(loggerFactory.CreateLogger("kml"));
+			var pump = new Fittings.Pump<SharpKml.Dom.Element>(source, dest);
+			pump.Go();
+
+
+
+
+			//var osm = Open(Frenchtown).Result;
+			//var change = Edit(osm, EditGenerator, EditVersion).Result;
+			////Save(change, ChangeComment, ChangeCreatedBy);
+			//Console.ReadKey(true);
 		}
 
-		private static async Task<Osm> Open(bool withCache = true)
+		private static async Task<Osm> Open(OsmGeo where, bool withCache = true)
 		{
 			var subQueries = new[] {
-				OverpassAPI.Query(OsmGeoType.Node, Maine,
-					new Filter("phone", Comp.Like, Phones.HasAnything),
-					new Filter("phone", Comp.NotLike, Phones.Correct)),
-				OverpassAPI.Query(OsmGeoType.Way, Maine,
-					new Filter("phone", Comp.Like, Phones.HasAnything),
-					new Filter("phone", Comp.NotLike, Phones.Correct)),
-				OverpassAPI.Query(OsmGeoType.Relation, Maine,
-					new Filter("phone", Comp.Like, Phones.HasAnything),
-					new Filter("phone", Comp.NotLike, Phones.Correct))
+				OverpassAPI.Query(OsmGeoType.Node, where,
+					new Filter(Tag, Comp.Like, Phones.HasAnything),
+					new Filter(Tag, Comp.NotLike, Phones.Correct)),
+				OverpassAPI.Query(OsmGeoType.Way, where,
+					new Filter(Tag, Comp.Like, Phones.HasAnything),
+					new Filter(Tag, Comp.NotLike, Phones.Correct)),
+				OverpassAPI.Query(OsmGeoType.Relation, where,
+					new Filter(Tag, Comp.Like, Phones.HasAnything),
+					new Filter(Tag, Comp.NotLike, Phones.Correct))
 			};
 			var query = OverpassAPI.Union(subQueries);
 			query = OverpassAPI.AddOut(query, true);
@@ -61,7 +78,6 @@ namespace OsmPipeline
 					return (Osm)serializer.Deserialize(fileStream);
 				}
 			}
-
 
 			var osm = await OverpassAPI.Execute(query);
 
@@ -85,17 +101,17 @@ namespace OsmPipeline
 			var elements = new OsmGeo[][] { osm.Nodes, osm.Ways, osm.Relations }
 				.Where(a => a != null)
 				.SelectMany(a => a);
-			var tag = "phone";
+			
 
 			foreach (var element in elements)
 			{
-				if (!element.Tags.TryGetValue(tag, out string value))
+				if (!element.Tags.TryGetValue(Tag, out string value))
 					continue;
 				// https://en.wikipedia.org/wiki/List_of_country_calling_codes
-				if (Phones.TryFix(value, new[] { "207", "800", "888", "877" }, out string fixedValue))
+				if (Phones.TryFix(value, new[] { "207", "800", "888", "877" }, "207", out string fixedValue))
 				{
-					Console.WriteLine($"{element.Type}-{element.Id}.{tag}:\t{value}\t-->\t{fixedValue}");
-					element.Tags[tag] = fixedValue;
+					Console.WriteLine($"{element.Type}-{element.Id}.{Tag}:\t{value}\t-->\t{fixedValue}");
+					element.Tags[Tag] = fixedValue;
 					modify.Add(element);
 				}
 				else
@@ -105,13 +121,13 @@ namespace OsmPipeline
 			}
 
 			Console.WriteLine($"{modify.Count + delete.Count + create.Count} changes.");
-			Console.WriteLine($"{skip.Count} skipped.");
+			Console.WriteLine($"{skip.Count} skipped:");
 
 			foreach (var element in skip)
 			{
-				if (element.Tags.TryGetValue(tag, out string value))
+				if (element.Tags.TryGetValue(Tag, out string value))
 				{
-					Console.WriteLine($"{element.Type}-{element.Id}.{tag}:\t{value}\t-->\tCan not fix!");
+					Console.WriteLine($"{element.Type}-{element.Id}.{Tag}:\t{value}");
 				}
 			}
 

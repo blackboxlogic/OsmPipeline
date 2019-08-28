@@ -13,7 +13,7 @@ namespace OsmPipeline
 		public static string HasLetters = "[^a-zA-Z]";
 		public static string HasAnything = ".*";
 
-		public static bool TryFix(string number, string[] safeAreas, out string fixedNumber)
+		public static bool TryFix(string number, string[] safeAreas, string assumedArea, out string fixedNumber)
 		{
 			if (number.Any(char.IsLetter))
 			{
@@ -33,9 +33,9 @@ namespace OsmPipeline
 				fixedNumber = $"+1-{numbers.Substring(0, 3)}-{numbers.Substring(3, 3)}-{numbers.Substring(6, 4)}";
 				return true;
 			}
-			else if (numbers.Length == 7)
+			else if (numbers.Length == 7 && assumedArea != null)
 			{
-				fixedNumber = $"+1-{safeAreas[0]}-{numbers.Substring(0, 3)}-{numbers.Substring(3, 4)}";
+				fixedNumber = $"+1-{assumedArea}-{numbers.Substring(0, 3)}-{numbers.Substring(3, 4)}";
 				return true;
 			}
 			else
