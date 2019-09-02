@@ -9,6 +9,8 @@ namespace OsmPipeline.Fittings
 	//IBuffer
 	//ICache
 	//ILogger
+	//IMerger
+	//ISplitter
 
 	public interface ISource<T> : IEnumerable<T>
 	{
@@ -22,7 +24,7 @@ namespace OsmPipeline.Fittings
 
 	public interface IFixer<TFrom, TTo> : IDestination<TFrom>, ISource<TTo>
 	{
-		
+
 	}
 
 	public interface ISplitter<T> : IDestination<T>, ISource<T>

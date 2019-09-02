@@ -33,25 +33,33 @@ namespace OsmPipeline
 
 		private static string Tag = "phone";
 
+		private static ILoggerFactory LoggerFactory;
+
 		static void Main(string[] args)
 		{
 			IServiceCollection serviceCollection = new ServiceCollection();
 			serviceCollection.AddLogging(builder => builder.AddConsole().AddFilter(level => true));
-			var loggerFactory = serviceCollection.BuildServiceProvider().GetService<ILoggerFactory>();
+			LoggerFactory = serviceCollection.BuildServiceProvider().GetService<ILoggerFactory>();
 
 
-			var source = new Fittings.KMLFileSource("");
-			var dest = new Fittings.LoggingEnder<SharpKml.Dom.Element>(loggerFactory.CreateLogger("kml"));
-			var pump = new Fittings.Pump<SharpKml.Dom.Element>(source, dest);
-			pump.Go();
+			var source = new Fittings.KmlFileSource(@"C:\Users\Alex\Desktop\MaineE911.kml");
+			var dest = new Fittings.KmlLoggingEnder(LoggerFactory.CreateLogger("kml"));
+
+			foreach (var thing in source)
+			{
+				dest.Put(thing);
+			}
+
+			//var pump = new Fittings.Pump<SharpKml.Dom.Element>(source, dest);
+			//pump.Go();
 
 
 
 
-			//var osm = Open(Frenchtown).Result;
-			//var change = Edit(osm, EditGenerator, EditVersion).Result;
-			////Save(change, ChangeComment, ChangeCreatedBy);
-			//Console.ReadKey(true);
+				//var osm = Open(Frenchtown).Result;
+				//var change = Edit(osm, EditGenerator, EditVersion).Result;
+				////Save(change, ChangeComment, ChangeCreatedBy);
+			Console.ReadKey(true);
 		}
 
 		private static async Task<Osm> Open(OsmGeo where, bool withCache = true)
@@ -151,8 +159,8 @@ namespace OsmPipeline
 
 		private static async void Save(OsmChange change, string comment, string createdBy)
 		{
-			BasicAuthClient basic = new BasicAuthClient(
-				OsmApiUrl, OsmUsername, OsmPassword);
+			BasicAuthClient basic = new BasicAuthClient(new System.Net.Http.HttpClient(),
+				LoggerFactory.CreateLogger("kml"), OsmApiUrl, OsmUsername, OsmPassword);
 			var changeSetTags = new TagsCollection()
 			{
 				new Tag("comment", comment),

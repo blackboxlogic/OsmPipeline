@@ -1,18 +1,18 @@
 ﻿using System;
 using Microsoft.Extensions.Logging;
-
+using SharpKml.Dom;
 namespace OsmPipeline.Fittings
 {
-	public class LoggingEnder<T> : IDestination<T>
+	public class KmlLoggingEnder : IDestination<Element>
 	{
 		private ILogger Logger;
 
-		public LoggingEnder(ILogger logger)
+		public KmlLoggingEnder(ILogger logger)
 		{
 			Logger = logger;
 		}
 
-		public void Put(T item)
+		public void Put(Element item)
 		{
 			Logger.LogInformation(item.ToString());
 		}

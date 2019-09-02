@@ -7,36 +7,30 @@ using SharpKml.Engine;
 
 namespace OsmPipeline.Fittings
 {
-	public class KMLFileSource : ISource<Element>, IDisposable
+	public class KmlFileSource : ISource<Element>
 	{
 		private string FileName;
-		private Stream FileStream;
 
-		public KMLFileSource(string fileName)
+		public KmlFileSource(string fileName)
 		{
 			FileName = fileName;
 		}
 
 		public IEnumerator<Element> GetEnumerator()
 		{
-			// maybe don't hold the stream open?
-			FileStream = FileStream ?? File.Open(FileName, FileMode.Open);
-			return KmlFile.Load(FileStream).Root.Children.GetEnumerator();
+			using (var fileStream = File.Open(FileName, FileMode.Open))
+			{
+				var file = KmlFile.Load(fileStream);
+				return file.Root.Flatten().GetEnumerator();
+			}
 		}
 
 		IEnumerator IEnumerable.GetEnumerator()
 		{
-			FileStream = FileStream ?? File.Open(FileName, FileMode.Open);
-			return KmlFile.Load(FileStream).Root.Children.GetEnumerator();
-		}
-
-		public void Dispose()
-		{
-			var fileStream = FileStream;
-			if (fileStream != null)
+			using (var fileStream = File.Open(FileName, FileMode.Open))
 			{
-				fileStream.Dispose();
-				FileStream = null;
+				var file = KmlFile.Load(fileStream);
+				return file.Root.Flatten().GetEnumerator();
 			}
 		}
 	}
