@@ -11,20 +11,20 @@ using OsmSharp.Tags;
 using System.Xml.Serialization;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using OsmPipeline.Fittings;
+using static OsmPipeline.Fittings.OverpassQuery;
+using Microsoft.Extensions.Configuration;
 
 namespace OsmPipeline
 {
 	class Program
 	{
 		private const int MaxChangesPerChangeSet = 10000;
-		private const string EditGenerator = "OsmPipeline";
 		private const double EditVersion = .1;
 		private const string OsmApiUrl = "https://master.apis.dev.openstreetmap.org/api/0.6/";
 		// TODO: Fetch creds from a keyvault? from a config file? or?
 		private const string OsmUsername = "blackboxlogic+dev@gmail.com";
 		private const string OsmPassword = "********";
-		private const string ChangeComment = EditGenerator;
-		private const string ChangeCreatedBy = EditGenerator;
 
 		private static Relation USA = new Relation() { Id = 9331155 };
 		private static Relation Maine = new Relation() { Id = 63512 };
@@ -33,83 +33,73 @@ namespace OsmPipeline
 
 		private static string Tag = "phone";
 
-		private static ILoggerFactory LoggerFactory;
-
 		static void Main(string[] args)
 		{
+			var Config = new ConfigurationBuilder()
+				.AddJsonFile("appsettings.json", false, true)
+				.Build();
+
 			IServiceCollection serviceCollection = new ServiceCollection();
 			serviceCollection.AddLogging(builder => builder.AddConsole().AddFilter(level => true));
-			LoggerFactory = serviceCollection.BuildServiceProvider().GetService<ILoggerFactory>();
+			var loggerFactory = serviceCollection.BuildServiceProvider().GetService<ILoggerFactory>();
 
-
-			var source = new Fittings.KmlFileSource(@"C:\Users\Alex\Desktop\MaineE911.kml");
-			var dest = new Fittings.KmlLoggingEnder(LoggerFactory.CreateLogger("kml"));
-
-			foreach (var thing in source)
+			// Build
+			var logger = new Fittings.Log<OsmGeo>(loggerFactory.CreateLogger(typeof(OsmGeo)));
+			var changeTags = new TagsCollection()
 			{
-				dest.Put(thing);
-			}
+				new Tag("comment", ""),
+				new Tag("created_by", nameof(OsmPipeline)),
+				new Tag("bot", "yes"),
+				new Tag("source", "")
+			};
+			var osmApi = new OsmApiEnder(loggerFactory.CreateLogger(typeof(OsmApiEnder)),
+				Config["osmApiUrl"], Config["basicAuth:User"], Config["basicAuth:Password"], changeTags);
+			// Pull
+			osmApi.Put(
+				FileSerializer.ReadCacheOrSource(
+					"change.xml",
+					() => Translate.GeosToChange(null,
+						FixPhones(
+							Translate.OsmToGeos(
+								FileSerializer.ReadCacheOrSource(
+									"overpassApiSource.xml",
+									() => OverpassApi.Get(GetOPQuery(Westbrook)))),
+							e => logger.LogItem(e)),
+						null,
+						"OsmPipeline")));
+			
 
-			//var pump = new Fittings.Pump<SharpKml.Dom.Element>(source, dest);
-			//pump.Go();
 
-
-
-
-				//var osm = Open(Frenchtown).Result;
-				//var change = Edit(osm, EditGenerator, EditVersion).Result;
-				////Save(change, ChangeComment, ChangeCreatedBy);
+			//var logger = loggerFactory.CreateLogger("OsmApiEnder");
+			//var osmApiEnder = new OsmApiEnder(logger, OsmApiUrl, OsmUsername, OsmPassword, changeTags);
+			//var source = new Fittings.KmlFileSource(@"C:\Users\Alex\Desktop\MaineE911.kml");
+			//var LoggingEnder = new Fittings.LoggingEnder(loggerFactory.CreateLogger("kml"));
+			//var change = Edit(osm, EditGenerator, EditVersion).Result;
+			//Save(change, ChangeComment, ChangeCreatedBy);
 			Console.ReadKey(true);
 		}
 
-		private static async Task<Osm> Open(OsmGeo where, bool withCache = true)
+		private static string GetOPQuery(OsmGeo where)
 		{
 			var subQueries = new[] {
-				OverpassAPI.Query(OsmGeoType.Node, where,
+				Query(OverpassGeoType.Node, where,
 					new Filter(Tag, Comp.Like, Phones.HasAnything),
 					new Filter(Tag, Comp.NotLike, Phones.Correct)),
-				OverpassAPI.Query(OsmGeoType.Way, where,
+				Query(OverpassGeoType.Way, where,
 					new Filter(Tag, Comp.Like, Phones.HasAnything),
 					new Filter(Tag, Comp.NotLike, Phones.Correct)),
-				OverpassAPI.Query(OsmGeoType.Relation, where,
+				Query(OverpassGeoType.Relation, where,
 					new Filter(Tag, Comp.Like, Phones.HasAnything),
 					new Filter(Tag, Comp.NotLike, Phones.Correct))
 			};
-			var query = OverpassAPI.Union(subQueries);
-			query = OverpassAPI.AddOut(query, true);
-
-			var serializer = new XmlSerializer(typeof(Osm));
-			if (withCache && File.Exists($"Overpass.txt"))
-			{
-				using (var fileStream = File.OpenRead($"Overpass.txt"))
-				{
-					return (Osm)serializer.Deserialize(fileStream);
-				}
-			}
-
-			var osm = await OverpassAPI.Execute(query);
-
-			if (withCache)
-			{
-				using (var fileStream = File.OpenWrite($"Overpass.txt"))
-				{
-					serializer.Serialize(fileStream, osm);
-				}
-			}
-
-			return osm;
+			var query = Union(subQueries);
+			query = AddOut(query, true);
+			return query;
 		}
 
-		private static async Task<OsmChange> Edit(Osm osm, string generator, double? version)
+		private static IEnumerable<OsmGeo> FixPhones(IEnumerable<OsmGeo> elements, Action<OsmGeo> Reject = null)
 		{
 			List<OsmGeo> modify = new List<OsmGeo>();
-			List<OsmGeo> delete = new List<OsmGeo>();
-			List<OsmGeo> create = new List<OsmGeo>();
-			List<OsmGeo> skip = new List<OsmGeo>();
-			var elements = new OsmGeo[][] { osm.Nodes, osm.Ways, osm.Relations }
-				.Where(a => a != null)
-				.SelectMany(a => a);
-			
 
 			foreach (var element in elements)
 			{
@@ -120,57 +110,13 @@ namespace OsmPipeline
 				{
 					Console.WriteLine($"{element.Type}-{element.Id}.{Tag}:\t{value}\t-->\t{fixedValue}");
 					element.Tags[Tag] = fixedValue;
-					modify.Add(element);
+					yield return element;
 				}
 				else
 				{
-					skip.Add(element);
+					Reject?.Invoke(element);
 				}
 			}
-
-			Console.WriteLine($"{modify.Count + delete.Count + create.Count} changes.");
-			Console.WriteLine($"{skip.Count} skipped:");
-
-			foreach (var element in skip)
-			{
-				if (element.Tags.TryGetValue(Tag, out string value))
-				{
-					Console.WriteLine($"{element.Type}-{element.Id}.{Tag}:\t{value}");
-				}
-			}
-
-			var change = new OsmChange()
-			{
-				Generator = generator,
-				Version = version,
-				Modify = modify.ToArray(),
-				Delete = delete.ToArray(),
-				Create = create.ToArray()
-			};
-
-			using (var fileStream = File.OpenWrite("change.txt"))
-			{
-				var serializer = new XmlSerializer(typeof(OsmChange));
-				serializer.Serialize(fileStream, change);
-			}
-
-			return change;
-		}
-
-		private static async void Save(OsmChange change, string comment, string createdBy)
-		{
-			BasicAuthClient basic = new BasicAuthClient(new System.Net.Http.HttpClient(),
-				LoggerFactory.CreateLogger("kml"), OsmApiUrl, OsmUsername, OsmPassword);
-			var changeSetTags = new TagsCollection()
-			{
-				new Tag("comment", comment),
-				new Tag("created_by", createdBy),
-				new Tag("bot", "yes")
-			};
-			var changesetId = await basic.CreateChangeset(changeSetTags);
-			var diffResult = await basic.UploadChangeset(changesetId, change);
-			// What should I do with the diffResult?
-			await basic.CloseChangeset(changesetId);
 		}
 	}
 }

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using SharpKml.Dom;
@@ -7,27 +6,11 @@ using SharpKml.Engine;
 
 namespace OsmPipeline.Fittings
 {
-	public class KmlFileSource : ISource<Element>
+	public class KmlFileSource
 	{
-		private string FileName;
-
-		public KmlFileSource(string fileName)
+		public IEnumerator<Element> Get(string fileName)
 		{
-			FileName = fileName;
-		}
-
-		public IEnumerator<Element> GetEnumerator()
-		{
-			using (var fileStream = File.Open(FileName, FileMode.Open))
-			{
-				var file = KmlFile.Load(fileStream);
-				return file.Root.Flatten().GetEnumerator();
-			}
-		}
-
-		IEnumerator IEnumerable.GetEnumerator()
-		{
-			using (var fileStream = File.Open(FileName, FileMode.Open))
+			using (var fileStream = File.Open(fileName, FileMode.Open))
 			{
 				var file = KmlFile.Load(fileStream);
 				return file.Root.Flatten().GetEnumerator();

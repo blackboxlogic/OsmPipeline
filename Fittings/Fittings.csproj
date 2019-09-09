@@ -7,6 +7,7 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="2.2.0" />
+    <PackageReference Include="OsmApiClient" Version="0.0.1-beta.3" />
     <PackageReference Include="OsmSharp" Version="7.0.0-pre001" />
     <PackageReference Include="SharpKml.Core" Version="5.0.1" />
   </ItemGroup>
