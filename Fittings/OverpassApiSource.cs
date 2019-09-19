@@ -16,7 +16,7 @@ namespace OsmPipeline.Fittings
 	{
 		public static Osm Get(string query, string serviceUrl = "http://overpass-api.de/api/interpreter")
 		{
-			var osm = Execute(query, serviceUrl).Result;
+			var osm = Execute(serviceUrl, query).Result;
 			return osm;
 		}
 
@@ -36,8 +36,8 @@ namespace OsmPipeline.Fittings
 		private static async Task<Stream> FetchStream(string serviceUrl, string query)
 		{
 			query = query.Replace("+", @"%2B");
-			query = query.Replace("/", @"%2F");
-			query = query.Replace("=", @"%3D");
+			//query = query.Replace("/", @"%2F");
+			//query = query.Replace("=", @"%3D");
 			var client = new HttpClient();
 			var content = new StringContent("data=" + query, Encoding.UTF8, "application/x-www-form-urlencoded");
 

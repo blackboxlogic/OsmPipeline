@@ -19,6 +19,7 @@ namespace OsmPipeline
 		public static string TenStartsWith888 = "^([^0-9]*8)([^0-9]*8)([^0-9]*8)([^0-9]*[0-9]){7}[^0-9]*$";
 		public static string HasLetters = "[^a-zA-Z]";
 		public static string HasAnything = ".*";
+		public static string Tag = "phone";
 
 		private static TagsCollection ChangeTags = new TagsCollection()
 			{
@@ -27,8 +28,6 @@ namespace OsmPipeline
 				new Tag("bot", "yes"),
 				new Tag("source", @"https://wiki.openstreetmap.org/wiki/Automated_edits/blackboxlogic/MainePhone")
 			};
-
-		public static string Tag = "phone";
 
 		public static void FixPhones(ILoggerFactory loggerFactory, IConfigurationRoot config, OsmGeo scope)
 		{
@@ -40,8 +39,6 @@ namespace OsmPipeline
 			var badPhones = OverpassApi.Get(BadPhoneQuery(scope, Tag)).OsmToGeos();
 			var betterPhones = FixPhones(badPhones, Tag, rejector).ToArray();
 			var change = Translate.GeosToChange(null, betterPhones, null, nameof(OsmPipeline));
-
-			//Console.ReadKey();
 
 			osmApi.Upload(change);
 		}

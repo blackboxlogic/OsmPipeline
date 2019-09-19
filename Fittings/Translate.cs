@@ -9,7 +9,7 @@ namespace OsmPipeline.Fittings
 {
 	public static class Translate
 	{
-		public static IEnumerable<OsmGeo> OsmToGeos(Osm osm)
+		public static IEnumerable<OsmGeo> OsmToGeos(this Osm osm)
 		{
 			return new OsmGeo[][] { osm.Nodes, osm.Ways, osm.Relations }
 				.Where(a => a != null)

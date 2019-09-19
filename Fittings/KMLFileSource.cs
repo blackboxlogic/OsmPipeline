@@ -6,14 +6,14 @@ using SharpKml.Engine;
 
 namespace OsmPipeline.Fittings
 {
-	public class KmlFileSource
+	public static class KmlFileSource
 	{
-		public IEnumerator<Element> Get(string fileName)
+		public static IEnumerable<Element> Load(string fileName)
 		{
 			using (var fileStream = File.Open(fileName, FileMode.Open))
 			{
 				var file = KmlFile.Load(fileStream);
-				return file.Root.Flatten().GetEnumerator();
+				return file.Root.Flatten();
 			}
 		}
 	}

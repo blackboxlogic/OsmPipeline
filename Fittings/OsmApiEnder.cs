@@ -19,7 +19,7 @@ namespace OsmPipeline.Fittings
 			Tags = tags;
 		}
 
-		public void Put(OsmChange item)
+		public void Upload(OsmChange item)
 		{
 			var changesetId = Client.CreateChangeset(Tags).Result;
 			var diffResult = Client.UploadChangeset(changesetId, item).Result;

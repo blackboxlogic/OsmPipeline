@@ -19,14 +19,9 @@ namespace OsmPipeline
 			serviceCollection.AddLogging(builder => builder.AddConsole().AddFilter(level => true));
 			var loggerFactory = serviceCollection.BuildServiceProvider().GetService<ILoggerFactory>();
 
-			Phones.FixPhones(loggerFactory, config, Locations.Maine);
+			//Phones.FixPhones(loggerFactory, config, Locations.Maine);
+			Addresses.ValidateAddresses(loggerFactory, config, Locations.Frenchtown);
 
-			//var logger = loggerFactory.CreateLogger("OsmApiEnder");
-			//var osmApiEnder = new OsmApiEnder(logger, OsmApiUrl, OsmUsername, OsmPassword, changeTags);
-			//var source = new Fittings.KmlFileSource(@"C:\Users\Alex\Desktop\MaineE911.kml");
-			//var LoggingEnder = new Fittings.LoggingEnder(loggerFactory.CreateLogger("kml"));
-			//var change = Edit(osm, EditGenerator, EditVersion).Result;
-			//Save(change, ChangeComment, ChangeCreatedBy);
 			Console.ReadKey(true);
 		}
 	}
