@@ -34,8 +34,11 @@ namespace OsmPipeline
 			Validate(features);
 			var nodes = features.Select(Convert).ToArray();
 			nodes = HandleStacks(nodes);
-			//DeDupeAddress(nodes);
 			Validate(nodes);
+
+			var osm = new Osm() { Nodes = nodes, Version = .6 };
+			FileSerializer.Write("AsOsm.osm", osm);
+
 			var query = OverpassQuery.Query(OverpassQuery.OverpassGeoType.NWR, Locations.Westbrook);
 			query = OverpassQuery.AddOut(query, true);
 			// fetch region from osm (or overpass?) osmSharp the pbf file
@@ -94,7 +97,8 @@ namespace OsmPipeline
 				Latitude = (feature.Geometry as Point).Coordinates.Latitude,
 				Longitude = (feature.Geometry as Point).Coordinates.Longitude,
 				Tags = new TagsCollection(tags),
-				Id = (int)props["OBJECTID"]
+				Id = (int)props["OBJECTID"],
+				Version = 1
 			};
 
 			return n;
@@ -120,22 +124,32 @@ namespace OsmPipeline
 		public static Node[] HandleStacks(Node[] nodes)
 		{
 			List<Node> results = new List<Node>();
-			Node[][] stacks = nodes.GroupBy(n => new {
+			Node[][] stacks = nodes.GroupBy(n => new
+				{
 					n.Latitude,
-					n.Longitude,
-					groupedTags = new TagsCollection(n.Tags.Where(t => t.Key != "addr:unit" && t.Key != "addr:floor")) })
+					n.Longitude
+				})
 				.Select(g => g.ToArray())
 				.ToArray();
 			foreach (var stack in stacks)
 			{
-				if (stack.Length == 1 || stack.Select(g => g.Tags).Distinct().Count() == 1) // there's only one
+				List<Node> groupResult = new List<Node>();
+				var groups = stack.GroupBy(n =>
+					new TagsCollection(n.Tags.Where(t => t.Key != "addr:unit" && t.Key != "level" && t.Key != "condo")))
+					.ToDictionary(g => g.Key, g => g.ToArray());
+				foreach (var group in groups.Values)
 				{
-					results.Add(stack[0]);
+					if (group.Length == 1 || group.Select(g => g.Tags).Distinct().Count() == 1) // there's only one
+					{
+						groupResult.Add(group[0]);
+					}
+					else
+					{
+						groupResult.Add(IntersectTags(group));
+					}
 				}
-				else
-				{
-					results.Add(IntersectTags(stack));
-				}
+
+				results.AddRange(RemoveLessSpecific(groupResult));
 			}
 
 			stacks = results.GroupBy(n => new { n.Latitude, n.Longitude } )
@@ -147,12 +161,7 @@ namespace OsmPipeline
 				Nudge(stack, 0, .00001);
 			}
 
-			stacks = results.GroupBy(n => new { n.Tags })
-				.Select(g => g.ToArray())
-				.Where(s => s.Length > 1)
-				.ToArray();
-
-			
+			Log.LogInformation($"{nodes.Length - results.Count} nodes have been removed from {nodes.Length} (de-duped or combined)");
 
 			return results.ToArray();
 		}
@@ -171,13 +180,42 @@ namespace OsmPipeline
 
 		private static Node IntersectTags(Node[] stack)
 		{
-			var tags = stack[0].Tags.ToArray();
+			var tags = stack[0].Tags.ToList();
 			foreach (var node in stack.Skip(1))
 			{
-				tags = tags.Intersect(node.Tags).ToArray();
+				tags = tags.Intersect(node.Tags).ToList();
 			}
+
+			var levels = stack.SelectMany(n => n.Tags)
+				.Where(t => t.Key == "level")
+				.Select(t =>
+				{
+					int.TryParse(t.Value, out int level);
+					return level;
+				}).DefaultIfEmpty().Max();
+
+			if (levels > 1)
+				tags.Add(new Tag("building:levels", levels.ToString()));
+
 			stack[0].Tags = new TagsCollection(tags);
+
 			return stack[0];
+		}
+
+		// a
+		// a 1
+		// a 2
+		// b 1
+		// =>
+		// a 1
+		// a 2
+		// b 1
+		private static Node[] RemoveLessSpecific(IList<Node> stack)
+		{
+			// Keep when there are no other node's tags that when taken from mine leave me empty.
+			return stack.Where(node =>
+					!stack.Any(other => other != node && !node.Tags.Except(other.Tags).Any()))
+				.ToArray();
 		}
 
 		public static void Validate(Feature[] features)
@@ -237,6 +275,18 @@ namespace OsmPipeline
 
 		public static void Validate(Node[] nodes)
 		{
+			if (nodes.Length > 10000) Log.LogWarning($"{nodes.Length} Nodes is too big for one changest");
+
+			var duplicates = nodes.GroupBy(n => new { n.Tags })
+				.Select(g => g.ToArray())
+				.Where(s => s.Length > 1)
+				.ToArray();
+
+			if (duplicates.Any())
+			{
+				Log.LogWarning(duplicates.Length + " Duplicate Node Tag sets (different lat-lon) have been detected and not corrected.");
+			}
+
 			foreach (var node in nodes)
 			{
 				//if (node.Tags["addr:postcode"] != "04092") Log.LogError(node.Tags["addr:postcode"]);
@@ -290,15 +340,11 @@ namespace OsmPipeline
 				building = "BLDG " + building;
 			}
 
-			landmark = landmark + ' ' + building;
-
+			landmark = landmark + ' ' + building + ' ' + loc;
 			landmark = string.Join(' ', landmark.Split(' ', StringSplitOptions.RemoveEmptyEntries)
 				.Select(part => UnitExpansion.TryGetValue(part, out string replacement) ? replacement : part));
-			loc = loc.Trim();
-			if (landmark == "") return loc;
-			if (loc != "") return landmark + " - " + loc;
-			return landmark;
 
+			return landmark;
 		}
 
 		// "FLR 1", "Floor 1", "1"
