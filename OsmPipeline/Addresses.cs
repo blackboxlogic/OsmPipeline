@@ -13,24 +13,28 @@ namespace OsmPipeline
 {
 	public static class Addresses
 	{
-		// Stacked points? Spread them .00001 east, or merge them and remove the unit numbers
 		// What to do with Loc?
 		// Where should building go? unit=building 3, ref=3, name=Building 3, building=3
-		// use geo lat lon, or feature property lat lon
 
+		// Split by zip instead of municipality?
 		// New address
 		// Similar Address node exists
 		// Similar Address way exists
 
 		// Spit it out as geojson and then review it and commit it in iD?
+		private static ILogger Log;
+
 		public static void ValidateAddresses(ILoggerFactory loggerFactory, IConfigurationRoot config, OsmGeo scope)
 		{
+			Log = loggerFactory.CreateLogger(typeof(Addresses));
+
 			var collection = CachedGeoJsonAPISource.FromFileOrFetch("Westbrook");
 			var features = collection.Features.ToArray();
 
 			Validate(features);
 			var nodes = features.Select(Convert).ToArray();
-			DeDupe(nodes);
+			nodes = HandleStacks(nodes);
+			//DeDupeAddress(nodes);
 			Validate(nodes);
 			var query = OverpassQuery.Query(OverpassQuery.OverpassGeoType.NWR, Locations.Westbrook);
 			query = OverpassQuery.AddOut(query, true);
@@ -44,7 +48,7 @@ namespace OsmPipeline
 			//var change = Edit(osm, EditGenerator, EditVersion).Result;
 		}
 
-		public static void ApplyCorrections(Feature[] features)
+		public static void ManualCorrections(Feature[] features)
 		{
 			var unitInLocField = features.First(f => f.Properties["OBJECTID"] == 1619128);
 			unitInLocField.Properties["UNIT"] = unitInLocField.Properties["LOC"];
@@ -68,13 +72,13 @@ namespace OsmPipeline
 			var unit = Unit((string)props["UNIT"]);
 			var tags = new[]
 			{
-				new Tag("addr:street", streetName),
+				new Tag("name", Name((string)props["LANDMARK"], (string)props["LOC"], (string)props["BUILDING"])),
 				new Tag("addr:housenumber", ((int)props["ADDRESS_NUMBER"]).ToString()),
+				new Tag("addr:unit", unit),
+				new Tag("addr:street", streetName),
 				new Tag("addr:city", (string)props["MUNICIPALITY"]),
 				new Tag("addr:state", (string)props["STATE"]),
 				new Tag("addr:postcode", (string)props["ZIPCODE"]),
-				new Tag("addr:unit", unit),
-				new Tag("name", Name((string)props["LANDMARK"], (string)props["LOC"], (string)props["BUILDING"])),
 				new Tag("level", Level((string)props["FLOOR"]))
 			};
 
@@ -86,68 +90,94 @@ namespace OsmPipeline
 
 			var n = new Node()
 			{
-				Latitude = props["Latitude"], //((BAMCIS.GeoJSON.Point)feature.Geometry).Coordinates.Latitude
-				Longitude = props["Longitude"], //((BAMCIS.GeoJSON.Point)feature.Geometry).Coordinates.Longitude
-				Tags = new TagsCollection(tags)
+				// Geometry lat-lon are higher precision than feature's lat-lon properties
+				Latitude = (feature.Geometry as Point).Coordinates.Latitude,
+				Longitude = (feature.Geometry as Point).Coordinates.Longitude,
+				Tags = new TagsCollection(tags),
+				Id = (int)props["OBJECTID"]
 			};
 
 			return n;
 		}
 
-		// stacked nodes will be spread Eastward.
-		public static void DeDupe(Node[] nodes)
+		// a
+		// b
+		// b 1
+		// b 2
+		// c 1
+		// c 2
+		// d 1
+		// d 1
+		// e 1
+		// =>
+		// a
+		// b
+		// c
+		// d 1
+		// e 1
+		// unit/floor removed if they dissagree
+		// remove address-only if there is an address+
+		public static Node[] HandleStacks(Node[] nodes)
 		{
 			List<Node> results = new List<Node>();
-			//double distance = .00001;
-			Node[][] groups = nodes.GroupBy(n => new { n.Latitude, n.Longitude }).Select(g => g.ToArray()).ToArray();
-			foreach (var group in groups)
+			Node[][] stacks = nodes.GroupBy(n => new {
+					n.Latitude,
+					n.Longitude,
+					groupedTags = new TagsCollection(n.Tags.Where(t => t.Key != "addr:unit" && t.Key != "addr:floor")) })
+				.Select(g => g.ToArray())
+				.ToArray();
+			foreach (var stack in stacks)
 			{
-				if (group.Length == 1) // there's only one
+				if (stack.Length == 1 || stack.Select(g => g.Tags).Distinct().Count() == 1) // there's only one
 				{
-					results.Add(group[0]);
+					results.Add(stack[0]);
 				}
-				else if (group.Select(g => g.Tags).Distinct().Count() == 1) // they're all the same
+				else
 				{
-					results.Add(group[0]);
+					results.Add(IntersectTags(stack));
 				}
-				else if (TryFindSafeSuperSet(group, out var safeSuperSet)) // is this what I really want?
-				{
-					results.Add(safeSuperSet);
-				}
-				else // or spread them?
-				{
-					results.Add(IntersectTags(group)); // Is this really what I want?
-				}
+			}
+
+			stacks = results.GroupBy(n => new { n.Latitude, n.Longitude } )
+				.Select(g => g.ToArray())
+				.Where(s => s.Length > 1)
+				.ToArray();
+			foreach (var stack in stacks)
+			{
+				Nudge(stack, 0, .00001);
+			}
+
+			stacks = results.GroupBy(n => new { n.Tags })
+				.Select(g => g.ToArray())
+				.Where(s => s.Length > 1)
+				.ToArray();
+
+			
+
+			return results.ToArray();
+		}
+
+		private static void Nudge(Node[] stack, double north, double east)
+		{
+			int i = 1;
+			foreach (var node in stack.Skip(1))
+			{
+				node.Longitude += i * north;
+				node.Latitude += i * east;
+				i++;
+				Log.LogDebug("Nudged node[{0}] to unstack", node.Id);
 			}
 		}
 
-		private static Node IntersectTags(Node[] group) // SHOULD BE COMMON TO ALL?
+		private static Node IntersectTags(Node[] stack)
 		{
-			var first = group[0];
-			var allTags = group.SelectMany(n => n.Tags)
-				.GroupBy(t => t.Key)
-				.ToDictionary(t => t.Key, ts => ts.Select(t => t.Value).Distinct().ToArray());
-			var newTags = allTags.Where(kvp => kvp.Value.Length == 1)
-				.Select(kvp => new Tag(kvp.Key, kvp.Value[0]))
-				.ToArray();
-			var droppedTags = allTags.Where(kvp => kvp.Value.Length > 1
-					&& kvp.Key != "addr:unit"
-					&& kvp.Key != "addr:level")
-				.ToArray();
-			if (droppedTags.Any())
+			var tags = stack[0].Tags.ToArray();
+			foreach (var node in stack.Skip(1))
 			{
-				Console.WriteLine(string.Join("\n\t", droppedTags.Select(t => t.Key + "=" + string.Join(", ", t.Value))));
+				tags = tags.Intersect(node.Tags).ToArray();
 			}
-			first.Tags = new TagsCollection(newTags);
-			return first;
-		}
-
-		private static bool TryFindSafeSuperSet(Node[] group, out Node safeSuperSet)
-		{
-			var biggest = group.OrderByDescending(n => n.Tags.Count).First();
-			bool found = group.All(n => biggest.Tags.All(t => n.Tags.Contains(t)));
-			safeSuperSet = found ? biggest : null;
-			return found;
+			stack[0].Tags = new TagsCollection(tags);
+			return stack[0];
 		}
 
 		public static void Validate(Feature[] features)
@@ -155,26 +185,26 @@ namespace OsmPipeline
 			int[] duplicateObjectIds = features.Select(f => (int)f.Properties["OBJECTID"]).GroupBy(x => x).Where(x => x.Skip(1).Any()).Select(x => x.Key).ToArray();
 			if (duplicateObjectIds.Any())
 			{
-				Console.WriteLine("ObjectIDs aren't unique");
+				Log.LogError("ObjectIDs aren't unique");
 			}
 
 			foreach (var f in features)
 			{
 				if (!Streets.SuffixExpansions.ContainsKey(f.Properties["SUFFIX"]))
 				{
-					Console.WriteLine("Bad SUFFIX");
+					Log.LogError("Bad SUFFIX");
 				}
 				if (!Streets.DirectionExpansions.ContainsKey(f.Properties["PREDIR"]))
 				{
-					Console.WriteLine("Bad PREDIR");
+					Log.LogError("Bad PREDIR");
 				}
 				if (!Streets.DirectionExpansions.ContainsKey(f.Properties["POSTDIR"]))
 				{
-					Console.WriteLine("Bad POSTDIR");
+					Log.LogError("Bad POSTDIR");
 				}
 				if (f.Properties["ELEVATION"] != 0)
 				{
-					Console.WriteLine("Bad ELEVATION");
+					Log.LogError("Bad ELEVATION");
 				}
 				var goodFloor = ((string)f.Properties["FLOOR"]).Split().All(part =>
 					part.Equals("floor", StringComparison.OrdinalIgnoreCase)
@@ -182,21 +212,25 @@ namespace OsmPipeline
 					|| part.All(char.IsNumber));
 				if (!goodFloor)
 				{
-					Console.WriteLine("Bad Floor");
+					Log.LogError("Bad Floor");
 				}
 				var goodBuilding = ((string)f.Properties["BUILDING"]).All(char.IsNumber);
 				if (!((string)f.Properties["BUILDING"]).All(char.IsNumber)
 					&& !((string)f.Properties["BUILDING"]).StartsWith("Bldg", StringComparison.OrdinalIgnoreCase))
 				{
-					Console.WriteLine("Bad bulding");
+					Log.LogError("Bad bulding");
 				}
 				if (f.Properties["ROOM"] != "")
 				{
-					Console.WriteLine("Bad Room");
+					Log.LogError("Bad Room");
 				}
 				if (f.Properties["SEAT"] != "")
 				{
-					Console.WriteLine("Bad Room");
+					Log.LogError("Bad Room");
+				}
+				if (((string)f.Properties["ZIPCODE"]).Count(char.IsNumber) != 5)
+				{
+					Log.LogError("Bad Zipcode");
 				}
 			}
 		}
@@ -205,45 +239,48 @@ namespace OsmPipeline
 		{
 			foreach (var node in nodes)
 			{
-				if (node.Tags["addr:postcode"] != "04092") Console.WriteLine(node.Tags["addr:postcode"]);
-				if (node.Tags["addr:city"] != "Westbrook") Console.WriteLine("Nope");
-				if (node.Tags["addr:state"] != "ME") Console.WriteLine("Nope");
-				if (!node.Tags["addr:street"].All(c => char.IsLetter(c) || c == ' ')) Console.WriteLine("Nope");
-				if (!node.Tags["addr:housenumber"].All(char.IsNumber)) Console.WriteLine("Nope");
-				if (node.Latitude == 0 || node.Latitude == null) Console.WriteLine("Nope");
-				if (node.Longitude == 0 || node.Longitude == null) Console.WriteLine("Nope");
+				//if (node.Tags["addr:postcode"] != "04092") Log.LogError(node.Tags["addr:postcode"]);
+				if (node.Tags["addr:city"] != "Westbrook") Log.LogError("Nope");
+				if (node.Tags["addr:state"] != "ME") Log.LogError("Nope");
+				if (!node.Tags["addr:street"].All(c => char.IsLetter(c) || c == ' ')) Log.LogError("Nope");
+				if (!node.Tags["addr:housenumber"].All(char.IsNumber)) Log.LogError("Nope");
+				if (node.Latitude == 0 || node.Latitude == null) Log.LogError("Nope");
+				if (node.Longitude == 0 || node.Longitude == null) Log.LogError("Nope");
 			}
 		}
 
 		public static IEnumerable<Tag> GetPlaceTags(string placeType)
 		{
-			if (placeType == "") { } //6398
-			else if (placeType == "Apartment") { } //2696
-			else if (placeType == "Commercial") { } //284
-			else if (placeType == "Other") { } //282
-			else if (placeType == "Residential") { } //119
-			else if (placeType == "Single Family") { } //77
-			else if (placeType == "Condominium") { } //57
-			else if (placeType == "Multi Family") { } //23
-			else if (placeType == "Mobile Home") { } //18
-			else if (placeType == "Duplex") { } //15
-			else if (placeType == "Government - Municipal") { } //5
-			else if (placeType == "School") { } //5
-			else if (placeType == "Utility") { } //5
-			else if (placeType == "Parking") { } //4
-			else if (placeType == "Attraction") { } //2
-			else if (placeType == "EMS Station") { } //2
-			else if (placeType == "Fire Station") return new[] { new Tag("amenity", "fire_station") }; //2
-			else if (placeType == "Hospital") { } //2
-			else if (placeType == "Nursing Home") { } //2
-			else if (placeType == "Health Care") { } //1
-			else if (placeType == "Law Enforcement -Municipal") { } //1
-			else if (placeType == "Office") { } //1
-			else if (placeType == "PSAP") { } //1
-			else if (placeType == "Retail - Enclosed Mall") { } //1
-			else if (placeType == "Vacant Lot") { } //1
-			else throw new Exception();
-			return new Tag[0];
+			if (placeType == "") return new Tag[0]; //6398
+			else if (placeType == "Apartment") return new[] { new Tag("building", "apartments") }; //2696
+			else if (placeType == "Commercial") return new[] { new Tag("shop", "yes") }; //284
+			else if (placeType == "Other") return new Tag[0]; //282
+			else if (placeType == "Residential") return new[] { new Tag("building", "residential") }; //119
+			else if (placeType == "Single Family") return new[] { new Tag("building", "detached") }; //77
+			else if (placeType == "Condominium") return new[] { new Tag("building", "apartments"), new Tag("condo", "yes") }; //57
+			else if (placeType == "Multi Family") return new[] { new Tag("building", "apartments") }; //23
+			else if (placeType == "Mobile Home") return new[] { new Tag("building", "static_caravan") }; //18
+			else if (placeType == "Duplex") return new[] { new Tag("building", "duplex") }; //15
+			else if (placeType == "Government - Municipal") return new[] { new Tag("office", "government") }; //5
+			else if (placeType == "School") return new[] { new Tag("amenity", "school") }; //5
+			else if (placeType == "Utility") return new Tag[0]; //5
+			else if (placeType == "Parking") return new[] { new Tag("amenity", "parking") }; //4
+			else if (placeType == "Attraction") return new[] { new Tag("tourism", "attraction") }; //2
+			else if (placeType == "EMS Station") return new[] { new Tag("emergency", "ambulance_station") }; //2
+			else if (placeType == "Fire Station") return new[] { new Tag("amenity", "fire_station") };//2
+			else if (placeType == "Hospital") return new[] { new Tag("amenity", "hospital") }; //2
+			else if (placeType == "Nursing Home") return new[] { new Tag("amenity", "nursing_home") }; //2
+			else if (placeType == "Health Care") return new[] { new Tag("amenity", "healthcare") }; //1  
+			else if (placeType == "Law Enforcement -Municipal") return new[] { new Tag("amenity", "police") }; //1
+			else if (placeType == "Office") return new[] { new Tag("office", "yes") }; //1
+			else if (placeType == "PSAP") return new[] { new Tag("emergency", "psap") }; //1
+			else if (placeType == "Retail - Enclosed Mall") return new[] { new Tag("shop", "mall") }; //1
+			else if (placeType == "Vacant Lot") return new[] { new Tag("vacant", "yes") }; //1
+			else
+			{
+				Log.LogError("Unrecognized PLACE_TYPE '{0}'", placeType);
+				throw new ArgumentOutOfRangeException("PLACE_TYPE=" + placeType);
+			}
 		}
 
 		public static string Name(string landmark, string loc, string building)
