@@ -13,9 +13,6 @@ namespace OsmPipeline
 {
 	public static class Addresses
 	{
-		// What to do with Loc?
-		// Where should building go? unit=building 3, ref=3, name=Building 3, building=3
-
 		// Split by zip instead of municipality?
 		// New address
 		// Similar Address node exists
@@ -33,11 +30,15 @@ namespace OsmPipeline
 
 			Validate(features);
 			var nodes = features.Select(Convert).ToArray();
+
+			var translated = new Osm() { Nodes = nodes, Version = .6 };
+			FileSerializer.Write("Translated.osm", translated);
+
 			nodes = HandleStacks(nodes);
 			Validate(nodes);
 
-			var osm = new Osm() { Nodes = nodes, Version = .6 };
-			FileSerializer.Write("AsOsm.osm", osm);
+			var filtered = new Osm() { Nodes = nodes, Version = .6 };
+			FileSerializer.Write("Filtered.osm", filtered);
 
 			var query = OverpassQuery.Query(OverpassQuery.OverpassGeoType.NWR, Locations.Westbrook);
 			query = OverpassQuery.AddOut(query, true);
@@ -82,7 +83,8 @@ namespace OsmPipeline
 				new Tag("addr:city", (string)props["MUNICIPALITY"]),
 				new Tag("addr:state", (string)props["STATE"]),
 				new Tag("addr:postcode", (string)props["ZIPCODE"]),
-				new Tag("level", Level((string)props["FLOOR"]))
+				new Tag("level", Level((string)props["FLOOR"])),
+				new Tag("maineE911id", ((int)props["OBJECTID"]).ToString())
 			};
 
 			var placeTags = GetPlaceTags((string)props["PLACE_TYPE"]);
@@ -104,6 +106,9 @@ namespace OsmPipeline
 			return n;
 		}
 
+		// Keys which can be removed in order to combine congruent nodes
+		private static string[] SacrificialKeys = new[] { "addr:unit", "level", "condo", "maineE911id"};
+
 		// a
 		// b
 		// b 1
@@ -124,35 +129,37 @@ namespace OsmPipeline
 		public static Node[] HandleStacks(Node[] nodes)
 		{
 			List<Node> results = new List<Node>();
-			Node[][] stacks = nodes.GroupBy(n => new
-				{
-					n.Latitude,
-					n.Longitude
-				})
+			Node[][] addresses = nodes.GroupBy(GetBaseAddress)
 				.Select(g => g.ToArray())
 				.ToArray();
-			foreach (var stack in stacks)
+			foreach (var address in addresses)
 			{
-				List<Node> groupResult = new List<Node>();
-				var groups = stack.GroupBy(n =>
-					new TagsCollection(n.Tags.Where(t => t.Key != "addr:unit" && t.Key != "level" && t.Key != "condo")))
-					.ToDictionary(g => g.Key, g => g.ToArray());
-				foreach (var group in groups.Values)
+				var nearDuplicateSets = GroupCloseNeighbors(address, 3);
+
+				foreach (var nearDuplicateSet in nearDuplicateSets)
 				{
-					if (group.Length == 1 || group.Select(g => g.Tags).Distinct().Count() == 1) // there's only one
+					if (nearDuplicateSet.Count == 1)
 					{
-						groupResult.Add(group[0]);
+						results.Add(nearDuplicateSet[0]);
 					}
 					else
 					{
-						groupResult.Add(IntersectTags(group));
+						List<Node> groupResult = new List<Node>();
+						var mergables = nearDuplicateSet.GroupBy(n =>
+							new TagsCollection(n.Tags.Where(t => !SacrificialKeys.Contains(t.Key))))
+							.Select(g => g.ToArray())
+							.ToArray();
+						foreach (var mergable in mergables)
+						{
+							groupResult.Add(IntersectTags(mergable));
+						}
+
+						results.AddRange(RemoveLessSpecific(groupResult));
 					}
 				}
-
-				results.AddRange(RemoveLessSpecific(groupResult));
 			}
 
-			stacks = results.GroupBy(n => new { n.Latitude, n.Longitude } )
+			var stacks = results.GroupBy(n => new { n.Latitude, n.Longitude } )
 				.Select(g => g.ToArray())
 				.Where(s => s.Length > 1)
 				.ToArray();
@@ -164,6 +171,70 @@ namespace OsmPipeline
 			Log.LogInformation($"{nodes.Length - results.Count} nodes have been removed from {nodes.Length} (de-duped or combined)");
 
 			return results.ToArray();
+		}
+
+		private static TagsCollectionBase GetBaseAddress(Node node)
+		{
+			var addressTags = new[] {"addr:housenumber", "addr:street", "addr:city", "addr:state" };
+			return node.Tags.KeepKeysOf(addressTags);
+		}
+
+		private static Position AsLocation(Node node)
+		{
+			return new Position(node.Longitude.Value, node.Latitude.Value);
+		}
+
+		private static List<List<Node>> GroupCloseNeighbors(Node[] address, double closenessMeters)
+		{
+			var stacks = address.GroupBy(AsLocation)
+				.Select(stack => new {
+					positions = new List<Position> { stack.Key },
+					nodes = stack.ToList() })
+				.ToList();
+			// Combine groups when everything in them is close to everything in another group.
+			for (int i = 0; i < stacks.Count - 1; i++)
+			{
+				for (int j = i + 1; j < stacks.Count; j++)
+				{
+					var maybeMergeable = stacks[i].positions.SelectMany(l => stacks[j].positions, DistanceMeters)
+						.All(d => d < closenessMeters);
+					if (maybeMergeable)
+					{
+						stacks[i].positions.AddRange(stacks[j].positions);
+						stacks[i].nodes.AddRange(stacks[j].nodes);
+						stacks.RemoveAt(j);
+						j--;
+					}
+				}
+			}
+
+			return stacks.Select(g => g.nodes).ToList();
+		}
+
+		private static double DistanceMeters(Position left, Position right)
+		{
+			var averageLat = (left.Latitude + right.Latitude) / 2;
+			var degPerRad = 180 / 3.14;
+			var dLonKm = (left.Longitude - right.Longitude) * 111000 * Math.Cos(averageLat / degPerRad);
+			var dLatKm = (left.Latitude - right.Latitude) * 110000;
+
+			var distance = Math.Sqrt(dLatKm * dLatKm + dLonKm * dLonKm);
+			return distance;
+		}
+
+		public static Node[] HandleDuplicates(Node[] nodes)
+		{
+			var asList = nodes.ToList();
+			var duplicates = nodes.GroupBy(n => new { n.Tags })
+				.Select(g => g.ToArray())
+				.Where(stack => stack.Length > 1)
+				.ToArray();
+			foreach (var duplicate in duplicates)
+			{
+				// find radius of bounding circle
+				//var distance = duplicate.
+			}
+			return null;
 		}
 
 		private static void Nudge(Node[] stack, double north, double east)
@@ -180,11 +251,14 @@ namespace OsmPipeline
 
 		private static Node IntersectTags(Node[] stack)
 		{
+			var ids = string.Join(";", stack.SelectMany(n => n.Tags).Where(t => t.Key == "maineE911id").Select(t => t.Value));
 			var tags = stack[0].Tags.ToList();
 			foreach (var node in stack.Skip(1))
 			{
 				tags = tags.Intersect(node.Tags).ToList();
 			}
+			tags.Add(new Tag("maineE911id", ids));
+			stack[0].Tags = new TagsCollection(tags);
 
 			var levels = stack.SelectMany(n => n.Tags)
 				.Where(t => t.Key == "level")
@@ -194,10 +268,15 @@ namespace OsmPipeline
 					return level;
 				}).DefaultIfEmpty().Max();
 
-			if (levels > 1)
-				tags.Add(new Tag("building:levels", levels.ToString()));
-
-			stack[0].Tags = new TagsCollection(tags);
+			if (levels >= 1)
+			{
+				stack[0].Tags["building:levels"] = levels.ToString();
+				stack[0].Tags.RemoveKey("level");
+			}
+			
+			stack[0].Latitude = stack.Average(n => n.Latitude);
+			stack[0].Longitude = stack.Average(n => n.Longitude);
+			Log.LogInformation("intersected " + string.Join(",", stack.Select(n => n.Id)));
 
 			return stack[0];
 		}
@@ -210,12 +289,44 @@ namespace OsmPipeline
 		// a 1
 		// a 2
 		// b 1
-		private static Node[] RemoveLessSpecific(IList<Node> stack)
+		private static List<Node> RemoveLessSpecific(List<Node> stack)
 		{
 			// Keep when there are no other node's tags that when taken from mine leave me empty.
-			return stack.Where(node =>
-					!stack.Any(other => other != node && !node.Tags.Except(other.Tags).Any()))
-				.ToArray();
+			for(int i = 0; i < stack.Count; i++)
+			{
+				var node = stack[i];
+				string building = null;
+				var bigger = stack.FirstOrDefault(other => node != other
+					&& node.Tags.All(t => other.Tags.Contains(t)
+						|| t.Key == "maineE911id"
+						|| (t.Key == "building" && OtherBuildingIsMoreGeneral(t.Value, other, out building))));
+				if (bigger != null)
+				{
+					if (building != null) bigger.Tags["building"] = building;
+					bigger.Tags["maineE911id"] += ";" + node.Tags["maineE911id"];
+					stack.RemoveAt(i);
+					i--;
+				}
+			}
+
+			return stack;
+		}
+
+		// [building: apartments, detached, duplex => residential]
+		private static string[] ResidentialBuildings = new string[]
+		{ "apartments", "detached", "duplex", "residential" };
+		private static bool OtherBuildingIsMoreGeneral(string myBuilding, Node other, out string newBuilding)
+		{
+			if (other.Tags.TryGetValue("building", out string otherBuilding)
+				&& ResidentialBuildings.Contains(myBuilding)
+				&& ResidentialBuildings.Contains(otherBuilding))
+			{
+				newBuilding = "residential";
+				return true;
+			}
+
+			newBuilding = null;
+			return false;
 		}
 
 		public static void Validate(Feature[] features)
@@ -303,7 +414,8 @@ namespace OsmPipeline
 		{
 			if (placeType == "") return new Tag[0]; //6398
 			else if (placeType == "Apartment") return new[] { new Tag("building", "apartments") }; //2696
-			else if (placeType == "Commercial") return new[] { new Tag("shop", "yes") }; //284
+			else if (placeType == "Commercial") return new Tag[0]; //284
+			//else if (placeType == "Commercial") return new[] { new Tag("shop", "yes") }; //284
 			else if (placeType == "Other") return new Tag[0]; //282
 			else if (placeType == "Residential") return new[] { new Tag("building", "residential") }; //119
 			else if (placeType == "Single Family") return new[] { new Tag("building", "detached") }; //77

@@ -31,7 +31,7 @@ namespace OsmPipeline.Fittings
 		{
 			XmlSerializer Serializer = new XmlSerializer(typeof(T));
 
-			using (var fileStream = File.OpenWrite(fileName))
+			using (var fileStream = new StreamWriter(fileName, false))
 			{
 				Serializer.Serialize(fileStream, element);
 			}
