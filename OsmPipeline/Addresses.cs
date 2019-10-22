@@ -52,22 +52,6 @@ namespace OsmPipeline
 			//var change = Edit(osm, EditGenerator, EditVersion).Result;
 		}
 
-		public static void ManualCorrections(Feature[] features)
-		{
-			var unitInLocField = features.First(f => f.Properties["OBJECTID"] == 1619128);
-			unitInLocField.Properties["UNIT"] = unitInLocField.Properties["LOC"];
-			unitInLocField.Properties["LOC"] = "";
-			var OddNote = features.First(f => f.Properties["OBJECTID"] == 1882985);
-			OddNote.Properties["LOC"] = ""; // from "address changed back to 1399 Bridgton Rd"
-			var OddLandmark = features.First(f => f.Properties["OBJECTID"] == 1697489);
-			if (((string)OddLandmark.Properties["LANDMARK"]).StartsWith("Westbrook Middle School"))
-			{
-				// from "Westbrook Middle School                           \t465\tWestbrook\t5240\t471 Stroudwater ST\t4092\t-70.34804893\t43.6639395"
-				OddLandmark.Properties["LANDMARK"] = "Westbrook Middle School";
-			}
-
-		}
-
 		public static Node Convert(Feature feature)
 		{
 			var props = feature.Properties;
@@ -222,21 +206,6 @@ namespace OsmPipeline
 			return distance;
 		}
 
-		public static Node[] HandleDuplicates(Node[] nodes)
-		{
-			var asList = nodes.ToList();
-			var duplicates = nodes.GroupBy(n => new { n.Tags })
-				.Select(g => g.ToArray())
-				.Where(stack => stack.Length > 1)
-				.ToArray();
-			foreach (var duplicate in duplicates)
-			{
-				// find radius of bounding circle
-				//var distance = duplicate.
-			}
-			return null;
-		}
-
 		private static void Nudge(Node[] stack, double north, double east)
 		{
 			int i = 1;
@@ -361,21 +330,20 @@ namespace OsmPipeline
 					|| part.All(char.IsNumber));
 				if (!goodFloor)
 				{
-					Log.LogError("Bad Floor");
+					Log.LogError("Bad Floor: " + (string)f.Properties["FLOOR"]);
 				}
-				var goodBuilding = ((string)f.Properties["BUILDING"]).All(char.IsNumber);
 				if (!((string)f.Properties["BUILDING"]).All(char.IsNumber)
 					&& !((string)f.Properties["BUILDING"]).StartsWith("Bldg", StringComparison.OrdinalIgnoreCase))
 				{
-					Log.LogError("Bad bulding");
+					Log.LogError("Bad bulding: " + (string)f.Properties["BUILDING"]);
 				}
 				if (f.Properties["ROOM"] != "")
 				{
-					Log.LogError("Bad Room");
+					Log.LogError("Bad Room: " + (string)f.Properties["ROOM"]);
 				}
 				if (f.Properties["SEAT"] != "")
 				{
-					Log.LogError("Bad Room");
+					Log.LogError("Bad Room: " + (string)f.Properties["SEAT"]);
 				}
 				if (((string)f.Properties["ZIPCODE"]).Count(char.IsNumber) != 5)
 				{
