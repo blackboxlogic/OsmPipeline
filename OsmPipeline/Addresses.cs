@@ -8,11 +8,20 @@ using OsmSharp.Tags;
 using OsmPipeline.Fittings;
 using System.Collections.Generic;
 using OsmSharp.API;
+using System.Threading.Tasks;
 
 namespace OsmPipeline
 {
 	public static class Addresses
 	{
+		static TagTreeHierarchy BuildingTagTree;
+		static Addresses()
+		{
+			BuildingTagTree = new TagTreeHierarchy("building", "yes");
+			BuildingTagTree.Add("yes", "commercial", "residential", "school", "hospital", "government");
+			BuildingTagTree.Add("commercial", "retail", "office");
+			BuildingTagTree.Add("residential", "apartments", "detached", "duplex", "static_caravan", "house");
+		}
 		// Split by zip instead of municipality?
 		// New address
 		// Similar Address node exists
@@ -21,35 +30,25 @@ namespace OsmPipeline
 		// Spit it out as geojson and then review it and commit it in iD?
 		private static ILogger Log;
 
-		public static void ValidateAddresses(ILoggerFactory loggerFactory, IConfigurationRoot config, OsmGeo scope)
+		public static async Task<Osm> ValidateAddresses(ILoggerFactory loggerFactory, IConfigurationRoot config, OsmGeo scope, string scopeName)
 		{
 			Log = loggerFactory.CreateLogger(typeof(Addresses));
 
-			var collection = CachedGeoJsonAPISource.FromFileOrFetch("Westbrook");
-			var features = collection.Features.ToArray();
+			// Fetch GIS
+			var stateGis = FileSerializer.ReadJsonCacheOrSource(
+				scopeName + "Addresses.GeoJson", () => GeoJsonAPISource.FetchMany(scopeName)).Result;
+			var gisFeatures = stateGis.Features.ToArray();
+			Validate(gisFeatures);
 
-			Validate(features);
-			var nodes = features.Select(Convert).ToArray();
-
+			// Convert
+			var nodes = gisFeatures.Select(Convert).ToArray();
 			var translated = new Osm() { Nodes = nodes, Version = .6 };
-			FileSerializer.Write("Translated.osm", translated);
-
+			FileSerializer.WriteXml(scopeName + "Translated.osm", translated);
 			nodes = HandleStacks(nodes);
 			Validate(nodes);
-
 			var filtered = new Osm() { Nodes = nodes, Version = .6 };
-			FileSerializer.Write("Filtered.osm", filtered);
 
-			var query = OverpassQuery.Query(OverpassQuery.OverpassGeoType.NWR, Locations.Westbrook);
-			query = OverpassQuery.AddOut(query, true);
-			// fetch region from osm (or overpass?) osmSharp the pbf file
-			var existing = FileSerializer.ReadCacheOrSource<Osm>("WestbrookOverpass.json", () => OverpassApi.Get(query));
-			// conflate
-			// upload
-
-			//var osmApiEnder = new OsmApiEnder(logger, OsmApiUrl, OsmUsername, OsmPassword, changeTags);
-			//var LoggingEnder = new Fittings.LoggingEnder(loggerFactory.CreateLogger("kml"));
-			//var change = Edit(osm, EditGenerator, EditVersion).Result;
+			return filtered;
 		}
 
 		public static Node Convert(Feature feature)
@@ -83,7 +82,7 @@ namespace OsmPipeline
 				Latitude = (feature.Geometry as Point).Coordinates.Latitude,
 				Longitude = (feature.Geometry as Point).Coordinates.Longitude,
 				Tags = new TagsCollection(tags),
-				Id = (int)props["OBJECTID"],
+				//Id = (int)props["OBJECTID"],
 				Version = 1
 			};
 
@@ -195,7 +194,8 @@ namespace OsmPipeline
 			return stacks.Select(g => g.nodes).ToList();
 		}
 
-		private static double DistanceMeters(Position left, Position right)
+		// This is close enough.
+		public static double DistanceMeters(Position left, Position right)
 		{
 			var averageLat = (left.Latitude + right.Latitude) / 2;
 			var degPerRad = 180 / 3.14;
@@ -281,16 +281,11 @@ namespace OsmPipeline
 			return stack;
 		}
 
-		// [building: apartments, detached, duplex => residential]
-		private static string[] ResidentialBuildings = new string[]
-		{ "apartments", "detached", "duplex", "residential" };
 		private static bool OtherBuildingIsMoreGeneral(string myBuilding, Node other, out string newBuilding)
 		{
-			if (other.Tags.TryGetValue("building", out string otherBuilding)
-				&& ResidentialBuildings.Contains(myBuilding)
-				&& ResidentialBuildings.Contains(otherBuilding))
+			if (other.Tags.TryGetValue("building", out string otherBuilding))
 			{
-				newBuilding = "residential";
+				newBuilding = BuildingTagTree.FindFirstCommonAncestor(myBuilding, otherBuilding);
 				return true;
 			}
 
@@ -382,8 +377,8 @@ namespace OsmPipeline
 		{
 			if (placeType == "") return new Tag[0]; //6398
 			else if (placeType == "Apartment") return new[] { new Tag("building", "apartments") }; //2696
-			else if (placeType == "Commercial") return new Tag[0]; //284
-			//else if (placeType == "Commercial") return new[] { new Tag("shop", "yes") }; //284
+			//else if (placeType == "Commercial") return new Tag[0]; //284
+			else if (placeType == "Commercial") return new[] { new Tag("building", "commercial") }; //284
 			else if (placeType == "Other") return new Tag[0]; //282
 			else if (placeType == "Residential") return new[] { new Tag("building", "residential") }; //119
 			else if (placeType == "Single Family") return new[] { new Tag("building", "detached") }; //77
@@ -391,20 +386,20 @@ namespace OsmPipeline
 			else if (placeType == "Multi Family") return new[] { new Tag("building", "apartments") }; //23
 			else if (placeType == "Mobile Home") return new[] { new Tag("building", "static_caravan") }; //18
 			else if (placeType == "Duplex") return new[] { new Tag("building", "duplex") }; //15
-			else if (placeType == "Government - Municipal") return new[] { new Tag("office", "government") }; //5
-			else if (placeType == "School") return new[] { new Tag("amenity", "school") }; //5
+			else if (placeType == "Government - Municipal") return new[] { new Tag("building", "government") }; //5
+			else if (placeType == "School") return new[] { new Tag("building", "school") }; //5
 			else if (placeType == "Utility") return new Tag[0]; //5
 			else if (placeType == "Parking") return new[] { new Tag("amenity", "parking") }; //4
 			else if (placeType == "Attraction") return new[] { new Tag("tourism", "attraction") }; //2
 			else if (placeType == "EMS Station") return new[] { new Tag("emergency", "ambulance_station") }; //2
 			else if (placeType == "Fire Station") return new[] { new Tag("amenity", "fire_station") };//2
-			else if (placeType == "Hospital") return new[] { new Tag("amenity", "hospital") }; //2
+			else if (placeType == "Hospital") return new[] { new Tag("building", "hospital") }; //2
 			else if (placeType == "Nursing Home") return new[] { new Tag("amenity", "nursing_home") }; //2
 			else if (placeType == "Health Care") return new[] { new Tag("amenity", "healthcare") }; //1  
 			else if (placeType == "Law Enforcement -Municipal") return new[] { new Tag("amenity", "police") }; //1
-			else if (placeType == "Office") return new[] { new Tag("office", "yes") }; //1
+			else if (placeType == "Office") return new[] { new Tag("building", "office") }; //1
 			else if (placeType == "PSAP") return new[] { new Tag("emergency", "psap") }; //1
-			else if (placeType == "Retail - Enclosed Mall") return new[] { new Tag("shop", "mall") }; //1
+			else if (placeType == "Retail - Enclosed Mall") return new[] { new Tag("building", "retail"), new Tag("shop", "mall") }; //1
 			else if (placeType == "Vacant Lot") return new[] { new Tag("vacant", "yes") }; //1
 			else
 			{

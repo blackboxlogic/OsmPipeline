@@ -5,7 +5,7 @@ using System.Text;
 
 namespace OsmPipeline
 {
-	public static class Locations
+	public static class Scopes
 	{
 		public static Relation USA = new Relation() { Id = 9331155 };
 		public static Relation Maine = new Relation() { Id = 63512 };

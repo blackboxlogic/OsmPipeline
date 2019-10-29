@@ -20,7 +20,19 @@ namespace OsmPipeline
 			var loggerFactory = serviceCollection.BuildServiceProvider().GetService<ILoggerFactory>();
 
 			//Phones.FixPhones(loggerFactory, config, Locations.Maine);
-			Addresses.ValidateAddresses(loggerFactory, config, Locations.Frenchtown);
+
+			var scope = Scopes.Westbrook;
+			var scopeName = nameof(Scopes.Westbrook);
+
+			var reference = FileSerializer.ReadXmlCacheOrSource(scopeName + "Reference.osm",
+				() => Addresses.ValidateAddresses(loggerFactory, config, scope, scopeName)).Result;
+
+			// Conflate
+			var osmChange = Conflate.FetchAndMerge(scope, scopeName, reference).Result;
+
+			// upload
+			//var osmApiEnder = new OsmApiEnder(logger, OsmApiUrl, OsmUsername, OsmPassword, changeTags);
+			//var change = Edit(osm, EditGenerator, EditVersion).Result;
 
 			Console.ReadKey(true);
 		}

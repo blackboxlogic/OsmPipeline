@@ -1,40 +1,22 @@
 ﻿using BAMCIS.GeoJSON;
-using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
-using System.Text;
+using System.Threading.Tasks;
 using System.Web;
-using System.Linq;
-using System.IO;
 
 namespace OsmPipeline.Fittings
 {
-	public static class CachedGeoJsonAPISource
+	public static class GeoJsonAPISource
 	{
-		public static FeatureCollection FromFileOrFetch(string municipality)
-		{
-			string filename = municipality + "Addresses.GeoJson";
-			if (File.Exists(filename))
-			{
-				var json = File.ReadAllText(filename);
-				return FeatureCollection.FromJson(json);
-			}
-
-			var collection = FetchMany(municipality);
-			File.WriteAllText(filename, collection.ToJson());
-
-			return collection;
-		}
-
-		public static FeatureCollection FetchMany(string municipality, int? limit = null)
+		public static async Task<FeatureCollection> FetchMany(string municipality, int? limit = null)
 		{
 			List<Feature> fullSet = new List<Feature>();
 
 			while(true)
 			{
 				int before = fullSet.Count;
-				string json = FetchOnce(fullSet.Count, municipality);
+				string json = await FetchOnce(fullSet.Count, municipality);
 				FeatureCollection collection = FeatureCollection.FromJson(json);
 				fullSet.AddRange(collection.Features);
 				int added = fullSet.Count - before;
@@ -44,7 +26,7 @@ namespace OsmPipeline.Fittings
 			return new FeatureCollection(fullSet);
 		}
 
-		private static string FetchOnce(int offset, string municipality)
+		private static async Task<string> FetchOnce(int offset, string municipality)
 		{
 			// Using HttpUtility to generate the parameters for the query string handles HTTP escaping the values.
 			// Change these:
@@ -64,8 +46,8 @@ namespace OsmPipeline.Fittings
 				using (HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, address))
 				{
 					// .Result from an Async function is not best practice. It's good enough and I'm keeping this simple.
-					var response = client.SendAsync(request).Result;
-					var content = response.Content.ReadAsStringAsync().Result;
+					var response = await client.SendAsync(request);
+					var content = await response.Content.ReadAsStringAsync();
 					if (!response.IsSuccessStatusCode)
 					{
 						throw new Exception($"{content}: {response.StatusCode}");
