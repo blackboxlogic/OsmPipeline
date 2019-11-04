@@ -28,8 +28,9 @@ namespace OsmPipeline
 				() => Addresses.ValidateAddresses(loggerFactory, config, scope, scopeName)).Result;
 
 			// Conflate
-			var osmChange = Conflate.FetchAndMerge(scope, scopeName, reference).Result;
-
+			var osmChange = Conflate.FetchAndMerge(loggerFactory, scope, scopeName, reference);
+			osmChange.Wait();
+			var result = osmChange.Result;
 			// upload
 			//var osmApiEnder = new OsmApiEnder(logger, OsmApiUrl, OsmUsername, OsmPassword, changeTags);
 			//var change = Edit(osm, EditGenerator, EditVersion).Result;

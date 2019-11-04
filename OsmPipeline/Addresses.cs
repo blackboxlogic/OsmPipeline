@@ -32,7 +32,7 @@ namespace OsmPipeline
 
 		public static async Task<Osm> ValidateAddresses(ILoggerFactory loggerFactory, IConfigurationRoot config, OsmGeo scope, string scopeName)
 		{
-			Log = loggerFactory.CreateLogger(typeof(Addresses));
+			Log = Log ?? loggerFactory.CreateLogger(typeof(Addresses));
 
 			// Fetch GIS
 			var stateGis = FileSerializer.ReadJsonCacheOrSource(
@@ -83,11 +83,13 @@ namespace OsmPipeline
 				Longitude = (feature.Geometry as Point).Coordinates.Longitude,
 				Tags = new TagsCollection(tags),
 				//Id = (int)props["OBJECTID"],
+				Id = fakeId--,
 				Version = 1
 			};
 
 			return n;
 		}
+		private static int fakeId = -1;
 
 		// Keys which can be removed in order to combine congruent nodes
 		private static string[] SacrificialKeys = new[] { "addr:unit", "level", "condo", "maineE911id"};
@@ -179,7 +181,7 @@ namespace OsmPipeline
 			{
 				for (int j = i + 1; j < stacks.Count; j++)
 				{
-					var maybeMergeable = stacks[i].positions.SelectMany(l => stacks[j].positions, DistanceMeters)
+					var maybeMergeable = stacks[i].positions.SelectMany(l => stacks[j].positions, Conflate.DistanceMeters)
 						.All(d => d < closenessMeters);
 					if (maybeMergeable)
 					{
@@ -192,18 +194,6 @@ namespace OsmPipeline
 			}
 
 			return stacks.Select(g => g.nodes).ToList();
-		}
-
-		// This is close enough.
-		public static double DistanceMeters(Position left, Position right)
-		{
-			var averageLat = (left.Latitude + right.Latitude) / 2;
-			var degPerRad = 180 / 3.14;
-			var dLonKm = (left.Longitude - right.Longitude) * 111000 * Math.Cos(averageLat / degPerRad);
-			var dLatKm = (left.Latitude - right.Latitude) * 110000;
-
-			var distance = Math.Sqrt(dLatKm * dLatKm + dLonKm * dLonKm);
-			return distance;
 		}
 
 		private static void Nudge(Node[] stack, double north, double east)
