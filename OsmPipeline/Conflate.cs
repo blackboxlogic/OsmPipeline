@@ -154,10 +154,16 @@ namespace OsmPipeline
 				var nodes = way.Nodes.Select(nid => allNodes[nid]).ToArray();
 				return new Position(nodes.Average(n => n.Longitude.Value), nodes.Average(n => n.Latitude.Value));
 			}
-			else
+			else if (element is Relation relation)
 			{
-				throw new Exception("Why is element a relation?");
+				var nodes = relation.Members
+					.Where(m => m.Type == OsmGeoType.Way)
+					.SelectMany(m => allWays[m.Id].Nodes)
+					.Select(nid => allNodes[nid])
+					.ToArray();
+				return new Position(nodes.Average(n => n.Longitude.Value), nodes.Average(n => n.Latitude.Value));
 			}
+			throw new Exception("element wasn't a node, way or relation");
 		}
 
 		public static double DistanceMeters(Position left, Position right)
