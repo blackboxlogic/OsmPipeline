@@ -30,7 +30,7 @@ namespace OsmPipeline
 			// Split by bounding box instead of municipality.
 			// invalidate downstream caches
 			var reference = await FileSerializer.ReadXmlCacheOrSource(scopeName + "Reference.osm",
-				() => Addresses.FetchReference(loggerFactory, scope, scopeName));
+				() => Reference.Fetch(loggerFactory, scope, scopeName));
 			var bounds = await FileSerializer.ReadXmlCacheOrSource(scopeName + "Bounds.xml",
 				() => Conflate.GetBoundingBox(scope));
 			var subject = await FileSerializer.ReadXmlCacheOrSource(scopeName + "Subject.osm",

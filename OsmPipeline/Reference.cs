@@ -12,10 +12,10 @@ using System.Threading.Tasks;
 
 namespace OsmPipeline
 {
-	public static class Addresses
+	public static class Reference
 	{
 		static TagTreeHierarchy BuildingTagTree;
-		static Addresses()
+		static Reference()
 		{
 			BuildingTagTree = new TagTreeHierarchy("building", "yes");
 			BuildingTagTree.Add("yes", "commercial", "residential", "school", "hospital", "government");
@@ -25,9 +25,9 @@ namespace OsmPipeline
 
 		private static ILogger Log;
 
-		public static async Task<Osm> FetchReference(ILoggerFactory loggerFactory, OsmGeo scope, string scopeName)
+		public static async Task<Osm> Fetch(ILoggerFactory loggerFactory, OsmGeo scope, string scopeName)
 		{
-			Log = Log ?? loggerFactory.CreateLogger(typeof(Addresses));
+			Log = Log ?? loggerFactory.CreateLogger(typeof(Reference));
 
 			// Fetch GIS
 			var stateGis = await FileSerializer.ReadJsonCacheOrSource(
@@ -52,7 +52,7 @@ namespace OsmPipeline
 			return filtered;
 		}
 
-		public static Node Convert(Feature feature)
+		private static Node Convert(Feature feature)
 		{
 			var props = feature.Properties;
 			var streetName = Streets.BuildStreetName((string)props["PREDIR"],
@@ -112,7 +112,7 @@ namespace OsmPipeline
 		// e 1
 		// unit/floor removed if they dissagree
 		// remove address-only if there is an address+
-		public static Node[] HandleStacks(Node[] nodes)
+		private static Node[] HandleStacks(Node[] nodes)
 		{
 			List<Node> results = new List<Node>();
 			Node[][] addresses = nodes.GroupBy(GetBaseAddress)
@@ -211,11 +211,11 @@ namespace OsmPipeline
 					return level;
 				}).DefaultIfEmpty().Max();
 
-			if (levels >= 1)
-			{
-				stack[0].Tags["building:levels"] = levels.ToString();
-				stack[0].Tags.RemoveKey("level");
-			}
+			//if (levels >= 1)
+			//{
+			//	stack[0].Tags["building:levels"] = levels.ToString();
+			//	stack[0].Tags.RemoveKey("level");
+			//}
 			
 			stack[0].Latitude = stack.Average(n => n.Latitude);
 			stack[0].Longitude = stack.Average(n => n.Longitude);
@@ -267,7 +267,7 @@ namespace OsmPipeline
 			return false;
 		}
 
-		public static void Validate(Feature[] features)
+		private static void Validate(Feature[] features)
 		{
 			int[] duplicateObjectIds = features.Select(f => (int)f.Properties["OBJECTID"]).GroupBy(x => x).Where(x => x.Skip(1).Any()).Select(x => x.Key).ToArray();
 			if (duplicateObjectIds.Any())
@@ -321,7 +321,7 @@ namespace OsmPipeline
 			}
 		}
 
-		public static void Validate(Node[] nodes)
+		private static void Validate(Node[] nodes)
 		{
 			if (nodes.Length > 10000) Log.LogWarning($"{nodes.Length} Nodes is too big for one changest");
 
@@ -347,7 +347,7 @@ namespace OsmPipeline
 			}
 		}
 
-		public static IEnumerable<Tag> GetPlaceTags(string placeType)
+		private static IEnumerable<Tag> GetPlaceTags(string placeType)
 		{
 			if (placeType == "") return new Tag[0]; //6398
 			else if (placeType == "Apartment") return new[] { new Tag("building", "apartments") }; //2696
@@ -382,7 +382,7 @@ namespace OsmPipeline
 			}
 		}
 
-		public static string Name(string landmark, string loc, string building)
+		private static string Name(string landmark, string loc, string building)
 		{
 			if (building.Any() && building.All(char.IsNumber))
 			{
@@ -397,13 +397,13 @@ namespace OsmPipeline
 		}
 
 		// "FLR 1", "Floor 1", "1"
-		public static string Level(string floor)
+		private static string Level(string floor)
 		{
 			return new string(floor.Where(char.IsNumber).ToArray());
 		}
 
 		// unit is: [prefix/pre-breviation] [AlphaNumeric ID]
-		public static string Unit(string unit)
+		private static string Unit(string unit)
 		{
 			var parts = unit.Split(' ', StringSplitOptions.RemoveEmptyEntries);
 			parts = parts.Select(part => UnitExpansion.TryGetValue(part, out string replacement) ? replacement : part).ToArray();
@@ -412,7 +412,7 @@ namespace OsmPipeline
 		}
 
 		// https://pe.usps.com/text/pub28/28apc_003.htm
-		public static Dictionary<string, string> UnitAbbreviation =
+		private static Dictionary<string, string> UnitAbbreviation =
 			new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
 			{ {"Apartment","APT"},
 			{"Basement","BSMT"},
@@ -440,7 +440,7 @@ namespace OsmPipeline
 			{"Unit","UNIT"},
 			{"Upper","UPPR"} };
 
-		public static Dictionary<string, string> UnitExpansion =
+		private static Dictionary<string, string> UnitExpansion =
 			new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
 			{
 				{"&","and"},
