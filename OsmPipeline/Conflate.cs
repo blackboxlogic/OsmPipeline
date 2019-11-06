@@ -18,17 +18,12 @@ namespace OsmPipeline
 	{
 		private static ILogger Log;
 
-		public static async Task<OsmChange> FetchAndMerge(
-			ILoggerFactory loggerFactory, OsmGeo scope, string scopeName, Osm reference)
+		public static async Task<OsmChange> Merge(
+			ILoggerFactory loggerFactory, Osm reference, Osm subject)
 		{
 			Log = Log ?? loggerFactory.CreateLogger(typeof(Conflate));
 			List<OsmGeo> create = new List<OsmGeo>();
 			List<OsmGeo> modify = new List<OsmGeo>();
-
-			var bounds = await FileSerializer.ReadXmlCacheOrSource(
-				scopeName + "Bounds.xml", () => GetBoundingBox(scope));
-			var subject = await FileSerializer.ReadXmlCacheOrSource(
-				scopeName + "OsmCache.osm", () => GetElementsInBoundingBox(bounds));
 
 			var subjectNodesById = subject.Nodes.ToDictionary(n => n.Id.Value);
 			var subjectWaysById = subject.Ways.ToDictionary(n => n.Id.Value);
@@ -50,9 +45,9 @@ namespace OsmPipeline
 						Log.LogWarning("Multiple matches!");
 					}
 					var subjectElement = subjectElements.First();
-					var distance = DistanceMeters(
-						GetCentroid(referenceElement, subjectNodesById, subjectWaysById),
-						GetCentroid(subjectElement, subjectNodesById, subjectWaysById));
+					var distance = Geometry.DistanceMeters(
+						Geometry.GetCentroid(referenceElement, subjectNodesById, subjectWaysById),
+						Geometry.GetCentroid(subjectElement, subjectNodesById, subjectWaysById));
 					if (distance > 100)
 					{
 						Log.LogWarning("Address match is over 100 meters, ignoring the match");
@@ -65,7 +60,7 @@ namespace OsmPipeline
 					}
 					else
 					{
-						Log.LogInformation("The tag merge didn't have any effect on the subject");
+						//Log.LogInformation("The tag merge didn't have any effect on the subject");
 					}
 				}
 				else
@@ -136,55 +131,6 @@ namespace OsmPipeline
 			return all
 				? new TagsCollection(element.Tags?.Where(t => t.Key.StartsWith("addr:")) ?? new Tag[0])
 				: new TagsCollection(element.Tags?.Where(t => t.Key == "addr:street" || t.Key == "addr:housenumber") ?? new Tag[0]);
-		}
-
-		public static double DistanceMeters(OsmGeo left, OsmGeo right, Dictionary<long, Node> allNodes, Dictionary<long, Way> allWays)
-		{
-			return DistanceMeters(GetCentroid(left, allNodes, allWays), GetCentroid(right, allNodes, allWays));
-		}
-
-		public static Position GetCentroid(OsmGeo element, Dictionary<long, Node> allNodes, Dictionary<long, Way> allWays)
-		{
-			if (element is Node node)
-			{
-				return new Position(node.Longitude.Value, node.Latitude.Value);
-			}
-			else if (element is Way way)
-			{
-				var nodes = way.Nodes.Select(nid => allNodes[nid]).ToArray();
-				return new Position(nodes.Average(n => n.Longitude.Value), nodes.Average(n => n.Latitude.Value));
-			}
-			else if (element is Relation relation)
-			{
-				var nodes = relation.Members
-					.Where(m => m.Type == OsmGeoType.Way)
-					.SelectMany(m => allWays[m.Id].Nodes)
-					.Select(nid => allNodes[nid])
-					.ToArray();
-				return new Position(nodes.Average(n => n.Longitude.Value), nodes.Average(n => n.Latitude.Value));
-			}
-			throw new Exception("element wasn't a node, way or relation");
-		}
-
-		public static double DistanceMeters(Position left, Position right)
-		{
-			return DistanceMeters(left.Latitude, left.Longitude, right.Latitude, right.Longitude);
-		}
-
-		//public static double DistanceMeters(Node left, Node right)
-		//{
-		//	return DistanceMeters(left.Latitude.Value, left.Longitude.Value, right.Latitude.Value, right.Longitude.Value);
-		//}
-
-		public static double DistanceMeters(double lat1, double lon1, double lat2, double lon2)
-		{
-			var averageLat = (lat1 + lat2) / 2;
-			var degPerRad = 180 / 3.14;
-			var dLonKm = (lon1 - lon2) * 111000 * Math.Cos(averageLat / degPerRad);
-			var dLatKm = (lat1 - lat2) * 110000;
-
-			var distance = Math.Sqrt(dLatKm * dLatKm + dLonKm * dLonKm);
-			return distance;
 		}
 	}
 }

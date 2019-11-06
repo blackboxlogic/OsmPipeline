@@ -13,9 +13,19 @@ namespace OsmPipeline.Fittings
 			return ReadXml<T>(fileName) ?? WriteXml(fileName, await source());
 		}
 
+		public static T ReadXmlCacheOrSource<T>(string fileName, Func<T> source) where T : class, IXmlSerializable
+		{
+			return ReadXml<T>(fileName) ?? WriteXml(fileName, source());
+		}
+
 		public static async Task<T> ReadJsonCacheOrSource<T>(string fileName, Func<Task<T>> source) where T : class
 		{
 			return ReadJson<T>(fileName) ?? WriteJson(fileName, await source());
+		}
+
+		public static T ReadJsonCacheOrSource<T>(string fileName, Func<T> source) where T : class
+		{
+			return ReadJson<T>(fileName) ?? WriteJson(fileName, source());
 		}
 
 		public static T ReadXml<T>(string fileName) where T : class, IXmlSerializable

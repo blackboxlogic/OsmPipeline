@@ -4,12 +4,12 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Configuration;
 using OsmSharp.Tags;
 using OsmPipeline.Fittings;
+using OsmSharp;
 
 namespace OsmPipeline
 {
 	public class Program
 	{
-
 		static void Main(string[] args)
 		{
 			var config = new ConfigurationBuilder()
@@ -19,23 +19,32 @@ namespace OsmPipeline
 			serviceCollection.AddLogging(builder => builder.AddConsole().AddFilter(level => true));
 			var loggerFactory = serviceCollection.BuildServiceProvider().GetService<ILoggerFactory>();
 
-			//Phones.FixPhones(loggerFactory, config, Locations.Maine);
+			ImportAddresses(Scopes.Westbrook, nameof(Scopes.Westbrook), loggerFactory);
 
-			var scope = Scopes.Westbrook;
-			var scopeName = nameof(Scopes.Westbrook);
+			Console.ReadKey(true);
+		}
 
-			var reference = FileSerializer.ReadXmlCacheOrSource(scopeName + "Reference.osm",
-				() => Addresses.ValidateAddresses(loggerFactory, config, scope, scopeName)).Result;
-
-			// Conflate
-			var osmChange = Conflate.FetchAndMerge(loggerFactory, scope, scopeName, reference);
-			osmChange.Wait();
-			var result = osmChange.Result;
+		static async void ImportAddresses(OsmGeo scope, string scopeName, ILoggerFactory loggerFactory)
+		{
+			// room has unit*
+			// Split by bounding box instead of municipality.
+			// invalidate downstream caches
+			var reference = await FileSerializer.ReadXmlCacheOrSource(scopeName + "Reference.osm",
+				() => Addresses.FetchReference(loggerFactory, scope, scopeName));
+			var bounds = await FileSerializer.ReadXmlCacheOrSource(scopeName + "Bounds.xml",
+				() => Conflate.GetBoundingBox(scope));
+			var subject = await FileSerializer.ReadXmlCacheOrSource(scopeName + "Subject.osm",
+				() => Conflate.GetElementsInBoundingBox(bounds));
+			var conlfated = await FileSerializer.ReadXmlCacheOrSource(scopeName + "Conflated.osm",
+				() => Conflate.Merge(loggerFactory, reference, subject));
 			// upload
 			//var osmApiEnder = new OsmApiEnder(logger, OsmApiUrl, OsmUsername, OsmPassword, changeTags);
 			//var change = Edit(osm, EditGenerator, EditVersion).Result;
+		}
 
-			Console.ReadKey(true);
+		static void FixPhones(ILoggerFactory loggerFactory, IConfigurationRoot config, OsmGeo scope)
+		{
+			Phones.FixPhones(loggerFactory, config, scope);
 		}
 	}
 }

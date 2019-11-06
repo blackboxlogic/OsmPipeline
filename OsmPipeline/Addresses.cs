@@ -22,28 +22,29 @@ namespace OsmPipeline
 			BuildingTagTree.Add("commercial", "retail", "office");
 			BuildingTagTree.Add("residential", "apartments", "detached", "duplex", "static_caravan", "house");
 		}
-		// Split by zip instead of municipality?
-		// New address
-		// Similar Address node exists
-		// Similar Address way exists
 
-		// Spit it out as geojson and then review it and commit it in iD?
 		private static ILogger Log;
 
-		public static async Task<Osm> ValidateAddresses(ILoggerFactory loggerFactory, IConfigurationRoot config, OsmGeo scope, string scopeName)
+		public static async Task<Osm> FetchReference(ILoggerFactory loggerFactory, OsmGeo scope, string scopeName)
 		{
 			Log = Log ?? loggerFactory.CreateLogger(typeof(Addresses));
 
 			// Fetch GIS
-			var stateGis = FileSerializer.ReadJsonCacheOrSource(
-				scopeName + "Addresses.GeoJson", () => GeoJsonAPISource.FetchMany(scopeName)).Result;
+			var stateGis = await FileSerializer.ReadJsonCacheOrSource(
+				scopeName + "ReferenceRaw.GeoJson", () => GeoJsonAPISource.FetchMany(scopeName));
 			var gisFeatures = stateGis.Features.ToArray();
 			Validate(gisFeatures);
 
+			// Fetch the list of objectIDs with known errors to omit.
+			var errorList = FileSerializer.ReadJson<HashSet<int>>(scopeName + "ErrorObjectIDs.json");
+
 			// Convert
-			var nodes = gisFeatures.Select(Convert).ToArray();
+			var nodes = gisFeatures
+				.Where(f => !errorList.Contains((int)f.Properties["OBJECTID"]))
+				.Select(Convert)
+				.ToArray();
 			var translated = new Osm() { Nodes = nodes, Version = .6 };
-			FileSerializer.WriteXml(scopeName + "Translated.osm", translated);
+			FileSerializer.WriteXml(scopeName + "ReferenceTranslated.osm", translated);
 			nodes = HandleStacks(nodes);
 			Validate(nodes);
 			var filtered = new Osm() { Nodes = nodes, Version = .6 };
@@ -150,7 +151,7 @@ namespace OsmPipeline
 				.ToArray();
 			foreach (var stack in stacks)
 			{
-				Nudge(stack, 0, .00001);
+				Geometry.Nudge(stack, 0, .00001);
 			}
 
 			Log.LogInformation($"{nodes.Length - results.Count} nodes have been removed from {nodes.Length} (de-duped or combined)");
@@ -164,14 +165,9 @@ namespace OsmPipeline
 			return node.Tags.KeepKeysOf(addressTags);
 		}
 
-		private static Position AsLocation(Node node)
-		{
-			return new Position(node.Longitude.Value, node.Latitude.Value);
-		}
-
 		private static List<List<Node>> GroupCloseNeighbors(Node[] address, double closenessMeters)
 		{
-			var stacks = address.GroupBy(AsLocation)
+			var stacks = address.GroupBy(Geometry.AsLocation)
 				.Select(stack => new {
 					positions = new List<Position> { stack.Key },
 					nodes = stack.ToList() })
@@ -181,7 +177,7 @@ namespace OsmPipeline
 			{
 				for (int j = i + 1; j < stacks.Count; j++)
 				{
-					var maybeMergeable = stacks[i].positions.SelectMany(l => stacks[j].positions, Conflate.DistanceMeters)
+					var maybeMergeable = stacks[i].positions.SelectMany(l => stacks[j].positions, Geometry.DistanceMeters)
 						.All(d => d < closenessMeters);
 					if (maybeMergeable)
 					{
@@ -194,18 +190,6 @@ namespace OsmPipeline
 			}
 
 			return stacks.Select(g => g.nodes).ToList();
-		}
-
-		private static void Nudge(Node[] stack, double north, double east)
-		{
-			int i = 1;
-			foreach (var node in stack.Skip(1))
-			{
-				node.Longitude += i * north;
-				node.Latitude += i * east;
-				i++;
-				Log.LogDebug("Nudged node[{0}] to unstack", node.Id);
-			}
 		}
 
 		private static Node IntersectTags(Node[] stack)
