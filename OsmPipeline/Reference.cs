@@ -1,5 +1,4 @@
-﻿using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Logging;
+﻿using Microsoft.Extensions.Logging;
 using OsmSharp;
 using System;
 using System.Linq;
@@ -25,7 +24,7 @@ namespace OsmPipeline
 
 		private static ILogger Log;
 
-		public static async Task<Osm> Fetch(ILoggerFactory loggerFactory, OsmGeo scope, string scopeName)
+		public static async Task<Osm> Fetch(ILoggerFactory loggerFactory, string scopeName)
 		{
 			Log = Log ?? loggerFactory.CreateLogger(typeof(Reference));
 
@@ -83,15 +82,12 @@ namespace OsmPipeline
 				Latitude = (feature.Geometry as Point).Coordinates.Latitude,
 				Longitude = (feature.Geometry as Point).Coordinates.Longitude,
 				Tags = new TagsCollection(tags),
-				//Id = (int)props["OBJECTID"],
-				Id = fakeId--,
+				Id = -(int)props["OBJECTID"],
 				Version = 1
 			};
 
 			return n;
 		}
-		private static int fakeId = -1;
-
 		// Keys which can be removed in order to combine congruent nodes
 		private static string[] SacrificialKeys = new[] { "addr:unit", "level", "condo", "maineE911id"};
 
@@ -241,7 +237,7 @@ namespace OsmPipeline
 				string building = null;
 				var bigger = stack.FirstOrDefault(other => node != other
 					&& node.Tags.All(t => other.Tags.Contains(t)
-						|| t.Key == "maineE911id"
+						|| SacrificialKeys.Contains(t.Key)
 						|| (t.Key == "building" && OtherBuildingIsMoreGeneral(t.Value, other, out building))));
 				if (bigger != null)
 				{
@@ -306,10 +302,10 @@ namespace OsmPipeline
 				{
 					Log.LogError("Bad bulding: " + (string)f.Properties["BUILDING"]);
 				}
-				if (f.Properties["ROOM"] != "")
-				{
-					Log.LogError("Bad Room: " + (string)f.Properties["ROOM"]);
-				}
+				//if (f.Properties["ROOM"] != "")
+				//{
+				//	Log.LogError("Bad Room: " + (string)f.Properties["ROOM"]);
+				//}
 				if (f.Properties["SEAT"] != "")
 				{
 					Log.LogError("Bad Room: " + (string)f.Properties["SEAT"]);
@@ -337,8 +333,6 @@ namespace OsmPipeline
 
 			foreach (var node in nodes)
 			{
-				//if (node.Tags["addr:postcode"] != "04092") Log.LogError(node.Tags["addr:postcode"]);
-				if (node.Tags["addr:city"] != "Westbrook") Log.LogError("Nope");
 				if (node.Tags["addr:state"] != "ME") Log.LogError("Nope");
 				if (!node.Tags["addr:street"].All(c => char.IsLetter(c) || c == ' ')) Log.LogError("Nope");
 				if (!node.Tags["addr:housenumber"].All(char.IsNumber)) Log.LogError("Nope");

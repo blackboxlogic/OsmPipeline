@@ -6,10 +6,6 @@ using System.Collections.Generic;
 using OsmSharp.Tags;
 using OsmSharp;
 using System.Threading.Tasks;
-using OsmPipeline.Fittings;
-using System.Net.Http;
-using OsmSharp.IO.API;
-using BAMCIS.GeoJSON;
 using Microsoft.Extensions.Logging;
 
 namespace OsmPipeline
@@ -18,7 +14,7 @@ namespace OsmPipeline
 	{
 		private static ILogger Log;
 
-		public static async Task<OsmChange> Merge(
+		public static OsmChange Merge(
 			ILoggerFactory loggerFactory, Osm reference, Osm subject)
 		{
 			Log = Log ?? loggerFactory.CreateLogger(typeof(Conflate));
@@ -103,27 +99,6 @@ namespace OsmPipeline
 			}
 
 			return changed;
-		}
-
-		public static async Task<Osm> GetElementsInBoundingBox(Bounds bounds)
-		{
-			var osmApiClient = new NonAuthClient("https://www.openstreetmap.org/api/",
-				new HttpClient(), null);
-			var map = await osmApiClient.GetMap(bounds);
-			return map;
-		}
-
-		public static async Task<Bounds> GetBoundingBox(OsmGeo scope)
-		{
-			var nominatim = new OsmNominatimClient("OsmPipeline", "https://nominatim.openstreetmap.org", "blackboxlogic@gmail.com");
-			var target = await nominatim.Lookup(scope.Type.ToString()[0].ToString() + scope.Id.Value);
-			return new Bounds()
-			{
-				MinLatitude = target[0].boundingbox[0],
-				MaxLatitude = target[0].boundingbox[1],
-				MinLongitude = target[0].boundingbox[2],
-				MaxLongitude = target[0].boundingbox[3]
-			};
 		}
 
 		private static TagsCollection GetAddrTags(this OsmGeo element, bool all = false)
