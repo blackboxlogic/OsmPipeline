@@ -9,6 +9,7 @@
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="2.2.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="2.2.0" />
     <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="2.2.0" />
+    <PackageReference Include="NetTopologySuite" Version="2.0.0" />
     <PackageReference Include="OsmApiClient" Version="0.0.1-beta.3" />
     <PackageReference Include="OsmSharp" Version="7.0.0-pre001" />
     <PackageReference Include="SharpKml.Core" Version="5.0.1" />
@@ -21,6 +22,9 @@
 
   <ItemGroup>
     <None Update="appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="WestbrookErrorObjectIDs.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>

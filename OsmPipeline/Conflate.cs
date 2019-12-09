@@ -5,8 +5,8 @@ using System.Linq;
 using System.Collections.Generic;
 using OsmSharp.Tags;
 using OsmSharp;
-using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
+using OsmSharp.Complete;
 
 namespace OsmPipeline
 {
@@ -38,25 +38,27 @@ namespace OsmPipeline
 				{
 					if (subjectElements.Length > 1)
 					{
-						Log.LogWarning("Multiple matches!");
+						Log.LogWarning($"Multiple matches!");
 					}
-					var subjectElement = subjectElements.First();
-					var distance = Geometry.DistanceMeters(
-						Geometry.GetCentroid(referenceElement, subjectNodesById, subjectWaysById),
-						Geometry.GetCentroid(subjectElement, subjectNodesById, subjectWaysById));
-					if (distance > 100)
+					var refCentroid = Geometry.GetCentroid(referenceElement, subjectNodesById, subjectWaysById);
+					var closestMatch = subjectElements
+						.Select(element => new { element, centroid = Geometry.GetCentroid(element, subjectNodesById, subjectWaysById) })
+						.Select(match => new { match.element, distance = Geometry.DistanceMeters(refCentroid, match.centroid) })
+						.OrderBy(match => match.distance).First();
+					// Maybe choose 'best' by "doesn't have any tag conflicts"?
+					// Maybe every instance should be manually reviewed... files stores [mergeWith, ignore, addNew]
+					var subjectElement = closestMatch.element;
+					if (closestMatch.distance > 100)
 					{
-						Log.LogWarning("Address match is over 100 meters, ignoring the match");
+						Log.LogWarning($"Matched, but too far: {(int)closestMatch.distance} > 100 meters.\n{subjectElement.Type}:{subjectElement.Id}\n{referenceElement.Type}:{referenceElement.Id}");
 						create.Add(referenceElement);
 					}
-					else if (MergeTags(referenceElement, subjectElement, distance))
+					else if (MergeTags(referenceElement, subjectElement, closestMatch.distance))
 					{
+						if (modify.Any(n => n.Id == subjectElement.Id))
+							Log.LogWarning($"Modified {subjectElement.Type}:{subjectElement.Id} again by {referenceElement.Type}:{referenceElement.Id}!");
 						subjectElement.Version++;
 						modify.Add(subjectElement);
-					}
-					else
-					{
-						//Log.LogInformation("The tag merge didn't have any effect on the subject");
 					}
 				}
 				else
@@ -65,7 +67,39 @@ namespace OsmPipeline
 				}
 			}
 
-			return new OsmChange() { Create = create.ToArray(), Modify = modify.ToArray() };
+			var subjectNodesByID = subject.Nodes.ToDictionary(n => n.Id);
+			var subjectWaysByID = subject.Ways.ToDictionary(n => n.Id);
+			var nonAddrBuildings = subject.Ways
+				.Where(w => IsBuilding(w) && !IsAddressy(w))
+				.Select(b => new CompleteWay() { Id = b.Id.Value, Nodes = b.Nodes.Select(n => subjectNodesByID[n]).ToArray() })
+				.ToArray();
+			var addrSubjectNodes = subject.Nodes.Where(n => IsAddressy(n)).ToArray();
+			var buildingsWithOldAddrNodes = Geometry.NodesInBuildings(nonAddrBuildings, addrSubjectNodes);
+			var buildingsToNewAddr = Geometry.NodesInBuildings(nonAddrBuildings, create.OfType<Node>().ToArray());
+
+			var addrMerges = buildingsToNewAddr
+				.Where(b => !buildingsWithOldAddrNodes.ContainsKey(b.Key) && b.Value.Length == 1)
+				.Select(kvp => new { Building = subjectWaysByID[kvp.Key.Id], Node = kvp.Value.First() })
+				.ToArray();
+
+			foreach (var addrMerge in addrMerges)
+			{
+				create.Remove(addrMerge.Node);
+				addrMerge.Building.Tags.AddOrReplace(addrMerge.Node.Tags);
+				modify.Add(addrMerge.Building);
+			}
+
+			return Fittings.Translate.GeosToChange(create, modify, null, "OsmPipeline");
+		}
+
+		private static bool IsAddressy(OsmGeo element)
+		{
+			return element.Tags?.Any(t => t.Key.StartsWith("addr:")) == true;
+		}
+
+		private static bool IsBuilding(Way way)
+		{
+			return way.Tags?.ContainsKey("building") == true;
 		}
 
 		private static bool MergeTags(OsmGeo reference, OsmGeo subject, double distanceMeters)
@@ -88,7 +122,7 @@ namespace OsmPipeline
 				{
 					if (value != tag.Value)
 					{
-						Log.LogError("A tag conflict!"); // middle school name conflict, alt name?
+						Log.LogError($"A tag conflict! Kept subject's tag.\n{subject.Type}:{subject.Id}.{tag.Key}={value}\n{reference.Type}:{reference.Id}.{tag.Key}={tag.Value}");
 					}
 				}
 				else

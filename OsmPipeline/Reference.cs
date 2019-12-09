@@ -30,7 +30,7 @@ namespace OsmPipeline
 
 			// Fetch GIS
 			var stateGis = await FileSerializer.ReadJsonCacheOrSource(
-				scopeName + "ReferenceRaw.GeoJson", () => GeoJsonAPISource.FetchMany(scopeName));
+				scopeName + "ReferenceRaw.GeoJson", () => GeoJsonAPISource.FetchMunicipality(scopeName));
 			var gisFeatures = stateGis.Features.ToArray();
 			Validate(gisFeatures);
 
@@ -46,7 +46,14 @@ namespace OsmPipeline
 			FileSerializer.WriteXml(scopeName + "ReferenceTranslated.osm", translated);
 			nodes = HandleStacks(nodes);
 			Validate(nodes);
-			var filtered = new Osm() { Nodes = nodes, Version = .6 };
+			var bounds = new Bounds()
+			{
+				MaxLatitude = (float)nodes.Max(n => n.Latitude) +.001f,
+				MinLatitude = (float)nodes.Min(n => n.Latitude) - .001f,
+				MaxLongitude = (float)nodes.Max(n => n.Longitude) + .001f,
+				MinLongitude = (float)nodes.Min(n => n.Longitude) - .001f,
+			};
+			var filtered = new Osm() { Nodes = nodes, Version = .6, Bounds = bounds };
 
 			return filtered;
 		}
@@ -89,7 +96,7 @@ namespace OsmPipeline
 			return n;
 		}
 		// Keys which can be removed in order to combine congruent nodes
-		private static string[] SacrificialKeys = new[] { "addr:unit", "level", "condo", "maineE911id"};
+		private static string[] SacrificialKeys = new[] { "addr:unit", "level", "condo", "maineE911id" };
 
 		// a
 		// b
@@ -141,7 +148,7 @@ namespace OsmPipeline
 				}
 			}
 
-			var stacks = results.GroupBy(n => new { n.Latitude, n.Longitude } )
+			var stacks = results.GroupBy(n => new { n.Latitude, n.Longitude })
 				.Select(g => g.ToArray())
 				.Where(s => s.Length > 1)
 				.ToArray();
@@ -157,16 +164,18 @@ namespace OsmPipeline
 
 		private static TagsCollectionBase GetBaseAddress(Node node)
 		{
-			var addressTags = new[] {"addr:housenumber", "addr:street", "addr:city", "addr:state" };
+			var addressTags = new[] { "addr:housenumber", "addr:street", "addr:city", "addr:state" };
 			return node.Tags.KeepKeysOf(addressTags);
 		}
 
 		private static List<List<Node>> GroupCloseNeighbors(Node[] address, double closenessMeters)
 		{
 			var stacks = address.GroupBy(Geometry.AsLocation)
-				.Select(stack => new {
+				.Select(stack => new
+				{
 					positions = new List<Position> { stack.Key },
-					nodes = stack.ToList() })
+					nodes = stack.ToList()
+				})
 				.ToList();
 			// Combine groups when everything in them is close to everything in another group.
 			for (int i = 0; i < stacks.Count - 1; i++)
@@ -212,7 +221,7 @@ namespace OsmPipeline
 			//	stack[0].Tags["building:levels"] = levels.ToString();
 			//	stack[0].Tags.RemoveKey("level");
 			//}
-			
+
 			stack[0].Latitude = stack.Average(n => n.Latitude);
 			stack[0].Longitude = stack.Average(n => n.Longitude);
 			Log.LogInformation("intersected " + string.Join(",", stack.Select(n => n.Id)));
@@ -231,7 +240,7 @@ namespace OsmPipeline
 		private static List<Node> RemoveLessSpecific(List<Node> stack)
 		{
 			// Keep when there are no other node's tags that when taken from mine leave me empty.
-			for(int i = 0; i < stack.Count; i++)
+			for (int i = 0; i < stack.Count; i++)
 			{
 				var node = stack[i];
 				string building = null;
@@ -345,7 +354,7 @@ namespace OsmPipeline
 		{
 			if (placeType == "") return new Tag[0]; //6398
 			else if (placeType == "Apartment") return new[] { new Tag("building", "apartments") }; //2696
-			//else if (placeType == "Commercial") return new Tag[0]; //284
+																								   //else if (placeType == "Commercial") return new Tag[0]; //284
 			else if (placeType == "Commercial") return new[] { new Tag("building", "commercial") }; //284
 			else if (placeType == "Other") return new Tag[0]; //282
 			else if (placeType == "Residential") return new[] { new Tag("building", "residential") }; //119
@@ -402,7 +411,7 @@ namespace OsmPipeline
 			var parts = unit.Split(' ', StringSplitOptions.RemoveEmptyEntries);
 			parts = parts.Select(part => UnitExpansion.TryGetValue(part, out string replacement) ? replacement : part).ToArray();
 
-			return string.Join(' ',  parts);
+			return string.Join(' ', parts);
 		}
 
 		// https://pe.usps.com/text/pub28/28apc_003.htm

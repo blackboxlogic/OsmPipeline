@@ -1,5 +1,7 @@
 ﻿using BAMCIS.GeoJSON;
+using NetTopologySuite.Geometries;
 using OsmSharp;
+using OsmSharp.Complete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,6 +10,22 @@ namespace OsmPipeline
 {
 	public static class Geometry
 	{
+		public static Dictionary<CompleteWay, Node[]> NodesInBuildings(CompleteWay[] building, Node[] nodes)
+		{
+			return building.ToDictionary(b => b, b => nodes.Where(n => IsNodeInBuilding(n, b)).ToArray())
+				.Where(kvp => kvp.Value.Any())
+				.ToDictionary(kvp => kvp.Key, kvp => kvp.Value);
+		}
+
+		public static bool IsNodeInBuilding(Node node, CompleteWay building)
+		{
+			var point = new NetTopologySuite.Geometries.Point(node.Longitude.Value, node.Latitude.Value);
+			var ring = new NetTopologySuite.Geometries.LinearRing(
+				building.Nodes.Append(building.Nodes[0]).Select(n => new Coordinate(n.Longitude.Value, n.Latitude.Value)).ToArray());
+			var polygon = new NetTopologySuite.Geometries.Polygon(ring);
+			return point.Within(polygon);
+		}
+
 		public static void Nudge(Node[] stack, double north, double east)
 		{
 			int i = 1;
