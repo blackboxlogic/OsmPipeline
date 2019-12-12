@@ -36,12 +36,7 @@ namespace OsmPipeline
 				() => Subject.GetElementsInBoundingBox(reference.Bounds));
 			// Apply a node to an encompasing building if it doesn't conflict and there is nothing else in the building
 			var conflated = FileSerializer.ReadXmlCacheOrSource(scopeName + "Conflated.osmChange",
-				() => Conflate.Merge(loggerFactory, reference, subject));
-			
-			FileSerializer.WriteXml(scopeName + "Conflated.Create.osm", conflated.Create.AsOsm());
-			var wayNodes = new HashSet<long>(conflated.Modify.OfType<Way>().SelectMany(w => w.Nodes));
-			var modifyAndWayNodes = conflated.Modify.Concat(subject.Nodes.Where(n => wayNodes.Contains(n.Id.Value)));
-			FileSerializer.WriteXml(scopeName + "Conflated.Modify.osm", modifyAndWayNodes.AsOsm());//conflated.Modify.AsOsm());
+				() => Conflate.Merge(loggerFactory, reference, subject, scopeName));
 
 			//var results = await Subject.UploadChange(conflated, loggerFactory, "Importing addresses", config);
 		}

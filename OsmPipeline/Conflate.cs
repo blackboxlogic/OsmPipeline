@@ -7,6 +7,7 @@ using OsmSharp.Tags;
 using OsmSharp;
 using Microsoft.Extensions.Logging;
 using OsmSharp.Complete;
+using OsmPipeline.Fittings;
 
 namespace OsmPipeline
 {
@@ -15,16 +16,40 @@ namespace OsmPipeline
 		private static ILogger Log;
 
 		public static OsmChange Merge(
-			ILoggerFactory loggerFactory, Osm reference, Osm subject)
+			ILoggerFactory loggerFactory, Osm reference, Osm subject, string scopeName)
 		{
 			Log = Log ?? loggerFactory.CreateLogger(typeof(Conflate));
-			List<OsmGeo> create = new List<OsmGeo>();
-			List<OsmGeo> modify = new List<OsmGeo>();
+			Merge(reference, subject, out List<OsmGeo> create, out List<OsmGeo> modify,
+				out List<OsmGeo> delete, out List<OsmGeo> exceptions);
+			ApplyNodesToBuildings(subject, create, modify);
+			FileSerializer.WriteXml(scopeName + "Conflated.Exceptions.osm", exceptions.AsOsm());
+			FileSerializer.WriteXml(scopeName + "Conflated.Create.osm", create.AsOsm());
+			//FileSerializer.WriteXml(scopeName + "Conflated.Delete.osm", WithNodes(delete, subject.Nodes).AsOsm());
+			FileSerializer.WriteXml(scopeName + "Conflated.Modify.osm", WithNodes(modify, subject.Nodes).AsOsm());
+
+			foreach (var element in create.Concat(modify))
+			{
+				element.Tags.RemoveKey("maineE911id");
+			}
+
+			var change = Fittings.Translate.GeosToChange(create, modify, delete, "OsmPipeline");
+
+			return change;
+		}
+
+		private static void Merge(Osm reference, Osm subject, out List<OsmGeo> create,
+			out List<OsmGeo> modify, out List<OsmGeo> delete, out List<OsmGeo> exceptions)
+		{
+			// Catch exceptions? and put items into excpetions list, with a NOTE about what why.
+
+			create = new List<OsmGeo>();
+			modify = new List<OsmGeo>();
+			delete = new List<OsmGeo>();
+			exceptions = new List<OsmGeo>(); // put stuff in here.
 
 			var subjectNodesById = subject.Nodes.ToDictionary(n => n.Id.Value);
 			var subjectWaysById = subject.Ways.ToDictionary(n => n.Id.Value);
 
-			OsmChange change = new OsmChange();
 			var subjectIndex = new OsmGeo[][] { subject.Nodes, subject.Ways, subject.Relations }
 				.SelectMany(e => e)
 				.GroupBy(e => GetAddrTags(e, false))
@@ -38,7 +63,7 @@ namespace OsmPipeline
 				{
 					if (subjectElements.Length > 1)
 					{
-						Log.LogWarning($"Multiple matches!");
+						Log.LogWarning($"Multiple matches!" + Identify(referenceElement) + Identify(subjectElements));
 					}
 					var refCentroid = Geometry.GetCentroid(referenceElement, subjectNodesById, subjectWaysById);
 					var closestMatch = subjectElements
@@ -50,13 +75,13 @@ namespace OsmPipeline
 					var subjectElement = closestMatch.element;
 					if (closestMatch.distance > 100)
 					{
-						Log.LogWarning($"Matched, but too far: {(int)closestMatch.distance} > 100 meters.\n{subjectElement.Type}:{subjectElement.Id}\n{referenceElement.Type}:{referenceElement.Id}");
+						Log.LogWarning($"Matched, but too far: {(int)closestMatch.distance} > 100 meters.{Identify(subjectElement, referenceElement)}");
 						create.Add(referenceElement);
 					}
 					else if (MergeTags(referenceElement, subjectElement, closestMatch.distance))
 					{
 						if (modify.Any(n => n.Id == subjectElement.Id))
-							Log.LogWarning($"Modified {subjectElement.Type}:{subjectElement.Id} again by {referenceElement.Type}:{referenceElement.Id}!");
+							Log.LogWarning("Subject modified again!" + Identify(subjectElement, referenceElement));
 						subjectElement.Version++;
 						modify.Add(subjectElement);
 					}
@@ -66,7 +91,10 @@ namespace OsmPipeline
 					create.Add(referenceElement);
 				}
 			}
+		}
 
+		private static void ApplyNodesToBuildings(Osm subject, List<OsmGeo> create, List<OsmGeo> modify)
+		{
 			var subjectNodesByID = subject.Nodes.ToDictionary(n => n.Id);
 			var subjectWaysByID = subject.Ways.ToDictionary(n => n.Id);
 			var nonAddrBuildings = subject.Ways
@@ -85,11 +113,26 @@ namespace OsmPipeline
 			foreach (var addrMerge in addrMerges)
 			{
 				create.Remove(addrMerge.Node);
-				addrMerge.Building.Tags.AddOrReplace(addrMerge.Node.Tags);
+				addrMerge.Building.Tags.AddOrReplace(addrMerge.Node.Tags); // Consider noting conflicts.
 				modify.Add(addrMerge.Building);
 			}
+		}
 
-			return Fittings.Translate.GeosToChange(create, modify, null, "OsmPipeline");
+		// Should handle relations too!
+		private static IEnumerable<OsmGeo> WithNodes(List<OsmGeo> source, Node[] nodes)
+		{
+			var wayNodes = new HashSet<long>(source.OfType<Way>().SelectMany(w => w.Nodes));
+			return source.Concat(nodes.Where(n => wayNodes.Contains(n.Id.Value)));
+		}
+
+		private static string Identify(params OsmGeo[] elements)
+		{
+			return "\n\t" + string.Join("\n\t", elements.Select(e => $"{e.Type.ToString().ToLower()}/{e.Id}"));
+		}
+
+		private static string Identify(string key, params OsmGeo[] elements)
+		{
+			return "\n\t" + string.Join("\n\t", elements.Select(e => $"{e.ToString().ToLower()}/{e.Id}.{key}={e.Tags[key]}"));
 		}
 
 		private static bool IsAddressy(OsmGeo element)
@@ -122,7 +165,7 @@ namespace OsmPipeline
 				{
 					if (value != tag.Value)
 					{
-						Log.LogError($"A tag conflict! Kept subject's tag.\n{subject.Type}:{subject.Id}.{tag.Key}={value}\n{reference.Type}:{reference.Id}.{tag.Key}={tag.Value}");
+						Log.LogError("A tag conflict! Kept subject's tag." + Identify(tag.Key, subject, reference));
 					}
 				}
 				else
