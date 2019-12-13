@@ -61,9 +61,12 @@ namespace OsmPipeline
 				var addr = referenceElement.GetAddrTags();
 				if (subjectIndex.TryGetValue(addr, out var subjectElements))
 				{
+					// If there are multiple matches, maybe check if all but one have tag conflicts?
 					if (subjectElements.Length > 1)
 					{
-						Log.LogWarning($"Multiple matches!" + Identify(referenceElement) + Identify(subjectElements));
+						referenceElement.Tags["excpetion"] = $"Multiple matches!" + Identify(subjectElements);
+						exceptions.Add(referenceElement);
+						continue;
 					}
 					var refCentroid = Geometry.GetCentroid(referenceElement, subjectNodesById, subjectWaysById);
 					var closestMatch = subjectElements
@@ -71,19 +74,35 @@ namespace OsmPipeline
 						.Select(match => new { match.element, distance = Geometry.DistanceMeters(refCentroid, match.centroid) })
 						.OrderBy(match => match.distance).First();
 					// Maybe choose 'best' by "doesn't have any tag conflicts"?
-					// Maybe every instance should be manually reviewed... files stores [mergeWith, ignore, addNew]
 					var subjectElement = closestMatch.element;
-					if (closestMatch.distance > 100)
+					if (closestMatch.distance > 100
+						&& !Geometry.IsNodeInBuilding(referenceElement, ((Way)subjectElement).AsCompleteWay(subjectNodesById)))
 					{
-						Log.LogWarning($"Matched, but too far: {(int)closestMatch.distance} > 100 meters.{Identify(subjectElement, referenceElement)}");
-						create.Add(referenceElement);
+						referenceElement.Tags["excpetion"] = $"Matched, but too far: {(int)closestMatch.distance} > 100 meters.{Identify(subjectElement)}";
+						exceptions.Add(referenceElement);
+						continue;
 					}
-					else if (MergeTags(referenceElement, subjectElement, closestMatch.distance))
+					else
 					{
-						if (modify.Any(n => n.Id == subjectElement.Id))
-							Log.LogWarning("Subject modified again!" + Identify(subjectElement, referenceElement));
-						subjectElement.Version++;
-						modify.Add(subjectElement);
+						bool tagsChanged;
+						try
+						{
+							tagsChanged = MergeTags(referenceElement, subjectElement, closestMatch.distance);
+						}
+						catch (Exception e)
+						{
+							referenceElement.Tags["excpetion"] = e.Message;
+							exceptions.Add(referenceElement);
+							continue;
+						}
+
+						if (tagsChanged)
+						{
+							if (modify.Any(n => n.Id == subjectElement.Id))
+								Log.LogWarning("Subject modified again!" + Identify(subjectElement, referenceElement));
+							subjectElement.Version++;
+							modify.Add(subjectElement);
+						}
 					}
 				}
 				else
@@ -93,13 +112,18 @@ namespace OsmPipeline
 			}
 		}
 
+		private static CompleteWay AsCompleteWay(this Way way, Dictionary<long, Node> nodes)
+		{
+			return new CompleteWay() { Id = way.Id.Value, Nodes = way.Nodes.Select(n => nodes[n]).ToArray() };
+		}
+
 		private static void ApplyNodesToBuildings(Osm subject, List<OsmGeo> create, List<OsmGeo> modify)
 		{
-			var subjectNodesByID = subject.Nodes.ToDictionary(n => n.Id);
+			var subjectNodesByID = subject.Nodes.ToDictionary(n => n.Id.Value);
 			var subjectWaysByID = subject.Ways.ToDictionary(n => n.Id);
 			var nonAddrBuildings = subject.Ways
 				.Where(w => IsBuilding(w) && !IsAddressy(w))
-				.Select(b => new CompleteWay() { Id = b.Id.Value, Nodes = b.Nodes.Select(n => subjectNodesByID[n]).ToArray() })
+				.Select(b => b.AsCompleteWay(subjectNodesByID))
 				.ToArray();
 			var addrSubjectNodes = subject.Nodes.Where(n => IsAddressy(n)).ToArray();
 			var buildingsWithOldAddrNodes = Geometry.NodesInBuildings(nonAddrBuildings, addrSubjectNodes);
@@ -132,7 +156,7 @@ namespace OsmPipeline
 
 		private static string Identify(string key, params OsmGeo[] elements)
 		{
-			return "\n\t" + string.Join("\n\t", elements.Select(e => $"{e.ToString().ToLower()}/{e.Id}.{key}={e.Tags[key]}"));
+			return "\n\t" + string.Join("\n\t", elements.Select(e => $"{e.Type.ToString().ToLower()}/{e.Id}.{key}={e.Tags[key]}"));
 		}
 
 		private static bool IsAddressy(OsmGeo element)
@@ -159,19 +183,21 @@ namespace OsmPipeline
 				}
 			}
 
-			foreach (var tag in reference.Tags.Where(t => t.Key != "maineE911id"))
+			foreach (var refTag in reference.Tags.Where(t => t.Key != "maineE911id"))
 			{
-				if (subject.Tags.TryGetValue(tag.Key, out string value))
+				if (subject.Tags.TryGetValue(refTag.Key, out string subValue))
 				{
-					if (value != tag.Value)
+					if (subValue != refTag.Value &&
+						TagsTrees.Keys.ContainsKey(refTag.Key) &&
+						!TagsTrees.Keys[refTag.Key].IsDecendantOf(refTag.Value, subValue))
 					{
-						Log.LogError("A tag conflict! Kept subject's tag." + Identify(tag.Key, subject, reference));
+						throw new Exception("A tag conflict! Kept subject's tag." + Identify(refTag.Key, subject, reference));
 					}
 				}
 				else
 				{
 					changed = true;
-					subject.Tags.Add(tag);
+					subject.Tags.Add(refTag);
 				}
 			}
 

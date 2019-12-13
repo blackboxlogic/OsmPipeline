@@ -4,6 +4,20 @@ using System.Linq;
 
 namespace OsmPipeline.Fittings
 {
+	public static class TagsTrees
+	{
+		public readonly static Dictionary<string, TagTreeHierarchy> Keys
+			= new Dictionary<string, TagTreeHierarchy>(StringComparer.OrdinalIgnoreCase);
+		static TagsTrees()
+		{
+			var building = new TagTreeHierarchy("building", "yes");
+			building.Add("yes", "commercial", "residential", "school", "hospital", "government");
+			building.Add("commercial", "retail", "office");
+			building.Add("residential", "apartments", "detached", "duplex", "static_caravan", "house");
+			Keys.Add("building", building);
+		}
+	}
+
 	public class TagTreeHierarchy
 	{
 		public readonly string Key;
@@ -34,6 +48,11 @@ namespace OsmPipeline.Fittings
 			var right = Index[b].GetAncestors().Select(n => n.Value).Reverse();
 			var firstCommonAncestor = left.Zip(right, (l, r) => l == r ? l : null).Last(p => p != null);
 			return firstCommonAncestor;
+		}
+
+		public bool IsDecendantOf(string a, string b)
+		{
+			return Index[a].GetAncestors().Any(n => n.Value == b);
 		}
 
 		private class TreeNode

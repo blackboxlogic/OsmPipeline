@@ -13,15 +13,6 @@ namespace OsmPipeline
 {
 	public static class Reference
 	{
-		static TagTreeHierarchy BuildingTagTree;
-		static Reference()
-		{
-			BuildingTagTree = new TagTreeHierarchy("building", "yes");
-			BuildingTagTree.Add("yes", "commercial", "residential", "school", "hospital", "government");
-			BuildingTagTree.Add("commercial", "retail", "office");
-			BuildingTagTree.Add("residential", "apartments", "detached", "duplex", "static_caravan", "house");
-		}
-
 		private static ILogger Log;
 
 		public static async Task<Osm> Fetch(ILoggerFactory loggerFactory, string scopeName)
@@ -264,7 +255,7 @@ namespace OsmPipeline
 		{
 			if (other.Tags.TryGetValue("building", out string otherBuilding))
 			{
-				newBuilding = BuildingTagTree.FindFirstCommonAncestor(myBuilding, otherBuilding);
+				newBuilding = TagsTrees.Keys["building"].FindFirstCommonAncestor(myBuilding, otherBuilding);
 				return true;
 			}
 
