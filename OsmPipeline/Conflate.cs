@@ -61,7 +61,7 @@ namespace OsmPipeline
 				var addr = referenceElement.GetAddrTags();
 				if (subjectIndex.TryGetValue(addr, out var subjectElements))
 				{
-					// If there are multiple matches, maybe check if all but one have tag conflicts?
+					// If there are multiple matches, maybe check if all but one have tag conflicts? Or if I'm IN one of them?
 					if (subjectElements.Length > 1)
 					{
 						referenceElement.Tags["excpetion"] = $"Multiple matches!" + Identify(subjectElements);
@@ -73,7 +73,6 @@ namespace OsmPipeline
 						.Select(element => new { element, centroid = Geometry.GetCentroid(element, subjectNodesById, subjectWaysById) })
 						.Select(match => new { match.element, distance = Geometry.DistanceMeters(refCentroid, match.centroid) })
 						.OrderBy(match => match.distance).First();
-					// Maybe choose 'best' by "doesn't have any tag conflicts"?
 					var subjectElement = closestMatch.element;
 					if (closestMatch.distance > 100
 						&& !Geometry.IsNodeInBuilding(referenceElement, ((Way)subjectElement).AsCompleteWay(subjectNodesById)))

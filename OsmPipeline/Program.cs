@@ -35,7 +35,7 @@ namespace OsmPipeline
 			var subject = await FileSerializer.ReadXmlCacheOrSource(scopeName + "Subject.osm",
 				() => Subject.GetElementsInBoundingBox(reference.Bounds));
 			// Apply a node to an encompasing building if it doesn't conflict and there is nothing else in the building
-			var conflated = FileSerializer.ReadXmlCacheOrSource(scopeName + "Conflated.osmChange",
+			var conflated = FileSerializer.ReadXmlCacheOrSource(scopeName + "Conflated.osc",
 				() => Conflate.Merge(loggerFactory, reference, subject, scopeName));
 
 			//var results = await Subject.UploadChange(conflated, loggerFactory, "Importing addresses", config);
