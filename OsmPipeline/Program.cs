@@ -28,6 +28,8 @@ namespace OsmPipeline
 		static async void ImportAddresses(string scopeName,
 			ILoggerFactory loggerFactory, IConfigurationRoot config)
 		{
+			var municipalities = await FileSerializer.ReadJsonCacheOrSource("MaineMunicipalities.json",
+				GeoJsonAPISource.GetMunicipalities);
 			// Loggers/config everywhere
 			// Split by bounding box instead of municipality.
 			var reference = await FileSerializer.ReadXmlCacheOrSource(scopeName + "Reference.osm",
