@@ -35,7 +35,7 @@ namespace OsmPipeline.Fittings
 		// From: https://pe.usps.com/text/pub28/28apc_002.htm
 		public static Dictionary<string, string> SuffixExpansions =
 			new Dictionary<string, string>(
-				FileSerializer.ReadJson<Dictionary<string, string>>(@"Resources/StreetSuffixes.json"),
+				FileSerializer.ReadJson<Dictionary<string, string>>(@"Resources/StreetSUFFIX.json"),
 				StringComparer.OrdinalIgnoreCase);
 
 		// OneWay... Only 2158 in Maine, 0 in Westbrook

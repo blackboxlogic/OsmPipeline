@@ -14,4 +14,16 @@
     <PackageReference Include="SharpKml.Core" Version="5.0.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="Resources\PLACE_TYPE.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Resources\StreetSUFFIX.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Resources\UNIT.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
