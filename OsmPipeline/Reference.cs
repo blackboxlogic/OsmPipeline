@@ -14,6 +14,25 @@ namespace OsmPipeline
 	public static class Reference
 	{
 		private static ILogger Log;
+		
+		// From: https://pe.usps.com/text/pub28/28apc_002.htm
+		public static Dictionary<string, string> StreetSUFFIX =
+			new Dictionary<string, string>(
+				FileSerializer.ReadJson<Dictionary<string, string>>(@"Resources/StreetSUFFIX.json"),
+				StringComparer.OrdinalIgnoreCase);
+
+		public static Dictionary<string, string> PrePostDIRs =
+			new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
+				{{ "N" , "North" },
+					{ "NE" , "North East" },
+					{ "E" , "East" },
+					{ "SE" , "South East" },
+					{ "S" , "South" },
+					{ "SW" , "South West" },
+					{ "W" , "West" },
+					{ "NW" , "North West" },
+					{ "" , "" },
+				};
 
 		private static Dictionary<string, Dictionary<string, string>> PLACE_TYPEs =
 			new Dictionary<string, Dictionary<string, string>>(
@@ -61,7 +80,7 @@ namespace OsmPipeline
 		private static Node Convert(Feature feature)
 		{
 			var props = feature.Properties;
-			var streetName = Streets.BuildStreetName((string)props["PREDIR"],
+			var streetName = BuildStreetName((string)props["PREDIR"],
 				(string)props["STREETNAME"], (string)props["POSTDIR"], (string)props["SUFFIX"]);
 			var level = Level((string)props["FLOOR"], out bool useFloorAsUnit);
 			var unit =  Unit(useFloorAsUnit ? (string)props["FLOOR"] : (string)props["UNIT"]);
@@ -217,12 +236,6 @@ namespace OsmPipeline
 					return level;
 				}).DefaultIfEmpty().Max();
 
-			//if (levels >= 1)
-			//{
-			//	stack[0].Tags["building:levels"] = levels.ToString();
-			//	stack[0].Tags.RemoveKey("level");
-			//}
-
 			stack[0].Latitude = stack.Average(n => n.Latitude);
 			stack[0].Longitude = stack.Average(n => n.Longitude);
 			Log.LogInformation("intersected " + string.Join(",", stack.Select(n => n.Id)));
@@ -283,19 +296,19 @@ namespace OsmPipeline
 
 			foreach (var f in features)
 			{
-				if (!Streets.SuffixExpansions.ContainsKey(f.Properties["SUFFIX"]))
+				if (!StreetSUFFIX.ContainsKey(f.Properties["SUFFIX"]))
 				{
 					Log.LogError("Bad SUFFIX");
 				}
-				if (!Streets.DirectionExpansions.ContainsKey(f.Properties["PREDIR"]))
+				if (!PrePostDIRs.ContainsKey(f.Properties["PREDIR"]))
 				{
 					Log.LogError("Bad PREDIR");
 				}
-				if (!Streets.DirectionExpansions.ContainsKey(f.Properties["POSTDIR"]))
+				if (!PrePostDIRs.ContainsKey(f.Properties["POSTDIR"]))
 				{
 					Log.LogError("Bad POSTDIR");
 				}
-				if (f.Properties["ELEVATION"] != 0)
+				if (f.Properties["ELEVATION"] != 0) // At time of writing, Maine GIS has no elevation data.
 				{
 					Log.LogError("Bad ELEVATION");
 				}
@@ -312,17 +325,18 @@ namespace OsmPipeline
 				{
 					Log.LogError("Bad bulding: " + (string)f.Properties["BUILDING"]);
 				}
-				//if (f.Properties["ROOM"] != "")
-				//{
-				//	Log.LogError("Bad Room: " + (string)f.Properties["ROOM"]);
-				//}
+				if (f.Properties["ROOM"] != "")
+				{
+					Log.LogError("Ignoring Room: " + (string)f.Properties["ROOM"]);
+				}
 				if (f.Properties["SEAT"] != "")
 				{
-					Log.LogError("Bad Room: " + (string)f.Properties["SEAT"]);
+					Log.LogError("Ognoring Seat: " + (string)f.Properties["SEAT"]);
 				}
-				if (((string)f.Properties["ZIPCODE"]).Count(char.IsNumber) != 5)
+				if (((string)f.Properties["ZIPCODE"]).Count(char.IsNumber) != 5
+					|| ((string)f.Properties["ZIPCODE"]).Length != 5)
 				{
-					Log.LogError("Bad Zipcode");
+					Log.LogError("Bad Zipcode: " + (string)f.Properties["ZIPCODE"]);
 				}
 			}
 		}
@@ -369,7 +383,7 @@ namespace OsmPipeline
 		}
 
 		// "FLR 1", "Floor 1", "1"
-		// Sometimes the floor contains what should be in UNIT, too complex to auto correct.
+		// Sometimes the floor contains what should be in UNIT
 		private static string Level(string floor, out bool useFloorAsUnit)
 		{
 			useFloorAsUnit = false;
@@ -401,6 +415,19 @@ namespace OsmPipeline
 			parts = parts.Select(part => UNITs.TryGetValue(part, out string replacement) ? replacement : part).ToArray();
 
 			return string.Join(' ', parts);
+		}
+
+		private static string BuildStreetName(string predir, string name, string postdir, string suffix)
+		{
+			var parts = new string[] {
+					PrePostDIRs[predir],
+					name,
+					PrePostDIRs[postdir],
+					StreetSUFFIX[suffix]
+				}.Where(p => p != "");
+
+			var fullName = string.Join(" ", parts);
+			return fullName;
 		}
 	}
 }
