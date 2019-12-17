@@ -86,7 +86,7 @@ namespace OsmPipeline.Fittings
 
 		class OutStatistics
 		{
-			public string statisticType;
+			public string statisticType; // min, max, avg, count
 			public string onStatisticField;
 			public string outStatisticFieldName;
 		}

@@ -1,0 +1,176 @@
+{
+    "Supermarket": {
+        "shop": "supermarket",
+        "building": "supermarket"
+    },
+    "School": {
+        "building": "school"
+    },
+    "MSCommNet Site": {},
+    "Law Enforcement -Municipal": {
+        "amenity": "police"
+    },
+    "Helo Access": {
+        "aeroway": "helipad"
+    },
+    "Residential": {
+        "building": "residential"
+    },
+    "Campground": {
+        "tourism": "camp_site"
+    },
+    "Apartment": {
+        "building": "apartments"
+    },
+    "Law Enforcement - Campus": {},
+    "Law Enforcement - County": {},
+    "Veterinarian": {},
+    "Hospital": {
+        "building": "hospital"
+    },
+    "Single Family": {
+        "building": "detached"
+    },
+    "Government - Municipal": {
+        "building": "government"
+    },
+    "Maine Built/CBP Share": {},
+    "Retail - Free Standing": {},
+    "Fire Station": {
+        "amenity": "fire_station"
+    },
+    "Retail - Enclosed Mall": {
+        "building": "retail",
+        "shop": "mall"
+    },
+    "Park": {
+        "leisure": "park"
+    },
+    "Law Enforcement - Military": {},
+    "Mixed Use": {},
+    "Library": {
+        "amenity": "library"
+    },
+    "Convience Store": {
+        "shop": "convenience"
+    },
+    "6": {},
+    "EMS Station": {
+        "emergency": "ambulance_station"
+    },
+    "Law Enforcement - Federal": {},
+    "Financial Institution": {
+        "amenity": "bank"
+    },
+    "Duplex": {
+        "building": "duplex"
+    },
+    "Golf Club": {
+        "leisure": "golf_course"
+    },
+    "Parking": {
+        "amenity": "parking"
+    },
+    "PSAP": {
+        "emergency": "psap"
+    },
+    "Marina": {
+        "leisure": "marina"
+    },
+    "Vacant Lot": {
+        "vacant": "yes"
+    },
+    "Tower": {
+        "man_made": "tower",
+        "tower:type": "communication"
+    },
+    "Military": {},
+    "Service Station": {},
+    "MSCommNet Corrections": {},
+    "Dealership": {
+        "shop": "car"
+    },
+    "": {},
+    "Vacant": {
+        "vacant": "yes"
+    },
+    "College - University": {},
+    "Lodging": {},
+    "Pharmacy": {
+        "amenity": "pharmacy"
+    },
+    "Ambulance Service": {
+        "emergency": "ambulance_station"
+    },
+    "Law Enforcement - Tribal": {},
+    "Apartments": {
+        "building": "apartments"
+    },
+    "Cemetery": {
+        "amenity": "grave_yard"
+    },
+    "Mobile Home": {
+        "building": "static_caravan"
+    },
+    "Office": {
+        "building": "office"
+    },
+    "Condominium": {
+        "building": "apartments"
+    },
+    "Industrial": {
+        "landuse": "industrial"
+    },
+    "Seasonal": {},
+    "Post Office": {
+        "amenity": "post_office"
+    },
+    "Government - Federal": {},
+    "Retail - Strip Mall": {
+        "building": "retail",
+        "shop": "mall"
+    },
+    "Utility": {},
+    "Public Health Office": {},
+    "Nursing Home": {
+        "amenity": "nursing_home"
+    },
+    "Government - State": {},
+    "Boat Landing": {
+        "leisure": "slipway"
+    },
+    "Mobile Home Park": {},
+    "CBP Built/Maine Share": {},
+    "Health Care": {
+        "amenity": "healthcare"
+    },
+    "County EMA": {},
+    "Other": {},
+    "Airport": {
+        "aeroway": "aerodrome"
+    },
+    "Comercial": {
+        "building": "commercial"
+    },
+    "Multi Family": {
+        "building": "apartments"
+    },
+    "Civic Center": {},
+    "Arena": {},
+    "Church": {
+        "building": "church"
+    },
+    "Sports Complex": {},
+    "Law Enforcement - State": {},
+    "Attraction": {
+        "tourism": "attraction"
+    },
+    "Government - County": {},
+    "Commercial": {
+        "building": "commercial"
+    },
+    "Restaurant": {
+        "amenity": "restaurant"
+    },
+    "Restaurant": {}
+}

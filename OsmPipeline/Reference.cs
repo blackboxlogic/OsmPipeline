@@ -15,6 +15,15 @@ namespace OsmPipeline
 	{
 		private static ILogger Log;
 
+		private static Dictionary<string, Dictionary<string, string>> PLACE_TYPEs =
+			new Dictionary<string, Dictionary<string, string>>(
+				FileSerializer.ReadJson<Dictionary<string, Dictionary<string, string>>>(@"Resources/PLACE_TYPE.json"),
+				StringComparer.OrdinalIgnoreCase);
+
+		private static Dictionary<string, string> UNITs =
+			new Dictionary<string, string>(FileSerializer.ReadJson<Dictionary<string, string>>(@"Resources/UNIT.json"),
+				StringComparer.OrdinalIgnoreCase);
+
 		public static async Task<Osm> Fetch(ILoggerFactory loggerFactory, string scopeName)
 		{
 			Log = Log ?? loggerFactory.CreateLogger(typeof(Reference));
@@ -54,7 +63,8 @@ namespace OsmPipeline
 			var props = feature.Properties;
 			var streetName = Streets.BuildStreetName((string)props["PREDIR"],
 				(string)props["STREETNAME"], (string)props["POSTDIR"], (string)props["SUFFIX"]);
-			var unit = Unit((string)props["UNIT"]);
+			var level = Level((string)props["FLOOR"], out bool useFloorAsUnit);
+			var unit =  Unit(useFloorAsUnit ? (string)props["FLOOR"] : (string)props["UNIT"]);
 			var tags = new[]
 			{
 				new Tag("name", Name((string)props["LANDMARK"], (string)props["LOC"], (string)props["BUILDING"])),
@@ -64,11 +74,11 @@ namespace OsmPipeline
 				new Tag("addr:city", (string)props["MUNICIPALITY"]),
 				new Tag("addr:state", (string)props["STATE"]),
 				new Tag("addr:postcode", (string)props["ZIPCODE"]),
-				new Tag("level", Level((string)props["FLOOR"])),
+				new Tag("level", level),
 				new Tag("maineE911id", ((int)props["OBJECTID"]).ToString())
 			};
 
-			var placeTags = GetPlaceTags((string)props["PLACE_TYPE"]);
+			var placeTags = PLACE_TYPEs[(string)props["PLACE_TYPE"]].Select(kvp => new Tag(kvp.Key, kvp.Value)).ToArray();
 			tags = tags.Concat(placeTags)
 				.Select(t => new Tag(t.Key, t.Value.Trim()))
 				.Where(t => t.Value != "")
@@ -295,7 +305,7 @@ namespace OsmPipeline
 					|| part.All(char.IsNumber));
 				if (!goodFloor)
 				{
-					Log.LogError("Bad Floor: " + (string)f.Properties["FLOOR"]);
+					Log.LogWarning("Bad Floor: " + (string)f.Properties["FLOOR"]);
 				}
 				if (!((string)f.Properties["BUILDING"]).All(char.IsNumber)
 					&& !((string)f.Properties["BUILDING"]).StartsWith("Bldg", StringComparison.OrdinalIgnoreCase))
@@ -319,7 +329,7 @@ namespace OsmPipeline
 
 		private static void Validate(Node[] nodes)
 		{
-			if (nodes.Length > 10000) Log.LogWarning($"{nodes.Length} Nodes is too big for one changest");
+			if (nodes.Length > 10000) Log.LogError($"{nodes.Length} Nodes is too big for one changest");
 
 			var duplicates = nodes.GroupBy(n => new { n.Tags })
 				.Select(g => g.ToArray())
@@ -328,51 +338,19 @@ namespace OsmPipeline
 
 			if (duplicates.Any())
 			{
-				Log.LogWarning(duplicates.Length + " Duplicate Node Tag sets (different lat-lon) have been detected and not corrected.");
+				Log.LogError(duplicates.Length + " Duplicate Node Tag sets (different lat-lon) have been detected and not corrected.");
 			}
 
 			foreach (var node in nodes)
 			{
-				if (node.Tags["addr:state"] != "ME") Log.LogError("Nope");
-				if (!node.Tags["addr:street"].All(c => char.IsLetter(c) || c == ' ')) Log.LogError("Nope");
-				if (!node.Tags["addr:housenumber"].All(char.IsNumber)) Log.LogError("Nope");
-				if (node.Latitude == 0 || node.Latitude == null) Log.LogError("Nope");
-				if (node.Longitude == 0 || node.Longitude == null) Log.LogError("Nope");
-			}
-		}
-
-		private static IEnumerable<Tag> GetPlaceTags(string placeType)
-		{
-			if (placeType == "") return new Tag[0]; //6398
-			else if (placeType == "Apartment") return new[] { new Tag("building", "apartments") }; //2696
-																								   //else if (placeType == "Commercial") return new Tag[0]; //284
-			else if (placeType == "Commercial") return new[] { new Tag("building", "commercial") }; //284
-			else if (placeType == "Other") return new Tag[0]; //282
-			else if (placeType == "Residential") return new[] { new Tag("building", "residential") }; //119
-			else if (placeType == "Single Family") return new[] { new Tag("building", "detached") }; //77
-			else if (placeType == "Condominium") return new[] { new Tag("building", "apartments"), new Tag("condo", "yes") }; //57
-			else if (placeType == "Multi Family") return new[] { new Tag("building", "apartments") }; //23
-			else if (placeType == "Mobile Home") return new[] { new Tag("building", "static_caravan") }; //18
-			else if (placeType == "Duplex") return new[] { new Tag("building", "duplex") }; //15
-			else if (placeType == "Government - Municipal") return new[] { new Tag("building", "government") }; //5
-			else if (placeType == "School") return new[] { new Tag("building", "school") }; //5
-			else if (placeType == "Utility") return new Tag[0]; //5
-			else if (placeType == "Parking") return new[] { new Tag("amenity", "parking") }; //4
-			else if (placeType == "Attraction") return new[] { new Tag("tourism", "attraction") }; //2
-			else if (placeType == "EMS Station") return new[] { new Tag("emergency", "ambulance_station") }; //2
-			else if (placeType == "Fire Station") return new[] { new Tag("amenity", "fire_station") };//2
-			else if (placeType == "Hospital") return new[] { new Tag("building", "hospital") }; //2
-			else if (placeType == "Nursing Home") return new[] { new Tag("amenity", "nursing_home") }; //2
-			else if (placeType == "Health Care") return new[] { new Tag("amenity", "healthcare") }; //1  
-			else if (placeType == "Law Enforcement -Municipal") return new[] { new Tag("amenity", "police") }; //1
-			else if (placeType == "Office") return new[] { new Tag("building", "office") }; //1
-			else if (placeType == "PSAP") return new[] { new Tag("emergency", "psap") }; //1
-			else if (placeType == "Retail - Enclosed Mall") return new[] { new Tag("building", "retail"), new Tag("shop", "mall") }; //1
-			else if (placeType == "Vacant Lot") return new[] { new Tag("vacant", "yes") }; //1
-			else
-			{
-				Log.LogError("Unrecognized PLACE_TYPE '{0}'", placeType);
-				throw new ArgumentOutOfRangeException("PLACE_TYPE=" + placeType);
+				if (node.Tags["addr:state"] != "ME" ||
+					!node.Tags["addr:street"].All(c => char.IsLetter(c) || c == ' ') ||
+					!node.Tags["addr:housenumber"].All(char.IsNumber) ||
+					node.Latitude == 0 || node.Latitude == null ||
+					node.Longitude == 0 || node.Longitude == null)
+				{
+					throw new Exception("BAD ADDRESS " + node);
+				}
 			}
 		}
 
@@ -385,99 +363,44 @@ namespace OsmPipeline
 
 			landmark = landmark + ' ' + building + ' ' + loc;
 			landmark = string.Join(' ', landmark.Split(' ', StringSplitOptions.RemoveEmptyEntries)
-				.Select(part => UnitExpansion.TryGetValue(part, out string replacement) ? replacement : part));
+				.Select(part => UNITs.TryGetValue(part, out string replacement) ? replacement : part));
 
 			return landmark;
 		}
 
 		// "FLR 1", "Floor 1", "1"
-		private static string Level(string floor)
+		// Sometimes the floor contains what should be in UNIT, too complex to auto correct.
+		private static string Level(string floor, out bool useFloorAsUnit)
 		{
-			return new string(floor.Where(char.IsNumber).ToArray());
+			useFloorAsUnit = false;
+			if (floor == "") return "";
+			if (floor.Contains("BSMT", StringComparison.OrdinalIgnoreCase)) return "-1";
+			else if (floor.Equals("FIRST", StringComparison.OrdinalIgnoreCase)) return "1";
+			else if (floor.Equals("SECOND", StringComparison.OrdinalIgnoreCase)) return "2";
+			else if (floor.Equals("THIRD", StringComparison.OrdinalIgnoreCase)) return "3";
+
+			var notFloors = new[] { "APT", "LOT", "TRLR", "UNIT", "STE" };
+			
+			if (notFloors.Any(n => floor.Contains(n, StringComparison.OrdinalIgnoreCase)))
+			{
+				useFloorAsUnit = true;
+				return "";
+			}
+
+			return new string(floor
+				.Replace('&', ';')
+				.Replace(',', ';')
+				.Where(c => char.IsNumber(c) || c == ';' || c =='.')
+				.ToArray());
 		}
 
 		// unit is: [prefix/pre-breviation] [AlphaNumeric ID]
 		private static string Unit(string unit)
 		{
 			var parts = unit.Split(' ', StringSplitOptions.RemoveEmptyEntries);
-			parts = parts.Select(part => UnitExpansion.TryGetValue(part, out string replacement) ? replacement : part).ToArray();
+			parts = parts.Select(part => UNITs.TryGetValue(part, out string replacement) ? replacement : part).ToArray();
 
 			return string.Join(' ', parts);
 		}
-
-		// https://pe.usps.com/text/pub28/28apc_003.htm
-		private static Dictionary<string, string> UnitAbbreviation =
-			new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
-			{ {"Apartment","APT"},
-			{"Basement","BSMT"},
-			{"",""},
-			{"Building","BLDG"},
-			{"Department","DEPT"},
-			{"Floor","FL"},
-			{"Front","FRNT"},
-			{"Hanger","HNGR"},
-			{"Key","KEY"},
-			{"Lobby","LBBY"},
-			{"Lot","LOT"},
-			{"Lower","LOWR"},
-			{"Office","OFC"},
-			{"Penthouse","PH"},
-			{"Pier","PIER"},
-			{"Rear","REAR"},
-			{"Room","RM"},
-			{"Side","SIDE"},
-			{"Slip","SLIP"},
-			{"Space","SPC"},
-			{"Stop","STOP"},
-			{"Suite","STE"},
-			{"Trailer","TRLR"},
-			{"Unit","UNIT"},
-			{"Upper","UPPR"} };
-
-		private static Dictionary<string, string> UnitExpansion =
-			new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
-			{
-				{"&","and"},
-				{"APT","Apartment"},
-				{"Apartment","Apartment"},
-				{"BSMT","Basement"},
-				{"Basement","Basement"},
-				{"BLDG","Building"},
-				{"Building","Building"},
-				{"DEPT","Department"},
-				{"Department","Department"},
-				{"FL","Floor"},
-				{"Floor","Floor"},
-				{"FRNT","Front"},
-				{"Front","Front"},
-				{"HNGR","Hanger"},
-				{"Hanger","Hanger"},
-				{"KEY","Key"},
-				{"LBBY","Lobby"},
-				{"Lobby","Lobby"},
-				{"LOT","Lot"},
-				{"LOWR","Lower"},
-				{"Lower","Lower"},
-				{"OFC","Office"},
-				{"Office","Office"},
-				{"PH","Penthouse"},
-				{"Penthouse","Penthouse"},
-				{"PIER","Pier"},
-				{"REAR","Rear"},
-				{"RM","Room"}, // Consider tagging as "room="
-				{"Room","Room"},
-				{"SIDE","Side"},
-				{"SLIP","Slip"},
-				{"SPC","Space"},
-				{"Space","Space"},
-				{"STOP","Stop"},
-				{"STE","Suite"},
-				{"Suite","Suite"},
-				{"TRLR","Trailer"},
-				{"Trailer","Trailer"},
-				{"UNIT","Unit"},
-				{"UPPR","Upper"},
-				{"Upper","Upper"}
-			};
 	}
 }

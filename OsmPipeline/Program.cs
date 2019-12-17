@@ -20,23 +20,25 @@ namespace OsmPipeline
 			serviceCollection.AddLogging(builder => builder.AddConsole().AddFilter(level => true));
 			var loggerFactory = serviceCollection.BuildServiceProvider().GetService<ILoggerFactory>();
 
-			ImportAddresses("Westbrook", loggerFactory, config);
+			//var municipalities = await FileSerializer.ReadJsonCacheOrSource("MaineMunicipalities.json",
+			//	GeoJsonAPISource.GetMunicipalities);
+			//foreach (var municipality in municipalities.keys)
+			//{
+				var municipality = "Westbrook";
+				ImportAddressesInScope(municipality, loggerFactory, config);
+			//}
 
 			Console.ReadKey(true);
 		}
 
-		static async void ImportAddresses(string scopeName,
+		static async void ImportAddressesInScope(string scopeName,
 			ILoggerFactory loggerFactory, IConfigurationRoot config)
 		{
-			var municipalities = await FileSerializer.ReadJsonCacheOrSource("MaineMunicipalities.json",
-				GeoJsonAPISource.GetMunicipalities);
-			// Loggers/config everywhere
-			// Split by bounding box instead of municipality.
+			// Flesh out the Place_Type translations
 			var reference = await FileSerializer.ReadXmlCacheOrSource(scopeName + "Reference.osm",
 				() => Reference.Fetch(loggerFactory, scopeName));
 			var subject = await FileSerializer.ReadXmlCacheOrSource(scopeName + "Subject.osm",
 				() => Subject.GetElementsInBoundingBox(reference.Bounds));
-			// Apply a node to an encompasing building if it doesn't conflict and there is nothing else in the building
 			var conflated = FileSerializer.ReadXmlCacheOrSource(scopeName + "Conflated.osc",
 				() => Conflate.Merge(loggerFactory, reference, subject, scopeName));
 
