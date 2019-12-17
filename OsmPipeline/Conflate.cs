@@ -40,12 +40,10 @@ namespace OsmPipeline
 		private static void Merge(Osm reference, Osm subject, out List<OsmGeo> create,
 			out List<OsmGeo> modify, out List<OsmGeo> delete, out List<OsmGeo> exceptions)
 		{
-			// Catch exceptions? and put items into excpetions list, with a NOTE about what why.
-
 			create = new List<OsmGeo>();
 			modify = new List<OsmGeo>();
 			delete = new List<OsmGeo>();
-			exceptions = new List<OsmGeo>(); // put stuff in here.
+			exceptions = new List<OsmGeo>();
 
 			var subjectNodesById = subject.Nodes.ToDictionary(n => n.Id.Value);
 			var subjectWaysById = subject.Ways.ToDictionary(n => n.Id.Value);
@@ -58,6 +56,13 @@ namespace OsmPipeline
 
 			foreach (var referenceElement in reference.Nodes)
 			{
+				if (referenceElement.Tags["addr:housenumber"] == "0")
+				{
+					referenceElement.Tags["excpetion"] = $"Missing house number!";
+					exceptions.Add(referenceElement);
+					continue;
+				}
+
 				var addr = referenceElement.GetAddrTags();
 				if (subjectIndex.TryGetValue(addr, out var subjectElements))
 				{

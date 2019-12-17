@@ -84,9 +84,10 @@ namespace OsmPipeline
 				(string)props["STREETNAME"], (string)props["POSTDIR"], (string)props["SUFFIX"]);
 			var level = Level((string)props["FLOOR"], out bool useFloorAsUnit);
 			var unit =  Unit(useFloorAsUnit ? (string)props["FLOOR"] : (string)props["UNIT"]);
-			var tags = new[]
+			var tags = new []
 			{
 				new Tag("name", Name((string)props["LANDMARK"], (string)props["LOC"], (string)props["BUILDING"])),
+				// Missing house numbers will have a "0" here. Mostly: Lewiston.
 				new Tag("addr:housenumber", ((int)props["ADDRESS_NUMBER"]).ToString()),
 				new Tag("addr:unit", unit),
 				new Tag("addr:street", streetName),
