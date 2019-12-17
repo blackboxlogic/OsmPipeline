@@ -42,7 +42,7 @@ namespace OsmPipeline
 			var conflated = FileSerializer.ReadXmlCacheOrSource(scopeName + "Conflated.osc",
 				() => Conflate.Merge(loggerFactory, reference, subject, scopeName));
 
-			//var results = await Subject.UploadChange(conflated, loggerFactory, "Importing addresses", config);
+			//var results = await Subject.UploadChange(conflated, loggerFactory, "Importing E911 addresses in " + scopeName, "Maine_E911_Addresses_Roads_PSAP", config);
 		}
 	}
 }

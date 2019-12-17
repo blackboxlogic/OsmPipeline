@@ -94,7 +94,7 @@
         "tower:type": "communication"
     },
     "Military": {
-        "landuse";
+        "landuse",
         "military"
     },
     "Service Station": {
