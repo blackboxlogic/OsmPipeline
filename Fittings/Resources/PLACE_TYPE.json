@@ -6,7 +6,9 @@
     "School": {
         "building": "school"
     },
-    "MSCommNet Site": {},
+    "MSCommNet Site": {
+        "man_made": "communications_tower"
+    },
     "Law Enforcement -Municipal": {
         "amenity": "police"
     },
@@ -24,7 +26,9 @@
     },
     "Law Enforcement - Campus": {},
     "Law Enforcement - County": {},
-    "Veterinarian": {},
+    "Veterinarian": {
+        "amenity": "veterinary"
+    },
     "Hospital": {
         "building": "hospital"
     },
@@ -34,8 +38,13 @@
     "Government - Municipal": {
         "building": "government"
     },
-    "Maine Built/CBP Share": {},
-    "Retail - Free Standing": {},
+    "Maine Built/CBP Share": {
+        "man_made": "communications_tower",
+        "operator": "Customs and Border Patrol"
+    },
+    "Retail - Free Standing": {
+        "shop": "yes"
+    },
     "Fire Station": {
         "amenity": "fire_station"
     },
@@ -84,8 +93,13 @@
         "man_made": "tower",
         "tower:type": "communication"
     },
-    "Military": {},
-    "Service Station": {},
+    "Military": {
+        "landuse";
+        "military"
+    },
+    "Service Station": {
+        "amenity": "fuel"
+    },
     "MSCommNet Corrections": {},
     "Dealership": {
         "shop": "car"
@@ -155,12 +169,18 @@
     "Multi Family": {
         "building": "apartments"
     },
-    "Civic Center": {},
-    "Arena": {},
+    "Civic Center": {
+        "amenity": "community_centre"
+    },
+    "Arena": {
+        "leisure": "sports_centre"
+    },
     "Church": {
         "building": "church"
     },
-    "Sports Complex": {},
+    "Sports Complex": {
+        "leisure": "sports_centre"
+    },
     "Law Enforcement - State": {},
     "Attraction": {
         "tourism": "attraction"
@@ -171,6 +191,5 @@
     },
     "Restaurant": {
         "amenity": "restaurant"
-    },
-    "Restaurant": {}
+    }
 }
