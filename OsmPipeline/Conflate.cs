@@ -58,7 +58,7 @@ namespace OsmPipeline
 			{
 				if (referenceElement.Tags["addr:housenumber"] == "0")
 				{
-					referenceElement.Tags["excpetion"] = $"Missing house number!";
+					referenceElement.Tags["exception"] = $"Missing house number!";
 					exceptions.Add(referenceElement);
 					continue;
 				}
@@ -69,7 +69,7 @@ namespace OsmPipeline
 					// If there are multiple matches, maybe check if all but one have tag conflicts? Or if I'm IN one of them?
 					if (subjectElements.Length > 1)
 					{
-						referenceElement.Tags["excpetion"] = $"Multiple matches!" + Identify(subjectElements);
+						referenceElement.Tags["exception"] = $"Multiple matches!" + Identify(subjectElements);
 						exceptions.Add(referenceElement);
 						continue;
 					}
@@ -82,7 +82,7 @@ namespace OsmPipeline
 					if (closestMatch.distance > 100
 						&& !Geometry.IsNodeInBuilding(referenceElement, ((Way)subjectElement).AsCompleteWay(subjectNodesById)))
 					{
-						referenceElement.Tags["excpetion"] = $"Matched, but too far: {(int)closestMatch.distance} > 100 meters.{Identify(subjectElement)}";
+						referenceElement.Tags["exception"] = $"Matched, but too far: {(int)closestMatch.distance} > 100 meters.{Identify(subjectElement)}";
 						exceptions.Add(referenceElement);
 						continue;
 					}
@@ -95,7 +95,7 @@ namespace OsmPipeline
 						}
 						catch (Exception e)
 						{
-							referenceElement.Tags["excpetion"] = e.Message;
+							referenceElement.Tags["exception"] = e.Message;
 							exceptions.Add(referenceElement);
 							continue;
 						}
