@@ -94,8 +94,7 @@
         "tower:type": "communication"
     },
     "Military": {
-        "landuse",
-        "military"
+        "landuse": "military"
     },
     "Service Station": {
         "amenity": "fuel"

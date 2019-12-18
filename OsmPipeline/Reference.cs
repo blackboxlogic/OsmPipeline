@@ -21,6 +21,14 @@ namespace OsmPipeline
 				FileSerializer.ReadJson<Dictionary<string, string>>(@"Resources/StreetSUFFIX.json"),
 				StringComparer.OrdinalIgnoreCase);
 
+		public static Dictionary<string, string> MUNICIPALITY =
+			new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
+			{
+				{ "TWP", "Township" },
+				{ "RES", "Reservation" },
+				{ "PLT", "Plantation" }
+			};
+
 		public static Dictionary<string, string> PrePostDIRs =
 			new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
 				{{ "N" , "North" },
@@ -84,6 +92,7 @@ namespace OsmPipeline
 				(string)props["STREETNAME"], (string)props["POSTDIR"], (string)props["SUFFIX"]);
 			var level = Level((string)props["FLOOR"], out bool useFloorAsUnit);
 			var unit =  Unit(useFloorAsUnit ? (string)props["FLOOR"] : (string)props["UNIT"]);
+			var city = City((string)props["MUNICIPALITY"]);
 			var tags = new []
 			{
 				new Tag("name", Name((string)props["LANDMARK"], (string)props["LOC"], (string)props["BUILDING"])),
@@ -91,7 +100,7 @@ namespace OsmPipeline
 				new Tag("addr:housenumber", ((int)props["ADDRESS_NUMBER"]).ToString()),
 				new Tag("addr:unit", unit),
 				new Tag("addr:street", streetName),
-				new Tag("addr:city", (string)props["MUNICIPALITY"]),
+				new Tag("addr:city", city),
 				new Tag("addr:state", (string)props["STATE"]),
 				new Tag("addr:postcode", (string)props["ZIPCODE"]),
 				new Tag("level", level),
@@ -117,7 +126,7 @@ namespace OsmPipeline
 			return n;
 		}
 		// Keys which can be removed in order to combine congruent nodes
-		private static string[] SacrificialKeys = new[] { "addr:unit", "level", "condo", "maineE911id" };
+		private static string[] SacrificialKeys = new[] { "addr:unit", "level", "maineE911id" };
 
 		// a
 		// b
@@ -429,6 +438,14 @@ namespace OsmPipeline
 
 			var fullName = string.Join(" ", parts);
 			return fullName;
+		}
+
+		private static string City(string municipality)
+		{
+			var parts = municipality.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+			parts = parts.Select(part => MUNICIPALITY.TryGetValue(part, out string replacement) ? replacement : part).ToArray();
+
+			return string.Join(' ', parts);
 		}
 	}
 }
