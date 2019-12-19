@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<osm version="0.6">
+  <node id="-2050877" lat="43.6777367577525" lon="-70.3581861718153" version="1">
+    <tag k="addr:housenumber" v="672" />
+    <tag k="addr:street" v="Main Street" />
+    <tag k="addr:city" v="Westbrook" />
+    <tag k="addr:state" v="ME" />
+    <tag k="addr:postcode" v="04092" />
+    <tag k="building" v="commercial" />
+    <tag k="maineE911id" v="2050877;2050878;2050879;2050880;1808108;2050876" />
+    <tag k="exception" v="Multiple matches!&#xA;	node/6557966132&#xA;	node/6558754761" />
+  </node>
+  <node id="-1829253" lat="43.6790429420669" lon="-70.3539603795444" version="1">
+    <tag k="name" v="Westbrook Fire and Rescue Station 1" />
+    <tag k="addr:housenumber" v="570" />
+    <tag k="addr:street" v="Main Street" />
+    <tag k="addr:city" v="Westbrook" />
+    <tag k="addr:state" v="ME" />
+    <tag k="addr:postcode" v="04092" />
+    <tag k="maineE911id" v="1829253" />
+    <tag k="amenity" v="fire_station" />
+    <tag k="exception" v="Multiple matches!&#xA;	way/421324983&#xA;	way/421324984" />
+  </node>
+  <node id="-2052977" lat="43.678917876087" lon="-70.3538769278315" version="1">
+    <tag k="name" v="Westbrook Fire and Rescue Station 1" />
+    <tag k="addr:housenumber" v="570" />
+    <tag k="addr:street" v="Main Street" />
+    <tag k="addr:city" v="Westbrook" />
+    <tag k="addr:state" v="ME" />
+    <tag k="addr:postcode" v="04092" />
+    <tag k="maineE911id" v="2052977" />
+    <tag k="emergency" v="ambulance_station" />
+    <tag k="exception" v="Multiple matches!&#xA;	way/421324983&#xA;	way/421324984" />
+  </node>
+  <node id="-2053902" lat="43.6792173692859" lon="-70.3540573479036" version="1">
+    <tag k="name" v="Westbrook Police Department" />
+    <tag k="addr:housenumber" v="570" />
+    <tag k="addr:street" v="Main Street" />
+    <tag k="addr:city" v="Westbrook" />
+    <tag k="addr:state" v="ME" />
+    <tag k="addr:postcode" v="04092" />
+    <tag k="maineE911id" v="2053902" />
+    <tag k="emergency" v="psap" />
+    <tag k="exception" v="Multiple matches!&#xA;	way/421324983&#xA;	way/421324984" />
+  </node>
+  <node id="-2053903" lat="43.6793150440222" lon="-70.3537928144719" version="1">
+    <tag k="name" v="Westbrook Police Department" />
+    <tag k="addr:housenumber" v="570" />
+    <tag k="addr:street" v="Main Street" />
+    <tag k="addr:city" v="Westbrook" />
+    <tag k="addr:state" v="ME" />
+    <tag k="addr:postcode" v="04092" />
+    <tag k="maineE911id" v="2053903" />
+    <tag k="amenity" v="police" />
+    <tag k="exception" v="Multiple matches!&#xA;	way/421324983&#xA;	way/421324984" />
+  </node>
+  <node id="-2549195" lat="43.6693116725974" lon="-70.3598629456249" version="1">
+    <tag k="addr:housenumber" v="200" />
+    <tag k="addr:street" v="Spring Street" />
+    <tag k="addr:city" v="Westbrook" />
+    <tag k="addr:state" v="ME" />
+    <tag k="addr:postcode" v="04092" />
+    <tag k="maineE911id" v="2549195" />
+    <tag k="building" v="detached" />
+    <tag k="exception" v="A tag conflict! Kept subject's tag.&#xA;	way/743441523.building=house&#xA;	node/-2549195.building=detached" />
+  </node>
+</osm>
