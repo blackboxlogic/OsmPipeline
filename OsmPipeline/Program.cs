@@ -40,7 +40,6 @@ namespace OsmPipeline
 		static async void ImportAddressesInScope(string scopeName)
 		{
 			// Should municpality be trusted, even for r7 t2? Could leave city off I guess.
-			// Flesh out the Place_Type translations
 			var reference = await FileSerializer.ReadXmlCacheOrSource(scopeName + "/Reference.osm",
 				() => Reference.Fetch(scopeName));
 			var subject = await FileSerializer.ReadXmlCacheOrSource(scopeName + "/Subject.osm",
@@ -48,7 +47,8 @@ namespace OsmPipeline
 			var conflated = FileSerializer.ReadXmlCacheOrSource(scopeName + "/Conflated.osc",
 				() => Conflate.Merge(reference, subject, scopeName));
 
-			//var results = await Subject.UploadChange(conflated, loggerFactory, "Importing E911 addresses in " + scopeName, "Maine_E911_Addresses_Roads_PSAP", config);
+			//var results = await Subject.UploadChange(conflated,
+			//	"Importing E911 addresses in " + scopeName, "Maine_E911_Addresses_Roads_PSAP");
 		}
 	}
 }

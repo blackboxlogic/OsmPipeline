@@ -34,15 +34,15 @@ namespace OsmPipeline
 		}
 
 		public static async Task<DiffResult> UploadChange(OsmChange change,
-			ILoggerFactory logger, string comment, string source, string scope, bool review_requested, IConfigurationRoot config)
+			string comment, string source, string scope, bool review_requested)
 		{
 			var osmApiClient = new BasicAuthClient(new HttpClient(),
-				logger.CreateLogger<BasicAuthClient>(), config["OsmApiUrl"],
-				config["OsmUsername"], config["OsmPassword"]);
+				Static.LogFactory.CreateLogger<BasicAuthClient>(), Static.Config["OsmApiUrl"],
+				Static.Config["OsmUsername"], Static.Config["OsmPassword"]);
 			var changeSetTags = new TagsCollection()
 			{
 				new Tag("comment", comment),
-				new Tag("created_by", config["CreatedBy"]),
+				new Tag("created_by", Static.Config["CreatedBy"]),
 				new Tag("bot", "yes"),
 				new Tag("source", source),
 				new Tag("review_requested", review_requested ? "yes" : "no"),
