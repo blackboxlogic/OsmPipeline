@@ -15,17 +15,16 @@ namespace OsmPipeline
 	{
 		private static ILogger Log;
 
-		public static OsmChange Merge(
-			ILoggerFactory loggerFactory, Osm reference, Osm subject, string scopeName)
+		public static OsmChange Merge(Osm reference, Osm subject, string scopeName)
 		{
-			Log = Log ?? loggerFactory.CreateLogger(typeof(Conflate));
+			Log = Log ?? Static.LogFactory.CreateLogger(typeof(Conflate));
 			Merge(reference, subject, out List<OsmGeo> create, out List<OsmGeo> modify,
 				out List<OsmGeo> delete, out List<OsmGeo> exceptions);
 			ApplyNodesToBuildings(subject, create, modify);
-			FileSerializer.WriteXml(scopeName + "Conflated.Exceptions.osm", exceptions.AsOsm());
-			FileSerializer.WriteXml(scopeName + "Conflated.Create.osm", create.AsOsm());
-			//FileSerializer.WriteXml(scopeName + "Conflated.Delete.osm", WithNodes(delete, subject.Nodes).AsOsm());
-			FileSerializer.WriteXml(scopeName + "Conflated.Modify.osm", WithNodes(modify, subject.Nodes).AsOsm());
+			FileSerializer.WriteXml(scopeName + "/Conflated.Exceptions.osm", exceptions.AsOsm());
+			FileSerializer.WriteXml(scopeName + "/Conflated.Create.osm", create.AsOsm());
+			//FileSerializer.WriteXml(scopeName + "/Conflated.Delete.osm", WithNodes(delete, subject.Nodes).AsOsm());
+			FileSerializer.WriteXml(scopeName + "/Conflated.Modify.osm", WithNodes(modify, subject.Nodes).AsOsm());
 
 			foreach (var element in create.Concat(modify))
 			{

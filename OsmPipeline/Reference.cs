@@ -8,6 +8,7 @@ using OsmPipeline.Fittings;
 using System.Collections.Generic;
 using OsmSharp.API;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Configuration;
 
 namespace OsmPipeline
 {
@@ -51,18 +52,18 @@ namespace OsmPipeline
 			new Dictionary<string, string>(FileSerializer.ReadJson<Dictionary<string, string>>(@"Resources/UNIT.json"),
 				StringComparer.OrdinalIgnoreCase);
 
-		public static async Task<Osm> Fetch(ILoggerFactory loggerFactory, string scopeName)
+		public static async Task<Osm> Fetch(string scopeName)
 		{
-			Log = Log ?? loggerFactory.CreateLogger(typeof(Reference));
+			Log = Log ?? Static.LogFactory.CreateLogger(typeof(Reference));
 
 			// Fetch GIS
 			var stateGis = await FileSerializer.ReadJsonCacheOrSource(
-				scopeName + "ReferenceRaw.GeoJson", () => GeoJsonAPISource.FetchMunicipality(scopeName));
+				scopeName + "/ReferenceRaw.GeoJson", () => GeoJsonAPISource.FetchMunicipality(scopeName));
 			var gisFeatures = stateGis.Features.ToArray();
 			Validate(gisFeatures);
 
 			// Fetch the list of objectIDs with known errors to omit.
-			var errorList = FileSerializer.ReadJson<HashSet<int>>(scopeName + "ErrorObjectIDs.json");
+			var errorList = FileSerializer.ReadJson<HashSet<int>>("ErrorObjectIDs.json");
 
 			// Convert
 			var nodes = gisFeatures
@@ -70,7 +71,7 @@ namespace OsmPipeline
 				.Select(Convert)
 				.ToArray();
 			var translated = new Osm() { Nodes = nodes, Version = .6 };
-			FileSerializer.WriteXml(scopeName + "ReferenceTranslated.osm", translated);
+			FileSerializer.WriteXml(scopeName + "/ReferenceTranslated.osm", translated);
 			nodes = HandleStacks(nodes);
 			Validate(nodes);
 			var bounds = new Bounds()

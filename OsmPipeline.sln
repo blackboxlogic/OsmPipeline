@@ -5,7 +5,15 @@ VisualStudioVersion = 16.0.29009.5
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OsmPipeline", "OsmPipeline\OsmPipeline.csproj", "{5E4DFB66-8ED2-481A-A1AD-D9E18A8FB996}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fittings", "Fittings\Fittings.csproj", "{74D1DE06-192B-4BA5-B76B-BB479394D8C6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fittings", "Fittings\Fittings.csproj", "{74D1DE06-192B-4BA5-B76B-BB479394D8C6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{7EDBE4B1-5AF9-4F3C-92E1-1EA31AA6B340}"
+	ProjectSection(SolutionItems) = preProject
+		Data\ErrorObjectIDs.json = Data\ErrorObjectIDs.json
+		Data\PLACE_TYPE.json = Data\PLACE_TYPE.json
+		Data\StreetSUFFIX.json = Data\StreetSUFFIX.json
+		Data\UNIT.json = Data\UNIT.json
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
