@@ -14,8 +14,7 @@ namespace OsmPipeline
 	public static class Reference
 	{
 		private static ILogger Log;
-		
-		// From: https://pe.usps.com/text/pub28/28apc_002.htm
+
 		public static Dictionary<string, string> StreetSUFFIX =
 			new Dictionary<string, string>(
 				FileSerializer.ReadJson<Dictionary<string, string>>(@"StreetSUFFIX.json"),
