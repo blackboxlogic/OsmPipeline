@@ -183,7 +183,7 @@ namespace OsmPipeline
 				.ToArray();
 			foreach (var stack in stacks)
 			{
-				Geometry.Nudge(stack, 0, .00001);
+				Fittings.Geometry.Nudge(stack, 0, .00001);
 			}
 
 			Log.LogInformation($"{nodes.Length - results.Count} nodes have been removed from {nodes.Length} (de-duped or combined)");
@@ -199,7 +199,7 @@ namespace OsmPipeline
 
 		private static List<List<Node>> GroupCloseNeighbors(Node[] address, double closenessMeters)
 		{
-			var stacks = address.GroupBy(Geometry.AsLocation)
+			var stacks = address.GroupBy(Fittings.Geometry.AsLocation)
 				.Select(stack => new
 				{
 					positions = new List<Position> { stack.Key },
@@ -211,7 +211,7 @@ namespace OsmPipeline
 			{
 				for (int j = i + 1; j < stacks.Count; j++)
 				{
-					var maybeMergeable = stacks[i].positions.SelectMany(l => stacks[j].positions, Geometry.DistanceMeters)
+					var maybeMergeable = stacks[i].positions.SelectMany(l => stacks[j].positions, Fittings.Geometry.DistanceMeters)
 						.All(d => d < closenessMeters);
 					if (maybeMergeable)
 					{
