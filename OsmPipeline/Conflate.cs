@@ -55,7 +55,7 @@ namespace OsmPipeline
 
 			foreach (var referenceElement in reference.Nodes)
 			{
-				if (referenceElement.Tags["addr:housenumber"] == "0")
+				if (referenceElement.Tags["addr:housenumber"] == "0") // indicates there was a missing address.
 				{
 					referenceElement.Tags["exception"] = $"Missing house number!";
 					exceptions.Add(referenceElement);

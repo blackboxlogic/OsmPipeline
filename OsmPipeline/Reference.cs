@@ -298,7 +298,12 @@ namespace OsmPipeline
 
 		private static void Validate(Feature[] features)
 		{
-			int[] duplicateObjectIds = features.Select(f => (int)f.Properties["OBJECTID"]).GroupBy(x => x).Where(x => x.Skip(1).Any()).Select(x => x.Key).ToArray();
+			int[] duplicateObjectIds = features
+				.Select(f => (int)f.Properties["OBJECTID"])
+				.GroupBy(x => x)
+				.Where(x => x.Skip(1).Any())
+				.Select(x => x.Key)
+				.ToArray();
 			if (duplicateObjectIds.Any())
 			{
 				Log.LogError("ObjectIDs aren't unique");
