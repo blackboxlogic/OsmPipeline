@@ -348,9 +348,9 @@ namespace OsmPipeline
 				{
 					Log.LogError("Bad Zipcode: " + (string)f.Properties["ZIPCODE"]);
 				}
-				if ((int)f.Properties["HOUSENUMBER"] <= 0)
+				if ((int)f.Properties["ADDRESS_NUMBER"] <= 0)
 				{
-					Log.LogError("Bad HOUSENUMBER: " + (string)f.Properties["HOUSENUMBER"]);
+					Log.LogError("Bad ADDRESS_NUMBER: " + (string)f.Properties["ADDRESS_NUMBER"]);
 				}
 			}
 		}

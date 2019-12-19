@@ -876,6 +876,13 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
     </node>
+    <node id="-1526482" lat="43.6837256699145" lon="-70.3791277920033" version="1">
+      <tag k="addr:housenumber" v="235" />
+      <tag k="addr:street" v="Conant Street" />
+      <tag k="addr:city" v="Westbrook" />
+      <tag k="addr:state" v="ME" />
+      <tag k="addr:postcode" v="04092" />
+    </node>
     <node id="-1526483" lat="43.6813561396582" lon="-70.3758912407544" version="1">
       <tag k="addr:housenumber" v="148" />
       <tag k="addr:street" v="Conant Street" />
@@ -1572,7 +1579,6 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
       <tag k="building" v="apartments" />
-      <tag k="condo" v="yes" />
     </node>
     <node id="-1566436" lat="43.7162719421068" lon="-70.336153128534" version="1">
       <tag k="addr:housenumber" v="438" />
@@ -4290,13 +4296,6 @@
     </node>
     <node id="-1641211" lat="43.6825357198084" lon="-70.3807382151273" version="1">
       <tag k="addr:housenumber" v="260" />
-      <tag k="addr:street" v="Conant Street" />
-      <tag k="addr:city" v="Westbrook" />
-      <tag k="addr:state" v="ME" />
-      <tag k="addr:postcode" v="04092" />
-    </node>
-    <node id="-1641212" lat="43.6823708844084" lon="-70.3791029545332" version="1">
-      <tag k="addr:housenumber" v="227" />
       <tag k="addr:street" v="Conant Street" />
       <tag k="addr:city" v="Westbrook" />
       <tag k="addr:state" v="ME" />
@@ -18784,7 +18783,6 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
       <tag k="building" v="apartments" />
-      <tag k="condo" v="yes" />
     </node>
     <node id="-1821289" lat="43.7286178894485" lon="-70.3417727846809" version="1">
       <tag k="addr:housenumber" v="44" />
@@ -18793,7 +18791,6 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
       <tag k="building" v="apartments" />
-      <tag k="condo" v="yes" />
     </node>
     <node id="-1821290" lat="43.7276757604477" lon="-70.3422608082899" version="1">
       <tag k="addr:housenumber" v="18" />
@@ -18802,7 +18799,6 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
       <tag k="building" v="apartments" />
-      <tag k="condo" v="yes" />
     </node>
     <node id="-1821291" lat="43.7304687274762" lon="-70.3413422785607" version="1">
       <tag k="addr:housenumber" v="40" />
@@ -28873,7 +28869,6 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
       <tag k="building" v="apartments" />
-      <tag k="condo" v="yes" />
     </node>
     <node id="-2049709" lat="43.7110804360565" lon="-70.3342937950216" version="1">
       <tag k="name" v="Winslow Green" />
@@ -28884,7 +28879,6 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
       <tag k="building" v="apartments" />
-      <tag k="condo" v="yes" />
     </node>
     <node id="-2049710" lat="43.7109470068378" lon="-70.3341542958274" version="1">
       <tag k="name" v="Winslow Green" />
@@ -28895,7 +28889,6 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
       <tag k="building" v="apartments" />
-      <tag k="condo" v="yes" />
     </node>
     <node id="-2049711" lat="43.7108717252092" lon="-70.334047118662" version="1">
       <tag k="name" v="Winslow Green" />
@@ -28906,7 +28899,6 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
       <tag k="building" v="apartments" />
-      <tag k="condo" v="yes" />
     </node>
     <node id="-2049712" lat="43.7114514318941" lon="-70.3333648682216" version="1">
       <tag k="name" v="Winslow Green" />
@@ -28917,7 +28909,6 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
       <tag k="building" v="apartments" />
-      <tag k="condo" v="yes" />
     </node>
     <node id="-2049713" lat="43.7113713592227" lon="-70.3332824102696" version="1">
       <tag k="name" v="Winslow Green" />
@@ -28928,7 +28919,6 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
       <tag k="building" v="apartments" />
-      <tag k="condo" v="yes" />
     </node>
     <node id="-2049714" lat="43.7112298681292" lon="-70.3330620516405" version="1">
       <tag k="name" v="Winslow Green" />
@@ -28939,7 +28929,6 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
       <tag k="building" v="apartments" />
-      <tag k="condo" v="yes" />
     </node>
     <node id="-2049715" lat="43.7111575664131" lon="-70.3330852741002" version="1">
       <tag k="name" v="Winslow Green" />
@@ -28950,7 +28939,6 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
       <tag k="building" v="apartments" />
-      <tag k="condo" v="yes" />
     </node>
     <node id="-2049716" lat="43.7110115877194" lon="-70.3332496081607" version="1">
       <tag k="name" v="Winslow Green" />
@@ -28961,7 +28949,6 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
       <tag k="building" v="apartments" />
-      <tag k="condo" v="yes" />
     </node>
     <node id="-2049717" lat="43.710942918076" lon="-70.3333473864188" version="1">
       <tag k="name" v="Winslow Green" />
@@ -28972,7 +28959,6 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
       <tag k="building" v="apartments" />
-      <tag k="condo" v="yes" />
     </node>
     <node id="-2049718" lat="43.7108239435933" lon="-70.333512318105" version="1">
       <tag k="name" v="Winslow Green" />
@@ -28983,7 +28969,6 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
       <tag k="building" v="apartments" />
-      <tag k="condo" v="yes" />
     </node>
     <node id="-2049719" lat="43.7107642752562" lon="-70.333610295387" version="1">
       <tag k="name" v="Winslow Green" />
@@ -28994,7 +28979,6 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
       <tag k="building" v="apartments" />
-      <tag k="condo" v="yes" />
     </node>
     <node id="-2049720" lat="43.7106456624624" lon="-70.333744202758" version="1">
       <tag k="name" v="Winslow Green" />
@@ -29005,7 +28989,6 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
       <tag k="building" v="apartments" />
-      <tag k="condo" v="yes" />
     </node>
     <node id="-2049721" lat="43.710585559428" lon="-70.3338794074456" version="1">
       <tag k="name" v="Winslow Green" />
@@ -29016,7 +28999,6 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
       <tag k="building" v="apartments" />
-      <tag k="condo" v="yes" />
     </node>
     <node id="-2049722" lat="43.710489305287" lon="-70.3340262223963" version="1">
       <tag k="name" v="Winslow Green" />
@@ -29027,7 +29009,6 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
       <tag k="building" v="apartments" />
-      <tag k="condo" v="yes" />
     </node>
     <node id="-2049723" lat="43.7104114161757" lon="-70.33414241312" version="1">
       <tag k="name" v="Winslow Green" />
@@ -29038,7 +29019,6 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
       <tag k="building" v="apartments" />
-      <tag k="condo" v="yes" />
     </node>
     <node id="-2049724" lat="43.7102883020128" lon="-70.3342762187943" version="1">
       <tag k="name" v="Winslow Green" />
@@ -29049,7 +29029,6 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
       <tag k="building" v="apartments" />
-      <tag k="condo" v="yes" />
     </node>
     <node id="-2049725" lat="43.7102287779248" lon="-70.3343617852099" version="1">
       <tag k="name" v="Winslow Green" />
@@ -29060,7 +29039,6 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
       <tag k="building" v="apartments" />
-      <tag k="condo" v="yes" />
     </node>
     <node id="-2049726" lat="43.7101556065915" lon="-70.3344594610473" version="1">
       <tag k="name" v="Winslow Green" />
@@ -29071,7 +29049,6 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
       <tag k="building" v="apartments" />
-      <tag k="condo" v="yes" />
     </node>
     <node id="-2049727" lat="43.7100640698546" lon="-70.3345877601088" version="1">
       <tag k="name" v="Winslow Green" />
@@ -29082,7 +29059,6 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
       <tag k="building" v="apartments" />
-      <tag k="condo" v="yes" />
     </node>
     <node id="-2049728" lat="43.7099541676134" lon="-70.3347466821365" version="1">
       <tag k="name" v="Winslow Green" />
@@ -29093,7 +29069,6 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
       <tag k="building" v="apartments" />
-      <tag k="condo" v="yes" />
     </node>
     <node id="-2049729" lat="43.7098946431818" lon="-70.3348322476103" version="1">
       <tag k="name" v="Winslow Green" />
@@ -29104,7 +29079,6 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
       <tag k="building" v="apartments" />
-      <tag k="condo" v="yes" />
     </node>
     <node id="-2049730" lat="43.7098164633673" lon="-70.3349732544288" version="1">
       <tag k="name" v="Winslow Green" />
@@ -29115,7 +29089,6 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
       <tag k="building" v="apartments" />
-      <tag k="condo" v="yes" />
     </node>
     <node id="-2049731" lat="43.709761729453" lon="-70.3350341011355" version="1">
       <tag k="name" v="Winslow Green" />
@@ -29126,7 +29099,6 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
       <tag k="building" v="apartments" />
-      <tag k="condo" v="yes" />
     </node>
     <node id="-2049732" lat="43.7095511425537" lon="-70.3353335276261" version="1">
       <tag k="name" v="Winslow Green" />
@@ -29137,7 +29109,6 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
       <tag k="building" v="apartments" />
-      <tag k="condo" v="yes" />
     </node>
     <node id="-2049733" lat="43.7096219222419" lon="-70.3354406040308" version="1">
       <tag k="name" v="Winslow Green" />
@@ -29148,7 +29119,6 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
       <tag k="building" v="apartments" />
-      <tag k="condo" v="yes" />
     </node>
     <node id="-2049734" lat="43.7097238446035" lon="-70.3355794031857" version="1">
       <tag k="name" v="Winslow Green" />
@@ -29159,7 +29129,6 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
       <tag k="building" v="apartments" />
-      <tag k="condo" v="yes" />
     </node>
     <node id="-2049735" lat="43.7097990522959" lon="-70.3356927847221" version="1">
       <tag k="name" v="Winslow Green" />
@@ -29170,7 +29139,6 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
       <tag k="building" v="apartments" />
-      <tag k="condo" v="yes" />
     </node>
     <node id="-2049736" lat="43.7099011919057" lon="-70.3358129709766" version="1">
       <tag k="name" v="Winslow Green" />
@@ -29181,7 +29149,6 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
       <tag k="building" v="apartments" />
-      <tag k="condo" v="yes" />
     </node>
     <node id="-2049737" lat="43.7099636223469" lon="-70.3358640073327" version="1">
       <tag k="name" v="Winslow Green" />
@@ -29192,7 +29159,6 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
       <tag k="building" v="apartments" />
-      <tag k="condo" v="yes" />
     </node>
     <node id="-2049738" lat="43.7102095641041" lon="-70.3356212218886" version="1">
       <tag k="name" v="Winslow Green" />
@@ -29203,7 +29169,6 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
       <tag k="building" v="apartments" />
-      <tag k="condo" v="yes" />
     </node>
     <node id="-2049739" lat="43.7102829539325" lon="-70.335504933546" version="1">
       <tag k="name" v="Winslow Green" />
@@ -29214,7 +29179,6 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
       <tag k="building" v="apartments" />
-      <tag k="condo" v="yes" />
     </node>
     <node id="-2049740" lat="43.7101939474499" lon="-70.3350312841259" version="1">
       <tag k="name" v="Winslow Green" />
@@ -29225,7 +29189,6 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
       <tag k="building" v="apartments" />
-      <tag k="condo" v="yes" />
     </node>
     <node id="-2049741" lat="43.7102648723751" lon="-70.3351259521086" version="1">
       <tag k="name" v="Winslow Green" />
@@ -29236,7 +29199,6 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
       <tag k="building" v="apartments" />
-      <tag k="condo" v="yes" />
     </node>
     <node id="-2049742" lat="43.710353582785" lon="-70.335239633931" version="1">
       <tag k="name" v="Winslow Green" />
@@ -29247,7 +29209,6 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
       <tag k="building" v="apartments" />
-      <tag k="condo" v="yes" />
     </node>
     <node id="-2049743" lat="43.7104424380716" lon="-70.3353409068175" version="1">
       <tag k="name" v="Winslow Green" />
@@ -29258,7 +29219,6 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
       <tag k="building" v="apartments" />
-      <tag k="condo" v="yes" />
     </node>
     <node id="-2049744" lat="43.710729682901" lon="-70.3350307653259" version="1">
       <tag k="name" v="Winslow Green" />
@@ -29269,7 +29229,6 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
       <tag k="building" v="apartments" />
-      <tag k="condo" v="yes" />
     </node>
     <node id="-2049745" lat="43.7106361091564" lon="-70.3349480064547" version="1">
       <tag k="name" v="Winslow Green" />
@@ -29280,7 +29239,6 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
       <tag k="building" v="apartments" />
-      <tag k="condo" v="yes" />
     </node>
     <node id="-2049746" lat="43.7105431875786" lon="-70.3348094060152" version="1">
       <tag k="name" v="Winslow Green" />
@@ -29291,7 +29249,6 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
       <tag k="building" v="apartments" />
-      <tag k="condo" v="yes" />
     </node>
     <node id="-2049747" lat="43.7104499035164" lon="-70.3347018291952" version="1">
       <tag k="name" v="Winslow Green" />
@@ -29302,7 +29259,6 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
       <tag k="building" v="apartments" />
-      <tag k="condo" v="yes" />
     </node>
     <node id="-2049748" lat="43.7106383472359" lon="-70.3343708733926" version="1">
       <tag k="name" v="Winslow Green" />
@@ -29313,7 +29269,6 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
       <tag k="building" v="apartments" />
-      <tag k="condo" v="yes" />
     </node>
     <node id="-2049749" lat="43.7107048443927" lon="-70.3344592367784" version="1">
       <tag k="name" v="Winslow Green" />
@@ -29324,7 +29279,6 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
       <tag k="building" v="apartments" />
-      <tag k="condo" v="yes" />
     </node>
     <node id="-2049750" lat="43.710811413592" lon="-70.3345857273803" version="1">
       <tag k="name" v="Winslow Green" />
@@ -29335,7 +29289,6 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
       <tag k="building" v="apartments" />
-      <tag k="condo" v="yes" />
     </node>
     <node id="-2049751" lat="43.7108466226325" lon="-70.3346547779583" version="1">
       <tag k="name" v="Winslow Green" />
@@ -29346,7 +29299,6 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
       <tag k="building" v="apartments" />
-      <tag k="condo" v="yes" />
     </node>
     <node id="-2049752" lat="43.7109396168553" lon="-70.3347871741857" version="1">
       <tag k="name" v="Winslow Green" />
@@ -29357,7 +29309,6 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
       <tag k="building" v="apartments" />
-      <tag k="condo" v="yes" />
     </node>
     <node id="-2049753" lat="43.7109926838669" lon="-70.3348690340504" version="1">
       <tag k="name" v="Winslow Green" />
@@ -29368,7 +29319,6 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
       <tag k="building" v="apartments" />
-      <tag k="condo" v="yes" />
     </node>
     <node id="-1870693" lat="43.7109374543111" lon="-70.3357428959062" version="1">
       <tag k="addr:housenumber" v="315" />
@@ -38111,7 +38061,6 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
       <tag k="building" v="apartments" />
-      <tag k="condo" v="yes" />
     </node>
     <node id="-1892854" lat="43.7282864750628" lon="-70.3423924021446" version="1">
       <tag k="addr:housenumber" v="30" />
@@ -38120,7 +38069,6 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
       <tag k="building" v="apartments" />
-      <tag k="condo" v="yes" />
     </node>
     <node id="-1892855" lat="43.7285106557551" lon="-70.3420870041548" version="1">
       <tag k="addr:housenumber" v="36" />
@@ -38129,7 +38077,6 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
       <tag k="building" v="apartments" />
-      <tag k="condo" v="yes" />
     </node>
     <node id="-1892856" lat="43.7276000498077" lon="-70.3421908291496" version="1">
       <tag k="addr:housenumber" v="16" />
@@ -38138,7 +38085,6 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
       <tag k="building" v="apartments" />
-      <tag k="condo" v="yes" />
     </node>
     <node id="-1892857" lat="43.7284505426229" lon="-70.3422222400112" version="1">
       <tag k="addr:housenumber" v="34" />
@@ -38147,7 +38093,6 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
       <tag k="building" v="apartments" />
-      <tag k="condo" v="yes" />
     </node>
     <node id="-1892858" lat="43.7279396270128" lon="-70.342409486843" version="1">
       <tag k="addr:housenumber" v="26" />
@@ -38156,7 +38101,6 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
       <tag k="building" v="apartments" />
-      <tag k="condo" v="yes" />
     </node>
     <node id="-1892859" lat="43.7282180892044" lon="-70.3424653715781" version="1">
       <tag k="addr:housenumber" v="28" />
@@ -38165,7 +38109,6 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
       <tag k="building" v="apartments" />
-      <tag k="condo" v="yes" />
     </node>
     <node id="-1892860" lat="43.7278771270695" lon="-70.342364634456" version="1">
       <tag k="addr:housenumber" v="24" />
@@ -38174,7 +38117,6 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
       <tag k="building" v="apartments" />
-      <tag k="condo" v="yes" />
     </node>
     <node id="-1892861" lat="43.7286875864203" lon="-70.3415880969214" version="1">
       <tag k="addr:housenumber" v="50" />
@@ -38183,7 +38125,6 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
       <tag k="building" v="apartments" />
-      <tag k="condo" v="yes" />
     </node>
     <node id="-1892862" lat="43.7465392813521" lon="-70.3368387328319" version="1">
       <tag k="addr:housenumber" v="88" />
@@ -39109,7 +39050,6 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
       <tag k="building" v="apartments" />
-      <tag k="condo" v="yes" />
     </node>
     <node id="-1959133" lat="43.6693975149582" lon="-70.3830976064809" version="1">
       <tag k="addr:housenumber" v="42" />
@@ -39119,7 +39059,6 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
       <tag k="building" v="apartments" />
-      <tag k="condo" v="yes" />
     </node>
     <node id="-1959134" lat="43.6690721136733" lon="-70.3832017684979" version="1">
       <tag k="addr:housenumber" v="42" />
@@ -39129,7 +39068,6 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
       <tag k="building" v="apartments" />
-      <tag k="condo" v="yes" />
     </node>
     <node id="-1959135" lat="43.6690693387806" lon="-70.3830590593866" version="1">
       <tag k="addr:housenumber" v="42" />
@@ -39139,7 +39077,6 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
       <tag k="building" v="apartments" />
-      <tag k="condo" v="yes" />
     </node>
     <node id="-1959136" lat="43.6695711676711" lon="-70.3828845239583" version="1">
       <tag k="addr:housenumber" v="42" />
@@ -39149,7 +39086,6 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
       <tag k="building" v="apartments" />
-      <tag k="condo" v="yes" />
     </node>
     <node id="-1959137" lat="43.6696216506753" lon="-70.382805056855" version="1">
       <tag k="addr:housenumber" v="42" />
@@ -39159,7 +39095,6 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
       <tag k="building" v="apartments" />
-      <tag k="condo" v="yes" />
     </node>
     <node id="-1959138" lat="43.6691668545485" lon="-70.3828132196527" version="1">
       <tag k="addr:housenumber" v="42" />
@@ -39169,7 +39104,6 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
       <tag k="building" v="apartments" />
-      <tag k="condo" v="yes" />
     </node>
     <node id="-1959139" lat="43.669217412514" lon="-70.3827275527476" version="1">
       <tag k="addr:housenumber" v="42" />
@@ -39179,7 +39113,6 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
       <tag k="building" v="apartments" />
-      <tag k="condo" v="yes" />
     </node>
     <node id="-1959140" lat="43.6697857763931" lon="-70.3826351683058" version="1">
       <tag k="addr:housenumber" v="42" />
@@ -39189,7 +39122,6 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
       <tag k="building" v="apartments" />
-      <tag k="condo" v="yes" />
     </node>
     <node id="-1959141" lat="43.6698450356192" lon="-70.3825745083623" version="1">
       <tag k="addr:housenumber" v="42" />
@@ -39199,7 +39131,6 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
       <tag k="building" v="apartments" />
-      <tag k="condo" v="yes" />
     </node>
     <node id="-1959142" lat="43.6693594096131" lon="-70.3825261470518" version="1">
       <tag k="addr:housenumber" v="42" />
@@ -39209,7 +39140,6 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
       <tag k="building" v="apartments" />
-      <tag k="condo" v="yes" />
     </node>
     <node id="-1959143" lat="43.6694185187814" lon="-70.3824778879928" version="1">
       <tag k="addr:housenumber" v="42" />
@@ -39219,7 +39149,6 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
       <tag k="building" v="apartments" />
-      <tag k="condo" v="yes" />
     </node>
     <node id="-1959144" lat="43.6698372330015" lon="-70.3821029732652" version="1">
       <tag k="addr:housenumber" v="42" />
@@ -39229,7 +39158,6 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
       <tag k="building" v="apartments" />
-      <tag k="condo" v="yes" />
     </node>
     <node id="-1959145" lat="43.6699187705422" lon="-70.3820614302177" version="1">
       <tag k="addr:housenumber" v="42" />
@@ -39239,7 +39167,6 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
       <tag k="building" v="apartments" />
-      <tag k="condo" v="yes" />
     </node>
     <node id="-1959146" lat="43.6695871447272" lon="-70.3823081024091" version="1">
       <tag k="addr:housenumber" v="42" />
@@ -39249,7 +39176,6 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
       <tag k="building" v="apartments" />
-      <tag k="condo" v="yes" />
     </node>
     <node id="-1959147" lat="43.6696554801805" lon="-70.3822414486344" version="1">
       <tag k="addr:housenumber" v="42" />
@@ -39259,7 +39185,6 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
       <tag k="building" v="apartments" />
-      <tag k="condo" v="yes" />
     </node>
     <node id="-1959148" lat="43.670066470156" lon="-70.3825051673743" version="1">
       <tag k="addr:housenumber" v="42" />
@@ -39269,7 +39194,6 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
       <tag k="building" v="apartments" />
-      <tag k="condo" v="yes" />
     </node>
     <node id="-1959149" lat="43.6700969250102" lon="-70.3825926956581" version="1">
       <tag k="addr:housenumber" v="42" />
@@ -39279,7 +39203,6 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
       <tag k="building" v="apartments" />
-      <tag k="condo" v="yes" />
     </node>
     <node id="-1959150" lat="43.6701438057719" lon="-70.3820665949019" version="1">
       <tag k="addr:housenumber" v="42" />
@@ -39289,7 +39212,6 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
       <tag k="building" v="apartments" />
-      <tag k="condo" v="yes" />
     </node>
     <node id="-1959151" lat="43.6702062157904" lon="-70.3821176439783" version="1">
       <tag k="addr:housenumber" v="42" />
@@ -39299,7 +39221,6 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
       <tag k="building" v="apartments" />
-      <tag k="condo" v="yes" />
     </node>
     <node id="-1960467" lat="43.6710178912095" lon="-70.3587292643751" version="1">
       <tag k="addr:housenumber" v="48" />
@@ -41069,7 +40990,6 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
       <tag k="building" v="apartments" />
-      <tag k="condo" v="yes" />
     </node>
     <node id="-2049118" lat="43.6713016836623" lon="-70.3816218023651" version="1">
       <tag k="addr:housenumber" v="10" />
@@ -41078,7 +40998,6 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
       <tag k="building" v="apartments" />
-      <tag k="condo" v="yes" />
     </node>
     <node id="-2049119" lat="43.6706577791251" lon="-70.3812597090575" version="1">
       <tag k="addr:housenumber" v="18" />
@@ -41087,7 +41006,6 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
       <tag k="building" v="apartments" />
-      <tag k="condo" v="yes" />
     </node>
     <node id="-2049120" lat="43.6706922859821" lon="-70.3813845433722" version="1">
       <tag k="addr:housenumber" v="16" />
@@ -41096,7 +41014,6 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
       <tag k="building" v="apartments" />
-      <tag k="condo" v="yes" />
     </node>
     <node id="-2049121" lat="43.6707747264387" lon="-70.3816407226437" version="1">
       <tag k="addr:housenumber" v="10" />
@@ -41105,7 +41022,6 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
       <tag k="building" v="apartments" />
-      <tag k="condo" v="yes" />
     </node>
     <node id="-2049122" lat="43.6708134337202" lon="-70.381790462415" version="1">
       <tag k="addr:housenumber" v="6" />
@@ -41114,7 +41030,6 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
       <tag k="building" v="apartments" />
-      <tag k="condo" v="yes" />
     </node>
     <node id="-2049123" lat="43.6708118593824" lon="-70.3819206714929" version="1">
       <tag k="addr:housenumber" v="4" />
@@ -41123,7 +41038,6 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
       <tag k="building" v="apartments" />
-      <tag k="condo" v="yes" />
     </node>
     <node id="-2049124" lat="43.670449551306" lon="-70.3817262935764" version="1">
       <tag k="addr:housenumber" v="9" />
@@ -41132,7 +41046,6 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
       <tag k="building" v="apartments" />
-      <tag k="condo" v="yes" />
     </node>
     <node id="-2049125" lat="43.6704925342832" lon="-70.381894737065" version="1">
       <tag k="addr:housenumber" v="7" />
@@ -41141,7 +41054,6 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
       <tag k="building" v="apartments" />
-      <tag k="condo" v="yes" />
     </node>
     <node id="-2049126" lat="43.6705126385869" lon="-70.3820936663158" version="1">
       <tag k="addr:housenumber" v="5" />
@@ -41150,7 +41062,6 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
       <tag k="building" v="apartments" />
-      <tag k="condo" v="yes" />
     </node>
     <node id="-2049127" lat="43.6705561459392" lon="-70.3822187073967" version="1">
       <tag k="addr:housenumber" v="3" />
@@ -41159,7 +41070,6 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
       <tag k="building" v="apartments" />
-      <tag k="condo" v="yes" />
     </node>
     <node id="-2049641" lat="43.6998756436387" lon="-70.3323202117431" version="1">
       <tag k="addr:housenumber" v="41" />
@@ -42580,7 +42490,6 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
       <tag k="building" v="apartments" />
-      <tag k="condo" v="yes" />
     </node>
     <node id="-2052907" lat="43.6661166480256" lon="-70.3616389022575" version="1">
       <tag k="addr:housenumber" v="142" />
@@ -42869,7 +42778,6 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
       <tag k="building" v="apartments" />
-      <tag k="condo" v="yes" />
     </node>
     <node id="-2187562" lat="43.7093981289929" lon="-70.3364844716205" version="1">
       <tag k="addr:housenumber" v="34" />
@@ -43329,7 +43237,6 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
       <tag k="building" v="apartments" />
-      <tag k="condo" v="yes" />
     </node>
     <node id="-2537285" lat="43.6789540665464" lon="-70.34776779115" version="1">
       <tag k="addr:housenumber" v="54" />
@@ -43339,7 +43246,6 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
       <tag k="building" v="apartments" />
-      <tag k="condo" v="yes" />
     </node>
     <node id="-2537290" lat="43.6790065398758" lon="-70.3478992289423" version="1">
       <tag k="addr:housenumber" v="54" />
@@ -43349,7 +43255,6 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
       <tag k="building" v="apartments" />
-      <tag k="condo" v="yes" />
     </node>
     <node id="-2537248" lat="43.6792019009634" lon="-70.3477485275734" version="1">
       <tag k="addr:housenumber" v="52" />
@@ -43359,7 +43264,6 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
       <tag k="building" v="apartments" />
-      <tag k="condo" v="yes" />
     </node>
     <node id="-2537258" lat="43.6791711269093" lon="-70.347685808431" version="1">
       <tag k="addr:housenumber" v="52" />
@@ -43369,7 +43273,6 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
       <tag k="building" v="apartments" />
-      <tag k="condo" v="yes" />
     </node>
     <node id="-2537269" lat="43.6792281742206" lon="-70.347811146013" version="1">
       <tag k="addr:housenumber" v="52" />
@@ -43379,7 +43282,6 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
       <tag k="building" v="apartments" />
-      <tag k="condo" v="yes" />
     </node>
     <node id="-2537275" lat="43.679254374306" lon="-70.347879965896" version="1">
       <tag k="addr:housenumber" v="52" />
@@ -43388,7 +43290,6 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
       <tag k="building" v="apartments" />
-      <tag k="condo" v="yes" />
     </node>
     <node id="-2538055" lat="43.6735316744844" lon="-70.3601009046464" version="1">
       <tag k="addr:housenumber" v="62" />
@@ -43777,7 +43678,6 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
       <tag k="building" v="apartments" />
-      <tag k="condo" v="yes" />
     </node>
     <node id="-2556739" lat="43.6826624790395" lon="-70.3367529776508" version="1">
       <tag k="name" v="COMMUNITY Room" />
@@ -43788,7 +43688,6 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
       <tag k="building" v="residential" />
-      <tag k="condo" v="yes" />
     </node>
     <node id="-2556957" lat="43.6828296564382" lon="-70.3363162491181" version="1">
       <tag k="name" v="MECHANICAL" />
@@ -43799,7 +43698,6 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
       <tag k="building" v="residential" />
-      <tag k="condo" v="yes" />
     </node>
     <node id="-2557143" lat="43.682796845672" lon="-70.336427181783" version="1">
       <tag k="name" v="ELECTRICAL" />
@@ -43810,7 +43708,6 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
       <tag k="building" v="residential" />
-      <tag k="condo" v="yes" />
     </node>
     <node id="-2556754" lat="43.6827645424736" lon="-70.3364947018668" version="1">
       <tag k="name" v="GAME" />
@@ -43821,7 +43718,6 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
       <tag k="building" v="residential" />
-      <tag k="condo" v="yes" />
     </node>
     <node id="-2556851" lat="43.6827990981675" lon="-70.336619536996" version="1">
       <tag k="name" v="SITTING Room" />
@@ -43833,7 +43729,6 @@
       <tag k="addr:postcode" v="04092" />
       <tag k="level" v="1" />
       <tag k="building" v="apartments" />
-      <tag k="condo" v="yes" />
     </node>
     <node id="-2556473" lat="43.6826745994036" lon="-70.3364865014428" version="1">
       <tag k="name" v="Office" />
@@ -43844,7 +43739,6 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
       <tag k="building" v="apartments" />
-      <tag k="condo" v="yes" />
     </node>
     <node id="-2556652" lat="43.6827294829551" lon="-70.3367978893597" version="1">
       <tag k="addr:housenumber" v="70" />
@@ -43853,7 +43747,6 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
       <tag k="building" v="residential" />
-      <tag k="condo" v="yes" />
     </node>
     <node id="-2556708" lat="43.6827620764735" lon="-70.3367055623661" version="1">
       <tag k="addr:housenumber" v="70" />
@@ -43872,7 +43765,6 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
       <tag k="building" v="residential" />
-      <tag k="condo" v="yes" />
     </node>
     <node id="-2556568" lat="43.6828314739658" lon="-70.3365458151561" version="1">
       <tag k="addr:housenumber" v="70" />
@@ -43881,7 +43773,6 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
       <tag k="building" v="apartments" />
-      <tag k="condo" v="yes" />
     </node>
     <node id="-2557030" lat="43.6826297403988" lon="-70.3368577079964" version="1">
       <tag k="name" v="LAUNDRY" />
@@ -43892,7 +43783,6 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
       <tag k="building" v="residential" />
-      <tag k="condo" v="yes" />
     </node>
     <node id="-2557172" lat="43.6826995007676" lon="-70.3366669524516" version="1">
       <tag k="addr:housenumber" v="70" />
@@ -44189,6 +44079,27 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
     </node>
+    <way id="744796392" user="blackboxlogic" uid="9109301" visible="true" version="3" changeset="78389853" timestamp="2019-12-13T19:07:46Z">
+      <nd ref="6970533559" />
+      <nd ref="6970533548" />
+      <nd ref="6970533549" />
+      <nd ref="6970533558" />
+      <nd ref="6970533557" />
+      <nd ref="6970533555" />
+      <nd ref="6970533554" />
+      <nd ref="6970533556" />
+      <nd ref="6970533553" />
+      <nd ref="6970533551" />
+      <nd ref="6970533550" />
+      <nd ref="6970533552" />
+      <nd ref="6970533559" />
+      <tag k="addr:housenumber" v="227" />
+      <tag k="addr:street" v="Conant Street" />
+      <tag k="building" v="house" />
+      <tag k="addr:city" v="Westbrook" />
+      <tag k="addr:state" v="ME" />
+      <tag k="addr:postcode" v="04092" />
+    </way>
     <node id="6558957747" lat="43.6823087699691" lon="-70.3613785919802" user="blackboxlogic" uid="9109301" visible="true" version="2" changeset="71421296" timestamp="2019-06-20T02:07:10Z">
       <tag k="addr:housenumber" v="37" />
       <tag k="addr:street" v="Lyman Street" />
@@ -44548,7 +44459,6 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
       <tag k="building" v="apartments" />
-      <tag k="condo" v="yes" />
     </node>
     <node id="6800298534" lat="43.6885030957807" lon="-70.367065066077" user="blackboxlogic" uid="9109301" visible="true" version="2" changeset="74547753" timestamp="2019-09-16T19:22:32Z">
       <tag k="addr:housenumber" v="19" />
@@ -44990,18 +44900,6 @@
       <tag k="addr:postcode" v="04092" />
       <tag k="addr:state" v="ME" />
       <tag k="addr:street" v="Main Street" />
-    </node>
-    <node id="6558754761" lat="43.6777367577525" lon="-70.3581861718153" user="blackboxlogic" uid="9109301" visible="true" version="3" changeset="71636215" timestamp="2019-06-26T12:56:17Z">
-      <tag k="addr:housenumber" v="672" />
-      <tag k="addr:street" v="Main Street" />
-      <tag k="amenity" v="driving_school" />
-      <tag k="name" v="Proper Turns" />
-      <tag k="phone" v="+1-207-854-3000" />
-      <tag k="website" v="https://properturn.com" />
-      <tag k="addr:city" v="Westbrook" />
-      <tag k="addr:state" v="ME" />
-      <tag k="addr:postcode" v="04092" />
-      <tag k="building" v="commercial" />
     </node>
     <node id="6558754714" lat="43.677597243081" lon="-70.3589397726525" user="blackboxlogic" uid="9109301" visible="true" version="2" changeset="71420192" timestamp="2019-06-20T00:55:46Z">
       <tag k="addr:city" v="Westbrook" />
@@ -48217,6 +48115,13 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:street" v="Main Street" />
       <tag k="building" v="apartments" />
+    </node>
+    <node id="6558754712" lat="43.6778427802559" lon="-70.3579776657654" user="blackboxlogic" uid="9109301" visible="true" version="3" changeset="71669879" timestamp="2019-06-27T11:46:46Z">
+      <tag k="addr:city" v="Westbrook" />
+      <tag k="addr:housenumber" v="670" />
+      <tag k="addr:postcode" v="04092" />
+      <tag k="addr:state" v="ME" />
+      <tag k="addr:street" v="Main Street" />
     </node>
     <node id="6558743867" lat="43.6777451743053" lon="-70.3586143597213" user="blackboxlogic" uid="9109301" visible="true" version="2" changeset="71420192" timestamp="2019-06-20T00:55:46Z">
       <tag k="addr:city" v="Westbrook" />
