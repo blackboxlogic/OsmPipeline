@@ -8,7 +8,6 @@ using OsmPipeline.Fittings;
 using System.Collections.Generic;
 using OsmSharp.API;
 using System.Threading.Tasks;
-using Microsoft.Extensions.Configuration;
 
 namespace OsmPipeline
 {
@@ -19,7 +18,7 @@ namespace OsmPipeline
 		// From: https://pe.usps.com/text/pub28/28apc_002.htm
 		public static Dictionary<string, string> StreetSUFFIX =
 			new Dictionary<string, string>(
-				FileSerializer.ReadJson<Dictionary<string, string>>(@"Resources/StreetSUFFIX.json"),
+				FileSerializer.ReadJson<Dictionary<string, string>>(@"StreetSUFFIX.json"),
 				StringComparer.OrdinalIgnoreCase);
 
 		public static Dictionary<string, string> MUNICIPALITY =
@@ -45,11 +44,11 @@ namespace OsmPipeline
 
 		private static Dictionary<string, Dictionary<string, string>> PLACE_TYPEs =
 			new Dictionary<string, Dictionary<string, string>>(
-				FileSerializer.ReadJson<Dictionary<string, Dictionary<string, string>>>(@"Resources/PLACE_TYPE.json"),
+				FileSerializer.ReadJson<Dictionary<string, Dictionary<string, string>>>(@"PLACE_TYPE.json"),
 				StringComparer.OrdinalIgnoreCase);
 
 		private static Dictionary<string, string> UNITs =
-			new Dictionary<string, string>(FileSerializer.ReadJson<Dictionary<string, string>>(@"Resources/UNIT.json"),
+			new Dictionary<string, string>(FileSerializer.ReadJson<Dictionary<string, string>>(@"UNIT.json"),
 				StringComparer.OrdinalIgnoreCase);
 
 		public static async Task<Osm> Fetch(string scopeName)
@@ -92,8 +91,8 @@ namespace OsmPipeline
 			var streetName = BuildStreetName((string)props["PREDIR"],
 				(string)props["STREETNAME"], (string)props["POSTDIR"], (string)props["SUFFIX"]);
 			var level = Level((string)props["FLOOR"], out bool useFloorAsUnit);
-			var unit =  Unit(useFloorAsUnit ? (string)props["FLOOR"] : (string)props["UNIT"]);
-			var city = City((string)props["MUNICIPALITY"]);
+			var unit = ReplaceToken(useFloorAsUnit ? (string)props["FLOOR"] : (string)props["UNIT"], UNITs);
+			var city = ReplaceToken((string)props["MUNICIPALITY"], MUNICIPALITY);
 			var tags = new []
 			{
 				new Tag("name", Name((string)props["LANDMARK"], (string)props["LOC"], (string)props["BUILDING"])),
@@ -319,10 +318,6 @@ namespace OsmPipeline
 				{
 					Log.LogError("Bad POSTDIR");
 				}
-				if (f.Properties["ELEVATION"] != 0) // At time of writing, Maine GIS has no elevation data.
-				{
-					Log.LogError("Bad ELEVATION");
-				}
 				var goodFloor = ((string)f.Properties["FLOOR"]).Split().All(part =>
 					part.Equals("floor", StringComparison.OrdinalIgnoreCase)
 					|| part.Equals("flr", StringComparison.OrdinalIgnoreCase)
@@ -348,6 +343,10 @@ namespace OsmPipeline
 					|| ((string)f.Properties["ZIPCODE"]).Length != 5)
 				{
 					Log.LogError("Bad Zipcode: " + (string)f.Properties["ZIPCODE"]);
+				}
+				if ((int)f.Properties["HOUSENUMBER"] <= 0)
+				{
+					Log.LogError("Bad HOUSENUMBER: " + (string)f.Properties["HOUSENUMBER"]);
 				}
 			}
 		}
@@ -386,9 +385,7 @@ namespace OsmPipeline
 				building = "BLDG " + building;
 			}
 
-			landmark = landmark + ' ' + building + ' ' + loc;
-			landmark = string.Join(' ', landmark.Split(' ', StringSplitOptions.RemoveEmptyEntries)
-				.Select(part => UNITs.TryGetValue(part, out string replacement) ? replacement : part));
+			landmark = ReplaceToken(landmark + ' ' + building + ' ' + loc, UNITs);
 
 			return landmark;
 		}
@@ -419,15 +416,6 @@ namespace OsmPipeline
 				.ToArray());
 		}
 
-		// unit is: [prefix/pre-breviation] [AlphaNumeric ID]
-		private static string Unit(string unit)
-		{
-			var parts = unit.Split(' ', StringSplitOptions.RemoveEmptyEntries);
-			parts = parts.Select(part => UNITs.TryGetValue(part, out string replacement) ? replacement : part).ToArray();
-
-			return string.Join(' ', parts);
-		}
-
 		private static string BuildStreetName(string predir, string name, string postdir, string suffix)
 		{
 			var parts = new string[] {
@@ -441,10 +429,13 @@ namespace OsmPipeline
 			return fullName;
 		}
 
-		private static string City(string municipality)
+		private static string ReplaceToken(string input, Dictionary<string, string> translation)
 		{
-			var parts = municipality.Split(' ', StringSplitOptions.RemoveEmptyEntries);
-			parts = parts.Select(part => MUNICIPALITY.TryGetValue(part, out string replacement) ? replacement : part).ToArray();
+			var parts = input.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+			parts = parts.Select(part =>
+				translation.TryGetValue(part, out string replacement)
+					? replacement
+					: part).ToArray();
 
 			return string.Join(' ', parts);
 		}
