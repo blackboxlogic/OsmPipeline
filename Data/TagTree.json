@@ -15,7 +15,12 @@
                 "detached": {},
                 "duplex": {},
                 "static_caravan": {},
-                "house": {}
+                "house": {},
+                "hut": {},
+                "semidetached_house": {},
+                "semi": {},
+                "cabin": {},
+                "dormitory": {}
             },
             "civic": {
                 "school": {
@@ -27,7 +32,7 @@
                 "public": {},
                 "toilets": {},
                 "transportation": {
-                    "train_station":{}
+                    "train_station": {}
                 }
             },
             "religious": {
@@ -37,17 +42,18 @@
                 "mosque": {},
                 "shrine": {},
                 "synagogue": {},
-                "temple" {}
+                "temple": {}
             },
             "stadium": {},
             "parking": {
-                "carport":{},
-                "garage":{}
+                "carport": {},
+                "garage": {},
+                "garages": {}
             },
             "service": {
-                "water_tower": {}
+                "water_tower": {},
+                "storage_tank": {}
             }
         }
     }
 }
-

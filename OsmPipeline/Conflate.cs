@@ -31,6 +31,12 @@ namespace OsmPipeline
 				element.Tags.RemoveKey("maineE911id");
 			}
 
+			var changes = create.Count + modify.Count + delete.Count;
+			if (changes > 10_000) // OSM API change set size limit.
+			{
+				throw new Exception($"ChangeSet size ({changes}) is bigger than API's 10,000 limit");
+			}
+
 			var change = Fittings.Translate.GeosToChange(create, modify, delete, "OsmPipeline");
 
 			return change;

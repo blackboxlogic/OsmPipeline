@@ -357,7 +357,7 @@ namespace OsmPipeline
 
 		private static void Validate(Node[] nodes)
 		{
-			if (nodes.Length > 10000) Log.LogError($"{nodes.Length} Nodes is too big for one changest");
+			if (nodes.Length > 10000) Log.LogWarning($"{nodes.Length} Nodes may be too big for one changest");
 
 			var duplicates = nodes.GroupBy(n => new { n.Tags })
 				.Select(g => g.ToArray())
