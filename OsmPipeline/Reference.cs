@@ -30,7 +30,8 @@ namespace OsmPipeline
 
 		public static Dictionary<string, string> PrePostDIRs =
 			new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
-				{{ "N" , "North" },
+				{
+					{ "N" , "North" },
 					{ "NE" , "North East" },
 					{ "E" , "East" },
 					{ "SE" , "South East" },
@@ -247,7 +248,6 @@ namespace OsmPipeline
 
 			stack[0].Latitude = stack.Average(n => n.Latitude);
 			stack[0].Longitude = stack.Average(n => n.Longitude);
-			Log.LogInformation("intersected " + string.Join(",", stack.Select(n => n.Id)));
 
 			return stack[0];
 		}
@@ -287,7 +287,7 @@ namespace OsmPipeline
 		{
 			if (other.Tags.TryGetValue("building", out string otherBuilding))
 			{
-				newBuilding = TagsTrees.Keys["building"].FindFirstCommonAncestor(myBuilding, otherBuilding);
+				newBuilding = TagTree.Keys["building"].FindFirstCommonAncestor(myBuilding, otherBuilding);
 				return true;
 			}
 

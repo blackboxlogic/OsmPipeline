@@ -1,32 +1,45 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
+using jo = Newtonsoft.Json.Linq.JObject;
+using jp = Newtonsoft.Json.Linq.JProperty;
 
 namespace OsmPipeline.Fittings
 {
-	public static class TagsTrees
+	public class TagTree
 	{
-		public readonly static Dictionary<string, TagTreeHierarchy> Keys
-			= new Dictionary<string, TagTreeHierarchy>(StringComparer.OrdinalIgnoreCase);
-		static TagsTrees()
-		{
-			var building = new TagTreeHierarchy("building", "yes");
-			building.Add("yes", "commercial", "residential", "school", "hospital", "government");
-			building.Add("commercial", "retail", "office");
-			building.Add("residential", "apartments", "detached", "duplex", "static_caravan", "house");
-			Keys.Add("building", building);
-		}
-	}
+		public readonly static Dictionary<string, TagTree> Keys
+			= new Dictionary<string, TagTree>(StringComparer.OrdinalIgnoreCase);
 
-	public class TagTreeHierarchy
-	{
-		public readonly string Key;
+		static TagTree()
+		{
+			var json = File.ReadAllText("TagTree.json");
+			var jObject = (jo)Newtonsoft.Json.JsonConvert.DeserializeObject(json);
+
+			foreach (var key in jObject.Properties())
+			{
+				var valueRoot = ((jo)key.Value).Properties().Single();
+				var tree = new TagTree(valueRoot.Name);
+				AppendTree(tree, valueRoot);
+				Keys.Add(key.Name, tree);
+			}
+		}
+
+		private static void AppendTree(TagTree tree, jp node)
+		{
+			foreach (var child in ((jo)node.Value).Properties())
+			{
+				tree.Add(node.Name, child.Name);
+				AppendTree(tree, child);
+			}
+		}
+
 		private readonly TreeNode Root;
 		private readonly Dictionary<string, TreeNode> Index;
 
-		public TagTreeHierarchy(string key, string root)
+		public TagTree(string root)
 		{
-			Key = key;
 			Root = new TreeNode() { Value = root };
 			Index = new Dictionary<string, TreeNode>() { { root, Root } };
 		}
@@ -73,3 +86,4 @@ namespace OsmPipeline.Fittings
 		}
 	}
 }
+

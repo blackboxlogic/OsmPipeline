@@ -1,0 +1,20 @@
+{
+    "building": {
+        "yes": {
+            "commercial": {
+                "retail": {},
+                "office": {}
+            },
+            "residential": {
+                "apartments": {},
+                "detached": {},
+                "duplex": {},
+                "static_caravan": {},
+                "house": {}
+            },
+            "school": {},
+            "hospital": {},
+            "government": {}
+        }
+    }
+}

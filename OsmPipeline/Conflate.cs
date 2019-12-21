@@ -191,10 +191,10 @@ namespace OsmPipeline
 				if (subject.Tags.TryGetValue(refTag.Key, out string subValue))
 				{
 					if (subValue != refTag.Value &&
-						TagsTrees.Keys.ContainsKey(refTag.Key) &&
-						!TagsTrees.Keys[refTag.Key].IsDecendantOf(refTag.Value, subValue))
+						TagTree.Keys.ContainsKey(refTag.Key) &&
+						!TagTree.Keys[refTag.Key].IsDecendantOf(refTag.Value, subValue))
 					{
-						throw new Exception("A tag conflict! Kept subject's tag." + Identify(refTag.Key, subject, reference));
+						throw new Exception("A tag conflict!" + Identify(refTag.Key, subject, reference));
 					}
 				}
 				else
