@@ -2,8 +2,13 @@
     "building": {
         "yes": {
             "commercial": {
-                "retail": {},
-                "office": {}
+                "retail": {
+                    "kiosk": {},
+                    "supermarket": {}
+                },
+                "office": {},
+                "industrial": {},
+                "warehouse": {},
             },
             "residential": {
                 "apartments": {},
@@ -12,9 +17,37 @@
                 "static_caravan": {},
                 "house": {}
             },
-            "school": {},
-            "hospital": {},
-            "government": {}
+            "civic": {
+                "school": {
+                    "kindergarten": {}
+                },
+                "university": {},
+                "hospital": {},
+                "government": {},
+                "public": {},
+                "toilets": {},
+                "transportation": {
+                    "train_station":{}
+                }
+            },
+            "religious": {
+                "cathedral": {},
+                "chapel": {},
+                "church": {},
+                "mosque": {},
+                "shrine": {},
+                "synagogue": {},
+                "temple" {}
+            },
+            "stadium": {},
+            "parking": {
+                "carport":{},
+                "garage":{}
+            },
+            "service": {
+                "water_tower": {}
+            }
         }
     }
 }
+

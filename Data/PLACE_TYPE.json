@@ -143,7 +143,9 @@
         "building": "retail",
         "shop": "mall"
     },
-    "Utility": {},
+    "Utility": {
+        "building": "service"
+    },
     "Public Health Office": {},
     "Nursing Home": {
         "amenity": "nursing_home"
