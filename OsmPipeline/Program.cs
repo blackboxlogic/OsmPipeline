@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Linq;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Configuration;
 using OsmPipeline.Fittings;
+using System.Threading.Tasks;
 
 namespace OsmPipeline
 {
@@ -24,19 +26,38 @@ namespace OsmPipeline
 			serviceCollection.AddLogging(builder => builder.AddConsole().AddFilter(level => true));
 			Static.LogFactory = serviceCollection.BuildServiceProvider().GetService<ILoggerFactory>();
 
-			//var municipalities = await FileSerializer.ReadJsonCacheOrSource("MaineMunicipalities.json",
-			//	GeoJsonAPISource.GetMunicipalities);
-			//foreach (var municipality in municipalities.keys)
-			//{
-				var municipality = "Westbrook";
-				ImportAddressesInScope(municipality);
-			//}
+			var municipality = SelectMunicipality().Result;
+			ImportAddressesInScope(municipality);
 
 			Console.ReadKey(true);
 		}
 
+		static async Task<string> SelectMunicipality()
+		{
+			//return "Westbrook";
+			var municipalities = await FileSerializer.ReadJsonCacheOrSource("MaineMunicipalities.json",
+				GeoJsonAPISource.GetMunicipalities);
+
+			do
+			{
+				Console.WriteLine("Which municipality?");
+				var input = Console.ReadLine();
+				var selection = municipalities.Keys.Where(m => m.StartsWith(input, StringComparison.OrdinalIgnoreCase)).ToArray();
+				if (selection.Length == 1)
+				{
+					return selection[0];
+				}
+				else
+				{
+					Console.Write(string.Join("\n", selection));
+				}
+				
+			} while (true);
+		}
+
 		static async void ImportAddressesInScope(string scopeName)
 		{
+			// configurable match distance min/max 3/100
 			// Make PLACE_TYPE optional?
 			// Throw exceptions on address points added IN a building that they don't match?
 			// Should municpality be trusted, even for r7 t2? Could leave city off I guess?
