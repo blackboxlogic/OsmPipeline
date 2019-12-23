@@ -153,7 +153,7 @@ namespace OsmPipeline
 				.ToArray();
 			foreach (var address in addresses)
 			{
-				var nearDuplicateSets = GroupCloseNeighbors(address, 3);
+				var nearDuplicateSets = GroupCloseNeighbors(address, int.Parse(Static.Config["MatchDistanceKmMin"]));
 
 				foreach (var nearDuplicateSet in nearDuplicateSets)
 				{
@@ -357,7 +357,7 @@ namespace OsmPipeline
 
 		private static void Validate(Node[] nodes)
 		{
-			if (nodes.Length > 10000) Log.LogWarning($"{nodes.Length} Nodes may be too big for one changest");
+			if (nodes.Length > 10_000) Log.LogWarning($"{nodes.Length} Nodes may be too big for one changest");
 
 			var duplicates = nodes.GroupBy(n => new { n.Tags })
 				.Select(g => g.ToArray())

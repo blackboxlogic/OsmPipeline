@@ -20,7 +20,7 @@ namespace OsmPipeline
 			Log = Log ?? Static.LogFactory.CreateLogger(typeof(Conflate));
 			Merge(reference, subject, out List<OsmGeo> create, out List<OsmGeo> modify,
 				out List<OsmGeo> delete, out List<OsmGeo> exceptions);
-			ApplyNodesToBuildings(subject, create, modify);
+			ApplyNodesToBuildings(subject, create, modify, exceptions);
 			FileSerializer.WriteXml(scopeName + "/Conflated.Exceptions.osm", exceptions.AsOsm());
 			FileSerializer.WriteXml(scopeName + "/Conflated.Create.osm", create.AsOsm());
 			//FileSerializer.WriteXml(scopeName + "/Conflated.Delete.osm", WithNodes(delete, subject.Nodes).AsOsm());
@@ -50,11 +50,10 @@ namespace OsmPipeline
 			delete = new List<OsmGeo>();
 			exceptions = new List<OsmGeo>();
 
-			var subjectNodesById = subject.Nodes.ToDictionary(n => n.Id.Value);
-			var subjectWaysById = subject.Ways.ToDictionary(n => n.Id.Value);
+			var subjectElements = new OsmGeo[][] { subject.Nodes, subject.Ways, subject.Relations }.SelectMany(e => e);
+			var subjectElementsIndexed = subjectElements.ToDictionary(n => n.Type.ToString() + n.Id);
 
-			var subjectIndex = new OsmGeo[][] { subject.Nodes, subject.Ways, subject.Relations }
-				.SelectMany(e => e)
+			var subjectAddressIndex = subjectElements
 				.GroupBy(e => GetAddrTags(e, false))
 				.Where(g => g.Key.Any())
 				.ToDictionary(g => g.Key, g => g.ToArray());
@@ -69,23 +68,23 @@ namespace OsmPipeline
 				}
 
 				var addr = referenceElement.GetAddrTags();
-				if (subjectIndex.TryGetValue(addr, out var subjectElements))
+				if (subjectAddressIndex.TryGetValue(addr, out var targetSubjectElements))
 				{
-					// If there are multiple matches, maybe check if all but one have tag conflicts? Or if I'm IN one of them?
-					if (subjectElements.Length > 1)
+					if (targetSubjectElements.Length > 1)
 					{
-						referenceElement.Tags["exception"] = $"Multiple matches!" + Identify(subjectElements);
+						// Could try to auto resolve multi-matches by checking tag conflicts or if I'm IN one of them.
+						referenceElement.Tags["exception"] = $"Multiple matches!" + Identify(targetSubjectElements);
 						exceptions.Add(referenceElement);
 						continue;
 					}
-					var refCentroid = Geometry.GetCentroid(referenceElement, subjectNodesById, subjectWaysById);
-					var closestMatch = subjectElements
-						.Select(element => new { element, centroid = Geometry.GetCentroid(element, subjectNodesById, subjectWaysById) })
+					var refCentroid = Geometry.GetCentroid(referenceElement.AsComplete(subjectElementsIndexed));
+					var closestMatch = targetSubjectElements
+						.Select(element => new { element, centroid = Geometry.GetCentroid(element.AsComplete(subjectElementsIndexed)) })
 						.Select(match => new { match.element, distance = Geometry.DistanceMeters(refCentroid, match.centroid) })
 						.OrderBy(match => match.distance).First();
 					var subjectElement = closestMatch.element;
-					if (closestMatch.distance > 100
-						&& !Geometry.IsNodeInBuilding(referenceElement, ((Way)subjectElement).AsCompleteWay(subjectNodesById)))
+					if (closestMatch.distance > int.Parse(Static.Config["MatchDistanceKmMaz"])
+						&& !Geometry.IsNodeInCompleteElement(referenceElement, ((Way)subjectElement).AsComplete(subjectElementsIndexed)))
 					{
 						referenceElement.Tags["exception"] = $"Matched, but too far: {(int)closestMatch.distance} > 100 meters.{Identify(subjectElement)}";
 						exceptions.Add(referenceElement);
@@ -121,33 +120,38 @@ namespace OsmPipeline
 			}
 		}
 
-		private static CompleteWay AsCompleteWay(this Way way, Dictionary<long, Node> nodes)
+		private static void ApplyNodesToBuildings(Osm subject, List<OsmGeo> create, List<OsmGeo> modify, List<OsmGeo> exceptions)
 		{
-			return new CompleteWay() { Id = way.Id.Value, Nodes = way.Nodes.Select(n => nodes[n]).ToArray() };
-		}
-
-		private static void ApplyNodesToBuildings(Osm subject, List<OsmGeo> create, List<OsmGeo> modify)
-		{
-			var subjectNodesByID = subject.Nodes.ToDictionary(n => n.Id.Value);
-			var subjectWaysByID = subject.Ways.ToDictionary(n => n.Id);
-			var nonAddrBuildings = subject.Ways
-				.Where(w => IsBuilding(w) && !IsAddressy(w))
-				.Select(b => b.AsCompleteWay(subjectNodesByID))
+			var subjectElements = new OsmGeo[][] { subject.Nodes, subject.Ways, subject.Relations }.SelectMany(e => e);
+			var subjectElementsIndexed = subjectElements.ToDictionary(n => n.Type.ToString() + n.Id);
+			var nonAddrCompleteBuildings = subjectElements.Where(w => IsBuilding(w) && !IsAddressy(w))
+				.Select(b => b.AsComplete(subjectElementsIndexed))
 				.ToArray();
 			var addrSubjectNodes = subject.Nodes.Where(n => IsAddressy(n)).ToArray();
-			var buildingsWithOldAddrNodes = Geometry.NodesInBuildings(nonAddrBuildings, addrSubjectNodes);
-			var buildingsToNewAddr = Geometry.NodesInBuildings(nonAddrBuildings, create.OfType<Node>().ToArray());
+			var completeBuildingsWithOldAddrNodes = Geometry.NodesInCompleteElements(nonAddrCompleteBuildings, addrSubjectNodes);
+			nonAddrCompleteBuildings = nonAddrCompleteBuildings.Where(b => !completeBuildingsWithOldAddrNodes.ContainsKey(b)).ToArray();
+			var completeBuildingsWithNewAddrNodes = Geometry.NodesInCompleteElements(nonAddrCompleteBuildings, create.OfType<Node>().ToArray());
 
-			var addrMerges = buildingsToNewAddr
-				.Where(b => !buildingsWithOldAddrNodes.ContainsKey(b.Key) && b.Value.Length == 1)
-				.Select(kvp => new { Building = subjectWaysByID[kvp.Key.Id], Node = kvp.Value.First() })
-				.ToArray();
-
-			foreach (var addrMerge in addrMerges)
+			foreach (var completeBuildingToNodes in completeBuildingsWithNewAddrNodes)
 			{
-				create.Remove(addrMerge.Node);
-				addrMerge.Building.Tags.AddOrReplace(addrMerge.Node.Tags); // Consider noting conflicts.
-				modify.Add(addrMerge.Building);
+				if (completeBuildingToNodes.Value.Length > 1) continue; // multiple matches, leave it alone.
+				var node = completeBuildingToNodes.Value.First();
+				var building = subjectElementsIndexed[completeBuildingToNodes.Key.Type.ToString() + completeBuildingToNodes.Key.Id];
+				create.Remove(node);
+
+				try
+				{
+					MergeTags(node, building, 0);
+				}
+				catch (Exception e)
+				{
+					node.Tags["exception"] = e.Message;
+					exceptions.Add(node);
+					continue;
+				}
+
+				building.Version++;
+				modify.Add(building);
 			}
 		}
 
@@ -173,9 +177,9 @@ namespace OsmPipeline
 			return element.Tags?.Any(t => t.Key.StartsWith("addr:")) == true;
 		}
 
-		private static bool IsBuilding(Way way)
+		private static bool IsBuilding(OsmGeo element)
 		{
-			return way.Tags?.ContainsKey("building") == true;
+			return element.Tags?.ContainsKey("building") == true;
 		}
 
 		private static bool MergeTags(OsmGeo reference, OsmGeo subject, double distanceMeters)

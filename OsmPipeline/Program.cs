@@ -57,11 +57,8 @@ namespace OsmPipeline
 
 		static async void ImportAddressesInScope(string scopeName)
 		{
-			// configurable match distance min/max 3/100
-			// Make PLACE_TYPE optional?
-			// Throw exceptions on address points added IN a building that they don't match?
 			// Should municpality be trusted, even for r7 t2? Could leave city off I guess?
-			// OH SHOOT, matching with relations? calculating their centroid?
+			// A place to record progress.
 			var reference = await FileSerializer.ReadXmlCacheOrSource(scopeName + "/Reference.osm",
 				() => Reference.Fetch(scopeName));
 			var subject = await FileSerializer.ReadXmlCacheOrSource(scopeName + "/Subject.osm",
