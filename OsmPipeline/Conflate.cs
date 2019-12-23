@@ -77,9 +77,9 @@ namespace OsmPipeline
 						exceptions.Add(referenceElement);
 						continue;
 					}
-					var refCentroid = Geometry.GetCentroid(referenceElement.AsComplete(subjectElementsIndexed));
+					var refCentroid = Geometry.AsPosition(referenceElement.AsComplete(subjectElementsIndexed));
 					var closestMatch = targetSubjectElements
-						.Select(element => new { element, centroid = Geometry.GetCentroid(element.AsComplete(subjectElementsIndexed)) })
+						.Select(element => new { element, centroid = Geometry.AsPosition(element.AsComplete(subjectElementsIndexed)) })
 						.Select(match => new { match.element, distance = Geometry.DistanceMeters(refCentroid, match.centroid) })
 						.OrderBy(match => match.distance).First();
 					var subjectElement = closestMatch.element;

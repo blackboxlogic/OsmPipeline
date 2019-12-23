@@ -62,6 +62,7 @@ namespace OsmPipeline.Fittings
 			else if (building is CompleteRelation buildingRelation)
 			{
 				// "in" means that even if I land in the center of a donut, I'm still "in" the building.
+				// This isn't accurate for polygons where the closed outer ring is defined by more than 2 open ways.
 				return buildingRelation.Members.Any(m => m.Role != "inner" && IsNodeInCompleteElement(node, m.Member));
 			}
 			throw new Exception("ICompleteOsmGeo wasn't a Node, Way or Relation.");
@@ -78,19 +79,9 @@ namespace OsmPipeline.Fittings
 			}
 		}
 
-		public static Position AsLocation(Node node)
+		public static Position AsPosition(this ICompleteOsmGeo element)
 		{
-			return new Position(node.Longitude.Value, node.Latitude.Value);
-		}
-
-		public static double DistanceMeters(ICompleteOsmGeo left, ICompleteOsmGeo right)
-		{
-			return DistanceMeters(GetCentroid(left), GetCentroid(right));
-		}
-
-		public static Position GetCentroid(ICompleteOsmGeo element)
-		{
-			if (element is Node node) return AsLocation(node);
+			if (element is Node node) return new Position(node.Longitude.Value, node.Latitude.Value);
 			else if (element is CompleteWay way)
 			{
 				return new Position(way.Nodes.Average(n => n.Longitude.Value), way.Nodes.Average(n => n.Latitude.Value));
@@ -98,11 +89,16 @@ namespace OsmPipeline.Fittings
 			else if (element is CompleteRelation relation)
 			{
 				// This isn't exact for relations. Good enough.
-				var positions = relation.Members.Select(m => GetCentroid(m.Member));
+				var positions = relation.Members.Select(m => AsPosition(m.Member));
 
 				return new Position(positions.Average(n => n.Longitude), positions.Average(n => n.Latitude));
 			}
 			throw new Exception("element wasn't a node, way or relation");
+		}
+
+		public static double DistanceMeters(ICompleteOsmGeo left, ICompleteOsmGeo right)
+		{
+			return DistanceMeters(AsPosition(left), AsPosition(right));
 		}
 
 		public static double DistanceMeters(Position left, Position right)

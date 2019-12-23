@@ -200,7 +200,7 @@ namespace OsmPipeline
 
 		private static List<List<Node>> GroupCloseNeighbors(Node[] address, double closenessMeters)
 		{
-			var stacks = address.GroupBy(Fittings.Geometry.AsLocation)
+			var stacks = address.GroupBy(Fittings.Geometry.AsPosition)
 				.Select(stack => new
 				{
 					positions = new List<Position> { stack.Key },
