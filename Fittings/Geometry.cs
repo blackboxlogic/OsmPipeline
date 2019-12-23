@@ -31,7 +31,7 @@ namespace OsmPipeline.Fittings
 							Role = m.Role
 						})
 						.ToArray();
-				new CompleteRelation()
+				return new CompleteRelation()
 				{
 					Id = relation.Id.Value,
 					Members = members
@@ -42,12 +42,12 @@ namespace OsmPipeline.Fittings
 
 		public static Dictionary<ICompleteOsmGeo, Node[]> NodesInCompleteElements(ICompleteOsmGeo[] buildings, Node[] nodes)
 		{
-			return buildings.ToDictionary(b => b, b => nodes.Where(n => IsNodeInCompleteElement(n, b)).ToArray())
+			return buildings.ToDictionary(b => b, b => nodes.Where(n => IsNodeInBuilding(n, b)).ToArray())
 				.Where(kvp => kvp.Value.Any())
 				.ToDictionary(kvp => kvp.Key, kvp => kvp.Value);
 		}
 
-		public static bool IsNodeInCompleteElement(Node node, ICompleteOsmGeo building)
+		public static bool IsNodeInBuilding(Node node, ICompleteOsmGeo building)
 		{
 			if (building is Node buildingNode)
 				return node.Latitude == buildingNode.Latitude && node.Longitude == buildingNode.Longitude;
@@ -63,7 +63,7 @@ namespace OsmPipeline.Fittings
 			{
 				// "in" means that even if I land in the center of a donut, I'm still "in" the building.
 				// This isn't accurate for polygons where the closed outer ring is defined by more than 2 open ways.
-				return buildingRelation.Members.Any(m => m.Role != "inner" && IsNodeInCompleteElement(node, m.Member));
+				return buildingRelation.Members.Any(m => m.Role != "inner" && IsNodeInBuilding(node, m.Member));
 			}
 			throw new Exception("ICompleteOsmGeo wasn't a Node, Way or Relation.");
 		}

@@ -84,7 +84,7 @@ namespace OsmPipeline
 						.OrderBy(match => match.distance).First();
 					var subjectElement = closestMatch.element;
 					if (closestMatch.distance > int.Parse(Static.Config["MatchDistanceKmMaz"])
-						&& !Geometry.IsNodeInCompleteElement(referenceElement, ((Way)subjectElement).AsComplete(subjectElementsIndexed)))
+						&& !Geometry.IsNodeInBuilding(referenceElement, ((Way)subjectElement).AsComplete(subjectElementsIndexed)))
 					{
 						referenceElement.Tags["exception"] = $"Matched, but too far: {(int)closestMatch.distance} > 100 meters.{Identify(subjectElement)}";
 						exceptions.Add(referenceElement);

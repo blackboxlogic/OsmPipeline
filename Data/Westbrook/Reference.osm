@@ -12090,6 +12090,7 @@
     <tag k="addr:state" v="ME" />
     <tag k="addr:postcode" v="04092" />
     <tag k="maineE911id" v="1756664" />
+    <tag k="building" v="service" />
   </node>
   <node id="-1757473" lat="43.67044739142" lon="-70.3710648071547" version="1">
     <tag k="addr:housenumber" v="195" />
@@ -12630,6 +12631,7 @@
     <tag k="addr:state" v="ME" />
     <tag k="addr:postcode" v="04092" />
     <tag k="maineE911id" v="1786333" />
+    <tag k="building" v="service" />
   </node>
   <node id="-2049694" lat="43.6884333386679" lon="-70.3559149445521" version="1">
     <tag k="addr:housenumber" v="50" />
@@ -15312,6 +15314,7 @@
     <tag k="addr:state" v="ME" />
     <tag k="addr:postcode" v="04092" />
     <tag k="maineE911id" v="1807772" />
+    <tag k="building" v="service" />
   </node>
   <node id="-1807845" lat="43.6792955462703" lon="-70.3417026684147" version="1">
     <tag k="addr:housenumber" v="272" />
@@ -47821,6 +47824,7 @@
     <tag k="addr:state" v="ME" />
     <tag k="addr:postcode" v="04092" />
     <tag k="maineE911id" v="1892824" />
+    <tag k="building" v="service" />
   </node>
   <node id="-1892825" lat="43.7342883196827" lon="-70.3639961962506" version="1">
     <tag k="addr:housenumber" v="388" />
