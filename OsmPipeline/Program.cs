@@ -46,6 +46,7 @@ namespace OsmPipeline
 			var conflated = FileSerializer.ReadXmlCacheOrSource(municipality + "/Conflated.osc",
 				() => Conflate.Merge(reference, subject, municipality));
 
+			// This is commented out so I don't accidentally commit changes to OSM.
 			//var results = await Subject.UploadChange(conflated,
 			//	"Importing addresses in " + scopeName, Static.Config["DataSourceName"]);
 		}

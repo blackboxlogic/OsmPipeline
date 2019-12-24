@@ -9,9 +9,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fittings", "Fittings\Fittin
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{7EDBE4B1-5AF9-4F3C-92E1-1EA31AA6B340}"
 	ProjectSection(SolutionItems) = preProject
+		Data\Boundaries.geojson = Data\Boundaries.geojson
 		Data\ErrorObjectIDs.json = Data\ErrorObjectIDs.json
+		Data\MaineMunicipalities.json = Data\MaineMunicipalities.json
 		Data\PLACE_TYPE.json = Data\PLACE_TYPE.json
 		Data\StreetSUFFIX.json = Data\StreetSUFFIX.json
+		Data\TagTree.json = Data\TagTree.json
 		Data\UNIT.json = Data\UNIT.json
 	EndProjectSection
 EndProject
