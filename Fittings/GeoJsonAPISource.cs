@@ -14,7 +14,7 @@ namespace OsmPipeline.Fittings
 		private const int MaxRecords = 5000;
 
 		// gets dictionary MunicipalityName -> Number of addresses
-		public static async Task<Dictionary<string, long>> GetMunicipalities()
+		public static async Task<Dictionary<string, Municipality>> GetMunicipalities()
 		{
 			var stats = new[] { new OutStatistics() { statisticType = "count", onStatisticField = "MUNICIPALITY", outStatisticFieldName = "mcount" } };
 
@@ -23,7 +23,14 @@ namespace OsmPipeline.Fittings
 			var municipalities = deserialized.Features.ToDictionary(
 				f => (string)f.Attributes["MUNICIPALITY"],
 				f => (long)f.Attributes["mcount"]);
-			return municipalities;
+			return municipalities.ToDictionary(kvp => kvp.Key, kvp => new Municipality() { AddressCount = kvp.Value });
+		}
+
+		public class Municipality
+		{
+			public long AddressCount;
+			public DateTime? ImportDate;
+			public string Notes;
 		}
 
 		public static async Task<FeatureCollection> FetchMunicipality(string municipality, int? limit = null)

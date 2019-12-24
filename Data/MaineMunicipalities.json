@@ -1,732 +1,3652 @@
 {
-  "Upper Enchanted Twp": 33,
-  "Dixmont": 583,
-  "Limestone": 1178,
-  "Coburn Gore": 39,
-  "T7 R11 WELS": 1,
-  "Parmachenee Twp": 1,
-  "Gorham": 7154,
-  "Hermon": 2399,
-  "Morrill": 367,
-  "Kennebunkport": 2988,
-  "Township C": 1,
-  "Criehaven Twp": 61,
-  "Orrington": 1704,
-  "Lee": 401,
-  "Lexington Twp": 221,
-  "Stockholm": 97,
-  "T2 R10 Wels": 2,
-  "Perham": 148,
-  "Prentiss Twp T4 R4 NBKP": 1,
-  "Veazie": 697,
-  "Presque Isle": 3792,
-  "Dole Brook Twp": 1,
-  "Smyrna": 153,
-  "Plymouth": 391,
-  "West Paris": 793,
-  "Waldoboro": 2723,
-  "Codyville Twp": 13,
-  "Deer Isle": 1614,
-  "Frenchtown Twp": 106,
-  "T17 R3 Wels": 144,
-  "Cornville": 606,
-  "Levant": 600,
-  "Kenduskeag": 268,
-  "Columbia": 173,
-  "Durham": 1714,
-  "T2 R8 Nwp": 1,
-  "Benedicta Twp": 150,
-  "Seboomook Twp": 6,
-  "Calais": 1031,
-  "Arundel": 2179,
-  "Appleton": 746,
-  "Sebec": 289,
-  "T15 R6 Wels": 9,
-  "T15 R6 WELS": 1,
-  "West Gardiner": 1103,
-  "Mayfield Twp": 36,
-  "Eustis": 801,
-  "Unity Twp": 22,
-  "Hopkins Academy Grant Twp": 3,
-  "T9 R11 WELS": 9,
-  "Oqiton Twp": 1,
-  "Industry": 573,
-  "Carrying Place Town Twp": 40,
-  "South Berwick": 3122,
-  "Chebeague Island": 498,
-  "Jim Pond Twp": 5,
-  "Dennysville": 94,
-  "Lake View Plt": 294,
-  "Kingman Twp": 132,
-  "Newfield": 1177,
-  "Troy": 444,
-  "Kittery": 6852,
-  "Lyman": 2178,
-  "T10 R15 WELS": 2,
-  "Mercer": 381,
-  "Jackman": 652,
-  "T7 Sd Bpp": 12,
-  "New Canada": 115,
-  "Kibby Twp": 47,
-  "Portland": 45133,
-  "Monson": 612,
-  "Limerick": 1773,
-  "Jefferson": 1447,
-  "Lang Twp": 24,
-  "Dixfield": 1182,
-  "Dedham": 1076,
-  "Elm Stream Twp": 5,
-  "Clayton Lake Twp": 21,
-  "Wade": 95,
-  "Reed Plt": 67,
-  "Haynesville": 71,
-  "North Berwick": 2127,
-  "Indian Twp Res": 357,
-  "Wales": 658,
-  "Grand Isle": 216,
-  "Dexter": 2019,
-  "Rumford": 3887,
-  "Newry": 879,
-  "Solon": 437,
-  "Madawaska Lake Twp": 140,
-  "Glenwood Plt": 3,
-  "Sidney": 2046,
-  "T11 R13 WELS": 1,
-  "Blanchard Twp": 90,
-  "Van Buren": 709,
-  "Rome": 702,
-  "Corinth": 634,
-  "Pittston Academy Grant": 2,
-  "Biddeford": 11700,
-  "Ta R7 Wels": 7,
-  "TA R7 WELS": 2,
-  "T32 MD BPP": 1,
-  "Boothbay": 2575,
-  "Naples": 3000,
-  "Pembroke": 340,
-  "Waldo": 331,
-  "Searsmont": 778,
-  "Chelsea": 1239,
-  "Hibberts Gore": 1,
-  "T11 R9 WELS": 8,
-  "Cornish": 774,
-  "Amity": 139,
-  "Gilead": 156,
-  "T7 R12 Wels": 1,
-  "Pownal": 684,
-  "Greenfield Twp": 253,
-  "Old Orchard Beach": 7757,
-  "New Portland": 649,
-  "Sherman": 348,
-  "Great Pond": 36,
-  "Washington Twp": 15,
-  "Milo": 741,
-  "Temple": 343,
-  "Kossuth Twp": 9,
-  "T7 R8 Wels": 6,
-  "Moosehead Junction Twp": 43,
-  "Litchfield": 1438,
-  "Argyle Twp": 151,
-  "Paris": 3243,
-  "Caratunk": 166,
-  "T16 R5 Wels": 14,
-  "Islesboro": 688,
-  "Bradford": 361,
-  "Vanceboro": 72,
-  "New Vineyard": 429,
-  "T41 Md Bpp": 2,
-  "Woolwich": 1477,
-  "Jonesboro": 359,
-  "Sandy River Plt": 425,
-  "Roque Bluffs": 197,
-  "Sorrento": 300,
-  "Westbrook": 10149,
-  "Edmunds Twp": 110,
-  "Monticello": 263,
-  "Lovell": 1155,
-  "T19 Ed Bpp": 1,
-  "Bristol": 2663,
-  "Greenwood": 765,
-  "Charlotte": 168,
-  "East Machias": 425,
-  "Stoneham": 295,
-  "T2 R9 Wels": 1,
-  "Riley Twp": 2,
-  "Atkinson Twp": 193,
-  "Lagrange": 173,
-  "Allagash": 196,
-  "Wyman Twp": 84,
-  "Harfords Point Twp": 85,
-  "Saco": 10131,
-  "Matinicus Isle Plt": 99,
-  "Gray": 4222,
-  "Pierce Pond Twp": 4,
-  "Kingsbury Plt": 113,
-  "Lowelltown Twp": 1,
-  "Damariscotta": 1506,
-  "Hiram": 826,
-  "Brownville": 408,
-  "Wells": 7491,
-  "Hope": 868,
-  "Cedar Lake Twp": 99,
-  "Moosehead Lake": 4,
-  "T34 MD BPP": 1,
-  "T1 R8 Wels": 60,
-  "T1 R8 WELS": 12,
-  "Sabattus": 2393,
-  "T4 R10 Wels": 1,
-  "Atkinson": 1,
-  "Plymouth Twp": 2,
-  "Medway": 500,
-  "Addison": 468,
-  "Blake Gore": 2,
-  "Molunkus Twp": 72,
-  "Nobleboro": 1273,
-  "Jonesport": 816,
-  "Osborn": 28,
-  "Friendship": 867,
-  "Winterville Plt": 216,
-  "Readfield": 1287,
-  "Harpswell": 5236,
-  "Easton": 590,
-  "Bridgewater": 323,
-  "T28 Md Bpp": 6,
-  "T28 MD BPP": 2,
-  "Baileyville": 478,
-  "Moscow": 264,
-  "Weston": 141,
-  "T6 Nd Bpp": 4,
-  "T6 ND BPP": 1,
-  "Sullivan": 671,
-  "Cushing": 997,
-  "Casco": 3235,
-  "T11 R16 WELS": 3,
-  "West Bath": 1118,
-  "T12 R13 WELS": 2,
-  "Alder Brook Twp": 2,
-  "Pukakon Twp": 5,
-  "Clinton": 904,
-  "Washburn": 736,
-  "Frenchboro": 86,
-  "Palermo": 1040,
-  "Bowdoin College Grant East Twp": 1,
-  "Bangor": 11562,
-  "Berry Twp": 9,
-  "Sebago": 1471,
-  "Cyr Plt": 46,
-  "T3 R13 WELS": 7,
-  "Howland": 517,
-  "Mexico": 1557,
-  "Winn": 169,
-  "T9 R12 WELS": 2,
-  "Aurora": 86,
-  "Steuben": 912,
-  "Long A Twp": 52,
-  "Surry": 1102,
-  "Bremen": 618,
-  "T4 R7 WELS": 1,
-  "Robbinston": 253,
-  "Whitneyville": 62,
-  "Frye Island": 1312,
-  "Whiting": 219,
-  "T5 R8 WELS": 5,
-  "T5 R8 Wels": 1,
-  "Mapleton": 461,
-  "Skinner Twp": 2,
-  "Acton": 2229,
-  "Bancroft Twp": 53,
-  "Mount Chase": 144,
-  "Katahdin Iron Works Twp": 5,
-  "Grand Falls Twp": 73,
-  "Kineo Twp": 35,
-  "Bethel": 1993,
-  "Webster Plt": 22,
-  "Livermore Falls": 1738,
-  "Caribou": 4577,
-  "Orono": 2491,
-  "Norridgewock": 1255,
-  "Eliot": 3845,
-  "Falmouth": 5690,
-  "Forsyth Twp": 1,
-  "Lebanon": 2933,
-  "Franklin": 1010,
-  "Springfield": 144,
-  "Fletchers Landing Twp": 50,
-  "T2 R8 WELS": 9,
-  "Harmony": 492,
-  "South Portland": 13535,
-  "Mount Desert": 2194,
-  "Chesuncook Twp": 50,
-  "Harrison": 1853,
-  "Garfield Plt": 45,
-  "Oakfield": 333,
-  "Marshfield": 158,
-  "Palmyra": 891,
-  "Chase Stream Twp": 1,
-  "Dover-Foxcroft": 2414,
-  "Brooksville": 910,
-  "Dennistown Plt": 16,
-  "Caswell": 167,
-  "Carthage": 300,
-  "Castine": 678,
-  "Cherryfield": 380,
-  "Hebron": 541,
-  "Greenbush": 470,
-  "Saint Francis": 185,
-  "Deblois": 81,
-  "Waterville": 4982,
-  "Belmont": 380,
-  "Sinclair Twp": 196,
-  "Soldiertown Twp T2 R3 Nbkp": 1,
-  "Passadumkeag": 103,
-  "Bowerbank": 177,
-  "Flagstaff Twp": 12,
-  "Soper Mountain Twp": 2,
-  "T9 R8 Wels": 1,
-  "Dallas Plt": 428,
-  "T5 R20 Wels": 15,
-  "Fowler Twp": 1,
-  "Lincolnville": 1261,
-  "Concord Twp": 118,
-  "Holeb Twp": 38,
-  "Hartland": 834,
-  "TD R2 WELS": 5,
-  "Td R2 Wels": 1,
-  "South Thomaston": 758,
-  "Kingfield": 742,
-  "Buxton": 3711,
-  "T2 R12 Wels": 1,
-  "Attean Twp": 2,
-  "Albany Twp": 438,
-  "Brooklin": 739,
-  "Chesterville": 744,
-  "Brewer": 3771,
-  "Houlton": 4895,
-  "Jackson": 235,
-  "T1 R9 Wels": 284,
-  "T1 R9 WELS": 73,
-  "Patten": 608,
-  "Piscataquis County Island": 1,
-  "Tb R10 Wels": 1,
-  "Waterboro": 3771,
-  "Centerville Twp": 13,
-  "T3 R4 Bkp Wkr": 7,
-  "T3 R4 BKP WKR": 7,
-  "Forest Twp": 23,
-  "Milford": 1177,
-  "Mattawamkeag": 307,
-  "Connor Twp": 230,
-  "Belgrade": 2031,
-  "Ebeemee Twp": 149,
-  "Rockport": 2387,
-  "Lubec": 1214,
-  "Andover North Surplus Twp": 7,
-  "Blue Hill": 1751,
-  "South Bristol": 1033,
-  "Livermore": 1222,
-  "Bar Harbor": 3983,
-  "Shapleigh": 2244,
-  "Crystal": 143,
-  "Mars Hill": 349,
-  "Maxfield": 28,
-  "Cary Twp": 123,
-  "Isle au Haut": 202,
-  "Isle Au Haut": 1,
-  "Mattamiscontis Twp": 47,
-  "Auburn": 13682,
-  "Bridgton": 4659,
-  "Rangeley": 1783,
-  "Lily Bay Twp": 38,
-  "T6 R6 Wels": 11,
-  "T13 R8 WELS": 1,
-  "Linneus": 458,
-  "Pleasant Point": 332,
-  "Athens": 415,
-  "Parkman": 296,
-  "Monroe": 380,
-  "Long Pond Twp": 58,
-  "T35 Md Bpp": 1,
-  "T5 R7 BKP WKR": 1,
-  "Wallagrass": 226,
-  "Cross Lake Twp": 210,
-  "The Forks Plt": 69,
-  "Davis Twp": 27,
-  "Freeman Twp": 177,
-  "Bowdoin": 1342,
-  "Northport": 836,
-  "Medford": 71,
-  "East Moxie Twp": 3,
-  "Randolph": 731,
-  "Ashland": 560,
-  "Gouldsboro": 1259,
-  "Magalloway Plt": 70,
-  "Sweden": 272,
-  "Old Town": 2729,
-  "Warren": 1941,
-  "T3 R12 WELS": 9,
-  "Lambert Lake Twp": 35,
-  "Exeter": 352,
-  "Beddington": 253,
-  "China": 2354,
-  "Northfield": 133,
-  "Misery Gore Twp": 4,
-  "T11 R11 WELS": 5,
-  "Canaan": 1143,
-  "Winslow": 3232,
-  "Washington": 822,
-  "Richmond": 1580,
-  "Taunton & Raynham Academy Grant": 4,
-  "Burnham": 463,
-  "Gorham Gore": 1,
-  "T3 R11 Wels": 3,
-  "T3 R11 WELS": 2,
-  "Corinna": 773,
-  "Owls Head": 1034,
-  "Swanville": 604,
-  "Silver Ridge Twp": 41,
-  "Mariaville": 346,
-  "Blaine": 256,
-  "Camden": 3690,
-  "Abbot": 307,
-  "Dead River Twp": 21,
-  "Indian Island": 132,
-  "Windham": 10464,
-  "Enfield": 462,
-  "Cathance Twp": 38,
-  "Hartford": 871,
-  "Sakom Twp": 2,
-  "Grindstone Twp": 57,
-  "Poland": 2977,
-  "E Twp": 19,
-  "Scarborough": 11222,
-  "Ripley": 251,
-  "T3 R1 Nbpp": 10,
-  "T3 R1 NBPP": 1,
-  "Fayette": 689,
-  "Comstock Twp": 2,
-  "Alfred": 1563,
-  "Winter Harbor": 537,
-  "Cumberland": 4038,
-  "Meddybemps": 104,
-  "Littleton": 422,
-  "Barnard Twp": 24,
-  "Belfast": 3036,
-  "Bowdoinham": 1345,
-  "Lincoln": 2776,
-  "Pittsfield": 2069,
-  "Upton": 177,
-  "T8 R4 Nbpp": 11,
-  "T2 R9 NWP": 1,
-  "Ellsworth": 5451,
-  "Grand Lake Stream Plt": 140,
-  "Bingham": 415,
-  "Andover": 599,
-  "Greenlaw Chopping Twp": 20,
-  "Georgetown": 996,
-  "Merrill": 112,
-  "Peru": 822,
-  "T22 Md Bpp": 7,
-  "T22 MD BPP": 1,
-  "Day Block Twp": 11,
-  "Thomaston": 1568,
-  "Topsham": 4073,
-  "Vienna": 341,
-  "Montville": 462,
-  "T9 R5 Wels": 1,
-  "T9 R5 WELS": 1,
-  "Rockwood Strip T1 R1 Nbkp": 120,
-  "Searsport": 1008,
-  "Rockwood Strip T1 R1 NBKP": 96,
-  "Mechanic Falls": 1476,
-  "Shirley": 113,
-  "Lamoine": 510,
-  "T10 Sd Bpp": 36,
-  "Jay": 2595,
-  "Rockland": 4723,
-  "Starks": 304,
-  "T7 R9 NWP": 3,
-  "Smithfield": 496,
-  "Stow": 241,
-  "Forest City Twp": 43,
-  "Newport": 1632,
-  "T4 R13 Wels": 1,
-  "T4 R13 WELS": 1,
-  "Sumner": 585,
-  "Devereaux Twp": 16,
-  "Sapling Twp": 5,
-  "Burlington": 171,
-  "Fairfield": 2627,
-  "New Limerick": 193,
-  "Bradley": 315,
-  "Prospect": 313,
-  "Woodland": 302,
-  "Millinocket": 2342,
-  "T9 R3 WELS": 32,
-  "T9 R3 Wels": 7,
-  "Ta R11 Wels": 1,
-  "Fort Kent": 2366,
-  "Nashville Plt": 13,
-  "Ta R2 Wels": 2,
-  "Knox": 356,
-  "Bucksport": 2464,
-  "Etna": 455,
-  "Frankfort": 402,
-  "Ludlow": 237,
-  "Highland Plt": 33,
-  "Eagle Lake": 589,
-  "Crawford": 137,
-  "Limington": 1744,
-  "Cutler": 227,
-  "Stockton Springs": 762,
-  "Talmadge": 16,
-  "Greenville": 899,
-  "Garland": 390,
-  "Mason Twp": 48,
-  "Sandbar Tract Twp": 28,
-  "Prentiss Twp T7 R3 NBPP": 224,
-  "Liberty": 695,
-  "Boothbay Harbor": 2467,
-  "Ogunquit": 1828,
-  "T37 MD BPP": 2,
-  "West Forks Plt": 77,
-  "Berwick": 4889,
-  "Saint Agatha": 256,
-  "Phippsburg": 1774,
-  "Northeast Carry Twp": 22,
-  "Southport": 755,
-  "Trenton": 669,
-  "Moro Plt": 32,
-  "T4 Indian Purchase Twp": 300,
-  "T14 R5 Wels": 1,
-  "Coplin Plt": 112,
-  "T2 R13 WELS": 24,
-  "Marion Twp": 27,
-  "Parlin Pond Twp": 22,
-  "Princeton": 333,
-  "Dresden": 915,
-  "Amherst": 144,
-  "Macwahoc Plt": 46,
-  "Yarmouth": 4126,
-  "Oxbow North Twp": 29,
-  "Summit Twp": 13,
-  "T14 R7 WELS": 1,
-  "Verona Island": 196,
-  "Orland": 1400,
-  "Vassalboro": 2029,
-  "Waltham": 131,
-  "Seboeis Plt": 21,
-  "Stonington": 937,
-  "Lower Cupsuptic Twp": 5,
-  "T3 Indian Purchase Twp": 135,
-  "Salem Twp": 179,
-  "New Gloucester": 2426,
-  "Drew Plt": 15,
-  "Woodstock": 845,
-  "Carroll Plt": 72,
-  "Lowell": 141,
-  "Benton": 804,
-  "Cambridge": 231,
-  "Avon": 280,
-  "Adamstown Twp": 36,
-  "Brunswick": 12264,
-  "Glenburn": 1091,
-  "Alexander": 264,
-  "Woodville": 147,
-  "Ta R10 Wels": 1,
-  "Skowhegan": 5019,
-  "Moose River": 134,
-  "Somerville": 322,
-  "Eddington": 807,
-  "Trescott Twp": 221,
-  "Alton": 373,
-  "Fryeburg": 2143,
-  "T8 R3 Nbpp": 19,
-  "Unity": 807,
-  "Portage Lake": 440,
-  "Bath": 3852,
-  "Carmel": 691,
-  "Norway": 3648,
-  "Williamsburg Twp": 30,
-  "Johnson Mountain Twp": 23,
-  "Monmouth": 1612,
-  "Roxbury": 293,
-  "Carrabassett Valley": 2248,
-  "Madison": 2138,
-  "T5 R19 Wels": 1,
-  "Hudson": 452,
-  "Freeport": 4915,
-  "Brownfield": 935,
-  "East Millinocket": 759,
-  "T1 R5 Wels": 2,
-  "Greene": 2009,
-  "Brighton Plt": 45,
-  "Elliottsville Twp": 85,
-  "T7 R16 Wels": 1,
-  "Standish": 4796,
-  "Vinalhaven": 1428,
-  "Westport Island": 603,
-  "Forkstown Twp": 13,
-  "Hancock": 1427,
-  "Beals": 197,
-  "T1 R10 WELS": 6,
-  "Herseytown Twp": 36,
-  "Sanford": 9567,
-  "Lisbon": 3432,
-  "Hampden": 3085,
-  "Tremont": 1081,
-  "Stetsontown Twp": 49,
-  "Oxford": 2320,
-  "T8 R11 Wels": 1,
-  "Baring Plt": 65,
-  "T19 MD BPP": 3,
-  "T19 Md Bpp": 1,
-  "Sedgwick": 755,
-  "Long Island": 430,
-  "Machias": 1099,
-  "Waterford": 1022,
-  "T6 R8 WELS": 24,
-  "Penobscot": 715,
-  "Union": 1281,
-  "Hammond": 44,
-  "Raymond": 4130,
-  "Moxie Gore": 27,
-  "T6 R7 Wels": 7,
-  "T6 R7 WELS": 1,
-  "Swans Island": 361,
-  "Pittston": 945,
-  "Cranberry Isles": 269,
-  "North Yarmouth": 1547,
-  "Machiasport": 353,
-  "T11 R17 WELS": 12,
-  "New Sharon": 793,
-  "Lakeville": 131,
-  "Wesley": 49,
-  "Masardis": 80,
-  "Cove Point Twp": 9,
-  "Parsonsfield": 1061,
-  "Hersey": 35,
-  "Island Falls": 513,
-  "Rangeley Plt": 627,
-  "Denmark": 1077,
-  "Frenchville": 410,
-  "Danforth": 275,
-  "Lynchtown Twp": 2,
-  "Arrowsic": 306,
-  "Turner": 2930,
-  "Detroit": 470,
-  "Bald Mountain Twp T4 R3": 6,
-  "Whitefield": 1145,
-  "Wellington": 133,
-  "Baldwin": 800,
-  "Embden": 628,
-  "Edgecomb": 855,
-  "Alna": 388,
-  "T9 Sd Bpp": 4,
-  "Buckfield": 1029,
-  "Holden": 840,
-  "Perry": 353,
-  "Chester": 167,
-  "Lincoln Plt": 78,
-  "Otis": 460,
-  "Farmingdale": 890,
-  "Leeds": 1138,
-  "Wayne": 892,
-  "Albion": 769,
-  "Monhegan Island Plt": 196,
-  "Otisfield": 1190,
-  "Big Lake Twp": 60,
-  "Chain of Ponds Twp": 27,
-  "T11 R4 Wels": 34,
-  "Big Moose Twp": 24,
-  "Saint Albans": 924,
-  "Phillips": 613,
-  "Madrid Twp": 148,
-  "Minot": 1110,
-  "Dayton": 882,
-  "Lewiston": 32295,
-  "Byron": 88,
-  "Dyer Brook": 122,
-  "Saint George": 1484,
-  "Clifton": 330,
-  "Columbia Falls": 190,
-  "New Sweden": 205,
-  "Castle Hill": 197,
-  "Wiscasset": 2086,
-  "Saint John Plt": 137,
-  "Harrington": 440,
-  "Brooks": 601,
-  "T12 R8 WELS": 51,
-  "Orient": 116,
-  "Anson": 1354,
-  "Massachusetts Gore": 1,
-  "Tim Pond Twp": 1,
-  "T4 R9 Nwp": 13,
-  "Wilton": 2180,
-  "Edinburg": 39,
-  "Milbridge": 556,
-  "Sangerville": 529,
-  "Cooper": 90,
-  "Sandy Bay Twp": 10,
-  "Richardsontown Twp": 2,
-  "Orneville Twp": 108,
-  "Gardiner": 2307,
-  "Grafton Twp": 1,
-  "Hallowell": 1076,
-  "Charleston": 384,
-  "Chapman": 216,
-  "Kennebunk": 6650,
-  "Guilford": 571,
-  "Southwest Harbor": 1381,
-  "Alder Stream Twp": 43,
-  "Weld": 571,
-  "North Haven": 584,
-  "Winterport": 1172,
-  "Strong": 640,
-  "Cape Elizabeth": 4207,
-  "T5 R7 Wels": 54,
-  "T5 R7 WELS": 34,
-  "Stetson": 460,
-  "Tomhegan Twp": 157,
-  "Eastbrook": 238,
-  "Milton Twp": 81,
-  "Pleasant Ridge Plt": 46,
-  "Manchester": 1166,
-  "T1 R12 WELS": 1,
-  "Hodgdon": 588,
-  "Hamlin": 125,
-  "Winthrop": 2859,
-  "Waite": 38,
-  "Newburgh": 589,
-  "Brookton Twp": 74,
-  "Perkins Twp": 22,
-  "T5 R6 BKP WKR": 1,
-  "York": 10580,
-  "Hollis": 2068,
-  "Mount Vernon": 1239,
-  "Porter": 757,
-  "Hanover": 146,
-  "T16 Md Bpp": 3,
-  "T16 MD BPP": 2,
-  "Canton": 485,
-  "Willimantic": 175,
-  "Westfield": 109,
-  "Windsor": 791,
-  "Little W Twp": 17,
-  "Westmanland": 46,
-  "Newcastle": 1131,
-  "Madawaska": 1300,
-  "Augusta": 7444,
-  "Indian Stream Twp": 6,
-  "Thorndike": 378,
-  "Farmington": 4144,
-  "Fort Fairfield": 1880,
-  "Topsfield": 95,
-  "Redington Twp": 1,
-  "Oakland": 2739,
-  "Stacyville": 270,
-  "Beaver Cove": 132,
-  "Eastport": 1263,
-  "Freedom": 341,
-  "Soldiertown Twp T2 R7 WELS": 9,
-  "Soldiertown Twp T2 R7 Wels": 3
+  "Upper Enchanted Twp": {
+    "AddressCount": 33,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Dixmont": {
+    "AddressCount": 583,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Limestone": {
+    "AddressCount": 1178,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Coburn Gore": {
+    "AddressCount": 39,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "T7 R11 WELS": {
+    "AddressCount": 1,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Parmachenee Twp": {
+    "AddressCount": 1,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Gorham": {
+    "AddressCount": 7154,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Hermon": {
+    "AddressCount": 2399,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Morrill": {
+    "AddressCount": 367,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Kennebunkport": {
+    "AddressCount": 2988,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Township C": {
+    "AddressCount": 1,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Criehaven Twp": {
+    "AddressCount": 61,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Orrington": {
+    "AddressCount": 1704,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Lee": {
+    "AddressCount": 401,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Lexington Twp": {
+    "AddressCount": 221,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Stockholm": {
+    "AddressCount": 97,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "T2 R10 Wels": {
+    "AddressCount": 2,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Perham": {
+    "AddressCount": 148,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Prentiss Twp T4 R4 NBKP": {
+    "AddressCount": 1,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Veazie": {
+    "AddressCount": 697,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Presque Isle": {
+    "AddressCount": 3792,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Dole Brook Twp": {
+    "AddressCount": 1,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Smyrna": {
+    "AddressCount": 153,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Plymouth": {
+    "AddressCount": 391,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "West Paris": {
+    "AddressCount": 793,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Waldoboro": {
+    "AddressCount": 2723,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Codyville Twp": {
+    "AddressCount": 13,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Deer Isle": {
+    "AddressCount": 1614,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Frenchtown Twp": {
+    "AddressCount": 106,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "T17 R3 Wels": {
+    "AddressCount": 144,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Cornville": {
+    "AddressCount": 606,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Levant": {
+    "AddressCount": 600,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Kenduskeag": {
+    "AddressCount": 268,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Columbia": {
+    "AddressCount": 173,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Durham": {
+    "AddressCount": 1714,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "T2 R8 Nwp": {
+    "AddressCount": 1,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Benedicta Twp": {
+    "AddressCount": 150,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Seboomook Twp": {
+    "AddressCount": 6,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Calais": {
+    "AddressCount": 1031,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Arundel": {
+    "AddressCount": 2179,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Appleton": {
+    "AddressCount": 746,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Sebec": {
+    "AddressCount": 289,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "T15 R6 Wels": {
+    "AddressCount": 9,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "T15 R6 WELS": {
+    "AddressCount": 1,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "West Gardiner": {
+    "AddressCount": 1103,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Mayfield Twp": {
+    "AddressCount": 36,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Eustis": {
+    "AddressCount": 801,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Unity Twp": {
+    "AddressCount": 22,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Hopkins Academy Grant Twp": {
+    "AddressCount": 3,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "T9 R11 WELS": {
+    "AddressCount": 9,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Oqiton Twp": {
+    "AddressCount": 1,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Industry": {
+    "AddressCount": 573,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Carrying Place Town Twp": {
+    "AddressCount": 40,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "South Berwick": {
+    "AddressCount": 3122,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Chebeague Island": {
+    "AddressCount": 498,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Jim Pond Twp": {
+    "AddressCount": 5,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Dennysville": {
+    "AddressCount": 94,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Lake View Plt": {
+    "AddressCount": 294,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Kingman Twp": {
+    "AddressCount": 132,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Newfield": {
+    "AddressCount": 1177,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Troy": {
+    "AddressCount": 444,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Kittery": {
+    "AddressCount": 6852,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Lyman": {
+    "AddressCount": 2178,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "T10 R15 WELS": {
+    "AddressCount": 2,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Mercer": {
+    "AddressCount": 381,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Jackman": {
+    "AddressCount": 652,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "T7 Sd Bpp": {
+    "AddressCount": 12,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "New Canada": {
+    "AddressCount": 115,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Kibby Twp": {
+    "AddressCount": 47,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Portland": {
+    "AddressCount": 45133,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Monson": {
+    "AddressCount": 612,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Limerick": {
+    "AddressCount": 1773,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Jefferson": {
+    "AddressCount": 1447,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Lang Twp": {
+    "AddressCount": 24,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Dixfield": {
+    "AddressCount": 1182,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Dedham": {
+    "AddressCount": 1076,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Elm Stream Twp": {
+    "AddressCount": 5,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Clayton Lake Twp": {
+    "AddressCount": 21,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Wade": {
+    "AddressCount": 95,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Reed Plt": {
+    "AddressCount": 67,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Haynesville": {
+    "AddressCount": 71,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "North Berwick": {
+    "AddressCount": 2127,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Indian Twp Res": {
+    "AddressCount": 357,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Wales": {
+    "AddressCount": 658,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Grand Isle": {
+    "AddressCount": 216,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Dexter": {
+    "AddressCount": 2019,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Rumford": {
+    "AddressCount": 3887,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Newry": {
+    "AddressCount": 879,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Solon": {
+    "AddressCount": 437,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Madawaska Lake Twp": {
+    "AddressCount": 140,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Glenwood Plt": {
+    "AddressCount": 3,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Sidney": {
+    "AddressCount": 2046,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "T11 R13 WELS": {
+    "AddressCount": 1,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Blanchard Twp": {
+    "AddressCount": 90,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Van Buren": {
+    "AddressCount": 709,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Rome": {
+    "AddressCount": 702,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Corinth": {
+    "AddressCount": 634,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Pittston Academy Grant": {
+    "AddressCount": 2,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Biddeford": {
+    "AddressCount": 11700,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Ta R7 Wels": {
+    "AddressCount": 7,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "TA R7 WELS": {
+    "AddressCount": 2,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "T32 MD BPP": {
+    "AddressCount": 1,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Boothbay": {
+    "AddressCount": 2575,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Naples": {
+    "AddressCount": 3000,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Pembroke": {
+    "AddressCount": 340,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Waldo": {
+    "AddressCount": 331,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Searsmont": {
+    "AddressCount": 778,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Chelsea": {
+    "AddressCount": 1239,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Hibberts Gore": {
+    "AddressCount": 1,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "T11 R9 WELS": {
+    "AddressCount": 8,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Cornish": {
+    "AddressCount": 774,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Amity": {
+    "AddressCount": 139,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Gilead": {
+    "AddressCount": 156,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "T7 R12 Wels": {
+    "AddressCount": 1,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Pownal": {
+    "AddressCount": 684,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Greenfield Twp": {
+    "AddressCount": 253,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Old Orchard Beach": {
+    "AddressCount": 7757,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "New Portland": {
+    "AddressCount": 649,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Sherman": {
+    "AddressCount": 348,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Great Pond": {
+    "AddressCount": 36,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Washington Twp": {
+    "AddressCount": 15,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Milo": {
+    "AddressCount": 741,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Temple": {
+    "AddressCount": 343,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Kossuth Twp": {
+    "AddressCount": 9,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "T7 R8 Wels": {
+    "AddressCount": 6,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Moosehead Junction Twp": {
+    "AddressCount": 43,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Litchfield": {
+    "AddressCount": 1438,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Argyle Twp": {
+    "AddressCount": 151,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Paris": {
+    "AddressCount": 3243,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Caratunk": {
+    "AddressCount": 166,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "T16 R5 Wels": {
+    "AddressCount": 14,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Islesboro": {
+    "AddressCount": 688,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Bradford": {
+    "AddressCount": 361,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Vanceboro": {
+    "AddressCount": 72,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "New Vineyard": {
+    "AddressCount": 429,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "T41 Md Bpp": {
+    "AddressCount": 2,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Woolwich": {
+    "AddressCount": 1477,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Jonesboro": {
+    "AddressCount": 359,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Sandy River Plt": {
+    "AddressCount": 425,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Roque Bluffs": {
+    "AddressCount": 197,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Sorrento": {
+    "AddressCount": 300,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Westbrook": {
+    "AddressCount": 10149,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Edmunds Twp": {
+    "AddressCount": 110,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Monticello": {
+    "AddressCount": 263,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Lovell": {
+    "AddressCount": 1155,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "T19 Ed Bpp": {
+    "AddressCount": 1,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Bristol": {
+    "AddressCount": 2663,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Greenwood": {
+    "AddressCount": 765,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Charlotte": {
+    "AddressCount": 168,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "East Machias": {
+    "AddressCount": 425,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Stoneham": {
+    "AddressCount": 295,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "T2 R9 Wels": {
+    "AddressCount": 1,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Riley Twp": {
+    "AddressCount": 2,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Atkinson Twp": {
+    "AddressCount": 193,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Lagrange": {
+    "AddressCount": 173,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Allagash": {
+    "AddressCount": 196,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Wyman Twp": {
+    "AddressCount": 84,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Harfords Point Twp": {
+    "AddressCount": 85,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Saco": {
+    "AddressCount": 10131,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Matinicus Isle Plt": {
+    "AddressCount": 99,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Gray": {
+    "AddressCount": 4222,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Pierce Pond Twp": {
+    "AddressCount": 4,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Kingsbury Plt": {
+    "AddressCount": 113,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Lowelltown Twp": {
+    "AddressCount": 1,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Damariscotta": {
+    "AddressCount": 1506,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Hiram": {
+    "AddressCount": 826,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Brownville": {
+    "AddressCount": 408,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Wells": {
+    "AddressCount": 7491,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Hope": {
+    "AddressCount": 868,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Cedar Lake Twp": {
+    "AddressCount": 99,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Moosehead Lake": {
+    "AddressCount": 4,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "T34 MD BPP": {
+    "AddressCount": 1,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "T1 R8 Wels": {
+    "AddressCount": 60,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "T1 R8 WELS": {
+    "AddressCount": 12,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Sabattus": {
+    "AddressCount": 2393,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "T4 R10 Wels": {
+    "AddressCount": 1,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Atkinson": {
+    "AddressCount": 1,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Plymouth Twp": {
+    "AddressCount": 2,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Medway": {
+    "AddressCount": 500,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Addison": {
+    "AddressCount": 468,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Blake Gore": {
+    "AddressCount": 2,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Molunkus Twp": {
+    "AddressCount": 72,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Nobleboro": {
+    "AddressCount": 1273,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Jonesport": {
+    "AddressCount": 816,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Osborn": {
+    "AddressCount": 28,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Friendship": {
+    "AddressCount": 867,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Winterville Plt": {
+    "AddressCount": 216,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Readfield": {
+    "AddressCount": 1287,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Harpswell": {
+    "AddressCount": 5236,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Easton": {
+    "AddressCount": 590,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Bridgewater": {
+    "AddressCount": 323,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "T28 Md Bpp": {
+    "AddressCount": 6,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "T28 MD BPP": {
+    "AddressCount": 2,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Baileyville": {
+    "AddressCount": 478,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Moscow": {
+    "AddressCount": 264,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Weston": {
+    "AddressCount": 141,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "T6 Nd Bpp": {
+    "AddressCount": 4,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "T6 ND BPP": {
+    "AddressCount": 1,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Sullivan": {
+    "AddressCount": 671,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Cushing": {
+    "AddressCount": 997,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Casco": {
+    "AddressCount": 3235,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "T11 R16 WELS": {
+    "AddressCount": 3,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "West Bath": {
+    "AddressCount": 1118,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "T12 R13 WELS": {
+    "AddressCount": 2,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Alder Brook Twp": {
+    "AddressCount": 2,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Pukakon Twp": {
+    "AddressCount": 5,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Clinton": {
+    "AddressCount": 904,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Washburn": {
+    "AddressCount": 736,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Frenchboro": {
+    "AddressCount": 86,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Palermo": {
+    "AddressCount": 1040,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Bowdoin College Grant East Twp": {
+    "AddressCount": 1,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Bangor": {
+    "AddressCount": 11562,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Berry Twp": {
+    "AddressCount": 9,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Sebago": {
+    "AddressCount": 1471,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Cyr Plt": {
+    "AddressCount": 46,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "T3 R13 WELS": {
+    "AddressCount": 7,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Howland": {
+    "AddressCount": 517,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Mexico": {
+    "AddressCount": 1557,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Winn": {
+    "AddressCount": 169,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "T9 R12 WELS": {
+    "AddressCount": 2,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Aurora": {
+    "AddressCount": 86,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Steuben": {
+    "AddressCount": 912,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Long A Twp": {
+    "AddressCount": 52,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Surry": {
+    "AddressCount": 1102,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Bremen": {
+    "AddressCount": 618,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "T4 R7 WELS": {
+    "AddressCount": 1,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Robbinston": {
+    "AddressCount": 253,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Whitneyville": {
+    "AddressCount": 62,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Frye Island": {
+    "AddressCount": 1312,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Whiting": {
+    "AddressCount": 219,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "T5 R8 WELS": {
+    "AddressCount": 5,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "T5 R8 Wels": {
+    "AddressCount": 1,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Mapleton": {
+    "AddressCount": 461,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Skinner Twp": {
+    "AddressCount": 2,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Acton": {
+    "AddressCount": 2229,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Bancroft Twp": {
+    "AddressCount": 53,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Mount Chase": {
+    "AddressCount": 144,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Katahdin Iron Works Twp": {
+    "AddressCount": 5,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Grand Falls Twp": {
+    "AddressCount": 73,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Kineo Twp": {
+    "AddressCount": 35,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Bethel": {
+    "AddressCount": 1993,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Webster Plt": {
+    "AddressCount": 22,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Livermore Falls": {
+    "AddressCount": 1738,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Caribou": {
+    "AddressCount": 4577,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Orono": {
+    "AddressCount": 2491,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Norridgewock": {
+    "AddressCount": 1255,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Eliot": {
+    "AddressCount": 3845,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Falmouth": {
+    "AddressCount": 5690,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Forsyth Twp": {
+    "AddressCount": 1,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Lebanon": {
+    "AddressCount": 2933,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Franklin": {
+    "AddressCount": 1010,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Springfield": {
+    "AddressCount": 144,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Fletchers Landing Twp": {
+    "AddressCount": 50,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "T2 R8 WELS": {
+    "AddressCount": 9,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Harmony": {
+    "AddressCount": 492,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "South Portland": {
+    "AddressCount": 13535,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Mount Desert": {
+    "AddressCount": 2194,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Chesuncook Twp": {
+    "AddressCount": 50,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Harrison": {
+    "AddressCount": 1853,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Garfield Plt": {
+    "AddressCount": 45,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Oakfield": {
+    "AddressCount": 333,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Marshfield": {
+    "AddressCount": 158,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Palmyra": {
+    "AddressCount": 891,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Chase Stream Twp": {
+    "AddressCount": 1,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Dover-Foxcroft": {
+    "AddressCount": 2414,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Brooksville": {
+    "AddressCount": 910,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Dennistown Plt": {
+    "AddressCount": 16,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Caswell": {
+    "AddressCount": 167,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Carthage": {
+    "AddressCount": 300,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Castine": {
+    "AddressCount": 678,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Cherryfield": {
+    "AddressCount": 380,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Hebron": {
+    "AddressCount": 541,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Greenbush": {
+    "AddressCount": 470,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Saint Francis": {
+    "AddressCount": 185,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Deblois": {
+    "AddressCount": 81,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Waterville": {
+    "AddressCount": 4982,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Belmont": {
+    "AddressCount": 380,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Sinclair Twp": {
+    "AddressCount": 196,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Soldiertown Twp T2 R3 Nbkp": {
+    "AddressCount": 1,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Passadumkeag": {
+    "AddressCount": 103,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Bowerbank": {
+    "AddressCount": 177,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Flagstaff Twp": {
+    "AddressCount": 12,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Soper Mountain Twp": {
+    "AddressCount": 2,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "T9 R8 Wels": {
+    "AddressCount": 1,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Dallas Plt": {
+    "AddressCount": 428,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "T5 R20 Wels": {
+    "AddressCount": 15,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Fowler Twp": {
+    "AddressCount": 1,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Lincolnville": {
+    "AddressCount": 1261,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Concord Twp": {
+    "AddressCount": 118,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Holeb Twp": {
+    "AddressCount": 38,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Hartland": {
+    "AddressCount": 834,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "TD R2 WELS": {
+    "AddressCount": 5,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Td R2 Wels": {
+    "AddressCount": 1,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "South Thomaston": {
+    "AddressCount": 758,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Kingfield": {
+    "AddressCount": 742,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Buxton": {
+    "AddressCount": 3711,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "T2 R12 Wels": {
+    "AddressCount": 1,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Attean Twp": {
+    "AddressCount": 2,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Albany Twp": {
+    "AddressCount": 438,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Brooklin": {
+    "AddressCount": 739,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Chesterville": {
+    "AddressCount": 744,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Brewer": {
+    "AddressCount": 3771,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Houlton": {
+    "AddressCount": 4895,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Jackson": {
+    "AddressCount": 235,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "T1 R9 Wels": {
+    "AddressCount": 284,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "T1 R9 WELS": {
+    "AddressCount": 73,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Patten": {
+    "AddressCount": 608,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Piscataquis County Island": {
+    "AddressCount": 1,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Tb R10 Wels": {
+    "AddressCount": 1,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Waterboro": {
+    "AddressCount": 3771,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Centerville Twp": {
+    "AddressCount": 13,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "T3 R4 Bkp Wkr": {
+    "AddressCount": 7,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "T3 R4 BKP WKR": {
+    "AddressCount": 7,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Forest Twp": {
+    "AddressCount": 23,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Milford": {
+    "AddressCount": 1177,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Mattawamkeag": {
+    "AddressCount": 307,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Connor Twp": {
+    "AddressCount": 230,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Belgrade": {
+    "AddressCount": 2031,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Ebeemee Twp": {
+    "AddressCount": 149,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Rockport": {
+    "AddressCount": 2387,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Lubec": {
+    "AddressCount": 1214,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Andover North Surplus Twp": {
+    "AddressCount": 7,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Blue Hill": {
+    "AddressCount": 1751,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "South Bristol": {
+    "AddressCount": 1033,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Livermore": {
+    "AddressCount": 1222,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Bar Harbor": {
+    "AddressCount": 3983,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Shapleigh": {
+    "AddressCount": 2244,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Crystal": {
+    "AddressCount": 143,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Mars Hill": {
+    "AddressCount": 349,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Maxfield": {
+    "AddressCount": 28,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Cary Twp": {
+    "AddressCount": 123,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Isle au Haut": {
+    "AddressCount": 202,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Isle Au Haut": {
+    "AddressCount": 1,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Mattamiscontis Twp": {
+    "AddressCount": 47,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Auburn": {
+    "AddressCount": 13682,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Bridgton": {
+    "AddressCount": 4659,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Rangeley": {
+    "AddressCount": 1783,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Lily Bay Twp": {
+    "AddressCount": 38,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "T6 R6 Wels": {
+    "AddressCount": 11,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "T13 R8 WELS": {
+    "AddressCount": 1,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Linneus": {
+    "AddressCount": 458,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Pleasant Point": {
+    "AddressCount": 332,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Athens": {
+    "AddressCount": 415,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Parkman": {
+    "AddressCount": 296,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Monroe": {
+    "AddressCount": 380,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Long Pond Twp": {
+    "AddressCount": 58,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "T35 Md Bpp": {
+    "AddressCount": 1,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "T5 R7 BKP WKR": {
+    "AddressCount": 1,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Wallagrass": {
+    "AddressCount": 226,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Cross Lake Twp": {
+    "AddressCount": 210,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "The Forks Plt": {
+    "AddressCount": 69,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Davis Twp": {
+    "AddressCount": 27,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Freeman Twp": {
+    "AddressCount": 177,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Bowdoin": {
+    "AddressCount": 1342,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Northport": {
+    "AddressCount": 836,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Medford": {
+    "AddressCount": 71,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "East Moxie Twp": {
+    "AddressCount": 3,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Randolph": {
+    "AddressCount": 731,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Ashland": {
+    "AddressCount": 560,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Gouldsboro": {
+    "AddressCount": 1259,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Magalloway Plt": {
+    "AddressCount": 70,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Sweden": {
+    "AddressCount": 272,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Old Town": {
+    "AddressCount": 2729,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Warren": {
+    "AddressCount": 1941,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "T3 R12 WELS": {
+    "AddressCount": 9,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Lambert Lake Twp": {
+    "AddressCount": 35,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Exeter": {
+    "AddressCount": 352,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Beddington": {
+    "AddressCount": 253,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "China": {
+    "AddressCount": 2354,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Northfield": {
+    "AddressCount": 133,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Misery Gore Twp": {
+    "AddressCount": 4,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "T11 R11 WELS": {
+    "AddressCount": 5,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Canaan": {
+    "AddressCount": 1143,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Winslow": {
+    "AddressCount": 3232,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Washington": {
+    "AddressCount": 822,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Richmond": {
+    "AddressCount": 1580,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Taunton & Raynham Academy Grant": {
+    "AddressCount": 4,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Burnham": {
+    "AddressCount": 463,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Gorham Gore": {
+    "AddressCount": 1,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "T3 R11 Wels": {
+    "AddressCount": 3,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "T3 R11 WELS": {
+    "AddressCount": 2,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Corinna": {
+    "AddressCount": 773,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Owls Head": {
+    "AddressCount": 1034,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Swanville": {
+    "AddressCount": 604,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Silver Ridge Twp": {
+    "AddressCount": 41,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Mariaville": {
+    "AddressCount": 346,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Blaine": {
+    "AddressCount": 256,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Camden": {
+    "AddressCount": 3690,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Abbot": {
+    "AddressCount": 307,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Dead River Twp": {
+    "AddressCount": 21,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Indian Island": {
+    "AddressCount": 132,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Windham": {
+    "AddressCount": 10464,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Enfield": {
+    "AddressCount": 462,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Cathance Twp": {
+    "AddressCount": 38,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Hartford": {
+    "AddressCount": 871,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Sakom Twp": {
+    "AddressCount": 2,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Grindstone Twp": {
+    "AddressCount": 57,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Poland": {
+    "AddressCount": 2977,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "E Twp": {
+    "AddressCount": 19,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Scarborough": {
+    "AddressCount": 11222,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Ripley": {
+    "AddressCount": 251,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "T3 R1 Nbpp": {
+    "AddressCount": 10,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "T3 R1 NBPP": {
+    "AddressCount": 1,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Fayette": {
+    "AddressCount": 689,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Comstock Twp": {
+    "AddressCount": 2,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Alfred": {
+    "AddressCount": 1563,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Winter Harbor": {
+    "AddressCount": 537,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Cumberland": {
+    "AddressCount": 4038,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Meddybemps": {
+    "AddressCount": 104,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Littleton": {
+    "AddressCount": 422,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Barnard Twp": {
+    "AddressCount": 24,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Belfast": {
+    "AddressCount": 3036,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Bowdoinham": {
+    "AddressCount": 1345,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Lincoln": {
+    "AddressCount": 2776,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Pittsfield": {
+    "AddressCount": 2069,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Upton": {
+    "AddressCount": 177,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "T8 R4 Nbpp": {
+    "AddressCount": 11,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "T2 R9 NWP": {
+    "AddressCount": 1,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Ellsworth": {
+    "AddressCount": 5451,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Grand Lake Stream Plt": {
+    "AddressCount": 140,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Bingham": {
+    "AddressCount": 415,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Andover": {
+    "AddressCount": 599,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Greenlaw Chopping Twp": {
+    "AddressCount": 20,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Georgetown": {
+    "AddressCount": 996,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Merrill": {
+    "AddressCount": 112,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Peru": {
+    "AddressCount": 822,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "T22 Md Bpp": {
+    "AddressCount": 7,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "T22 MD BPP": {
+    "AddressCount": 1,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Day Block Twp": {
+    "AddressCount": 11,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Thomaston": {
+    "AddressCount": 1568,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Topsham": {
+    "AddressCount": 4073,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Vienna": {
+    "AddressCount": 341,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Montville": {
+    "AddressCount": 462,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "T9 R5 Wels": {
+    "AddressCount": 1,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "T9 R5 WELS": {
+    "AddressCount": 1,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Rockwood Strip T1 R1 Nbkp": {
+    "AddressCount": 120,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Searsport": {
+    "AddressCount": 1008,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Rockwood Strip T1 R1 NBKP": {
+    "AddressCount": 96,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Mechanic Falls": {
+    "AddressCount": 1476,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Shirley": {
+    "AddressCount": 113,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Lamoine": {
+    "AddressCount": 510,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "T10 Sd Bpp": {
+    "AddressCount": 36,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Jay": {
+    "AddressCount": 2595,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Rockland": {
+    "AddressCount": 4723,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Starks": {
+    "AddressCount": 304,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "T7 R9 NWP": {
+    "AddressCount": 3,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Smithfield": {
+    "AddressCount": 496,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Stow": {
+    "AddressCount": 241,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Forest City Twp": {
+    "AddressCount": 43,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Newport": {
+    "AddressCount": 1632,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "T4 R13 Wels": {
+    "AddressCount": 1,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "T4 R13 WELS": {
+    "AddressCount": 1,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Sumner": {
+    "AddressCount": 585,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Devereaux Twp": {
+    "AddressCount": 16,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Sapling Twp": {
+    "AddressCount": 5,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Burlington": {
+    "AddressCount": 171,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Fairfield": {
+    "AddressCount": 2627,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "New Limerick": {
+    "AddressCount": 193,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Bradley": {
+    "AddressCount": 315,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Prospect": {
+    "AddressCount": 313,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Woodland": {
+    "AddressCount": 302,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Millinocket": {
+    "AddressCount": 2342,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "T9 R3 WELS": {
+    "AddressCount": 32,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "T9 R3 Wels": {
+    "AddressCount": 7,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Ta R11 Wels": {
+    "AddressCount": 1,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Fort Kent": {
+    "AddressCount": 2366,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Nashville Plt": {
+    "AddressCount": 13,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Ta R2 Wels": {
+    "AddressCount": 2,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Knox": {
+    "AddressCount": 356,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Bucksport": {
+    "AddressCount": 2464,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Etna": {
+    "AddressCount": 455,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Frankfort": {
+    "AddressCount": 402,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Ludlow": {
+    "AddressCount": 237,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Highland Plt": {
+    "AddressCount": 33,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Eagle Lake": {
+    "AddressCount": 589,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Crawford": {
+    "AddressCount": 137,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Limington": {
+    "AddressCount": 1744,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Cutler": {
+    "AddressCount": 227,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Stockton Springs": {
+    "AddressCount": 762,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Talmadge": {
+    "AddressCount": 16,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Greenville": {
+    "AddressCount": 899,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Garland": {
+    "AddressCount": 390,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Mason Twp": {
+    "AddressCount": 48,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Sandbar Tract Twp": {
+    "AddressCount": 28,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Prentiss Twp T7 R3 NBPP": {
+    "AddressCount": 224,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Liberty": {
+    "AddressCount": 695,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Boothbay Harbor": {
+    "AddressCount": 2467,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Ogunquit": {
+    "AddressCount": 1828,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "T37 MD BPP": {
+    "AddressCount": 2,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "West Forks Plt": {
+    "AddressCount": 77,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Berwick": {
+    "AddressCount": 4889,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Saint Agatha": {
+    "AddressCount": 256,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Phippsburg": {
+    "AddressCount": 1774,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Northeast Carry Twp": {
+    "AddressCount": 22,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Southport": {
+    "AddressCount": 755,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Trenton": {
+    "AddressCount": 669,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Moro Plt": {
+    "AddressCount": 32,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "T4 Indian Purchase Twp": {
+    "AddressCount": 300,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "T14 R5 Wels": {
+    "AddressCount": 1,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Coplin Plt": {
+    "AddressCount": 112,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "T2 R13 WELS": {
+    "AddressCount": 24,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Marion Twp": {
+    "AddressCount": 27,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Parlin Pond Twp": {
+    "AddressCount": 22,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Princeton": {
+    "AddressCount": 333,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Dresden": {
+    "AddressCount": 915,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Amherst": {
+    "AddressCount": 144,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Macwahoc Plt": {
+    "AddressCount": 46,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Yarmouth": {
+    "AddressCount": 4126,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Oxbow North Twp": {
+    "AddressCount": 29,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Summit Twp": {
+    "AddressCount": 13,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "T14 R7 WELS": {
+    "AddressCount": 1,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Verona Island": {
+    "AddressCount": 196,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Orland": {
+    "AddressCount": 1400,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Vassalboro": {
+    "AddressCount": 2029,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Waltham": {
+    "AddressCount": 131,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Seboeis Plt": {
+    "AddressCount": 21,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Stonington": {
+    "AddressCount": 937,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Lower Cupsuptic Twp": {
+    "AddressCount": 5,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "T3 Indian Purchase Twp": {
+    "AddressCount": 135,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Salem Twp": {
+    "AddressCount": 179,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "New Gloucester": {
+    "AddressCount": 2426,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Drew Plt": {
+    "AddressCount": 15,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Woodstock": {
+    "AddressCount": 845,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Carroll Plt": {
+    "AddressCount": 72,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Lowell": {
+    "AddressCount": 141,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Benton": {
+    "AddressCount": 804,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Cambridge": {
+    "AddressCount": 231,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Avon": {
+    "AddressCount": 280,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Adamstown Twp": {
+    "AddressCount": 36,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Brunswick": {
+    "AddressCount": 12264,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Glenburn": {
+    "AddressCount": 1091,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Alexander": {
+    "AddressCount": 264,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Woodville": {
+    "AddressCount": 147,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Ta R10 Wels": {
+    "AddressCount": 1,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Skowhegan": {
+    "AddressCount": 5019,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Moose River": {
+    "AddressCount": 134,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Somerville": {
+    "AddressCount": 322,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Eddington": {
+    "AddressCount": 807,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Trescott Twp": {
+    "AddressCount": 221,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Alton": {
+    "AddressCount": 373,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Fryeburg": {
+    "AddressCount": 2143,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "T8 R3 Nbpp": {
+    "AddressCount": 19,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Unity": {
+    "AddressCount": 807,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Portage Lake": {
+    "AddressCount": 440,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Bath": {
+    "AddressCount": 3852,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Carmel": {
+    "AddressCount": 691,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Norway": {
+    "AddressCount": 3648,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Williamsburg Twp": {
+    "AddressCount": 30,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Johnson Mountain Twp": {
+    "AddressCount": 23,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Monmouth": {
+    "AddressCount": 1612,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Roxbury": {
+    "AddressCount": 293,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Carrabassett Valley": {
+    "AddressCount": 2248,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Madison": {
+    "AddressCount": 2138,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "T5 R19 Wels": {
+    "AddressCount": 1,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Hudson": {
+    "AddressCount": 452,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Freeport": {
+    "AddressCount": 4915,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Brownfield": {
+    "AddressCount": 935,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "East Millinocket": {
+    "AddressCount": 759,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "T1 R5 Wels": {
+    "AddressCount": 2,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Greene": {
+    "AddressCount": 2009,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Brighton Plt": {
+    "AddressCount": 45,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Elliottsville Twp": {
+    "AddressCount": 85,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "T7 R16 Wels": {
+    "AddressCount": 1,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Standish": {
+    "AddressCount": 4796,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Vinalhaven": {
+    "AddressCount": 1428,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Westport Island": {
+    "AddressCount": 603,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Forkstown Twp": {
+    "AddressCount": 13,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Hancock": {
+    "AddressCount": 1427,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Beals": {
+    "AddressCount": 197,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "T1 R10 WELS": {
+    "AddressCount": 6,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Herseytown Twp": {
+    "AddressCount": 36,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Sanford": {
+    "AddressCount": 9567,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Lisbon": {
+    "AddressCount": 3432,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Hampden": {
+    "AddressCount": 3085,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Tremont": {
+    "AddressCount": 1081,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Stetsontown Twp": {
+    "AddressCount": 49,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Oxford": {
+    "AddressCount": 2320,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "T8 R11 Wels": {
+    "AddressCount": 1,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Baring Plt": {
+    "AddressCount": 65,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "T19 MD BPP": {
+    "AddressCount": 3,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "T19 Md Bpp": {
+    "AddressCount": 1,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Sedgwick": {
+    "AddressCount": 755,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Long Island": {
+    "AddressCount": 430,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Machias": {
+    "AddressCount": 1099,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Waterford": {
+    "AddressCount": 1022,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "T6 R8 WELS": {
+    "AddressCount": 24,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Penobscot": {
+    "AddressCount": 715,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Union": {
+    "AddressCount": 1281,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Hammond": {
+    "AddressCount": 44,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Raymond": {
+    "AddressCount": 4130,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Moxie Gore": {
+    "AddressCount": 27,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "T6 R7 Wels": {
+    "AddressCount": 7,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "T6 R7 WELS": {
+    "AddressCount": 1,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Swans Island": {
+    "AddressCount": 361,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Pittston": {
+    "AddressCount": 945,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Cranberry Isles": {
+    "AddressCount": 269,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "North Yarmouth": {
+    "AddressCount": 1547,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Machiasport": {
+    "AddressCount": 353,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "T11 R17 WELS": {
+    "AddressCount": 12,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "New Sharon": {
+    "AddressCount": 793,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Lakeville": {
+    "AddressCount": 131,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Wesley": {
+    "AddressCount": 49,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Masardis": {
+    "AddressCount": 80,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Cove Point Twp": {
+    "AddressCount": 9,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Parsonsfield": {
+    "AddressCount": 1061,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Hersey": {
+    "AddressCount": 35,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Island Falls": {
+    "AddressCount": 513,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Rangeley Plt": {
+    "AddressCount": 627,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Denmark": {
+    "AddressCount": 1077,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Frenchville": {
+    "AddressCount": 410,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Danforth": {
+    "AddressCount": 275,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Lynchtown Twp": {
+    "AddressCount": 2,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Arrowsic": {
+    "AddressCount": 306,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Turner": {
+    "AddressCount": 2930,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Detroit": {
+    "AddressCount": 470,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Bald Mountain Twp T4 R3": {
+    "AddressCount": 6,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Whitefield": {
+    "AddressCount": 1145,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Wellington": {
+    "AddressCount": 133,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Baldwin": {
+    "AddressCount": 800,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Embden": {
+    "AddressCount": 628,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Edgecomb": {
+    "AddressCount": 855,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Alna": {
+    "AddressCount": 388,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "T9 Sd Bpp": {
+    "AddressCount": 4,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Buckfield": {
+    "AddressCount": 1029,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Holden": {
+    "AddressCount": 840,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Perry": {
+    "AddressCount": 353,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Chester": {
+    "AddressCount": 167,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Lincoln Plt": {
+    "AddressCount": 78,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Otis": {
+    "AddressCount": 460,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Farmingdale": {
+    "AddressCount": 890,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Leeds": {
+    "AddressCount": 1138,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Wayne": {
+    "AddressCount": 892,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Albion": {
+    "AddressCount": 769,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Monhegan Island Plt": {
+    "AddressCount": 196,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Otisfield": {
+    "AddressCount": 1190,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Big Lake Twp": {
+    "AddressCount": 60,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Chain of Ponds Twp": {
+    "AddressCount": 27,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "T11 R4 Wels": {
+    "AddressCount": 34,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Big Moose Twp": {
+    "AddressCount": 24,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Saint Albans": {
+    "AddressCount": 924,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Phillips": {
+    "AddressCount": 613,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Madrid Twp": {
+    "AddressCount": 148,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Minot": {
+    "AddressCount": 1110,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Dayton": {
+    "AddressCount": 882,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Lewiston": {
+    "AddressCount": 32295,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Byron": {
+    "AddressCount": 88,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Dyer Brook": {
+    "AddressCount": 122,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Saint George": {
+    "AddressCount": 1484,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Clifton": {
+    "AddressCount": 330,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Columbia Falls": {
+    "AddressCount": 190,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "New Sweden": {
+    "AddressCount": 205,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Castle Hill": {
+    "AddressCount": 197,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Wiscasset": {
+    "AddressCount": 2086,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Saint John Plt": {
+    "AddressCount": 137,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Harrington": {
+    "AddressCount": 440,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Brooks": {
+    "AddressCount": 601,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "T12 R8 WELS": {
+    "AddressCount": 51,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Orient": {
+    "AddressCount": 116,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Anson": {
+    "AddressCount": 1354,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Massachusetts Gore": {
+    "AddressCount": 1,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Tim Pond Twp": {
+    "AddressCount": 1,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "T4 R9 Nwp": {
+    "AddressCount": 13,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Wilton": {
+    "AddressCount": 2180,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Edinburg": {
+    "AddressCount": 39,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Milbridge": {
+    "AddressCount": 556,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Sangerville": {
+    "AddressCount": 529,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Cooper": {
+    "AddressCount": 90,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Sandy Bay Twp": {
+    "AddressCount": 10,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Richardsontown Twp": {
+    "AddressCount": 2,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Orneville Twp": {
+    "AddressCount": 108,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Gardiner": {
+    "AddressCount": 2307,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Grafton Twp": {
+    "AddressCount": 1,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Hallowell": {
+    "AddressCount": 1076,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Charleston": {
+    "AddressCount": 384,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Chapman": {
+    "AddressCount": 216,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Kennebunk": {
+    "AddressCount": 6650,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Guilford": {
+    "AddressCount": 571,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Southwest Harbor": {
+    "AddressCount": 1381,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Alder Stream Twp": {
+    "AddressCount": 43,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Weld": {
+    "AddressCount": 571,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "North Haven": {
+    "AddressCount": 584,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Winterport": {
+    "AddressCount": 1172,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Strong": {
+    "AddressCount": 640,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Cape Elizabeth": {
+    "AddressCount": 4207,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "T5 R7 Wels": {
+    "AddressCount": 54,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "T5 R7 WELS": {
+    "AddressCount": 34,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Stetson": {
+    "AddressCount": 460,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Tomhegan Twp": {
+    "AddressCount": 157,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Eastbrook": {
+    "AddressCount": 238,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Milton Twp": {
+    "AddressCount": 81,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Pleasant Ridge Plt": {
+    "AddressCount": 46,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Manchester": {
+    "AddressCount": 1166,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "T1 R12 WELS": {
+    "AddressCount": 1,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Hodgdon": {
+    "AddressCount": 588,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Hamlin": {
+    "AddressCount": 125,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Winthrop": {
+    "AddressCount": 2859,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Waite": {
+    "AddressCount": 38,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Newburgh": {
+    "AddressCount": 589,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Brookton Twp": {
+    "AddressCount": 74,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Perkins Twp": {
+    "AddressCount": 22,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "T5 R6 BKP WKR": {
+    "AddressCount": 1,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "York": {
+    "AddressCount": 10580,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Hollis": {
+    "AddressCount": 2068,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Mount Vernon": {
+    "AddressCount": 1239,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Porter": {
+    "AddressCount": 757,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Hanover": {
+    "AddressCount": 146,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "T16 Md Bpp": {
+    "AddressCount": 3,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "T16 MD BPP": {
+    "AddressCount": 2,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Canton": {
+    "AddressCount": 485,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Willimantic": {
+    "AddressCount": 175,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Westfield": {
+    "AddressCount": 109,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Windsor": {
+    "AddressCount": 791,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Little W Twp": {
+    "AddressCount": 17,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Westmanland": {
+    "AddressCount": 46,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Newcastle": {
+    "AddressCount": 1131,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Madawaska": {
+    "AddressCount": 1300,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Augusta": {
+    "AddressCount": 7444,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Indian Stream Twp": {
+    "AddressCount": 6,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Thorndike": {
+    "AddressCount": 378,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Farmington": {
+    "AddressCount": 4144,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Fort Fairfield": {
+    "AddressCount": 1880,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Topsfield": {
+    "AddressCount": 95,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Redington Twp": {
+    "AddressCount": 1,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Oakland": {
+    "AddressCount": 2739,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Stacyville": {
+    "AddressCount": 270,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Beaver Cove": {
+    "AddressCount": 132,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Eastport": {
+    "AddressCount": 1263,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Freedom": {
+    "AddressCount": 341,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Soldiertown Twp T2 R7 WELS": {
+    "AddressCount": 9,
+    "ImportDate": null,
+    "Notes": null
+  },
+  "Soldiertown Twp T2 R7 Wels": {
+    "AddressCount": 3,
+    "ImportDate": null,
+    "Notes": null
+  }
 }

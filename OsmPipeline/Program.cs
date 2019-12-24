@@ -5,6 +5,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Configuration;
 using OsmPipeline.Fittings;
 using System.Threading.Tasks;
+using System.Collections.Generic;
 
 namespace OsmPipeline
 {
@@ -27,23 +28,35 @@ namespace OsmPipeline
 			serviceCollection.AddLogging(builder => builder.AddConsole().AddFilter(level => true));
 			Static.LogFactory = serviceCollection.BuildServiceProvider().GetService<ILoggerFactory>();
 
-			var municipality = SelectMunicipality().Result;
-			ImportAddressesInScope(municipality);
+			var task = ImportAddressesInScope();
 
+			Console.WriteLine("Finished!");
 			Console.ReadKey(true);
 		}
 
-		static async Task<string> SelectMunicipality()
+		static async Task ImportAddressesInScope()
 		{
-			//return "Westbrook";
 			var municipalities = await FileSerializer.ReadJsonCacheOrSource("MaineMunicipalities.json",
 				GeoJsonAPISource.GetMunicipalities);
+			var municipality = UserChooseOption(municipalities.Keys, "municipality");
+			var reference = await FileSerializer.ReadXmlCacheOrSource(municipality + "/Reference.osm",
+				() => Reference.Fetch(municipality));
+			var subject = await FileSerializer.ReadXmlCacheOrSource(municipality + "/Subject.osm",
+				() => Subject.GetElementsInBoundingBox(reference.Bounds));
+			var conflated = FileSerializer.ReadXmlCacheOrSource(municipality + "/Conflated.osc",
+				() => Conflate.Merge(reference, subject, municipality));
 
+			//var results = await Subject.UploadChange(conflated,
+			//	"Importing addresses in " + scopeName, Static.Config["DataSourceName"]);
+		}
+
+		static string UserChooseOption(IEnumerable<string> options, string optionName = "option")
+		{
 			do
 			{
-				Console.WriteLine("Which municipality?");
+				Console.WriteLine($"Which {optionName}?");
 				var input = Console.ReadLine();
-				var selection = municipalities.Keys.Where(m => m.StartsWith(input, StringComparison.OrdinalIgnoreCase)).ToArray();
+				var selection = options.Where(m => m.StartsWith(input, StringComparison.OrdinalIgnoreCase)).ToArray();
 				if (selection.Length == 1)
 				{
 					return selection[0];
@@ -52,23 +65,7 @@ namespace OsmPipeline
 				{
 					Console.Write(string.Join("\n", selection));
 				}
-				
 			} while (true);
-		}
-
-		static async void ImportAddressesInScope(string scopeName)
-		{
-			// Should municpality be trusted, even for r7 t2? Could leave city off I guess?
-			// A place to record progress.
-			var reference = await FileSerializer.ReadXmlCacheOrSource(scopeName + "/Reference.osm",
-				() => Reference.Fetch(scopeName));
-			var subject = await FileSerializer.ReadXmlCacheOrSource(scopeName + "/Subject.osm",
-				() => Subject.GetElementsInBoundingBox(reference.Bounds));
-			var conflated = FileSerializer.ReadXmlCacheOrSource(scopeName + "/Conflated.osc",
-				() => Conflate.Merge(reference, subject, scopeName));
-
-			//var results = await Subject.UploadChange(conflated,
-			//	"Importing addresses in " + scopeName, Static.Config["DataSourceName"]);
 		}
 	}
 }
