@@ -12,6 +12,7 @@ namespace OsmPipeline
 	{
 		public static IConfigurationRoot Config;
 		public static ILoggerFactory LogFactory;
+		public static string maineE911id = "maineE911id";
 	}
 
 	public class Program

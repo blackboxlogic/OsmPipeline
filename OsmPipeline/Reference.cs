@@ -54,16 +54,18 @@ namespace OsmPipeline
 		public static async Task<Osm> Fetch(string scopeName)
 		{
 			Log = Log ?? Static.LogFactory.CreateLogger(typeof(Reference));
+			Log.LogInformation("Fetching Reference material from Maine E911 API");
 
 			// Fetch GIS
 			var stateGis = await FileSerializer.ReadJsonCacheOrSource(
 				scopeName + "/ReferenceRaw.GeoJson", () => GeoJsonAPISource.FetchMunicipality(scopeName));
 			var gisFeatures = stateGis.Features.ToArray();
+			Log.LogInformation("Validating Reference material");
 			Validate(gisFeatures);
 
 			// Fetch the list of objectIDs with known errors to omit.
 			var errorList = FileSerializer.ReadJson<HashSet<int>>("ErrorObjectIDs.json");
-
+			Log.LogInformation("Translating Reference material");
 			// Convert
 			var nodes = gisFeatures
 				.Where(f => !errorList.Contains((int)f.Properties["OBJECTID"]))
@@ -104,7 +106,7 @@ namespace OsmPipeline
 				new Tag("addr:state", (string)props["STATE"]),
 				new Tag("addr:postcode", (string)props["ZIPCODE"]),
 				new Tag("level", level),
-				new Tag("maineE911id", ((int)props["OBJECTID"]).ToString())
+				new Tag(Static.maineE911id, ((int)props["OBJECTID"]).ToString())
 			};
 
 			var placeTags = PLACE_TYPEs[(string)props["PLACE_TYPE"]].Select(kvp => new Tag(kvp.Key, kvp.Value)).ToArray();
@@ -126,7 +128,7 @@ namespace OsmPipeline
 			return n;
 		}
 		// Keys which can be removed in order to combine congruent nodes
-		private static string[] SacrificialKeys = new[] { "addr:unit", "level", "maineE911id" };
+		private static string[] SacrificialKeys = new[] { "addr:unit", "level", Static.maineE911id };
 
 		// a
 		// b
@@ -229,13 +231,13 @@ namespace OsmPipeline
 
 		private static Node IntersectTags(Node[] stack)
 		{
-			var ids = string.Join(";", stack.SelectMany(n => n.Tags).Where(t => t.Key == "maineE911id").Select(t => t.Value));
+			var ids = string.Join(";", stack.SelectMany(n => n.Tags).Where(t => t.Key == Static.maineE911id).Select(t => t.Value));
 			var tags = stack[0].Tags.ToList();
 			foreach (var node in stack.Skip(1))
 			{
 				tags = tags.Intersect(node.Tags).ToList();
 			}
-			tags.Add(new Tag("maineE911id", ids));
+			tags.Add(new Tag(Static.maineE911id, ids));
 			stack[0].Tags = new TagsCollection(tags);
 
 			var levels = stack.SelectMany(n => n.Tags)
@@ -274,7 +276,7 @@ namespace OsmPipeline
 				if (bigger != null)
 				{
 					if (building != null) bigger.Tags["building"] = building;
-					bigger.Tags["maineE911id"] += ";" + node.Tags["maineE911id"];
+					bigger.Tags[Static.maineE911id] += ";" + node.Tags[Static.maineE911id];
 					stack.RemoveAt(i);
 					i--;
 				}

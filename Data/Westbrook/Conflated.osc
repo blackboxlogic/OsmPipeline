@@ -9820,6 +9820,7 @@
       <tag k="addr:city" v="Westbrook" />
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
+      <tag k="building" v="service" />
     </node>
     <node id="-1757473" lat="43.67044739142" lon="-70.3710648071547" version="1">
       <tag k="addr:housenumber" v="195" />
@@ -10236,6 +10237,7 @@
       <tag k="addr:city" v="Westbrook" />
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
+      <tag k="building" v="service" />
     </node>
     <node id="-2049694" lat="43.6884333386679" lon="-70.3559149445521" version="1">
       <tag k="addr:housenumber" v="50" />
@@ -12406,6 +12408,7 @@
       <tag k="addr:city" v="Westbrook" />
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
+      <tag k="building" v="service" />
     </node>
     <node id="-1807878" lat="43.679947785303" lon="-70.3436649783766" version="1">
       <tag k="addr:housenumber" v="318" />
@@ -27403,15 +27406,6 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
     </node>
-    <node id="-2046265" lat="43.6816245288631" lon="-70.3358118434667" version="1">
-      <tag k="addr:housenumber" v="30" />
-      <tag k="addr:unit" v="Office 500" />
-      <tag k="addr:street" v="Liza Harmon Drive" />
-      <tag k="addr:city" v="Westbrook" />
-      <tag k="addr:state" v="ME" />
-      <tag k="addr:postcode" v="04092" />
-      <tag k="building" v="yes" />
-    </node>
     <node id="-1855666" lat="43.6806663901543" lon="-70.3541085508098" version="1">
       <tag k="addr:housenumber" v="23" />
       <tag k="addr:street" v="Locust Street" />
@@ -37871,6 +37865,7 @@
       <tag k="addr:city" v="Westbrook" />
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
+      <tag k="building" v="service" />
     </node>
     <node id="-1892825" lat="43.7342883196827" lon="-70.3639961962506" version="1">
       <tag k="addr:housenumber" v="388" />
@@ -44079,6 +44074,139 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
     </node>
+    <way id="428006423" user="Bkissin" uid="506275" visible="true" version="2" changeset="40368907" timestamp="2016-06-29T14:20:00Z">
+      <nd ref="4271642693" />
+      <nd ref="4271642694" />
+      <nd ref="4271642695" />
+      <nd ref="4271642696" />
+      <nd ref="4271642697" />
+      <nd ref="4271642698" />
+      <nd ref="4271642699" />
+      <nd ref="4271642700" />
+      <nd ref="4271642701" />
+      <nd ref="4271642702" />
+      <nd ref="4271642703" />
+      <nd ref="4271642704" />
+      <nd ref="4271642705" />
+      <nd ref="4271642706" />
+      <nd ref="4271642707" />
+      <nd ref="4271642708" />
+      <nd ref="4271642709" />
+      <nd ref="4271642710" />
+      <nd ref="4271642711" />
+      <nd ref="4271642712" />
+      <nd ref="4271642713" />
+      <nd ref="4271642714" />
+      <nd ref="4271642715" />
+      <nd ref="4271642693" />
+      <tag k="addr:city" v="Westbrook" />
+      <tag k="addr:housenumber" v="2" />
+      <tag k="addr:postcode" v="04092" />
+      <tag k="addr:state" v="ME" />
+      <tag k="addr:street" v="Ledgeview Drive" />
+      <tag k="building" v="commercial" />
+    </way>
+    <way id="428014991" user="Bkissin" uid="506275" visible="true" version="2" changeset="40369370" timestamp="2016-06-29T14:41:41Z">
+      <nd ref="4271701893" />
+      <nd ref="4271701894" />
+      <nd ref="4271701895" />
+      <nd ref="4271701896" />
+      <nd ref="4271701893" />
+      <tag k="addr:city" v="Westbrook" />
+      <tag k="addr:housenumber" v="4" />
+      <tag k="addr:postcode" v="04092" />
+      <tag k="addr:state" v="ME" />
+      <tag k="addr:street" v="Ledgeview Drive" />
+      <tag k="amenity" v="studio" />
+      <tag k="building" v="yes" />
+      <tag k="name" v="WMTW 8" />
+      <tag k="studio" v="television" />
+    </way>
+    <way id="428006421" user="Bkissin" uid="506275" visible="true" version="3" changeset="64979521" timestamp="2018-11-28T17:12:13Z">
+      <nd ref="4271642689" />
+      <nd ref="4271642690" />
+      <nd ref="4271642691" />
+      <nd ref="4271642692" />
+      <nd ref="4271642689" />
+      <tag k="addr:city" v="Westbrook" />
+      <tag k="addr:housenumber" v="3" />
+      <tag k="addr:postcode" v="04092" />
+      <tag k="addr:state" v="ME" />
+      <tag k="addr:street" v="Ledgeview Drive" />
+      <tag k="building" v="industrial" />
+      <tag k="man_made" v="works" />
+      <tag k="name" v="Schlotterbeck &amp; Foss" />
+      <tag k="product" v="food" />
+    </way>
+    <way id="428014990" user="vorpalblade" uid="2078753" visible="true" version="4" changeset="76550223" timestamp="2019-11-03T12:42:00Z">
+      <nd ref="4271701889" />
+      <nd ref="5861417583" />
+      <nd ref="5861430822" />
+      <nd ref="5861430825" />
+      <nd ref="4271701890" />
+      <nd ref="4271701891" />
+      <nd ref="4271701892" />
+      <nd ref="4271701889" />
+      <tag k="addr:city" v="Westbrook" />
+      <tag k="addr:housenumber" v="501" />
+      <tag k="addr:postcode" v="04092" />
+      <tag k="addr:state" v="ME" />
+      <tag k="addr:street" v="County Road" />
+      <tag k="building" v="commercial" />
+      <tag k="name" v="Lloyd's Register" />
+    </way>
+    <way id="428010342" user="blackboxlogic+bot" uid="10307443" visible="true" version="4" changeset="74595922" timestamp="2019-09-17T19:04:40Z">
+      <nd ref="4271689190" />
+      <nd ref="4271689191" />
+      <nd ref="4271689192" />
+      <nd ref="4271689193" />
+      <nd ref="4271689194" />
+      <nd ref="4271689195" />
+      <nd ref="4271689196" />
+      <nd ref="4271689197" />
+      <nd ref="4271689198" />
+      <nd ref="4271689199" />
+      <nd ref="4271689200" />
+      <nd ref="4271689201" />
+      <nd ref="4271689202" />
+      <nd ref="4271689203" />
+      <nd ref="4271689204" />
+      <nd ref="4271689205" />
+      <nd ref="4271689206" />
+      <nd ref="4271689207" />
+      <nd ref="4271689208" />
+      <nd ref="4271689209" />
+      <nd ref="4271689210" />
+      <nd ref="4271689211" />
+      <nd ref="4271689212" />
+      <nd ref="4271689213" />
+      <nd ref="4271689214" />
+      <nd ref="4271689215" />
+      <nd ref="4271689216" />
+      <nd ref="4271689217" />
+      <nd ref="4271689218" />
+      <nd ref="4271689219" />
+      <nd ref="4271689220" />
+      <nd ref="4271689221" />
+      <nd ref="4271689222" />
+      <nd ref="4271689223" />
+      <nd ref="4271689224" />
+      <nd ref="4271689225" />
+      <nd ref="4271689226" />
+      <nd ref="4271689227" />
+      <nd ref="4271689228" />
+      <nd ref="4271689190" />
+      <tag k="addr:city" v="Westbrook" />
+      <tag k="addr:housenumber" v="183" />
+      <tag k="addr:postcode" v="04092" />
+      <tag k="addr:state" v="ME" />
+      <tag k="addr:street" v="County Road" />
+      <tag k="amenity" v="cinema" />
+      <tag k="building" v="yes" />
+      <tag k="name" v="Cinemagic Theatres" />
+      <tag k="phone" v="+1-207-774-3456" />
+      <tag k="wikidata" v="Q42564851" />
+    </way>
     <way id="744796392" user="blackboxlogic" uid="9109301" visible="true" version="3" changeset="78389853" timestamp="2019-12-13T19:07:46Z">
       <nd ref="6970533559" />
       <nd ref="6970533548" />
@@ -44303,6 +44431,22 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
     </node>
+    <way id="744758655" user="Rod Wintle" uid="10440592" visible="true" version="2" changeset="76982713" timestamp="2019-11-12T21:36:37Z">
+      <nd ref="6970251254" />
+      <nd ref="6970251255" />
+      <nd ref="6970251256" />
+      <nd ref="6970251257" />
+      <nd ref="6970251258" />
+      <nd ref="6970251259" />
+      <nd ref="6970251254" />
+      <tag k="addr:city" v="Westbrook" />
+      <tag k="addr:housenumber" v="2" />
+      <tag k="addr:postcode" v="04092" />
+      <tag k="addr:state" v="ME" />
+      <tag k="addr:street" v="Conner Drive" />
+      <tag k="building" v="yes" />
+      <tag k="building:levels" v="2" />
+    </way>
     <node id="6717445663" lat="43.6789759262702" lon="-70.3660237007868" user="blackboxlogic" uid="9109301" visible="true" version="2" changeset="73433604" timestamp="2019-08-17T01:14:12Z">
       <tag k="addr:housenumber" v="40" />
       <tag k="addr:street" v="Dana Court" />
@@ -44703,6 +44847,30 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:street" v="Giles Street" />
     </node>
+    <way id="421324988" user="Ladung" uid="9812768" visible="true" version="4" changeset="72368409" timestamp="2019-07-18T00:48:18Z">
+      <nd ref="4211031970" />
+      <nd ref="4211031971" />
+      <nd ref="4211031972" />
+      <nd ref="4211031973" />
+      <nd ref="4211031974" />
+      <nd ref="4211031975" />
+      <nd ref="4211031976" />
+      <nd ref="4211031977" />
+      <nd ref="4211031978" />
+      <nd ref="4211031979" />
+      <nd ref="4211031980" />
+      <nd ref="4211031970" />
+      <tag k="addr:city" v="Westbrook" />
+      <tag k="addr:housenumber" v="7" />
+      <tag k="addr:postcode" v="04092" />
+      <tag k="addr:state" v="ME" />
+      <tag k="addr:street" v="Hannaford Drive" />
+      <tag k="brand" v="Hannaford" />
+      <tag k="brand:wikidata" v="Q5648760" />
+      <tag k="building" v="yes" />
+      <tag k="name" v="Hannaford" />
+      <tag k="shop" v="supermarket" />
+    </way>
     <way id="456245625" user="Bkissin" uid="506275" visible="true" version="4" changeset="71232279" timestamp="2019-06-13T21:10:36Z">
       <nd ref="4525240966" />
       <nd ref="4525240967" />
@@ -44878,6 +45046,63 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
     </way>
+    <way id="421324985" user="blackboxlogic+bot" uid="10307443" visible="true" version="4" changeset="74595922" timestamp="2019-09-17T19:04:40Z">
+      <nd ref="4211031931" />
+      <nd ref="4211031932" />
+      <nd ref="4211031933" />
+      <nd ref="4211031934" />
+      <nd ref="4211031935" />
+      <nd ref="4211031936" />
+      <nd ref="4211031937" />
+      <nd ref="4211031938" />
+      <nd ref="4211031939" />
+      <nd ref="4211031940" />
+      <nd ref="4211031941" />
+      <nd ref="4211031942" />
+      <nd ref="4211031943" />
+      <nd ref="4211031944" />
+      <nd ref="4211031945" />
+      <nd ref="4211031946" />
+      <nd ref="4211031931" />
+      <tag k="addr:city" v="Westbrook" />
+      <tag k="addr:housenumber" v="596" />
+      <tag k="addr:postcode" v="04092" />
+      <tag k="addr:state" v="ME" />
+      <tag k="addr:street" v="Main Street" />
+      <tag k="amenity" v="kindergarten" />
+      <tag k="building" v="yes" />
+      <tag k="name" v="Little Red Schoolhouse Child Care Center" />
+      <tag k="phone" v="+1-207-854-0007" />
+    </way>
+    <way id="421324986" user="blackboxlogic+bot" uid="10307443" visible="true" version="3" changeset="74595922" timestamp="2019-09-17T19:04:40Z">
+      <nd ref="4211031947" />
+      <nd ref="4211031948" />
+      <nd ref="4211031949" />
+      <nd ref="4211031950" />
+      <nd ref="4211031951" />
+      <nd ref="4211031952" />
+      <nd ref="4211031953" />
+      <nd ref="4211031954" />
+      <nd ref="4211031955" />
+      <nd ref="4211031956" />
+      <nd ref="4211031957" />
+      <nd ref="4211031958" />
+      <nd ref="4211031959" />
+      <nd ref="4211031960" />
+      <nd ref="4211031947" />
+      <tag k="addr:city" v="Westbrook" />
+      <tag k="addr:housenumber" v="612" />
+      <tag k="addr:postcode" v="04092" />
+      <tag k="addr:state" v="ME" />
+      <tag k="addr:street" v="Main Street" />
+      <tag k="amenity" v="place_of_worship" />
+      <tag k="building" v="yes" />
+      <tag k="denomination" v="lutheran" />
+      <tag k="name" v="Trinity Lutheran Church" />
+      <tag k="phone" v="+1-207-854-5653" />
+      <tag k="religion" v="christian" />
+      <tag k="website" v="http://www.trinitywestbrook.com/" />
+    </way>
     <node id="6558754710" lat="43.67878190604" lon="-70.3558526197199" user="blackboxlogic" uid="9109301" visible="true" version="2" changeset="71420192" timestamp="2019-06-20T00:55:46Z">
       <tag k="addr:city" v="Westbrook" />
       <tag k="addr:housenumber" v="616" />
@@ -44908,6 +45133,30 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:street" v="Main Street" />
     </node>
+    <way id="360635089" user="blackboxlogic" uid="9109301" visible="true" version="3" changeset="71634970" timestamp="2019-06-26T12:22:30Z">
+      <nd ref="3651758808" />
+      <nd ref="3651758809" />
+      <nd ref="3651758810" />
+      <nd ref="3651758811" />
+      <nd ref="3651758812" />
+      <nd ref="3651758813" />
+      <nd ref="3651758814" />
+      <nd ref="3651758815" />
+      <nd ref="3651758808" />
+      <tag k="addr:city" v="Westbrook" />
+      <tag k="addr:housenumber" v="694" />
+      <tag k="addr:postcode" v="04092" />
+      <tag k="addr:state" v="ME" />
+      <tag k="addr:street" v="Main Street" />
+      <tag k="amenity" v="restaurant" />
+      <tag k="building" v="yes" />
+      <tag k="cuisine" v="italian" />
+      <tag k="name" v="Casa Novello" />
+      <tag k="opening_hours" v="Mo-Th 16:00-20:30; Fr-Sa 16:00-21:30; Su 15:30-20:00" />
+      <tag k="phone" v="+1-207-854-9909" />
+      <tag k="smoking" v="no" />
+      <tag k="website" v="http://www.casanovello.com/" />
+    </way>
     <node id="6558754758" lat="43.6773619529557" lon="-70.3594182823923" user="blackboxlogic" uid="9109301" visible="true" version="2" changeset="71420192" timestamp="2019-06-20T00:55:46Z">
       <tag k="addr:housenumber" v="702" />
       <tag k="addr:street" v="Main Street" />
@@ -44944,6 +45193,45 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
     </node>
+    <way id="698380881" user="blackboxlogic" uid="9109301" visible="true" version="2" changeset="71420192" timestamp="2019-06-20T00:55:46Z">
+      <nd ref="6558743871" />
+      <nd ref="6558754752" />
+      <nd ref="6558754755" />
+      <nd ref="6558754773" />
+      <nd ref="6558754740" />
+      <nd ref="6558754750" />
+      <nd ref="6558754716" />
+      <nd ref="6558743869" />
+      <nd ref="6558743871" />
+      <tag k="addr:city" v="Westbrook" />
+      <tag k="addr:housenumber" v="609" />
+      <tag k="addr:postcode" v="04092" />
+      <tag k="addr:state" v="ME" />
+      <tag k="addr:street" v="Main Street" />
+      <tag k="amenity" v="cafe" />
+      <tag k="building" v="yes" />
+      <tag k="name" v="Mister Bagel" />
+      <tag k="takeaway" v="yes" />
+    </way>
+    <way id="698380872" user="blackboxlogic" uid="9109301" visible="true" version="2" changeset="71420192" timestamp="2019-06-20T00:55:46Z">
+      <nd ref="6558754735" />
+      <nd ref="6558754772" />
+      <nd ref="6558754703" />
+      <nd ref="6558754734" />
+      <nd ref="6558743862" />
+      <nd ref="6558754743" />
+      <nd ref="6558743879" />
+      <nd ref="6558754693" />
+      <nd ref="6558754735" />
+      <tag k="addr:city" v="Westbrook" />
+      <tag k="addr:housenumber" v="625" />
+      <tag k="addr:postcode" v="04092" />
+      <tag k="addr:state" v="ME" />
+      <tag k="addr:street" v="Main Street" />
+      <tag k="amenity" v="community_centre" />
+      <tag k="building" v="yes" />
+      <tag k="name" v="Big Brothers Big Sisters" />
+    </way>
     <node id="358231882" lat="43.6780908468379" lon="-70.3586965954876" user="blackboxlogic" uid="9109301" visible="true" version="7" changeset="71511335" timestamp="2019-06-22T14:43:30Z">
       <tag k="addr:city" v="Westbrook" />
       <tag k="addr:housenumber" v="677" />
@@ -45006,6 +45294,41 @@
       <tag k="phone" v="+1-207-854-9463" />
       <tag k="website" v="http://sunsetridgegolflinks.com/" />
       <tag k="addr:state" v="ME" />
+    </way>
+    <way id="698380886" user="blackboxlogic" uid="9109301" visible="true" version="4" changeset="78090937" timestamp="2019-12-07T16:24:54Z">
+      <nd ref="6558754727" />
+      <nd ref="6558754745" />
+      <nd ref="6558754722" />
+      <nd ref="6558754769" />
+      <nd ref="6558754727" />
+      <tag k="addr:city" v="Westbrook" />
+      <tag k="addr:housenumber" v="821" />
+      <tag k="addr:postcode" v="04092" />
+      <tag k="addr:state" v="ME" />
+      <tag k="addr:street" v="Main Street" />
+      <tag k="amenity" v="dojo" />
+      <tag k="building" v="yes" />
+      <tag k="leisure" v="fitness_centre" />
+      <tag k="name" v="Greater Portland School of Jukado" />
+      <tag k="phone" v="+1 207-854-9408" />
+      <tag k="sport" v="martial_arts" />
+      <tag k="website" v="jukadousa.com" />
+    </way>
+    <way id="698380887" user="blackboxlogic" uid="9109301" visible="true" version="3" changeset="71530987" timestamp="2019-06-23T12:37:17Z">
+      <nd ref="6558754749" />
+      <nd ref="6558754723" />
+      <nd ref="6558754760" />
+      <nd ref="6558743878" />
+      <nd ref="6558754749" />
+      <tag k="addr:city" v="Westbrook" />
+      <tag k="addr:housenumber" v="823" />
+      <tag k="addr:postcode" v="04092" />
+      <tag k="addr:state" v="ME" />
+      <tag k="addr:street" v="Main Street" />
+      <tag k="building" v="yes" />
+      <tag k="name" v="Moonlight Cleaners" />
+      <tag k="shop" v="laundry" />
+      <tag k="website" v="https://moonlight-cleaners-me.hub.biz/" />
     </way>
     <node id="6558754751" lat="43.6765660178684" lon="-70.3650075945891" user="blackboxlogic" uid="9109301" visible="true" version="2" changeset="71420192" timestamp="2019-06-20T00:55:46Z">
       <tag k="addr:city" v="Westbrook" />
@@ -45722,6 +46045,24 @@
       <tag k="shop" v="car" />
       <tag k="addr:postcode" v="04092" />
     </way>
+    <way id="700392603" user="Bkissin" uid="506275" visible="true" version="3" changeset="72312400" timestamp="2019-07-16T15:52:36Z">
+      <nd ref="1736697179" />
+      <nd ref="6577337717" />
+      <nd ref="6577337718" />
+      <nd ref="6577337719" />
+      <nd ref="1736697179" />
+      <tag k="addr:city" v="Westbrook" />
+      <tag k="addr:housenumber" v="492" />
+      <tag k="addr:postcode" v="04092" />
+      <tag k="addr:state" v="ME" />
+      <tag k="addr:street" v="Main Street" />
+      <tag k="building" v="yes" />
+      <tag k="name" v="Weekend Anime" />
+      <tag k="opening_hours" v="Mo-Th 14:00-20:00; Fr 14:00-22:00; Sa-Su 12:00-20:00" />
+      <tag k="phone" v="+1-207-591-7070" />
+      <tag k="shop" v="anime" />
+      <tag k="website" v="https://weekendanime.com/" />
+    </way>
     <way id="462482260" user="blackboxlogic" uid="9109301" visible="true" version="3" changeset="71420192" timestamp="2019-06-20T00:55:46Z">
       <nd ref="4578721743" />
       <nd ref="4578721744" />
@@ -45934,6 +46275,20 @@
       <tag k="building" v="yes" />
       <tag k="name" v="Riverton Lofts" />
       <tag k="addr:state" v="ME" />
+    </way>
+    <way id="428053648" user="Bkissin" uid="506275" visible="true" version="2" changeset="40373544" timestamp="2016-06-29T18:20:27Z">
+      <nd ref="4272067692" />
+      <nd ref="4272067693" />
+      <nd ref="4272067694" />
+      <nd ref="4272067695" />
+      <nd ref="4272067692" />
+      <tag k="addr:city" v="Westbrook" />
+      <tag k="addr:housenumber" v="901" />
+      <tag k="addr:postcode" v="04092" />
+      <tag k="addr:state" v="ME" />
+      <tag k="addr:street" v="Main Street" />
+      <tag k="building" v="apartments" />
+      <tag k="name" v="Armory Apartments" />
     </way>
     <node id="6717445660" lat="43.6824621952979" lon="-70.3651226854169" user="blackboxlogic" uid="9109301" visible="true" version="2" changeset="73433604" timestamp="2019-08-17T01:14:12Z">
       <tag k="addr:housenumber" v="118" />
@@ -46173,6 +46528,90 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
     </way>
+    <way id="463210804" user="Ladung" uid="9812768" visible="true" version="5" changeset="72368409" timestamp="2019-07-18T00:48:18Z">
+      <nd ref="4585054660" />
+      <nd ref="4585054661" />
+      <nd ref="4585054662" />
+      <nd ref="4585054663" />
+      <nd ref="4585054664" />
+      <nd ref="4585054665" />
+      <nd ref="4585054666" />
+      <nd ref="4585054667" />
+      <nd ref="4585054660" />
+      <tag k="addr:city" v="Westbrook" />
+      <tag k="addr:housenumber" v="790" />
+      <tag k="addr:postcode" v="04092" />
+      <tag k="addr:state" v="ME" />
+      <tag k="addr:street" v="Main Street" />
+      <tag k="amenity" v="bank" />
+      <tag k="atm" v="yes" />
+      <tag k="brand" v="People's United Bank" />
+      <tag k="brand:wikidata" v="Q7165802" />
+      <tag k="building" v="yes" />
+      <tag k="name" v="People's United Bank" />
+    </way>
+    <way id="421317259" user="Edward" uid="364" visible="true" version="6" changeset="73722277" timestamp="2019-08-25T17:02:06Z">
+      <nd ref="4210958059" />
+      <nd ref="4210958060" />
+      <nd ref="4210958061" />
+      <nd ref="4210958062" />
+      <nd ref="4210958063" />
+      <nd ref="4210958065" />
+      <nd ref="4210958066" />
+      <nd ref="4210958067" />
+      <nd ref="4210958068" />
+      <nd ref="4210958069" />
+      <nd ref="4210958070" />
+      <nd ref="4210958071" />
+      <nd ref="4210958072" />
+      <nd ref="4210958073" />
+      <nd ref="4210958074" />
+      <nd ref="4210958075" />
+      <nd ref="4210958076" />
+      <nd ref="4210958077" />
+      <nd ref="4210958078" />
+      <nd ref="4210958079" />
+      <nd ref="4210958080" />
+      <nd ref="4210958081" />
+      <nd ref="4210958082" />
+      <nd ref="4210958083" />
+      <nd ref="4210958084" />
+      <nd ref="4210958085" />
+      <nd ref="4210958086" />
+      <nd ref="4210958087" />
+      <nd ref="4210958088" />
+      <nd ref="4210959289" />
+      <nd ref="4210959290" />
+      <nd ref="4210959291" />
+      <nd ref="4210959292" />
+      <nd ref="4210959293" />
+      <nd ref="4210959294" />
+      <nd ref="4210959295" />
+      <nd ref="4210959296" />
+      <nd ref="4210959297" />
+      <nd ref="4210959298" />
+      <nd ref="4210959300" />
+      <nd ref="4210959301" />
+      <nd ref="4210959302" />
+      <nd ref="4210959304" />
+      <nd ref="4210959305" />
+      <nd ref="4210959307" />
+      <nd ref="367794801" />
+      <nd ref="4210958059" />
+      <tag k="addr:city" v="Westbrook" />
+      <tag k="addr:housenumber" v="800" />
+      <tag k="addr:postcode" v="04092" />
+      <tag k="addr:state" v="ME" />
+      <tag k="addr:street" v="Main Street" />
+      <tag k="amenity" v="library" />
+      <tag k="building" v="yes" />
+      <tag k="name" v="Walker Memorial Library" />
+      <tag k="opening_hours" v="Mo,We,Fr 09:00-17:00; Tu,Th 10:00-19:00; PH closed" />
+      <tag k="phone" v="+1-207-854-0630" />
+      <tag k="website" v="https://walkerlibrary.org/" />
+      <tag k="wikidata" v="Q7962296" />
+      <tag k="wikipedia" v="en:Walker Memorial Library" />
+    </way>
     <way id="421317261" user="blackboxlogic" uid="9109301" visible="true" version="5" changeset="71636215" timestamp="2019-06-26T12:56:17Z">
       <nd ref="4210959328" />
       <nd ref="4210959329" />
@@ -46193,6 +46632,39 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
     </way>
+    <way id="421317260" user="Bkissin" uid="506275" visible="true" version="2" changeset="39609030" timestamp="2016-05-27T17:12:41Z">
+      <nd ref="4210959308" />
+      <nd ref="4210959309" />
+      <nd ref="4210959310" />
+      <nd ref="4210959311" />
+      <nd ref="4210959312" />
+      <nd ref="4210959313" />
+      <nd ref="4210959314" />
+      <nd ref="4210959315" />
+      <nd ref="4210959316" />
+      <nd ref="4210959317" />
+      <nd ref="4210959318" />
+      <nd ref="4210959319" />
+      <nd ref="4210959320" />
+      <nd ref="4210959321" />
+      <nd ref="4210959322" />
+      <nd ref="4210959323" />
+      <nd ref="4210959324" />
+      <nd ref="4210959325" />
+      <nd ref="4210959326" />
+      <nd ref="4210959327" />
+      <nd ref="4210959308" />
+      <tag k="addr:city" v="Westbrook" />
+      <tag k="addr:housenumber" v="810" />
+      <tag k="addr:postcode" v="04092" />
+      <tag k="addr:state" v="ME" />
+      <tag k="addr:street" v="Main Street" />
+      <tag k="amenity" v="place_of_worship" />
+      <tag k="building" v="yes" />
+      <tag k="denomination" v="united_church_of_christ" />
+      <tag k="name" v="Westbrook-Warren Congregational Church" />
+      <tag k="religion" v="christian" />
+    </way>
     <node id="6558743881" lat="43.676366541076" lon="-70.3658776565036" user="blackboxlogic" uid="9109301" visible="true" version="3" changeset="71480524" timestamp="2019-06-21T12:51:35Z">
       <tag k="addr:city" v="Westbrook" />
       <tag k="addr:housenumber" v="846" />
@@ -46205,6 +46677,99 @@
       <tag k="website" v="https://stgermaincollins.com/" />
       <tag k="building" v="commercial" />
     </node>
+    <way id="421317252" user="blackboxlogic" uid="9109301" visible="true" version="8" changeset="78388099" timestamp="2019-12-13T18:14:35Z">
+      <nd ref="358234549" />
+      <nd ref="4210958021" />
+      <nd ref="4210958022" />
+      <nd ref="4210958023" />
+      <nd ref="4210958024" />
+      <nd ref="4210958025" />
+      <nd ref="4210958026" />
+      <nd ref="4210958027" />
+      <nd ref="358234549" />
+      <tag k="addr:city" v="Westbrook" />
+      <tag k="addr:housenumber" v="870" />
+      <tag k="addr:postcode" v="04092" />
+      <tag k="addr:state" v="ME" />
+      <tag k="addr:street" v="Main Street" />
+      <tag k="amenity" v="pharmacy" />
+      <tag k="brand" v="CVS Pharmacy" />
+      <tag k="brand:wikidata" v="Q2078880" />
+      <tag k="brand:wikipedia" v="en:CVS Pharmacy" />
+      <tag k="building" v="yes" />
+      <tag k="dispensing" v="yes" />
+      <tag k="drive_through" v="yes" />
+      <tag k="ele" v="21" />
+      <tag k="gnis:county_id" v="005" />
+      <tag k="gnis:created" v="05/08/2001" />
+      <tag k="gnis:feature_id" v="1913140" />
+      <tag k="gnis:state_id" v="23" />
+      <tag k="healthcare" v="pharmacy" />
+      <tag k="historic:amenity" v="post_office" />
+      <tag k="name" v="CVS Pharmacy" />
+      <tag k="old_name" v="Westbrook Post Office (historical)" />
+      <tag k="opening_hours" v="Mo-Sa 08:00-22:00; Su 08:00-20:00" />
+      <tag k="phone" v="+1-207-854-8443" />
+      <tag k="short_name" v="CVS" />
+    </way>
+    <way id="421317255" user="blackboxlogic+bot" uid="10307443" visible="true" version="5" changeset="74595922" timestamp="2019-09-17T19:04:40Z">
+      <nd ref="4210958038" />
+      <nd ref="4210958039" />
+      <nd ref="4210958040" />
+      <nd ref="4210958041" />
+      <nd ref="4210958042" />
+      <nd ref="4210958043" />
+      <nd ref="4210958044" />
+      <nd ref="4210958045" />
+      <nd ref="4210958046" />
+      <nd ref="4210958047" />
+      <nd ref="4210958038" />
+      <tag k="addr:city" v="Westbrook" />
+      <tag k="addr:housenumber" v="880" />
+      <tag k="addr:postcode" v="04092" />
+      <tag k="addr:state" v="ME" />
+      <tag k="addr:street" v="Main Street" />
+      <tag k="brand" v="Family Dollar" />
+      <tag k="brand:wikidata" v="Q5433101" />
+      <tag k="building" v="yes" />
+      <tag k="name" v="Family Dollar" />
+      <tag k="phone" v="+1-207-856-6826" />
+      <tag k="shop" v="variety_store" />
+    </way>
+    <way id="421317257" user="blackboxlogic+bot" uid="10307443" visible="true" version="3" changeset="74595922" timestamp="2019-09-17T19:04:40Z">
+      <nd ref="4210958052" />
+      <nd ref="4210958053" />
+      <nd ref="4210958054" />
+      <nd ref="4210958055" />
+      <nd ref="4210958057" />
+      <nd ref="4210958052" />
+      <tag k="addr:city" v="Westbrook" />
+      <tag k="addr:housenumber" v="894" />
+      <tag k="addr:postcode" v="04092" />
+      <tag k="addr:state" v="ME" />
+      <tag k="addr:street" v="Main Street" />
+      <tag k="building" v="yes" />
+      <tag k="name" v="Martini Lane Discount Beverage" />
+      <tag k="phone" v="+1-207-854-1841" />
+      <tag k="shop" v="alcohol" />
+    </way>
+    <way id="421317258" user="blackboxlogic" uid="9109301" visible="true" version="3" changeset="71681921" timestamp="2019-06-27T17:53:36Z">
+      <nd ref="4210958056" />
+      <nd ref="4210958057" />
+      <nd ref="4210958055" />
+      <nd ref="4210958058" />
+      <nd ref="4210958056" />
+      <tag k="addr:city" v="Westbrook" />
+      <tag k="addr:housenumber" v="900" />
+      <tag k="addr:postcode" v="04092" />
+      <tag k="addr:state" v="ME" />
+      <tag k="addr:street" v="Main Street" />
+      <tag k="building" v="yes" />
+      <tag k="name" v="Hub Furniture" />
+      <tag k="phone" v="+1-207-854-9419" />
+      <tag k="shop" v="furniture" />
+      <tag k="website" v="http://hubfurnitureco.com/" />
+    </way>
     <node id="6564639162" lat="43.6809446230355" lon="-70.3636491275557" user="blackboxlogic" uid="9109301" visible="true" version="2" changeset="71511335" timestamp="2019-06-22T14:43:30Z">
       <tag k="addr:housenumber" v="9" />
       <tag k="addr:street" v="Cole Street" />
@@ -46234,6 +46799,27 @@
       <tag k="addr:postcode" v="04092" />
       <tag k="building" v="apartments" />
     </node>
+    <way id="428057581" user="Bkissin" uid="506275" visible="true" version="2" changeset="40373949" timestamp="2016-06-29T18:37:06Z">
+      <nd ref="4272087673" />
+      <nd ref="4272087674" />
+      <nd ref="4272087675" />
+      <nd ref="4272087676" />
+      <nd ref="4272087677" />
+      <nd ref="4272087678" />
+      <nd ref="4272087679" />
+      <nd ref="4272087680" />
+      <nd ref="4272087681" />
+      <nd ref="4272087682" />
+      <nd ref="4272087673" />
+      <tag k="addr:city" v="Westbrook" />
+      <tag k="addr:housenumber" v="35" />
+      <tag k="addr:postcode" v="04092" />
+      <tag k="addr:state" v="ME" />
+      <tag k="addr:street" v="Church Street" />
+      <tag k="building" v="yes" />
+      <tag k="name" v="Blais &amp; Hay Funeral Home" />
+      <tag k="shop" v="funeral_directors" />
+    </way>
     <node id="6717445669" lat="43.6809744607789" lon="-70.3626572911151" user="blackboxlogic" uid="9109301" visible="true" version="2" changeset="73433604" timestamp="2019-08-17T01:14:12Z">
       <tag k="addr:housenumber" v="51" />
       <tag k="addr:street" v="North Street" />
@@ -46334,6 +46920,34 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
     </node>
+    <way id="360636491" user="blackboxlogic" uid="9109301" visible="true" version="6" changeset="76777113" timestamp="2019-11-07T20:57:27Z">
+      <nd ref="3651791091" />
+      <nd ref="3651791092" />
+      <nd ref="3651791093" />
+      <nd ref="3651791094" />
+      <nd ref="3651791095" />
+      <nd ref="3651791096" />
+      <nd ref="3651791097" />
+      <nd ref="3651791098" />
+      <nd ref="3651791099" />
+      <nd ref="3651791100" />
+      <nd ref="3651791101" />
+      <nd ref="3651791102" />
+      <nd ref="3651791091" />
+      <tag k="addr:city" v="Westbrook" />
+      <tag k="addr:housenumber" v="465" />
+      <tag k="addr:postcode" v="04092" />
+      <tag k="addr:state" v="ME" />
+      <tag k="addr:street" v="Main Street" />
+      <tag k="brand" v="Walgreens" />
+      <tag k="brand:wikidata" v="Q1591889" />
+      <tag k="brand:wikipedia" v="en:Walgreens" />
+      <tag k="building" v="yes" />
+      <tag k="drive_through" v="yes" />
+      <tag k="name" v="Walgreens" />
+      <tag k="phone" v="+1-207-854-9103" />
+      <tag k="shop" v="chemist" />
+    </way>
     <way id="360635090" user="blackboxlogic" uid="9109301" visible="true" version="3" changeset="71635810" timestamp="2019-06-26T12:44:48Z">
       <nd ref="3651758816" />
       <nd ref="3651758817" />
@@ -46447,6 +47061,41 @@
       <tag k="building" v="yes" />
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
+    </way>
+    <way id="463039784" user="blackboxlogic" uid="9109301" visible="true" version="3" changeset="71420192" timestamp="2019-06-20T00:55:46Z">
+      <nd ref="4583567339" />
+      <nd ref="4583567340" />
+      <nd ref="4583567341" />
+      <nd ref="4583567342" />
+      <nd ref="4583567343" />
+      <nd ref="4583567344" />
+      <nd ref="4583567345" />
+      <nd ref="4583567346" />
+      <nd ref="4583567339" />
+      <tag k="addr:city" v="Westbrook" />
+      <tag k="addr:housenumber" v="789" />
+      <tag k="addr:postcode" v="04092" />
+      <tag k="addr:state" v="ME" />
+      <tag k="addr:street" v="Main Street" />
+      <tag k="building" v="yes" />
+    </way>
+    <way id="545056702" user="blackboxlogic" uid="9109301" visible="true" version="5" changeset="77793138" timestamp="2019-12-01T23:01:51Z">
+      <nd ref="5268325559" />
+      <nd ref="5268325560" />
+      <nd ref="5268325561" />
+      <nd ref="5268325562" />
+      <nd ref="5268325563" />
+      <nd ref="5268325564" />
+      <nd ref="5268325559" />
+      <tag k="addr:city" v="Westbrook" />
+      <tag k="addr:housenumber" v="1" />
+      <tag k="addr:postcode" v="04092" />
+      <tag k="addr:state" v="ME" />
+      <tag k="addr:street" v="Thomas Drive" />
+      <tag k="building" v="commercial" />
+      <tag k="name" v="IDEXX Laboratories" />
+      <tag k="wikidata" v="Q1758392" />
+      <tag k="wikipedia" v="en:Idexx Laboratories" />
     </way>
     <way id="559244995" user="blackboxlogic+bot" uid="10307443" visible="true" version="6" changeset="74595922" timestamp="2019-09-17T19:04:40Z">
       <nd ref="5394317118" />
@@ -46817,6 +47466,13 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:street" v="Pierce Street" />
     </node>
+    <node id="6800298493" lat="43.6884641" lon="-70.3678047" user="blackboxlogic" uid="9109301" visible="true" version="2" changeset="74547753" timestamp="2019-09-16T19:22:32Z">
+      <tag k="addr:city" v="Westbrook" />
+      <tag k="addr:housenumber" v="155" />
+      <tag k="addr:postcode" v="04092" />
+      <tag k="addr:state" v="ME" />
+      <tag k="addr:street" v="Pierce Street" />
+    </node>
     <node id="6717445674" lat="43.6852990778051" lon="-70.3673272862917" user="blackboxlogic" uid="9109301" visible="true" version="2" changeset="73433604" timestamp="2019-08-17T01:14:12Z">
       <tag k="addr:city" v="Westbrook" />
       <tag k="addr:housenumber" v="52" />
@@ -46848,6 +47504,13 @@
     <node id="6800298489" lat="43.6888368110283" lon="-70.3681459410024" user="blackboxlogic" uid="9109301" visible="true" version="2" changeset="74547753" timestamp="2019-09-16T19:22:32Z">
       <tag k="addr:city" v="Westbrook" />
       <tag k="addr:housenumber" v="158" />
+      <tag k="addr:postcode" v="04092" />
+      <tag k="addr:state" v="ME" />
+      <tag k="addr:street" v="Pierce Street" />
+    </node>
+    <node id="6800298491" lat="43.6885306" lon="-70.3682331" user="blackboxlogic" uid="9109301" visible="true" version="2" changeset="74547753" timestamp="2019-09-16T19:22:32Z">
+      <tag k="addr:city" v="Westbrook" />
+      <tag k="addr:housenumber" v="152" />
       <tag k="addr:postcode" v="04092" />
       <tag k="addr:state" v="ME" />
       <tag k="addr:street" v="Pierce Street" />
@@ -47672,6 +48335,49 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
     </node>
+    <way id="428057583" user="blackboxlogic" uid="9109301" visible="true" version="3" changeset="71530987" timestamp="2019-06-23T12:37:17Z">
+      <nd ref="4272088093" />
+      <nd ref="4272088094" />
+      <nd ref="4272088095" />
+      <nd ref="4272088096" />
+      <nd ref="4272088093" />
+      <tag k="addr:city" v="Westbrook" />
+      <tag k="addr:housenumber" v="31" />
+      <tag k="addr:postcode" v="04092" />
+      <tag k="addr:state" v="ME" />
+      <tag k="addr:street" v="Central Street" />
+      <tag k="building" v="yes" />
+      <tag k="name" v="Anderson-Watkins Insurance" />
+      <tag k="office" v="insurance" />
+      <tag k="phone" v="+1-207-856-5500" />
+      <tag k="website" v="https://andersonwatkins.com/" />
+    </way>
+    <way id="428057580" user="blackboxlogic" uid="9109301" visible="true" version="5" changeset="72556681" timestamp="2019-07-23T12:49:52Z">
+      <nd ref="4272087663" />
+      <nd ref="6640436118" />
+      <nd ref="4272087664" />
+      <nd ref="4272087665" />
+      <nd ref="4272087666" />
+      <nd ref="4272087667" />
+      <nd ref="4272087668" />
+      <nd ref="4272087669" />
+      <nd ref="4272087670" />
+      <nd ref="4272087671" />
+      <nd ref="4272087672" />
+      <nd ref="4272087663" />
+      <tag k="addr:city" v="Westbrook" />
+      <tag k="addr:housenumber" v="30" />
+      <tag k="addr:postcode" v="04092" />
+      <tag k="addr:state" v="ME" />
+      <tag k="addr:street" v="Central Street" />
+      <tag k="brand" v="Do it Best Corp." />
+      <tag k="building" v="yes" />
+      <tag k="name" v="Sportsman's Hardware" />
+      <tag k="opening_hours" v="Mo-Fr 07:00-18:00; Sa-Su 08:00-17:00" />
+      <tag k="phone" v="+1-207-854-5868" />
+      <tag k="shop" v="hardware" />
+      <tag k="website" v="https://www.sportsmanshardware.com/" />
+    </way>
     <node id="6800847013" lat="43.6832288134795" lon="-70.3684030783168" user="blackboxlogic" uid="9109301" visible="true" version="2" changeset="74554393" timestamp="2019-09-17T02:01:16Z">
       <tag k="addr:housenumber" v="49" />
       <tag k="addr:street" v="Chestnut Street" />
@@ -47772,6 +48478,35 @@
       <tag k="addr:postcode" v="04092" />
       <tag k="building" v="apartments" />
     </node>
+    <way id="463212818" user="Bkissin" uid="506275" visible="true" version="4" changeset="64980574" timestamp="2018-11-28T17:37:16Z">
+      <nd ref="4585070520" />
+      <nd ref="4585070521" />
+      <nd ref="4585070522" />
+      <nd ref="4585070523" />
+      <nd ref="4585078683" />
+      <nd ref="4585070524" />
+      <nd ref="4585070525" />
+      <nd ref="4585070526" />
+      <nd ref="4585081104" />
+      <nd ref="4585081105" />
+      <nd ref="4585070527" />
+      <nd ref="4585070528" />
+      <nd ref="4585070529" />
+      <nd ref="4585070530" />
+      <nd ref="4585078682" />
+      <nd ref="4585070531" />
+      <nd ref="4585070532" />
+      <nd ref="4585070520" />
+      <tag k="addr:city" v="Westbrook" />
+      <tag k="addr:housenumber" v="5" />
+      <tag k="addr:postcode" v="04092" />
+      <tag k="addr:state" v="ME" />
+      <tag k="addr:street" v="Saunders Way" />
+      <tag k="building" v="retail" />
+      <tag k="name" v="Bill Dodge Pre-Owned Super Center" />
+      <tag k="second_hand" v="only" />
+      <tag k="shop" v="car" />
+    </way>
     <way id="463212819" user="Bkissin" uid="506275" visible="true" version="4" changeset="64980574" timestamp="2018-11-28T17:37:15Z">
       <nd ref="4585070533" />
       <nd ref="4585070534" />
@@ -47821,6 +48556,19 @@
       <tag k="website" v="http://www.twinfallsgolfclub.com/" />
       <tag k="addr:state" v="ME" />
     </way>
+    <relation id="6863190" user="blackboxlogic" uid="9109301" visible="true" version="3" changeset="78161091" timestamp="2019-12-09T16:10:04Z">
+      <member type="way" ref="464746190" role="inner" />
+      <member type="way" ref="421324991" role="outer" />
+      <tag k="addr:city" v="Westbrook" />
+      <tag k="addr:housenumber" v="449" />
+      <tag k="addr:postcode" v="04092" />
+      <tag k="addr:state" v="ME" />
+      <tag k="addr:street" v="Stroudwater Street" />
+      <tag k="amenity" v="animal_shelter" />
+      <tag k="building" v="yes" />
+      <tag k="name" v="Animal Refuge League of Greater Portland" />
+      <tag k="type" v="multipolygon" />
+    </relation>
     <node id="6783658112" lat="43.6813524830229" lon="-70.3588880743329" user="blackboxlogic" uid="9109301" visible="true" version="2" changeset="74278738" timestamp="2019-09-09T19:21:38Z">
       <tag k="addr:housenumber" v="130" />
       <tag k="addr:street" v="Brown Street" />
@@ -48085,6 +48833,13 @@
       <tag k="addr:street" v="Main Street" />
       <tag k="building" v="apartments" />
     </node>
+    <node id="6558754687" lat="43.6787319" lon="-70.3560208" user="blackboxlogic" uid="9109301" visible="true" version="2" changeset="71420192" timestamp="2019-06-20T00:55:46Z">
+      <tag k="addr:city" v="Westbrook" />
+      <tag k="addr:housenumber" v="620" />
+      <tag k="addr:postcode" v="04092" />
+      <tag k="addr:state" v="ME" />
+      <tag k="addr:street" v="Main Street" />
+    </node>
     <node id="6558743872" lat="43.6787065831672" lon="-70.3561300569205" user="blackboxlogic" uid="9109301" visible="true" version="2" changeset="71420192" timestamp="2019-06-20T00:55:46Z">
       <tag k="addr:city" v="Westbrook" />
       <tag k="addr:housenumber" v="622" />
@@ -48300,7 +49055,27 @@
       <tag k="addr:postcode" v="04092" />
       <tag k="building" v="residential" />
     </node>
-    <way id="130716291" user="emulsi" uid="235413" visible="true" version="1" changeset="9356767" timestamp="2011-09-21T01:05:56Z">
+    <way id="604697262" user="Ladung" uid="9812768" visible="true" version="6" changeset="72368409" timestamp="2019-07-18T00:48:18Z">
+      <nd ref="5737062713" />
+      <nd ref="5737062714" />
+      <nd ref="5737062715" />
+      <nd ref="5737062716" />
+      <nd ref="5737062713" />
+      <tag k="addr:city" v="Westbrook" />
+      <tag k="addr:housenumber" v="7" />
+      <tag k="addr:postcode" v="04092" />
+      <tag k="addr:state" v="ME" />
+      <tag k="addr:street" v="Saunders Way" />
+      <tag k="brand" v="BMW" />
+      <tag k="brand:wikidata" v="Q26678" />
+      <tag k="building" v="yes" />
+      <tag k="name" v="BMW of Westbrook" />
+      <tag k="opening_hours" v="Mo-Th 08:00-20:00; Fr 08:00-18:00; Sa 08:00-17:00" />
+      <tag k="operator" v="Bill Dodge Auto Group" />
+      <tag k="second_hand" v="yes" />
+      <tag k="shop" v="car" />
+    </way>
+    <way id="130716291" user="emulsi" uid="235413" visible="true" version="2" changeset="9356767" timestamp="2011-09-21T01:05:56Z">
       <nd ref="1438934776" />
       <nd ref="1438934659" />
       <nd ref="1438934734" />
@@ -48317,7 +49092,7 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
     </way>
-    <way id="421317251" user="blackboxlogic" uid="9109301" visible="true" version="5" changeset="75187427" timestamp="2019-10-02T12:35:43Z">
+    <way id="421317251" user="blackboxlogic" uid="9109301" visible="true" version="6" changeset="75187427" timestamp="2019-10-02T12:35:43Z">
       <nd ref="4210958009" />
       <nd ref="4210958010" />
       <nd ref="4210958011" />
@@ -48339,7 +49114,7 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
     </way>
-    <way id="421317256" user="Bkissin" uid="506275" visible="true" version="1" changeset="39609030" timestamp="2016-05-27T17:12:40Z">
+    <way id="421317256" user="Bkissin" uid="506275" visible="true" version="2" changeset="39609030" timestamp="2016-05-27T17:12:40Z">
       <nd ref="4210958048" />
       <nd ref="4210958039" />
       <nd ref="4210958038" />
@@ -48354,7 +49129,7 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
     </way>
-    <way id="428057582" user="Bkissin" uid="506275" visible="true" version="1" changeset="40373949" timestamp="2016-06-29T18:37:06Z">
+    <way id="428057582" user="Bkissin" uid="506275" visible="true" version="2" changeset="40373949" timestamp="2016-06-29T18:37:06Z">
       <nd ref="4272087683" />
       <nd ref="4272087684" />
       <nd ref="4272087685" />
@@ -48366,14 +49141,14 @@
       <nd ref="4272088091" />
       <nd ref="4272088092" />
       <nd ref="4272087683" />
-      <tag k="building" v="commercial" />
+      <tag k="building" v="yes" />
       <tag k="addr:housenumber" v="39" />
       <tag k="addr:street" v="Mechanic Street" />
       <tag k="addr:city" v="Westbrook" />
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
     </way>
-    <way id="462262498" user="Юкатан" uid="3885962" visible="true" version="1" changeset="44723280" timestamp="2016-12-28T06:59:34Z">
+    <way id="462262498" user="Юкатан" uid="3885962" visible="true" version="2" changeset="44723280" timestamp="2016-12-28T06:59:34Z">
       <nd ref="4576732602" />
       <nd ref="4576732603" />
       <nd ref="4576732604" />
@@ -48396,7 +49171,7 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
     </way>
-    <way id="462263190" user="Юкатан" uid="3885962" visible="true" version="1" changeset="44723332" timestamp="2016-12-28T07:04:55Z">
+    <way id="462263190" user="Юкатан" uid="3885962" visible="true" version="2" changeset="44723332" timestamp="2016-12-28T07:04:55Z">
       <nd ref="4576737006" />
       <nd ref="4576737007" />
       <nd ref="4576737008" />
@@ -48415,7 +49190,7 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
     </way>
-    <way id="462266813" user="Юкатан" uid="3885962" visible="true" version="1" changeset="44723686" timestamp="2016-12-28T07:36:42Z">
+    <way id="462266813" user="Юкатан" uid="3885962" visible="true" version="2" changeset="44723686" timestamp="2016-12-28T07:36:42Z">
       <nd ref="4576741045" />
       <nd ref="4576741046" />
       <nd ref="4576741047" />
@@ -48440,7 +49215,7 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
     </way>
-    <way id="462266900" user="Юкатан" uid="3885962" visible="true" version="1" changeset="44723730" timestamp="2016-12-28T07:39:47Z">
+    <way id="462266900" user="Юкатан" uid="3885962" visible="true" version="2" changeset="44723730" timestamp="2016-12-28T07:39:47Z">
       <nd ref="4576762689" />
       <nd ref="4576762690" />
       <nd ref="4576762691" />
@@ -48466,7 +49241,7 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
     </way>
-    <way id="462271309" user="Юкатан" uid="3885962" visible="true" version="1" changeset="44723926" timestamp="2016-12-28T07:53:16Z">
+    <way id="462271309" user="Юкатан" uid="3885962" visible="true" version="2" changeset="44723926" timestamp="2016-12-28T07:53:16Z">
       <nd ref="4576809229" />
       <nd ref="4576809230" />
       <nd ref="4576809231" />
@@ -48483,7 +49258,7 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
     </way>
-    <way id="462477088" user="Юкатан" uid="3885962" visible="true" version="3" changeset="44749302" timestamp="2016-12-29T07:12:23Z">
+    <way id="462477088" user="Юкатан" uid="3885962" visible="true" version="4" changeset="44749302" timestamp="2016-12-29T07:12:23Z">
       <nd ref="4578682672" />
       <nd ref="4578682673" />
       <nd ref="4578682674" />
@@ -48554,7 +49329,7 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
     </way>
-    <way id="463040089" user="Юкатан" uid="3885962" visible="true" version="1" changeset="44818483" timestamp="2017-01-01T08:13:08Z">
+    <way id="463040089" user="Юкатан" uid="3885962" visible="true" version="2" changeset="44818483" timestamp="2017-01-01T08:13:08Z">
       <nd ref="4583569510" />
       <nd ref="4583569511" />
       <nd ref="4583569512" />
@@ -48574,14 +49349,14 @@
       <nd ref="4583569526" />
       <nd ref="4583569527" />
       <nd ref="4583569510" />
-      <tag k="building" v="apartments" />
+      <tag k="building" v="yes" />
       <tag k="addr:housenumber" v="765" />
       <tag k="addr:street" v="Main Street" />
       <tag k="addr:city" v="Westbrook" />
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
     </way>
-    <way id="463210805" user="Юкатан" uid="3885962" visible="true" version="1" changeset="44839535" timestamp="2017-01-02T08:39:07Z">
+    <way id="463210805" user="Юкатан" uid="3885962" visible="true" version="2" changeset="44839535" timestamp="2017-01-02T08:39:07Z">
       <nd ref="4585054668" />
       <nd ref="4585054669" />
       <nd ref="4585054670" />
@@ -48594,7 +49369,7 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
     </way>
-    <way id="463217441" user="Bkissin" uid="506275" visible="true" version="2" changeset="64980574" timestamp="2018-11-28T17:37:15Z">
+    <way id="463217441" user="Bkissin" uid="506275" visible="true" version="3" changeset="64980574" timestamp="2018-11-28T17:37:15Z">
       <nd ref="4585115561" />
       <nd ref="4585115562" />
       <nd ref="4585115563" />
@@ -48610,7 +49385,7 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
     </way>
-    <way id="463217806" user="Юкатан" uid="3885962" visible="true" version="1" changeset="44840827" timestamp="2017-01-02T09:48:04Z">
+    <way id="463217806" user="Юкатан" uid="3885962" visible="true" version="2" changeset="44840827" timestamp="2017-01-02T09:48:04Z">
       <nd ref="4585118544" />
       <nd ref="4585118545" />
       <nd ref="4585118546" />
@@ -48632,7 +49407,7 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
     </way>
-    <way id="463591587" user="Юкатан" uid="3885962" visible="true" version="1" changeset="44891027" timestamp="2017-01-04T07:06:26Z">
+    <way id="463591587" user="Юкатан" uid="3885962" visible="true" version="2" changeset="44891027" timestamp="2017-01-04T07:06:26Z">
       <nd ref="4588562017" />
       <nd ref="4588562018" />
       <nd ref="4588562019" />
@@ -48652,14 +49427,14 @@
       <nd ref="4588562029" />
       <nd ref="4588562030" />
       <nd ref="4588562017" />
-      <tag k="building" v="commercial" />
+      <tag k="building" v="yes" />
       <tag k="addr:housenumber" v="15" />
       <tag k="addr:street" v="Saunders Way" />
       <tag k="addr:city" v="Westbrook" />
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
     </way>
-    <way id="463592826" user="Юкатан" uid="3885962" visible="true" version="2" changeset="44891215" timestamp="2017-01-04T07:21:43Z">
+    <way id="463592826" user="Юкатан" uid="3885962" visible="true" version="3" changeset="44891215" timestamp="2017-01-04T07:21:43Z">
       <nd ref="4588571184" />
       <nd ref="4588571185" />
       <nd ref="4588576292" />
@@ -48676,7 +49451,7 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
     </way>
-    <way id="463593498" user="Юкатан" uid="3885962" visible="true" version="1" changeset="44891253" timestamp="2017-01-04T07:24:07Z">
+    <way id="463593498" user="Юкатан" uid="3885962" visible="true" version="2" changeset="44891253" timestamp="2017-01-04T07:24:07Z">
       <nd ref="4588577830" />
       <nd ref="4588577831" />
       <nd ref="4588577832" />
@@ -48691,7 +49466,7 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
     </way>
-    <way id="463594130" user="Юкатан" uid="3885962" visible="true" version="1" changeset="44891359" timestamp="2017-01-04T07:31:28Z">
+    <way id="463594130" user="Юкатан" uid="3885962" visible="true" version="2" changeset="44891359" timestamp="2017-01-04T07:31:28Z">
       <nd ref="4588581275" />
       <nd ref="4588581276" />
       <nd ref="4588581277" />
@@ -48704,7 +49479,7 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
     </way>
-    <way id="463594131" user="Юкатан" uid="3885962" visible="true" version="1" changeset="44891359" timestamp="2017-01-04T07:31:28Z">
+    <way id="463594131" user="Юкатан" uid="3885962" visible="true" version="2" changeset="44891359" timestamp="2017-01-04T07:31:28Z">
       <nd ref="4588581279" />
       <nd ref="4588581489" />
       <nd ref="4588581280" />
@@ -48719,7 +49494,7 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
     </way>
-    <way id="463594188" user="Юкатан" uid="3885962" visible="true" version="1" changeset="44891374" timestamp="2017-01-04T07:32:36Z">
+    <way id="463594188" user="Юкатан" uid="3885962" visible="true" version="2" changeset="44891374" timestamp="2017-01-04T07:32:36Z">
       <nd ref="4588581801" />
       <nd ref="4588581802" />
       <nd ref="4588581803" />
@@ -48736,7 +49511,7 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
     </way>
-    <way id="463594205" user="Юкатан" uid="3885962" visible="true" version="1" changeset="44891392" timestamp="2017-01-04T07:33:51Z">
+    <way id="463594205" user="Юкатан" uid="3885962" visible="true" version="2" changeset="44891392" timestamp="2017-01-04T07:33:51Z">
       <nd ref="4588582179" />
       <nd ref="4588582180" />
       <nd ref="4588582181" />
@@ -48749,24 +49524,7 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
     </way>
-    <way id="463594206" user="Юкатан" uid="3885962" visible="true" version="2" changeset="44891676" timestamp="2017-01-04T07:50:38Z">
-      <nd ref="4588582183" />
-      <nd ref="4588582184" />
-      <nd ref="4588582185" />
-      <nd ref="4588582186" />
-      <nd ref="4588582187" />
-      <nd ref="4588582188" />
-      <nd ref="4588582589" />
-      <nd ref="4588582590" />
-      <nd ref="4588582183" />
-      <tag k="building" v="commercial" />
-      <tag k="addr:housenumber" v="120" />
-      <tag k="addr:street" v="Main Street" />
-      <tag k="addr:city" v="Westbrook" />
-      <tag k="addr:state" v="ME" />
-      <tag k="addr:postcode" v="04092" />
-    </way>
-    <way id="464500787" user="Юкатан" uid="3885962" visible="true" version="1" changeset="44997112" timestamp="2017-01-08T10:19:08Z">
+    <way id="464500787" user="Юкатан" uid="3885962" visible="true" version="2" changeset="44997112" timestamp="2017-01-08T10:19:08Z">
       <nd ref="4595998026" />
       <nd ref="4595998027" />
       <nd ref="4595998028" />
@@ -48783,30 +49541,7 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
     </way>
-    <way id="464500811" user="Юкатан" uid="3885962" visible="true" version="1" changeset="44997132" timestamp="2017-01-08T10:20:12Z">
-      <nd ref="4595998273" />
-      <nd ref="4595998274" />
-      <nd ref="4595998275" />
-      <nd ref="4595998276" />
-      <nd ref="4595998277" />
-      <nd ref="4595998278" />
-      <nd ref="4595998279" />
-      <nd ref="4595998280" />
-      <nd ref="4595998281" />
-      <nd ref="4595998282" />
-      <nd ref="4595998283" />
-      <nd ref="4595998284" />
-      <nd ref="4595998285" />
-      <nd ref="4595998286" />
-      <nd ref="4595998273" />
-      <tag k="building" v="commercial" />
-      <tag k="addr:housenumber" v="207" />
-      <tag k="addr:street" v="Larrabee Road" />
-      <tag k="addr:city" v="Westbrook" />
-      <tag k="addr:state" v="ME" />
-      <tag k="addr:postcode" v="04092" />
-    </way>
-    <way id="464501606" user="Ladung" uid="9812768" visible="true" version="3" changeset="72368409" timestamp="2019-07-18T00:48:18Z">
+    <way id="464501606" user="Ladung" uid="9812768" visible="true" version="4" changeset="72368409" timestamp="2019-07-18T00:48:18Z">
       <nd ref="4596004730" />
       <nd ref="4596004731" />
       <nd ref="4596004732" />
@@ -48824,7 +49559,7 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
     </way>
-    <way id="464689629" user="Юкатан" uid="3885962" visible="true" version="1" changeset="45021713" timestamp="2017-01-09T09:42:32Z">
+    <way id="464689629" user="Юкатан" uid="3885962" visible="true" version="2" changeset="45021713" timestamp="2017-01-09T09:42:32Z">
       <nd ref="4597723494" />
       <nd ref="4597723495" />
       <nd ref="4597723496" />
@@ -48845,7 +49580,7 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
     </way>
-    <way id="464689630" user="Ladung" uid="9812768" visible="true" version="3" changeset="72368409" timestamp="2019-07-18T00:48:18Z">
+    <way id="464689630" user="Ladung" uid="9812768" visible="true" version="4" changeset="72368409" timestamp="2019-07-18T00:48:18Z">
       <nd ref="4597723506" />
       <nd ref="4597723507" />
       <nd ref="4597723508" />
@@ -48866,7 +49601,7 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
     </way>
-    <way id="465374095" user="Юкатан" uid="3885962" visible="true" version="1" changeset="45099460" timestamp="2017-01-12T09:51:50Z">
+    <way id="465374095" user="Юкатан" uid="3885962" visible="true" version="2" changeset="45099460" timestamp="2017-01-12T09:51:50Z">
       <nd ref="4603439003" />
       <nd ref="4603439004" />
       <nd ref="4603439005" />
@@ -48879,7 +49614,7 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
     </way>
-    <way id="465374096" user="Юкатан" uid="3885962" visible="true" version="2" changeset="45184929" timestamp="2017-01-15T07:39:51Z">
+    <way id="465374096" user="Юкатан" uid="3885962" visible="true" version="3" changeset="45184929" timestamp="2017-01-15T07:39:51Z">
       <nd ref="4603439007" />
       <nd ref="4609263342" />
       <nd ref="4603439008" />
@@ -48899,7 +49634,7 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
     </way>
-    <way id="465374097" user="Ladung" uid="9812768" visible="true" version="4" changeset="72368409" timestamp="2019-07-18T00:48:18Z">
+    <way id="465374097" user="Ladung" uid="9812768" visible="true" version="5" changeset="72368409" timestamp="2019-07-18T00:48:18Z">
       <nd ref="4603439017" />
       <nd ref="4603439018" />
       <nd ref="4603439019" />
@@ -48918,7 +49653,7 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
     </way>
-    <way id="465374205" user="Юкатан" uid="3885962" visible="true" version="2" changeset="45099577" timestamp="2017-01-12T09:57:49Z">
+    <way id="465374205" user="Юкатан" uid="3885962" visible="true" version="3" changeset="45099577" timestamp="2017-01-12T09:57:49Z">
       <nd ref="4603440225" />
       <nd ref="4603440226" />
       <nd ref="4603440227" />
@@ -48949,7 +49684,7 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
     </way>
-    <way id="465386862" user="Юкатан" uid="3885962" visible="true" version="2" changeset="45184878" timestamp="2017-01-15T07:35:52Z">
+    <way id="465386862" user="Юкатан" uid="3885962" visible="true" version="3" changeset="45184878" timestamp="2017-01-15T07:35:52Z">
       <nd ref="4603543121" />
       <nd ref="4603543122" />
       <nd ref="4609262530" />
@@ -48963,7 +49698,7 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
     </way>
-    <way id="466030690" user="Юкатан" uid="3885962" visible="true" version="1" changeset="45184840" timestamp="2017-01-15T07:32:14Z">
+    <way id="466030690" user="Юкатан" uid="3885962" visible="true" version="2" changeset="45184840" timestamp="2017-01-15T07:32:14Z">
       <nd ref="4609259832" />
       <nd ref="4609259833" />
       <nd ref="4609259834" />
@@ -48976,7 +49711,7 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
     </way>
-    <way id="466030692" user="Юкатан" uid="3885962" visible="true" version="1" changeset="45184840" timestamp="2017-01-15T07:32:14Z">
+    <way id="466030692" user="Юкатан" uid="3885962" visible="true" version="2" changeset="45184840" timestamp="2017-01-15T07:32:14Z">
       <nd ref="4609259836" />
       <nd ref="4609259837" />
       <nd ref="4609259838" />
@@ -48989,7 +49724,7 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
     </way>
-    <way id="466030693" user="Юкатан" uid="3885962" visible="true" version="1" changeset="45184840" timestamp="2017-01-15T07:32:14Z">
+    <way id="466030693" user="Юкатан" uid="3885962" visible="true" version="2" changeset="45184840" timestamp="2017-01-15T07:32:14Z">
       <nd ref="4609259840" />
       <nd ref="4609259841" />
       <nd ref="4609259842" />
@@ -49004,7 +49739,7 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
     </way>
-    <way id="466030695" user="Юкатан" uid="3885962" visible="true" version="1" changeset="45184840" timestamp="2017-01-15T07:32:14Z">
+    <way id="466030695" user="Юкатан" uid="3885962" visible="true" version="2" changeset="45184840" timestamp="2017-01-15T07:32:14Z">
       <nd ref="4609259846" />
       <nd ref="4609259847" />
       <nd ref="4609259848" />
@@ -49017,7 +49752,7 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
     </way>
-    <way id="466030696" user="Юкатан" uid="3885962" visible="true" version="1" changeset="45184840" timestamp="2017-01-15T07:32:14Z">
+    <way id="466030696" user="Юкатан" uid="3885962" visible="true" version="2" changeset="45184840" timestamp="2017-01-15T07:32:14Z">
       <nd ref="4609259850" />
       <nd ref="4609259851" />
       <nd ref="4609259852" />
@@ -49032,7 +49767,7 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
     </way>
-    <way id="466309090" user="Юкатан" uid="3885962" visible="true" version="1" changeset="45208373" timestamp="2017-01-16T07:21:18Z">
+    <way id="466309090" user="Юкатан" uid="3885962" visible="true" version="2" changeset="45208373" timestamp="2017-01-16T07:21:18Z">
       <nd ref="4611358632" />
       <nd ref="4611358633" />
       <nd ref="4611358634" />
@@ -49042,14 +49777,14 @@
       <nd ref="4611358638" />
       <nd ref="4611358639" />
       <nd ref="4611358632" />
-      <tag k="building" v="commercial" />
+      <tag k="building" v="yes" />
       <tag k="addr:housenumber" v="201" />
       <tag k="addr:street" v="Main Street" />
       <tag k="addr:city" v="Westbrook" />
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
     </way>
-    <way id="466313878" user="Юкатан" uid="3885962" visible="true" version="1" changeset="45208828" timestamp="2017-01-16T07:47:57Z">
+    <way id="466313878" user="Юкатан" uid="3885962" visible="true" version="2" changeset="45208828" timestamp="2017-01-16T07:47:57Z">
       <nd ref="4611383961" />
       <nd ref="4611383962" />
       <nd ref="4611383963" />
@@ -49088,7 +49823,7 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
     </way>
-    <way id="545056706" user="Poqwizredux" uid="7159452" visible="true" version="1" changeset="54408069" timestamp="2017-12-06T17:26:51Z">
+    <way id="545056706" user="Poqwizredux" uid="7159452" visible="true" version="2" changeset="54408069" timestamp="2017-12-06T17:26:51Z">
       <nd ref="5268325581" />
       <nd ref="5268325582" />
       <nd ref="5268325583" />
@@ -49102,7 +49837,7 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
     </way>
-    <way id="545056990" user="Poqwizredux" uid="7159452" visible="true" version="1" changeset="54408120" timestamp="2017-12-06T17:28:26Z">
+    <way id="545056990" user="Poqwizredux" uid="7159452" visible="true" version="2" changeset="54408120" timestamp="2017-12-06T17:28:26Z">
       <nd ref="5268328537" />
       <nd ref="5268328538" />
       <nd ref="5268328539" />
@@ -49116,7 +49851,7 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
     </way>
-    <way id="545087122" user="Poqwizredux" uid="7159452" visible="true" version="1" changeset="54411970" timestamp="2017-12-06T19:45:46Z">
+    <way id="545087122" user="Poqwizredux" uid="7159452" visible="true" version="2" changeset="54411970" timestamp="2017-12-06T19:45:46Z">
       <nd ref="5268581886" />
       <nd ref="5268581887" />
       <nd ref="5268581888" />
@@ -49133,7 +49868,7 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
     </way>
-    <way id="545087123" user="Poqwizredux" uid="7159452" visible="true" version="1" changeset="54411970" timestamp="2017-12-06T19:45:46Z">
+    <way id="545087123" user="Poqwizredux" uid="7159452" visible="true" version="2" changeset="54411970" timestamp="2017-12-06T19:45:46Z">
       <nd ref="5268581894" />
       <nd ref="5268581895" />
       <nd ref="5268581896" />
@@ -49148,7 +49883,7 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
     </way>
-    <way id="545087124" user="Poqwizredux" uid="7159452" visible="true" version="1" changeset="54411970" timestamp="2017-12-06T19:45:46Z">
+    <way id="545087124" user="Poqwizredux" uid="7159452" visible="true" version="2" changeset="54411970" timestamp="2017-12-06T19:45:46Z">
       <nd ref="5268581900" />
       <nd ref="5268581901" />
       <nd ref="5268581902" />
@@ -49161,7 +49896,7 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
     </way>
-    <way id="545087125" user="Poqwizredux" uid="7159452" visible="true" version="1" changeset="54411970" timestamp="2017-12-06T19:45:46Z">
+    <way id="545087125" user="Poqwizredux" uid="7159452" visible="true" version="2" changeset="54411970" timestamp="2017-12-06T19:45:46Z">
       <nd ref="5268581904" />
       <nd ref="5268581905" />
       <nd ref="5268581906" />
@@ -49174,7 +49909,7 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
     </way>
-    <way id="545087126" user="Poqwizredux" uid="7159452" visible="true" version="1" changeset="54411970" timestamp="2017-12-06T19:45:47Z">
+    <way id="545087126" user="Poqwizredux" uid="7159452" visible="true" version="2" changeset="54411970" timestamp="2017-12-06T19:45:47Z">
       <nd ref="5268581908" />
       <nd ref="5268581909" />
       <nd ref="5268581910" />
@@ -49187,20 +49922,7 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
     </way>
-    <way id="545089380" user="Poqwizredux" uid="7159452" visible="true" version="1" changeset="54412371" timestamp="2017-12-06T19:57:14Z">
-      <nd ref="5268577069" />
-      <nd ref="5268577070" />
-      <nd ref="5268577071" />
-      <nd ref="5268577072" />
-      <nd ref="5268577069" />
-      <tag k="building" v="commercial" />
-      <tag k="addr:housenumber" v="4" />
-      <tag k="addr:street" v="Thomas Drive" />
-      <tag k="addr:city" v="Westbrook" />
-      <tag k="addr:state" v="ME" />
-      <tag k="addr:postcode" v="04092" />
-    </way>
-    <way id="545089382" user="Poqwizredux" uid="7159452" visible="true" version="1" changeset="54412371" timestamp="2017-12-06T19:57:15Z">
+    <way id="545089382" user="Poqwizredux" uid="7159452" visible="true" version="2" changeset="54412371" timestamp="2017-12-06T19:57:15Z">
       <nd ref="5268577077" />
       <nd ref="5268577078" />
       <nd ref="5268577079" />
@@ -49213,7 +49935,7 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
     </way>
-    <way id="545089383" user="Poqwizredux" uid="7159452" visible="true" version="1" changeset="54412371" timestamp="2017-12-06T19:57:15Z">
+    <way id="545089383" user="Poqwizredux" uid="7159452" visible="true" version="2" changeset="54412371" timestamp="2017-12-06T19:57:15Z">
       <nd ref="5268577081" />
       <nd ref="5268577082" />
       <nd ref="5268577083" />
@@ -49230,7 +49952,7 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
     </way>
-    <way id="545089384" user="Poqwizredux" uid="7159452" visible="true" version="1" changeset="54412371" timestamp="2017-12-06T19:57:15Z">
+    <way id="545089384" user="Poqwizredux" uid="7159452" visible="true" version="2" changeset="54412371" timestamp="2017-12-06T19:57:15Z">
       <nd ref="5268577089" />
       <nd ref="5268577090" />
       <nd ref="5268577091" />
@@ -49245,7 +49967,7 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
     </way>
-    <way id="545089385" user="Poqwizredux" uid="7159452" visible="true" version="1" changeset="54412371" timestamp="2017-12-06T19:57:15Z">
+    <way id="545089385" user="Poqwizredux" uid="7159452" visible="true" version="2" changeset="54412371" timestamp="2017-12-06T19:57:15Z">
       <nd ref="5268577095" />
       <nd ref="5268577096" />
       <nd ref="5268577097" />
@@ -49258,7 +49980,7 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
     </way>
-    <way id="545089386" user="Poqwizredux" uid="7159452" visible="true" version="1" changeset="54412371" timestamp="2017-12-06T19:57:15Z">
+    <way id="545089386" user="Poqwizredux" uid="7159452" visible="true" version="2" changeset="54412371" timestamp="2017-12-06T19:57:15Z">
       <nd ref="5268577099" />
       <nd ref="5268577100" />
       <nd ref="5268577101" />
@@ -49275,7 +49997,7 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
     </way>
-    <way id="545089387" user="Poqwizredux" uid="7159452" visible="true" version="1" changeset="54412371" timestamp="2017-12-06T19:57:15Z">
+    <way id="545089387" user="Poqwizredux" uid="7159452" visible="true" version="2" changeset="54412371" timestamp="2017-12-06T19:57:15Z">
       <nd ref="5268577107" />
       <nd ref="5268577108" />
       <nd ref="5268577109" />
@@ -49296,7 +50018,7 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
     </way>
-    <way id="559244992" user="VetTrnrDraco" uid="7148252" visible="true" version="1" changeset="56130484" timestamp="2018-02-06T21:22:09Z">
+    <way id="559244992" user="VetTrnrDraco" uid="7148252" visible="true" version="2" changeset="56130484" timestamp="2018-02-06T21:22:09Z">
       <nd ref="5394317090" />
       <nd ref="5394317091" />
       <nd ref="5394317092" />
@@ -49310,7 +50032,7 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
     </way>
-    <way id="572205569" user="dankpoet" uid="4175482" visible="true" version="1" changeset="57439906" timestamp="2018-03-22T22:36:03Z">
+    <way id="572205569" user="dankpoet" uid="4175482" visible="true" version="2" changeset="57439906" timestamp="2018-03-22T22:36:03Z">
       <nd ref="5497704554" />
       <nd ref="5497704555" />
       <nd ref="5497704556" />
@@ -49323,7 +50045,7 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
     </way>
-    <way id="572205572" user="dankpoet" uid="4175482" visible="true" version="1" changeset="57439906" timestamp="2018-03-22T22:36:03Z">
+    <way id="572205572" user="dankpoet" uid="4175482" visible="true" version="2" changeset="57439906" timestamp="2018-03-22T22:36:03Z">
       <nd ref="5497704566" />
       <nd ref="5497704567" />
       <nd ref="5497704568" />
@@ -49336,33 +50058,33 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
     </way>
-    <way id="572205590" user="dankpoet" uid="4175482" visible="true" version="1" changeset="57439920" timestamp="2018-03-22T22:36:40Z">
+    <way id="572205590" user="dankpoet" uid="4175482" visible="true" version="2" changeset="57439920" timestamp="2018-03-22T22:36:40Z">
       <nd ref="5497705306" />
       <nd ref="5497705307" />
       <nd ref="5497705308" />
       <nd ref="5497705309" />
       <nd ref="5497705306" />
-      <tag k="building" v="apartments" />
+      <tag k="building" v="yes" />
       <tag k="addr:housenumber" v="22" />
       <tag k="addr:street" v="Seavey Street" />
       <tag k="addr:city" v="Westbrook" />
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
     </way>
-    <way id="572205591" user="dankpoet" uid="4175482" visible="true" version="1" changeset="57439920" timestamp="2018-03-22T22:36:40Z">
+    <way id="572205591" user="dankpoet" uid="4175482" visible="true" version="2" changeset="57439920" timestamp="2018-03-22T22:36:40Z">
       <nd ref="5497705310" />
       <nd ref="5497705311" />
       <nd ref="5497705312" />
       <nd ref="5497705313" />
       <nd ref="5497705310" />
-      <tag k="building" v="residential" />
+      <tag k="building" v="yes" />
       <tag k="addr:housenumber" v="91" />
       <tag k="addr:street" v="Oak Street" />
       <tag k="addr:city" v="Westbrook" />
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
     </way>
-    <way id="572208926" user="dankpoet" uid="4175482" visible="true" version="1" changeset="57440576" timestamp="2018-03-22T23:09:05Z">
+    <way id="572208926" user="dankpoet" uid="4175482" visible="true" version="2" changeset="57440576" timestamp="2018-03-22T23:09:05Z">
       <nd ref="5497734998" />
       <nd ref="5497734999" />
       <nd ref="5497735000" />
@@ -49375,7 +50097,7 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
     </way>
-    <way id="572208927" user="dankpoet" uid="4175482" visible="true" version="1" changeset="57440576" timestamp="2018-03-22T23:09:05Z">
+    <way id="572208927" user="dankpoet" uid="4175482" visible="true" version="2" changeset="57440576" timestamp="2018-03-22T23:09:05Z">
       <nd ref="5497735002" />
       <nd ref="5497735003" />
       <nd ref="5497735004" />
@@ -49388,7 +50110,7 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
     </way>
-    <way id="572211262" user="dankpoet" uid="4175482" visible="true" version="1" changeset="57440943" timestamp="2018-03-22T23:40:34Z">
+    <way id="572211262" user="dankpoet" uid="4175482" visible="true" version="2" changeset="57440943" timestamp="2018-03-22T23:40:34Z">
       <nd ref="5497758980" />
       <nd ref="5497758981" />
       <nd ref="5497758982" />
@@ -49401,7 +50123,7 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
     </way>
-    <way id="572211888" user="dankpoet" uid="4175482" visible="true" version="1" changeset="57441013" timestamp="2018-03-22T23:47:12Z">
+    <way id="572211888" user="dankpoet" uid="4175482" visible="true" version="2" changeset="57441013" timestamp="2018-03-22T23:47:12Z">
       <nd ref="5497765057" />
       <nd ref="5497765058" />
       <nd ref="5497765059" />
@@ -49414,7 +50136,7 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
     </way>
-    <way id="572211889" user="dankpoet" uid="4175482" visible="true" version="1" changeset="57441013" timestamp="2018-03-22T23:47:12Z">
+    <way id="572211889" user="dankpoet" uid="4175482" visible="true" version="2" changeset="57441013" timestamp="2018-03-22T23:47:12Z">
       <nd ref="5497765061" />
       <nd ref="5497765062" />
       <nd ref="5497765063" />
@@ -49427,7 +50149,7 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
     </way>
-    <way id="572211890" user="dankpoet" uid="4175482" visible="true" version="1" changeset="57441013" timestamp="2018-03-22T23:47:12Z">
+    <way id="572211890" user="dankpoet" uid="4175482" visible="true" version="2" changeset="57441013" timestamp="2018-03-22T23:47:12Z">
       <nd ref="5497765065" />
       <nd ref="5497765066" />
       <nd ref="5497765067" />
@@ -49440,7 +50162,7 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
     </way>
-    <way id="650241165" user="Bkissin" uid="506275" visible="true" version="1" changeset="64980574" timestamp="2018-11-28T17:37:13Z">
+    <way id="650241165" user="Bkissin" uid="506275" visible="true" version="2" changeset="64980574" timestamp="2018-11-28T17:37:13Z">
       <nd ref="6100554006" />
       <nd ref="6100554007" />
       <nd ref="6100554008" />
@@ -49468,7 +50190,7 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
     </way>
-    <way id="650241167" user="Bkissin" uid="506275" visible="true" version="1" changeset="64980574" timestamp="2018-11-28T17:37:13Z">
+    <way id="650241167" user="Bkissin" uid="506275" visible="true" version="2" changeset="64980574" timestamp="2018-11-28T17:37:13Z">
       <nd ref="6100554024" />
       <nd ref="6100554025" />
       <nd ref="6100554026" />
@@ -49491,7 +50213,7 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
     </way>
-    <way id="694275709" user="vorpalblade" uid="2078753" visible="true" version="2" changeset="76550010" timestamp="2019-11-03T12:33:03Z">
+    <way id="694275709" user="vorpalblade" uid="2078753" visible="true" version="3" changeset="76550010" timestamp="2019-11-03T12:33:03Z">
       <nd ref="6518229384" />
       <nd ref="6518289885" />
       <nd ref="6518289886" />
@@ -49506,7 +50228,7 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
     </way>
-    <way id="694275710" user="swimdb" uid="231017" visible="true" version="1" changeset="70886279" timestamp="2019-06-03T13:25:35Z">
+    <way id="694275710" user="swimdb" uid="231017" visible="true" version="2" changeset="70886279" timestamp="2019-06-03T13:25:35Z">
       <nd ref="6518289888" />
       <nd ref="6518289889" />
       <nd ref="6518289890" />
@@ -49519,7 +50241,7 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
     </way>
-    <way id="698052688" user="blackboxlogic" uid="9109301" visible="true" version="1" changeset="71371199" timestamp="2019-06-18T15:45:22Z">
+    <way id="698052688" user="blackboxlogic" uid="9109301" visible="true" version="2" changeset="71371199" timestamp="2019-06-18T15:45:22Z">
       <nd ref="6555754667" />
       <nd ref="6555754668" />
       <nd ref="6555754669" />
@@ -49534,7 +50256,7 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
     </way>
-    <way id="698380876" user="Ladung" uid="9812768" visible="true" version="5" changeset="72368409" timestamp="2019-07-18T00:48:18Z">
+    <way id="698380876" user="Ladung" uid="9812768" visible="true" version="6" changeset="72368409" timestamp="2019-07-18T00:48:18Z">
       <nd ref="6558754721" />
       <nd ref="6558754736" />
       <nd ref="6558754704" />
@@ -49556,7 +50278,7 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
     </way>
-    <way id="698380882" user="Ladung" uid="9812768" visible="true" version="3" changeset="72368409" timestamp="2019-07-18T00:48:18Z">
+    <way id="698380882" user="Ladung" uid="9812768" visible="true" version="4" changeset="72368409" timestamp="2019-07-18T00:48:18Z">
       <nd ref="6558754775" />
       <nd ref="6558754765" />
       <nd ref="6558754767" />
@@ -49575,7 +50297,7 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
     </way>
-    <way id="698380883" user="blackboxlogic" uid="9109301" visible="true" version="1" changeset="71420192" timestamp="2019-06-20T00:55:46Z">
+    <way id="698380883" user="blackboxlogic" uid="9109301" visible="true" version="2" changeset="71420192" timestamp="2019-06-20T00:55:46Z">
       <nd ref="6558743866" />
       <nd ref="6558743873" />
       <nd ref="6558754742" />
@@ -49590,7 +50312,7 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
     </way>
-    <way id="698380888" user="Ladung" uid="9812768" visible="true" version="3" changeset="72368409" timestamp="2019-07-18T00:48:18Z">
+    <way id="698380888" user="Ladung" uid="9812768" visible="true" version="4" changeset="72368409" timestamp="2019-07-18T00:48:18Z">
       <nd ref="6558754759" />
       <nd ref="6558754746" />
       <nd ref="6558754715" />
@@ -49609,7 +50331,7 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
     </way>
-    <way id="698423339" user="blackboxlogic" uid="9109301" visible="true" version="2" changeset="71451123" timestamp="2019-06-20T16:09:23Z">
+    <way id="698423339" user="blackboxlogic" uid="9109301" visible="true" version="3" changeset="71451123" timestamp="2019-06-20T16:09:23Z">
       <nd ref="6559098196" />
       <nd ref="6558754713" />
       <nd ref="6559098213" />
@@ -49625,7 +50347,7 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
     </way>
-    <way id="698719325" user="blackboxlogic" uid="9109301" visible="true" version="1" changeset="71451123" timestamp="2019-06-20T16:09:23Z">
+    <way id="698719325" user="blackboxlogic" uid="9109301" visible="true" version="2" changeset="71451123" timestamp="2019-06-20T16:09:23Z">
       <nd ref="6561259126" />
       <nd ref="6561259127" />
       <nd ref="6561259128" />
@@ -49638,7 +50360,7 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
     </way>
-    <way id="698719326" user="blackboxlogic" uid="9109301" visible="true" version="1" changeset="71451123" timestamp="2019-06-20T16:09:23Z">
+    <way id="698719326" user="blackboxlogic" uid="9109301" visible="true" version="2" changeset="71451123" timestamp="2019-06-20T16:09:23Z">
       <nd ref="6559098196" />
       <nd ref="6561259130" />
       <nd ref="6561259131" />
@@ -49655,7 +50377,7 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
     </way>
-    <way id="698719328" user="blackboxlogic" uid="9109301" visible="true" version="1" changeset="71451123" timestamp="2019-06-20T16:09:23Z">
+    <way id="698719328" user="blackboxlogic" uid="9109301" visible="true" version="2" changeset="71451123" timestamp="2019-06-20T16:09:23Z">
       <nd ref="6561259138" />
       <nd ref="6561259139" />
       <nd ref="6561259140" />
@@ -49668,7 +50390,7 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
     </way>
-    <way id="698719329" user="blackboxlogic" uid="9109301" visible="true" version="1" changeset="71451123" timestamp="2019-06-20T16:09:23Z">
+    <way id="698719329" user="blackboxlogic" uid="9109301" visible="true" version="2" changeset="71451123" timestamp="2019-06-20T16:09:23Z">
       <nd ref="6561259140" />
       <nd ref="6561259142" />
       <nd ref="6561259143" />
@@ -49682,7 +50404,7 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
     </way>
-    <way id="698740693" user="blackboxlogic" uid="9109301" visible="true" version="1" changeset="71454709" timestamp="2019-06-20T17:38:37Z">
+    <way id="698740693" user="blackboxlogic" uid="9109301" visible="true" version="2" changeset="71454709" timestamp="2019-06-20T17:38:37Z">
       <nd ref="6561404925" />
       <nd ref="6561404936" />
       <nd ref="6561404933" />
@@ -49695,7 +50417,7 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
     </way>
-    <way id="698740694" user="blackboxlogic" uid="9109301" visible="true" version="1" changeset="71454709" timestamp="2019-06-20T17:38:37Z">
+    <way id="698740694" user="blackboxlogic" uid="9109301" visible="true" version="2" changeset="71454709" timestamp="2019-06-20T17:38:37Z">
       <nd ref="6561404929" />
       <nd ref="6561404928" />
       <nd ref="6561404934" />
@@ -49708,7 +50430,7 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
     </way>
-    <way id="698740695" user="blackboxlogic" uid="9109301" visible="true" version="1" changeset="71454709" timestamp="2019-06-20T17:38:37Z">
+    <way id="698740695" user="blackboxlogic" uid="9109301" visible="true" version="2" changeset="71454709" timestamp="2019-06-20T17:38:37Z">
       <nd ref="6561404931" />
       <nd ref="6561404927" />
       <nd ref="6561404935" />
@@ -49716,14 +50438,14 @@
       <nd ref="6561404938" />
       <nd ref="6561404932" />
       <nd ref="6561404931" />
-      <tag k="building" v="apartments" />
+      <tag k="building" v="yes" />
       <tag k="addr:housenumber" v="19" />
       <tag k="addr:street" v="Ash Street" />
       <tag k="addr:city" v="Westbrook" />
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
     </way>
-    <way id="704914374" user="Ladung" uid="9812768" visible="true" version="2" changeset="72368409" timestamp="2019-07-18T00:48:18Z">
+    <way id="704914374" user="Ladung" uid="9812768" visible="true" version="3" changeset="72368409" timestamp="2019-07-18T00:48:18Z">
       <nd ref="6620668251" />
       <nd ref="6620668252" />
       <nd ref="6620668253" />
@@ -49771,7 +50493,7 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
     </way>
-    <way id="741636915" user="vorpalblade" uid="2078753" visible="true" version="1" changeset="76550284" timestamp="2019-11-03T12:44:21Z">
+    <way id="741636915" user="vorpalblade" uid="2078753" visible="true" version="2" changeset="76550284" timestamp="2019-11-03T12:44:21Z">
       <nd ref="6942810084" />
       <nd ref="6942810081" />
       <nd ref="6942810079" />
@@ -49789,7 +50511,7 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
     </way>
-    <way id="744796659" user="vorpalblade" uid="2078753" visible="true" version="1" changeset="76988804" timestamp="2019-11-13T02:49:23Z">
+    <way id="744796659" user="vorpalblade" uid="2078753" visible="true" version="2" changeset="76988804" timestamp="2019-11-13T02:49:23Z">
       <nd ref="6970461965" />
       <nd ref="6970461962" />
       <nd ref="6970461960" />
@@ -49814,6 +50536,18 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
     </way>
+    <relation id="6868977" user="Юкатан" uid="3885962" visible="true" version="2" changeset="45073609" timestamp="2017-01-11T11:00:44Z">
+      <member type="way" ref="465144489" role="outer" />
+      <member type="way" ref="465144493" role="inner" />
+      <tag k="building" v="yes" />
+      <tag k="type" v="multipolygon" />
+      <tag k="addr:housenumber" v="30" />
+      <tag k="addr:unit" v="Office 500" />
+      <tag k="addr:street" v="Liza Harmon Drive" />
+      <tag k="addr:city" v="Westbrook" />
+      <tag k="addr:state" v="ME" />
+      <tag k="addr:postcode" v="04092" />
+    </relation>
   </modify>
   <delete />
 </osmChange>

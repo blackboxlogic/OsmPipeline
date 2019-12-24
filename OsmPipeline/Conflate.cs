@@ -18,8 +18,10 @@ namespace OsmPipeline
 		public static OsmChange Merge(Osm reference, Osm subject, string scopeName)
 		{
 			Log = Log ?? Static.LogFactory.CreateLogger(typeof(Conflate));
+			Log.LogInformation("Starting conflation, matching by address tags");
 			Merge(reference, subject, out List<OsmGeo> create, out List<OsmGeo> modify,
 				out List<OsmGeo> delete, out List<OsmGeo> exceptions);
+			Log.LogInformation("Starting conflation, matching by address IN a building");
 			ApplyNodesToBuildings(subject, create, modify, exceptions);
 			FileSerializer.WriteXml(scopeName + "/Conflated.Exceptions.osm", exceptions.AsOsm());
 			FileSerializer.WriteXml(scopeName + "/Conflated.Create.osm", create.AsOsm());
@@ -28,7 +30,7 @@ namespace OsmPipeline
 
 			foreach (var element in create.Concat(modify))
 			{
-				element.Tags.RemoveKey("maineE911id");
+				element.Tags.RemoveKey(Static.maineE911id);
 			}
 
 			var changes = create.Count + modify.Count + delete.Count;
@@ -196,11 +198,12 @@ namespace OsmPipeline
 				}
 			}
 
-			foreach (var refTag in reference.Tags.Where(t => t.Key != "maineE911id"))
+			foreach (var refTag in reference.Tags)
 			{
 				if (subject.Tags.TryGetValue(refTag.Key, out string subValue))
 				{
 					if (subValue != refTag.Value &&
+						refTag.Key != Static.maineE911id &&
 						TagTree.Keys.ContainsKey(refTag.Key) &&
 						!TagTree.Keys[refTag.Key].IsDecendantOf(refTag.Value, subValue))
 					{

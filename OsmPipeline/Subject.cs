@@ -13,6 +13,13 @@ namespace OsmPipeline
 {
 	public static class Subject
 	{
+		private static ILogger Log;
+
+		static Subject()
+		{
+			Log = Static.LogFactory.CreateLogger("Subject");
+		}
+
 		public static async Task<Bounds> GetBoundingBox(OsmGeo scope, IConfigurationRoot config)
 		{
 			var nominatim = new OsmNominatimClient(config["CreatedBy"], config["NominatimUrl"], config["Email"]);
@@ -28,6 +35,7 @@ namespace OsmPipeline
 
 		public static async Task<Osm> GetElementsInBoundingBox(Bounds bounds)
 		{
+			Log.LogInformation("Fetching Subject material from OSM");
 			var osmApiClient = new NonAuthClient("https://www.openstreetmap.org/api/", new HttpClient(), null);
 			var map = await osmApiClient.GetMap(bounds);
 			return map;
@@ -36,6 +44,7 @@ namespace OsmPipeline
 		public static async Task<DiffResult> UploadChange(OsmChange change,
 			string comment, string source, string scope, bool review_requested)
 		{
+			Log.LogInformation("Uploading change to OSM");
 			var osmApiClient = new BasicAuthClient(new HttpClient(),
 				Static.LogFactory.CreateLogger<BasicAuthClient>(), Static.Config["OsmApiUrl"],
 				Static.Config["OsmUsername"], Static.Config["OsmPassword"]);
