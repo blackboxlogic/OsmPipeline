@@ -48,7 +48,7 @@ namespace OsmPipeline
 
 			// This is commented out so I don't accidentally commit changes to OSM.
 			//var results = await Subject.UploadChange(conflated,
-			//	"Importing addresses in " + scopeName, Static.Config["DataSourceName"]);
+			//	"Importing addresses in " + scopeName ". see https://wiki.openstreetmap.org/wiki/Import/Maine_E911_Addresses", Static.Config["DataSourceName"]);
 		}
 
 		static string UserChooseOption(IEnumerable<string> options, string optionName = "option")

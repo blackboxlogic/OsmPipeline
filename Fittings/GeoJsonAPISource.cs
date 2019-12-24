@@ -31,6 +31,7 @@ namespace OsmPipeline.Fittings
 			public long AddressCount;
 			public DateTime? ImportDate;
 			public string Notes;
+			public long[] ChangeSetIds;
 		}
 
 		public static async Task<FeatureCollection> FetchMunicipality(string municipality, int? limit = null)
