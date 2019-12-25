@@ -34,7 +34,7 @@ namespace OsmPipeline
 			var rejectLogger = loggerFactory.CreateLogger("Unfixable");
 			Action<OsmGeo> rejector = a => rejectLogger.LogWarning($"Rejected {a.Type}:{a.Id} {a.Tags[Tag]}");
 			var osmApi = new OsmApiEnder(loggerFactory.CreateLogger(typeof(OsmApiEnder)),
-				config["osmApiUrl"], config["basicAuth:User"], config["basicAuth:Password"], ChangeTags);
+				config["OsmApiUrl"], config["OsmUsername"], config["OsmPassword"], ChangeTags);
 
 			var badPhones = OverpassApi.Get(BadPhoneQuery(scope, Tag)).OsmToGeos();
 			var betterPhones = FixPhones(badPhones, Tag, rejector).ToArray();

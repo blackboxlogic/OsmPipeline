@@ -36,28 +36,34 @@ namespace OsmPipeline
 		public static async Task<Osm> GetElementsInBoundingBox(Bounds bounds)
 		{
 			Log.LogInformation("Fetching Subject material from OSM");
-			var osmApiClient = new NonAuthClient("https://www.openstreetmap.org/api/", new HttpClient(), null);
+			var osmApiClient = new NonAuthClient(Static.Config["OsmApiUrl"], new HttpClient(),
+				Static.LogFactory.CreateLogger<NonAuthClient>());
 			var map = await osmApiClient.GetMap(bounds);
 			return map;
 		}
 
-		public static async Task<DiffResult> UploadChange(OsmChange change,
-			string comment, string source, string scope, bool review_requested)
+		public static TagsCollection GetCommitTags(string municipality)
+		{
+			return new TagsCollection()
+			{
+				new Tag("comment", Static.Config["CommitComment"]),
+				new Tag("created_by", "OsmPipeline"),
+				new Tag("created_by_library", Static.Config["created_by_library"]),
+				new Tag("municipality", municipality),
+				new Tag("osm_wiki_documentation_page", Static.Config["osm_wiki_documentation_page"]),
+				new Tag("bot", "yes"),
+				new Tag("source", Static.Config["DataSourceName"])
+			};
+		}
+
+		public static async Task<DiffResult> UploadChange(OsmChange change, string municipality)
 		{
 			Log.LogInformation("Uploading change to OSM");
+			var changeTags = GetCommitTags(municipality);
 			var osmApiClient = new BasicAuthClient(new HttpClient(),
 				Static.LogFactory.CreateLogger<BasicAuthClient>(), Static.Config["OsmApiUrl"],
 				Static.Config["OsmUsername"], Static.Config["OsmPassword"]);
-			var changeSetTags = new TagsCollection()
-			{
-				new Tag("comment", comment),
-				new Tag("created_by", Static.Config["CreatedBy"]),
-				new Tag("bot", "yes"),
-				new Tag("source", source),
-				new Tag("review_requested", review_requested ? "yes" : "no"),
-				new Tag("scope", scope)
-			};
-			var changeSetId = await osmApiClient.CreateChangeset(changeSetTags);
+			var changeSetId = await osmApiClient.CreateChangeset(changeTags);
 			var diffResult = await osmApiClient.UploadChangeset(changeSetId, change);
 			await osmApiClient.CloseChangeset(changeSetId);
 			return diffResult;

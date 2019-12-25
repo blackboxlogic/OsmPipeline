@@ -47,8 +47,7 @@ namespace OsmPipeline
 				() => Conflate.Merge(reference, subject, municipality));
 
 			// This is commented out so I don't accidentally commit changes to OSM.
-			//var results = await Subject.UploadChange(conflated,
-			//	"Importing addresses in " + scopeName ". see https://wiki.openstreetmap.org/wiki/Import/Maine_E911_Addresses", Static.Config["DataSourceName"]);
+			//var results = await Subject.UploadChange(conflated, municipality);
 		}
 
 		static string UserChooseOption(IEnumerable<string> options, string optionName = "option")
