@@ -327,6 +327,7 @@ namespace OsmPipeline
 				var goodFloor = ((string)f.Properties["FLOOR"]).Split().All(part =>
 					part.Equals("floor", StringComparison.OrdinalIgnoreCase)
 					|| part.Equals("flr", StringComparison.OrdinalIgnoreCase)
+					|| part.Equals("ll", StringComparison.OrdinalIgnoreCase)
 					|| part.All(char.IsNumber));
 				if (!goodFloor)
 				{
@@ -396,13 +397,14 @@ namespace OsmPipeline
 			return landmark;
 		}
 
-		// "FLR 1", "Floor 1", "1"
+		// "FLR 1", "Floor 1", "1", "bsmt", "second", "flr 1 & 2"
 		// Sometimes the floor contains what should be in UNIT
 		private static string Level(string floor, out bool useFloorAsUnit)
 		{
 			useFloorAsUnit = false;
 			if (floor == "") return "";
-			if (floor.Contains("BSMT", StringComparison.OrdinalIgnoreCase)) return "-1";
+			if (floor.Contains("BSMT", StringComparison.OrdinalIgnoreCase) ||
+				floor.EndsWith(" LL", StringComparison.OrdinalIgnoreCase)) return "-1";
 			else if (floor.Equals("FIRST", StringComparison.OrdinalIgnoreCase)) return "1";
 			else if (floor.Equals("SECOND", StringComparison.OrdinalIgnoreCase)) return "2";
 			else if (floor.Equals("THIRD", StringComparison.OrdinalIgnoreCase)) return "3";
@@ -416,7 +418,7 @@ namespace OsmPipeline
 			}
 
 			return new string(floor
-				.Replace('&', ';')
+				.Replace('&', ';') // for ranges of floors
 				.Replace(',', ';')
 				.Where(c => char.IsNumber(c) || c == ';' || c =='.')
 				.ToArray());
