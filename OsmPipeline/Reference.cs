@@ -336,15 +336,15 @@ namespace OsmPipeline
 				if (!((string)f.Properties["BUILDING"]).All(char.IsNumber)
 					&& !((string)f.Properties["BUILDING"]).StartsWith("Bldg", StringComparison.OrdinalIgnoreCase))
 				{
-					Log.LogError("Bad bulding: " + (string)f.Properties["BUILDING"]);
+					Log.LogWarning("Bad bulding: " + (string)f.Properties["BUILDING"]);
 				}
 				if (f.Properties["ROOM"] != "")
 				{
-					Log.LogError("Ignoring Room: " + (string)f.Properties["ROOM"]);
+					Log.LogWarning("Ignoring Room: " + (string)f.Properties["ROOM"]);
 				}
 				if (f.Properties["SEAT"] != "")
 				{
-					Log.LogError("Ognoring Seat: " + (string)f.Properties["SEAT"]);
+					Log.LogWarning("Ognoring Seat: " + (string)f.Properties["SEAT"]);
 				}
 				if (((string)f.Properties["ZIPCODE"]).Count(char.IsNumber) != 5
 					|| ((string)f.Properties["ZIPCODE"]).Length != 5)

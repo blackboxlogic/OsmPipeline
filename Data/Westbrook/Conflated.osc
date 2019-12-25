@@ -43672,6 +43672,7 @@
       <tag k="addr:city" v="Westbrook" />
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
+      <tag k="level" v="-1" />
       <tag k="building" v="apartments" />
     </node>
     <node id="-2556739" lat="43.6826624790395" lon="-70.3367529776508" version="1">
@@ -43682,6 +43683,7 @@
       <tag k="addr:city" v="Westbrook" />
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
+      <tag k="level" v="-1" />
       <tag k="building" v="residential" />
     </node>
     <node id="-2556957" lat="43.6828296564382" lon="-70.3363162491181" version="1">
@@ -43692,6 +43694,7 @@
       <tag k="addr:city" v="Westbrook" />
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
+      <tag k="level" v="-1" />
       <tag k="building" v="residential" />
     </node>
     <node id="-2557143" lat="43.682796845672" lon="-70.336427181783" version="1">
@@ -43702,6 +43705,7 @@
       <tag k="addr:city" v="Westbrook" />
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
+      <tag k="level" v="-1" />
       <tag k="building" v="residential" />
     </node>
     <node id="-2556754" lat="43.6827645424736" lon="-70.3364947018668" version="1">
@@ -43712,6 +43716,7 @@
       <tag k="addr:city" v="Westbrook" />
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
+      <tag k="level" v="-1" />
       <tag k="building" v="residential" />
     </node>
     <node id="-2556851" lat="43.6827990981675" lon="-70.336619536996" version="1">
@@ -43733,6 +43738,7 @@
       <tag k="addr:city" v="Westbrook" />
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
+      <tag k="level" v="-1" />
       <tag k="building" v="apartments" />
     </node>
     <node id="-2556652" lat="43.6827294829551" lon="-70.3367978893597" version="1">
@@ -43777,6 +43783,7 @@
       <tag k="addr:city" v="Westbrook" />
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
+      <tag k="level" v="-1" />
       <tag k="building" v="residential" />
     </node>
     <node id="-2557172" lat="43.6826995007676" lon="-70.3366669524516" version="1">
