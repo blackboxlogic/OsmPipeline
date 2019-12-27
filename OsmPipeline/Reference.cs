@@ -189,7 +189,7 @@ namespace OsmPipeline
 				Fittings.Geometry.Nudge(stack, 0, .00001);
 			}
 
-			Log.LogInformation($"{nodes.Length - results.Count} nodes have been removed from {nodes.Length} (de-duped or combined)");
+			Log.LogInformation($"{results.Count} addresses remain from {nodes.Length} (de-duped or combined)");
 
 			return results.ToArray();
 		}

@@ -26,29 +26,33 @@ namespace OsmPipeline
 				out List<OsmGeo> delete, out List<OsmGeo> exceptions);
 			Log.LogInformation("Starting conflation, matching by address IN a building");
 			ApplyNodesToBuildings(subjectElementsIndexed, create, modify, exceptions);
-			if (exceptions.Any()) FileSerializer.WriteXml(scopeName + "/Conflated.Exceptions.osm", exceptions.AsOsm());
-			if (create.Any()) FileSerializer.WriteXml(scopeName + "/Conflated.Create.osm", create.AsOsm());
-			if (delete.Any())
-				FileSerializer.WriteXml(scopeName + "/Conflated.Delete.osm",
-					delete.WithChildren(subjectElementsIndexed).AsOsm());
-			if (modify.Any())
-				FileSerializer.WriteXml(scopeName + "/Conflated.Modify.osm",
-					modify.WithChildren(subjectElementsIndexed).AsOsm());
+
+			WriteToFileWithChildrenIfAny(scopeName + "/Conflated.Exceptions.osm", exceptions, subjectElementsIndexed);
+			WriteToFileWithChildrenIfAny(scopeName + "/Conflated.Create.osm", create, subjectElementsIndexed);
+			WriteToFileWithChildrenIfAny(scopeName + "/Conflated.Delete.osm", delete, subjectElementsIndexed);
+			WriteToFileWithChildrenIfAny(scopeName + "/Conflated.Modify.osm", modify, subjectElementsIndexed);
 
 			foreach (var element in create.Concat(modify))
 			{
 				element.Tags.RemoveKey(Static.maineE911id);
 			}
 
-			var changes = create.Count + modify.Count + delete.Count;
-			if (changes > 10_000) // OSM API change set size limit.
+			var change = Fittings.Translate.GeosToChange(create, modify, delete, "OsmPipeline");
+			var changeCount = change.Create.Length + change.Modify.Length + change.Delete.Length;
+			if (changeCount >= 10_000) // OSM API change set size limit.
 			{
-				throw new Exception($"ChangeSet size ({changes}) is bigger than API's 10,000 limit");
+				Log.LogError($"ChangeSet size ({changeCount}) is bigger than API's 10,000 limit.");
 			}
 
-			var change = Fittings.Translate.GeosToChange(create, modify, delete, "OsmPipeline");
-
 			return change;
+		}
+
+		private static void WriteToFileWithChildrenIfAny(string fileName, IList<OsmGeo> osmGeos,
+			Dictionary<string, OsmGeo> subjectElementsIndexed)
+		{
+			if (osmGeos.Any())
+				FileSerializer.WriteXml(fileName,
+					osmGeos.WithChildren(subjectElementsIndexed).Distinct().AsOsm());
 		}
 
 		private static void Merge(Osm reference, Dictionary<string, OsmGeo> subjectElementsIndexed, out List<OsmGeo> create,
@@ -208,7 +212,7 @@ namespace OsmPipeline
 				}
 				else
 				{
-					changed = true;
+					if(refTag.Key != Static.maineE911id) changed = true;
 					subject.Tags.Add(refTag);
 				}
 			}
