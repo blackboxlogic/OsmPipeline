@@ -33,17 +33,7 @@ namespace OsmPipeline
 			WriteToFileWithChildrenIfAny(scopeName + "/Conflated.Create.osm", create, subjectElementsIndexed);
 			WriteToFileWithChildrenIfAny(scopeName + "/Conflated.Delete.osm", delete, subjectElementsIndexed);
 			WriteToFileWithChildrenIfAny(scopeName + "/Conflated.Modify.osm", modify, subjectElementsIndexed);
-
-			// Remove review tags
-			foreach (var element in create.Concat(modify).Concat(delete))
-			{
-				element.Tags.RemoveKey(Static.maineE911id);
-				element.Tags.RemoveKey(Static.maineE911id + ":moved");
-				foreach (var tag in element.Tags.Where(t => t.Value.StartsWith(Static.maineE911id + ":")).ToArray())
-				{
-					element.Tags.AddOrReplace(tag.Key, tag.Value.Replace(Static.maineE911id + ":", ""));
-				}
-			}
+			RemoveReviewTags(create.Concat(modify));
 
 			var change = Fittings.Translate.GeosToChange(create, modify, delete, "OsmPipeline");
 			var changeCount = change.Create.Length + change.Modify.Length + change.Delete.Length;
@@ -53,6 +43,20 @@ namespace OsmPipeline
 			}
 
 			return change;
+		}
+
+		private static void RemoveReviewTags(IEnumerable<OsmGeo> elements)
+		{
+			// Remove review tags
+			foreach (var element in elements)
+			{
+				element.Tags.RemoveKey(Static.maineE911id);
+				element.Tags.RemoveKey(Static.maineE911id + ":moved");
+				foreach (var tag in element.Tags.Where(t => t.Value.Contains(Static.maineE911id + ":")).ToArray())
+				{
+					element.Tags.AddOrReplace(tag.Key, tag.Value.Split(Static.maineE911id + ":")[1]);
+				}
+			}
 		}
 
 		private static void WriteToFileWithChildrenIfAny(string fileName, IList<OsmGeo> osmGeos,
@@ -113,7 +117,8 @@ namespace OsmPipeline
 						bool tagsChanged;
 						try
 						{
-							tagsChanged = MergeTags(referenceElement, subjectElement, closestMatch.distance);
+							tagsChanged = MergeTags(referenceElement, subjectElement);
+							tagsChanged |= MoveNode(referenceElement, subjectElement, closestMatch.distance);
 						}
 						catch (Exception e)
 						{
@@ -158,7 +163,7 @@ namespace OsmPipeline
 
 				try
 				{
-					MergeTags(node, building, 0);
+					MergeTags(node, building);
 				}
 				catch (Exception e)
 				{
@@ -192,36 +197,52 @@ namespace OsmPipeline
 			return element.Tags?.ContainsKey("building") == true;
 		}
 
-		private static bool MergeTags(OsmGeo reference, OsmGeo subject, double distanceMeters)
+		private static bool MoveNode(OsmGeo reference, OsmGeo subject, double currentDistanceMeters)
+		{
+			if (subject is Node subjectNode
+				&& reference is Node referenceNode
+				&& currentDistanceMeters > int.Parse(Static.Config["MinNodeMoveDistance"]))
+			{
+				subjectNode.Latitude = referenceNode.Latitude;
+				subjectNode.Longitude = referenceNode.Longitude;
+				// Mark it for easier review
+				subject.Tags.AddOrReplace(Static.maineE911id + ":moved", (int)currentDistanceMeters + " meters");
+				return true;
+			}
+
+			return false;
+		}
+
+		private static bool MergeTags(OsmGeo reference, OsmGeo subject)
 		{
 			var changed = false;
-
-			if (subject is Node subjectNode && reference is Node referenceNode)
-			{
-				if (distanceMeters > 1)
-				{
-					subjectNode.Latitude = referenceNode.Latitude;
-					subjectNode.Longitude = referenceNode.Longitude;
-					subject.Tags.AddOrReplace(Static.maineE911id + ":moved", (int)distanceMeters + " meters"); // Mark it for easier review
-					changed = true;
-				}
-			}
 
 			foreach (var refTag in reference.Tags)
 			{
 				if (subject.Tags.TryGetValue(refTag.Key, out string subValue))
 				{
-					if (subValue != refTag.Value &&
-						refTag.Key != Static.maineE911id &&
-						TagTree.Keys.ContainsKey(refTag.Key) &&
-						!TagTree.Keys[refTag.Key].IsDecendantOf(refTag.Value, subValue))
+					if (subValue != refTag.Value)
 					{
-						throw new Exception("A tag conflict!" + Identify(refTag.Key, subject, reference));
+						if (refTag.Key == Static.maineE911id)
+						{
+							subject.Tags.AddOrReplace(refTag.Key, refTag.Value + ";" + subValue);
+						}
+						if (TagTree.Keys.ContainsKey(refTag.Key) &&
+							TagTree.Keys[refTag.Key].IsDecendantOf(refTag.Value, subValue))
+						{
+							// Make building tag MORE specific. Marked for easier review.
+							subject.Tags.AddOrReplace(refTag.Key, subValue + ":" + Static.maineE911id + ":" + refTag.Value);
+							changed = true;
+						}
+						else
+						{
+							throw new Exception("A tag conflict!" + Identify(refTag.Key, subject, reference));
+						}
 					}
 				}
 				else if(refTag.Key == Static.maineE911id)
 				{
-					subject.Tags.AddOrReplace(refTag);
+					subject.Tags.Add(refTag);
 				}
 				else
 				{
