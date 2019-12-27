@@ -19,14 +19,21 @@ namespace OsmPipeline
 		{
 			Log = Log ?? Static.LogFactory.CreateLogger(typeof(Conflate));
 			Log.LogInformation("Starting conflation, matching by address tags");
-			Merge(reference, subject, out List<OsmGeo> create, out List<OsmGeo> modify,
+
+			var subjectElements = new OsmGeo[][] { subject.Nodes, subject.Ways, subject.Relations }.SelectMany(e => e);
+			var subjectElementsIndexed = subjectElements.ToDictionary(n => n.Type.ToString() + n.Id);
+			Merge(reference, subjectElementsIndexed, out List<OsmGeo> create, out List<OsmGeo> modify,
 				out List<OsmGeo> delete, out List<OsmGeo> exceptions);
 			Log.LogInformation("Starting conflation, matching by address IN a building");
-			ApplyNodesToBuildings(subject, create, modify, exceptions);
-			FileSerializer.WriteXml(scopeName + "/Conflated.Exceptions.osm", exceptions.AsOsm());
-			FileSerializer.WriteXml(scopeName + "/Conflated.Create.osm", create.AsOsm());
-			//FileSerializer.WriteXml(scopeName + "/Conflated.Delete.osm", WithNodes(delete, subject.Nodes).AsOsm());
-			FileSerializer.WriteXml(scopeName + "/Conflated.Modify.osm", WithNodes(modify, subject.Nodes).AsOsm());
+			ApplyNodesToBuildings(subjectElementsIndexed, create, modify, exceptions);
+			if (exceptions.Any()) FileSerializer.WriteXml(scopeName + "/Conflated.Exceptions.osm", exceptions.AsOsm());
+			if (create.Any()) FileSerializer.WriteXml(scopeName + "/Conflated.Create.osm", create.AsOsm());
+			if (delete.Any())
+				FileSerializer.WriteXml(scopeName + "/Conflated.Delete.osm",
+					delete.WithChildren(subjectElementsIndexed).AsOsm());
+			if (modify.Any())
+				FileSerializer.WriteXml(scopeName + "/Conflated.Modify.osm",
+					modify.WithChildren(subjectElementsIndexed).AsOsm());
 
 			foreach (var element in create.Concat(modify))
 			{
@@ -44,7 +51,7 @@ namespace OsmPipeline
 			return change;
 		}
 
-		private static void Merge(Osm reference, Osm subject, out List<OsmGeo> create,
+		private static void Merge(Osm reference, Dictionary<string, OsmGeo> subjectElementsIndexed, out List<OsmGeo> create,
 			out List<OsmGeo> modify, out List<OsmGeo> delete, out List<OsmGeo> exceptions)
 		{
 			create = new List<OsmGeo>();
@@ -52,10 +59,7 @@ namespace OsmPipeline
 			delete = new List<OsmGeo>();
 			exceptions = new List<OsmGeo>();
 
-			var subjectElements = new OsmGeo[][] { subject.Nodes, subject.Ways, subject.Relations }.SelectMany(e => e);
-			var subjectElementsIndexed = subjectElements.ToDictionary(n => n.Type.ToString() + n.Id);
-
-			var subjectAddressIndex = subjectElements
+			var subjectAddressIndex = subjectElementsIndexed.Values
 				.GroupBy(e => GetAddrTags(e, false))
 				.Where(g => g.Key.Any())
 				.ToDictionary(g => g.Key, g => g.ToArray());
@@ -122,14 +126,13 @@ namespace OsmPipeline
 			}
 		}
 
-		private static void ApplyNodesToBuildings(Osm subject, List<OsmGeo> create, List<OsmGeo> modify, List<OsmGeo> exceptions)
+		private static void ApplyNodesToBuildings(Dictionary<string, OsmGeo> subjectElementsIndexed,
+			List<OsmGeo> create, List<OsmGeo> modify, List<OsmGeo> exceptions)
 		{
-			var subjectElements = new OsmGeo[][] { subject.Nodes, subject.Ways, subject.Relations }.SelectMany(e => e);
-			var subjectElementsIndexed = subjectElements.ToDictionary(n => n.Type.ToString() + n.Id);
-			var nonAddrCompleteBuildings = subjectElements.Where(w => IsBuilding(w) && !IsAddressy(w))
+			var nonAddrCompleteBuildings = subjectElementsIndexed.Values.Where(w => IsBuilding(w) && !IsAddressy(w))
 				.Select(b => b.AsComplete(subjectElementsIndexed))
 				.ToArray();
-			var addrSubjectNodes = subject.Nodes.Where(n => IsAddressy(n)).ToArray();
+			var addrSubjectNodes = subjectElementsIndexed.Values.OfType<Node>().Where(n => IsAddressy(n)).ToArray();
 			var completeBuildingsWithOldAddrNodes = Geometry.NodesInCompleteElements(nonAddrCompleteBuildings, addrSubjectNodes);
 			nonAddrCompleteBuildings = nonAddrCompleteBuildings.Where(b => !completeBuildingsWithOldAddrNodes.ContainsKey(b)).ToArray();
 			var completeBuildingsWithNewAddrNodes = Geometry.NodesInCompleteElements(nonAddrCompleteBuildings, create.OfType<Node>().ToArray());
@@ -155,13 +158,6 @@ namespace OsmPipeline
 				building.Version++;
 				modify.Add(building);
 			}
-		}
-
-		// Should handle relations too!
-		private static IEnumerable<OsmGeo> WithNodes(List<OsmGeo> source, Node[] nodes)
-		{
-			var wayNodes = new HashSet<long>(source.OfType<Way>().SelectMany(w => w.Nodes));
-			return source.Concat(nodes.Where(n => wayNodes.Contains(n.Id.Value)));
 		}
 
 		private static string Identify(params OsmGeo[] elements)

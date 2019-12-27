@@ -404,7 +404,9 @@ namespace OsmPipeline
 			useFloorAsUnit = false;
 			if (floor == "") return "";
 			if (floor.Contains("BSMT", StringComparison.OrdinalIgnoreCase) ||
+				floor.Contains("Basement", StringComparison.OrdinalIgnoreCase) ||
 				floor.EndsWith(" LL", StringComparison.OrdinalIgnoreCase)) return "-1";
+			else if (floor.Equals("GRD", StringComparison.OrdinalIgnoreCase)) return "0";
 			else if (floor.Equals("FIRST", StringComparison.OrdinalIgnoreCase)) return "1";
 			else if (floor.Equals("SECOND", StringComparison.OrdinalIgnoreCase)) return "2";
 			else if (floor.Equals("THIRD", StringComparison.OrdinalIgnoreCase)) return "3";
@@ -420,6 +422,8 @@ namespace OsmPipeline
 			return new string(floor
 				.Replace('&', ';') // for ranges of floors
 				.Replace(',', ';')
+				.Replace('-', ';')
+				.Replace("and", ";")
 				.Where(c => char.IsNumber(c) || c == ';' || c =='.')
 				.ToArray());
 		}

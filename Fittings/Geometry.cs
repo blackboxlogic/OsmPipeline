@@ -40,6 +40,28 @@ namespace OsmPipeline.Fittings
 			throw new Exception("OsmGeo wasn't a Node, Way or Relation.");
 		}
 
+		public static IEnumerable<OsmGeo> WithChildren(this IEnumerable<OsmGeo> parents, Dictionary<string, OsmGeo> possibleChilden)
+		{
+			return parents.SelectMany(p => p.WithChildren(possibleChilden));
+		}
+
+		public static IEnumerable<OsmGeo> WithChildren(this OsmGeo parent, Dictionary<string, OsmGeo> possibleChilden)
+		{
+			if (parent is Node) return new[] { parent };
+			else if (parent is Way way)
+			{
+				return way.Nodes.Select(n => possibleChilden[OsmGeoType.Node.ToString() + n])
+					.Append(parent);
+			}
+			else if (parent is Relation relation)
+			{
+				return relation.Members
+					.SelectMany(m => WithChildren(possibleChilden[m.Type.ToString() + m.Id], possibleChilden))
+					.Append(parent);
+			}
+			throw new Exception("OsmGeo wasn't a Node, Way or Relation.");
+		}
+
 		public static Dictionary<ICompleteOsmGeo, Node[]> NodesInCompleteElements(ICompleteOsmGeo[] buildings, Node[] nodes)
 		{
 			return buildings.ToDictionary(b => b, b => nodes.Where(n => IsNodeInBuilding(n, b)).ToArray())
