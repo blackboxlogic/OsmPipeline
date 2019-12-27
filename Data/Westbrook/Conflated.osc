@@ -44497,18 +44497,6 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:street" v="Pierce Street" />
     </node>
-    <node id="6800847005" lat="43.6803204975289" lon="-70.3653966795286" user="blackboxlogic" uid="9109301" visible="true" version="3" changeset="74554903" timestamp="2019-09-17T02:40:29Z">
-      <tag k="addr:housenumber" v="2" />
-      <tag k="addr:street" v="Walker Street" />
-      <tag k="building" v="apartments" />
-      <tag k="building:levels" v="4" />
-      <tag k="name" v="Hyacinth Place" />
-      <tag k="operator" v="Avesta Housing" />
-      <tag k="ref" v="Building 1" />
-      <tag k="addr:city" v="Westbrook" />
-      <tag k="addr:state" v="ME" />
-      <tag k="addr:postcode" v="04092" />
-    </node>
     <way id="743442311" user="vorpalblade" uid="2078753" visible="true" version="2" changeset="76831091" timestamp="2019-11-08T21:33:49Z">
       <nd ref="6958717254" />
       <nd ref="6958717253" />
@@ -44927,6 +44915,26 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
     </node>
+    <way id="698380881" user="blackboxlogic" uid="9109301" visible="true" version="2" changeset="71420192" timestamp="2019-06-20T00:55:46Z">
+      <nd ref="6558743871" />
+      <nd ref="6558754752" />
+      <nd ref="6558754755" />
+      <nd ref="6558754773" />
+      <nd ref="6558754740" />
+      <nd ref="6558754750" />
+      <nd ref="6558754716" />
+      <nd ref="6558743869" />
+      <nd ref="6558743871" />
+      <tag k="addr:city" v="Westbrook" />
+      <tag k="addr:housenumber" v="609" />
+      <tag k="addr:postcode" v="04092" />
+      <tag k="addr:state" v="ME" />
+      <tag k="addr:street" v="Main Street" />
+      <tag k="amenity" v="cafe" />
+      <tag k="building" v="commercial" />
+      <tag k="name" v="Mister Bagel" />
+      <tag k="takeaway" v="yes" />
+    </way>
     <node id="358231882" lat="43.6780908468379" lon="-70.3586965954876" user="blackboxlogic" uid="9109301" visible="true" version="7" changeset="71511335" timestamp="2019-06-22T14:43:30Z">
       <tag k="addr:city" v="Westbrook" />
       <tag k="addr:housenumber" v="677" />
@@ -45671,7 +45679,7 @@
       <nd ref="4583567325" />
       <tag k="addr:housenumber" v="795" />
       <tag k="addr:street" v="Main Street" />
-      <tag k="building" v="yes" />
+      <tag k="building" v="apartments" />
       <tag k="addr:city" v="Westbrook" />
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
@@ -45914,7 +45922,7 @@
       <tag k="addr:housenumber" v="30" />
       <tag k="addr:postcode" v="04092" />
       <tag k="addr:street" v="Lincoln Street" />
-      <tag k="building" v="yes" />
+      <tag k="building" v="apartments" />
       <tag k="name" v="Riverton Lofts" />
       <tag k="addr:state" v="ME" />
     </way>
@@ -46427,9 +46435,26 @@
       <tag k="addr:city" v="Westbrook" />
       <tag k="addr:housenumber" v="783" />
       <tag k="addr:street" v="Main Street" />
-      <tag k="building" v="yes" />
+      <tag k="building" v="apartments" />
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
+    </way>
+    <way id="463039784" user="blackboxlogic" uid="9109301" visible="true" version="3" changeset="71420192" timestamp="2019-06-20T00:55:46Z">
+      <nd ref="4583567339" />
+      <nd ref="4583567340" />
+      <nd ref="4583567341" />
+      <nd ref="4583567342" />
+      <nd ref="4583567343" />
+      <nd ref="4583567344" />
+      <nd ref="4583567345" />
+      <nd ref="4583567346" />
+      <nd ref="4583567339" />
+      <tag k="addr:city" v="Westbrook" />
+      <tag k="addr:housenumber" v="789" />
+      <tag k="addr:postcode" v="04092" />
+      <tag k="addr:state" v="ME" />
+      <tag k="addr:street" v="Main Street" />
+      <tag k="building" v="apartments" />
     </way>
     <way id="559244995" user="blackboxlogic+bot" uid="10307443" visible="true" version="6" changeset="74595922" timestamp="2019-09-17T19:04:40Z">
       <nd ref="5394317118" />
@@ -46440,7 +46465,7 @@
       <tag k="addr:housenumber" v="869" />
       <tag k="addr:street" v="Main Street" />
       <tag k="amenity" v="restaurant" />
-      <tag k="building" v="yes" />
+      <tag k="building" v="commercial" />
       <tag k="cuisine" v="pizza" />
       <tag k="name" v="Portland Pie Co." />
       <tag k="opening_hours" v="Mo-Th,Su 11:00-22:00; Fr-Sa 10:00-23:00" />
@@ -46724,7 +46749,7 @@
       <tag k="addr:postcode" v="04092" />
       <tag k="addr:street" v="Park Road" />
       <tag k="amenity" v="clinic" />
-      <tag k="building" v="yes" />
+      <tag k="building" v="hospital" />
       <tag k="gnis:feature_id" v="1913138" />
       <tag k="healthcare" v="clinic" />
       <tag k="name" v="Mercy Westbrook" />
@@ -48138,7 +48163,7 @@
       <tag k="addr:street" v="Main Street" />
       <tag k="brand" v="State Farm" />
       <tag k="brand:wikidata" v="Q2007336" />
-      <tag k="building" v="yes" />
+      <tag k="building" v="apartments" />
       <tag k="name" v="State Farm" />
       <tag k="office" v="insurance" />
       <tag k="operator" v="Chris Doughty" />
@@ -48224,27 +48249,6 @@
       <tag k="addr:postcode" v="04092" />
       <tag k="building" v="residential" />
     </node>
-    <way id="698380877" user="blackboxlogic" uid="9109301" visible="true" version="6" changeset="71681921" timestamp="2019-06-27T17:53:36Z">
-      <nd ref="6558754705" />
-      <nd ref="6558754709" />
-      <nd ref="6568016070" />
-      <nd ref="6558743861" />
-      <nd ref="6558754702" />
-      <nd ref="6558754705" />
-      <tag k="addr:housenumber" v="950" />
-      <tag k="addr:street" v="Main Street" />
-      <tag k="amenity" v="clinic" />
-      <tag k="building" v="yes" />
-      <tag k="healthcare" v="clinic" />
-      <tag k="name" v="ConvenientMD Urgent Care" />
-      <tag k="opening_hours" v="Mo-Su 08:00-22:00" />
-      <tag k="phone" v="+1-207-517-3800" />
-      <tag k="website" v="https://convenientmd.com/locations/westbrook-me-urgent-care-04092/" />
-      <tag k="wheelchair" v="yes" />
-      <tag k="addr:city" v="Westbrook" />
-      <tag k="addr:state" v="ME" />
-      <tag k="addr:postcode" v="04092" />
-    </way>
     <node id="6806311582" lat="43.6825115871476" lon="-70.3700244601407" user="blackboxlogic" uid="9109301" visible="true" version="2" changeset="74640804" timestamp="2019-09-18T18:11:12Z">
       <tag k="addr:housenumber" v="6" />
       <tag k="addr:street" v="Kennard Street" />
@@ -48261,6 +48265,26 @@
       <tag k="addr:postcode" v="04092" />
       <tag k="building" v="residential" />
     </node>
+    <way id="604697262" user="Ladung" uid="9812768" visible="true" version="6" changeset="72368409" timestamp="2019-07-18T00:48:18Z">
+      <nd ref="5737062713" />
+      <nd ref="5737062714" />
+      <nd ref="5737062715" />
+      <nd ref="5737062716" />
+      <nd ref="5737062713" />
+      <tag k="addr:city" v="Westbrook" />
+      <tag k="addr:housenumber" v="7" />
+      <tag k="addr:postcode" v="04092" />
+      <tag k="addr:state" v="ME" />
+      <tag k="addr:street" v="Saunders Way" />
+      <tag k="brand" v="BMW" />
+      <tag k="brand:wikidata" v="Q26678" />
+      <tag k="building" v="detached" />
+      <tag k="name" v="BMW of Westbrook" />
+      <tag k="opening_hours" v="Mo-Th 08:00-20:00; Fr 08:00-18:00; Sa 08:00-17:00" />
+      <tag k="operator" v="Bill Dodge Auto Group" />
+      <tag k="second_hand" v="yes" />
+      <tag k="shop" v="car" />
+    </way>
     <way id="130716291" user="emulsi" uid="235413" visible="true" version="2" changeset="9356767" timestamp="2011-09-21T01:05:56Z">
       <nd ref="1438934776" />
       <nd ref="1438934659" />
@@ -48327,7 +48351,7 @@
       <nd ref="4272088091" />
       <nd ref="4272088092" />
       <nd ref="4272087683" />
-      <tag k="building" v="yes" />
+      <tag k="building" v="commercial" />
       <tag k="addr:housenumber" v="39" />
       <tag k="addr:street" v="Mechanic Street" />
       <tag k="addr:city" v="Westbrook" />
@@ -48535,7 +48559,7 @@
       <nd ref="4583569526" />
       <nd ref="4583569527" />
       <nd ref="4583569510" />
-      <tag k="building" v="yes" />
+      <tag k="building" v="apartments" />
       <tag k="addr:housenumber" v="765" />
       <tag k="addr:street" v="Main Street" />
       <tag k="addr:city" v="Westbrook" />
@@ -48613,7 +48637,7 @@
       <nd ref="4588562029" />
       <nd ref="4588562030" />
       <nd ref="4588562017" />
-      <tag k="building" v="yes" />
+      <tag k="building" v="commercial" />
       <tag k="addr:housenumber" v="15" />
       <tag k="addr:street" v="Saunders Way" />
       <tag k="addr:city" v="Westbrook" />
@@ -48963,7 +48987,7 @@
       <nd ref="4611358638" />
       <nd ref="4611358639" />
       <nd ref="4611358632" />
-      <tag k="building" v="yes" />
+      <tag k="building" v="commercial" />
       <tag k="addr:housenumber" v="201" />
       <tag k="addr:street" v="Main Street" />
       <tag k="addr:city" v="Westbrook" />
@@ -49250,7 +49274,7 @@
       <nd ref="5497705308" />
       <nd ref="5497705309" />
       <nd ref="5497705306" />
-      <tag k="building" v="yes" />
+      <tag k="building" v="apartments" />
       <tag k="addr:housenumber" v="22" />
       <tag k="addr:street" v="Seavey Street" />
       <tag k="addr:city" v="Westbrook" />
@@ -49263,7 +49287,7 @@
       <nd ref="5497705312" />
       <nd ref="5497705313" />
       <nd ref="5497705310" />
-      <tag k="building" v="yes" />
+      <tag k="building" v="residential" />
       <tag k="addr:housenumber" v="91" />
       <tag k="addr:street" v="Oak Street" />
       <tag k="addr:city" v="Westbrook" />
@@ -49624,7 +49648,7 @@
       <nd ref="6561404938" />
       <nd ref="6561404932" />
       <nd ref="6561404931" />
-      <tag k="building" v="yes" />
+      <tag k="building" v="apartments" />
       <tag k="addr:housenumber" v="19" />
       <tag k="addr:street" v="Ash Street" />
       <tag k="addr:city" v="Westbrook" />
