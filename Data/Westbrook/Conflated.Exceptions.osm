@@ -1,5 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <osm version="0.6">
+  <node id="-1641342" lat="43.6834820337296" lon="-70.3626582272018" version="1">
+    <tag k="addr:housenumber" v="75" />
+    <tag k="addr:street" v="Lyman Street" />
+    <tag k="addr:city" v="Westbrook" />
+    <tag k="addr:state" v="ME" />
+    <tag k="addr:postcode" v="04092" />
+    <tag k="maineE911id" v="1641342" />
+    <tag k="exception" v="Matched, but too far: 35 &gt; 100 meters.&#xA;	node/6558957758" />
+  </node>
+  <node id="-1752930" lat="43.6807473998445" lon="-70.3654621911796" version="1">
+    <tag k="name" v="Building 3" />
+    <tag k="addr:housenumber" v="2" />
+    <tag k="addr:street" v="Walker Street" />
+    <tag k="addr:city" v="Westbrook" />
+    <tag k="addr:state" v="ME" />
+    <tag k="addr:postcode" v="04092" />
+    <tag k="maineE911id" v="1752930" />
+    <tag k="building" v="apartments" />
+    <tag k="exception" v="Matched, but too far: 47 &gt; 100 meters.&#xA;	node/6800847005" />
+  </node>
   <node id="-2050877" lat="43.6777367577525" lon="-70.3581861718153" version="1">
     <tag k="addr:housenumber" v="672" />
     <tag k="addr:street" v="Main Street" />
@@ -53,6 +73,25 @@
     <tag k="maineE911id" v="2053903" />
     <tag k="amenity" v="police" />
     <tag k="exception" v="Multiple matches!&#xA;	way/421324983&#xA;	way/421324984" />
+  </node>
+  <node id="-1838070" lat="43.6859384656691" lon="-70.3384138874653" version="1">
+    <tag k="addr:housenumber" v="95" />
+    <tag k="addr:street" v="Warren Avenue" />
+    <tag k="addr:city" v="Westbrook" />
+    <tag k="addr:state" v="ME" />
+    <tag k="addr:postcode" v="04092" />
+    <tag k="maineE911id" v="1838070" />
+    <tag k="exception" v="Matched, but too far: 89 &gt; 100 meters.&#xA;	node/585386382" />
+  </node>
+  <node id="-2043087" lat="43.6796364210182" lon="-70.3683896496628" version="1">
+    <tag k="addr:housenumber" v="87" />
+    <tag k="addr:street" v="Bridge Street" />
+    <tag k="addr:city" v="Westbrook" />
+    <tag k="addr:state" v="ME" />
+    <tag k="addr:postcode" v="04092" />
+    <tag k="building" v="apartments" />
+    <tag k="maineE911id" v="2043087;2043088;2043089;2043090;2043091;2043092;2043093;2043094;2043085;2043086" />
+    <tag k="exception" v="Matched, but too far: 57 &gt; 100 meters.&#xA;	node/358212445" />
   </node>
   <node id="-2549195" lat="43.6693116725974" lon="-70.3598629456249" version="1">
     <tag k="addr:housenumber" v="200" />

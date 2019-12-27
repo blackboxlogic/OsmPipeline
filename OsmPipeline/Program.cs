@@ -29,13 +29,22 @@ namespace OsmPipeline
 			Static.LogFactory = serviceCollection.BuildServiceProvider().GetService<ILoggerFactory>();
 
 			var task = ImportAddressesInScope();
-
-			Console.WriteLine("Finished!");
+			task.Wait();
+			if (task.IsFaulted)
+			{
+				Console.WriteLine(task.Exception);
+			}
+			else
+			{
+				Console.WriteLine("Finished!");
+			}
 			Console.ReadKey(true);
 		}
 
 		static async Task ImportAddressesInScope()
 		{
+			// split large municipalites by zip
+
 			var municipalities = await FileSerializer.ReadJsonCacheOrSource("MaineMunicipalities.json",
 				GeoJsonAPISource.GetMunicipalities);
 			var municipality = UserChooseOption(municipalities.Keys, "municipality");
@@ -52,6 +61,7 @@ namespace OsmPipeline
 
 		static string UserChooseOption(IEnumerable<string> options, string optionName = "option")
 		{
+			return "Westbrook";
 			do
 			{
 				Console.WriteLine($"Which {optionName}?");

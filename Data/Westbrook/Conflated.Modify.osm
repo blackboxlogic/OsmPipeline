@@ -427,15 +427,6 @@
     <tag k="addr:postcode" v="maineE911id:04092" />
     <tag k="maineE911id" v="1641341" />
   </node>
-  <node id="6558957758" lat="43.6834820337296" lon="-70.3626582272018" user="blackboxlogic" uid="9109301" visible="true" version="3" changeset="71461723" timestamp="2019-06-20T21:32:06Z">
-    <tag k="addr:housenumber" v="75" />
-    <tag k="addr:street" v="Lyman Street" />
-    <tag k="maineE911id:moved" v="35 meters" />
-    <tag k="addr:city" v="maineE911id:Westbrook" />
-    <tag k="addr:state" v="maineE911id:ME" />
-    <tag k="addr:postcode" v="maineE911id:04092" />
-    <tag k="maineE911id" v="1641342" />
-  </node>
   <node id="6806311579" lat="43.6831068302787" lon="-70.3695665483672" user="blackboxlogic" uid="9109301" visible="true" version="2" changeset="74640804" timestamp="2019-09-18T18:11:12Z">
     <tag k="addr:housenumber" v="49" />
     <tag k="addr:street" v="Mitchell Street" />
@@ -757,7 +748,7 @@
     <tag k="maineE911id:moved" v="2 meters" />
     <tag k="maineE911id" v="1752846" />
   </node>
-  <node id="6800847005" lat="43.6807473998445" lon="-70.3654621911796" user="blackboxlogic" uid="9109301" visible="true" version="4" changeset="74554903" timestamp="2019-09-17T02:40:29Z">
+  <node id="6800847005" lat="43.6803204975289" lon="-70.3653966795286" user="blackboxlogic" uid="9109301" visible="true" version="3" changeset="74554903" timestamp="2019-09-17T02:40:29Z">
     <tag k="addr:housenumber" v="2" />
     <tag k="addr:street" v="Walker Street" />
     <tag k="building" v="apartments" />
@@ -765,7 +756,7 @@
     <tag k="name" v="Hyacinth Place" />
     <tag k="operator" v="Avesta Housing" />
     <tag k="ref" v="Building 1" />
-    <tag k="maineE911id:moved" v="47 meters" />
+    <tag k="maineE911id:moved" v="12 meters" />
     <tag k="addr:city" v="maineE911id:Westbrook" />
     <tag k="addr:state" v="maineE911id:ME" />
     <tag k="addr:postcode" v="maineE911id:04092" />
@@ -2934,20 +2925,6 @@
     <tag k="addr:postcode" v="maineE911id:04092" />
     <tag k="maineE911id" v="1838066" />
   </node>
-  <node id="585386382" lat="43.6859384656691" lon="-70.3384138874653" user="blackboxlogic" uid="9109301" visible="true" version="4" changeset="78155668" timestamp="2019-12-09T14:14:45Z">
-    <tag k="addr:housenumber" v="95" />
-    <tag k="addr:street" v="Warren Avenue" />
-    <tag k="man_made" v="works" />
-    <tag k="name" v="WESTBROOK ASPHALT" />
-    <tag k="operator" v="Pike Industries" />
-    <tag k="product" v="asphalt" />
-    <tag k="website" v="pikeindustries.com/locations/westbrook-asphalt-730" />
-    <tag k="maineE911id:moved" v="89 meters" />
-    <tag k="addr:city" v="maineE911id:Westbrook" />
-    <tag k="addr:state" v="maineE911id:ME" />
-    <tag k="addr:postcode" v="maineE911id:04092" />
-    <tag k="maineE911id" v="1838070" />
-  </node>
   <node id="6800847051" lat="43.6815273487386" lon="-70.3668756165929" user="blackboxlogic" uid="9109301" visible="true" version="2" changeset="74554393" timestamp="2019-09-17T02:01:16Z">
     <tag k="addr:housenumber" v="11" />
     <tag k="addr:street" v="Webb Street" />
@@ -4383,18 +4360,6 @@
     <tag k="addr:postcode" v="maineE911id:04092" />
     <tag k="maineE911id" v="2007822" />
     <tag k="building" v="maineE911id:residential" />
-  </node>
-  <node id="358212445" lat="43.6796364210182" lon="-70.3683896496628" user="blackboxlogic" uid="9109301" visible="true" version="4" changeset="76717925" timestamp="2019-11-06T18:39:21Z">
-    <tag k="addr:housenumber" v="87" />
-    <tag k="addr:street" v="Bridge Street" />
-    <tag k="building" v="apartments" />
-    <tag k="ele" v="25" />
-    <tag k="name" v="School House Commons" />
-    <tag k="maineE911id:moved" v="57 meters" />
-    <tag k="addr:city" v="maineE911id:Westbrook" />
-    <tag k="addr:state" v="maineE911id:ME" />
-    <tag k="addr:postcode" v="maineE911id:04092" />
-    <tag k="maineE911id" v="2043087;2043088;2043089;2043090;2043091;2043092;2043093;2043094;2043085;2043086" />
   </node>
   <node id="6800847022" lat="43.6841440989889" lon="-70.3671583672194" user="blackboxlogic" uid="9109301" visible="true" version="2" changeset="74554393" timestamp="2019-09-17T02:01:16Z">
     <tag k="addr:housenumber" v="16" />
