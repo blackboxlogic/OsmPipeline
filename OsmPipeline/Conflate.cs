@@ -27,14 +27,22 @@ namespace OsmPipeline
 			Log.LogInformation("Starting conflation, matching by address IN a building");
 			ApplyNodesToBuildings(subjectElementsIndexed, create, modify, exceptions);
 
+			Log.LogInformation("Writing review files");
+			// Write review files
 			WriteToFileWithChildrenIfAny(scopeName + "/Conflated.Exceptions.osm", exceptions, subjectElementsIndexed);
 			WriteToFileWithChildrenIfAny(scopeName + "/Conflated.Create.osm", create, subjectElementsIndexed);
 			WriteToFileWithChildrenIfAny(scopeName + "/Conflated.Delete.osm", delete, subjectElementsIndexed);
 			WriteToFileWithChildrenIfAny(scopeName + "/Conflated.Modify.osm", modify, subjectElementsIndexed);
 
-			foreach (var element in create.Concat(modify))
+			// Remove review tags
+			foreach (var element in create.Concat(modify).Concat(delete))
 			{
 				element.Tags.RemoveKey(Static.maineE911id);
+				element.Tags.RemoveKey(Static.maineE911id + ":moved");
+				foreach (var tag in element.Tags.Where(t => t.Value.StartsWith(Static.maineE911id + ":")).ToArray())
+				{
+					element.Tags.AddOrReplace(tag.Key, tag.Value.Replace(Static.maineE911id + ":", ""));
+				}
 			}
 
 			var change = Fittings.Translate.GeosToChange(create, modify, delete, "OsmPipeline");
@@ -117,7 +125,7 @@ namespace OsmPipeline
 						if (tagsChanged)
 						{
 							if (modify.Any(n => n.Id == subjectElement.Id))
-								Log.LogWarning("Subject modified again!" + Identify(subjectElement, referenceElement));
+								Log.LogError("Subject modified again!" + Identify(subjectElement, referenceElement));
 							subjectElement.Version++;
 							modify.Add(subjectElement);
 						}
@@ -194,6 +202,7 @@ namespace OsmPipeline
 				{
 					subjectNode.Latitude = referenceNode.Latitude;
 					subjectNode.Longitude = referenceNode.Longitude;
+					subject.Tags.AddOrReplace(Static.maineE911id + ":moved", (int)distanceMeters + " meters"); // Mark it for easier review
 					changed = true;
 				}
 			}
@@ -210,10 +219,15 @@ namespace OsmPipeline
 						throw new Exception("A tag conflict!" + Identify(refTag.Key, subject, reference));
 					}
 				}
+				else if(refTag.Key == Static.maineE911id)
+				{
+					subject.Tags.AddOrReplace(refTag);
+				}
 				else
 				{
-					if(refTag.Key != Static.maineE911id) changed = true;
-					subject.Tags.Add(refTag);
+					changed = true;
+					// Marking for easier review. Prefix will be removed later.
+					subject.Tags.Add(refTag.Key, Static.maineE911id + ":" + refTag.Value);
 				}
 			}
 
