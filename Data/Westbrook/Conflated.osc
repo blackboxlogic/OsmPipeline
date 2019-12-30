@@ -48734,6 +48734,23 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
     </way>
+    <way id="463594206" user="Юкатан" uid="3885962" visible="true" version="3" changeset="44891676" timestamp="2017-01-04T07:50:38Z">
+      <nd ref="4588582183" />
+      <nd ref="4588582184" />
+      <nd ref="4588582185" />
+      <nd ref="4588582186" />
+      <nd ref="4588582187" />
+      <nd ref="4588582188" />
+      <nd ref="4588582589" />
+      <nd ref="4588582590" />
+      <nd ref="4588582183" />
+      <tag k="building" v="retail" />
+      <tag k="addr:housenumber" v="120" />
+      <tag k="addr:street" v="Main Street" />
+      <tag k="addr:city" v="Westbrook" />
+      <tag k="addr:state" v="ME" />
+      <tag k="addr:postcode" v="04092" />
+    </way>
     <way id="464500787" user="Юкатан" uid="3885962" visible="true" version="2" changeset="44997112" timestamp="2017-01-08T10:19:08Z">
       <nd ref="4595998026" />
       <nd ref="4595998027" />
@@ -48746,6 +48763,29 @@
       <nd ref="4595998026" />
       <tag k="building" v="warehouse" />
       <tag k="addr:housenumber" v="201" />
+      <tag k="addr:street" v="Larrabee Road" />
+      <tag k="addr:city" v="Westbrook" />
+      <tag k="addr:state" v="ME" />
+      <tag k="addr:postcode" v="04092" />
+    </way>
+    <way id="464500811" user="Юкатан" uid="3885962" visible="true" version="2" changeset="44997132" timestamp="2017-01-08T10:20:12Z">
+      <nd ref="4595998273" />
+      <nd ref="4595998274" />
+      <nd ref="4595998275" />
+      <nd ref="4595998276" />
+      <nd ref="4595998277" />
+      <nd ref="4595998278" />
+      <nd ref="4595998279" />
+      <nd ref="4595998280" />
+      <nd ref="4595998281" />
+      <nd ref="4595998282" />
+      <nd ref="4595998283" />
+      <nd ref="4595998284" />
+      <nd ref="4595998285" />
+      <nd ref="4595998286" />
+      <nd ref="4595998273" />
+      <tag k="building" v="retail" />
+      <tag k="addr:housenumber" v="207" />
       <tag k="addr:street" v="Larrabee Road" />
       <tag k="addr:city" v="Westbrook" />
       <tag k="addr:state" v="ME" />
@@ -49127,6 +49167,19 @@
       <nd ref="5268581908" />
       <tag k="building" v="commercial" />
       <tag k="addr:housenumber" v="25" />
+      <tag k="addr:street" v="Thomas Drive" />
+      <tag k="addr:city" v="Westbrook" />
+      <tag k="addr:state" v="ME" />
+      <tag k="addr:postcode" v="04092" />
+    </way>
+    <way id="545089380" user="Poqwizredux" uid="7159452" visible="true" version="2" changeset="54412371" timestamp="2017-12-06T19:57:14Z">
+      <nd ref="5268577069" />
+      <nd ref="5268577070" />
+      <nd ref="5268577071" />
+      <nd ref="5268577072" />
+      <nd ref="5268577069" />
+      <tag k="building" v="industrial" />
+      <tag k="addr:housenumber" v="4" />
       <tag k="addr:street" v="Thomas Drive" />
       <tag k="addr:city" v="Westbrook" />
       <tag k="addr:state" v="ME" />

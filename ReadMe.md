@@ -7,5 +7,5 @@ This tool was designed to run the [Maine E911 Address Import](https://wiki.opens
 * Conflation: The process of finessing two datasets together
 
 ## Attribution
-Most of `Data\StreetSUFFIX.json` was sourced from https://pe.usps.com/text/pub28/28apc_002.htm
-`Data\Boundaries.geojson`, `Data\MaineMunicipalities.json` and `Data\*\*.*` are sourced or directive works of from https://www.maine.gov/megis/catalog/
+* Most of `Data\StreetSUFFIX.json` was sourced from https://pe.usps.com/text/pub28/28apc_002.htm
+* `Data\Boundaries.geojson`, `Data\MaineMunicipalities.json` and `Data\*\*.*` are sourced or derivative works of https://www.maine.gov/megis/catalog/

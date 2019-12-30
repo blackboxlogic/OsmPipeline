@@ -125,34 +125,4 @@
     <tag k="building" v="detached" />
     <tag k="exception" v="A tag conflict!&#xA;	way/743441523.building=house&#xA;	node/-2549195.building=detached" />
   </node>
-  <node id="-2050673" lat="43.6776112069926" lon="-70.3356049378337" version="1">
-    <tag k="addr:housenumber" v="120" />
-    <tag k="addr:street" v="Main Street" />
-    <tag k="addr:city" v="Westbrook" />
-    <tag k="addr:state" v="ME" />
-    <tag k="addr:postcode" v="04092" />
-    <tag k="building" v="commercial" />
-    <tag k="maineE911id" v="2050673;2050674;2050675;2050676;2050677;1829070;2050672" />
-    <tag k="exception" v="A tag conflict!&#xA;	way/463594206.building=retail&#xA;	node/-2050673.building=commercial" />
-  </node>
-  <node id="-2045878" lat="43.6801765938207" lon="-70.3306497299415" version="1">
-    <tag k="addr:housenumber" v="207" />
-    <tag k="addr:street" v="Larrabee Road" />
-    <tag k="addr:city" v="Westbrook" />
-    <tag k="addr:state" v="ME" />
-    <tag k="addr:postcode" v="04092" />
-    <tag k="building" v="commercial" />
-    <tag k="maineE911id" v="2045878;2045879;2045880;2045881;2045882;2045883;1855646;2045877" />
-    <tag k="exception" v="A tag conflict!&#xA;	way/464500811.building=retail&#xA;	node/-2045878.building=commercial" />
-  </node>
-  <node id="-2051316" lat="43.6497512919561" lon="-70.3556394804016" version="1">
-    <tag k="addr:housenumber" v="4" />
-    <tag k="addr:street" v="Thomas Drive" />
-    <tag k="addr:city" v="Westbrook" />
-    <tag k="addr:state" v="ME" />
-    <tag k="addr:postcode" v="04092" />
-    <tag k="building" v="commercial" />
-    <tag k="maineE911id" v="2051316;2051317;2051318;2051319;2051320;2051321;2051322;2051323;1833020;2051315" />
-    <tag k="exception" v="A tag conflict!&#xA;	way/545089380.building=industrial&#xA;	node/-2051316.building=commercial" />
-  </node>
 </osm>

@@ -28,26 +28,33 @@ namespace OsmPipeline
 			ApplyNodesToBuildings(subjectElementsIndexed, create, modify, exceptions);
 
 			Log.LogInformation("Writing review files");
-			// Write review files
 			WriteToFileWithChildrenIfAny(scopeName + "/Conflated.Exceptions.osm", exceptions, subjectElementsIndexed);
 			WriteToFileWithChildrenIfAny(scopeName + "/Conflated.Create.osm", create, subjectElementsIndexed);
 			WriteToFileWithChildrenIfAny(scopeName + "/Conflated.Delete.osm", delete, subjectElementsIndexed);
 			WriteToFileWithChildrenIfAny(scopeName + "/Conflated.Modify.osm", modify, subjectElementsIndexed);
 			RemoveReviewTags(create.Concat(modify));
-
 			var change = Fittings.Translate.GeosToChange(create, modify, delete, "OsmPipeline");
+			LogSummary(change, exceptions);
+
+			return change;
+		}
+
+		private static void LogSummary(OsmChange change, IList<OsmGeo> exceptions)
+		{
+			Log.LogInformation($"{nameof(change.Create)}: {change.Create.Length}");
+			Log.LogInformation($"{nameof(change.Modify)}: {change.Modify.Length}");
+			if (change.Delete.Any()) Log.LogWarning($"{nameof(change.Delete)}: {change.Delete.Length}");
+			if (exceptions.Any()) Log.LogWarning($"{nameof(exceptions)}: {exceptions.Count}");
+
 			var changeCount = change.Create.Length + change.Modify.Length + change.Delete.Length;
 			if (changeCount >= 10_000) // OSM API change set size limit.
 			{
 				Log.LogError($"ChangeSet size ({changeCount}) is bigger than API's 10,000 limit.");
 			}
-
-			return change;
 		}
 
 		private static void RemoveReviewTags(IEnumerable<OsmGeo> elements)
 		{
-			// Remove review tags
 			foreach (var element in elements)
 			{
 				element.Tags.RemoveKey(Static.maineE911id);
@@ -227,12 +234,17 @@ namespace OsmPipeline
 						{
 							subject.Tags.AddOrReplace(refTag.Key, refTag.Value + ";" + subValue);
 						}
-						if (TagTree.Keys.ContainsKey(refTag.Key) &&
+						else if (TagTree.Keys.ContainsKey(refTag.Key) &&
 							TagTree.Keys[refTag.Key].IsDecendantOf(refTag.Value, subValue))
 						{
 							// Make building tag MORE specific. Marked for easier review.
 							subject.Tags.AddOrReplace(refTag.Key, subValue + ":" + Static.maineE911id + ":" + refTag.Value);
 							changed = true;
+						}
+						else if (TagTree.Keys.ContainsKey(refTag.Key) &&
+							TagTree.Keys[refTag.Key].IsDecendantOf(subValue, refTag.Value))
+						{
+							// Nothing, it is already more specific.
 						}
 						else
 						{
