@@ -10,6 +10,14 @@ namespace OsmPipeline.Fittings
 {
 	public static class Geometry
 	{
+		public static char GetDirectionArrow(Node from, Node to)
+		{
+			var theta = Math.Atan2((to.Latitude - from.Latitude).Value, (to.Longitude - from.Longitude).Value);
+			var slice = (int)((theta + Math.PI) / (2 * Math.PI) * 16);
+			var arrow = "←↙↙↓↓↘↘→→↗↗↑↑↖↖←"[slice];
+			return arrow;
+		}
+
 		// Dictionary is keys on: OsmGeo.Type.ToString() + element.Id
 		public static ICompleteOsmGeo AsComplete(this OsmGeo parent, Dictionary<string, OsmGeo> possibleChilden)
 		{

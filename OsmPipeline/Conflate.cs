@@ -210,10 +210,11 @@ namespace OsmPipeline
 				&& reference is Node referenceNode
 				&& currentDistanceMeters > int.Parse(Static.Config["MinNodeMoveDistance"]))
 			{
+				var arrow = Geometry.GetDirectionArrow(subjectNode, referenceNode);
 				subjectNode.Latitude = referenceNode.Latitude;
 				subjectNode.Longitude = referenceNode.Longitude;
 				// Mark it for easier review
-				subject.Tags.AddOrReplace(Static.maineE911id + ":moved", (int)currentDistanceMeters + " meters");
+				subject.Tags.AddOrReplace(Static.maineE911id + ":moved", (int)currentDistanceMeters + " meters " + arrow);
 				return true;
 			}
 
