@@ -150,7 +150,7 @@ namespace OsmPipeline
 		private static Node[] HandleStacks(Node[] nodes)
 		{
 			List<Node> results = new List<Node>();
-			Node[][] addresses = nodes.GroupBy(GetBaseAddress)
+			Node[][] addresses = nodes.GroupBy(Tags.GetBaseAddress)
 				.Select(g => g.ToArray())
 				.ToArray();
 			foreach (var address in addresses)
@@ -172,7 +172,7 @@ namespace OsmPipeline
 							.ToArray();
 						foreach (var mergable in mergables)
 						{
-							groupResult.Add(IntersectTags(mergable));
+							groupResult.Add(IntersectTagsAndAverageLocation(mergable));
 						}
 
 						results.AddRange(RemoveLessSpecific(groupResult));
@@ -192,12 +192,6 @@ namespace OsmPipeline
 			Log.LogInformation($"{results.Count} addresses remain from {nodes.Length} (de-duped or combined)");
 
 			return results.ToArray();
-		}
-
-		private static TagsCollectionBase GetBaseAddress(Node node)
-		{
-			var addressTags = new[] { "addr:housenumber", "addr:street", "addr:city", "addr:state" };
-			return node.Tags.KeepKeysOf(addressTags);
 		}
 
 		private static List<List<Node>> GroupCloseNeighbors(Node[] address, double closenessMeters)
@@ -229,7 +223,7 @@ namespace OsmPipeline
 			return stacks.Select(g => g.nodes).ToList();
 		}
 
-		private static Node IntersectTags(Node[] stack)
+		private static Node IntersectTagsAndAverageLocation(Node[] stack)
 		{
 			var ids = string.Join(";", stack.SelectMany(n => n.Tags).Where(t => t.Key == Static.maineE911id).Select(t => t.Value));
 			var tags = stack[0].Tags.ToList();
@@ -276,7 +270,7 @@ namespace OsmPipeline
 				if (bigger != null)
 				{
 					if (building != null) bigger.Tags["building"] = building;
-					bigger.Tags[Static.maineE911id] += ";" + node.Tags[Static.maineE911id];
+					bigger.Tags.AddOrAppend(Static.maineE911id, node.Tags[Static.maineE911id]);
 					stack.RemoveAt(i);
 					i--;
 				}

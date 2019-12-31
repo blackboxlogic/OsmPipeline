@@ -83,7 +83,7 @@ namespace OsmPipeline
 			exceptions = new List<OsmGeo>();
 
 			var subjectAddressIndex = subjectElementsIndexed.Values
-				.GroupBy(e => GetAddrTags(e, false))
+				.GroupBy(e => Tags.GetAddrTags(e, false))
 				.Where(g => g.Key.Any())
 				.ToDictionary(g => g.Key, g => g.ToArray());
 
@@ -91,7 +91,7 @@ namespace OsmPipeline
 			{
 				if (referenceElement.Tags["addr:housenumber"] == "0") // indicates there was a missing address.
 				{
-					referenceElement.Tags["exception"] = $"Missing house number!";
+					referenceElement.Tags.AddOrAppend("exception", "Missing house number!");
 					exceptions.Add(referenceElement);
 					continue;
 				}
@@ -102,7 +102,7 @@ namespace OsmPipeline
 					if (targetSubjectElements.Length > 1)
 					{
 						// Could try to auto resolve multi-matches by checking tag conflicts or if I'm IN one of them.
-						referenceElement.Tags["exception"] = $"Multiple matches!" + Identify(targetSubjectElements);
+						referenceElement.Tags.AddOrAppend("exception", "Multiple matches!" + Identify(targetSubjectElements));
 						exceptions.Add(referenceElement);
 						continue;
 					}
@@ -115,7 +115,7 @@ namespace OsmPipeline
 					if (closestMatch.distance > int.Parse(Static.Config["MatchDistanceKmMaz"])
 						&& !Geometry.IsNodeInBuilding(referenceElement, subjectElement.AsComplete(subjectElementsIndexed)))
 					{
-						referenceElement.Tags["exception"] = $"Matched, but too far: {(int)closestMatch.distance} > 100 meters.{Identify(subjectElement)}";
+						referenceElement.Tags.AddOrAppend("exception", $"Matched, but too far: {(int)closestMatch.distance} meters.{Identify(subjectElement)}");
 						exceptions.Add(referenceElement);
 						continue;
 					}
@@ -129,7 +129,7 @@ namespace OsmPipeline
 						}
 						catch (Exception e)
 						{
-							referenceElement.Tags["exception"] = e.Message;
+							referenceElement.Tags.AddOrAppend("exception", e.Message);
 							exceptions.Add(referenceElement);
 							continue;
 						}
@@ -153,10 +153,10 @@ namespace OsmPipeline
 		private static void ApplyNodesToBuildings(Dictionary<string, OsmGeo> subjectElementsIndexed,
 			List<OsmGeo> create, List<OsmGeo> modify, List<OsmGeo> exceptions)
 		{
-			var nonAddrCompleteBuildings = subjectElementsIndexed.Values.Where(w => IsBuilding(w) && !IsAddressy(w))
+			var nonAddrCompleteBuildings = subjectElementsIndexed.Values.Where(w => Tags.IsBuilding(w) && !Tags.IsAddressy(w))
 				.Select(b => b.AsComplete(subjectElementsIndexed))
 				.ToArray();
-			var addrSubjectNodes = subjectElementsIndexed.Values.OfType<Node>().Where(n => IsAddressy(n)).ToArray();
+			var addrSubjectNodes = subjectElementsIndexed.Values.OfType<Node>().Where(n => Tags.IsAddressy(n)).ToArray();
 			var completeBuildingsWithOldAddrNodes = Geometry.NodesInCompleteElements(nonAddrCompleteBuildings, addrSubjectNodes);
 			nonAddrCompleteBuildings = nonAddrCompleteBuildings.Where(b => !completeBuildingsWithOldAddrNodes.ContainsKey(b)).ToArray();
 			var completeBuildingsWithNewAddrNodes = Geometry.NodesInCompleteElements(nonAddrCompleteBuildings, create.OfType<Node>().ToArray());
@@ -174,7 +174,7 @@ namespace OsmPipeline
 				}
 				catch (Exception e)
 				{
-					node.Tags["exception"] = e.Message;
+					node.Tags.AddOrAppend("exception", e.Message);
 					exceptions.Add(node);
 					continue;
 				}
@@ -192,16 +192,6 @@ namespace OsmPipeline
 		private static string Identify(string key, params OsmGeo[] elements)
 		{
 			return "\n\t" + string.Join("\n\t", elements.Select(e => $"{e.Type.ToString().ToLower()}/{e.Id}.{key}={e.Tags[key]}"));
-		}
-
-		private static bool IsAddressy(OsmGeo element)
-		{
-			return element.Tags?.Any(t => t.Key.StartsWith("addr:")) == true;
-		}
-
-		private static bool IsBuilding(OsmGeo element)
-		{
-			return element.Tags?.ContainsKey("building") == true;
 		}
 
 		private static bool MoveNode(OsmGeo reference, OsmGeo subject, double currentDistanceMeters)
@@ -233,7 +223,7 @@ namespace OsmPipeline
 					{
 						if (refTag.Key == Static.maineE911id)
 						{
-							subject.Tags.AddOrReplace(refTag.Key, refTag.Value + ";" + subValue);
+							subject.Tags.AddOrAppend(refTag.Key, subValue);
 						}
 						else if (TagTree.Keys.ContainsKey(refTag.Key) &&
 							TagTree.Keys[refTag.Key].IsDecendantOf(refTag.Value, subValue))
@@ -266,13 +256,6 @@ namespace OsmPipeline
 			}
 
 			return changed;
-		}
-
-		private static TagsCollection GetAddrTags(this OsmGeo element, bool all = false)
-		{
-			return all
-				? new TagsCollection(element.Tags?.Where(t => t.Key.StartsWith("addr:")) ?? new Tag[0])
-				: new TagsCollection(element.Tags?.Where(t => t.Key == "addr:street" || t.Key == "addr:housenumber") ?? new Tag[0]);
 		}
 	}
 }
