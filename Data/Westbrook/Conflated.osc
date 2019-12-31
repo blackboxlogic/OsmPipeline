@@ -10202,13 +10202,6 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
     </node>
-    <node id="-1771511" lat="43.6558561693504" lon="-70.3578974452791" version="1">
-      <tag k="addr:housenumber" v="750" />
-      <tag k="addr:street" v="Spring Street" />
-      <tag k="addr:city" v="Westbrook" />
-      <tag k="addr:state" v="ME" />
-      <tag k="addr:postcode" v="04092" />
-    </node>
     <node id="-1771512" lat="43.6563064190879" lon="-70.3601646338121" version="1">
       <tag k="addr:housenumber" v="678" />
       <tag k="addr:street" v="Spring Street" />
@@ -11291,13 +11284,6 @@
     </node>
     <node id="-1791520" lat="43.6633368994687" lon="-70.3730982338611" version="1">
       <tag k="addr:housenumber" v="85" />
-      <tag k="addr:street" v="Eisenhower Drive" />
-      <tag k="addr:city" v="Westbrook" />
-      <tag k="addr:state" v="ME" />
-      <tag k="addr:postcode" v="04092" />
-    </node>
-    <node id="-1791521" lat="43.6620194750933" lon="-70.3752076330126" version="1">
-      <tag k="addr:housenumber" v="80" />
       <tag k="addr:street" v="Eisenhower Drive" />
       <tag k="addr:city" v="Westbrook" />
       <tag k="addr:state" v="ME" />
@@ -18226,13 +18212,6 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
     </node>
-    <node id="-1821195" lat="43.676705019175" lon="-70.3676903391895" version="1">
-      <tag k="addr:housenumber" v="884" />
-      <tag k="addr:street" v="Main Street" />
-      <tag k="addr:city" v="Westbrook" />
-      <tag k="addr:state" v="ME" />
-      <tag k="addr:postcode" v="04092" />
-    </node>
     <node id="-1821197" lat="43.675511263078" lon="-70.3669995390237" version="1">
       <tag k="addr:housenumber" v="33" />
       <tag k="addr:street" v="Brackett Street" />
@@ -23262,13 +23241,6 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
     </node>
-    <node id="-1828521" lat="43.6790259943308" lon="-70.338967339022" version="1">
-      <tag k="addr:housenumber" v="2" />
-      <tag k="addr:street" v="York Street" />
-      <tag k="addr:city" v="Westbrook" />
-      <tag k="addr:state" v="ME" />
-      <tag k="addr:postcode" v="04092" />
-    </node>
     <node id="-1828564" lat="43.703066662449" lon="-70.3335513158874" version="1">
       <tag k="addr:housenumber" v="6" />
       <tag k="addr:street" v="Crestwood Drive" />
@@ -24818,13 +24790,6 @@
       <tag k="addr:postcode" v="04092" />
       <tag k="building" v="apartments" />
     </node>
-    <node id="-1832133" lat="43.6754746139083" lon="-70.3678050494481" version="1">
-      <tag k="addr:housenumber" v="35" />
-      <tag k="addr:street" v="Cross Street" />
-      <tag k="addr:city" v="Westbrook" />
-      <tag k="addr:state" v="ME" />
-      <tag k="addr:postcode" v="04092" />
-    </node>
     <node id="-1832139" lat="43.6732524098359" lon="-70.3490977281814" version="1">
       <tag k="addr:housenumber" v="35" />
       <tag k="addr:street" v="Libby Avenue" />
@@ -24984,13 +24949,6 @@
     <node id="-1832324" lat="43.7418937229132" lon="-70.3375736221348" version="1">
       <tag k="addr:housenumber" v="95" />
       <tag k="addr:street" v="Presidential Way" />
-      <tag k="addr:city" v="Westbrook" />
-      <tag k="addr:state" v="ME" />
-      <tag k="addr:postcode" v="04092" />
-    </node>
-    <node id="-1832328" lat="43.6774668374692" lon="-70.3337036647379" version="1">
-      <tag k="addr:housenumber" v="99" />
-      <tag k="addr:street" v="Larrabee Road" />
       <tag k="addr:city" v="Westbrook" />
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
@@ -35049,13 +35007,6 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
     </node>
-    <node id="-1882904" lat="43.6772428800892" lon="-70.3667597297929" version="1">
-      <tag k="addr:housenumber" v="11" />
-      <tag k="addr:street" v="Vallee Square" />
-      <tag k="addr:city" v="Westbrook" />
-      <tag k="addr:state" v="ME" />
-      <tag k="addr:postcode" v="04092" />
-    </node>
     <node id="-1882905" lat="43.6879586590807" lon="-70.3617607530816" version="1">
       <tag k="addr:housenumber" v="368" />
       <tag k="addr:street" v="Bridge Street" />
@@ -38788,13 +38739,6 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
     </node>
-    <node id="-1895157" lat="43.6517938877303" lon="-70.3527093374586" version="1">
-      <tag k="addr:housenumber" v="1" />
-      <tag k="addr:street" v="Acadia Common" />
-      <tag k="addr:city" v="Westbrook" />
-      <tag k="addr:state" v="ME" />
-      <tag k="addr:postcode" v="04092" />
-    </node>
     <node id="-1899086" lat="43.7311618776841" lon="-70.3455670360213" version="1">
       <tag k="addr:housenumber" v="938" />
       <tag k="addr:street" v="Bridgton Road" />
@@ -40541,13 +40485,6 @@
       <tag k="addr:postcode" v="04092" />
       <tag k="building" v="apartments" />
     </node>
-    <node id="-2044773" lat="43.6771565237664" lon="-70.361925781449" version="1">
-      <tag k="addr:housenumber" v="10" />
-      <tag k="addr:street" v="Foster Street" />
-      <tag k="addr:city" v="Westbrook" />
-      <tag k="addr:state" v="ME" />
-      <tag k="addr:postcode" v="04092" />
-    </node>
     <node id="-2044774" lat="43.6779702702872" lon="-70.3620186248513" version="1">
       <tag k="addr:housenumber" v="31" />
       <tag k="addr:street" v="Foster Street" />
@@ -41710,13 +41647,6 @@
     </node>
     <node id="-2050626" lat="43.6762590960333" lon="-70.3662039628777" version="1">
       <tag k="addr:housenumber" v="2" />
-      <tag k="addr:street" v="Westbrook Common" />
-      <tag k="addr:city" v="Westbrook" />
-      <tag k="addr:state" v="ME" />
-      <tag k="addr:postcode" v="04092" />
-    </node>
-    <node id="-2050627" lat="43.6763434018459" lon="-70.3666834857401" version="1">
-      <tag k="addr:housenumber" v="3" />
       <tag k="addr:street" v="Westbrook Common" />
       <tag k="addr:city" v="Westbrook" />
       <tag k="addr:state" v="ME" />
@@ -48285,6 +48215,30 @@
       <tag k="second_hand" v="yes" />
       <tag k="shop" v="car" />
     </way>
+    <way id="743441523" user="vorpalblade" uid="2078753" visible="true" version="2" changeset="76830966" timestamp="2019-11-08T21:28:15Z">
+      <nd ref="6958746479" />
+      <nd ref="6958746478" />
+      <nd ref="6958746471" />
+      <nd ref="6958746467" />
+      <nd ref="6958746466" />
+      <nd ref="6958746470" />
+      <nd ref="6958746468" />
+      <nd ref="6958746469" />
+      <nd ref="6958746477" />
+      <nd ref="6958746472" />
+      <nd ref="6958746473" />
+      <nd ref="6958746474" />
+      <nd ref="6958746475" />
+      <nd ref="6958746476" />
+      <nd ref="6958746479" />
+      <tag k="addr:housenumber" v="200" />
+      <tag k="addr:street" v="Spring Street" />
+      <tag k="building" v="detached" />
+      <tag k="roof:shape" v="gabled" />
+      <tag k="addr:city" v="Westbrook" />
+      <tag k="addr:state" v="ME" />
+      <tag k="addr:postcode" v="04092" />
+    </way>
     <way id="130716291" user="emulsi" uid="235413" visible="true" version="2" changeset="9356767" timestamp="2011-09-21T01:05:56Z">
       <nd ref="1438934776" />
       <nd ref="1438934659" />
@@ -49015,6 +48969,40 @@
       <tag k="addr:street" v="Delta Drive" />
       <tag k="addr:city" v="Westbrook" />
       <tag k="addr:state" v="ME" />
+      <tag k="addr:postcode" v="04092" />
+    </way>
+    <way id="466308422" user="Bkissin" uid="506275" visible="true" version="3" changeset="72312400" timestamp="2019-07-16T15:52:36Z">
+      <nd ref="367794949" />
+      <nd ref="4611350952" />
+      <nd ref="4611350953" />
+      <nd ref="4611350954" />
+      <nd ref="4611350955" />
+      <nd ref="4611350956" />
+      <nd ref="4611350957" />
+      <nd ref="4611350958" />
+      <nd ref="4611350959" />
+      <nd ref="4611350960" />
+      <nd ref="4611350961" />
+      <nd ref="4611350962" />
+      <nd ref="4611350963" />
+      <nd ref="4611350964" />
+      <nd ref="367794949" />
+      <tag k="addr:state" v="ME" />
+      <tag k="amenity" v="townhall" />
+      <tag k="building" v="yes" />
+      <tag k="ele" v="24" />
+      <tag k="gnis:county_name" v="Cumberland" />
+      <tag k="gnis:feature_id" v="1913142" />
+      <tag k="gnis:import_uuid" v="57871b70-0100-4405-bb30-88b2e001a944" />
+      <tag k="gnis:reviewed" v="no" />
+      <tag k="name" v="Westbrook Town Hall" />
+      <tag k="opening_hours" v="Mo-Fr 08:30-17:00; PH closed" />
+      <tag k="phone" v="+1-207-854-9105" />
+      <tag k="source" v="USGS Geonames" />
+      <tag k="website" v="https://www.westbrookmaine.com/" />
+      <tag k="addr:housenumber" v="2" />
+      <tag k="addr:street" v="York Street" />
+      <tag k="addr:city" v="Westbrook" />
       <tag k="addr:postcode" v="04092" />
     </way>
     <way id="466309090" user="Юкатан" uid="3885962" visible="true" version="2" changeset="45208373" timestamp="2017-01-16T07:21:18Z">

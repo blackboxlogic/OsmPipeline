@@ -11,16 +11,19 @@
                 "warehouse": {},
             },
             "residential": {
-                "apartments": {},
-                "detached": {},
-                "duplex": {},
-                "static_caravan": {},
-                "house": {},
-                "hut": {},
-                "semidetached_house": {},
-                "semi": {},
-                "cabin": {},
-                "dormitory": {}
+                "house": {
+                    "apartments": {
+                        "duplex": {},
+                        "dormitory": {}
+                    },
+                    "detached": {
+                        "semidetached_house": {},
+                        "semi": {}
+                    },
+                    "static_caravan": {},
+                    "hut": {},
+                    "cabin": {}
+                }
             },
             "civic": {
                 "school": {

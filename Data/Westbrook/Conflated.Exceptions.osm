@@ -7,7 +7,7 @@
     <tag k="addr:state" v="ME" />
     <tag k="addr:postcode" v="04092" />
     <tag k="maineE911id" v="1641342" />
-    <tag k="exception" v="Matched, but too far: 35 meters.&#xA;	node/6558957758" />
+    <tag k="maineE911id:exception" v="Matched, but too far: 35 meters.&#xA;	node/6558957758" />
   </node>
   <node id="-1752929" lat="43.6803204975289" lon="-70.3653966795286" version="1">
     <tag k="name" v="Building 2" />
@@ -18,7 +18,7 @@
     <tag k="addr:postcode" v="04092" />
     <tag k="maineE911id" v="1752929" />
     <tag k="building" v="apartments" />
-    <tag k="exception" v="A tag conflict!&#xA;	node/6800847005.name=Hyacinth Place&#xA;	node/-1752929.name=Building 2" />
+    <tag k="maineE911id:conflict" v="&#xA;	node/6800847005.name=Hyacinth Place&#xA;	node/-1752929.name=Building 2" />
   </node>
   <node id="-1752930" lat="43.6807473998445" lon="-70.3654621911796" version="1">
     <tag k="name" v="Building 3" />
@@ -29,7 +29,7 @@
     <tag k="addr:postcode" v="04092" />
     <tag k="maineE911id" v="1752930" />
     <tag k="building" v="apartments" />
-    <tag k="exception" v="Matched, but too far: 41 meters.&#xA;	node/6800847005" />
+    <tag k="maineE911id:exception" v="Matched, but too far: 41 meters.&#xA;	node/6800847005" />
   </node>
   <node id="-2050877" lat="43.6777367577525" lon="-70.3581861718153" version="1">
     <tag k="addr:housenumber" v="672" />
@@ -39,7 +39,7 @@
     <tag k="addr:postcode" v="04092" />
     <tag k="building" v="commercial" />
     <tag k="maineE911id" v="2050877;2050878;2050879;2050880;1808108;2050876" />
-    <tag k="exception" v="Multiple matches!&#xA;	node/6557966132&#xA;	node/6558754761" />
+    <tag k="maineE911id:exception" v="Multiple matches!&#xA;	node/6557966132&#xA;	node/6558754761" />
   </node>
   <node id="-1829253" lat="43.6790429420669" lon="-70.3539603795444" version="1">
     <tag k="name" v="Westbrook Fire and Rescue Station 1" />
@@ -50,7 +50,7 @@
     <tag k="addr:postcode" v="04092" />
     <tag k="maineE911id" v="1829253" />
     <tag k="amenity" v="fire_station" />
-    <tag k="exception" v="Multiple matches!&#xA;	way/421324983&#xA;	way/421324984" />
+    <tag k="maineE911id:exception" v="Multiple matches!&#xA;	way/421324983&#xA;	way/421324984" />
   </node>
   <node id="-2052977" lat="43.678917876087" lon="-70.3538769278315" version="1">
     <tag k="name" v="Westbrook Fire and Rescue Station 1" />
@@ -61,7 +61,7 @@
     <tag k="addr:postcode" v="04092" />
     <tag k="maineE911id" v="2052977" />
     <tag k="emergency" v="ambulance_station" />
-    <tag k="exception" v="Multiple matches!&#xA;	way/421324983&#xA;	way/421324984" />
+    <tag k="maineE911id:exception" v="Multiple matches!&#xA;	way/421324983&#xA;	way/421324984" />
   </node>
   <node id="-2053902" lat="43.6792173692859" lon="-70.3540573479036" version="1">
     <tag k="name" v="Westbrook Police Department" />
@@ -72,7 +72,7 @@
     <tag k="addr:postcode" v="04092" />
     <tag k="maineE911id" v="2053902" />
     <tag k="emergency" v="psap" />
-    <tag k="exception" v="Multiple matches!&#xA;	way/421324983&#xA;	way/421324984" />
+    <tag k="maineE911id:exception" v="Multiple matches!&#xA;	way/421324983&#xA;	way/421324984" />
   </node>
   <node id="-2053903" lat="43.6793150440222" lon="-70.3537928144719" version="1">
     <tag k="name" v="Westbrook Police Department" />
@@ -83,7 +83,7 @@
     <tag k="addr:postcode" v="04092" />
     <tag k="maineE911id" v="2053903" />
     <tag k="amenity" v="police" />
-    <tag k="exception" v="Multiple matches!&#xA;	way/421324983&#xA;	way/421324984" />
+    <tag k="maineE911id:exception" v="Multiple matches!&#xA;	way/421324983&#xA;	way/421324984" />
   </node>
   <node id="-1838070" lat="43.6859384656691" lon="-70.3384138874653" version="1">
     <tag k="addr:housenumber" v="95" />
@@ -92,7 +92,7 @@
     <tag k="addr:state" v="ME" />
     <tag k="addr:postcode" v="04092" />
     <tag k="maineE911id" v="1838070" />
-    <tag k="exception" v="Matched, but too far: 89 meters.&#xA;	node/585386382" />
+    <tag k="maineE911id:exception" v="Matched, but too far: 89 meters.&#xA;	node/585386382" />
   </node>
   <node id="-2043087" lat="43.6796364210182" lon="-70.3683896496628" version="1">
     <tag k="addr:housenumber" v="87" />
@@ -102,7 +102,7 @@
     <tag k="addr:postcode" v="04092" />
     <tag k="building" v="apartments" />
     <tag k="maineE911id" v="2043087;2043088;2043089;2043090;2043091;2043092;2043093;2043094;2043085;2043086" />
-    <tag k="exception" v="Matched, but too far: 57 meters.&#xA;	node/358212445" />
+    <tag k="maineE911id:exception" v="Matched, but too far: 57 meters.&#xA;	node/358212445" />
   </node>
   <node id="-2097293" lat="43.676899455972" lon="-70.3710008387711" version="1">
     <tag k="name" v="Convenient MD" />
@@ -113,16 +113,87 @@
     <tag k="addr:postcode" v="04092" />
     <tag k="maineE911id" v="2097293" />
     <tag k="amenity" v="healthcare" />
-    <tag k="exception" v="A tag conflict!&#xA;	way/698380877.name=ConvenientMD Urgent Care&#xA;	node/-2097293.name=Convenient MD" />
+    <tag k="maineE911id:conflict" v="&#xA;	way/698380877.name=ConvenientMD Urgent Care&#xA;	node/-2097293.name=Convenient MD;&#xA;	way/698380877.amenity=clinic&#xA;	node/-2097293.amenity=healthcare" />
   </node>
-  <node id="-2549195" lat="43.6693116725974" lon="-70.3598629456249" version="1">
-    <tag k="addr:housenumber" v="200" />
+  <node id="-1882904" lat="43.6772428800892" lon="-70.3667597297929" version="1">
+    <tag k="addr:housenumber" v="11" />
+    <tag k="addr:street" v="Vallee Square" />
+    <tag k="addr:city" v="Westbrook" />
+    <tag k="addr:state" v="ME" />
+    <tag k="addr:postcode" v="04092" />
+    <tag k="maineE911id" v="1882904" />
+    <tag k="maineE911id:conflict" v="&#xA;	way/421317254.addr:street=Bridge Street&#xA;	node/-1882904.addr:street=Vallee Square" />
+  </node>
+  <node id="-1821195" lat="43.676705019175" lon="-70.3676903391895" version="1">
+    <tag k="addr:housenumber" v="884" />
+    <tag k="addr:street" v="Main Street" />
+    <tag k="addr:city" v="Westbrook" />
+    <tag k="addr:state" v="ME" />
+    <tag k="addr:postcode" v="04092" />
+    <tag k="maineE911id" v="1821195" />
+    <tag k="maineE911id:conflict" v="&#xA;	way/421317255.addr:housenumber=880&#xA;	node/-1821195.addr:housenumber=884" />
+  </node>
+  <node id="-1895157" lat="43.6517938877303" lon="-70.3527093374586" version="1">
+    <tag k="addr:housenumber" v="1" />
+    <tag k="addr:street" v="Acadia Common" />
+    <tag k="addr:city" v="Westbrook" />
+    <tag k="addr:state" v="ME" />
+    <tag k="addr:postcode" v="04092" />
+    <tag k="maineE911id" v="1895157" />
+    <tag k="maineE911id:conflict" v="&#xA;	way/428010343.addr:housenumber=250&#xA;	node/-1895157.addr:housenumber=1;&#xA;	way/428010343.addr:street=County Road&#xA;	node/-1895157.addr:street=Acadia Common" />
+  </node>
+  <node id="-1832133" lat="43.6754746139083" lon="-70.3678050494481" version="1">
+    <tag k="addr:housenumber" v="35" />
+    <tag k="addr:street" v="Cross Street" />
+    <tag k="addr:city" v="Westbrook" />
+    <tag k="addr:state" v="ME" />
+    <tag k="addr:postcode" v="04092" />
+    <tag k="maineE911id" v="1832133" />
+    <tag k="maineE911id:conflict" v="&#xA;	way/428057580.addr:housenumber=30&#xA;	node/-1832133.addr:housenumber=35;&#xA;	way/428057580.addr:street=Central Street&#xA;	node/-1832133.addr:street=Cross Street" />
+  </node>
+  <node id="-2050627" lat="43.6763434018459" lon="-70.3666834857401" version="1">
+    <tag k="addr:housenumber" v="3" />
+    <tag k="addr:street" v="Westbrook Common" />
+    <tag k="addr:city" v="Westbrook" />
+    <tag k="addr:state" v="ME" />
+    <tag k="addr:postcode" v="04092" />
+    <tag k="maineE911id" v="2050627" />
+    <tag k="maineE911id:conflict" v="&#xA;	way/428228452.addr:housenumber=1&#xA;	node/-2050627.addr:housenumber=3" />
+  </node>
+  <node id="-1791521" lat="43.6620194750933" lon="-70.3752076330126" version="1">
+    <tag k="addr:housenumber" v="80" />
+    <tag k="addr:street" v="Eisenhower Drive" />
+    <tag k="addr:city" v="Westbrook" />
+    <tag k="addr:state" v="ME" />
+    <tag k="addr:postcode" v="04092" />
+    <tag k="maineE911id" v="1791521" />
+    <tag k="maineE911id:conflict" v="&#xA;	way/456245625.addr:housenumber=1&#xA;	node/-1791521.addr:housenumber=80;&#xA;	way/456245625.addr:street=Idexx Drive&#xA;	node/-1791521.addr:street=Eisenhower Drive" />
+  </node>
+  <node id="-2044773" lat="43.6771565237664" lon="-70.361925781449" version="1">
+    <tag k="addr:housenumber" v="10" />
+    <tag k="addr:street" v="Foster Street" />
+    <tag k="addr:city" v="Westbrook" />
+    <tag k="addr:state" v="ME" />
+    <tag k="addr:postcode" v="04092" />
+    <tag k="maineE911id" v="2044773" />
+    <tag k="maineE911id:conflict" v="&#xA;	way/463040243.addr:housenumber=755&#xA;	node/-2044773.addr:housenumber=10;&#xA;	way/463040243.addr:street=Main Street&#xA;	node/-2044773.addr:street=Foster Street" />
+  </node>
+  <node id="-1832328" lat="43.6774668374692" lon="-70.3337036647379" version="1">
+    <tag k="addr:housenumber" v="99" />
+    <tag k="addr:street" v="Larrabee Road" />
+    <tag k="addr:city" v="Westbrook" />
+    <tag k="addr:state" v="ME" />
+    <tag k="addr:postcode" v="04092" />
+    <tag k="maineE911id" v="1832328" />
+    <tag k="maineE911id:conflict" v="&#xA;	way/650241171.addr:housenumber=95&#xA;	node/-1832328.addr:housenumber=99" />
+  </node>
+  <node id="-1771511" lat="43.6558561693504" lon="-70.3578974452791" version="1">
+    <tag k="addr:housenumber" v="750" />
     <tag k="addr:street" v="Spring Street" />
     <tag k="addr:city" v="Westbrook" />
     <tag k="addr:state" v="ME" />
     <tag k="addr:postcode" v="04092" />
-    <tag k="maineE911id" v="2549195" />
-    <tag k="building" v="detached" />
-    <tag k="exception" v="A tag conflict!&#xA;	way/743441523.building=house&#xA;	node/-2549195.building=detached" />
+    <tag k="maineE911id" v="1771511" />
+    <tag k="maineE911id:conflict" v="&#xA;	way/743435856.addr:housenumber=700&#xA;	node/-1771511.addr:housenumber=750" />
   </node>
 </osm>

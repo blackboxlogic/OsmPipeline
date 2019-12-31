@@ -11593,14 +11593,6 @@
     <tag k="addr:postcode" v="04092" />
     <tag k="maineE911id" v="1771509" />
   </node>
-  <node id="-1771511" lat="43.6558561693504" lon="-70.3578974452791" version="1">
-    <tag k="addr:housenumber" v="750" />
-    <tag k="addr:street" v="Spring Street" />
-    <tag k="addr:city" v="Westbrook" />
-    <tag k="addr:state" v="ME" />
-    <tag k="addr:postcode" v="04092" />
-    <tag k="maineE911id" v="1771511" />
-  </node>
   <node id="-1771512" lat="43.6563064190879" lon="-70.3601646338121" version="1">
     <tag k="addr:housenumber" v="678" />
     <tag k="addr:street" v="Spring Street" />
@@ -12841,14 +12833,6 @@
     <tag k="addr:state" v="ME" />
     <tag k="addr:postcode" v="04092" />
     <tag k="maineE911id" v="1791520" />
-  </node>
-  <node id="-1791521" lat="43.6620194750933" lon="-70.3752076330126" version="1">
-    <tag k="addr:housenumber" v="80" />
-    <tag k="addr:street" v="Eisenhower Drive" />
-    <tag k="addr:city" v="Westbrook" />
-    <tag k="addr:state" v="ME" />
-    <tag k="addr:postcode" v="04092" />
-    <tag k="maineE911id" v="1791521" />
   </node>
   <node id="-1791522" lat="43.6624246026189" lon="-70.37146510206" version="1">
     <tag k="addr:housenumber" v="75" />
@@ -20750,14 +20734,6 @@
     <tag k="addr:postcode" v="04092" />
     <tag k="maineE911id" v="1821193" />
   </node>
-  <node id="-1821195" lat="43.676705019175" lon="-70.3676903391895" version="1">
-    <tag k="addr:housenumber" v="884" />
-    <tag k="addr:street" v="Main Street" />
-    <tag k="addr:city" v="Westbrook" />
-    <tag k="addr:state" v="ME" />
-    <tag k="addr:postcode" v="04092" />
-    <tag k="maineE911id" v="1821195" />
-  </node>
   <node id="-1821197" lat="43.675511263078" lon="-70.3669995390237" version="1">
     <tag k="addr:housenumber" v="33" />
     <tag k="addr:street" v="Brackett Street" />
@@ -26500,14 +26476,6 @@
     <tag k="addr:postcode" v="04092" />
     <tag k="maineE911id" v="1828517" />
   </node>
-  <node id="-1828521" lat="43.6790259943308" lon="-70.338967339022" version="1">
-    <tag k="addr:housenumber" v="2" />
-    <tag k="addr:street" v="York Street" />
-    <tag k="addr:city" v="Westbrook" />
-    <tag k="addr:state" v="ME" />
-    <tag k="addr:postcode" v="04092" />
-    <tag k="maineE911id" v="1828521" />
-  </node>
   <node id="-1828564" lat="43.703066662449" lon="-70.3335513158874" version="1">
     <tag k="addr:housenumber" v="6" />
     <tag k="addr:street" v="Crestwood Drive" />
@@ -28270,14 +28238,6 @@
     <tag k="building" v="apartments" />
     <tag k="maineE911id" v="2051071;2051072;2051073;1832129;2051070" />
   </node>
-  <node id="-1832133" lat="43.6754746139083" lon="-70.3678050494481" version="1">
-    <tag k="addr:housenumber" v="35" />
-    <tag k="addr:street" v="Cross Street" />
-    <tag k="addr:city" v="Westbrook" />
-    <tag k="addr:state" v="ME" />
-    <tag k="addr:postcode" v="04092" />
-    <tag k="maineE911id" v="1832133" />
-  </node>
   <node id="-1832139" lat="43.6732524098359" lon="-70.3490977281814" version="1">
     <tag k="addr:housenumber" v="35" />
     <tag k="addr:street" v="Libby Avenue" />
@@ -28463,14 +28423,6 @@
     <tag k="addr:state" v="ME" />
     <tag k="addr:postcode" v="04092" />
     <tag k="maineE911id" v="1832324" />
-  </node>
-  <node id="-1832328" lat="43.6774668374692" lon="-70.3337036647379" version="1">
-    <tag k="addr:housenumber" v="99" />
-    <tag k="addr:street" v="Larrabee Road" />
-    <tag k="addr:city" v="Westbrook" />
-    <tag k="addr:state" v="ME" />
-    <tag k="addr:postcode" v="04092" />
-    <tag k="maineE911id" v="1832328" />
   </node>
   <node id="-1832342" lat="43.6727377258227" lon="-70.3677800912865" version="1">
     <tag k="addr:housenumber" v="113" />
@@ -39931,14 +39883,6 @@
     <tag k="addr:postcode" v="04092" />
     <tag k="maineE911id" v="1882901" />
   </node>
-  <node id="-1882904" lat="43.6772428800892" lon="-70.3667597297929" version="1">
-    <tag k="addr:housenumber" v="11" />
-    <tag k="addr:street" v="Vallee Square" />
-    <tag k="addr:city" v="Westbrook" />
-    <tag k="addr:state" v="ME" />
-    <tag k="addr:postcode" v="04092" />
-    <tag k="maineE911id" v="1882904" />
-  </node>
   <node id="-1882905" lat="43.6879586590807" lon="-70.3617607530816" version="1">
     <tag k="addr:housenumber" v="368" />
     <tag k="addr:street" v="Bridge Street" />
@@ -44196,14 +44140,6 @@
     <tag k="addr:postcode" v="04092" />
     <tag k="maineE911id" v="1893864" />
   </node>
-  <node id="-1895157" lat="43.6517938877303" lon="-70.3527093374586" version="1">
-    <tag k="addr:housenumber" v="1" />
-    <tag k="addr:street" v="Acadia Common" />
-    <tag k="addr:city" v="Westbrook" />
-    <tag k="addr:state" v="ME" />
-    <tag k="addr:postcode" v="04092" />
-    <tag k="maineE911id" v="1895157" />
-  </node>
   <node id="-1899086" lat="43.7311618776841" lon="-70.3455670360213" version="1">
     <tag k="addr:housenumber" v="938" />
     <tag k="addr:street" v="Bridgton Road" />
@@ -46179,14 +46115,6 @@
     <tag k="building" v="apartments" />
     <tag k="maineE911id" v="2044771;2044772" />
   </node>
-  <node id="-2044773" lat="43.6771565237664" lon="-70.361925781449" version="1">
-    <tag k="addr:housenumber" v="10" />
-    <tag k="addr:street" v="Foster Street" />
-    <tag k="addr:city" v="Westbrook" />
-    <tag k="addr:state" v="ME" />
-    <tag k="addr:postcode" v="04092" />
-    <tag k="maineE911id" v="2044773" />
-  </node>
   <node id="-2044774" lat="43.6779702702872" lon="-70.3620186248513" version="1">
     <tag k="addr:housenumber" v="31" />
     <tag k="addr:street" v="Foster Street" />
@@ -47513,14 +47441,6 @@
     <tag k="addr:state" v="ME" />
     <tag k="addr:postcode" v="04092" />
     <tag k="maineE911id" v="2050626" />
-  </node>
-  <node id="-2050627" lat="43.6763434018459" lon="-70.3666834857401" version="1">
-    <tag k="addr:housenumber" v="3" />
-    <tag k="addr:street" v="Westbrook Common" />
-    <tag k="addr:city" v="Westbrook" />
-    <tag k="addr:state" v="ME" />
-    <tag k="addr:postcode" v="04092" />
-    <tag k="maineE911id" v="2050627" />
   </node>
   <node id="-2050628" lat="43.6761777122625" lon="-70.3662331296551" version="1">
     <tag k="addr:housenumber" v="4" />

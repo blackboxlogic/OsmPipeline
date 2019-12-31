@@ -57,12 +57,7 @@ namespace OsmPipeline
 		{
 			foreach (var element in elements)
 			{
-				element.Tags.RemoveKey(Static.maineE911id);
-				element.Tags.RemoveKey(Static.maineE911id + ":moved");
-				foreach (var tag in element.Tags.Where(t => t.Value.Contains(Static.maineE911id + ":")).ToArray())
-				{
-					element.Tags.AddOrReplace(tag.Key, tag.Value.Split(Static.maineE911id + ":")[1]);
-				}
+				element.Tags.RemoveAll(tag => tag.Key.StartsWith(Static.maineE911id));
 			}
 		}
 
@@ -91,7 +86,7 @@ namespace OsmPipeline
 			{
 				if (referenceElement.Tags["addr:housenumber"] == "0") // indicates there was a missing address.
 				{
-					referenceElement.Tags.AddOrAppend("exception", "Missing house number!");
+					referenceElement.Tags.AddOrAppend(Static.maineE911id + ":exception", "Missing house number!");
 					exceptions.Add(referenceElement);
 					continue;
 				}
@@ -102,7 +97,7 @@ namespace OsmPipeline
 					if (targetSubjectElements.Length > 1)
 					{
 						// Could try to auto resolve multi-matches by checking tag conflicts or if I'm IN one of them.
-						referenceElement.Tags.AddOrAppend("exception", "Multiple matches!" + Identify(targetSubjectElements));
+						referenceElement.Tags.AddOrAppend(Static.maineE911id + ":exception", "Multiple matches!" + Identify(targetSubjectElements));
 						exceptions.Add(referenceElement);
 						continue;
 					}
@@ -115,7 +110,7 @@ namespace OsmPipeline
 					if (closestMatch.distance > int.Parse(Static.Config["MatchDistanceKmMaz"])
 						&& !Geometry.IsNodeInBuilding(referenceElement, subjectElement.AsComplete(subjectElementsIndexed)))
 					{
-						referenceElement.Tags.AddOrAppend("exception", $"Matched, but too far: {(int)closestMatch.distance} meters.{Identify(subjectElement)}");
+						referenceElement.Tags.AddOrAppend(Static.maineE911id + ":exception", $"Matched, but too far: {(int)closestMatch.distance} meters.{Identify(subjectElement)}");
 						exceptions.Add(referenceElement);
 						continue;
 					}
@@ -129,7 +124,7 @@ namespace OsmPipeline
 						}
 						catch (Exception e)
 						{
-							referenceElement.Tags.AddOrAppend("exception", e.Message);
+							referenceElement.Tags.AddOrAppend(Static.maineE911id + ":conflict", e.Message);
 							exceptions.Add(referenceElement);
 							continue;
 						}
@@ -153,34 +148,30 @@ namespace OsmPipeline
 		private static void ApplyNodesToBuildings(Dictionary<string, OsmGeo> subjectElementsIndexed,
 			List<OsmGeo> create, List<OsmGeo> modify, List<OsmGeo> exceptions)
 		{
-			var nonAddrCompleteBuildings = subjectElementsIndexed.Values.Where(w => Tags.IsBuilding(w) && !Tags.IsAddressy(w))
+			var buildings = subjectElementsIndexed.Values.Where(w => Tags.IsBuilding(w)) // !Tags.IsAddressy(w)
 				.Select(b => b.AsComplete(subjectElementsIndexed))
 				.ToArray();
-			var addrSubjectNodes = subjectElementsIndexed.Values.OfType<Node>().Where(n => Tags.IsAddressy(n)).ToArray();
-			var completeBuildingsWithOldAddrNodes = Geometry.NodesInCompleteElements(nonAddrCompleteBuildings, addrSubjectNodes);
-			nonAddrCompleteBuildings = nonAddrCompleteBuildings.Where(b => !completeBuildingsWithOldAddrNodes.ContainsKey(b)).ToArray();
-			var completeBuildingsWithNewAddrNodes = Geometry.NodesInCompleteElements(nonAddrCompleteBuildings, create.OfType<Node>().ToArray());
+			var newNodes = create.OfType<Node>().ToArray();
+			var buildingsAndInnerNewNodes = Geometry.NodesInCompleteElements(buildings, newNodes);
 
-			foreach (var completeBuildingToNodes in completeBuildingsWithNewAddrNodes)
+			foreach (var buildingAndInners in buildingsAndInnerNewNodes)
 			{
-				if (completeBuildingToNodes.Value.Length > 1) continue; // multiple matches, leave it alone.
-				var node = completeBuildingToNodes.Value.First();
-				var building = subjectElementsIndexed[completeBuildingToNodes.Key.Type.ToString() + completeBuildingToNodes.Key.Id];
+				if (buildingAndInners.Value.Length > 1) continue; // multiple matches, leave it alone.
+				var node = buildingAndInners.Value.First();
+				var building = subjectElementsIndexed[buildingAndInners.Key.Type.ToString() + buildingAndInners.Key.Id];
 				create.Remove(node);
 
 				try
 				{
 					MergeTags(node, building);
+					building.Version++;
+					modify.Add(building);
 				}
 				catch (Exception e)
 				{
-					node.Tags.AddOrAppend("exception", e.Message);
+					node.Tags.AddOrAppend(Static.maineE911id + ":conflict", e.Message);
 					exceptions.Add(node);
-					continue;
 				}
-
-				building.Version++;
-				modify.Add(building);
 			}
 		}
 
@@ -213,23 +204,25 @@ namespace OsmPipeline
 
 		private static bool MergeTags(OsmGeo reference, OsmGeo subject)
 		{
+			var conflicts = new List<string>();
 			var changed = false;
 
 			foreach (var refTag in reference.Tags)
 			{
-				if (subject.Tags.TryGetValue(refTag.Key, out string subValue))
+				if (refTag.Key.StartsWith(Static.maineE911id))
+				{
+					subject.Tags.AddOrAppend(refTag.Key, refTag.Value);
+				}
+				else if (subject.Tags.TryGetValue(refTag.Key, out string subValue))
 				{
 					if (subValue != refTag.Value)
 					{
-						if (refTag.Key == Static.maineE911id)
-						{
-							subject.Tags.AddOrAppend(refTag.Key, subValue);
-						}
-						else if (TagTree.Keys.ContainsKey(refTag.Key) &&
+						if (TagTree.Keys.ContainsKey(refTag.Key) &&
 							TagTree.Keys[refTag.Key].IsDecendantOf(refTag.Value, subValue))
 						{
 							// Make building tag MORE specific. Marked for easier review.
-							subject.Tags.AddOrReplace(refTag.Key, subValue + ":" + Static.maineE911id + ":" + refTag.Value);
+							subject.Tags[refTag.Key] = refTag.Value;
+							subject.Tags[Static.maineE911id + ":" + refTag.Key] = "changed from: " + subValue;
 							changed = true;
 						}
 						else if (TagTree.Keys.ContainsKey(refTag.Key) &&
@@ -239,20 +232,21 @@ namespace OsmPipeline
 						}
 						else
 						{
-							throw new Exception("A tag conflict!" + Identify(refTag.Key, subject, reference));
+							conflicts.Add(Identify(refTag.Key, subject, reference));
 						}
 					}
-				}
-				else if(refTag.Key == Static.maineE911id)
-				{
-					subject.Tags.Add(refTag);
 				}
 				else
 				{
 					changed = true;
-					// Marking for easier review. Prefix will be removed later.
-					subject.Tags.Add(refTag.Key, Static.maineE911id + ":" + refTag.Value);
+					subject.Tags[refTag.Key] = refTag.Value;
+					subject.Tags[Static.maineE911id + ":" + refTag.Key] = "added";
 				}
+			}
+
+			if (conflicts.Any())
+			{
+				throw new Exception(string.Join(";", conflicts));
 			}
 
 			return changed;
