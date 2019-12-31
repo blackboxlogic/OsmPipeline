@@ -56,7 +56,7 @@ namespace OsmPipeline
 			};
 		}
 
-		public static async Task<DiffResult> UploadChange(OsmChange change, string municipality)
+		public static async Task<long> UploadChange(OsmChange change, string municipality)
 		{
 			Log.LogInformation("Uploading change to OSM");
 			var changeTags = GetCommitTags(municipality);
@@ -66,7 +66,7 @@ namespace OsmPipeline
 			var changeSetId = await osmApiClient.CreateChangeset(changeTags);
 			var diffResult = await osmApiClient.UploadChangeset(changeSetId, change);
 			await osmApiClient.CloseChangeset(changeSetId);
-			return diffResult;
+			return changeSetId;
 		}
 	}
 }

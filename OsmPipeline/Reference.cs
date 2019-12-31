@@ -64,11 +64,11 @@ namespace OsmPipeline
 			Validate(gisFeatures);
 
 			// Fetch the list of objectIDs with known errors to omit.
-			var errorList = FileSerializer.ReadJson<HashSet<int>>("ErrorObjectIDs.json");
+			var errorList = new HashSet<long>(Static.Municipalities[scopeName].ErrorObjectIds);
 			Log.LogInformation("Translating Reference material");
 			// Convert
 			var nodes = gisFeatures
-				.Where(f => !errorList.Contains((int)f.Properties["OBJECTID"]))
+				.Where(f => !errorList.Contains((long)f.Properties["OBJECTID"]))
 				.Select(Convert)
 				.ToArray();
 			var translated = new Osm() { Nodes = nodes, Version = .6 };
