@@ -65,7 +65,8 @@ namespace OsmPipeline.Fittings
 
 		public bool IsDecendantOf(string a, string b)
 		{
-			return Index[a].GetAncestors().Any(n => n.Value == b);
+			return (Index.TryGetValue(a, out var node) || Index.TryGetValue("*", out node))
+				&& node.GetAncestors().Any(n => n.Value == b);
 		}
 
 		private class TreeNode
