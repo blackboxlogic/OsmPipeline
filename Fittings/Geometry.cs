@@ -80,7 +80,7 @@ namespace OsmPipeline.Fittings
 		public static bool IsNodeInBuilding(Node node, ICompleteOsmGeo building)
 		{
 			if (building is Node buildingNode)
-				return node.Latitude == buildingNode.Latitude && node.Longitude == buildingNode.Longitude;
+				return DistanceMeters(node, buildingNode) <= 1;
 			else if (building is CompleteWay buildingWay)
 			{
 				var point = new NetTopologySuite.Geometries.Point(node.Longitude.Value, node.Latitude.Value);
@@ -92,7 +92,7 @@ namespace OsmPipeline.Fittings
 			else if (building is CompleteRelation buildingRelation)
 			{
 				// "in" means that even if I land in the center of a donut, I'm still "in" the building.
-				// This isn't accurate for polygons where the closed outer ring is defined by more than 2 open ways.
+				// This isn't 100% accurate (false negative) for polygons where the closed outer ring is defined by more than 2 open ways.
 				return buildingRelation.Members.Any(m => m.Role != "inner" && IsNodeInBuilding(node, m.Member));
 			}
 			throw new Exception("ICompleteOsmGeo wasn't a Node, Way or Relation.");

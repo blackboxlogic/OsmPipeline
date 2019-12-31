@@ -7,7 +7,7 @@
     <tag k="addr:state" v="ME" />
     <tag k="addr:postcode" v="04092" />
     <tag k="maineE911id" v="1641342" />
-    <tag k="exception" v="Matched, but too far: 35 &gt; 100 meters.&#xA;	node/6558957758" />
+    <tag k="exception" v="Matched, but too far: 35 meters.&#xA;	node/6558957758" />
   </node>
   <node id="-1752929" lat="43.6803204975289" lon="-70.3653966795286" version="1">
     <tag k="name" v="Building 2" />
@@ -29,7 +29,7 @@
     <tag k="addr:postcode" v="04092" />
     <tag k="maineE911id" v="1752930" />
     <tag k="building" v="apartments" />
-    <tag k="exception" v="Matched, but too far: 41 &gt; 100 meters.&#xA;	node/6800847005" />
+    <tag k="exception" v="Matched, but too far: 41 meters.&#xA;	node/6800847005" />
   </node>
   <node id="-2050877" lat="43.6777367577525" lon="-70.3581861718153" version="1">
     <tag k="addr:housenumber" v="672" />
@@ -92,7 +92,7 @@
     <tag k="addr:state" v="ME" />
     <tag k="addr:postcode" v="04092" />
     <tag k="maineE911id" v="1838070" />
-    <tag k="exception" v="Matched, but too far: 89 &gt; 100 meters.&#xA;	node/585386382" />
+    <tag k="exception" v="Matched, but too far: 89 meters.&#xA;	node/585386382" />
   </node>
   <node id="-2043087" lat="43.6796364210182" lon="-70.3683896496628" version="1">
     <tag k="addr:housenumber" v="87" />
@@ -102,7 +102,7 @@
     <tag k="addr:postcode" v="04092" />
     <tag k="building" v="apartments" />
     <tag k="maineE911id" v="2043087;2043088;2043089;2043090;2043091;2043092;2043093;2043094;2043085;2043086" />
-    <tag k="exception" v="Matched, but too far: 57 &gt; 100 meters.&#xA;	node/358212445" />
+    <tag k="exception" v="Matched, but too far: 57 meters.&#xA;	node/358212445" />
   </node>
   <node id="-2097293" lat="43.676899455972" lon="-70.3710008387711" version="1">
     <tag k="name" v="Convenient MD" />
