@@ -45,6 +45,7 @@ namespace OsmPipeline.Fittings
 
 		public static T WriteXml<T>(string fileName, T element) where T : IXmlSerializable
 		{
+			Directory.CreateDirectory(Path.GetDirectoryName(fileName));
 			using (var fileStream = new StreamWriter(fileName, false))
 			{
 				XmlSerializer Serializer = new XmlSerializer(typeof(T));
@@ -73,6 +74,7 @@ namespace OsmPipeline.Fittings
 		// Should be async
 		public static T WriteJson<T>(string fileName, T element)
 		{
+			Directory.CreateDirectory(Path.GetDirectoryName(fileName));
 			var serializer = new JsonSerializer() { Formatting = Formatting.Indented };
 			using (var sw = new StreamWriter(fileName))
 			using (var jsonTextWriter = new JsonTextWriter(sw))
