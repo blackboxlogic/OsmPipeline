@@ -23,15 +23,17 @@ namespace OsmPipeline.Fittings
 			var municipalities = deserialized.Features.ToDictionary(
 				f => (string)f.Attributes["MUNICIPALITY"],
 				f => (long)f.Attributes["mcount"]);
-			return municipalities.ToDictionary(kvp => kvp.Key, kvp => new Municipality() { AddressCount = kvp.Value });
+			return municipalities.ToDictionary(kvp => kvp.Key, kvp => new Municipality() { AddressCount = kvp.Value, Name = kvp.Key });
 		}
 
 		public class Municipality
 		{
+			public string Name;
 			public long AddressCount;
 			public DateTime? ImportDate;
 			public string Notes;
-			public long[] ChangeSetIds;
+			public List<long> ChangeSetIds = new List<long>();
+			public List<long> ErrorObjectIds = new List<long>();
 		}
 
 		public static async Task<FeatureCollection> FetchMunicipality(string municipality, int? limit = null)
