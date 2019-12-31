@@ -159,12 +159,12 @@ namespace OsmPipeline
 				if (buildingAndInners.Value.Length > 1) continue; // multiple matches, leave it alone.
 				var node = buildingAndInners.Value.First();
 				var building = subjectElementsIndexed[buildingAndInners.Key.Type.ToString() + buildingAndInners.Key.Id];
-				create.Remove(node);
 
 				try
 				{
 					MergeTags(node, building);
 					building.Version++;
+					create.Remove(node);
 					modify.Add(building);
 				}
 				catch (Exception e)
