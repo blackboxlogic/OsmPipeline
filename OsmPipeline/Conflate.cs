@@ -32,11 +32,28 @@ namespace OsmPipeline
 			WriteToFileWithChildrenIfAny(scopeName + "/Conflated.Create.osm", create, subjectElementsIndexed);
 			WriteToFileWithChildrenIfAny(scopeName + "/Conflated.Delete.osm", delete, subjectElementsIndexed);
 			WriteToFileWithChildrenIfAny(scopeName + "/Conflated.Modify.osm", modify, subjectElementsIndexed);
+			LogOffset(modify);
 			RemoveReviewTags(create.Concat(modify));
 			var change = Fittings.Translate.GeosToChange(create, modify, delete, "OsmPipeline");
 			LogSummary(change, exceptions);
 
 			return change;
+		}
+
+		private static void LogOffset(IList<OsmGeo> modify)
+		{
+			// Try to detect if the data is geographically shifted
+			var moved = Static.maineE911id + ":moved";
+			var arrowsSummary = modify
+				.Where(m => m.Tags.ContainsKey(moved))
+				.Select(m => m.Tags[moved].Last())
+				.GroupBy(c => c)
+				.ToDictionary(c => c.Key, c => c.Count());
+
+			if (arrowsSummary.Values.Max() + 1 > 10 * arrowsSummary.Values.Min() + 1)
+			{
+				Log.LogWarning("We've detected there might be an offset!");
+			}
 		}
 
 		private static void LogSummary(OsmChange change, IList<OsmGeo> exceptions)

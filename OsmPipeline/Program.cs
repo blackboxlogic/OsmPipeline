@@ -46,13 +46,12 @@ namespace OsmPipeline
 		static async Task ImportAddressesInScope()
 		{
 			// split large municipalites by zip?
-			// calculate offset and warn, or move? by counting arrows
-			// TD R2 WELS?
 			// Or apply these regex on the subject as first part of conflation!
 				// set name = {0} where Highway=* && name like {1}
 				// set addr:street = {0} where addr:street like {1}
 				// Show a regex change layer
 			// Exception when an address references a street that doesn't exist
+			// merge conflict resolution in command line, saving stuff to MaineMunicipalities
 			Static.Municipalities = await FileSerializer.ReadJsonCacheOrSource("MaineMunicipalities.json",
 				GeoJsonAPISource.GetMunicipalities);
 			var municipality = ChooseMunicipality();
