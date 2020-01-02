@@ -6163,6 +6163,26 @@
   <node id="1438934621" lat="43.6780168" lon="-70.3694047" user="emulsi" uid="235413" visible="true" version="1" changeset="9356767" timestamp="2011-09-21T01:05:44Z" />
   <node id="1438934719" lat="43.6780041" lon="-70.3694078" user="emulsi" uid="235413" visible="true" version="1" changeset="9356767" timestamp="2011-09-21T01:05:49Z" />
   <node id="1438934689" lat="43.6778176" lon="-70.3694526" user="emulsi" uid="235413" visible="true" version="1" changeset="9356767" timestamp="2011-09-21T01:05:47Z" />
+  <node id="3651758808" lat="43.6776069" lon="-70.3591286" user="blackboxlogic" uid="9109301" visible="true" version="2" changeset="71420192" timestamp="2019-06-20T00:55:46Z" />
+  <node id="3651758809" lat="43.6775672" lon="-70.359214" user="blackboxlogic" uid="9109301" visible="true" version="2" changeset="71420192" timestamp="2019-06-20T00:55:46Z" />
+  <node id="3651758810" lat="43.6775401" lon="-70.3591899" user="blackboxlogic" uid="9109301" visible="true" version="2" changeset="71420192" timestamp="2019-06-20T00:55:46Z" />
+  <node id="3651758811" lat="43.67753" lon="-70.3592116" user="blackboxlogic" uid="9109301" visible="true" version="2" changeset="71420192" timestamp="2019-06-20T00:55:46Z" />
+  <node id="3651758812" lat="43.6774112" lon="-70.359106" user="blackboxlogic" uid="9109301" visible="true" version="2" changeset="71420192" timestamp="2019-06-20T00:55:46Z" />
+  <node id="3651758813" lat="43.6774398" lon="-70.3590444" user="blackboxlogic" uid="9109301" visible="true" version="2" changeset="71420192" timestamp="2019-06-20T00:55:46Z" />
+  <node id="3651758814" lat="43.6774137" lon="-70.3590211" user="blackboxlogic" uid="9109301" visible="true" version="2" changeset="71420192" timestamp="2019-06-20T00:55:46Z" />
+  <node id="3651758815" lat="43.6774349" lon="-70.3589756" user="blackboxlogic" uid="9109301" visible="true" version="2" changeset="71420192" timestamp="2019-06-20T00:55:46Z" />
+  <node id="3651791091" lat="43.6820494" lon="-70.3496628" user="Юкатан" uid="3885962" visible="true" version="2" changeset="44723280" timestamp="2016-12-28T06:59:34Z" />
+  <node id="3651791092" lat="43.6818238" lon="-70.3499649" user="Юкатан" uid="3885962" visible="true" version="2" changeset="44723280" timestamp="2016-12-28T06:59:34Z" />
+  <node id="3651791093" lat="43.6818344" lon="-70.34998" user="Юкатан" uid="3885962" visible="true" version="2" changeset="44723280" timestamp="2016-12-28T06:59:34Z" />
+  <node id="3651791094" lat="43.6817894" lon="-70.3500403" user="Юкатан" uid="3885962" visible="true" version="2" changeset="44723280" timestamp="2016-12-28T06:59:34Z" />
+  <node id="3651791095" lat="43.6817494" lon="-70.3499832" user="Юкатан" uid="3885962" visible="true" version="2" changeset="44723280" timestamp="2016-12-28T06:59:34Z" />
+  <node id="3651791096" lat="43.6817644" lon="-70.3499632" user="Юкатан" uid="3885962" visible="true" version="2" changeset="44723280" timestamp="2016-12-28T06:59:34Z" />
+  <node id="3651791097" lat="43.6816252" lon="-70.3497646" user="Юкатан" uid="3885962" visible="true" version="2" changeset="44723280" timestamp="2016-12-28T06:59:34Z" />
+  <node id="3651791098" lat="43.6818809" lon="-70.3494222" user="Юкатан" uid="3885962" visible="true" version="2" changeset="44723280" timestamp="2016-12-28T06:59:34Z" />
+  <node id="3651791099" lat="43.6820249" lon="-70.3496278" user="Юкатан" uid="3885962" visible="true" version="2" changeset="44723280" timestamp="2016-12-28T06:59:34Z" />
+  <node id="3651791100" lat="43.6820352" lon="-70.3496141" user="Юкатан" uid="3885962" visible="true" version="2" changeset="44723280" timestamp="2016-12-28T06:59:34Z" />
+  <node id="3651791101" lat="43.6820529" lon="-70.3496393" user="Юкатан" uid="3885962" visible="true" version="2" changeset="44723280" timestamp="2016-12-28T06:59:34Z" />
+  <node id="3651791102" lat="43.6820426" lon="-70.3496531" user="Юкатан" uid="3885962" visible="true" version="2" changeset="44723280" timestamp="2016-12-28T06:59:34Z" />
   <node id="4210958009" lat="43.6786383" lon="-70.3664209" user="blackboxlogic" uid="9109301" visible="true" version="2" changeset="71369343" timestamp="2019-06-18T14:47:47Z" />
   <node id="4210958010" lat="43.678176" lon="-70.3661145" user="blackboxlogic" uid="9109301" visible="true" version="2" changeset="71369343" timestamp="2019-06-18T14:47:47Z" />
   <node id="4210958011" lat="43.6783826" lon="-70.3655184" user="blackboxlogic" uid="9109301" visible="true" version="2" changeset="71369343" timestamp="2019-06-18T14:47:47Z" />
@@ -6176,12 +6196,225 @@
   <node id="4210958016" lat="43.6787037" lon="-70.3664426" user="Bkissin" uid="506275" visible="true" version="1" changeset="39609030" timestamp="2016-05-27T17:12:38Z" />
   <node id="4210958017" lat="43.6786913" lon="-70.3664784" user="blackboxlogic" uid="9109301" visible="true" version="2" changeset="71369343" timestamp="2019-06-18T14:47:47Z" />
   <node id="4210958018" lat="43.678632" lon="-70.3664391" user="blackboxlogic" uid="9109301" visible="true" version="2" changeset="71369343" timestamp="2019-06-18T14:47:47Z" />
+  <node id="358234549" lat="43.6766297" lon="-70.3670956" user="blackboxlogic" uid="9109301" visible="true" version="4" changeset="78388099" timestamp="2019-12-13T18:14:35Z" />
+  <node id="4210958021" lat="43.6764132" lon="-70.3671714" user="Bkissin" uid="506275" visible="true" version="1" changeset="39609030" timestamp="2016-05-27T17:12:38Z" />
+  <node id="4210958022" lat="43.6764088" lon="-70.3671602" user="Bkissin" uid="506275" visible="true" version="1" changeset="39609030" timestamp="2016-05-27T17:12:38Z" />
+  <node id="4210958023" lat="43.6763077" lon="-70.3671951" user="Юкатан" uid="3885962" visible="true" version="2" changeset="44839265" timestamp="2017-01-02T08:21:09Z" />
+  <node id="4210958024" lat="43.6763372" lon="-70.3673585" user="Юкатан" uid="3885962" visible="true" version="2" changeset="44839265" timestamp="2017-01-02T08:21:09Z" />
+  <node id="4210958025" lat="43.6763442" lon="-70.3673561" user="Юкатан" uid="3885962" visible="true" version="2" changeset="44839265" timestamp="2017-01-02T08:21:09Z" />
+  <node id="4210958026" lat="43.6763667" lon="-70.3674808" user="Юкатан" uid="3885962" visible="true" version="2" changeset="44839265" timestamp="2017-01-02T08:21:09Z" />
+  <node id="4210958027" lat="43.6766801" lon="-70.3673729" user="Юкатан" uid="3885962" visible="true" version="2" changeset="44839265" timestamp="2017-01-02T08:21:09Z" />
   <node id="4210958048" lat="43.6768102" lon="-70.3678503" user="Bkissin" uid="506275" visible="true" version="1" changeset="39609030" timestamp="2016-05-27T17:12:38Z" />
   <node id="4210958039" lat="43.6768013" lon="-70.3677781" user="Bkissin" uid="506275" visible="true" version="1" changeset="39609030" timestamp="2016-05-27T17:12:38Z" />
   <node id="4210958038" lat="43.6765845" lon="-70.3678401" user="Bkissin" uid="506275" visible="true" version="1" changeset="39609030" timestamp="2016-05-27T17:12:38Z" />
   <node id="4210958049" lat="43.6765867" lon="-70.3678574" user="Bkissin" uid="506275" visible="true" version="1" changeset="39609030" timestamp="2016-05-27T17:12:38Z" />
   <node id="4210958050" lat="43.6765735" lon="-70.3678635" user="Bkissin" uid="506275" visible="true" version="1" changeset="39609030" timestamp="2016-05-27T17:12:38Z" />
   <node id="4210958051" lat="43.6765815" lon="-70.3679255" user="Bkissin" uid="506275" visible="true" version="1" changeset="39609030" timestamp="2016-05-27T17:12:38Z" />
+  <node id="4210958052" lat="43.6768447" lon="-70.3681826" user="Bkissin" uid="506275" visible="true" version="1" changeset="39609030" timestamp="2016-05-27T17:12:38Z" />
+  <node id="4210958053" lat="43.6768138" lon="-70.3679794" user="Bkissin" uid="506275" visible="true" version="1" changeset="39609030" timestamp="2016-05-27T17:12:38Z" />
+  <node id="4210958054" lat="43.6765499" lon="-70.3680708" user="Bkissin" uid="506275" visible="true" version="1" changeset="39609030" timestamp="2016-05-27T17:12:38Z" />
+  <node id="4210958055" lat="43.6765764" lon="-70.3682599" user="Bkissin" uid="506275" visible="true" version="1" changeset="39609030" timestamp="2016-05-27T17:12:38Z" />
+  <node id="4210958057" lat="43.6768283" lon="-70.3681874" user="Bkissin" uid="506275" visible="true" version="1" changeset="39609030" timestamp="2016-05-27T17:12:38Z" />
+  <node id="4210958056" lat="43.6768469" lon="-70.3683412" user="Bkissin" uid="506275" visible="true" version="1" changeset="39609030" timestamp="2016-05-27T17:12:38Z" />
+  <node id="4210958058" lat="43.676597" lon="-70.3684164" user="Bkissin" uid="506275" visible="true" version="1" changeset="39609030" timestamp="2016-05-27T17:12:38Z" />
+  <node id="4210958059" lat="43.6761513" lon="-70.3636965" user="Юкатан" uid="3885962" visible="true" version="2" changeset="44749439" timestamp="2016-12-29T07:22:43Z" />
+  <node id="4210958060" lat="43.6761694" lon="-70.3636993" user="Юкатан" uid="3885962" visible="true" version="2" changeset="44749439" timestamp="2016-12-29T07:22:43Z" />
+  <node id="4210958061" lat="43.676168" lon="-70.363717" user="Bkissin" uid="506275" visible="true" version="1" changeset="39609030" timestamp="2016-05-27T17:12:38Z" />
+  <node id="4210958062" lat="43.6761753" lon="-70.3637324" user="Bkissin" uid="506275" visible="true" version="1" changeset="39609030" timestamp="2016-05-27T17:12:38Z" />
+  <node id="4210958063" lat="43.6761705" lon="-70.3637519" user="Bkissin" uid="506275" visible="true" version="1" changeset="39609030" timestamp="2016-05-27T17:12:38Z" />
+  <node id="4210958065" lat="43.6761491" lon="-70.363776" user="Bkissin" uid="506275" visible="true" version="1" changeset="39609030" timestamp="2016-05-27T17:12:39Z" />
+  <node id="4210958066" lat="43.6761423" lon="-70.363778" user="Bkissin" uid="506275" visible="true" version="1" changeset="39609030" timestamp="2016-05-27T17:12:39Z" />
+  <node id="4210958067" lat="43.6761415" lon="-70.3637856" user="Юкатан" uid="3885962" visible="true" version="2" changeset="44749439" timestamp="2016-12-29T07:22:43Z" />
+  <node id="4210958068" lat="43.676032" lon="-70.3637638" user="Юкатан" uid="3885962" visible="true" version="2" changeset="44749439" timestamp="2016-12-29T07:22:43Z" />
+  <node id="4210958069" lat="43.6760377" lon="-70.3637092" user="Юкатан" uid="3885962" visible="true" version="2" changeset="44749439" timestamp="2016-12-29T07:22:43Z" />
+  <node id="4210958070" lat="43.6759973" lon="-70.3637011" user="Юкатан" uid="3885962" visible="true" version="2" changeset="44749439" timestamp="2016-12-29T07:22:43Z" />
+  <node id="4210958071" lat="43.6759986" lon="-70.3636889" user="Юкатан" uid="3885962" visible="true" version="2" changeset="44749439" timestamp="2016-12-29T07:22:43Z" />
+  <node id="4210958072" lat="43.6759417" lon="-70.3636774" user="Юкатан" uid="3885962" visible="true" version="2" changeset="44749439" timestamp="2016-12-29T07:22:43Z" />
+  <node id="4210958073" lat="43.675936" lon="-70.3637318" user="Юкатан" uid="3885962" visible="true" version="2" changeset="44749439" timestamp="2016-12-29T07:22:43Z" />
+  <node id="4210958074" lat="43.6758867" lon="-70.3637218" user="Юкатан" uid="3885962" visible="true" version="2" changeset="44749439" timestamp="2016-12-29T07:22:43Z" />
+  <node id="4210958075" lat="43.675885" lon="-70.3637377" user="Юкатан" uid="3885962" visible="true" version="2" changeset="44749439" timestamp="2016-12-29T07:22:43Z" />
+  <node id="4210958076" lat="43.6758176" lon="-70.3637238" user="Юкатан" uid="3885962" visible="true" version="2" changeset="44749439" timestamp="2016-12-29T07:22:43Z" />
+  <node id="4210958077" lat="43.6758195" lon="-70.3637061" user="Юкатан" uid="3885962" visible="true" version="2" changeset="44749439" timestamp="2016-12-29T07:22:43Z" />
+  <node id="4210958078" lat="43.6757538" lon="-70.3636923" user="Юкатан" uid="3885962" visible="true" version="2" changeset="44749439" timestamp="2016-12-29T07:22:43Z" />
+  <node id="4210958079" lat="43.6757511" lon="-70.3637163" user="Юкатан" uid="3885962" visible="true" version="2" changeset="44749439" timestamp="2016-12-29T07:22:43Z" />
+  <node id="4210958080" lat="43.6756805" lon="-70.3637015" user="Юкатан" uid="3885962" visible="true" version="2" changeset="44749439" timestamp="2016-12-29T07:22:43Z" />
+  <node id="4210958081" lat="43.6756894" lon="-70.3636204" user="Bkissin" uid="506275" visible="true" version="1" changeset="39609030" timestamp="2016-05-27T17:12:39Z" />
+  <node id="4210958082" lat="43.6756662" lon="-70.3635782" user="Юкатан" uid="3885962" visible="true" version="2" changeset="44749439" timestamp="2016-12-29T07:22:43Z" />
+  <node id="4210958083" lat="43.6757039" lon="-70.3635386" user="Bkissin" uid="506275" visible="true" version="1" changeset="39609030" timestamp="2016-05-27T17:12:39Z" />
+  <node id="4210958084" lat="43.6757119" lon="-70.363462" user="Юкатан" uid="3885962" visible="true" version="2" changeset="44749439" timestamp="2016-12-29T07:22:43Z" />
+  <node id="4210958085" lat="43.6757773" lon="-70.3634751" user="Юкатан" uid="3885962" visible="true" version="2" changeset="44749439" timestamp="2016-12-29T07:22:43Z" />
+  <node id="4210958086" lat="43.6757739" lon="-70.3635072" user="Юкатан" uid="3885962" visible="true" version="2" changeset="44749439" timestamp="2016-12-29T07:22:43Z" />
+  <node id="4210958087" lat="43.67584" lon="-70.3635204" user="Юкатан" uid="3885962" visible="true" version="2" changeset="44749439" timestamp="2016-12-29T07:22:43Z" />
+  <node id="4210958088" lat="43.6758443" lon="-70.3634794" user="Юкатан" uid="3885962" visible="true" version="2" changeset="44749439" timestamp="2016-12-29T07:22:43Z" />
+  <node id="4210959289" lat="43.6759197" lon="-70.3634945" user="Юкатан" uid="3885962" visible="true" version="2" changeset="44749439" timestamp="2016-12-29T07:22:43Z" />
+  <node id="4210959290" lat="43.675918" lon="-70.3635108" user="Юкатан" uid="3885962" visible="true" version="2" changeset="44749439" timestamp="2016-12-29T07:22:43Z" />
+  <node id="4210959291" lat="43.6759687" lon="-70.3635209" user="Юкатан" uid="3885962" visible="true" version="2" changeset="44749439" timestamp="2016-12-29T07:22:43Z" />
+  <node id="4210959292" lat="43.675962" lon="-70.363585" user="Юкатан" uid="3885962" visible="true" version="2" changeset="44749439" timestamp="2016-12-29T07:22:43Z" />
+  <node id="4210959293" lat="43.6760026" lon="-70.3635931" user="Юкатан" uid="3885962" visible="true" version="2" changeset="44749439" timestamp="2016-12-29T07:22:43Z" />
+  <node id="4210959294" lat="43.6760032" lon="-70.3635869" user="Юкатан" uid="3885962" visible="true" version="2" changeset="44749439" timestamp="2016-12-29T07:22:43Z" />
+  <node id="4210959295" lat="43.6760521" lon="-70.3635966" user="Юкатан" uid="3885962" visible="true" version="2" changeset="44749439" timestamp="2016-12-29T07:22:43Z" />
+  <node id="4210959296" lat="43.6760574" lon="-70.3635452" user="Юкатан" uid="3885962" visible="true" version="2" changeset="44749439" timestamp="2016-12-29T07:22:43Z" />
+  <node id="4210959297" lat="43.6761089" lon="-70.3635554" user="Bkissin" uid="506275" visible="true" version="1" changeset="39609030" timestamp="2016-05-27T17:12:39Z" />
+  <node id="4210959298" lat="43.6761098" lon="-70.3635641" user="Bkissin" uid="506275" visible="true" version="1" changeset="39609030" timestamp="2016-05-27T17:12:39Z" />
+  <node id="4210959300" lat="43.6761554" lon="-70.3635735" user="Bkissin" uid="506275" visible="true" version="1" changeset="39609030" timestamp="2016-05-27T17:12:39Z" />
+  <node id="4210959301" lat="43.6761676" lon="-70.3635869" user="Bkissin" uid="506275" visible="true" version="1" changeset="39609030" timestamp="2016-05-27T17:12:39Z" />
+  <node id="4210959302" lat="43.6761826" lon="-70.3636124" user="Bkissin" uid="506275" visible="true" version="1" changeset="39609030" timestamp="2016-05-27T17:12:39Z" />
+  <node id="4210959304" lat="43.6761816" lon="-70.3636486" user="Bkissin" uid="506275" visible="true" version="1" changeset="39609030" timestamp="2016-05-27T17:12:39Z" />
+  <node id="4210959305" lat="43.6761729" lon="-70.363658" user="Bkissin" uid="506275" visible="true" version="1" changeset="39609030" timestamp="2016-05-27T17:12:39Z" />
+  <node id="4210959307" lat="43.6761547" lon="-70.3636553" user="Юкатан" uid="3885962" visible="true" version="2" changeset="44749439" timestamp="2016-12-29T07:22:43Z" />
+  <node id="367794801" lat="43.6761529" lon="-70.3636771" user="blackboxlogic" uid="9109301" visible="true" version="5" changeset="71648459" timestamp="2019-06-26T18:50:15Z" />
+  <node id="4210959308" lat="43.6760865" lon="-70.3644358" user="Bkissin" uid="506275" visible="true" version="1" changeset="39609030" timestamp="2016-05-27T17:12:39Z" />
+  <node id="4210959309" lat="43.6761086" lon="-70.3642122" user="Bkissin" uid="506275" visible="true" version="1" changeset="39609030" timestamp="2016-05-27T17:12:39Z" />
+  <node id="4210959310" lat="43.6759035" lon="-70.3641736" user="Bkissin" uid="506275" visible="true" version="1" changeset="39609030" timestamp="2016-05-27T17:12:39Z" />
+  <node id="4210959311" lat="43.6759005" lon="-70.3642051" user="Bkissin" uid="506275" visible="true" version="1" changeset="39609030" timestamp="2016-05-27T17:12:39Z" />
+  <node id="4210959312" lat="43.6758667" lon="-70.364195" user="Bkissin" uid="506275" visible="true" version="1" changeset="39609030" timestamp="2016-05-27T17:12:39Z" />
+  <node id="4210959313" lat="43.6758653" lon="-70.3641004" user="Bkissin" uid="506275" visible="true" version="1" changeset="39609030" timestamp="2016-05-27T17:12:39Z" />
+  <node id="4210959314" lat="43.6757734" lon="-70.3640872" user="Bkissin" uid="506275" visible="true" version="1" changeset="39609030" timestamp="2016-05-27T17:12:39Z" />
+  <node id="4210959315" lat="43.6757454" lon="-70.3643251" user="Bkissin" uid="506275" visible="true" version="1" changeset="39609030" timestamp="2016-05-27T17:12:39Z" />
+  <node id="4210959316" lat="43.6756675" lon="-70.3643068" user="Bkissin" uid="506275" visible="true" version="1" changeset="39609030" timestamp="2016-05-27T17:12:39Z" />
+  <node id="4210959317" lat="43.6756638" lon="-70.3643596" user="Bkissin" uid="506275" visible="true" version="1" changeset="39609030" timestamp="2016-05-27T17:12:39Z" />
+  <node id="4210959318" lat="43.6756352" lon="-70.3643505" user="Bkissin" uid="506275" visible="true" version="1" changeset="39609030" timestamp="2016-05-27T17:12:39Z" />
+  <node id="4210959319" lat="43.6756263" lon="-70.3644196" user="Bkissin" uid="506275" visible="true" version="1" changeset="39609030" timestamp="2016-05-27T17:12:39Z" />
+  <node id="4210959320" lat="43.675658" lon="-70.3644236" user="Bkissin" uid="506275" visible="true" version="1" changeset="39609030" timestamp="2016-05-27T17:12:39Z" />
+  <node id="4210959321" lat="43.6756403" lon="-70.3645415" user="Bkissin" uid="506275" visible="true" version="1" changeset="39609030" timestamp="2016-05-27T17:12:39Z" />
+  <node id="4210959322" lat="43.675694" lon="-70.3645517" user="Bkissin" uid="506275" visible="true" version="1" changeset="39609030" timestamp="2016-05-27T17:12:39Z" />
+  <node id="4210959323" lat="43.6756896" lon="-70.3646076" user="Bkissin" uid="506275" visible="true" version="1" changeset="39609030" timestamp="2016-05-27T17:12:39Z" />
+  <node id="4210959324" lat="43.6757976" lon="-70.3646279" user="Bkissin" uid="506275" visible="true" version="1" changeset="39609030" timestamp="2016-05-27T17:12:39Z" />
+  <node id="4210959325" lat="43.6758189" lon="-70.364449" user="Bkissin" uid="506275" visible="true" version="1" changeset="39609030" timestamp="2016-05-27T17:12:39Z" />
+  <node id="4210959326" lat="43.675877" lon="-70.3644623" user="Bkissin" uid="506275" visible="true" version="1" changeset="39609030" timestamp="2016-05-27T17:12:39Z" />
+  <node id="4210959327" lat="43.6758851" lon="-70.3643891" user="Bkissin" uid="506275" visible="true" version="1" changeset="39609030" timestamp="2016-05-27T17:12:40Z" />
+  <node id="4211031931" lat="43.6788981" lon="-70.355016" user="blackboxlogic" uid="9109301" visible="true" version="3" changeset="71423776" timestamp="2019-06-20T03:48:05Z" />
+  <node id="4211031932" lat="43.6789259" lon="-70.354911" user="blackboxlogic" uid="9109301" visible="true" version="3" changeset="71423776" timestamp="2019-06-20T03:48:05Z" />
+  <node id="4211031933" lat="43.678842" lon="-70.3548686" user="blackboxlogic" uid="9109301" visible="true" version="3" changeset="71423776" timestamp="2019-06-20T03:48:05Z" />
+  <node id="4211031934" lat="43.6788379" lon="-70.3548842" user="blackboxlogic" uid="9109301" visible="true" version="3" changeset="71423776" timestamp="2019-06-20T03:48:05Z" />
+  <node id="4211031935" lat="43.6787607" lon="-70.3548451" user="blackboxlogic" uid="9109301" visible="true" version="3" changeset="71423776" timestamp="2019-06-20T03:48:05Z" />
+  <node id="4211031936" lat="43.6787704" lon="-70.3548084" user="blackboxlogic" uid="9109301" visible="true" version="3" changeset="71423776" timestamp="2019-06-20T03:48:05Z" />
+  <node id="4211031937" lat="43.6787335" lon="-70.3547898" user="blackboxlogic" uid="9109301" visible="true" version="3" changeset="71423776" timestamp="2019-06-20T03:48:05Z" />
+  <node id="4211031938" lat="43.6787261" lon="-70.3548178" user="blackboxlogic" uid="9109301" visible="true" version="3" changeset="71423776" timestamp="2019-06-20T03:48:05Z" />
+  <node id="4211031939" lat="43.678649" lon="-70.3547789" user="blackboxlogic" uid="9109301" visible="true" version="3" changeset="71423776" timestamp="2019-06-20T03:48:05Z" />
+  <node id="4211031940" lat="43.6786187" lon="-70.3548932" user="blackboxlogic" uid="9109301" visible="true" version="3" changeset="71423776" timestamp="2019-06-20T03:48:05Z" />
+  <node id="4211031941" lat="43.6788077" lon="-70.3549887" user="blackboxlogic" uid="9109301" visible="true" version="3" changeset="71423776" timestamp="2019-06-20T03:48:05Z" />
+  <node id="4211031942" lat="43.6787688" lon="-70.3551359" user="blackboxlogic" uid="9109301" visible="true" version="3" changeset="71423776" timestamp="2019-06-20T03:48:05Z" />
+  <node id="4211031943" lat="43.6788557" lon="-70.3551798" user="blackboxlogic" uid="9109301" visible="true" version="3" changeset="71423776" timestamp="2019-06-20T03:48:05Z" />
+  <node id="4211031944" lat="43.6788832" lon="-70.3550759" user="blackboxlogic" uid="9109301" visible="true" version="3" changeset="71423776" timestamp="2019-06-20T03:48:05Z" />
+  <node id="4211031945" lat="43.6788974" lon="-70.3550831" user="blackboxlogic" uid="9109301" visible="true" version="3" changeset="71423776" timestamp="2019-06-20T03:48:05Z" />
+  <node id="4211031946" lat="43.6789132" lon="-70.3550236" user="blackboxlogic" uid="9109301" visible="true" version="3" changeset="71423776" timestamp="2019-06-20T03:48:05Z" />
+  <node id="4211031947" lat="43.6788302" lon="-70.355596" user="blackboxlogic" uid="9109301" visible="true" version="2" changeset="71423776" timestamp="2019-06-20T03:48:05Z" />
+  <node id="4211031948" lat="43.6788509" lon="-70.3555512" user="blackboxlogic" uid="9109301" visible="true" version="2" changeset="71423776" timestamp="2019-06-20T03:48:05Z" />
+  <node id="4211031949" lat="43.6788454" lon="-70.3555462" user="blackboxlogic" uid="9109301" visible="true" version="2" changeset="71423776" timestamp="2019-06-20T03:48:05Z" />
+  <node id="4211031950" lat="43.6788896" lon="-70.3554506" user="blackboxlogic" uid="9109301" visible="true" version="2" changeset="71423776" timestamp="2019-06-20T03:48:05Z" />
+  <node id="4211031951" lat="43.6787271" lon="-70.3553069" user="blackboxlogic" uid="9109301" visible="true" version="2" changeset="71423776" timestamp="2019-06-20T03:48:05Z" />
+  <node id="4211031952" lat="43.6787366" lon="-70.3552863" user="blackboxlogic" uid="9109301" visible="true" version="2" changeset="71423776" timestamp="2019-06-20T03:48:05Z" />
+  <node id="4211031953" lat="43.6787057" lon="-70.355259" user="blackboxlogic" uid="9109301" visible="true" version="2" changeset="71423776" timestamp="2019-06-20T03:48:05Z" />
+  <node id="4211031954" lat="43.6787198" lon="-70.3552284" user="blackboxlogic" uid="9109301" visible="true" version="2" changeset="71423776" timestamp="2019-06-20T03:48:05Z" />
+  <node id="4211031955" lat="43.6786273" lon="-70.3551467" user="blackboxlogic" uid="9109301" visible="true" version="2" changeset="71423776" timestamp="2019-06-20T03:48:05Z" />
+  <node id="4211031956" lat="43.6785382" lon="-70.3553396" user="blackboxlogic" uid="9109301" visible="true" version="2" changeset="71423776" timestamp="2019-06-20T03:48:05Z" />
+  <node id="4211031957" lat="43.6786337" lon="-70.3554239" user="blackboxlogic" uid="9109301" visible="true" version="2" changeset="71423776" timestamp="2019-06-20T03:48:05Z" />
+  <node id="4211031958" lat="43.6786842" lon="-70.3553144" user="blackboxlogic" uid="9109301" visible="true" version="2" changeset="71423776" timestamp="2019-06-20T03:48:05Z" />
+  <node id="4211031959" lat="43.6787127" lon="-70.3553396" user="blackboxlogic" uid="9109301" visible="true" version="2" changeset="71423776" timestamp="2019-06-20T03:48:05Z" />
+  <node id="4211031960" lat="43.6786626" lon="-70.3554481" user="blackboxlogic" uid="9109301" visible="true" version="2" changeset="71423776" timestamp="2019-06-20T03:48:05Z" />
+  <node id="4211031970" lat="43.676292" lon="-70.3551812" user="blackboxlogic" uid="9109301" visible="true" version="2" changeset="71423776" timestamp="2019-06-20T03:48:05Z" />
+  <node id="4211031971" lat="43.6764345" lon="-70.3550179" user="blackboxlogic" uid="9109301" visible="true" version="2" changeset="71423776" timestamp="2019-06-20T03:48:05Z" />
+  <node id="4211031972" lat="43.6761068" lon="-70.3544715" user="blackboxlogic" uid="9109301" visible="true" version="2" changeset="71423776" timestamp="2019-06-20T03:48:05Z" />
+  <node id="4211031973" lat="43.6759371" lon="-70.3546661" user="blackboxlogic" uid="9109301" visible="true" version="2" changeset="71423776" timestamp="2019-06-20T03:48:05Z" />
+  <node id="4211031974" lat="43.6758739" lon="-70.3545606" user="blackboxlogic" uid="9109301" visible="true" version="2" changeset="71423776" timestamp="2019-06-20T03:48:05Z" />
+  <node id="4211031975" lat="43.6757607" lon="-70.3546903" user="blackboxlogic" uid="9109301" visible="true" version="2" changeset="71423776" timestamp="2019-06-20T03:48:05Z" />
+  <node id="4211031976" lat="43.6758143" lon="-70.3547797" user="blackboxlogic" uid="9109301" visible="true" version="2" changeset="71423776" timestamp="2019-06-20T03:48:05Z" />
+  <node id="4211031977" lat="43.6754897" lon="-70.3551516" user="blackboxlogic" uid="9109301" visible="true" version="2" changeset="71423776" timestamp="2019-06-20T03:48:05Z" />
+  <node id="4211031978" lat="43.6758513" lon="-70.3557548" user="blackboxlogic" uid="9109301" visible="true" version="2" changeset="71423776" timestamp="2019-06-20T03:48:05Z" />
+  <node id="4211031979" lat="43.6761008" lon="-70.3554689" user="blackboxlogic" uid="9109301" visible="true" version="2" changeset="71423776" timestamp="2019-06-20T03:48:05Z" />
+  <node id="4211031980" lat="43.6760764" lon="-70.3554282" user="blackboxlogic" uid="9109301" visible="true" version="2" changeset="71423776" timestamp="2019-06-20T03:48:05Z" />
+  <node id="4271642689" lat="43.6510393" lon="-70.3700329" user="Bkissin" uid="506275" visible="true" version="1" changeset="40368907" timestamp="2016-06-29T14:19:59Z" />
+  <node id="4271642690" lat="43.6507065" lon="-70.3694212" user="Bkissin" uid="506275" visible="true" version="1" changeset="40368907" timestamp="2016-06-29T14:19:59Z" />
+  <node id="4271642691" lat="43.6502638" lon="-70.3698672" user="Bkissin" uid="506275" visible="true" version="1" changeset="40368907" timestamp="2016-06-29T14:19:59Z" />
+  <node id="4271642692" lat="43.6505849" lon="-70.3704789" user="Bkissin" uid="506275" visible="true" version="1" changeset="40368907" timestamp="2016-06-29T14:19:59Z" />
+  <node id="4271642693" lat="43.6516307" lon="-70.3688064" user="Bkissin" uid="506275" visible="true" version="1" changeset="40368907" timestamp="2016-06-29T14:19:59Z" />
+  <node id="4271642694" lat="43.6516459" lon="-70.3686873" user="Bkissin" uid="506275" visible="true" version="1" changeset="40368907" timestamp="2016-06-29T14:19:59Z" />
+  <node id="4271642695" lat="43.651879" lon="-70.3684888" user="Bkissin" uid="506275" visible="true" version="1" changeset="40368907" timestamp="2016-06-29T14:19:59Z" />
+  <node id="4271642696" lat="43.6516932" lon="-70.3681059" user="Bkissin" uid="506275" visible="true" version="1" changeset="40368907" timestamp="2016-06-29T14:19:59Z" />
+  <node id="4271642697" lat="43.6515783" lon="-70.3681923" user="Bkissin" uid="506275" visible="true" version="1" changeset="40368907" timestamp="2016-06-29T14:19:59Z" />
+  <node id="4271642698" lat="43.6515107" lon="-70.3680452" user="Bkissin" uid="506275" visible="true" version="1" changeset="40368907" timestamp="2016-06-29T14:19:59Z" />
+  <node id="4271642699" lat="43.6513975" lon="-70.3681456" user="Bkissin" uid="506275" visible="true" version="1" changeset="40368907" timestamp="2016-06-29T14:19:59Z" />
+  <node id="4271642700" lat="43.6514245" lon="-70.3682156" user="Bkissin" uid="506275" visible="true" version="1" changeset="40368907" timestamp="2016-06-29T14:19:59Z" />
+  <node id="4271642701" lat="43.6513772" lon="-70.368267" user="Bkissin" uid="506275" visible="true" version="1" changeset="40368907" timestamp="2016-06-29T14:19:59Z" />
+  <node id="4271642702" lat="43.6514076" lon="-70.3683441" user="Bkissin" uid="506275" visible="true" version="1" changeset="40368907" timestamp="2016-06-29T14:19:59Z" />
+  <node id="4271642703" lat="43.6513908" lon="-70.3683651" user="Bkissin" uid="506275" visible="true" version="1" changeset="40368907" timestamp="2016-06-29T14:19:59Z" />
+  <node id="4271642704" lat="43.6513688" lon="-70.3683604" user="Bkissin" uid="506275" visible="true" version="1" changeset="40368907" timestamp="2016-06-29T14:19:59Z" />
+  <node id="4271642705" lat="43.6513468" lon="-70.3683721" user="Bkissin" uid="506275" visible="true" version="1" changeset="40368907" timestamp="2016-06-29T14:19:59Z" />
+  <node id="4271642706" lat="43.6513502" lon="-70.3684071" user="Bkissin" uid="506275" visible="true" version="1" changeset="40368907" timestamp="2016-06-29T14:19:59Z" />
+  <node id="4271642707" lat="43.6513587" lon="-70.3684304" user="Bkissin" uid="506275" visible="true" version="1" changeset="40368907" timestamp="2016-06-29T14:19:59Z" />
+  <node id="4271642708" lat="43.6513755" lon="-70.3684281" user="Bkissin" uid="506275" visible="true" version="1" changeset="40368907" timestamp="2016-06-29T14:19:59Z" />
+  <node id="4271642709" lat="43.6513908" lon="-70.3684701" user="Bkissin" uid="506275" visible="true" version="1" changeset="40368907" timestamp="2016-06-29T14:19:59Z" />
+  <node id="4271642710" lat="43.651335" lon="-70.3685122" user="Bkissin" uid="506275" visible="true" version="1" changeset="40368907" timestamp="2016-06-29T14:19:59Z" />
+  <node id="4271642711" lat="43.6513671" lon="-70.3685986" user="Bkissin" uid="506275" visible="true" version="1" changeset="40368907" timestamp="2016-06-29T14:19:59Z" />
+  <node id="4271642712" lat="43.6513059" lon="-70.3686511" user="Bkissin" uid="506275" visible="true" version="1" changeset="40368907" timestamp="2016-06-29T14:19:59Z" />
+  <node id="4271642713" lat="43.6513834" lon="-70.3688147" user="Bkissin" uid="506275" visible="true" version="1" changeset="40368907" timestamp="2016-06-29T14:19:59Z" />
+  <node id="4271642714" lat="43.6514989" lon="-70.3687152" user="Bkissin" uid="506275" visible="true" version="1" changeset="40368907" timestamp="2016-06-29T14:19:59Z" />
+  <node id="4271642715" lat="43.6515682" lon="-70.3688624" user="Bkissin" uid="506275" visible="true" version="1" changeset="40368907" timestamp="2016-06-29T14:19:59Z" />
+  <node id="4271689190" lat="43.6517495" lon="-70.3509105" user="Bkissin" uid="506275" visible="true" version="1" changeset="40369211" timestamp="2016-06-29T14:34:17Z" />
+  <node id="4271689191" lat="43.6516203" lon="-70.3509291" user="Bkissin" uid="506275" visible="true" version="1" changeset="40369211" timestamp="2016-06-29T14:34:17Z" />
+  <node id="4271689192" lat="43.6516191" lon="-70.3509144" user="Bkissin" uid="506275" visible="true" version="1" changeset="40369211" timestamp="2016-06-29T14:34:17Z" />
+  <node id="4271689193" lat="43.6514453" lon="-70.3509401" user="Bkissin" uid="506275" visible="true" version="1" changeset="40369211" timestamp="2016-06-29T14:34:17Z" />
+  <node id="4271689194" lat="43.6514366" lon="-70.3508284" user="Bkissin" uid="506275" visible="true" version="1" changeset="40369211" timestamp="2016-06-29T14:34:17Z" />
+  <node id="4271689195" lat="43.6513609" lon="-70.3508397" user="Bkissin" uid="506275" visible="true" version="1" changeset="40369211" timestamp="2016-06-29T14:34:17Z" />
+  <node id="4271689196" lat="43.6513427" lon="-70.3506052" user="Bkissin" uid="506275" visible="true" version="1" changeset="40369211" timestamp="2016-06-29T14:34:17Z" />
+  <node id="4271689197" lat="43.651371" lon="-70.350601" user="Bkissin" uid="506275" visible="true" version="1" changeset="40369211" timestamp="2016-06-29T14:34:17Z" />
+  <node id="4271689198" lat="43.6513597" lon="-70.3504558" user="Bkissin" uid="506275" visible="true" version="1" changeset="40369211" timestamp="2016-06-29T14:34:17Z" />
+  <node id="4271689199" lat="43.651326" lon="-70.3504277" user="Bkissin" uid="506275" visible="true" version="1" changeset="40369211" timestamp="2016-06-29T14:34:17Z" />
+  <node id="4271689200" lat="43.6512998" lon="-70.3503834" user="Bkissin" uid="506275" visible="true" version="1" changeset="40369211" timestamp="2016-06-29T14:34:17Z" />
+  <node id="4271689201" lat="43.6512871" lon="-70.3503308" user="Bkissin" uid="506275" visible="true" version="1" changeset="40369211" timestamp="2016-06-29T14:34:17Z" />
+  <node id="4271689202" lat="43.6512846" lon="-70.3502853" user="Bkissin" uid="506275" visible="true" version="1" changeset="40369211" timestamp="2016-06-29T14:34:17Z" />
+  <node id="4271689203" lat="43.6513065" lon="-70.3502117" user="Bkissin" uid="506275" visible="true" version="1" changeset="40369211" timestamp="2016-06-29T14:34:17Z" />
+  <node id="4271689204" lat="43.6513378" lon="-70.3501674" user="Bkissin" uid="506275" visible="true" version="1" changeset="40369211" timestamp="2016-06-29T14:34:17Z" />
+  <node id="4271689205" lat="43.6513283" lon="-70.3500239" user="Bkissin" uid="506275" visible="true" version="1" changeset="40369211" timestamp="2016-06-29T14:34:17Z" />
+  <node id="4271689206" lat="43.6513027" lon="-70.3500272" user="Bkissin" uid="506275" visible="true" version="1" changeset="40369211" timestamp="2016-06-29T14:34:17Z" />
+  <node id="4271689207" lat="43.651288" lon="-70.3497945" user="Bkissin" uid="506275" visible="true" version="1" changeset="40369211" timestamp="2016-06-29T14:34:17Z" />
+  <node id="4271689208" lat="43.6513636" lon="-70.3497855" user="Bkissin" uid="506275" visible="true" version="1" changeset="40369211" timestamp="2016-06-29T14:34:17Z" />
+  <node id="4271689209" lat="43.6513564" lon="-70.3496707" user="Bkissin" uid="506275" visible="true" version="1" changeset="40369211" timestamp="2016-06-29T14:34:17Z" />
+  <node id="4271689210" lat="43.6515256" lon="-70.3496504" user="Bkissin" uid="506275" visible="true" version="1" changeset="40369211" timestamp="2016-06-29T14:34:17Z" />
+  <node id="4271689211" lat="43.6515241" lon="-70.3496261" user="Bkissin" uid="506275" visible="true" version="1" changeset="40369211" timestamp="2016-06-29T14:34:17Z" />
+  <node id="4271689212" lat="43.6516534" lon="-70.3496103" user="Bkissin" uid="506275" visible="true" version="1" changeset="40369211" timestamp="2016-06-29T14:34:17Z" />
+  <node id="4271689213" lat="43.6516608" lon="-70.3497256" user="Bkissin" uid="506275" visible="true" version="1" changeset="40369211" timestamp="2016-06-29T14:34:17Z" />
+  <node id="4271689214" lat="43.6516819" lon="-70.349723" user="Bkissin" uid="506275" visible="true" version="1" changeset="40369211" timestamp="2016-06-29T14:34:17Z" />
+  <node id="4271689215" lat="43.6516901" lon="-70.3498482" user="Bkissin" uid="506275" visible="true" version="1" changeset="40369211" timestamp="2016-06-29T14:34:17Z" />
+  <node id="4271689216" lat="43.6517134" lon="-70.3498453" user="Bkissin" uid="506275" visible="true" version="1" changeset="40369211" timestamp="2016-06-29T14:34:17Z" />
+  <node id="4271689217" lat="43.6517218" lon="-70.3499708" user="Bkissin" uid="506275" visible="true" version="1" changeset="40369211" timestamp="2016-06-29T14:34:17Z" />
+  <node id="4271689218" lat="43.6517415" lon="-70.3499683" user="Bkissin" uid="506275" visible="true" version="1" changeset="40369211" timestamp="2016-06-29T14:34:17Z" />
+  <node id="4271689219" lat="43.65175" lon="-70.3500919" user="Bkissin" uid="506275" visible="true" version="1" changeset="40369211" timestamp="2016-06-29T14:34:17Z" />
+  <node id="4271689220" lat="43.6517749" lon="-70.3500886" user="Bkissin" uid="506275" visible="true" version="1" changeset="40369211" timestamp="2016-06-29T14:34:17Z" />
+  <node id="4271689221" lat="43.6517965" lon="-70.3503984" user="Bkissin" uid="506275" visible="true" version="1" changeset="40369211" timestamp="2016-06-29T14:34:17Z" />
+  <node id="4271689222" lat="43.651776" lon="-70.3504012" user="Bkissin" uid="506275" visible="true" version="1" changeset="40369211" timestamp="2016-06-29T14:34:17Z" />
+  <node id="4271689223" lat="43.6517849" lon="-70.3505266" user="Bkissin" uid="506275" visible="true" version="1" changeset="40369211" timestamp="2016-06-29T14:34:17Z" />
+  <node id="4271689224" lat="43.6517648" lon="-70.3505294" user="Bkissin" uid="506275" visible="true" version="1" changeset="40369211" timestamp="2016-06-29T14:34:17Z" />
+  <node id="4271689225" lat="43.6517737" lon="-70.3506515" user="Bkissin" uid="506275" visible="true" version="1" changeset="40369211" timestamp="2016-06-29T14:34:17Z" />
+  <node id="4271689226" lat="43.6517509" lon="-70.3506546" user="Bkissin" uid="506275" visible="true" version="1" changeset="40369211" timestamp="2016-06-29T14:34:17Z" />
+  <node id="4271689227" lat="43.6517601" lon="-70.3507788" user="Bkissin" uid="506275" visible="true" version="1" changeset="40369211" timestamp="2016-06-29T14:34:18Z" />
+  <node id="4271689228" lat="43.6517398" lon="-70.3507817" user="Bkissin" uid="506275" visible="true" version="1" changeset="40369211" timestamp="2016-06-29T14:34:18Z" />
+  <node id="4271701889" lat="43.6504003" lon="-70.366124" user="Bkissin" uid="506275" visible="true" version="1" changeset="40369370" timestamp="2016-06-29T14:41:41Z" />
+  <node id="5861417583" lat="43.6502216" lon="-70.3657796" user="Ted Chapin" uid="8704950" visible="true" version="1" changeset="62045569" timestamp="2018-08-27T16:37:09Z" />
+  <node id="5861430822" lat="43.6502164" lon="-70.3657694" user="Ted Chapin" uid="8704950" visible="true" version="1" changeset="62045569" timestamp="2018-08-27T16:37:09Z" />
+  <node id="5861430825" lat="43.6501527" lon="-70.3656468" user="Ted Chapin" uid="8704950" visible="true" version="1" changeset="62045569" timestamp="2018-08-27T16:37:09Z" />
+  <node id="4271701890" lat="43.6501422" lon="-70.3656265" user="Bkissin" uid="506275" visible="true" version="1" changeset="40369370" timestamp="2016-06-29T14:41:41Z" />
+  <node id="4271701891" lat="43.6503663" lon="-70.3654025" user="Bkissin" uid="506275" visible="true" version="1" changeset="40369370" timestamp="2016-06-29T14:41:41Z" />
+  <node id="4271701892" lat="43.6506186" lon="-70.3659054" user="Bkissin" uid="506275" visible="true" version="1" changeset="40369370" timestamp="2016-06-29T14:41:41Z" />
+  <node id="4271701893" lat="43.6524531" lon="-70.3691237" user="Bkissin" uid="506275" visible="true" version="1" changeset="40369370" timestamp="2016-06-29T14:41:41Z" />
+  <node id="4271701894" lat="43.6521643" lon="-70.3694174" user="Bkissin" uid="506275" visible="true" version="1" changeset="40369370" timestamp="2016-06-29T14:41:41Z" />
+  <node id="4271701895" lat="43.6519034" lon="-70.3689275" user="Bkissin" uid="506275" visible="true" version="1" changeset="40369370" timestamp="2016-06-29T14:41:41Z" />
+  <node id="4271701896" lat="43.6521922" lon="-70.3686338" user="Bkissin" uid="506275" visible="true" version="1" changeset="40369370" timestamp="2016-06-29T14:41:41Z" />
+  <node id="4272067692" lat="43.6773662" lon="-70.3687423" user="Bkissin" uid="506275" visible="true" version="1" changeset="40373544" timestamp="2016-06-29T18:20:27Z" />
+  <node id="4272067693" lat="43.6770893" lon="-70.3687937" user="Bkissin" uid="506275" visible="true" version="1" changeset="40373544" timestamp="2016-06-29T18:20:27Z" />
+  <node id="4272067694" lat="43.677069" lon="-70.3685976" user="Bkissin" uid="506275" visible="true" version="1" changeset="40373544" timestamp="2016-06-29T18:20:27Z" />
+  <node id="4272067695" lat="43.6773468" lon="-70.3685369" user="Bkissin" uid="506275" visible="true" version="1" changeset="40373544" timestamp="2016-06-29T18:20:27Z" />
+  <node id="4272087673" lat="43.6754202" lon="-70.3662029" user="Bkissin" uid="506275" visible="true" version="1" changeset="40373949" timestamp="2016-06-29T18:37:06Z" />
+  <node id="4272087674" lat="43.6753435" lon="-70.3658215" user="Bkissin" uid="506275" visible="true" version="1" changeset="40373949" timestamp="2016-06-29T18:37:06Z" />
+  <node id="4272087675" lat="43.6751566" lon="-70.3658967" user="Bkissin" uid="506275" visible="true" version="1" changeset="40373949" timestamp="2016-06-29T18:37:06Z" />
+  <node id="4272087676" lat="43.6751758" lon="-70.3659852" user="Bkissin" uid="506275" visible="true" version="1" changeset="40373949" timestamp="2016-06-29T18:37:06Z" />
+  <node id="4272087677" lat="43.6751566" lon="-70.3659896" user="Bkissin" uid="506275" visible="true" version="1" changeset="40373949" timestamp="2016-06-29T18:37:06Z" />
+  <node id="4272087678" lat="43.6751752" lon="-70.3660772" user="Bkissin" uid="506275" visible="true" version="1" changeset="40373949" timestamp="2016-06-29T18:37:06Z" />
+  <node id="4272087679" lat="43.6751969" lon="-70.3660702" user="Bkissin" uid="506275" visible="true" version="1" changeset="40373949" timestamp="2016-06-29T18:37:06Z" />
+  <node id="4272087680" lat="43.6752084" lon="-70.3661162" user="Bkissin" uid="506275" visible="true" version="1" changeset="40373949" timestamp="2016-06-29T18:37:06Z" />
+  <node id="4272087681" lat="43.6752238" lon="-70.3661109" user="Bkissin" uid="506275" visible="true" version="1" changeset="40373949" timestamp="2016-06-29T18:37:06Z" />
+  <node id="4272087682" lat="43.6752507" lon="-70.3662666" user="Bkissin" uid="506275" visible="true" version="1" changeset="40373949" timestamp="2016-06-29T18:37:06Z" />
   <node id="4272087683" lat="43.6761616" lon="-70.3702764" user="Bkissin" uid="506275" visible="true" version="1" changeset="40373949" timestamp="2016-06-29T18:37:06Z" />
   <node id="4272087684" lat="43.6760888" lon="-70.3703019" user="Bkissin" uid="506275" visible="true" version="1" changeset="40373949" timestamp="2016-06-29T18:37:06Z" />
   <node id="4272087685" lat="43.6761026" lon="-70.3703775" user="Bkissin" uid="506275" visible="true" version="1" changeset="40373949" timestamp="2016-06-29T18:37:06Z" />
@@ -6192,6 +6425,10 @@
   <node id="4272088090" lat="43.6759065" lon="-70.3703811" user="Bkissin" uid="506275" visible="true" version="1" changeset="40373949" timestamp="2016-06-29T18:37:06Z" />
   <node id="4272088091" lat="43.6756987" lon="-70.369248" user="Bkissin" uid="506275" visible="true" version="1" changeset="40373949" timestamp="2016-06-29T18:37:06Z" />
   <node id="4272088092" lat="43.6759565" lon="-70.3691576" user="Bkissin" uid="506275" visible="true" version="1" changeset="40373949" timestamp="2016-06-29T18:37:06Z" />
+  <node id="4272088093" lat="43.6758603" lon="-70.3686264" user="Bkissin" uid="506275" visible="true" version="1" changeset="40373949" timestamp="2016-06-29T18:37:06Z" />
+  <node id="4272088094" lat="43.6758148" lon="-70.3684247" user="Bkissin" uid="506275" visible="true" version="1" changeset="40373949" timestamp="2016-06-29T18:37:06Z" />
+  <node id="4272088095" lat="43.6757067" lon="-70.3684716" user="Bkissin" uid="506275" visible="true" version="1" changeset="40373949" timestamp="2016-06-29T18:37:06Z" />
+  <node id="4272088096" lat="43.6757509" lon="-70.3686715" user="Bkissin" uid="506275" visible="true" version="1" changeset="40373949" timestamp="2016-06-29T18:37:06Z" />
   <node id="4576732602" lat="43.6820634" lon="-70.3504142" user="Юкатан" uid="3885962" visible="true" version="1" changeset="44723280" timestamp="2016-12-28T06:59:33Z" />
   <node id="4576732603" lat="43.6821863" lon="-70.3506647" user="Юкатан" uid="3885962" visible="true" version="1" changeset="44723280" timestamp="2016-12-28T06:59:34Z" />
   <node id="4576732604" lat="43.6824003" lon="-70.3504638" user="Юкатан" uid="3885962" visible="true" version="1" changeset="44723280" timestamp="2016-12-28T06:59:34Z" />
@@ -6335,10 +6572,35 @@
   <node id="4583569525" lat="43.6771427" lon="-70.3622963" user="Юкатан" uid="3885962" visible="true" version="1" changeset="44818483" timestamp="2017-01-01T08:13:08Z" />
   <node id="4583569526" lat="43.6769808" lon="-70.3622328" user="Юкатан" uid="3885962" visible="true" version="1" changeset="44818483" timestamp="2017-01-01T08:13:08Z" />
   <node id="4583569527" lat="43.676973" lon="-70.3622711" user="Юкатан" uid="3885962" visible="true" version="1" changeset="44818483" timestamp="2017-01-01T08:13:08Z" />
+  <node id="4585054660" lat="43.6762751" lon="-70.363513" user="Юкатан" uid="3885962" visible="true" version="1" changeset="44839535" timestamp="2017-01-02T08:39:06Z" />
+  <node id="4585054661" lat="43.676292" lon="-70.3634286" user="Юкатан" uid="3885962" visible="true" version="1" changeset="44839535" timestamp="2017-01-02T08:39:06Z" />
+  <node id="4585054662" lat="43.6763108" lon="-70.3634359" user="Юкатан" uid="3885962" visible="true" version="1" changeset="44839535" timestamp="2017-01-02T08:39:06Z" />
+  <node id="4585054663" lat="43.6763249" lon="-70.3633658" user="Юкатан" uid="3885962" visible="true" version="1" changeset="44839535" timestamp="2017-01-02T08:39:06Z" />
+  <node id="4585054664" lat="43.6763112" lon="-70.3633606" user="Юкатан" uid="3885962" visible="true" version="1" changeset="44839535" timestamp="2017-01-02T08:39:06Z" />
+  <node id="4585054665" lat="43.6763288" lon="-70.3632727" user="Юкатан" uid="3885962" visible="true" version="1" changeset="44839535" timestamp="2017-01-02T08:39:06Z" />
+  <node id="4585054666" lat="43.6761931" lon="-70.3632207" user="Юкатан" uid="3885962" visible="true" version="1" changeset="44839535" timestamp="2017-01-02T08:39:06Z" />
+  <node id="4585054667" lat="43.6761445" lon="-70.363463" user="Юкатан" uid="3885962" visible="true" version="1" changeset="44839535" timestamp="2017-01-02T08:39:06Z" />
   <node id="4585054668" lat="43.6760655" lon="-70.3632973" user="Юкатан" uid="3885962" visible="true" version="1" changeset="44839535" timestamp="2017-01-02T08:39:06Z" />
   <node id="4585054669" lat="43.6759344" lon="-70.363256" user="Юкатан" uid="3885962" visible="true" version="1" changeset="44839535" timestamp="2017-01-02T08:39:06Z" />
   <node id="4585054670" lat="43.675953" lon="-70.3631431" user="Юкатан" uid="3885962" visible="true" version="1" changeset="44839535" timestamp="2017-01-02T08:39:06Z" />
   <node id="4585054671" lat="43.6760841" lon="-70.3631843" user="Юкатан" uid="3885962" visible="true" version="1" changeset="44839535" timestamp="2017-01-02T08:39:06Z" />
+  <node id="4585070520" lat="43.6744825" lon="-70.3384352" user="Юкатан" uid="3885962" visible="true" version="1" changeset="44839979" timestamp="2017-01-02T09:05:26Z" />
+  <node id="4585070521" lat="43.6744065" lon="-70.3381801" user="Юкатан" uid="3885962" visible="true" version="1" changeset="44839979" timestamp="2017-01-02T09:05:26Z" />
+  <node id="4585070522" lat="43.6744442" lon="-70.3381587" user="Юкатан" uid="3885962" visible="true" version="1" changeset="44839979" timestamp="2017-01-02T09:05:26Z" />
+  <node id="4585070523" lat="43.6743596" lon="-70.337875" user="Юкатан" uid="3885962" visible="true" version="1" changeset="44839979" timestamp="2017-01-02T09:05:26Z" />
+  <node id="4585078683" lat="43.6742832" lon="-70.3379185" user="Юкатан" uid="3885962" visible="true" version="1" changeset="44840175" timestamp="2017-01-02T09:14:26Z" />
+  <node id="4585070524" lat="43.6740002" lon="-70.3380799" user="Юкатан" uid="3885962" visible="true" version="1" changeset="44839979" timestamp="2017-01-02T09:05:26Z" />
+  <node id="4585070525" lat="43.6739893" lon="-70.3380434" user="Юкатан" uid="3885962" visible="true" version="1" changeset="44839979" timestamp="2017-01-02T09:05:26Z" />
+  <node id="4585070526" lat="43.6738658" lon="-70.3381138" user="Юкатан" uid="3885962" visible="true" version="1" changeset="44839979" timestamp="2017-01-02T09:05:26Z" />
+  <node id="4585081104" lat="43.6739101" lon="-70.3382622" user="Юкатан" uid="3885962" visible="true" version="1" changeset="44840175" timestamp="2017-01-02T09:14:27Z" />
+  <node id="4585081105" lat="43.6739392" lon="-70.3383596" user="Юкатан" uid="3885962" visible="true" version="1" changeset="44840175" timestamp="2017-01-02T09:14:27Z" />
+  <node id="4585070527" lat="43.6739442" lon="-70.3383763" user="Юкатан" uid="3885962" visible="true" version="1" changeset="44839979" timestamp="2017-01-02T09:05:26Z" />
+  <node id="4585070528" lat="43.6739155" lon="-70.3383926" user="Юкатан" uid="3885962" visible="true" version="1" changeset="44839979" timestamp="2017-01-02T09:05:26Z" />
+  <node id="4585070529" lat="43.67398" lon="-70.3386083" user="Юкатан" uid="3885962" visible="true" version="1" changeset="44839979" timestamp="2017-01-02T09:05:26Z" />
+  <node id="4585070530" lat="43.6741053" lon="-70.3385367" user="Юкатан" uid="3885962" visible="true" version="1" changeset="44839979" timestamp="2017-01-02T09:05:26Z" />
+  <node id="4585078682" lat="43.6741249" lon="-70.3385485" user="Юкатан" uid="3885962" visible="true" version="1" changeset="44840175" timestamp="2017-01-02T09:14:26Z" />
+  <node id="4585070531" lat="43.674147" lon="-70.3385618" user="Юкатан" uid="3885962" visible="true" version="1" changeset="44839979" timestamp="2017-01-02T09:05:26Z" />
+  <node id="4585070532" lat="43.6741634" lon="-70.338617" user="Юкатан" uid="3885962" visible="true" version="1" changeset="44839979" timestamp="2017-01-02T09:05:26Z" />
   <node id="4585115561" lat="43.673362" lon="-70.3388044" user="Юкатан" uid="3885962" visible="true" version="1" changeset="44840758" timestamp="2017-01-02T09:44:38Z" />
   <node id="4585115562" lat="43.673274" lon="-70.3388574" user="Юкатан" uid="3885962" visible="true" version="1" changeset="44840758" timestamp="2017-01-02T09:44:38Z" />
   <node id="4585115563" lat="43.6731733" lon="-70.338538" user="Юкатан" uid="3885962" visible="true" version="1" changeset="44840758" timestamp="2017-01-02T09:44:38Z" />
@@ -6585,6 +6847,12 @@
   <node id="4611383988" lat="43.6794324" lon="-70.3361033" user="Юкатан" uid="3885962" visible="true" version="1" changeset="45208828" timestamp="2017-01-16T07:47:57Z" />
   <node id="4611384889" lat="43.6793855" lon="-70.3361578" user="Юкатан" uid="3885962" visible="true" version="1" changeset="45208828" timestamp="2017-01-16T07:47:57Z" />
   <node id="4611384890" lat="43.6793901" lon="-70.3361653" user="Юкатан" uid="3885962" visible="true" version="1" changeset="45208828" timestamp="2017-01-16T07:47:57Z" />
+  <node id="5268325559" lat="43.6483731" lon="-70.3549151" user="Poqwizredux" uid="7159452" visible="true" version="1" changeset="54408069" timestamp="2017-12-06T17:26:50Z" />
+  <node id="5268325560" lat="43.6472895" lon="-70.3557158" user="Poqwizredux" uid="7159452" visible="true" version="1" changeset="54408069" timestamp="2017-12-06T17:26:50Z" />
+  <node id="5268325561" lat="43.647156" lon="-70.3553708" user="Poqwizredux" uid="7159452" visible="true" version="1" changeset="54408069" timestamp="2017-12-06T17:26:50Z" />
+  <node id="5268325562" lat="43.6479968" lon="-70.3547496" user="Poqwizredux" uid="7159452" visible="true" version="1" changeset="54408069" timestamp="2017-12-06T17:26:50Z" />
+  <node id="5268325563" lat="43.6478675" lon="-70.3544156" user="Poqwizredux" uid="7159452" visible="true" version="1" changeset="54408069" timestamp="2017-12-06T17:26:50Z" />
+  <node id="5268325564" lat="43.6481104" lon="-70.3542362" user="Poqwizredux" uid="7159452" visible="true" version="1" changeset="54408069" timestamp="2017-12-06T17:26:50Z" />
   <node id="5268325581" lat="43.6497559" lon="-70.3549955" user="Poqwizredux" uid="7159452" visible="true" version="1" changeset="54408069" timestamp="2017-12-06T17:26:51Z" />
   <node id="5268325582" lat="43.649475" lon="-70.3550325" user="Poqwizredux" uid="7159452" visible="true" version="1" changeset="54408069" timestamp="2017-12-06T17:26:51Z" />
   <node id="5268325583" lat="43.6494367" lon="-70.3544765" user="Poqwizredux" uid="7159452" visible="true" version="1" changeset="54408069" timestamp="2017-12-06T17:26:51Z" />
@@ -6751,6 +7019,14 @@
   <node id="6555754668" lat="43.6787066" lon="-70.335444" user="blackboxlogic" uid="9109301" visible="true" version="1" changeset="71371199" timestamp="2019-06-18T15:45:22Z" />
   <node id="6555754669" lat="43.6783367" lon="-70.3355542" user="blackboxlogic" uid="9109301" visible="true" version="1" changeset="71371199" timestamp="2019-06-18T15:45:22Z" />
   <node id="6555754670" lat="43.6784182" lon="-70.3360776" user="blackboxlogic" uid="9109301" visible="true" version="1" changeset="71371199" timestamp="2019-06-18T15:45:22Z" />
+  <node id="6558754735" lat="43.6789518" lon="-70.3564861" user="blackboxlogic" uid="9109301" visible="true" version="1" changeset="71420192" timestamp="2019-06-20T00:55:46Z" />
+  <node id="6558754772" lat="43.6789813" lon="-70.3563123" user="blackboxlogic" uid="9109301" visible="true" version="1" changeset="71420192" timestamp="2019-06-20T00:55:46Z" />
+  <node id="6558754703" lat="43.6791473" lon="-70.3563661" user="blackboxlogic" uid="9109301" visible="true" version="1" changeset="71420192" timestamp="2019-06-20T00:55:46Z" />
+  <node id="6558754734" lat="43.6791321" lon="-70.3564555" user="blackboxlogic" uid="9109301" visible="true" version="1" changeset="71420192" timestamp="2019-06-20T00:55:46Z" />
+  <node id="6558743862" lat="43.6790826" lon="-70.3564395" user="blackboxlogic" uid="9109301" visible="true" version="1" changeset="71420192" timestamp="2019-06-20T00:55:46Z" />
+  <node id="6558754743" lat="43.6790769" lon="-70.3564733" user="blackboxlogic" uid="9109301" visible="true" version="1" changeset="71420192" timestamp="2019-06-20T00:55:46Z" />
+  <node id="6558743879" lat="43.6790366" lon="-70.3564602" user="blackboxlogic" uid="9109301" visible="true" version="1" changeset="71420192" timestamp="2019-06-20T00:55:46Z" />
+  <node id="6558754693" lat="43.679028" lon="-70.3565108" user="blackboxlogic" uid="9109301" visible="true" version="1" changeset="71420192" timestamp="2019-06-20T00:55:46Z" />
   <node id="6558754721" lat="43.67665" lon="-70.3658531" user="blackboxlogic" uid="9109301" visible="true" version="2" changeset="71423776" timestamp="2019-06-20T03:48:05Z" />
   <node id="6558754736" lat="43.676941" lon="-70.3657434" user="blackboxlogic" uid="9109301" visible="true" version="2" changeset="71423776" timestamp="2019-06-20T03:48:05Z" />
   <node id="6558754704" lat="43.6769771" lon="-70.3659268" user="blackboxlogic" uid="9109301" visible="true" version="2" changeset="71423776" timestamp="2019-06-20T03:48:05Z" />
@@ -6764,6 +7040,14 @@
   <node id="6558743873" lat="43.6762112" lon="-70.3628796" user="blackboxlogic" uid="9109301" visible="true" version="1" changeset="71420192" timestamp="2019-06-20T00:55:46Z" />
   <node id="6558754742" lat="43.6762805" lon="-70.3629106" user="blackboxlogic" uid="9109301" visible="true" version="1" changeset="71420192" timestamp="2019-06-20T00:55:46Z" />
   <node id="6558743860" lat="43.6763216" lon="-70.3627348" user="blackboxlogic" uid="9109301" visible="true" version="1" changeset="71420192" timestamp="2019-06-20T00:55:46Z" />
+  <node id="6558754727" lat="43.6764612" lon="-70.3644446" user="blackboxlogic" uid="9109301" visible="true" version="1" changeset="71420192" timestamp="2019-06-20T00:55:46Z" />
+  <node id="6558754745" lat="43.6767018" lon="-70.3643754" user="blackboxlogic" uid="9109301" visible="true" version="1" changeset="71420192" timestamp="2019-06-20T00:55:46Z" />
+  <node id="6558754722" lat="43.6767254" lon="-70.3645323" user="blackboxlogic" uid="9109301" visible="true" version="1" changeset="71420192" timestamp="2019-06-20T00:55:46Z" />
+  <node id="6558754769" lat="43.6764848" lon="-70.3646015" user="blackboxlogic" uid="9109301" visible="true" version="1" changeset="71420192" timestamp="2019-06-20T00:55:46Z" />
+  <node id="6558754749" lat="43.6764697" lon="-70.3648302" user="blackboxlogic" uid="9109301" visible="true" version="1" changeset="71420192" timestamp="2019-06-20T00:55:46Z" />
+  <node id="6558754723" lat="43.6765935" lon="-70.3647994" user="blackboxlogic" uid="9109301" visible="true" version="1" changeset="71420192" timestamp="2019-06-20T00:55:46Z" />
+  <node id="6558754760" lat="43.6766081" lon="-70.3649116" user="blackboxlogic" uid="9109301" visible="true" version="1" changeset="71420192" timestamp="2019-06-20T00:55:46Z" />
+  <node id="6558743878" lat="43.6764843" lon="-70.3649424" user="blackboxlogic" uid="9109301" visible="true" version="1" changeset="71420192" timestamp="2019-06-20T00:55:46Z" />
   <node id="6558754759" lat="43.6765868" lon="-70.361148" user="blackboxlogic" uid="9109301" visible="true" version="1" changeset="71420192" timestamp="2019-06-20T00:55:46Z" />
   <node id="6558754746" lat="43.6766249" lon="-70.3610048" user="blackboxlogic" uid="9109301" visible="true" version="1" changeset="71420192" timestamp="2019-06-20T00:55:46Z" />
   <node id="6558754715" lat="43.6764154" lon="-70.3608982" user="blackboxlogic" uid="9109301" visible="true" version="1" changeset="71420192" timestamp="2019-06-20T00:55:46Z" />
@@ -6804,6 +7088,10 @@
   <node id="6561404930" lat="43.6772561" lon="-70.3634972" user="blackboxlogic" uid="9109301" visible="true" version="1" changeset="71454709" timestamp="2019-06-20T17:38:37Z" />
   <node id="6561404938" lat="43.6769396" lon="-70.3634425" user="blackboxlogic" uid="9109301" visible="true" version="1" changeset="71454709" timestamp="2019-06-20T17:38:37Z" />
   <node id="6561404932" lat="43.6769346" lon="-70.3634975" user="blackboxlogic" uid="9109301" visible="true" version="1" changeset="71454709" timestamp="2019-06-20T17:38:37Z" />
+  <node id="1736697179" lat="43.6812842" lon="-70.3511025" user="blackboxlogic" uid="9109301" visible="true" version="5" changeset="71718098" timestamp="2019-06-28T18:38:41Z" />
+  <node id="6577337717" lat="43.6812244" lon="-70.3510207" user="blackboxlogic" uid="9109301" visible="true" version="2" changeset="71718098" timestamp="2019-06-28T18:38:41Z" />
+  <node id="6577337718" lat="43.6811526" lon="-70.351121" user="blackboxlogic" uid="9109301" visible="true" version="2" changeset="71718098" timestamp="2019-06-28T18:38:41Z" />
+  <node id="6577337719" lat="43.6812124" lon="-70.3512028" user="blackboxlogic" uid="9109301" visible="true" version="2" changeset="71718098" timestamp="2019-06-28T18:38:41Z" />
   <node id="6620668251" lat="43.6814929" lon="-70.3309024" user="Bkissin" uid="506275" visible="true" version="1" changeset="72312400" timestamp="2019-07-16T15:52:36Z" />
   <node id="6620668252" lat="43.6814697" lon="-70.3307649" user="Bkissin" uid="506275" visible="true" version="1" changeset="72312400" timestamp="2019-07-16T15:52:36Z" />
   <node id="6620668253" lat="43.6814597" lon="-70.3307681" user="Bkissin" uid="506275" visible="true" version="1" changeset="72312400" timestamp="2019-07-16T15:52:36Z" />
@@ -6845,6 +7133,12 @@
   <node id="6942810080" lat="43.649269" lon="-70.363774" user="vorpalblade" uid="2078753" visible="true" version="1" changeset="76550284" timestamp="2019-11-03T12:44:21Z" />
   <node id="6942810082" lat="43.6492371" lon="-70.3639407" user="vorpalblade" uid="2078753" visible="true" version="1" changeset="76550284" timestamp="2019-11-03T12:44:21Z" />
   <node id="6942810083" lat="43.6496699" lon="-70.364099" user="vorpalblade" uid="2078753" visible="true" version="1" changeset="76550284" timestamp="2019-11-03T12:44:21Z" />
+  <node id="6970251254" lat="43.6686365" lon="-70.3594272" user="Rod Wintle" uid="10440592" visible="true" version="1" changeset="76982713" timestamp="2019-11-12T21:36:37Z" />
+  <node id="6970251255" lat="43.6686253" lon="-70.3594839" user="Rod Wintle" uid="10440592" visible="true" version="1" changeset="76982713" timestamp="2019-11-12T21:36:37Z" />
+  <node id="6970251256" lat="43.668566" lon="-70.3594615" user="Rod Wintle" uid="10440592" visible="true" version="1" changeset="76982713" timestamp="2019-11-12T21:36:37Z" />
+  <node id="6970251257" lat="43.6686081" lon="-70.3592492" user="Rod Wintle" uid="10440592" visible="true" version="1" changeset="76982713" timestamp="2019-11-12T21:36:37Z" />
+  <node id="6970251258" lat="43.668688" lon="-70.3592795" user="Rod Wintle" uid="10440592" visible="true" version="1" changeset="76982713" timestamp="2019-11-12T21:36:37Z" />
+  <node id="6970251259" lat="43.6686596" lon="-70.359423" user="Rod Wintle" uid="10440592" visible="true" version="1" changeset="76982713" timestamp="2019-11-12T21:36:37Z" />
   <node id="6970461965" lat="43.6834832" lon="-70.3825157" user="vorpalblade" uid="2078753" visible="true" version="1" changeset="76988804" timestamp="2019-11-13T02:49:23Z" />
   <node id="6970461962" lat="43.6835373" lon="-70.3824613" user="vorpalblade" uid="2078753" visible="true" version="1" changeset="76988804" timestamp="2019-11-13T02:49:23Z" />
   <node id="6970461960" lat="43.6835141" lon="-70.3824172" user="vorpalblade" uid="2078753" visible="true" version="1" changeset="76988804" timestamp="2019-11-13T02:49:23Z" />
@@ -6857,6 +7151,34 @@
   <node id="6970461961" lat="43.6834631" lon="-70.3823204" user="vorpalblade" uid="2078753" visible="true" version="1" changeset="76988804" timestamp="2019-11-13T02:49:23Z" />
   <node id="6970461963" lat="43.6834389" lon="-70.3822742" user="vorpalblade" uid="2078753" visible="true" version="1" changeset="76988804" timestamp="2019-11-13T02:49:23Z" />
   <node id="6970461964" lat="43.6833848" lon="-70.3823286" user="vorpalblade" uid="2078753" visible="true" version="1" changeset="76988804" timestamp="2019-11-13T02:49:23Z" />
+  <node id="4598283447" lat="43.6657717" lon="-70.3476649" user="eric22" uid="160949" visible="true" version="1" changeset="45029554" timestamp="2017-01-09T16:00:32Z" />
+  <node id="4211032410" lat="43.6657263" lon="-70.347641" user="Bkissin" uid="506275" visible="true" version="1" changeset="39610299" timestamp="2016-05-27T18:18:28Z" />
+  <node id="4211032411" lat="43.665703" lon="-70.3475558" user="Bkissin" uid="506275" visible="true" version="1" changeset="39610299" timestamp="2016-05-27T18:18:28Z" />
+  <node id="4211032412" lat="43.6657288" lon="-70.3474782" user="Bkissin" uid="506275" visible="true" version="1" changeset="39610299" timestamp="2016-05-27T18:18:28Z" />
+  <node id="4211032404" lat="43.6657182" lon="-70.3474712" user="Bkissin" uid="506275" visible="true" version="1" changeset="39610299" timestamp="2016-05-27T18:18:28Z" />
+  <node id="4211032405" lat="43.6657516" lon="-70.3473795" user="Bkissin" uid="506275" visible="true" version="1" changeset="39610299" timestamp="2016-05-27T18:18:28Z" />
+  <node id="4211032406" lat="43.6658242" lon="-70.3474256" user="Bkissin" uid="506275" visible="true" version="1" changeset="39610299" timestamp="2016-05-27T18:18:28Z" />
+  <node id="4211032407" lat="43.6658078" lon="-70.3474805" user="Bkissin" uid="506275" visible="true" version="1" changeset="39610299" timestamp="2016-05-27T18:18:28Z" />
+  <node id="4211032408" lat="43.665817" lon="-70.3474945" user="Bkissin" uid="506275" visible="true" version="1" changeset="39610299" timestamp="2016-05-27T18:18:28Z" />
+  <node id="4211032414" lat="43.6656587" lon="-70.3475325" user="Bkissin" uid="506275" visible="true" version="1" changeset="39610299" timestamp="2016-05-27T18:18:28Z" />
+  <node id="4211032415" lat="43.665657" lon="-70.3476008" user="Bkissin" uid="506275" visible="true" version="1" changeset="39610299" timestamp="2016-05-27T18:18:28Z" />
+  <node id="4211032416" lat="43.6656739" lon="-70.347655" user="Bkissin" uid="506275" visible="true" version="1" changeset="39610299" timestamp="2016-05-27T18:18:28Z" />
+  <node id="4211032417" lat="43.6657035" lon="-70.3477035" user="Bkissin" uid="506275" visible="true" version="1" changeset="39610299" timestamp="2016-05-27T18:18:28Z" />
+  <node id="4211032418" lat="43.6657529" lon="-70.3477362" user="Bkissin" uid="506275" visible="true" version="1" changeset="39610299" timestamp="2016-05-27T18:18:28Z" />
+  <node id="4211032409" lat="43.6657735" lon="-70.3476691" user="Bkissin" uid="506275" visible="true" version="1" changeset="39610299" timestamp="2016-05-27T18:18:28Z" />
+  <node id="4211032419" lat="43.6657951" lon="-70.3476825" user="Bkissin" uid="506275" visible="true" version="1" changeset="39610299" timestamp="2016-05-27T18:18:28Z" />
+  <node id="4211032420" lat="43.6658462" lon="-70.3475079" user="Bkissin" uid="506275" visible="true" version="1" changeset="39610299" timestamp="2016-05-27T18:18:28Z" />
+  <node id="4211032394" lat="43.6658838" lon="-70.3475295" user="Bkissin" uid="506275" visible="true" version="1" changeset="39610299" timestamp="2016-05-27T18:18:28Z" />
+  <node id="4211032395" lat="43.6659302" lon="-70.3473889" user="Bkissin" uid="506275" visible="true" version="1" changeset="39610299" timestamp="2016-05-27T18:18:28Z" />
+  <node id="4211032396" lat="43.66582" lon="-70.3473065" user="Bkissin" uid="506275" visible="true" version="1" changeset="39610299" timestamp="2016-05-27T18:18:28Z" />
+  <node id="4211032397" lat="43.6658795" lon="-70.3471303" user="Bkissin" uid="506275" visible="true" version="1" changeset="39610299" timestamp="2016-05-27T18:18:28Z" />
+  <node id="4211032398" lat="43.6658196" lon="-70.3470917" user="Bkissin" uid="506275" visible="true" version="1" changeset="39610299" timestamp="2016-05-27T18:18:28Z" />
+  <node id="4211032399" lat="43.6658061" lon="-70.3471273" user="Bkissin" uid="506275" visible="true" version="1" changeset="39610299" timestamp="2016-05-27T18:18:28Z" />
+  <node id="4211032400" lat="43.6656224" lon="-70.3470048" user="Bkissin" uid="506275" visible="true" version="1" changeset="39610299" timestamp="2016-05-27T18:18:28Z" />
+  <node id="4211032401" lat="43.6655941" lon="-70.34709" user="Bkissin" uid="506275" visible="true" version="1" changeset="39610299" timestamp="2016-05-27T18:18:28Z" />
+  <node id="4211032402" lat="43.6657136" lon="-70.3471729" user="Bkissin" uid="506275" visible="true" version="1" changeset="39610299" timestamp="2016-05-27T18:18:28Z" />
+  <node id="4211032403" lat="43.6656282" lon="-70.3474198" user="eric22" uid="160949" visible="true" version="2" changeset="45029554" timestamp="2017-01-09T16:00:54Z" />
+  <node id="4598283446" lat="43.6656837" lon="-70.3474538" user="eric22" uid="160949" visible="true" version="1" changeset="45029554" timestamp="2017-01-09T16:00:32Z" />
   <node id="4601414383" lat="43.6809389" lon="-70.3364031" user="Юкатан" uid="3885962" visible="true" version="1" changeset="45073609" timestamp="2017-01-11T11:00:44Z" />
   <node id="4601414384" lat="43.6808755" lon="-70.336269" user="Юкатан" uid="3885962" visible="true" version="1" changeset="45073609" timestamp="2017-01-11T11:00:44Z" />
   <node id="4601414385" lat="43.6808582" lon="-70.3362846" user="Юкатан" uid="3885962" visible="true" version="1" changeset="45073609" timestamp="2017-01-11T11:00:44Z" />
@@ -7053,7 +7375,7 @@
     <tag k="wikipedia" v="en:Idexx Laboratories" />
     <tag k="addr:postcode" v="04092" />
     <tag k="maineE911id:addr:postcode" v="added" />
-    <tag k="maineE911id" v="1792339;1791521" />
+    <tag k="maineE911id" v="1792339" />
   </way>
   <way id="428228455" user="blackboxlogic" uid="9109301" visible="true" version="3" changeset="71669879" timestamp="2019-06-27T11:46:46Z">
     <nd ref="4273617796" />
@@ -7556,7 +7878,7 @@
     <tag k="maineE911id:addr:state" v="added" />
     <tag k="addr:postcode" v="04092" />
     <tag k="maineE911id:addr:postcode" v="added" />
-    <tag k="maineE911id" v="1832597;2044773" />
+    <tag k="maineE911id" v="1832597" />
   </way>
   <way id="463039786" user="blackboxlogic" uid="9109301" visible="true" version="3" changeset="71648517" timestamp="2019-06-26T18:53:42Z">
     <nd ref="6548132577" />
@@ -7716,7 +8038,7 @@
     <tag k="shop" v="car_repair" />
     <tag k="addr:postcode" v="04092" />
     <tag k="maineE911id:addr:postcode" v="added" />
-    <tag k="maineE911id" v="1855653;1832328" />
+    <tag k="maineE911id" v="1855653" />
   </way>
   <way id="466326945" user="Юкатан" uid="3885962" visible="true" version="2" changeset="45210277" timestamp="2017-01-16T08:57:11Z">
     <nd ref="4611464366" />
@@ -8188,6 +8510,60 @@
     <tag k="maineE911id:addr:postcode" v="added" />
     <tag k="maineE911id" v="1821190" />
   </way>
+  <way id="360635089" user="blackboxlogic" uid="9109301" visible="true" version="3" changeset="71634970" timestamp="2019-06-26T12:22:30Z">
+    <nd ref="3651758808" />
+    <nd ref="3651758809" />
+    <nd ref="3651758810" />
+    <nd ref="3651758811" />
+    <nd ref="3651758812" />
+    <nd ref="3651758813" />
+    <nd ref="3651758814" />
+    <nd ref="3651758815" />
+    <nd ref="3651758808" />
+    <tag k="addr:city" v="Westbrook" />
+    <tag k="addr:housenumber" v="694" />
+    <tag k="addr:postcode" v="04092" />
+    <tag k="addr:state" v="ME" />
+    <tag k="addr:street" v="Main Street" />
+    <tag k="amenity" v="restaurant" />
+    <tag k="building" v="yes" />
+    <tag k="cuisine" v="italian" />
+    <tag k="name" v="Casa Novello" />
+    <tag k="opening_hours" v="Mo-Th 16:00-20:30; Fr-Sa 16:00-21:30; Su 15:30-20:00" />
+    <tag k="phone" v="+1-207-854-9909" />
+    <tag k="smoking" v="no" />
+    <tag k="website" v="http://www.casanovello.com/" />
+    <tag k="maineE911id" v="1808114" />
+  </way>
+  <way id="360636491" user="blackboxlogic" uid="9109301" visible="true" version="6" changeset="76777113" timestamp="2019-11-07T20:57:27Z">
+    <nd ref="3651791091" />
+    <nd ref="3651791092" />
+    <nd ref="3651791093" />
+    <nd ref="3651791094" />
+    <nd ref="3651791095" />
+    <nd ref="3651791096" />
+    <nd ref="3651791097" />
+    <nd ref="3651791098" />
+    <nd ref="3651791099" />
+    <nd ref="3651791100" />
+    <nd ref="3651791101" />
+    <nd ref="3651791102" />
+    <nd ref="3651791091" />
+    <tag k="addr:city" v="Westbrook" />
+    <tag k="addr:housenumber" v="465" />
+    <tag k="addr:postcode" v="04092" />
+    <tag k="addr:state" v="ME" />
+    <tag k="addr:street" v="Main Street" />
+    <tag k="brand" v="Walgreens" />
+    <tag k="brand:wikidata" v="Q1591889" />
+    <tag k="brand:wikipedia" v="en:Walgreens" />
+    <tag k="building" v="yes" />
+    <tag k="drive_through" v="yes" />
+    <tag k="name" v="Walgreens" />
+    <tag k="phone" v="+1-207-854-9103" />
+    <tag k="shop" v="chemist" />
+    <tag k="maineE911id" v="1832522" />
+  </way>
   <way id="421317251" user="blackboxlogic" uid="9109301" visible="true" version="6" changeset="75187427" timestamp="2019-10-02T12:35:43Z">
     <nd ref="4210958009" />
     <nd ref="4210958010" />
@@ -8216,6 +8592,42 @@
     <tag k="maineE911id:addr:postcode" v="added" />
     <tag k="maineE911id" v="1877150" />
   </way>
+  <way id="421317252" user="blackboxlogic" uid="9109301" visible="true" version="8" changeset="78388099" timestamp="2019-12-13T18:14:35Z">
+    <nd ref="358234549" />
+    <nd ref="4210958021" />
+    <nd ref="4210958022" />
+    <nd ref="4210958023" />
+    <nd ref="4210958024" />
+    <nd ref="4210958025" />
+    <nd ref="4210958026" />
+    <nd ref="4210958027" />
+    <nd ref="358234549" />
+    <tag k="addr:city" v="Westbrook" />
+    <tag k="addr:housenumber" v="870" />
+    <tag k="addr:postcode" v="04092" />
+    <tag k="addr:state" v="ME" />
+    <tag k="addr:street" v="Main Street" />
+    <tag k="amenity" v="pharmacy" />
+    <tag k="brand" v="CVS Pharmacy" />
+    <tag k="brand:wikidata" v="Q2078880" />
+    <tag k="brand:wikipedia" v="en:CVS Pharmacy" />
+    <tag k="building" v="yes" />
+    <tag k="dispensing" v="yes" />
+    <tag k="drive_through" v="yes" />
+    <tag k="ele" v="21" />
+    <tag k="gnis:county_id" v="005" />
+    <tag k="gnis:created" v="05/08/2001" />
+    <tag k="gnis:feature_id" v="1913140" />
+    <tag k="gnis:state_id" v="23" />
+    <tag k="healthcare" v="pharmacy" />
+    <tag k="historic:amenity" v="post_office" />
+    <tag k="name" v="CVS Pharmacy" />
+    <tag k="old_name" v="Westbrook Post Office (historical)" />
+    <tag k="opening_hours" v="Mo-Sa 08:00-22:00; Su 08:00-20:00" />
+    <tag k="phone" v="+1-207-854-8443" />
+    <tag k="short_name" v="CVS" />
+    <tag k="maineE911id" v="1831795" />
+  </way>
   <way id="421317256" user="Bkissin" uid="506275" visible="true" version="2" changeset="39609030" timestamp="2016-05-27T17:12:40Z">
     <nd ref="4210958048" />
     <nd ref="4210958039" />
@@ -8236,6 +8648,398 @@
     <tag k="addr:postcode" v="04092" />
     <tag k="maineE911id:addr:postcode" v="added" />
     <tag k="maineE911id" v="1821196" />
+  </way>
+  <way id="421317257" user="blackboxlogic+bot" uid="10307443" visible="true" version="3" changeset="74595922" timestamp="2019-09-17T19:04:40Z">
+    <nd ref="4210958052" />
+    <nd ref="4210958053" />
+    <nd ref="4210958054" />
+    <nd ref="4210958055" />
+    <nd ref="4210958057" />
+    <nd ref="4210958052" />
+    <tag k="addr:city" v="Westbrook" />
+    <tag k="addr:housenumber" v="894" />
+    <tag k="addr:postcode" v="04092" />
+    <tag k="addr:state" v="ME" />
+    <tag k="addr:street" v="Main Street" />
+    <tag k="building" v="yes" />
+    <tag k="name" v="Martini Lane Discount Beverage" />
+    <tag k="phone" v="+1-207-854-1841" />
+    <tag k="shop" v="alcohol" />
+    <tag k="maineE911id" v="1831797" />
+  </way>
+  <way id="421317258" user="blackboxlogic" uid="9109301" visible="true" version="3" changeset="71681921" timestamp="2019-06-27T17:53:36Z">
+    <nd ref="4210958056" />
+    <nd ref="4210958057" />
+    <nd ref="4210958055" />
+    <nd ref="4210958058" />
+    <nd ref="4210958056" />
+    <tag k="addr:city" v="Westbrook" />
+    <tag k="addr:housenumber" v="900" />
+    <tag k="addr:postcode" v="04092" />
+    <tag k="addr:state" v="ME" />
+    <tag k="addr:street" v="Main Street" />
+    <tag k="building" v="yes" />
+    <tag k="name" v="Hub Furniture" />
+    <tag k="phone" v="+1-207-854-9419" />
+    <tag k="shop" v="furniture" />
+    <tag k="website" v="http://hubfurnitureco.com/" />
+    <tag k="maineE911id" v="1831798" />
+  </way>
+  <way id="421317259" user="Edward" uid="364" visible="true" version="6" changeset="73722277" timestamp="2019-08-25T17:02:06Z">
+    <nd ref="4210958059" />
+    <nd ref="4210958060" />
+    <nd ref="4210958061" />
+    <nd ref="4210958062" />
+    <nd ref="4210958063" />
+    <nd ref="4210958065" />
+    <nd ref="4210958066" />
+    <nd ref="4210958067" />
+    <nd ref="4210958068" />
+    <nd ref="4210958069" />
+    <nd ref="4210958070" />
+    <nd ref="4210958071" />
+    <nd ref="4210958072" />
+    <nd ref="4210958073" />
+    <nd ref="4210958074" />
+    <nd ref="4210958075" />
+    <nd ref="4210958076" />
+    <nd ref="4210958077" />
+    <nd ref="4210958078" />
+    <nd ref="4210958079" />
+    <nd ref="4210958080" />
+    <nd ref="4210958081" />
+    <nd ref="4210958082" />
+    <nd ref="4210958083" />
+    <nd ref="4210958084" />
+    <nd ref="4210958085" />
+    <nd ref="4210958086" />
+    <nd ref="4210958087" />
+    <nd ref="4210958088" />
+    <nd ref="4210959289" />
+    <nd ref="4210959290" />
+    <nd ref="4210959291" />
+    <nd ref="4210959292" />
+    <nd ref="4210959293" />
+    <nd ref="4210959294" />
+    <nd ref="4210959295" />
+    <nd ref="4210959296" />
+    <nd ref="4210959297" />
+    <nd ref="4210959298" />
+    <nd ref="4210959300" />
+    <nd ref="4210959301" />
+    <nd ref="4210959302" />
+    <nd ref="4210959304" />
+    <nd ref="4210959305" />
+    <nd ref="4210959307" />
+    <nd ref="367794801" />
+    <nd ref="4210958059" />
+    <tag k="addr:city" v="Westbrook" />
+    <tag k="addr:housenumber" v="800" />
+    <tag k="addr:postcode" v="04092" />
+    <tag k="addr:state" v="ME" />
+    <tag k="addr:street" v="Main Street" />
+    <tag k="amenity" v="library" />
+    <tag k="building" v="yes" />
+    <tag k="name" v="Walker Memorial Library" />
+    <tag k="opening_hours" v="Mo,We,Fr 09:00-17:00; Tu,Th 10:00-19:00; PH closed" />
+    <tag k="phone" v="+1-207-854-0630" />
+    <tag k="website" v="https://walkerlibrary.org/" />
+    <tag k="wikidata" v="Q7962296" />
+    <tag k="wikipedia" v="en:Walker Memorial Library" />
+    <tag k="maineE911id" v="1831784" />
+  </way>
+  <way id="421317260" user="Bkissin" uid="506275" visible="true" version="2" changeset="39609030" timestamp="2016-05-27T17:12:41Z">
+    <nd ref="4210959308" />
+    <nd ref="4210959309" />
+    <nd ref="4210959310" />
+    <nd ref="4210959311" />
+    <nd ref="4210959312" />
+    <nd ref="4210959313" />
+    <nd ref="4210959314" />
+    <nd ref="4210959315" />
+    <nd ref="4210959316" />
+    <nd ref="4210959317" />
+    <nd ref="4210959318" />
+    <nd ref="4210959319" />
+    <nd ref="4210959320" />
+    <nd ref="4210959321" />
+    <nd ref="4210959322" />
+    <nd ref="4210959323" />
+    <nd ref="4210959324" />
+    <nd ref="4210959325" />
+    <nd ref="4210959326" />
+    <nd ref="4210959327" />
+    <nd ref="4210959308" />
+    <tag k="addr:city" v="Westbrook" />
+    <tag k="addr:housenumber" v="810" />
+    <tag k="addr:postcode" v="04092" />
+    <tag k="addr:state" v="ME" />
+    <tag k="addr:street" v="Main Street" />
+    <tag k="amenity" v="place_of_worship" />
+    <tag k="building" v="yes" />
+    <tag k="denomination" v="united_church_of_christ" />
+    <tag k="name" v="Westbrook-Warren Congregational Church" />
+    <tag k="religion" v="christian" />
+    <tag k="maineE911id" v="1831787" />
+  </way>
+  <way id="421324985" user="blackboxlogic+bot" uid="10307443" visible="true" version="4" changeset="74595922" timestamp="2019-09-17T19:04:40Z">
+    <nd ref="4211031931" />
+    <nd ref="4211031932" />
+    <nd ref="4211031933" />
+    <nd ref="4211031934" />
+    <nd ref="4211031935" />
+    <nd ref="4211031936" />
+    <nd ref="4211031937" />
+    <nd ref="4211031938" />
+    <nd ref="4211031939" />
+    <nd ref="4211031940" />
+    <nd ref="4211031941" />
+    <nd ref="4211031942" />
+    <nd ref="4211031943" />
+    <nd ref="4211031944" />
+    <nd ref="4211031945" />
+    <nd ref="4211031946" />
+    <nd ref="4211031931" />
+    <tag k="addr:city" v="Westbrook" />
+    <tag k="addr:housenumber" v="596" />
+    <tag k="addr:postcode" v="04092" />
+    <tag k="addr:state" v="ME" />
+    <tag k="addr:street" v="Main Street" />
+    <tag k="amenity" v="kindergarten" />
+    <tag k="building" v="yes" />
+    <tag k="name" v="Little Red Schoolhouse Child Care Center" />
+    <tag k="phone" v="+1-207-854-0007" />
+    <tag k="maineE911id" v="1808073" />
+  </way>
+  <way id="421324986" user="blackboxlogic+bot" uid="10307443" visible="true" version="3" changeset="74595922" timestamp="2019-09-17T19:04:40Z">
+    <nd ref="4211031947" />
+    <nd ref="4211031948" />
+    <nd ref="4211031949" />
+    <nd ref="4211031950" />
+    <nd ref="4211031951" />
+    <nd ref="4211031952" />
+    <nd ref="4211031953" />
+    <nd ref="4211031954" />
+    <nd ref="4211031955" />
+    <nd ref="4211031956" />
+    <nd ref="4211031957" />
+    <nd ref="4211031958" />
+    <nd ref="4211031959" />
+    <nd ref="4211031960" />
+    <nd ref="4211031947" />
+    <tag k="addr:city" v="Westbrook" />
+    <tag k="addr:housenumber" v="612" />
+    <tag k="addr:postcode" v="04092" />
+    <tag k="addr:state" v="ME" />
+    <tag k="addr:street" v="Main Street" />
+    <tag k="amenity" v="place_of_worship" />
+    <tag k="building" v="yes" />
+    <tag k="denomination" v="lutheran" />
+    <tag k="name" v="Trinity Lutheran Church" />
+    <tag k="phone" v="+1-207-854-5653" />
+    <tag k="religion" v="christian" />
+    <tag k="website" v="http://www.trinitywestbrook.com/" />
+    <tag k="maineE911id" v="1808077" />
+  </way>
+  <way id="421324988" user="Ladung" uid="9812768" visible="true" version="4" changeset="72368409" timestamp="2019-07-18T00:48:18Z">
+    <nd ref="4211031970" />
+    <nd ref="4211031971" />
+    <nd ref="4211031972" />
+    <nd ref="4211031973" />
+    <nd ref="4211031974" />
+    <nd ref="4211031975" />
+    <nd ref="4211031976" />
+    <nd ref="4211031977" />
+    <nd ref="4211031978" />
+    <nd ref="4211031979" />
+    <nd ref="4211031980" />
+    <nd ref="4211031970" />
+    <tag k="addr:city" v="Westbrook" />
+    <tag k="addr:housenumber" v="7" />
+    <tag k="addr:postcode" v="04092" />
+    <tag k="addr:state" v="ME" />
+    <tag k="addr:street" v="Hannaford Drive" />
+    <tag k="brand" v="Hannaford" />
+    <tag k="brand:wikidata" v="Q5648760" />
+    <tag k="building" v="yes" />
+    <tag k="name" v="Hannaford" />
+    <tag k="shop" v="supermarket" />
+    <tag k="maineE911id" v="1792315" />
+  </way>
+  <way id="428006421" user="Bkissin" uid="506275" visible="true" version="3" changeset="64979521" timestamp="2018-11-28T17:12:13Z">
+    <nd ref="4271642689" />
+    <nd ref="4271642690" />
+    <nd ref="4271642691" />
+    <nd ref="4271642692" />
+    <nd ref="4271642689" />
+    <tag k="addr:city" v="Westbrook" />
+    <tag k="addr:housenumber" v="3" />
+    <tag k="addr:postcode" v="04092" />
+    <tag k="addr:state" v="ME" />
+    <tag k="addr:street" v="Ledgeview Drive" />
+    <tag k="building" v="industrial" />
+    <tag k="man_made" v="works" />
+    <tag k="name" v="Schlotterbeck &amp; Foss" />
+    <tag k="product" v="food" />
+    <tag k="maineE911id" v="1594409" />
+  </way>
+  <way id="428006423" user="Bkissin" uid="506275" visible="true" version="2" changeset="40368907" timestamp="2016-06-29T14:20:00Z">
+    <nd ref="4271642693" />
+    <nd ref="4271642694" />
+    <nd ref="4271642695" />
+    <nd ref="4271642696" />
+    <nd ref="4271642697" />
+    <nd ref="4271642698" />
+    <nd ref="4271642699" />
+    <nd ref="4271642700" />
+    <nd ref="4271642701" />
+    <nd ref="4271642702" />
+    <nd ref="4271642703" />
+    <nd ref="4271642704" />
+    <nd ref="4271642705" />
+    <nd ref="4271642706" />
+    <nd ref="4271642707" />
+    <nd ref="4271642708" />
+    <nd ref="4271642709" />
+    <nd ref="4271642710" />
+    <nd ref="4271642711" />
+    <nd ref="4271642712" />
+    <nd ref="4271642713" />
+    <nd ref="4271642714" />
+    <nd ref="4271642715" />
+    <nd ref="4271642693" />
+    <tag k="addr:city" v="Westbrook" />
+    <tag k="addr:housenumber" v="2" />
+    <tag k="addr:postcode" v="04092" />
+    <tag k="addr:state" v="ME" />
+    <tag k="addr:street" v="Ledgeview Drive" />
+    <tag k="building" v="commercial" />
+    <tag k="maineE911id" v="1594407" />
+  </way>
+  <way id="428010342" user="blackboxlogic+bot" uid="10307443" visible="true" version="4" changeset="74595922" timestamp="2019-09-17T19:04:40Z">
+    <nd ref="4271689190" />
+    <nd ref="4271689191" />
+    <nd ref="4271689192" />
+    <nd ref="4271689193" />
+    <nd ref="4271689194" />
+    <nd ref="4271689195" />
+    <nd ref="4271689196" />
+    <nd ref="4271689197" />
+    <nd ref="4271689198" />
+    <nd ref="4271689199" />
+    <nd ref="4271689200" />
+    <nd ref="4271689201" />
+    <nd ref="4271689202" />
+    <nd ref="4271689203" />
+    <nd ref="4271689204" />
+    <nd ref="4271689205" />
+    <nd ref="4271689206" />
+    <nd ref="4271689207" />
+    <nd ref="4271689208" />
+    <nd ref="4271689209" />
+    <nd ref="4271689210" />
+    <nd ref="4271689211" />
+    <nd ref="4271689212" />
+    <nd ref="4271689213" />
+    <nd ref="4271689214" />
+    <nd ref="4271689215" />
+    <nd ref="4271689216" />
+    <nd ref="4271689217" />
+    <nd ref="4271689218" />
+    <nd ref="4271689219" />
+    <nd ref="4271689220" />
+    <nd ref="4271689221" />
+    <nd ref="4271689222" />
+    <nd ref="4271689223" />
+    <nd ref="4271689224" />
+    <nd ref="4271689225" />
+    <nd ref="4271689226" />
+    <nd ref="4271689227" />
+    <nd ref="4271689228" />
+    <nd ref="4271689190" />
+    <tag k="addr:city" v="Westbrook" />
+    <tag k="addr:housenumber" v="183" />
+    <tag k="addr:postcode" v="04092" />
+    <tag k="addr:state" v="ME" />
+    <tag k="addr:street" v="County Road" />
+    <tag k="amenity" v="cinema" />
+    <tag k="building" v="yes" />
+    <tag k="name" v="Cinemagic Theatres" />
+    <tag k="phone" v="+1-207-774-3456" />
+    <tag k="wikidata" v="Q42564851" />
+    <tag k="maineE911id" v="1620928" />
+  </way>
+  <way id="428014990" user="vorpalblade" uid="2078753" visible="true" version="4" changeset="76550223" timestamp="2019-11-03T12:42:00Z">
+    <nd ref="4271701889" />
+    <nd ref="5861417583" />
+    <nd ref="5861430822" />
+    <nd ref="5861430825" />
+    <nd ref="4271701890" />
+    <nd ref="4271701891" />
+    <nd ref="4271701892" />
+    <nd ref="4271701889" />
+    <tag k="addr:city" v="Westbrook" />
+    <tag k="addr:housenumber" v="501" />
+    <tag k="addr:postcode" v="04092" />
+    <tag k="addr:state" v="ME" />
+    <tag k="addr:street" v="County Road" />
+    <tag k="building" v="commercial" />
+    <tag k="name" v="Lloyd's Register" />
+    <tag k="maineE911id" v="1620918" />
+  </way>
+  <way id="428014991" user="Bkissin" uid="506275" visible="true" version="2" changeset="40369370" timestamp="2016-06-29T14:41:41Z">
+    <nd ref="4271701893" />
+    <nd ref="4271701894" />
+    <nd ref="4271701895" />
+    <nd ref="4271701896" />
+    <nd ref="4271701893" />
+    <tag k="addr:city" v="Westbrook" />
+    <tag k="addr:housenumber" v="4" />
+    <tag k="addr:postcode" v="04092" />
+    <tag k="addr:state" v="ME" />
+    <tag k="addr:street" v="Ledgeview Drive" />
+    <tag k="amenity" v="studio" />
+    <tag k="building" v="yes" />
+    <tag k="name" v="WMTW 8" />
+    <tag k="studio" v="television" />
+    <tag k="maineE911id" v="1594408" />
+  </way>
+  <way id="428053648" user="Bkissin" uid="506275" visible="true" version="2" changeset="40373544" timestamp="2016-06-29T18:20:27Z">
+    <nd ref="4272067692" />
+    <nd ref="4272067693" />
+    <nd ref="4272067694" />
+    <nd ref="4272067695" />
+    <nd ref="4272067692" />
+    <tag k="addr:city" v="Westbrook" />
+    <tag k="addr:housenumber" v="901" />
+    <tag k="addr:postcode" v="04092" />
+    <tag k="addr:state" v="ME" />
+    <tag k="addr:street" v="Main Street" />
+    <tag k="building" v="apartments" />
+    <tag k="name" v="Armory Apartments" />
+    <tag k="maineE911id" v="2049977;2049978;2049979;2049980;2049981;2049982;2049983;2049984;2049985;2049986;2049987;2049988;2049989;2049990;2049991;2049992;2049993;2049994;2049995;2049996;2049997;2049998;2049999;2050000;2050001;2050002;2050003;2050004;2050005;2050006;2050007;2050008;1824944;2049976" />
+  </way>
+  <way id="428057581" user="Bkissin" uid="506275" visible="true" version="2" changeset="40373949" timestamp="2016-06-29T18:37:06Z">
+    <nd ref="4272087673" />
+    <nd ref="4272087674" />
+    <nd ref="4272087675" />
+    <nd ref="4272087676" />
+    <nd ref="4272087677" />
+    <nd ref="4272087678" />
+    <nd ref="4272087679" />
+    <nd ref="4272087680" />
+    <nd ref="4272087681" />
+    <nd ref="4272087682" />
+    <nd ref="4272087673" />
+    <tag k="addr:city" v="Westbrook" />
+    <tag k="addr:housenumber" v="35" />
+    <tag k="addr:postcode" v="04092" />
+    <tag k="addr:state" v="ME" />
+    <tag k="addr:street" v="Church Street" />
+    <tag k="building" v="yes" />
+    <tag k="name" v="Blais &amp; Hay Funeral Home" />
+    <tag k="shop" v="funeral_directors" />
+    <tag k="maineE911id" v="1832131" />
   </way>
   <way id="428057582" user="Bkissin" uid="506275" visible="true" version="2" changeset="40373949" timestamp="2016-06-29T18:37:06Z">
     <nd ref="4272087683" />
@@ -8262,6 +9066,24 @@
     <tag k="maineE911id:addr:postcode" v="added" />
     <tag k="maineE911id:building" v="changed from: yes" />
     <tag k="maineE911id" v="2050048;2050049;2050050;2050051;2050052;2050053;2050054;1832158;2050047" />
+  </way>
+  <way id="428057583" user="blackboxlogic" uid="9109301" visible="true" version="3" changeset="71530987" timestamp="2019-06-23T12:37:17Z">
+    <nd ref="4272088093" />
+    <nd ref="4272088094" />
+    <nd ref="4272088095" />
+    <nd ref="4272088096" />
+    <nd ref="4272088093" />
+    <tag k="addr:city" v="Westbrook" />
+    <tag k="addr:housenumber" v="31" />
+    <tag k="addr:postcode" v="04092" />
+    <tag k="addr:state" v="ME" />
+    <tag k="addr:street" v="Central Street" />
+    <tag k="building" v="yes" />
+    <tag k="name" v="Anderson-Watkins Insurance" />
+    <tag k="office" v="insurance" />
+    <tag k="phone" v="+1-207-856-5500" />
+    <tag k="website" v="https://andersonwatkins.com/" />
+    <tag k="maineE911id" v="1888431" />
   </way>
   <way id="462262498" user="Юкатан" uid="3885962" visible="true" version="2" changeset="44723280" timestamp="2016-12-28T06:59:34Z">
     <nd ref="4576732602" />
@@ -8516,6 +9338,29 @@
     <tag k="maineE911id:building" v="changed from: yes" />
     <tag k="maineE911id" v="2050942;2050943;2050944;2050945;2050946;2050947;2050948;2050949;2050950;2050951;2050952;2050953;2050954;2050955;2050956;2050957;2050958;2050959;2050960;2050961;2050962;2050963;2050964;2050965;2050966;2050967;2050968;2050969;2050970;1797272;2050941" />
   </way>
+  <way id="463210804" user="Ladung" uid="9812768" visible="true" version="5" changeset="72368409" timestamp="2019-07-18T00:48:18Z">
+    <nd ref="4585054660" />
+    <nd ref="4585054661" />
+    <nd ref="4585054662" />
+    <nd ref="4585054663" />
+    <nd ref="4585054664" />
+    <nd ref="4585054665" />
+    <nd ref="4585054666" />
+    <nd ref="4585054667" />
+    <nd ref="4585054660" />
+    <tag k="addr:city" v="Westbrook" />
+    <tag k="addr:housenumber" v="790" />
+    <tag k="addr:postcode" v="04092" />
+    <tag k="addr:state" v="ME" />
+    <tag k="addr:street" v="Main Street" />
+    <tag k="amenity" v="bank" />
+    <tag k="atm" v="yes" />
+    <tag k="brand" v="People's United Bank" />
+    <tag k="brand:wikidata" v="Q7165802" />
+    <tag k="building" v="yes" />
+    <tag k="name" v="People's United Bank" />
+    <tag k="maineE911id" v="1831783" />
+  </way>
   <way id="463210805" user="Юкатан" uid="3885962" visible="true" version="2" changeset="44839535" timestamp="2017-01-02T08:39:07Z">
     <nd ref="4585054668" />
     <nd ref="4585054669" />
@@ -8534,6 +9379,36 @@
     <tag k="addr:postcode" v="04092" />
     <tag k="maineE911id:addr:postcode" v="added" />
     <tag k="maineE911id" v="1831906" />
+  </way>
+  <way id="463212818" user="Bkissin" uid="506275" visible="true" version="4" changeset="64980574" timestamp="2018-11-28T17:37:16Z">
+    <nd ref="4585070520" />
+    <nd ref="4585070521" />
+    <nd ref="4585070522" />
+    <nd ref="4585070523" />
+    <nd ref="4585078683" />
+    <nd ref="4585070524" />
+    <nd ref="4585070525" />
+    <nd ref="4585070526" />
+    <nd ref="4585081104" />
+    <nd ref="4585081105" />
+    <nd ref="4585070527" />
+    <nd ref="4585070528" />
+    <nd ref="4585070529" />
+    <nd ref="4585070530" />
+    <nd ref="4585078682" />
+    <nd ref="4585070531" />
+    <nd ref="4585070532" />
+    <nd ref="4585070520" />
+    <tag k="addr:city" v="Westbrook" />
+    <tag k="addr:housenumber" v="5" />
+    <tag k="addr:postcode" v="04092" />
+    <tag k="addr:state" v="ME" />
+    <tag k="addr:street" v="Saunders Way" />
+    <tag k="building" v="retail" />
+    <tag k="name" v="Bill Dodge Pre-Owned Super Center" />
+    <tag k="second_hand" v="only" />
+    <tag k="shop" v="car" />
+    <tag k="maineE911id" v="1892725" />
   </way>
   <way id="463217441" user="Bkissin" uid="506275" visible="true" version="3" changeset="64980574" timestamp="2018-11-28T17:37:15Z">
     <nd ref="4585115561" />
@@ -8681,6 +9556,7 @@
     <tag k="addr:postcode" v="04092" />
     <tag k="maineE911id:addr:postcode" v="added" />
     <tag k="maineE911id" v="1867254" />
+    <tag k="maineE911id:info" v="Cannot find a matching highway" />
   </way>
   <way id="463594131" user="Юкатан" uid="3885962" visible="true" version="2" changeset="44891359" timestamp="2017-01-04T07:31:28Z">
     <nd ref="4588581279" />
@@ -8702,6 +9578,7 @@
     <tag k="addr:postcode" v="04092" />
     <tag k="maineE911id:addr:postcode" v="added" />
     <tag k="maineE911id" v="1867255" />
+    <tag k="maineE911id:info" v="Cannot find a matching highway" />
   </way>
   <way id="463594188" user="Юкатан" uid="3885962" visible="true" version="2" changeset="44891374" timestamp="2017-01-04T07:32:36Z">
     <nd ref="4588581801" />
@@ -8725,6 +9602,7 @@
     <tag k="addr:postcode" v="04092" />
     <tag k="maineE911id:addr:postcode" v="added" />
     <tag k="maineE911id" v="1867256" />
+    <tag k="maineE911id:info" v="Cannot find a matching highway" />
   </way>
   <way id="463594205" user="Юкатан" uid="3885962" visible="true" version="2" changeset="44891392" timestamp="2017-01-04T07:33:51Z">
     <nd ref="4588582179" />
@@ -9231,6 +10109,26 @@
     <tag k="addr:postcode" v="04092" />
     <tag k="maineE911id:addr:postcode" v="added" />
     <tag k="maineE911id" v="2046052;2046053;2046054;2046055;2046056;2046057;2046058;2046059;2046060;2046061;2046062;2046063;2046064;2046065;2046066;2046067;2046068;2046069;2046070;2046071;2046072;2046073;2046074;2046075;2046076;2046051;1855665;2046050" />
+    <tag k="maineE911id:info" v="Cannot find a matching highway" />
+  </way>
+  <way id="545056702" user="blackboxlogic" uid="9109301" visible="true" version="5" changeset="77793138" timestamp="2019-12-01T23:01:51Z">
+    <nd ref="5268325559" />
+    <nd ref="5268325560" />
+    <nd ref="5268325561" />
+    <nd ref="5268325562" />
+    <nd ref="5268325563" />
+    <nd ref="5268325564" />
+    <nd ref="5268325559" />
+    <tag k="addr:city" v="Westbrook" />
+    <tag k="addr:housenumber" v="1" />
+    <tag k="addr:postcode" v="04092" />
+    <tag k="addr:state" v="ME" />
+    <tag k="addr:street" v="Thomas Drive" />
+    <tag k="building" v="commercial" />
+    <tag k="name" v="IDEXX Laboratories" />
+    <tag k="wikidata" v="Q1758392" />
+    <tag k="wikipedia" v="en:Idexx Laboratories" />
+    <tag k="maineE911id" v="1833021" />
   </way>
   <way id="545056706" user="Poqwizredux" uid="7159452" visible="true" version="2" changeset="54408069" timestamp="2017-12-06T17:26:51Z">
     <nd ref="5268325581" />
@@ -9860,6 +10758,26 @@
     <tag k="maineE911id:addr:postcode" v="added" />
     <tag k="maineE911id" v="1832359" />
   </way>
+  <way id="698380872" user="blackboxlogic" uid="9109301" visible="true" version="2" changeset="71420192" timestamp="2019-06-20T00:55:46Z">
+    <nd ref="6558754735" />
+    <nd ref="6558754772" />
+    <nd ref="6558754703" />
+    <nd ref="6558754734" />
+    <nd ref="6558743862" />
+    <nd ref="6558754743" />
+    <nd ref="6558743879" />
+    <nd ref="6558754693" />
+    <nd ref="6558754735" />
+    <tag k="addr:city" v="Westbrook" />
+    <tag k="addr:housenumber" v="625" />
+    <tag k="addr:postcode" v="04092" />
+    <tag k="addr:state" v="ME" />
+    <tag k="addr:street" v="Main Street" />
+    <tag k="amenity" v="community_centre" />
+    <tag k="building" v="yes" />
+    <tag k="name" v="Big Brothers Big Sisters" />
+    <tag k="maineE911id" v="1810395" />
+  </way>
   <way id="698380876" user="Ladung" uid="9812768" visible="true" version="6" changeset="72368409" timestamp="2019-07-18T00:48:18Z">
     <nd ref="6558754721" />
     <nd ref="6558754736" />
@@ -9933,6 +10851,43 @@
     <tag k="addr:postcode" v="04092" />
     <tag k="maineE911id:addr:postcode" v="added" />
     <tag k="maineE911id" v="1831782" />
+  </way>
+  <way id="698380886" user="blackboxlogic" uid="9109301" visible="true" version="4" changeset="78090937" timestamp="2019-12-07T16:24:54Z">
+    <nd ref="6558754727" />
+    <nd ref="6558754745" />
+    <nd ref="6558754722" />
+    <nd ref="6558754769" />
+    <nd ref="6558754727" />
+    <tag k="addr:city" v="Westbrook" />
+    <tag k="addr:housenumber" v="821" />
+    <tag k="addr:postcode" v="04092" />
+    <tag k="addr:state" v="ME" />
+    <tag k="addr:street" v="Main Street" />
+    <tag k="amenity" v="dojo" />
+    <tag k="building" v="yes" />
+    <tag k="leisure" v="fitness_centre" />
+    <tag k="name" v="Greater Portland School of Jukado" />
+    <tag k="phone" v="+1 207-854-9408" />
+    <tag k="sport" v="martial_arts" />
+    <tag k="website" v="jukadousa.com" />
+    <tag k="maineE911id" v="1810463" />
+  </way>
+  <way id="698380887" user="blackboxlogic" uid="9109301" visible="true" version="3" changeset="71530987" timestamp="2019-06-23T12:37:17Z">
+    <nd ref="6558754749" />
+    <nd ref="6558754723" />
+    <nd ref="6558754760" />
+    <nd ref="6558743878" />
+    <nd ref="6558754749" />
+    <tag k="addr:city" v="Westbrook" />
+    <tag k="addr:housenumber" v="823" />
+    <tag k="addr:postcode" v="04092" />
+    <tag k="addr:state" v="ME" />
+    <tag k="addr:street" v="Main Street" />
+    <tag k="building" v="yes" />
+    <tag k="name" v="Moonlight Cleaners" />
+    <tag k="shop" v="laundry" />
+    <tag k="website" v="https://moonlight-cleaners-me.hub.biz/" />
+    <tag k="maineE911id" v="1810465" />
   </way>
   <way id="698380888" user="Ladung" uid="9812768" visible="true" version="4" changeset="72368409" timestamp="2019-07-18T00:48:18Z">
     <nd ref="6558754759" />
@@ -10122,6 +11077,25 @@
     <tag k="maineE911id:building" v="changed from: yes" />
     <tag k="maineE911id" v="2042906;2042907;2042908;2042909;2042910;2042911;2042912;2042913;2042914;2042915;2042916;2042917;2042918;2042919;2042920;2042921;2042922;2042923;2042924;2042925;2042926;2042927;2042928;2042929;2042930;2042931;2042932;2042933;2042934;2042935;2042936;2042937;2042938;2042939;2042940;2042941;2042942;1824938;2042905" />
   </way>
+  <way id="700392603" user="Bkissin" uid="506275" visible="true" version="3" changeset="72312400" timestamp="2019-07-16T15:52:36Z">
+    <nd ref="1736697179" />
+    <nd ref="6577337717" />
+    <nd ref="6577337718" />
+    <nd ref="6577337719" />
+    <nd ref="1736697179" />
+    <tag k="addr:city" v="Westbrook" />
+    <tag k="addr:housenumber" v="492" />
+    <tag k="addr:postcode" v="04092" />
+    <tag k="addr:state" v="ME" />
+    <tag k="addr:street" v="Main Street" />
+    <tag k="building" v="yes" />
+    <tag k="name" v="Weekend Anime" />
+    <tag k="opening_hours" v="Mo-Th 14:00-20:00; Fr 14:00-22:00; Sa-Su 12:00-20:00" />
+    <tag k="phone" v="+1-207-591-7070" />
+    <tag k="shop" v="anime" />
+    <tag k="website" v="https://weekendanime.com/" />
+    <tag k="maineE911id" v="1821433" />
+  </way>
   <way id="704914374" user="Ladung" uid="9812768" visible="true" version="3" changeset="72368409" timestamp="2019-07-18T00:48:18Z">
     <nd ref="6620668251" />
     <nd ref="6620668252" />
@@ -10200,6 +11174,23 @@
     <tag k="maineE911id:addr:postcode" v="added" />
     <tag k="maineE911id" v="1799537" />
   </way>
+  <way id="744758655" user="Rod Wintle" uid="10440592" visible="true" version="2" changeset="76982713" timestamp="2019-11-12T21:36:37Z">
+    <nd ref="6970251254" />
+    <nd ref="6970251255" />
+    <nd ref="6970251256" />
+    <nd ref="6970251257" />
+    <nd ref="6970251258" />
+    <nd ref="6970251259" />
+    <nd ref="6970251254" />
+    <tag k="addr:city" v="Westbrook" />
+    <tag k="addr:housenumber" v="2" />
+    <tag k="addr:postcode" v="04092" />
+    <tag k="addr:state" v="ME" />
+    <tag k="addr:street" v="Conner Drive" />
+    <tag k="building" v="yes" />
+    <tag k="building:levels" v="2" />
+    <tag k="maineE911id" v="1641393" />
+  </way>
   <way id="744796659" user="vorpalblade" uid="2078753" visible="true" version="2" changeset="76988804" timestamp="2019-11-13T02:49:23Z">
     <nd ref="6970461965" />
     <nd ref="6970461962" />
@@ -10230,6 +11221,40 @@
     <tag k="addr:postcode" v="04092" />
     <tag k="maineE911id:addr:postcode" v="added" />
     <tag k="maineE911id" v="1526491" />
+  </way>
+  <way id="464746190" user="eric22" uid="160949" visible="true" version="1" changeset="45029554" timestamp="2017-01-09T16:00:34Z">
+    <nd ref="4598283447" />
+    <nd ref="4211032410" />
+    <nd ref="4211032411" />
+    <nd ref="4211032412" />
+    <nd ref="4211032404" />
+    <nd ref="4211032405" />
+    <nd ref="4211032406" />
+    <nd ref="4211032407" />
+    <nd ref="4211032408" />
+    <nd ref="4598283447" />
+  </way>
+  <way id="421324991" user="eric22" uid="160949" visible="true" version="2" changeset="45029554" timestamp="2017-01-09T16:00:41Z">
+    <nd ref="4211032414" />
+    <nd ref="4211032415" />
+    <nd ref="4211032416" />
+    <nd ref="4211032417" />
+    <nd ref="4211032418" />
+    <nd ref="4211032409" />
+    <nd ref="4211032419" />
+    <nd ref="4211032420" />
+    <nd ref="4211032394" />
+    <nd ref="4211032395" />
+    <nd ref="4211032396" />
+    <nd ref="4211032397" />
+    <nd ref="4211032398" />
+    <nd ref="4211032399" />
+    <nd ref="4211032400" />
+    <nd ref="4211032401" />
+    <nd ref="4211032402" />
+    <nd ref="4211032403" />
+    <nd ref="4598283446" />
+    <nd ref="4211032414" />
   </way>
   <way id="465144489" user="Юкатан" uid="3885962" visible="true" version="1" changeset="45073609" timestamp="2017-01-11T11:00:44Z">
     <nd ref="4601414383" />
@@ -10318,6 +11343,20 @@
     <tag k="addr:postcode" v="04092" />
     <tag k="maineE911id:addr:postcode" v="added" />
     <tag k="maineE911id" v="2043941;2043942;2043943;2043944;2043945;2043946;2043947;2043948;2043949;2043950;2043951;2043952;2043953;2043954" />
+  </relation>
+  <relation id="6863190" user="blackboxlogic" uid="9109301" visible="true" version="3" changeset="78161091" timestamp="2019-12-09T16:10:04Z">
+    <member type="way" ref="464746190" role="inner" />
+    <member type="way" ref="421324991" role="outer" />
+    <tag k="addr:city" v="Westbrook" />
+    <tag k="addr:housenumber" v="449" />
+    <tag k="addr:postcode" v="04092" />
+    <tag k="addr:state" v="ME" />
+    <tag k="addr:street" v="Stroudwater Street" />
+    <tag k="amenity" v="animal_shelter" />
+    <tag k="building" v="yes" />
+    <tag k="name" v="Animal Refuge League of Greater Portland" />
+    <tag k="type" v="multipolygon" />
+    <tag k="maineE911id" v="1893809" />
   </relation>
   <relation id="6868977" user="Юкатан" uid="3885962" visible="true" version="2" changeset="45073609" timestamp="2017-01-11T11:00:44Z">
     <member type="way" ref="465144489" role="outer" />
