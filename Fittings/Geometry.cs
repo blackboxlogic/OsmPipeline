@@ -10,9 +10,9 @@ namespace OsmPipeline.Fittings
 {
 	public static class Geometry
 	{
-		public static char GetDirectionArrow(Node from, Node to)
+		public static char GetDirectionArrow(Position from, Position to)
 		{
-			var theta = Math.Atan2((to.Latitude - from.Latitude).Value, (to.Longitude - from.Longitude).Value);
+			var theta = Math.Atan2(to.Latitude - from.Latitude, to.Longitude - from.Longitude);
 			var slice = (int)((theta + Math.PI) / (2 * Math.PI) * 16);
 			var arrow = "←↙↙↓↓↘↘→→↗↗↑↑↖↖←"[slice];
 			return arrow;

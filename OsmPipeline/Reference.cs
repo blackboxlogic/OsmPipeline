@@ -71,6 +71,7 @@ namespace OsmPipeline
 				.Where(f => !errorList.Contains((long)f.Properties["OBJECTID"]))
 				.Select(Convert)
 				.ToArray();
+
 			var translated = new Osm() { Nodes = nodes, Version = .6 };
 			FileSerializer.WriteXml(scopeName + "/ReferenceTranslated.osm", translated);
 			nodes = HandleStacks(nodes);
@@ -99,7 +100,7 @@ namespace OsmPipeline
 			{
 				new Tag("name", Name((string)props["LANDMARK"], (string)props["LOC"], (string)props["BUILDING"])),
 				// Missing house numbers will have a "0" here. Mostly: Lewiston.
-				new Tag("addr:housenumber", ((int)props["ADDRESS_NUMBER"]).ToString()),
+				new Tag("addr:housenumber", (int)props["ADDRESS_NUMBER"] == 0 ? "" : ((int)props["ADDRESS_NUMBER"]).ToString()),
 				new Tag("addr:unit", unit),
 				new Tag("addr:street", streetName),
 				new Tag("addr:city", city),
