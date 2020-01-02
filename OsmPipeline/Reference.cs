@@ -64,7 +64,7 @@ namespace OsmPipeline
 			Validate(gisFeatures);
 
 			// Fetch the list of objectIDs with known errors to omit.
-			var errorList = new HashSet<long>(Static.Municipalities[scopeName].ErrorObjectIds);
+			var errorList = Static.Municipalities[scopeName].ErrorObjectIds.ToHashSet();
 			Log.LogInformation("Translating Reference material");
 			// Convert
 			var nodes = gisFeatures

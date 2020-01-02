@@ -14,7 +14,7 @@ namespace OsmPipeline
 	{
 		public static IConfigurationRoot Config;
 		public static ILoggerFactory LogFactory;
-		public static string maineE911id = "maineE911id";
+		public const string maineE911id = "maineE911id";
 		public static Dictionary<string, Municipality> Municipalities;
 	}
 
@@ -45,24 +45,22 @@ namespace OsmPipeline
 
 		static async Task ImportAddressesInScope()
 		{
+			// When things go on the exception list, are they added or not?
 			// split large municipalites by zip?
 			// Or apply these regex on the subject as first part of conflation!
 				// set name = {0} where Highway=* && name like {1}
 				// set addr:street = {0} where addr:street like {1}
 				// Show a regex change layer
-			// Exception when an address references a street that doesn't exist
 			// merge conflict resolution in command line, saving stuff to MaineMunicipalities
 			Static.Municipalities = await FileSerializer.ReadJsonCacheOrSource("MaineMunicipalities.json",
 				GeoJsonAPISource.GetMunicipalities);
 			var municipality = ChooseMunicipality();
-			
 			var reference = await FileSerializer.ReadXmlCacheOrSource(municipality + "/Reference.osm",
 				() => Reference.Fetch(municipality));
 			var subject = await FileSerializer.ReadXmlCacheOrSource(municipality + "/Subject.osm",
 				() => Subject.GetElementsInBoundingBox(reference.Bounds));
-			//var conflated = FileSerializer.ReadXmlCacheOrSource(municipality + "/Conflated.osc",
-			//	() => Conflate.Merge(reference, subject, municipality));
-			var conflated = FileSerializer.WriteXml(municipality + "/Conflated.osc", Conflate.Merge(reference, subject, municipality));
+			var conflated = FileSerializer.WriteXml(municipality + "/Conflated.osc",
+				Conflate.Merge(reference, subject, municipality));
 			// This is commented out so I don't accidentally commit changes to OSM.
 			//var results = await Subject.UploadChange(conflated, municipality);
 			//Static.Municipalities[municipality].ChangeSetIds.Add(results);

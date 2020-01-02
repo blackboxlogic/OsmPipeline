@@ -3,16 +3,16 @@ using OsmSharp.Changesets;
 using System;
 using System.Linq;
 using System.Collections.Generic;
-using OsmSharp.Tags;
 using OsmSharp;
 using Microsoft.Extensions.Logging;
-using OsmSharp.Complete;
 using OsmPipeline.Fittings;
 
 namespace OsmPipeline
 {
 	public static class Conflate
 	{
+		private const string ExceptionKey = Static.maineE911id + ":exception";
+		private const string MovedKey = Static.maineE911id + ":moved";
 		private static ILogger Log;
 
 		public static OsmChange Merge(Osm reference, Osm subject, string scopeName)
@@ -24,6 +24,7 @@ namespace OsmPipeline
 			var subjectElementsIndexed = subjectElements.ToDictionary(n => n.Type.ToString() + n.Id);
 			Merge(reference, subjectElementsIndexed, out List<OsmGeo> create, out List<OsmGeo> modify,
 				out List<OsmGeo> delete, out List<OsmGeo> exceptions);
+			ValidateRoadNamesMatcheRoads(subjectElementsIndexed, create, exceptions);
 			Log.LogInformation("Starting conflation, matching by address IN a building");
 			ApplyNodesToBuildings(subjectElementsIndexed, create, modify, exceptions);
 
@@ -40,17 +41,36 @@ namespace OsmPipeline
 			return change;
 		}
 
+		private static void ValidateRoadNamesMatcheRoads(Dictionary<string, OsmGeo> subjectElementsIndexed,
+			List<OsmGeo> create, List<OsmGeo> exceptions)
+		{
+			var roadNames = subjectElementsIndexed.Values
+				.Where(w => w.Tags != null && w.Tags.ContainsKey("highway") && w.Tags.ContainsKey("name"))
+				.SelectMany(w => w.Tags)
+				.Where(t => t.Key.Contains("name"))
+				.Select(t => t.Value)
+				.ToHashSet();
+
+			foreach (var created in create)
+			{
+				if (!roadNames.Contains(created.Tags["addr:street"]))
+				{
+					created.Tags.AddOrAppend(ExceptionKey, "Cannot find a matching road.");
+					exceptions.Add(created);
+				}
+			}
+		}
+
 		private static void LogOffset(IList<OsmGeo> modify)
 		{
 			// Try to detect if the data is geographically shifted
-			var moved = Static.maineE911id + ":moved";
 			var arrowsSummary = modify
-				.Where(m => m.Tags.ContainsKey(moved))
-				.Select(m => m.Tags[moved].Last())
+				.Where(m => m.Tags.ContainsKey(MovedKey))
+				.Select(m => m.Tags[MovedKey].Last())
 				.GroupBy(c => c)
 				.ToDictionary(c => c.Key, c => c.Count());
 
-			if (arrowsSummary.Values.Max() + 1 > 10 * arrowsSummary.Values.Min() + 1)
+			if (arrowsSummary.Values.DefaultIfEmpty().Max() + 1 > 10 * arrowsSummary.Values.DefaultIfEmpty().Min() + 1)
 			{
 				Log.LogWarning("We've detected there might be an offset!");
 			}
@@ -103,7 +123,7 @@ namespace OsmPipeline
 			{
 				if (referenceElement.Tags["addr:housenumber"] == "0") // indicates there was a missing address.
 				{
-					referenceElement.Tags.AddOrAppend(Static.maineE911id + ":exception", "Missing house number!");
+					referenceElement.Tags.AddOrAppend(ExceptionKey, "Missing house number!");
 					exceptions.Add(referenceElement);
 					continue;
 				}
@@ -114,7 +134,7 @@ namespace OsmPipeline
 					if (targetSubjectElements.Length > 1)
 					{
 						// Could try to auto resolve multi-matches by checking tag conflicts or if I'm IN one of them.
-						referenceElement.Tags.AddOrAppend(Static.maineE911id + ":exception", "Multiple matches!" + Identify(targetSubjectElements));
+						referenceElement.Tags.AddOrAppend(ExceptionKey, "Multiple matches!" + Identify(targetSubjectElements));
 						exceptions.Add(referenceElement);
 						continue;
 					}
@@ -127,7 +147,7 @@ namespace OsmPipeline
 					if (closestMatch.distance > int.Parse(Static.Config["MatchDistanceKmMaz"])
 						&& !Geometry.IsNodeInBuilding(referenceElement, subjectElement.AsComplete(subjectElementsIndexed)))
 					{
-						referenceElement.Tags.AddOrAppend(Static.maineE911id + ":exception", $"Matched, but too far: {(int)closestMatch.distance} meters.{Identify(subjectElement)}");
+						referenceElement.Tags.AddOrAppend(ExceptionKey, $"Matched, but too far: {(int)closestMatch.distance} meters.{Identify(subjectElement)}");
 						exceptions.Add(referenceElement);
 						continue;
 					}
@@ -141,7 +161,7 @@ namespace OsmPipeline
 						}
 						catch (Exception e)
 						{
-							referenceElement.Tags.AddOrAppend(Static.maineE911id + ":conflict", e.Message);
+							referenceElement.Tags.AddOrAppend(ExceptionKey, e.Message);
 							exceptions.Add(referenceElement);
 							continue;
 						}
@@ -186,7 +206,7 @@ namespace OsmPipeline
 				}
 				catch (Exception e)
 				{
-					node.Tags.AddOrAppend(Static.maineE911id + ":conflict", e.Message);
+					node.Tags.AddOrAppend(ExceptionKey, e.Message);
 					exceptions.Add(node);
 				}
 			}
@@ -212,7 +232,7 @@ namespace OsmPipeline
 				subjectNode.Latitude = referenceNode.Latitude;
 				subjectNode.Longitude = referenceNode.Longitude;
 				// Mark it for easier review
-				subject.Tags.AddOrReplace(Static.maineE911id + ":moved", (int)currentDistanceMeters + " meters " + arrow);
+				subject.Tags.AddOrReplace(MovedKey, (int)currentDistanceMeters + " meters " + arrow);
 				return true;
 			}
 
