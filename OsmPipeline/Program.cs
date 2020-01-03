@@ -45,13 +45,11 @@ namespace OsmPipeline
 
 		static async Task ImportAddressesInScope()
 		{
-			// When things go on the exception list, are they added or not?
-			// split large municipalites by zip?
-			// Or apply these regex on the subject as first part of conflation!
-				// set name = {0} where Highway=* && name like {1}
-				// set addr:street = {0} where addr:street like {1}
-				// Show a regex change layer
+			// it seems like multiple addresses in a building isnt always a problem. probably only when:
+				// conflicts with building OR multiple inside building
+				// and Existing subject nodes in building
 			// merge conflict resolution in command line, saving stuff to MaineMunicipalities
+			// split large municipalites by zip?
 			Static.Municipalities = await FileSerializer.ReadJsonCacheOrSource("MaineMunicipalities.json",
 				GeoJsonAPISource.GetMunicipalities);
 			var municipality = ChooseMunicipality();
@@ -70,7 +68,7 @@ namespace OsmPipeline
 
 		static string ChooseMunicipality()
 		{
-			return "Limestone";
+			return "Westbrook";
 			do
 			{
 				Console.WriteLine($"Which municipality?");

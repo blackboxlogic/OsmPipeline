@@ -18,7 +18,7 @@ namespace OsmPipeline.Fittings
 
 		public static void AddOrAppend(this TagsCollectionBase tags, string key, string newValue)
 		{
-			if (tags.TryGetValue(key, out var oldValue))
+			if (tags.TryGetValue(key, out var oldValue) && newValue != oldValue)
 			{
 				newValue = oldValue + ";" + newValue;
 			}

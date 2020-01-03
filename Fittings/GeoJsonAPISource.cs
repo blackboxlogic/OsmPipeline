@@ -33,7 +33,8 @@ namespace OsmPipeline.Fittings
 			public DateTime? ImportDate;
 			public string Notes;
 			public List<long> ChangeSetIds = new List<long>();
-			public List<long> ErrorObjectIds = new List<long>();
+			public List<long> BlackList = new List<long>();
+			public List<long> WhiteList = new List<long>();
 		}
 
 		public static async Task<FeatureCollection> FetchMunicipality(string municipality, int? limit = null)
