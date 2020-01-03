@@ -1,9 +1,6 @@
 ﻿using OsmSharp;
 using OsmSharp.Tags;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace OsmPipeline.Fittings
 {
@@ -18,8 +15,9 @@ namespace OsmPipeline.Fittings
 
 		public static void AddOrAppend(this TagsCollectionBase tags, string key, string newValue)
 		{
-			if (tags.TryGetValue(key, out var oldValue) && newValue != oldValue)
+			if (tags.TryGetValue(key, out var oldValue))
 			{
+				if (oldValue.Contains(newValue)) return;
 				newValue = oldValue + ";" + newValue;
 			}
 

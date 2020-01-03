@@ -15,6 +15,9 @@ namespace OsmPipeline
 		private const string ErrorKey = Static.maineE911id + ":error";
 		private const string WarnKey = Static.maineE911id + ":warn";
 		private const string MovedKey = Static.maineE911id + ":moved";
+		private const string InfoKey = Static.maineE911id + ":info";
+		private const string WhiteListKey = Static.maineE911id + ":whitelist";
+
 		private static ILogger Log;
 
 		public static OsmChange Merge(Osm reference, Osm subject, string scopeName)
@@ -29,7 +32,7 @@ namespace OsmPipeline
 			Log.LogInformation("Starting conflation, matching by geometry");
 			ApplyNodesToBuildings(subjectElementsIndexed, create, modify);
 			Log.LogInformation($"Writing {scopeName} review files");
-			var exceptions = GatherExceptions(create, delete, modify);
+			var exceptions = GatherExceptions(scopeName, create, delete, modify);
 			WriteToFileWithChildrenIfAny(scopeName + "/Conflated.Review.osm", exceptions, subjectElementsIndexed);
 			WriteToFileWithChildrenIfAny(scopeName + "/Conflated.Create.osm", create, subjectElementsIndexed);
 			WriteToFileWithChildrenIfAny(scopeName + "/Conflated.Delete.osm", delete, subjectElementsIndexed);
@@ -43,16 +46,30 @@ namespace OsmPipeline
 		}
 
 		// Collections are modified by reference. Errors removed and logged. Warns just logged.
-		private static List<OsmGeo> GatherExceptions(params List<OsmGeo>[] elementss)
+		// Whitelist suppresses warns and errors.
+		private static List<OsmGeo> GatherExceptions(string scopeName, params List<OsmGeo>[] elementss)
 		{
+			var whitelist = Static.Municipalities[scopeName].WhiteList.Select(Math.Abs).ToHashSet();
 			var exceptions = new List<OsmGeo>();
+
 			foreach (var elements in elementss)
 			{
-				var error = elements.Where(e => e.Tags.ContainsKey(ErrorKey)).ToHashSet();
-				var warn = elements.Where(e => e.Tags.ContainsKey(WarnKey));
-				exceptions.AddRange(warn.Concat(error));
-				elements.RemoveAll(error.Contains);
+				var errors = elements.Where(e => e.Tags.ContainsKey(ErrorKey)).ToHashSet();
+				foreach (var error in errors.Where(e => whitelist.Contains(-e.Id.Value)).ToArray())
+				{
+					error.Tags.AddOrAppend(WhiteListKey, "yes");
+					errors.Remove(error);
+				}
+				var warns = elements.Where(e => e.Tags.ContainsKey(WarnKey)).ToHashSet();
+				foreach (var warn in warns.Where(e => whitelist.Contains(-e.Id.Value)).ToArray())
+				{
+					warn.Tags.AddOrAppend(WhiteListKey, "yes");
+					warns.Remove(warn);
+				}
+				exceptions.AddRange(warns.Concat(errors));
+				elements.RemoveAll(errors.Contains);
 			}
+
 			return exceptions;
 		}
 
@@ -69,7 +86,7 @@ namespace OsmPipeline
 			{
 				if (!roadNames.Contains(created.Tags["addr:street"]))
 				{
-					created.Tags.AddOrAppend(WarnKey, "Cannot find a highway with name like this addr:street.");
+					created.Tags.AddOrAppend(InfoKey, "Cannot find a matching highway");
 				}
 			}
 		}
@@ -179,7 +196,7 @@ namespace OsmPipeline
 							}
 							catch (Exception e)
 							{
-								referenceElement.Tags.AddOrAppend(ErrorKey, e.Message);
+								referenceElement.Tags.AddOrAppend(WarnKey, e.Message);
 							}
 						}
 					}
@@ -196,13 +213,22 @@ namespace OsmPipeline
 			var newNodes = create.OfType<Node>().ToArray();
 			var buildingsAndInnerNewNodes = Geometry.NodesInCompleteElements(buildings, newNodes);
 
+			var oldNodes = subjectElementsIndexed.Values.OfType<Node>().ToArray();
+			var buildingsAndInnerOldNodes = Geometry.NodesInCompleteElements(buildings, oldNodes);
+
 			foreach (var buildingAndInners in buildingsAndInnerNewNodes)
 			{
+				var buildingHasOldNodes = buildingsAndInnerOldNodes.ContainsKey(buildingAndInners.Key);
+
 				if (buildingAndInners.Value.Length > 1)
 				{
 					foreach (var node in buildingAndInners.Value)
 					{
-						node.Tags.AddOrAppend(WarnKey, "Multiple addresses land in the same building");
+						node.Tags.AddOrAppend(InfoKey, "Multiple addresses land in the same building");
+						if (buildingHasOldNodes)
+						{
+							node.Tags.AddOrAppend(WarnKey, "New node in building with old nodes");
+						}
 					}
 				}
 				else
@@ -219,7 +245,11 @@ namespace OsmPipeline
 					}
 					catch (Exception e)
 					{
-						node.Tags.AddOrAppend(WarnKey, e.Message);
+						node.Tags.AddOrAppend(WarnKey, e.Message); // or info?
+						if(buildingHasOldNodes)
+						{
+							node.Tags.AddOrAppend(WarnKey, "New node in building with old nodes");
+						}
 					}
 				}
 			}

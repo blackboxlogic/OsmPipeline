@@ -12,9 +12,6 @@ namespace OsmPipeline
 		public static Dictionary<string, Municipality> Municipalities;
 	}
 
-	// it seems like multiple addresses in a building isnt always a problem. probably only when:
-		// conflicts with building OR multiple inside building
-		// AND Existing subject nodes in building
 	// split large municipalites by zip?
 	public class ConflateMenu
 	{
