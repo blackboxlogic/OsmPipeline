@@ -3221,7 +3221,7 @@
     <tag k="addr:state" v="ME" />
     <tag k="addr:postcode" v="04092" />
     <tag k="maineE911id" v="1594398" />
-    <tag k="maineE911id:warn" v="Multiple addresses land in the same building" />
+    <tag k="maineE911id:info" v="Multiple addresses land in the same building" />
   </node>
   <node id="-1594399" lat="43.6803136835004" lon="-70.3466196352261" version="1">
     <tag k="addr:housenumber" v="24" />
@@ -4601,7 +4601,7 @@
     <tag k="addr:state" v="ME" />
     <tag k="addr:postcode" v="04092" />
     <tag k="maineE911id" v="1620924" />
-    <tag k="maineE911id:warn" v="Multiple addresses land in the same building" />
+    <tag k="maineE911id:info" v="Multiple addresses land in the same building" />
   </node>
   <node id="-1620925" lat="43.6508997790727" lon="-70.3453111403121" version="1">
     <tag k="addr:housenumber" v="73" />
@@ -6824,7 +6824,7 @@
     <tag k="addr:state" v="ME" />
     <tag k="addr:postcode" v="04092" />
     <tag k="maineE911id" v="1697448" />
-    <tag k="maineE911id:warn" v="Multiple addresses land in the same building" />
+    <tag k="maineE911id:info" v="Multiple addresses land in the same building" />
   </node>
   <node id="-1697450" lat="43.6475601223639" lon="-70.3566689500336" version="1">
     <tag k="addr:housenumber" v="937" />
@@ -6849,7 +6849,7 @@
     <tag k="addr:state" v="ME" />
     <tag k="addr:postcode" v="04092" />
     <tag k="maineE911id" v="1697452" />
-    <tag k="maineE911id:warn" v="Multiple addresses land in the same building" />
+    <tag k="maineE911id:info" v="Multiple addresses land in the same building" />
   </node>
   <node id="-1697453" lat="43.6464099705702" lon="-70.3560912915692" version="1">
     <tag k="addr:housenumber" v="967" />
@@ -6914,7 +6914,7 @@
     <tag k="addr:state" v="ME" />
     <tag k="addr:postcode" v="04092" />
     <tag k="maineE911id" v="1697462" />
-    <tag k="maineE911id:warn" v="Multiple addresses land in the same building" />
+    <tag k="maineE911id:info" v="Multiple addresses land in the same building" />
   </node>
   <node id="-1697463" lat="43.6465209140248" lon="-70.3554676227483" version="1">
     <tag k="addr:housenumber" v="972" />
@@ -13936,7 +13936,7 @@
     <tag k="addr:state" v="ME" />
     <tag k="addr:postcode" v="04092" />
     <tag k="maineE911id" v="1799539;2045707;2045708;2045709;2045710;2045711;2045712;2045713" />
-    <tag k="maineE911id:warn" v="Multiple addresses land in the same building" />
+    <tag k="maineE911id:info" v="Multiple addresses land in the same building" />
   </node>
   <node id="-2045715" lat="43.6475181558629" lon="-70.363977518324" version="1">
     <tag k="addr:housenumber" v="5" />
@@ -20970,7 +20970,7 @@
     <tag k="addr:state" v="ME" />
     <tag k="addr:postcode" v="04092" />
     <tag k="maineE911id" v="1821195" />
-    <tag k="maineE911id:warn" v="Multiple addresses land in the same building" />
+    <tag k="maineE911id:info" v="Multiple addresses land in the same building" />
   </node>
   <node id="-1821197" lat="43.675511263078" lon="-70.3669995390237" version="1">
     <tag k="addr:housenumber" v="33" />
@@ -26724,7 +26724,8 @@
     <tag k="addr:state" v="ME" />
     <tag k="addr:postcode" v="04092" />
     <tag k="maineE911id" v="1828412" />
-    <tag k="maineE911id:warn" v="Multiple addresses land in the same building" />
+    <tag k="maineE911id:info" v="Multiple addresses land in the same building" />
+    <tag k="maineE911id:warn" v="New node in building with old nodes" />
   </node>
   <node id="-1828413" lat="43.6774272677856" lon="-70.3363203866555" version="1">
     <tag k="addr:housenumber" v="142" />
@@ -27166,7 +27167,7 @@
     <tag k="addr:state" v="ME" />
     <tag k="addr:postcode" v="04092" />
     <tag k="maineE911id" v="1828896" />
-    <tag k="maineE911id:warn" v="Multiple addresses land in the same building" />
+    <tag k="maineE911id:info" v="Multiple addresses land in the same building" />
   </node>
   <node id="-1828897" lat="43.6959145997347" lon="-70.3322635177466" version="1">
     <tag k="addr:housenumber" v="42" />
@@ -27331,7 +27332,7 @@
     <tag k="addr:state" v="ME" />
     <tag k="addr:postcode" v="04092" />
     <tag k="maineE911id" v="1829015" />
-    <tag k="maineE911id:warn" v="Multiple addresses land in the same building" />
+    <tag k="maineE911id:info" v="Multiple addresses land in the same building" />
   </node>
   <node id="-2043956" lat="43.6783923488075" lon="-70.3476807804381" version="1">
     <tag k="addr:housenumber" v="80" />
@@ -27382,7 +27383,7 @@
     <tag k="addr:state" v="ME" />
     <tag k="addr:postcode" v="04092" />
     <tag k="maineE911id" v="1829046" />
-    <tag k="maineE911id:warn" v="Multiple addresses land in the same building" />
+    <tag k="maineE911id:info" v="Multiple addresses land in the same building" />
   </node>
   <node id="-1829093" lat="43.6712564662008" lon="-70.3677898605344" version="1">
     <tag k="addr:housenumber" v="158" />
@@ -28080,7 +28081,8 @@
     <tag k="addr:postcode" v="04092" />
     <tag k="building" v="commercial" />
     <tag k="maineE911id" v="2049950;2049951;2049952;1831789;2049949" />
-    <tag k="maineE911id:warn" v="Multiple addresses land in the same building" />
+    <tag k="maineE911id:info" v="Multiple addresses land in the same building" />
+    <tag k="maineE911id:warn" v="New node in building with old nodes" />
   </node>
   <node id="-1831790" lat="43.6763911937551" lon="-70.3656983366359" version="1">
     <tag k="addr:housenumber" v="840" />
@@ -28089,7 +28091,8 @@
     <tag k="addr:state" v="ME" />
     <tag k="addr:postcode" v="04092" />
     <tag k="maineE911id" v="1831790" />
-    <tag k="maineE911id:warn" v="Multiple addresses land in the same building" />
+    <tag k="maineE911id:info" v="Multiple addresses land in the same building" />
+    <tag k="maineE911id:warn" v="New node in building with old nodes" />
   </node>
   <node id="-1831791" lat="43.7429289983962" lon="-70.3475506675434" version="1">
     <tag k="addr:housenumber" v="844" />
@@ -28107,7 +28110,7 @@
     <tag k="addr:postcode" v="04092" />
     <tag k="building" v="commercial" />
     <tag k="maineE911id" v="2049961;2049962;2049963;1831793;2049960" />
-    <tag k="maineE911id:warn" v="Multiple addresses land in the same building" />
+    <tag k="maineE911id:info" v="Multiple addresses land in the same building" />
   </node>
   <node id="-1831794" lat="43.676466796724" lon="-70.3661528514201" version="1">
     <tag k="addr:housenumber" v="852" />
@@ -28116,7 +28119,7 @@
     <tag k="addr:state" v="ME" />
     <tag k="addr:postcode" v="04092" />
     <tag k="maineE911id" v="1831794" />
-    <tag k="maineE911id:warn" v="Multiple addresses land in the same building" />
+    <tag k="maineE911id:info" v="Multiple addresses land in the same building" />
   </node>
   <node id="-1831796" lat="43.6767199312471" lon="-70.3675728254482" version="1">
     <tag k="addr:housenumber" v="880" />
@@ -28125,7 +28128,7 @@
     <tag k="addr:state" v="ME" />
     <tag k="addr:postcode" v="04092" />
     <tag k="maineE911id" v="1831796" />
-    <tag k="maineE911id:warn" v="Multiple addresses land in the same building" />
+    <tag k="maineE911id:info" v="Multiple addresses land in the same building" />
   </node>
   <node id="-1831799" lat="43.676903085714" lon="-70.3691959119404" version="1">
     <tag k="addr:housenumber" v="916" />
@@ -28158,8 +28161,7 @@
     <tag k="addr:state" v="ME" />
     <tag k="addr:postcode" v="04092" />
     <tag k="maineE911id" v="1831829" />
-    <tag k="maineE911id:info" v="Cannot find a matching highway" />
-    <tag k="maineE911id:warn" v="Multiple addresses land in the same building" />
+    <tag k="maineE911id:info" v="Cannot find a matching highway;Multiple addresses land in the same building" />
   </node>
   <node id="-1831831" lat="43.7026577669673" lon="-70.3342558765116" version="1">
     <tag k="addr:housenumber" v="3" />
@@ -28290,7 +28292,8 @@
     <tag k="addr:state" v="ME" />
     <tag k="addr:postcode" v="04092" />
     <tag k="maineE911id" v="1831956;2050658" />
-    <tag k="maineE911id:warn" v="Multiple addresses land in the same building" />
+    <tag k="maineE911id:info" v="Multiple addresses land in the same building" />
+    <tag k="maineE911id:warn" v="New node in building with old nodes" />
   </node>
   <node id="-2050659" lat="43.6784477050929" lon="-70.3295011884341" version="1">
     <tag k="addr:housenumber" v="11" />
@@ -28301,7 +28304,8 @@
     <tag k="addr:postcode" v="04092" />
     <tag k="maineE911id" v="2050659" />
     <tag k="building" v="commercial" />
-    <tag k="maineE911id:warn" v="Multiple addresses land in the same building" />
+    <tag k="maineE911id:info" v="Multiple addresses land in the same building" />
+    <tag k="maineE911id:warn" v="New node in building with old nodes" />
   </node>
   <node id="-2050660" lat="43.6783525391201" lon="-70.3295549132285" version="1">
     <tag k="addr:housenumber" v="11" />
@@ -28312,7 +28316,8 @@
     <tag k="addr:postcode" v="04092" />
     <tag k="maineE911id" v="2050660" />
     <tag k="building" v="commercial" />
-    <tag k="maineE911id:warn" v="Multiple addresses land in the same building" />
+    <tag k="maineE911id:info" v="Multiple addresses land in the same building" />
+    <tag k="maineE911id:warn" v="New node in building with old nodes" />
   </node>
   <node id="-2050661" lat="43.6782258675521" lon="-70.3296079420393" version="1">
     <tag k="addr:housenumber" v="11" />
@@ -28323,7 +28328,8 @@
     <tag k="addr:postcode" v="04092" />
     <tag k="maineE911id" v="2050661" />
     <tag k="building" v="commercial" />
-    <tag k="maineE911id:warn" v="Multiple addresses land in the same building" />
+    <tag k="maineE911id:info" v="Multiple addresses land in the same building" />
+    <tag k="maineE911id:warn" v="New node in building with old nodes" />
   </node>
   <node id="-2050662" lat="43.6781265614649" lon="-70.3296305604716" version="1">
     <tag k="addr:housenumber" v="11" />
@@ -28334,7 +28340,8 @@
     <tag k="addr:postcode" v="04092" />
     <tag k="maineE911id" v="2050662" />
     <tag k="building" v="commercial" />
-    <tag k="maineE911id:warn" v="Multiple addresses land in the same building" />
+    <tag k="maineE911id:info" v="Multiple addresses land in the same building" />
+    <tag k="maineE911id:warn" v="New node in building with old nodes" />
   </node>
   <node id="-2050663" lat="43.6780269667844" lon="-70.3296779840694" version="1">
     <tag k="addr:housenumber" v="11" />
@@ -28345,7 +28352,8 @@
     <tag k="addr:postcode" v="04092" />
     <tag k="maineE911id" v="2050663" />
     <tag k="building" v="commercial" />
-    <tag k="maineE911id:warn" v="Multiple addresses land in the same building" />
+    <tag k="maineE911id:info" v="Multiple addresses land in the same building" />
+    <tag k="maineE911id:warn" v="New node in building with old nodes" />
   </node>
   <node id="-2050664" lat="43.6779548819026" lon="-70.3296825948641" version="1">
     <tag k="addr:housenumber" v="11" />
@@ -28356,7 +28364,8 @@
     <tag k="addr:postcode" v="04092" />
     <tag k="maineE911id" v="2050664" />
     <tag k="building" v="commercial" />
-    <tag k="maineE911id:warn" v="Multiple addresses land in the same building" />
+    <tag k="maineE911id:info" v="Multiple addresses land in the same building" />
+    <tag k="maineE911id:warn" v="New node in building with old nodes" />
   </node>
   <node id="-2050665" lat="43.6778914378675" lon="-70.3297184109391" version="1">
     <tag k="addr:housenumber" v="11" />
@@ -28367,7 +28376,8 @@
     <tag k="addr:postcode" v="04092" />
     <tag k="maineE911id" v="2050665" />
     <tag k="building" v="commercial" />
-    <tag k="maineE911id:warn" v="Multiple addresses land in the same building" />
+    <tag k="maineE911id:info" v="Multiple addresses land in the same building" />
+    <tag k="maineE911id:warn" v="New node in building with old nodes" />
   </node>
   <node id="-2050666" lat="43.6777967047032" lon="-70.329734927202" version="1">
     <tag k="addr:housenumber" v="11" />
@@ -28378,7 +28388,8 @@
     <tag k="addr:postcode" v="04092" />
     <tag k="maineE911id" v="2050666" />
     <tag k="building" v="commercial" />
-    <tag k="maineE911id:warn" v="Multiple addresses land in the same building" />
+    <tag k="maineE911id:info" v="Multiple addresses land in the same building" />
+    <tag k="maineE911id:warn" v="New node in building with old nodes" />
   </node>
   <node id="-2050667" lat="43.6776701773564" lon="-70.3297755526267" version="1">
     <tag k="addr:housenumber" v="11" />
@@ -28389,7 +28400,8 @@
     <tag k="addr:postcode" v="04092" />
     <tag k="maineE911id" v="2050667" />
     <tag k="building" v="commercial" />
-    <tag k="maineE911id:warn" v="Multiple addresses land in the same building" />
+    <tag k="maineE911id:info" v="Multiple addresses land in the same building" />
+    <tag k="maineE911id:warn" v="New node in building with old nodes" />
   </node>
   <node id="-2050668" lat="43.677561797487" lon="-70.3298041730275" version="1">
     <tag k="addr:housenumber" v="11" />
@@ -28400,7 +28412,8 @@
     <tag k="addr:postcode" v="04092" />
     <tag k="maineE911id" v="2050668" />
     <tag k="building" v="commercial" />
-    <tag k="maineE911id:warn" v="Multiple addresses land in the same building" />
+    <tag k="maineE911id:info" v="Multiple addresses land in the same building" />
+    <tag k="maineE911id:warn" v="New node in building with old nodes" />
   </node>
   <node id="-2050669" lat="43.6777379057518" lon="-70.3297584399861" version="1">
     <tag k="addr:housenumber" v="11" />
@@ -28411,7 +28424,8 @@
     <tag k="addr:postcode" v="04092" />
     <tag k="maineE911id" v="2050669" />
     <tag k="building" v="commercial" />
-    <tag k="maineE911id:warn" v="Multiple addresses land in the same building" />
+    <tag k="maineE911id:info" v="Multiple addresses land in the same building" />
+    <tag k="maineE911id:warn" v="New node in building with old nodes" />
   </node>
   <node id="-1831957" lat="43.6938912481482" lon="-70.3359042117686" version="1">
     <tag k="addr:housenumber" v="11" />
@@ -28569,7 +28583,8 @@
     <tag k="addr:state" v="ME" />
     <tag k="addr:postcode" v="04092" />
     <tag k="maineE911id" v="1832097" />
-    <tag k="maineE911id:warn" v="Multiple addresses land in the same building" />
+    <tag k="maineE911id:info" v="Multiple addresses land in the same building" />
+    <tag k="maineE911id:warn" v="New node in building with old nodes" />
   </node>
   <node id="-1832116" lat="43.6791367177249" lon="-70.3310299408931" version="1">
     <tag k="addr:housenumber" v="31" />
@@ -28578,7 +28593,8 @@
     <tag k="addr:state" v="ME" />
     <tag k="addr:postcode" v="04092" />
     <tag k="maineE911id" v="1832116" />
-    <tag k="maineE911id:warn" v="Multiple addresses land in the same building" />
+    <tag k="maineE911id:info" v="Multiple addresses land in the same building" />
+    <tag k="maineE911id:warn" v="New node in building with old nodes" />
   </node>
   <node id="-2051071" lat="43.6754745040049" lon="-70.3617822882086" version="1">
     <tag k="addr:housenumber" v="33" />
@@ -28596,7 +28612,7 @@
     <tag k="addr:state" v="ME" />
     <tag k="addr:postcode" v="04092" />
     <tag k="maineE911id" v="1832133" />
-    <tag k="maineE911id:warn" v="Multiple addresses land in the same building" />
+    <tag k="maineE911id:info" v="Multiple addresses land in the same building" />
   </node>
   <node id="-1832139" lat="43.6732524098359" lon="-70.3490977281814" version="1">
     <tag k="addr:housenumber" v="35" />
@@ -28670,7 +28686,8 @@
     <tag k="addr:state" v="ME" />
     <tag k="addr:postcode" v="04092" />
     <tag k="maineE911id" v="1832167" />
-    <tag k="maineE911id:warn" v="Multiple addresses land in the same building" />
+    <tag k="maineE911id:info" v="Multiple addresses land in the same building" />
+    <tag k="maineE911id:warn" v="New node in building with old nodes" />
   </node>
   <node id="-1832187" lat="43.6720896860992" lon="-70.3827252825781" version="1">
     <tag k="addr:housenumber" v="45" />
@@ -28687,7 +28704,8 @@
     <tag k="addr:state" v="ME" />
     <tag k="addr:postcode" v="04092" />
     <tag k="maineE911id" v="1832194" />
-    <tag k="maineE911id:warn" v="Multiple addresses land in the same building" />
+    <tag k="maineE911id:info" v="Multiple addresses land in the same building" />
+    <tag k="maineE911id:warn" v="New node in building with old nodes" />
   </node>
   <node id="-1832209" lat="43.6780572380724" lon="-70.3520401225798" version="1">
     <tag k="addr:housenumber" v="53" />
@@ -29068,7 +29086,7 @@
     <tag k="addr:state" v="ME" />
     <tag k="addr:postcode" v="04092" />
     <tag k="maineE911id" v="1832606" />
-    <tag k="maineE911id:warn" v="Multiple addresses land in the same building" />
+    <tag k="maineE911id:info" v="Multiple addresses land in the same building" />
   </node>
   <node id="-1836079" lat="43.6661715521617" lon="-70.3604308165096" version="1">
     <tag k="addr:housenumber" v="75" />
@@ -29185,7 +29203,7 @@
     <tag k="addr:state" v="ME" />
     <tag k="addr:postcode" v="04092" />
     <tag k="maineE911id" v="1836896" />
-    <tag k="maineE911id:warn" v="Multiple addresses land in the same building" />
+    <tag k="maineE911id:info" v="Multiple addresses land in the same building" />
   </node>
   <node id="-1836899" lat="43.6771766204064" lon="-70.3689106007103" version="1">
     <tag k="addr:housenumber" v="907" />
@@ -31505,7 +31523,7 @@
     <tag k="addr:postcode" v="04092" />
     <tag k="building" v="commercial" />
     <tag k="maineE911id" v="2045863;2045864;2045865;2045866;2045867;2045868;2045869;2045870;2045871;2045872;2045873;2045874;2045875;1855648;2045862" />
-    <tag k="maineE911id:warn" v="Multiple addresses land in the same building" />
+    <tag k="maineE911id:info" v="Multiple addresses land in the same building" />
   </node>
   <node id="-1855650" lat="43.6746612352218" lon="-70.3357069676551" version="1">
     <tag k="addr:housenumber" v="50" />
@@ -37321,7 +37339,7 @@
     <tag k="addr:state" v="ME" />
     <tag k="addr:postcode" v="04092" />
     <tag k="maineE911id" v="1871961" />
-    <tag k="maineE911id:warn" v="Multiple addresses land in the same building" />
+    <tag k="maineE911id:info" v="Multiple addresses land in the same building" />
   </node>
   <node id="-1871962" lat="43.7013086912824" lon="-70.3425844953613" version="1">
     <tag k="addr:housenumber" v="20" />
@@ -42818,7 +42836,7 @@
     <tag k="addr:state" v="ME" />
     <tag k="addr:postcode" v="04092" />
     <tag k="maineE911id" v="1888440" />
-    <tag k="maineE911id:warn" v="Multiple addresses land in the same building" />
+    <tag k="maineE911id:info" v="Multiple addresses land in the same building" />
   </node>
   <node id="-1888441" lat="43.6750437967803" lon="-70.3688186896516" version="1">
     <tag k="addr:housenumber" v="57" />
@@ -45811,7 +45829,7 @@
     <tag k="addr:state" v="ME" />
     <tag k="addr:postcode" v="04092" />
     <tag k="maineE911id" v="2043082" />
-    <tag k="maineE911id:warn" v="Multiple addresses land in the same building" />
+    <tag k="maineE911id:info" v="Multiple addresses land in the same building" />
   </node>
   <node id="-2043084" lat="43.6795471490407" lon="-70.3683255898768" version="1">
     <tag k="addr:housenumber" v="75" />
@@ -45841,7 +45859,7 @@
     <tag k="addr:postcode" v="04092" />
     <tag k="building" v="commercial" />
     <tag k="maineE911id" v="2043097;2043098;2043099;2043100;2043101;2043102;2043103;2043104;2043105;2043106;2043107;2043108;2043109;2043110;2043111;2043112;2043113;2043114;2043115;2043116;2043117;2043118;2043119;2043120;2043121;2043122;2043123;2043124;2043125;2043126;2043127;2043128;2043129;2043130;2043131;2043132;2043133;2043134;2043135;2043136;2043137;2043138;2043139;2043140;2043141;2043142;2043143;2043144;2043145;2043146;2043147;2043148;2043149;2043150;2043151;2043152;2043153;2043154;2043155;2043095;2043096" />
-    <tag k="maineE911id:warn" v="Multiple addresses land in the same building" />
+    <tag k="maineE911id:info" v="Multiple addresses land in the same building" />
   </node>
   <node id="-2043198" lat="43.6829388698589" lon="-70.367050348028" version="1">
     <tag k="addr:housenumber" v="192" />
@@ -46959,7 +46977,7 @@
     <tag k="addr:postcode" v="04092" />
     <tag k="building" v="apartments" />
     <tag k="maineE911id" v="2045835;2045836;2045834" />
-    <tag k="maineE911id:warn" v="Multiple addresses land in the same building" />
+    <tag k="maineE911id:info" v="Multiple addresses land in the same building" />
   </node>
   <node id="-2045845" lat="43.6775361395014" lon="-70.3473700798745" version="1">
     <tag k="addr:housenumber" v="95" />
@@ -47636,7 +47654,8 @@
     <tag k="addr:state" v="ME" />
     <tag k="addr:postcode" v="04092" />
     <tag k="maineE911id" v="2049953" />
-    <tag k="maineE911id:warn" v="Multiple addresses land in the same building" />
+    <tag k="maineE911id:info" v="Multiple addresses land in the same building" />
+    <tag k="maineE911id:warn" v="New node in building with old nodes" />
   </node>
   <node id="-2049965" lat="43.6768711734974" lon="-70.3665962218974" version="1">
     <tag k="addr:housenumber" v="863" />
@@ -47647,7 +47666,7 @@
     <tag k="addr:postcode" v="04092" />
     <tag k="maineE911id" v="2049965;2049964" />
     <tag k="building" v="commercial" />
-    <tag k="maineE911id:warn" v="Multiple addresses land in the same building" />
+    <tag k="maineE911id:info" v="Multiple addresses land in the same building" />
   </node>
   <node id="-2049975" lat="43.6769931652324" lon="-70.3673123120152" version="1">
     <tag k="addr:housenumber" v="873" />
@@ -48034,7 +48053,7 @@
     <tag k="addr:state" v="ME" />
     <tag k="addr:postcode" v="04092" />
     <tag k="maineE911id" v="2050626" />
-    <tag k="maineE911id:warn" v="Multiple addresses land in the same building" />
+    <tag k="maineE911id:info" v="Multiple addresses land in the same building" />
   </node>
   <node id="-2050627" lat="43.6763434018459" lon="-70.3666834857401" version="1">
     <tag k="addr:housenumber" v="3" />
@@ -48043,7 +48062,7 @@
     <tag k="addr:state" v="ME" />
     <tag k="addr:postcode" v="04092" />
     <tag k="maineE911id" v="2050627" />
-    <tag k="maineE911id:warn" v="&#xA;	way/428228452.addr:housenumber=1&#xA;	node/-2050627.addr:housenumber=3" />
+    <tag k="maineE911id:warn" v="&#xA;	way/428228452.addr:housenumber=1&#xA;	node/-2050627.addr:housenumber=3;New node in building with old nodes" />
   </node>
   <node id="-2050628" lat="43.6761777122625" lon="-70.3662331296551" version="1">
     <tag k="addr:housenumber" v="4" />
@@ -48052,7 +48071,7 @@
     <tag k="addr:state" v="ME" />
     <tag k="addr:postcode" v="04092" />
     <tag k="maineE911id" v="2050628" />
-    <tag k="maineE911id:warn" v="Multiple addresses land in the same building" />
+    <tag k="maineE911id:info" v="Multiple addresses land in the same building" />
   </node>
   <node id="-2050629" lat="43.6688803074765" lon="-70.3834268352577" version="1">
     <tag k="addr:housenumber" v="18" />
@@ -48617,7 +48636,7 @@
     <tag k="addr:state" v="ME" />
     <tag k="addr:postcode" v="04092" />
     <tag k="maineE911id" v="2051156" />
-    <tag k="maineE911id:warn" v="Multiple addresses land in the same building" />
+    <tag k="maineE911id:info" v="Multiple addresses land in the same building" />
   </node>
   <node id="-2051161" lat="43.6805991161006" lon="-70.3483753130163" version="1">
     <tag k="addr:housenumber" v="16" />
