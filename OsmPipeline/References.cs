@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace OsmPipeline
 {
-	public static class Reference
+	public static class References
 	{
 		private static ILogger Log;
 
@@ -53,7 +53,7 @@ namespace OsmPipeline
 
 		public static async Task<Osm> Fetch(string scopeName)
 		{
-			Log = Log ?? Static.LogFactory.CreateLogger(typeof(Reference));
+			Log = Log ?? Static.LogFactory.CreateLogger(typeof(References));
 			Log.LogInformation("Fetching Reference material from Maine E911 API");
 
 			// Fetch GIS
@@ -64,11 +64,11 @@ namespace OsmPipeline
 			Validate(gisFeatures);
 
 			// Fetch the list of objectIDs with known errors to omit.
-			var errorList = Static.Municipalities[scopeName].ErrorObjectIds.ToHashSet();
+			var blacklist = Static.Municipalities[scopeName].BlackList.ToHashSet();
 			Log.LogInformation("Translating Reference material");
 			// Convert
 			var nodes = gisFeatures
-				.Where(f => !errorList.Contains((long)f.Properties["OBJECTID"]))
+				.Where(f => !blacklist.Contains((long)f.Properties["OBJECTID"]))
 				.Select(Convert)
 				.ToArray();
 

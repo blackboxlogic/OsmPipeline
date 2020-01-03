@@ -11,11 +11,11 @@ using Microsoft.Extensions.Configuration;
 
 namespace OsmPipeline
 {
-	public static class Subject
+	public static class Subjects
 	{
 		private static ILogger Log;
 
-		static Subject()
+		static Subjects()
 		{
 			Log = Static.LogFactory.CreateLogger("Subject");
 		}
