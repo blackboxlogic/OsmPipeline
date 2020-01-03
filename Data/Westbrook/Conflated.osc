@@ -38813,13 +38813,6 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
     </node>
-    <node id="-1893861" lat="43.6752474423231" lon="-70.3367806195182" version="1">
-      <tag k="addr:housenumber" v="10" />
-      <tag k="addr:street" v="Terminal Street" />
-      <tag k="addr:city" v="Westbrook" />
-      <tag k="addr:state" v="ME" />
-      <tag k="addr:postcode" v="04092" />
-    </node>
     <node id="-1893862" lat="43.6758222348763" lon="-70.3392124244266" version="1">
       <tag k="addr:housenumber" v="20" />
       <tag k="addr:street" v="Terminal Street" />
@@ -45042,7 +45035,7 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
     </node>
-    <way id="297826566" user="blackboxlogic+bot" uid="10307443" visible="true" version="4" changeset="74595922" timestamp="2019-09-17T19:04:40Z">
+    <way id="297826566" user="LilacLaneCC" uid="10594535" visible="true" version="7" changeset="78986508" timestamp="2019-12-29T18:33:49Z">
       <nd ref="3017315126" />
       <nd ref="4613615001" />
       <nd ref="3017315133" />
@@ -45054,9 +45047,12 @@
       <nd ref="3017315155" />
       <nd ref="3017315154" />
       <nd ref="3017315151" />
+      <nd ref="7093517857" />
       <nd ref="3017315144" />
+      <nd ref="7093599112" />
       <nd ref="3017315138" />
       <nd ref="3017315136" />
+      <nd ref="7087448136" />
       <nd ref="3017315134" />
       <nd ref="3017315132" />
       <nd ref="3017315131" />
@@ -50572,6 +50568,28 @@
       <tag k="addr:city" v="Westbrook" />
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
+    </way>
+    <way id="758787712" user="Bkissin" uid="506275" visible="true" version="2" changeset="78896363" timestamp="2019-12-26T20:05:33Z">
+      <nd ref="7086788157" />
+      <nd ref="7086788158" />
+      <nd ref="7086788159" />
+      <nd ref="7086788160" />
+      <nd ref="7086788161" />
+      <nd ref="7086788162" />
+      <nd ref="7086788163" />
+      <nd ref="7086788164" />
+      <nd ref="7086788157" />
+      <tag k="addr:city" v="Westbrook" />
+      <tag k="addr:housenumber" v="10" />
+      <tag k="addr:postcode" v="04092" />
+      <tag k="addr:state" v="ME" />
+      <tag k="addr:street" v="Terminal Street" />
+      <tag k="brand" v="Freightliner" />
+      <tag k="brand:wikidata" v="Q1420724" />
+      <tag k="brand:wikipedia" v="en:Freightliner Trucks" />
+      <tag k="building" v="yes" />
+      <tag k="name" v="Freightliner and Western Star of Maine" />
+      <tag k="shop" v="car" />
     </way>
     <relation id="6863190" user="blackboxlogic" uid="9109301" visible="true" version="3" changeset="78161091" timestamp="2019-12-09T16:10:04Z">
       <member type="way" ref="464746190" role="inner" />

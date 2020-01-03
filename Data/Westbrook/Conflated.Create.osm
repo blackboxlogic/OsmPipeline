@@ -44663,14 +44663,6 @@
     <tag k="addr:postcode" v="04092" />
     <tag k="maineE911id" v="1893860" />
   </node>
-  <node id="-1893861" lat="43.6752474423231" lon="-70.3367806195182" version="1">
-    <tag k="addr:housenumber" v="10" />
-    <tag k="addr:street" v="Terminal Street" />
-    <tag k="addr:city" v="Westbrook" />
-    <tag k="addr:state" v="ME" />
-    <tag k="addr:postcode" v="04092" />
-    <tag k="maineE911id" v="1893861" />
-  </node>
   <node id="-1893862" lat="43.6758222348763" lon="-70.3392124244266" version="1">
     <tag k="addr:housenumber" v="20" />
     <tag k="addr:street" v="Terminal Street" />

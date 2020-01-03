@@ -1535,9 +1535,12 @@
   <node id="3017315155" lat="43.7122631" lon="-70.3705989" user="maxerickson" uid="360392" visible="true" version="1" changeset="24757051" timestamp="2014-08-14T23:53:47Z" />
   <node id="3017315154" lat="43.7116982" lon="-70.371743" user="maxerickson" uid="360392" visible="true" version="1" changeset="24757051" timestamp="2014-08-14T23:53:47Z" />
   <node id="3017315151" lat="43.7100359" lon="-70.370984" user="maxerickson" uid="360392" visible="true" version="1" changeset="24757051" timestamp="2014-08-14T23:53:47Z" />
+  <node id="7093517857" lat="43.7094402" lon="-70.3726539" user="LilacLaneCC" uid="10594535" visible="true" version="1" changeset="78985783" timestamp="2019-12-29T18:02:59Z" />
   <node id="3017315144" lat="43.7090943" lon="-70.3736235" user="maxerickson" uid="360392" visible="true" version="1" changeset="24757051" timestamp="2014-08-14T23:53:47Z" />
+  <node id="7093599112" lat="43.7088413" lon="-70.3740032" user="LilacLaneCC" uid="10594535" visible="true" version="1" changeset="78986508" timestamp="2019-12-29T18:33:49Z" />
   <node id="3017315138" lat="43.7073583" lon="-70.3762289" user="maxerickson" uid="360392" visible="true" version="1" changeset="24757051" timestamp="2014-08-14T23:53:47Z" />
-  <node id="3017315136" lat="43.7065558" lon="-70.3771238" user="maxerickson" uid="360392" visible="true" version="1" changeset="24757051" timestamp="2014-08-14T23:53:47Z" />
+  <node id="3017315136" lat="43.7066149" lon="-70.3772405" user="LilacLaneCC" uid="10594535" visible="true" version="2" changeset="78908159" timestamp="2019-12-27T04:51:45Z" />
+  <node id="7087448136" lat="43.7065825" lon="-70.3772259" user="LilacLaneCC" uid="10594535" visible="true" version="1" changeset="78908506" timestamp="2019-12-27T05:06:44Z" />
   <node id="3017315134" lat="43.7052455" lon="-70.3766254" user="maxerickson" uid="360392" visible="true" version="1" changeset="24757051" timestamp="2014-08-14T23:53:47Z" />
   <node id="3017315132" lat="43.7033623" lon="-70.3773184" user="maxerickson" uid="360392" visible="true" version="1" changeset="24757051" timestamp="2014-08-14T23:53:47Z" />
   <node id="3017315131" lat="43.7026971" lon="-70.3768992" user="maxerickson" uid="360392" visible="true" version="1" changeset="24757051" timestamp="2014-08-14T23:53:47Z" />
@@ -7151,6 +7154,14 @@
   <node id="6970461961" lat="43.6834631" lon="-70.3823204" user="vorpalblade" uid="2078753" visible="true" version="1" changeset="76988804" timestamp="2019-11-13T02:49:23Z" />
   <node id="6970461963" lat="43.6834389" lon="-70.3822742" user="vorpalblade" uid="2078753" visible="true" version="1" changeset="76988804" timestamp="2019-11-13T02:49:23Z" />
   <node id="6970461964" lat="43.6833848" lon="-70.3823286" user="vorpalblade" uid="2078753" visible="true" version="1" changeset="76988804" timestamp="2019-11-13T02:49:23Z" />
+  <node id="7086788157" lat="43.6753467" lon="-70.3368789" user="Bkissin" uid="506275" visible="true" version="1" changeset="78896363" timestamp="2019-12-26T20:05:33Z" />
+  <node id="7086788158" lat="43.675278" lon="-70.3364664" user="Bkissin" uid="506275" visible="true" version="1" changeset="78896363" timestamp="2019-12-26T20:05:33Z" />
+  <node id="7086788159" lat="43.6751422" lon="-70.3365096" user="Bkissin" uid="506275" visible="true" version="1" changeset="78896363" timestamp="2019-12-26T20:05:33Z" />
+  <node id="7086788160" lat="43.675155" lon="-70.3365866" user="Bkissin" uid="506275" visible="true" version="1" changeset="78896363" timestamp="2019-12-26T20:05:33Z" />
+  <node id="7086788161" lat="43.6750846" lon="-70.336609" user="Bkissin" uid="506275" visible="true" version="1" changeset="78896363" timestamp="2019-12-26T20:05:33Z" />
+  <node id="7086788162" lat="43.6750918" lon="-70.336652" user="Bkissin" uid="506275" visible="true" version="1" changeset="78896363" timestamp="2019-12-26T20:05:33Z" />
+  <node id="7086788163" lat="43.6747826" lon="-70.3367505" user="Bkissin" uid="506275" visible="true" version="1" changeset="78896363" timestamp="2019-12-26T20:05:33Z" />
+  <node id="7086788164" lat="43.6748314" lon="-70.337043" user="Bkissin" uid="506275" visible="true" version="1" changeset="78896363" timestamp="2019-12-26T20:05:33Z" />
   <node id="4598283447" lat="43.6657717" lon="-70.3476649" user="eric22" uid="160949" visible="true" version="1" changeset="45029554" timestamp="2017-01-09T16:00:32Z" />
   <node id="4211032410" lat="43.6657263" lon="-70.347641" user="Bkissin" uid="506275" visible="true" version="1" changeset="39610299" timestamp="2016-05-27T18:18:28Z" />
   <node id="4211032411" lat="43.665703" lon="-70.3475558" user="Bkissin" uid="506275" visible="true" version="1" changeset="39610299" timestamp="2016-05-27T18:18:28Z" />
@@ -7513,7 +7524,7 @@
     <tag k="maineE911id:building" v="changed from: yes" />
     <tag k="maineE911id" v="2050853;2050854;2050855;2050856;1810382;2050852" />
   </way>
-  <way id="297826566" user="blackboxlogic+bot" uid="10307443" visible="true" version="4" changeset="74595922" timestamp="2019-09-17T19:04:40Z">
+  <way id="297826566" user="LilacLaneCC" uid="10594535" visible="true" version="7" changeset="78986508" timestamp="2019-12-29T18:33:49Z">
     <nd ref="3017315126" />
     <nd ref="4613615001" />
     <nd ref="3017315133" />
@@ -7525,9 +7536,12 @@
     <nd ref="3017315155" />
     <nd ref="3017315154" />
     <nd ref="3017315151" />
+    <nd ref="7093517857" />
     <nd ref="3017315144" />
+    <nd ref="7093599112" />
     <nd ref="3017315138" />
     <nd ref="3017315136" />
+    <nd ref="7087448136" />
     <nd ref="3017315134" />
     <nd ref="3017315132" />
     <nd ref="3017315131" />
@@ -11221,6 +11235,29 @@
     <tag k="addr:postcode" v="04092" />
     <tag k="maineE911id:addr:postcode" v="added" />
     <tag k="maineE911id" v="1526491" />
+  </way>
+  <way id="758787712" user="Bkissin" uid="506275" visible="true" version="2" changeset="78896363" timestamp="2019-12-26T20:05:33Z">
+    <nd ref="7086788157" />
+    <nd ref="7086788158" />
+    <nd ref="7086788159" />
+    <nd ref="7086788160" />
+    <nd ref="7086788161" />
+    <nd ref="7086788162" />
+    <nd ref="7086788163" />
+    <nd ref="7086788164" />
+    <nd ref="7086788157" />
+    <tag k="addr:city" v="Westbrook" />
+    <tag k="addr:housenumber" v="10" />
+    <tag k="addr:postcode" v="04092" />
+    <tag k="addr:state" v="ME" />
+    <tag k="addr:street" v="Terminal Street" />
+    <tag k="brand" v="Freightliner" />
+    <tag k="brand:wikidata" v="Q1420724" />
+    <tag k="brand:wikipedia" v="en:Freightliner Trucks" />
+    <tag k="building" v="yes" />
+    <tag k="name" v="Freightliner and Western Star of Maine" />
+    <tag k="shop" v="car" />
+    <tag k="maineE911id" v="1893861" />
   </way>
   <way id="464746190" user="eric22" uid="160949" visible="true" version="1" changeset="45029554" timestamp="2017-01-09T16:00:34Z">
     <nd ref="4598283447" />
