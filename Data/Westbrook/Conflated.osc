@@ -1493,13 +1493,6 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
     </node>
-    <node id="-1561173" lat="43.6831805678842" lon="-70.3622667897647" version="1">
-      <tag k="addr:housenumber" v="63" />
-      <tag k="addr:street" v="Lyman Street" />
-      <tag k="addr:city" v="Westbrook" />
-      <tag k="addr:state" v="ME" />
-      <tag k="addr:postcode" v="04092" />
-    </node>
     <node id="-1561176" lat="43.682311860508" lon="-70.3618749291055" version="1">
       <tag k="addr:housenumber" v="36" />
       <tag k="addr:street" v="Lyman Street" />
@@ -5095,13 +5088,6 @@
     </node>
     <node id="-1641332" lat="43.6837080952095" lon="-70.3629549087606" version="1">
       <tag k="addr:housenumber" v="89" />
-      <tag k="addr:street" v="Lyman Street" />
-      <tag k="addr:city" v="Westbrook" />
-      <tag k="addr:state" v="ME" />
-      <tag k="addr:postcode" v="04092" />
-    </node>
-    <node id="-1641342" lat="43.6834820337296" lon="-70.3626582272018" version="1">
-      <tag k="addr:housenumber" v="75" />
       <tag k="addr:street" v="Lyman Street" />
       <tag k="addr:city" v="Westbrook" />
       <tag k="addr:state" v="ME" />
@@ -23934,6 +23920,42 @@
       <tag k="addr:postcode" v="04092" />
       <tag k="building" v="apartments" />
     </node>
+    <node id="-1829253" lat="43.6790429420669" lon="-70.3539603795444" version="1">
+      <tag k="name" v="Westbrook Fire and Rescue Station 1" />
+      <tag k="addr:housenumber" v="570" />
+      <tag k="addr:street" v="Main Street" />
+      <tag k="addr:city" v="Westbrook" />
+      <tag k="addr:state" v="ME" />
+      <tag k="addr:postcode" v="04092" />
+      <tag k="amenity" v="fire_station" />
+    </node>
+    <node id="-2052977" lat="43.678917876087" lon="-70.3538769278315" version="1">
+      <tag k="name" v="Westbrook Fire and Rescue Station 1" />
+      <tag k="addr:housenumber" v="570" />
+      <tag k="addr:street" v="Main Street" />
+      <tag k="addr:city" v="Westbrook" />
+      <tag k="addr:state" v="ME" />
+      <tag k="addr:postcode" v="04092" />
+      <tag k="emergency" v="ambulance_station" />
+    </node>
+    <node id="-2053902" lat="43.6792173692859" lon="-70.3540573479036" version="1">
+      <tag k="name" v="Westbrook Police Department" />
+      <tag k="addr:housenumber" v="570" />
+      <tag k="addr:street" v="Main Street" />
+      <tag k="addr:city" v="Westbrook" />
+      <tag k="addr:state" v="ME" />
+      <tag k="addr:postcode" v="04092" />
+      <tag k="emergency" v="psap" />
+    </node>
+    <node id="-2053903" lat="43.6793150440222" lon="-70.3537928144719" version="1">
+      <tag k="name" v="Westbrook Police Department" />
+      <tag k="addr:housenumber" v="570" />
+      <tag k="addr:street" v="Main Street" />
+      <tag k="addr:city" v="Westbrook" />
+      <tag k="addr:state" v="ME" />
+      <tag k="addr:postcode" v="04092" />
+      <tag k="amenity" v="police" />
+    </node>
     <node id="-1829254" lat="43.7202419518397" lon="-70.3389042800951" version="1">
       <tag k="addr:housenumber" v="576" />
       <tag k="addr:street" v="Bridgton Road" />
@@ -26049,13 +26071,6 @@
     </node>
     <node id="-1838069" lat="43.6852939832987" lon="-70.3369354942412" version="1">
       <tag k="addr:housenumber" v="84" />
-      <tag k="addr:street" v="Warren Avenue" />
-      <tag k="addr:city" v="Westbrook" />
-      <tag k="addr:state" v="ME" />
-      <tag k="addr:postcode" v="04092" />
-    </node>
-    <node id="-1838070" lat="43.6859384656691" lon="-70.3384138874653" version="1">
-      <tag k="addr:housenumber" v="95" />
       <tag k="addr:street" v="Warren Avenue" />
       <tag k="addr:city" v="Westbrook" />
       <tag k="addr:state" v="ME" />
@@ -35028,7 +35043,7 @@
       <tag k="addr:city" v="Westbrook" />
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
-      <tag k="building" v="residential" />
+      <tag k="building" v="house" />
     </node>
     <node id="-1882889" lat="43.6875336761434" lon="-70.3615340011319" version="1">
       <tag k="addr:housenumber" v="363" />
@@ -35091,13 +35106,6 @@
     <node id="-1882901" lat="43.6795783571136" lon="-70.368351111465" version="1">
       <tag k="addr:housenumber" v="77" />
       <tag k="addr:street" v="Bridge Street" />
-      <tag k="addr:city" v="Westbrook" />
-      <tag k="addr:state" v="ME" />
-      <tag k="addr:postcode" v="04092" />
-    </node>
-    <node id="-1882904" lat="43.6772428800892" lon="-70.3667597297929" version="1">
-      <tag k="addr:housenumber" v="11" />
-      <tag k="addr:street" v="Vallee Square" />
       <tag k="addr:city" v="Westbrook" />
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
@@ -39841,14 +39849,6 @@
       <tag k="addr:postcode" v="04092" />
       <tag k="building" v="apartments" />
     </node>
-    <node id="-2043087" lat="43.6796364210182" lon="-70.3683896496628" version="1">
-      <tag k="addr:housenumber" v="87" />
-      <tag k="addr:street" v="Bridge Street" />
-      <tag k="addr:city" v="Westbrook" />
-      <tag k="addr:state" v="ME" />
-      <tag k="addr:postcode" v="04092" />
-      <tag k="building" v="apartments" />
-    </node>
     <node id="-2043097" lat="43.6794716176499" lon="-70.3689938020997" version="1">
       <tag k="addr:housenumber" v="90" />
       <tag k="addr:street" v="Bridge Street" />
@@ -41413,13 +41413,6 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
     </node>
-    <node id="-2049953" lat="43.6763785807338" lon="-70.3656236177867" version="1">
-      <tag k="addr:housenumber" v="838" />
-      <tag k="addr:street" v="Main Street" />
-      <tag k="addr:city" v="Westbrook" />
-      <tag k="addr:state" v="ME" />
-      <tag k="addr:postcode" v="04092" />
-    </node>
     <node id="-2049965" lat="43.6768711734974" lon="-70.3665962218974" version="1">
       <tag k="addr:housenumber" v="863" />
       <tag k="addr:unit" v="Suite A" />
@@ -42640,7 +42633,7 @@
       <tag k="addr:city" v="Westbrook" />
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
-      <tag k="building" v="residential" />
+      <tag k="building" v="house" />
     </node>
     <node id="-2089257" lat="43.6667038371462" lon="-70.3637421613016" version="1">
       <tag k="addr:housenumber" v="20" />
@@ -42769,15 +42762,6 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
       <tag k="building" v="detached" />
-    </node>
-    <node id="-2097293" lat="43.676899455972" lon="-70.3710008387711" version="1">
-      <tag k="name" v="Convenient MD" />
-      <tag k="addr:housenumber" v="950" />
-      <tag k="addr:street" v="Main Street" />
-      <tag k="addr:city" v="Westbrook" />
-      <tag k="addr:state" v="ME" />
-      <tag k="addr:postcode" v="04092" />
-      <tag k="amenity" v="healthcare" />
     </node>
     <node id="-2127368" lat="43.670575935675" lon="-70.3723577768203" version="1">
       <tag k="addr:housenumber" v="155" />
@@ -43732,7 +43716,7 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
       <tag k="level" v="1" />
-      <tag k="building" v="residential" />
+      <tag k="building" v="house" />
     </node>
     <node id="-2556909" lat="43.6826693008492" lon="-70.3365546209803" version="1">
       <tag k="name" v="STORE" />
@@ -43754,7 +43738,7 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
       <tag k="level" v="-1" />
-      <tag k="building" v="residential" />
+      <tag k="building" v="house" />
     </node>
     <node id="-2556957" lat="43.6828296564382" lon="-70.3363162491181" version="1">
       <tag k="name" v="MECHANICAL" />
@@ -43765,7 +43749,7 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
       <tag k="level" v="-1" />
-      <tag k="building" v="residential" />
+      <tag k="building" v="house" />
     </node>
     <node id="-2557143" lat="43.682796845672" lon="-70.336427181783" version="1">
       <tag k="name" v="ELECTRICAL" />
@@ -43776,7 +43760,7 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
       <tag k="level" v="-1" />
-      <tag k="building" v="residential" />
+      <tag k="building" v="house" />
     </node>
     <node id="-2556754" lat="43.6827645424736" lon="-70.3364947018668" version="1">
       <tag k="name" v="GAME" />
@@ -43787,7 +43771,7 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
       <tag k="level" v="-1" />
-      <tag k="building" v="residential" />
+      <tag k="building" v="house" />
     </node>
     <node id="-2556851" lat="43.6827990981675" lon="-70.336619536996" version="1">
       <tag k="name" v="SITTING Room" />
@@ -43817,7 +43801,7 @@
       <tag k="addr:city" v="Westbrook" />
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
-      <tag k="building" v="residential" />
+      <tag k="building" v="house" />
     </node>
     <node id="-2556708" lat="43.6827620764735" lon="-70.3367055623661" version="1">
       <tag k="addr:housenumber" v="70" />
@@ -43827,7 +43811,7 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
       <tag k="level" v="1" />
-      <tag k="building" v="residential" />
+      <tag k="building" v="house" />
     </node>
     <node id="-2556791" lat="43.6828639222399" lon="-70.3364658914461" version="1">
       <tag k="addr:housenumber" v="70" />
@@ -43835,7 +43819,7 @@
       <tag k="addr:city" v="Westbrook" />
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
-      <tag k="building" v="residential" />
+      <tag k="building" v="house" />
     </node>
     <node id="-2556568" lat="43.6828314739658" lon="-70.3365458151561" version="1">
       <tag k="addr:housenumber" v="70" />
@@ -43854,7 +43838,7 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
       <tag k="level" v="-1" />
-      <tag k="building" v="residential" />
+      <tag k="building" v="house" />
     </node>
     <node id="-2557172" lat="43.6826995007676" lon="-70.3366669524516" version="1">
       <tag k="addr:housenumber" v="70" />
@@ -43864,7 +43848,7 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
       <tag k="level" v="1" />
-      <tag k="building" v="residential" />
+      <tag k="building" v="house" />
     </node>
     <node id="-2556825" lat="43.6826967442724" lon="-70.3369026197956" version="1">
       <tag k="addr:housenumber" v="70" />
@@ -43874,7 +43858,7 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
       <tag k="level" v="1" />
-      <tag k="building" v="residential" />
+      <tag k="building" v="house" />
     </node>
     <node id="-2556378" lat="43.7297277244766" lon="-70.335806615549" version="1">
       <tag k="addr:housenumber" v="7" />
@@ -43990,7 +43974,7 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:street" v="Lyman Street" />
     </node>
-    <node id="6558957726" lat="43.6833006091107" lon="-70.3623935754036" user="blackboxlogic" uid="9109301" visible="true" version="2" changeset="71421296" timestamp="2019-06-20T02:07:10Z">
+    <node id="6558957758" lat="43.6833006091107" lon="-70.3623935754036" user="blackboxlogic" uid="9109301" visible="true" version="4" changeset="79172936" timestamp="2020-01-03T20:49:05Z">
       <tag k="addr:housenumber" v="67" />
       <tag k="addr:street" v="Lyman Street" />
       <tag k="addr:city" v="Westbrook" />
@@ -44076,6 +44060,13 @@
     </node>
     <node id="6558957707" lat="43.6853521934253" lon="-70.3662738719267" user="blackboxlogic" uid="9109301" visible="true" version="2" changeset="71421296" timestamp="2019-06-20T02:07:10Z">
       <tag k="addr:housenumber" v="168" />
+      <tag k="addr:street" v="Lyman Street" />
+      <tag k="addr:city" v="Westbrook" />
+      <tag k="addr:state" v="ME" />
+      <tag k="addr:postcode" v="04092" />
+    </node>
+    <node id="6558957726" lat="43.6831805678842" lon="-70.3622667897647" user="blackboxlogic" uid="9109301" visible="true" version="3" changeset="79173178" timestamp="2020-01-03T20:57:35Z">
+      <tag k="addr:housenumber" v="63" />
       <tag k="addr:street" v="Lyman Street" />
       <tag k="addr:city" v="Westbrook" />
       <tag k="addr:state" v="ME" />
@@ -44266,6 +44257,13 @@
     <node id="6564639179" lat="43.6832989725316" lon="-70.3629084240461" user="blackboxlogic" uid="9109301" visible="true" version="2" changeset="71511335" timestamp="2019-06-22T14:43:30Z">
       <tag k="addr:housenumber" v="45" />
       <tag k="addr:street" v="Prince Street" />
+      <tag k="addr:city" v="Westbrook" />
+      <tag k="addr:state" v="ME" />
+      <tag k="addr:postcode" v="04092" />
+    </node>
+    <node id="7105531847" lat="43.6834820337296" lon="-70.3626582272018" user="blackboxlogic" uid="9109301" visible="true" version="2" changeset="79172936" timestamp="2020-01-03T20:49:05Z">
+      <tag k="addr:housenumber" v="75" />
+      <tag k="addr:street" v="Lyman Street" />
       <tag k="addr:city" v="Westbrook" />
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
@@ -44566,6 +44564,19 @@
       <tag k="addr:postcode" v="04092" />
       <tag k="addr:state" v="ME" />
       <tag k="addr:street" v="Pierce Street" />
+    </node>
+    <node id="6800847005" lat="43.6804488144998" lon="-70.3652072924226" user="blackboxlogic" uid="9109301" visible="true" version="3" changeset="74554903" timestamp="2019-09-17T02:40:29Z">
+      <tag k="addr:housenumber" v="2" />
+      <tag k="addr:street" v="Walker Street" />
+      <tag k="building" v="apartments" />
+      <tag k="building:levels" v="4" />
+      <tag k="name" v="Hyacinth Place" />
+      <tag k="operator" v="Avesta Housing" />
+      <tag k="ref" v="Building 1" />
+      <tag k="addr:unit" v="Apartment 3304" />
+      <tag k="addr:city" v="Westbrook" />
+      <tag k="addr:state" v="ME" />
+      <tag k="addr:postcode" v="04092" />
     </node>
     <way id="743442311" user="vorpalblade" uid="2078753" visible="true" version="2" changeset="76831091" timestamp="2019-11-08T21:33:49Z">
       <nd ref="6958717254" />
@@ -46642,6 +46653,18 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
     </node>
+    <node id="585386382" lat="43.6859384656691" lon="-70.3384138874653" user="blackboxlogic" uid="9109301" visible="true" version="5" changeset="79173178" timestamp="2020-01-03T20:57:35Z">
+      <tag k="addr:housenumber" v="95" />
+      <tag k="addr:street" v="Warren Avenue" />
+      <tag k="man_made" v="works" />
+      <tag k="name" v="WESTBROOK ASPHALT" />
+      <tag k="operator" v="Pike Industries" />
+      <tag k="product" v="asphalt" />
+      <tag k="website" v="pikeindustries.com/locations/westbrook-asphalt-730" />
+      <tag k="addr:city" v="Westbrook" />
+      <tag k="addr:state" v="ME" />
+      <tag k="addr:postcode" v="04092" />
+    </node>
     <node id="6800847051" lat="43.6815273487386" lon="-70.3668756165929" user="blackboxlogic" uid="9109301" visible="true" version="2" changeset="74554393" timestamp="2019-09-17T02:01:16Z">
       <tag k="addr:housenumber" v="11" />
       <tag k="addr:street" v="Webb Street" />
@@ -48128,6 +48151,15 @@
       <tag k="addr:state" v="ME" />
       <tag k="addr:postcode" v="04092" />
     </node>
+    <node id="6558754744" lat="43.6763803" lon="-70.3656309" user="blackboxlogic" uid="9109301" visible="true" version="3" changeset="79174063" timestamp="2020-01-03T21:32:00Z">
+      <tag k="addr:housenumber" v="838" />
+      <tag k="addr:street" v="Main Street" />
+      <tag k="name" v="The Swanson Group LLC" />
+      <tag k="office" v="accountant" />
+      <tag k="addr:city" v="Westbrook" />
+      <tag k="addr:state" v="ME" />
+      <tag k="addr:postcode" v="04092" />
+    </node>
     <node id="6558743874" lat="43.679244498575" lon="-70.3551869086588" user="blackboxlogic" uid="9109301" visible="true" version="2" changeset="71420192" timestamp="2019-06-20T00:55:46Z">
       <tag k="addr:city" v="Westbrook" />
       <tag k="addr:housenumber" v="595" />
@@ -48507,6 +48539,22 @@
       <tag k="opening_hours" v="Mo-Sa 08:00-22:00; Su 08:00-20:00" />
       <tag k="phone" v="+1-207-854-8443" />
       <tag k="short_name" v="CVS" />
+    </way>
+    <way id="421317254" user="blackboxlogic" uid="9109301" visible="true" version="4" changeset="79174063" timestamp="2020-01-03T21:32:00Z">
+      <nd ref="4210958034" />
+      <nd ref="4210958035" />
+      <nd ref="4210958036" />
+      <nd ref="4210958037" />
+      <nd ref="4210958034" />
+      <tag k="addr:city" v="Westbrook" />
+      <tag k="addr:postcode" v="04092" />
+      <tag k="addr:state" v="ME" />
+      <tag k="building" v="yes" />
+      <tag k="name" v="Tigris Market" />
+      <tag k="phone" v="+1-207-854-9733" />
+      <tag k="shop" v="grocery" />
+      <tag k="addr:housenumber" v="11" />
+      <tag k="addr:street" v="Vallee Square" />
     </way>
     <way id="421317256" user="Bkissin" uid="506275" visible="true" version="2" changeset="39609030" timestamp="2016-05-27T17:12:40Z">
       <nd ref="4210958048" />
@@ -50196,6 +50244,19 @@
       <tag k="leisure" v="bowling_alley" />
       <tag k="name" v="Westport Bowling Lanes" />
       <tag k="addr:housenumber" v="135" />
+      <tag k="addr:street" v="Main Street" />
+      <tag k="addr:city" v="Westbrook" />
+      <tag k="addr:state" v="ME" />
+      <tag k="addr:postcode" v="04092" />
+    </way>
+    <way id="698297746" user="blackboxlogic" uid="9109301" visible="true" version="2" changeset="71407173" timestamp="2019-06-19T15:52:06Z">
+      <nd ref="6557966128" />
+      <nd ref="6557966129" />
+      <nd ref="6557966130" />
+      <nd ref="6557966131" />
+      <nd ref="6557966128" />
+      <tag k="building" v="commercial" />
+      <tag k="addr:housenumber" v="672" />
       <tag k="addr:street" v="Main Street" />
       <tag k="addr:city" v="Westbrook" />
       <tag k="addr:state" v="ME" />

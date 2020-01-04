@@ -55,13 +55,13 @@ namespace OsmPipeline
 			foreach (var elements in elementss)
 			{
 				var errors = elements.Where(e => e.Tags.ContainsKey(ErrorKey)).ToHashSet();
-				foreach (var error in errors.Where(e => whitelist.Contains(-e.Id.Value)).ToArray())
+				foreach (var error in errors.Where(e => whitelist.Contains(Math.Abs(e.Id.Value))).ToArray())
 				{
 					error.Tags.AddOrAppend(WhiteListKey, "yes");
 					errors.Remove(error);
 				}
 				var warns = elements.Where(e => e.Tags.ContainsKey(WarnKey)).ToHashSet();
-				foreach (var warn in warns.Where(e => whitelist.Contains(-e.Id.Value)).ToArray())
+				foreach (var warn in warns.Where(e => whitelist.Contains(Math.Abs(e.Id.Value))).ToArray())
 				{
 					warn.Tags.AddOrAppend(WhiteListKey, "yes");
 					warns.Remove(warn);
@@ -160,7 +160,7 @@ namespace OsmPipeline
 				{
 					if (targetSubjectElements.Length > 1)
 					{
-						// Could try to auto resolve multi-matches by checking tag conflicts or if I'm IN one of them.
+						// TODO: Resolve these multi-matches by checking tag conflicts (or if IN ONE of them)
 						referenceElement.Tags.AddOrAppend(ErrorKey, "Multiple matches!" + Identify(targetSubjectElements));
 					}
 					else

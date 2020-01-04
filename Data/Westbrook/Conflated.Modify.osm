@@ -107,7 +107,7 @@
     <tag k="maineE911id" v="1561158" />
     <tag k="maineE911id:moved" v="4 meters ←" />
   </node>
-  <node id="6558957726" lat="43.6833006091107" lon="-70.3623935754036" user="blackboxlogic" uid="9109301" visible="true" version="2" changeset="71421296" timestamp="2019-06-20T02:07:10Z">
+  <node id="6558957758" lat="43.6833006091107" lon="-70.3623935754036" user="blackboxlogic" uid="9109301" visible="true" version="4" changeset="79172936" timestamp="2020-01-03T20:49:05Z">
     <tag k="addr:housenumber" v="67" />
     <tag k="addr:street" v="Lyman Street" />
     <tag k="addr:city" v="Westbrook" />
@@ -117,7 +117,7 @@
     <tag k="addr:postcode" v="04092" />
     <tag k="maineE911id:addr:postcode" v="added" />
     <tag k="maineE911id" v="1561159" />
-    <tag k="maineE911id:moved" v="25 meters ↖" />
+    <tag k="maineE911id:moved" v="3 meters ↗" />
   </node>
   <node id="6558957708" lat="43.6829510214412" lon="-70.3626400024493" user="blackboxlogic" uid="9109301" visible="true" version="2" changeset="71421296" timestamp="2019-06-20T02:07:10Z">
     <tag k="addr:housenumber" v="64" />
@@ -256,6 +256,18 @@
     <tag k="maineE911id:addr:postcode" v="added" />
     <tag k="maineE911id" v="1561172" />
     <tag k="maineE911id:moved" v="3 meters ←" />
+  </node>
+  <node id="6558957726" lat="43.6831805678842" lon="-70.3622667897647" user="blackboxlogic" uid="9109301" visible="true" version="3" changeset="79173178" timestamp="2020-01-03T20:57:35Z">
+    <tag k="addr:housenumber" v="63" />
+    <tag k="addr:street" v="Lyman Street" />
+    <tag k="addr:city" v="Westbrook" />
+    <tag k="maineE911id:addr:city" v="added" />
+    <tag k="addr:state" v="ME" />
+    <tag k="maineE911id:addr:state" v="added" />
+    <tag k="addr:postcode" v="04092" />
+    <tag k="maineE911id:addr:postcode" v="added" />
+    <tag k="maineE911id" v="1561173" />
+    <tag k="maineE911id:moved" v="10 meters ↑" />
   </node>
   <node id="6558957714" lat="43.6844845359771" lon="-70.3642876464046" user="blackboxlogic" uid="9109301" visible="true" version="2" changeset="71421296" timestamp="2019-06-20T02:07:10Z">
     <tag k="addr:housenumber" v="121" />
@@ -550,6 +562,18 @@
     <tag k="maineE911id:addr:postcode" v="added" />
     <tag k="maineE911id" v="1641341" />
     <tag k="maineE911id:moved" v="2 meters →" />
+  </node>
+  <node id="7105531847" lat="43.6834820337296" lon="-70.3626582272018" user="blackboxlogic" uid="9109301" visible="true" version="2" changeset="79172936" timestamp="2020-01-03T20:49:05Z">
+    <tag k="addr:housenumber" v="75" />
+    <tag k="addr:street" v="Lyman Street" />
+    <tag k="addr:city" v="Westbrook" />
+    <tag k="maineE911id:addr:city" v="added" />
+    <tag k="addr:state" v="ME" />
+    <tag k="maineE911id:addr:state" v="added" />
+    <tag k="addr:postcode" v="04092" />
+    <tag k="maineE911id:addr:postcode" v="added" />
+    <tag k="maineE911id" v="1641342" />
+    <tag k="maineE911id:moved" v="2 meters ←" />
   </node>
   <node id="6806311579" lat="43.6831068302787" lon="-70.3695665483672" user="blackboxlogic" uid="9109301" visible="true" version="2" changeset="74640804" timestamp="2019-09-18T18:11:12Z">
     <tag k="addr:housenumber" v="49" />
@@ -955,6 +979,25 @@
     <tag k="addr:street" v="Pierce Street" />
     <tag k="maineE911id" v="1752846" />
     <tag k="maineE911id:moved" v="2 meters ↖" />
+  </node>
+  <node id="6800847005" lat="43.6804488144998" lon="-70.3652072924226" user="blackboxlogic" uid="9109301" visible="true" version="3" changeset="74554903" timestamp="2019-09-17T02:40:29Z">
+    <tag k="addr:housenumber" v="2" />
+    <tag k="addr:street" v="Walker Street" />
+    <tag k="building" v="apartments" />
+    <tag k="building:levels" v="4" />
+    <tag k="name" v="Hyacinth Place" />
+    <tag k="operator" v="Avesta Housing" />
+    <tag k="ref" v="Building 1" />
+    <tag k="addr:unit" v="Apartment 3304" />
+    <tag k="maineE911id:addr:unit" v="added" />
+    <tag k="addr:city" v="Westbrook" />
+    <tag k="maineE911id:addr:city" v="added" />
+    <tag k="addr:state" v="ME" />
+    <tag k="maineE911id:addr:state" v="added" />
+    <tag k="addr:postcode" v="04092" />
+    <tag k="maineE911id:addr:postcode" v="added" />
+    <tag k="maineE911id" v="2050583" />
+    <tag k="maineE911id:moved" v="8 meters ↗" />
   </node>
   <node id="6958717254" lat="43.6698918" lon="-70.36025" user="vorpalblade" uid="2078753" visible="true" version="1" changeset="76831091" timestamp="2019-11-08T21:33:49Z" />
   <node id="6958717253" lat="43.6699694" lon="-70.3602165" user="vorpalblade" uid="2078753" visible="true" version="1" changeset="76831091" timestamp="2019-11-08T21:33:49Z" />
@@ -3734,6 +3777,23 @@
     <tag k="maineE911id" v="1838066" />
     <tag k="maineE911id:moved" v="3 meters ↑" />
   </node>
+  <node id="585386382" lat="43.6859384656691" lon="-70.3384138874653" user="blackboxlogic" uid="9109301" visible="true" version="5" changeset="79173178" timestamp="2020-01-03T20:57:35Z">
+    <tag k="addr:housenumber" v="95" />
+    <tag k="addr:street" v="Warren Avenue" />
+    <tag k="man_made" v="works" />
+    <tag k="name" v="WESTBROOK ASPHALT" />
+    <tag k="operator" v="Pike Industries" />
+    <tag k="product" v="asphalt" />
+    <tag k="website" v="pikeindustries.com/locations/westbrook-asphalt-730" />
+    <tag k="addr:city" v="Westbrook" />
+    <tag k="maineE911id:addr:city" v="added" />
+    <tag k="addr:state" v="ME" />
+    <tag k="maineE911id:addr:state" v="added" />
+    <tag k="addr:postcode" v="04092" />
+    <tag k="maineE911id:addr:postcode" v="added" />
+    <tag k="maineE911id" v="1838070" />
+    <tag k="maineE911id:moved" v="9 meters →" />
+  </node>
   <node id="6800847051" lat="43.6815273487386" lon="-70.3668756165929" user="blackboxlogic" uid="9109301" visible="true" version="2" changeset="74554393" timestamp="2019-09-17T02:01:16Z">
     <tag k="addr:housenumber" v="11" />
     <tag k="addr:street" v="Webb Street" />
@@ -5883,6 +5943,19 @@
     <tag k="maineE911id" v="2049822" />
     <tag k="maineE911id:moved" v="6 meters ↑" />
   </node>
+  <node id="6558754744" lat="43.6763803" lon="-70.3656309" user="blackboxlogic" uid="9109301" visible="true" version="3" changeset="79174063" timestamp="2020-01-03T21:32:00Z">
+    <tag k="addr:housenumber" v="838" />
+    <tag k="addr:street" v="Main Street" />
+    <tag k="name" v="The Swanson Group LLC" />
+    <tag k="office" v="accountant" />
+    <tag k="addr:city" v="Westbrook" />
+    <tag k="maineE911id:addr:city" v="added" />
+    <tag k="addr:state" v="ME" />
+    <tag k="maineE911id:addr:state" v="added" />
+    <tag k="addr:postcode" v="04092" />
+    <tag k="maineE911id:addr:postcode" v="added" />
+    <tag k="maineE911id" v="2049953" />
+  </node>
   <node id="6558743874" lat="43.679244498575" lon="-70.3551869086588" user="blackboxlogic" uid="9109301" visible="true" version="2" changeset="71420192" timestamp="2019-06-20T00:55:46Z">
     <tag k="addr:city" v="Westbrook" />
     <tag k="addr:housenumber" v="595" />
@@ -6207,6 +6280,10 @@
   <node id="4210958025" lat="43.6763442" lon="-70.3673561" user="Юкатан" uid="3885962" visible="true" version="2" changeset="44839265" timestamp="2017-01-02T08:21:09Z" />
   <node id="4210958026" lat="43.6763667" lon="-70.3674808" user="Юкатан" uid="3885962" visible="true" version="2" changeset="44839265" timestamp="2017-01-02T08:21:09Z" />
   <node id="4210958027" lat="43.6766801" lon="-70.3673729" user="Юкатан" uid="3885962" visible="true" version="2" changeset="44839265" timestamp="2017-01-02T08:21:09Z" />
+  <node id="4210958034" lat="43.6772997" lon="-70.3668471" user="Bkissin" uid="506275" visible="true" version="1" changeset="39609030" timestamp="2016-05-27T17:12:38Z" />
+  <node id="4210958035" lat="43.6771909" lon="-70.3668227" user="Bkissin" uid="506275" visible="true" version="1" changeset="39609030" timestamp="2016-05-27T17:12:38Z" />
+  <node id="4210958036" lat="43.6772174" lon="-70.3665951" user="Bkissin" uid="506275" visible="true" version="1" changeset="39609030" timestamp="2016-05-27T17:12:38Z" />
+  <node id="4210958037" lat="43.6773269" lon="-70.3666164" user="Bkissin" uid="506275" visible="true" version="1" changeset="39609030" timestamp="2016-05-27T17:12:38Z" />
   <node id="4210958048" lat="43.6768102" lon="-70.3678503" user="Bkissin" uid="506275" visible="true" version="1" changeset="39609030" timestamp="2016-05-27T17:12:38Z" />
   <node id="4210958039" lat="43.6768013" lon="-70.3677781" user="Bkissin" uid="506275" visible="true" version="1" changeset="39609030" timestamp="2016-05-27T17:12:38Z" />
   <node id="4210958038" lat="43.6765845" lon="-70.3678401" user="Bkissin" uid="506275" visible="true" version="1" changeset="39609030" timestamp="2016-05-27T17:12:38Z" />
@@ -7022,6 +7099,10 @@
   <node id="6555754668" lat="43.6787066" lon="-70.335444" user="blackboxlogic" uid="9109301" visible="true" version="1" changeset="71371199" timestamp="2019-06-18T15:45:22Z" />
   <node id="6555754669" lat="43.6783367" lon="-70.3355542" user="blackboxlogic" uid="9109301" visible="true" version="1" changeset="71371199" timestamp="2019-06-18T15:45:22Z" />
   <node id="6555754670" lat="43.6784182" lon="-70.3360776" user="blackboxlogic" uid="9109301" visible="true" version="1" changeset="71371199" timestamp="2019-06-18T15:45:22Z" />
+  <node id="6557966128" lat="43.677718" lon="-70.3583399" user="blackboxlogic" uid="9109301" visible="true" version="1" changeset="71407173" timestamp="2019-06-19T15:52:06Z" />
+  <node id="6557966129" lat="43.6777903" lon="-70.3581426" user="blackboxlogic" uid="9109301" visible="true" version="1" changeset="71407173" timestamp="2019-06-19T15:52:06Z" />
+  <node id="6557966130" lat="43.6777168" lon="-70.3580911" user="blackboxlogic" uid="9109301" visible="true" version="1" changeset="71407173" timestamp="2019-06-19T15:52:06Z" />
+  <node id="6557966131" lat="43.6776445" lon="-70.3582884" user="blackboxlogic" uid="9109301" visible="true" version="1" changeset="71407173" timestamp="2019-06-19T15:52:06Z" />
   <node id="6558754735" lat="43.6789518" lon="-70.3564861" user="blackboxlogic" uid="9109301" visible="true" version="1" changeset="71420192" timestamp="2019-06-20T00:55:46Z" />
   <node id="6558754772" lat="43.6789813" lon="-70.3563123" user="blackboxlogic" uid="9109301" visible="true" version="1" changeset="71420192" timestamp="2019-06-20T00:55:46Z" />
   <node id="6558754703" lat="43.6791473" lon="-70.3563661" user="blackboxlogic" uid="9109301" visible="true" version="1" changeset="71420192" timestamp="2019-06-20T00:55:46Z" />
@@ -8641,6 +8722,26 @@
     <tag k="phone" v="+1-207-854-8443" />
     <tag k="short_name" v="CVS" />
     <tag k="maineE911id" v="1831795" />
+  </way>
+  <way id="421317254" user="blackboxlogic" uid="9109301" visible="true" version="4" changeset="79174063" timestamp="2020-01-03T21:32:00Z">
+    <nd ref="4210958034" />
+    <nd ref="4210958035" />
+    <nd ref="4210958036" />
+    <nd ref="4210958037" />
+    <nd ref="4210958034" />
+    <tag k="addr:city" v="Westbrook" />
+    <tag k="addr:postcode" v="04092" />
+    <tag k="addr:state" v="ME" />
+    <tag k="building" v="yes" />
+    <tag k="name" v="Tigris Market" />
+    <tag k="phone" v="+1-207-854-9733" />
+    <tag k="shop" v="grocery" />
+    <tag k="addr:housenumber" v="11" />
+    <tag k="maineE911id:addr:housenumber" v="added" />
+    <tag k="addr:street" v="Vallee Square" />
+    <tag k="maineE911id:addr:street" v="added" />
+    <tag k="maineE911id" v="1882904" />
+    <tag k="maineE911id:info" v="Cannot find a matching highway" />
   </way>
   <way id="421317256" user="Bkissin" uid="506275" visible="true" version="2" changeset="39609030" timestamp="2016-05-27T17:12:40Z">
     <nd ref="4210958048" />
@@ -10771,6 +10872,27 @@
     <tag k="addr:postcode" v="04092" />
     <tag k="maineE911id:addr:postcode" v="added" />
     <tag k="maineE911id" v="1832359" />
+  </way>
+  <way id="698297746" user="blackboxlogic" uid="9109301" visible="true" version="2" changeset="71407173" timestamp="2019-06-19T15:52:06Z">
+    <nd ref="6557966128" />
+    <nd ref="6557966129" />
+    <nd ref="6557966130" />
+    <nd ref="6557966131" />
+    <nd ref="6557966128" />
+    <tag k="building" v="commercial" />
+    <tag k="addr:housenumber" v="672" />
+    <tag k="maineE911id:addr:housenumber" v="added" />
+    <tag k="addr:street" v="Main Street" />
+    <tag k="maineE911id:addr:street" v="added" />
+    <tag k="addr:city" v="Westbrook" />
+    <tag k="maineE911id:addr:city" v="added" />
+    <tag k="addr:state" v="ME" />
+    <tag k="maineE911id:addr:state" v="added" />
+    <tag k="addr:postcode" v="04092" />
+    <tag k="maineE911id:addr:postcode" v="added" />
+    <tag k="maineE911id" v="2050877;2050878;2050879;2050880;1808108;2050876" />
+    <tag k="maineE911id:error" v="Multiple matches!&#xA;	node/6557966132&#xA;	node/6558754761" />
+    <tag k="maineE911id:whitelist" v="yes" />
   </way>
   <way id="698380872" user="blackboxlogic" uid="9109301" visible="true" version="2" changeset="71420192" timestamp="2019-06-20T00:55:46Z">
     <nd ref="6558754735" />

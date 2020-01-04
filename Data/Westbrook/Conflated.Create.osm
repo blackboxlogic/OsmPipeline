@@ -1731,14 +1731,6 @@
     <tag k="addr:postcode" v="04092" />
     <tag k="maineE911id" v="1561171" />
   </node>
-  <node id="-1561173" lat="43.6831805678842" lon="-70.3622667897647" version="1">
-    <tag k="addr:housenumber" v="63" />
-    <tag k="addr:street" v="Lyman Street" />
-    <tag k="addr:city" v="Westbrook" />
-    <tag k="addr:state" v="ME" />
-    <tag k="addr:postcode" v="04092" />
-    <tag k="maineE911id" v="1561173" />
-  </node>
   <node id="-1561176" lat="43.682311860508" lon="-70.3618749291055" version="1">
     <tag k="addr:housenumber" v="36" />
     <tag k="addr:street" v="Lyman Street" />
@@ -5891,15 +5883,6 @@
     <tag k="addr:state" v="ME" />
     <tag k="addr:postcode" v="04092" />
     <tag k="maineE911id" v="1641332" />
-  </node>
-  <node id="-1641342" lat="43.6834820337296" lon="-70.3626582272018" version="1">
-    <tag k="addr:housenumber" v="75" />
-    <tag k="addr:street" v="Lyman Street" />
-    <tag k="addr:city" v="Westbrook" />
-    <tag k="addr:state" v="ME" />
-    <tag k="addr:postcode" v="04092" />
-    <tag k="maineE911id" v="1641342" />
-    <tag k="maineE911id:warn" v="Matched, but too far: 35 meters ↘.&#xA;	node/6558957758" />
   </node>
   <node id="-1641343" lat="43.6723651753699" lon="-70.3639199913567" version="1">
     <tag k="addr:housenumber" v="50" />
@@ -11749,6 +11732,7 @@
     <tag k="addr:postcode" v="04092" />
     <tag k="maineE911id" v="1771511" />
     <tag k="maineE911id:warn" v="&#xA;	way/743435856.addr:housenumber=700&#xA;	node/-1771511.addr:housenumber=750" />
+    <tag k="maineE911id:whitelist" v="yes" />
   </node>
   <node id="-1771512" lat="43.6563064190879" lon="-70.3601646338121" version="1">
     <tag k="addr:housenumber" v="678" />
@@ -13011,6 +12995,7 @@
     <tag k="addr:postcode" v="04092" />
     <tag k="maineE911id" v="1791521" />
     <tag k="maineE911id:warn" v="&#xA;	way/456245625.addr:housenumber=1&#xA;	node/-1791521.addr:housenumber=80;&#xA;	way/456245625.addr:street=Idexx Drive&#xA;	node/-1791521.addr:street=Eisenhower Drive" />
+    <tag k="maineE911id:whitelist" v="yes" />
   </node>
   <node id="-1791522" lat="43.6624246026189" lon="-70.37146510206" version="1">
     <tag k="addr:housenumber" v="75" />
@@ -27523,6 +27508,50 @@
     <tag k="building" v="apartments" />
     <tag k="maineE911id" v="2050825;2050826;2050827;1829246;2050824" />
   </node>
+  <node id="-1829253" lat="43.6790429420669" lon="-70.3539603795444" version="1">
+    <tag k="name" v="Westbrook Fire and Rescue Station 1" />
+    <tag k="addr:housenumber" v="570" />
+    <tag k="addr:street" v="Main Street" />
+    <tag k="addr:city" v="Westbrook" />
+    <tag k="addr:state" v="ME" />
+    <tag k="addr:postcode" v="04092" />
+    <tag k="maineE911id" v="1829253" />
+    <tag k="amenity" v="fire_station" />
+    <tag k="maineE911id:info" v="Multiple addresses land in the same building" />
+  </node>
+  <node id="-2052977" lat="43.678917876087" lon="-70.3538769278315" version="1">
+    <tag k="name" v="Westbrook Fire and Rescue Station 1" />
+    <tag k="addr:housenumber" v="570" />
+    <tag k="addr:street" v="Main Street" />
+    <tag k="addr:city" v="Westbrook" />
+    <tag k="addr:state" v="ME" />
+    <tag k="addr:postcode" v="04092" />
+    <tag k="maineE911id" v="2052977" />
+    <tag k="emergency" v="ambulance_station" />
+    <tag k="maineE911id:info" v="Multiple addresses land in the same building" />
+  </node>
+  <node id="-2053902" lat="43.6792173692859" lon="-70.3540573479036" version="1">
+    <tag k="name" v="Westbrook Police Department" />
+    <tag k="addr:housenumber" v="570" />
+    <tag k="addr:street" v="Main Street" />
+    <tag k="addr:city" v="Westbrook" />
+    <tag k="addr:state" v="ME" />
+    <tag k="addr:postcode" v="04092" />
+    <tag k="maineE911id" v="2053902" />
+    <tag k="emergency" v="psap" />
+    <tag k="maineE911id:info" v="Multiple addresses land in the same building" />
+  </node>
+  <node id="-2053903" lat="43.6793150440222" lon="-70.3537928144719" version="1">
+    <tag k="name" v="Westbrook Police Department" />
+    <tag k="addr:housenumber" v="570" />
+    <tag k="addr:street" v="Main Street" />
+    <tag k="addr:city" v="Westbrook" />
+    <tag k="addr:state" v="ME" />
+    <tag k="addr:postcode" v="04092" />
+    <tag k="maineE911id" v="2053903" />
+    <tag k="amenity" v="police" />
+    <tag k="maineE911id:info" v="Multiple addresses land in the same building" />
+  </node>
   <node id="-1829254" lat="43.7202419518397" lon="-70.3389042800951" version="1">
     <tag k="addr:housenumber" v="576" />
     <tag k="addr:street" v="Bridgton Road" />
@@ -28083,6 +28112,7 @@
     <tag k="maineE911id" v="2049950;2049951;2049952;1831789;2049949" />
     <tag k="maineE911id:info" v="Multiple addresses land in the same building" />
     <tag k="maineE911id:warn" v="New node in building with old nodes" />
+    <tag k="maineE911id:whitelist" v="yes" />
   </node>
   <node id="-1831790" lat="43.6763911937551" lon="-70.3656983366359" version="1">
     <tag k="addr:housenumber" v="840" />
@@ -28093,6 +28123,7 @@
     <tag k="maineE911id" v="1831790" />
     <tag k="maineE911id:info" v="Multiple addresses land in the same building" />
     <tag k="maineE911id:warn" v="New node in building with old nodes" />
+    <tag k="maineE911id:whitelist" v="yes" />
   </node>
   <node id="-1831791" lat="43.7429289983962" lon="-70.3475506675434" version="1">
     <tag k="addr:housenumber" v="844" />
@@ -28813,6 +28844,7 @@
     <tag k="addr:postcode" v="04092" />
     <tag k="maineE911id" v="1832328" />
     <tag k="maineE911id:warn" v="&#xA;	way/650241171.addr:housenumber=95&#xA;	node/-1832328.addr:housenumber=99" />
+    <tag k="maineE911id:whitelist" v="yes" />
   </node>
   <node id="-1832342" lat="43.6727377258227" lon="-70.3677800912865" version="1">
     <tag k="addr:housenumber" v="113" />
@@ -29994,15 +30026,6 @@
     <tag k="addr:state" v="ME" />
     <tag k="addr:postcode" v="04092" />
     <tag k="maineE911id" v="1838069" />
-  </node>
-  <node id="-1838070" lat="43.6859384656691" lon="-70.3384138874653" version="1">
-    <tag k="addr:housenumber" v="95" />
-    <tag k="addr:street" v="Warren Avenue" />
-    <tag k="addr:city" v="Westbrook" />
-    <tag k="addr:state" v="ME" />
-    <tag k="addr:postcode" v="04092" />
-    <tag k="maineE911id" v="1838070" />
-    <tag k="maineE911id:warn" v="Matched, but too far: 89 meters ↖.&#xA;	node/585386382" />
   </node>
   <node id="-2049824" lat="43.6856244322968" lon="-70.3336983071946" version="1">
     <tag k="addr:housenumber" v="4" />
@@ -40289,7 +40312,7 @@
     <tag k="addr:city" v="Westbrook" />
     <tag k="addr:state" v="ME" />
     <tag k="addr:postcode" v="04092" />
-    <tag k="building" v="residential" />
+    <tag k="building" v="house" />
     <tag k="maineE911id" v="2043240;2043241;2043242;2043243;2043244;2043245;2043246;2043247;2043248;2043249;2043250;2043251;2043252;2043253;2043254;2043255;2043256;2043257;2043258;2043259;2043260;2043261;2043262;2043263;2043264;2043265;2043266;2043267;2043268;2043269;2043270;2043271;2043272;2043273;2043274;2043275;2043276;2043277;2043278;2043279;2043280;2043281;2043282;2043283;2043284;2043285;2043286;2043287;1882888;2043239" />
   </node>
   <node id="-1882889" lat="43.6875336761434" lon="-70.3615340011319" version="1">
@@ -40365,16 +40388,6 @@
     <tag k="addr:state" v="ME" />
     <tag k="addr:postcode" v="04092" />
     <tag k="maineE911id" v="1882901" />
-  </node>
-  <node id="-1882904" lat="43.6772428800892" lon="-70.3667597297929" version="1">
-    <tag k="addr:housenumber" v="11" />
-    <tag k="addr:street" v="Vallee Square" />
-    <tag k="addr:city" v="Westbrook" />
-    <tag k="addr:state" v="ME" />
-    <tag k="addr:postcode" v="04092" />
-    <tag k="maineE911id" v="1882904" />
-    <tag k="maineE911id:info" v="Cannot find a matching highway" />
-    <tag k="maineE911id:warn" v="&#xA;	way/421317254.addr:street=Bridge Street&#xA;	node/-1882904.addr:street=Vallee Square" />
   </node>
   <node id="-1882905" lat="43.6879586590807" lon="-70.3617607530816" version="1">
     <tag k="addr:housenumber" v="368" />
@@ -45833,16 +45846,6 @@
     <tag k="maineE911id" v="2043084;2043083" />
     <tag k="building" v="apartments" />
   </node>
-  <node id="-2043087" lat="43.6796364210182" lon="-70.3683896496628" version="1">
-    <tag k="addr:housenumber" v="87" />
-    <tag k="addr:street" v="Bridge Street" />
-    <tag k="addr:city" v="Westbrook" />
-    <tag k="addr:state" v="ME" />
-    <tag k="addr:postcode" v="04092" />
-    <tag k="building" v="apartments" />
-    <tag k="maineE911id" v="2043087;2043088;2043089;2043090;2043091;2043092;2043093;2043094;2043085;2043086" />
-    <tag k="maineE911id:warn" v="Matched, but too far: 57 meters ↑.&#xA;	node/358212445" />
-  </node>
   <node id="-2043097" lat="43.6794716176499" lon="-70.3689938020997" version="1">
     <tag k="addr:housenumber" v="90" />
     <tag k="addr:street" v="Bridge Street" />
@@ -46702,6 +46705,7 @@
     <tag k="addr:postcode" v="04092" />
     <tag k="maineE911id" v="2044773" />
     <tag k="maineE911id:warn" v="&#xA;	way/463040243.addr:housenumber=755&#xA;	node/-2044773.addr:housenumber=10;&#xA;	way/463040243.addr:street=Main Street&#xA;	node/-2044773.addr:street=Foster Street" />
+    <tag k="maineE911id:whitelist" v="yes" />
   </node>
   <node id="-2044774" lat="43.6779702702872" lon="-70.3620186248513" version="1">
     <tag k="addr:housenumber" v="31" />
@@ -47639,16 +47643,6 @@
     <tag k="addr:postcode" v="04092" />
     <tag k="maineE911id" v="2049939" />
   </node>
-  <node id="-2049953" lat="43.6763785807338" lon="-70.3656236177867" version="1">
-    <tag k="addr:housenumber" v="838" />
-    <tag k="addr:street" v="Main Street" />
-    <tag k="addr:city" v="Westbrook" />
-    <tag k="addr:state" v="ME" />
-    <tag k="addr:postcode" v="04092" />
-    <tag k="maineE911id" v="2049953" />
-    <tag k="maineE911id:info" v="Multiple addresses land in the same building" />
-    <tag k="maineE911id:warn" v="New node in building with old nodes" />
-  </node>
   <node id="-2049965" lat="43.6768711734974" lon="-70.3665962218974" version="1">
     <tag k="addr:housenumber" v="863" />
     <tag k="addr:unit" v="Suite A" />
@@ -48055,6 +48049,7 @@
     <tag k="addr:postcode" v="04092" />
     <tag k="maineE911id" v="2050627" />
     <tag k="maineE911id:warn" v="&#xA;	way/428228452.addr:housenumber=1&#xA;	node/-2050627.addr:housenumber=3;New node in building with old nodes" />
+    <tag k="maineE911id:whitelist" v="yes" />
   </node>
   <node id="-2050628" lat="43.6761777122625" lon="-70.3662331296551" version="1">
     <tag k="addr:housenumber" v="4" />
@@ -49044,7 +49039,7 @@
     <tag k="addr:city" v="Westbrook" />
     <tag k="addr:state" v="ME" />
     <tag k="addr:postcode" v="04092" />
-    <tag k="building" v="residential" />
+    <tag k="building" v="house" />
     <tag k="maineE911id" v="2098075;2098076;2098077;2098078;2098079;2098080;2098081;2098082;2098083;2098084;2098085;2098086;2089256" />
   </node>
   <node id="-2089257" lat="43.6667038371462" lon="-70.3637421613016" version="1">
@@ -49202,17 +49197,6 @@
     <tag k="addr:postcode" v="04092" />
     <tag k="maineE911id" v="2094857" />
     <tag k="building" v="detached" />
-  </node>
-  <node id="-2097293" lat="43.676899455972" lon="-70.3710008387711" version="1">
-    <tag k="name" v="Convenient MD" />
-    <tag k="addr:housenumber" v="950" />
-    <tag k="addr:street" v="Main Street" />
-    <tag k="addr:city" v="Westbrook" />
-    <tag k="addr:state" v="ME" />
-    <tag k="addr:postcode" v="04092" />
-    <tag k="maineE911id" v="2097293" />
-    <tag k="amenity" v="healthcare" />
-    <tag k="maineE911id:warn" v="&#xA;	way/698380877.name=ConvenientMD Urgent Care&#xA;	node/-2097293.name=Convenient MD;&#xA;	way/698380877.amenity=clinic&#xA;	node/-2097293.amenity=healthcare" />
   </node>
   <node id="-2127368" lat="43.670575935675" lon="-70.3723577768203" version="1">
     <tag k="addr:housenumber" v="155" />
@@ -50351,7 +50335,7 @@
     <tag k="addr:postcode" v="04092" />
     <tag k="level" v="1" />
     <tag k="maineE911id" v="2556831;2556373;2556731;2556806;2556893" />
-    <tag k="building" v="residential" />
+    <tag k="building" v="house" />
     <tag k="maineE911id:info" v="Cannot find a matching highway" />
   </node>
   <node id="-2556909" lat="43.6826693008492" lon="-70.3365546209803" version="1">
@@ -50377,7 +50361,7 @@
     <tag k="addr:postcode" v="04092" />
     <tag k="level" v="-1" />
     <tag k="maineE911id" v="2556739;2556387;2556588;2557174;2556901" />
-    <tag k="building" v="residential" />
+    <tag k="building" v="house" />
     <tag k="maineE911id:info" v="Cannot find a matching highway" />
   </node>
   <node id="-2556957" lat="43.6828296564382" lon="-70.3363162491181" version="1">
@@ -50390,7 +50374,7 @@
     <tag k="addr:postcode" v="04092" />
     <tag k="level" v="-1" />
     <tag k="maineE911id" v="2556957;2556479;2556491;2556826;2556396" />
-    <tag k="building" v="residential" />
+    <tag k="building" v="house" />
     <tag k="maineE911id:info" v="Cannot find a matching highway" />
   </node>
   <node id="-2557143" lat="43.682796845672" lon="-70.336427181783" version="1">
@@ -50403,7 +50387,7 @@
     <tag k="addr:postcode" v="04092" />
     <tag k="level" v="-1" />
     <tag k="maineE911id" v="2557143;2556669;2556707;2557202;2556406" />
-    <tag k="building" v="residential" />
+    <tag k="building" v="house" />
     <tag k="maineE911id:info" v="Cannot find a matching highway" />
   </node>
   <node id="-2556754" lat="43.6827645424736" lon="-70.3364947018668" version="1">
@@ -50416,7 +50400,7 @@
     <tag k="addr:postcode" v="04092" />
     <tag k="level" v="-1" />
     <tag k="maineE911id" v="2556754;2556640;2556956;2556977;2556410" />
-    <tag k="building" v="residential" />
+    <tag k="building" v="house" />
     <tag k="maineE911id:info" v="Cannot find a matching highway" />
   </node>
   <node id="-2556851" lat="43.6827990981675" lon="-70.336619536996" version="1">
@@ -50451,7 +50435,7 @@
     <tag k="addr:city" v="Westbrook" />
     <tag k="addr:state" v="ME" />
     <tag k="addr:postcode" v="04092" />
-    <tag k="building" v="residential" />
+    <tag k="building" v="house" />
     <tag k="maineE911id" v="2556652;2556784;2556987;2557171;2556534" />
     <tag k="maineE911id:info" v="Cannot find a matching highway" />
   </node>
@@ -50464,7 +50448,7 @@
     <tag k="addr:postcode" v="04092" />
     <tag k="level" v="1" />
     <tag k="maineE911id" v="2556708;2556542;2556688;2556693;2557016" />
-    <tag k="building" v="residential" />
+    <tag k="building" v="house" />
     <tag k="maineE911id:info" v="Cannot find a matching highway" />
   </node>
   <node id="-2556791" lat="43.6828639222399" lon="-70.3364658914461" version="1">
@@ -50473,7 +50457,7 @@
     <tag k="addr:city" v="Westbrook" />
     <tag k="addr:state" v="ME" />
     <tag k="addr:postcode" v="04092" />
-    <tag k="building" v="residential" />
+    <tag k="building" v="house" />
     <tag k="maineE911id" v="2556791;2556814;2557033;2557169;2556557" />
     <tag k="maineE911id:info" v="Cannot find a matching highway" />
   </node>
@@ -50497,7 +50481,7 @@
     <tag k="addr:postcode" v="04092" />
     <tag k="level" v="-1" />
     <tag k="maineE911id" v="2557030;2556854;2557036;2557173;2556580" />
-    <tag k="building" v="residential" />
+    <tag k="building" v="house" />
     <tag k="maineE911id:info" v="Cannot find a matching highway" />
   </node>
   <node id="-2557172" lat="43.6826995007676" lon="-70.3366669524516" version="1">
@@ -50509,7 +50493,7 @@
     <tag k="addr:postcode" v="04092" />
     <tag k="level" v="1" />
     <tag k="maineE911id" v="2557172;2556585;2556716;2557051" />
-    <tag k="building" v="residential" />
+    <tag k="building" v="house" />
     <tag k="maineE911id:info" v="Cannot find a matching highway" />
   </node>
   <node id="-2556825" lat="43.6826967442724" lon="-70.3369026197956" version="1">
@@ -50521,7 +50505,7 @@
     <tag k="addr:postcode" v="04092" />
     <tag k="level" v="1" />
     <tag k="maineE911id" v="2556825;2556789;2556938;2556988;2557075" />
-    <tag k="building" v="residential" />
+    <tag k="building" v="house" />
     <tag k="maineE911id:info" v="Cannot find a matching highway" />
   </node>
   <node id="-2556378" lat="43.7297277244766" lon="-70.335806615549" version="1">

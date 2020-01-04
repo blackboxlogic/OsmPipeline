@@ -50547,102 +50547,6 @@
     <tag k="maineE911id" v="2043084" />
     <tag k="building" v="apartments" />
   </node>
-  <node id="-2043085" lat="43.6796364210182" lon="-70.3683896496628" version="1">
-    <tag k="addr:housenumber" v="87" />
-    <tag k="addr:street" v="Bridge Street" />
-    <tag k="addr:city" v="Westbrook" />
-    <tag k="addr:state" v="ME" />
-    <tag k="addr:postcode" v="04092" />
-    <tag k="maineE911id" v="2043085" />
-  </node>
-  <node id="-2043086" lat="43.6796364210182" lon="-70.3683896496628" version="1">
-    <tag k="addr:housenumber" v="87" />
-    <tag k="addr:street" v="Bridge Street" />
-    <tag k="addr:city" v="Westbrook" />
-    <tag k="addr:state" v="ME" />
-    <tag k="addr:postcode" v="04092" />
-    <tag k="maineE911id" v="2043086" />
-  </node>
-  <node id="-2043087" lat="43.6796364210182" lon="-70.3683896496628" version="1">
-    <tag k="addr:housenumber" v="87" />
-    <tag k="addr:unit" v="Apartment 1" />
-    <tag k="addr:street" v="Bridge Street" />
-    <tag k="addr:city" v="Westbrook" />
-    <tag k="addr:state" v="ME" />
-    <tag k="addr:postcode" v="04092" />
-    <tag k="maineE911id" v="2043087" />
-    <tag k="building" v="apartments" />
-  </node>
-  <node id="-2043088" lat="43.6796364210182" lon="-70.3683896496628" version="1">
-    <tag k="addr:housenumber" v="87" />
-    <tag k="addr:unit" v="Apartment 2" />
-    <tag k="addr:street" v="Bridge Street" />
-    <tag k="addr:city" v="Westbrook" />
-    <tag k="addr:state" v="ME" />
-    <tag k="addr:postcode" v="04092" />
-    <tag k="maineE911id" v="2043088" />
-    <tag k="building" v="apartments" />
-  </node>
-  <node id="-2043089" lat="43.6796364210182" lon="-70.3683896496628" version="1">
-    <tag k="addr:housenumber" v="87" />
-    <tag k="addr:unit" v="Apartment 3" />
-    <tag k="addr:street" v="Bridge Street" />
-    <tag k="addr:city" v="Westbrook" />
-    <tag k="addr:state" v="ME" />
-    <tag k="addr:postcode" v="04092" />
-    <tag k="maineE911id" v="2043089" />
-    <tag k="building" v="apartments" />
-  </node>
-  <node id="-2043090" lat="43.6796364210182" lon="-70.3683896496628" version="1">
-    <tag k="addr:housenumber" v="87" />
-    <tag k="addr:unit" v="Apartment 4" />
-    <tag k="addr:street" v="Bridge Street" />
-    <tag k="addr:city" v="Westbrook" />
-    <tag k="addr:state" v="ME" />
-    <tag k="addr:postcode" v="04092" />
-    <tag k="maineE911id" v="2043090" />
-    <tag k="building" v="apartments" />
-  </node>
-  <node id="-2043091" lat="43.6796364210182" lon="-70.3683896496628" version="1">
-    <tag k="addr:housenumber" v="87" />
-    <tag k="addr:unit" v="Apartment 5" />
-    <tag k="addr:street" v="Bridge Street" />
-    <tag k="addr:city" v="Westbrook" />
-    <tag k="addr:state" v="ME" />
-    <tag k="addr:postcode" v="04092" />
-    <tag k="maineE911id" v="2043091" />
-    <tag k="building" v="apartments" />
-  </node>
-  <node id="-2043092" lat="43.6796364210182" lon="-70.3683896496628" version="1">
-    <tag k="addr:housenumber" v="87" />
-    <tag k="addr:unit" v="Apartment 6" />
-    <tag k="addr:street" v="Bridge Street" />
-    <tag k="addr:city" v="Westbrook" />
-    <tag k="addr:state" v="ME" />
-    <tag k="addr:postcode" v="04092" />
-    <tag k="maineE911id" v="2043092" />
-    <tag k="building" v="apartments" />
-  </node>
-  <node id="-2043093" lat="43.6796364210182" lon="-70.3683896496628" version="1">
-    <tag k="addr:housenumber" v="87" />
-    <tag k="addr:unit" v="Apartment 7" />
-    <tag k="addr:street" v="Bridge Street" />
-    <tag k="addr:city" v="Westbrook" />
-    <tag k="addr:state" v="ME" />
-    <tag k="addr:postcode" v="04092" />
-    <tag k="maineE911id" v="2043093" />
-    <tag k="building" v="apartments" />
-  </node>
-  <node id="-2043094" lat="43.6796364210182" lon="-70.3683896496628" version="1">
-    <tag k="addr:housenumber" v="87" />
-    <tag k="addr:unit" v="Apartment 8" />
-    <tag k="addr:street" v="Bridge Street" />
-    <tag k="addr:city" v="Westbrook" />
-    <tag k="addr:state" v="ME" />
-    <tag k="addr:postcode" v="04092" />
-    <tag k="maineE911id" v="2043094" />
-    <tag k="building" v="apartments" />
-  </node>
   <node id="-2043095" lat="43.6794716176498" lon="-70.3689938020996" version="1">
     <tag k="addr:housenumber" v="90" />
     <tag k="addr:street" v="Bridge Street" />
@@ -76108,6 +76012,16 @@
     <tag k="addr:postcode" v="04092" />
     <tag k="maineE911id" v="2050544" />
   </node>
+  <node id="-2050583" lat="43.6804488144998" lon="-70.3652072924226" version="1">
+    <tag k="addr:housenumber" v="2" />
+    <tag k="addr:unit" v="Apartment 3304" />
+    <tag k="addr:street" v="Walker Street" />
+    <tag k="addr:city" v="Westbrook" />
+    <tag k="addr:state" v="ME" />
+    <tag k="addr:postcode" v="04092" />
+    <tag k="maineE911id" v="2050583" />
+    <tag k="building" v="apartments" />
+  </node>
   <node id="-2050584" lat="43.6808297644911" lon="-70.3649740077026" version="1">
     <tag k="addr:housenumber" v="17" />
     <tag k="addr:street" v="Walker Street" />
@@ -84205,16 +84119,6 @@
     <tag k="addr:postcode" v="04092" />
     <tag k="maineE911id" v="2094857" />
     <tag k="building" v="detached" />
-  </node>
-  <node id="-2097293" lat="43.676899455972" lon="-70.3710008387711" version="1">
-    <tag k="name" v="Convenient MD" />
-    <tag k="addr:housenumber" v="950" />
-    <tag k="addr:street" v="Main Street" />
-    <tag k="addr:city" v="Westbrook" />
-    <tag k="addr:state" v="ME" />
-    <tag k="addr:postcode" v="04092" />
-    <tag k="maineE911id" v="2097293" />
-    <tag k="amenity" v="healthcare" />
   </node>
   <node id="-2098075" lat="43.6662184103801" lon="-70.3640536570959" version="1">
     <tag k="addr:housenumber" v="14" />

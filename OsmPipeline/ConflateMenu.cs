@@ -1,6 +1,7 @@
 ﻿using OsmPipeline.Fittings;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using static OsmPipeline.Fittings.GeoJsonAPISource;
 
@@ -12,6 +13,7 @@ namespace OsmPipeline
 		public static Dictionary<string, Municipality> Municipalities;
 	}
 
+	// review file items lost their Ids? Reference and subject have to be read from file to confate.
 	// split large municipalites by zip?
 	public class ConflateMenu
 	{
@@ -30,6 +32,7 @@ namespace OsmPipeline
 
 			while (true)
 			{
+				Console.Write("> ");
 				var userInput = Console.ReadLine();
 
 				if (Is(userInput, "reference"))
@@ -39,16 +42,16 @@ namespace OsmPipeline
 				}
 				else if (Is(userInput, "subject"))
 				{
-					Reference = Reference ?? FileSerializer.ReadXmlCacheOrSource(Municipality + "/Reference.osm",
+					Reference = FileSerializer.ReadXmlCacheOrSource(Municipality + "/Reference.osm",
 						() => References.Fetch(Municipality)).Result;
 					Subject = Subjects.GetElementsInBoundingBox(Reference.Bounds).Result;
 					FileSerializer.WriteXml(Municipality + "/Subject.osm", Subject);
 				}
 				else if (Is(userInput, "conflate"))
 				{
-					Reference = Reference ?? FileSerializer.ReadXmlCacheOrSource(Municipality + "/Reference.osm",
+					Reference = FileSerializer.ReadXmlCacheOrSource(Municipality + "/Reference.osm",
 						() => References.Fetch(Municipality)).Result;
-					Subject = Subject ?? FileSerializer.ReadXmlCacheOrSource(Municipality + "/Subject.osm",
+					Subject = FileSerializer.ReadXmlCacheOrSource(Municipality + "/Subject.osm",
 						() => Subjects.GetElementsInBoundingBox(Reference.Bounds)).Result;
 					Change = Conflate.Merge(Reference, Subject, Municipality);
 					FileSerializer.WriteXml(Municipality + "/Conflated.osc", Change);
@@ -60,20 +63,31 @@ namespace OsmPipeline
 				if (Is(userInput, "white"))
 				{
 					var selection = userInput.Split(' ', 2)[1]
-						.Split(new char[] { ' ', ',', ';', '-' }, StringSplitOptions.RemoveEmptyEntries).Select(long.Parse);
+						.Split(new char[] { ' ', ',', ';', '-' }, StringSplitOptions.RemoveEmptyEntries)
+						.Where(c => long.TryParse(c, out _))
+						.Select(long.Parse)
+						.Except(Static.Municipalities[Municipality].WhiteList)
+						.ToArray();
 					Static.Municipalities[Municipality].WhiteList.AddRange(selection);
+
 					FileSerializer.WriteJson("MaineMunicipalities.json", Static.Municipalities);
 				}
 				else if (Is(userInput, "black"))
 				{
 					var selection = userInput.Split(' ', 2)[1]
-						.Split(new char[] { ' ', ',', ';', '-' }, StringSplitOptions.RemoveEmptyEntries).Select(long.Parse);
+						.Split(new char[] { ' ', ',', ';', '-' }, StringSplitOptions.RemoveEmptyEntries)
+						.Where(c => long.TryParse(c, out _))
+						.Select(long.Parse)
+						.Except(Static.Municipalities[Municipality].BlackList)
+						.ToArray();
 					Static.Municipalities[Municipality].BlackList.AddRange(selection);
 					FileSerializer.WriteJson("MaineMunicipalities.json", Static.Municipalities);
+					File.Delete(Municipality + "/Reference.osm");
 				}
 				else if (Is(userInput, "commit"))
 				{
 					// This is commented out so I don't accidentally commit changes to OSM.
+					//if (Change == null) NO!
 					//var results = await Subject.UploadChange(Change, Municipality);
 					//Static.Municipalities[Municipality].ChangeSetIds.Add(results);
 					//Static.Municipalities[Municipality].ImportDate = DateTime.UtcNow;
@@ -99,6 +113,7 @@ namespace OsmPipeline
 					Console.WriteLine("\tBlacklist [###]<,[###]...>");
 					Console.WriteLine("\tCommit");
 				}
+				else Console.WriteLine("What?");
 
 				Console.WriteLine("Done");
 			}
