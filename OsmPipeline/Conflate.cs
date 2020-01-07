@@ -49,28 +49,31 @@ namespace OsmPipeline
 		// Whitelist suppresses warns and errors.
 		private static List<OsmGeo> GatherExceptions(string scopeName, params List<OsmGeo>[] elementss)
 		{
-			var whitelist = Static.Municipalities[scopeName].WhiteList.Select(Math.Abs).ToHashSet();
 			var exceptions = new List<OsmGeo>();
 
 			foreach (var elements in elementss)
 			{
 				var errors = elements.Where(e => e.Tags.ContainsKey(ErrorKey)).ToHashSet();
-				foreach (var error in errors.Where(e => whitelist.Contains(Math.Abs(e.Id.Value))).ToArray())
-				{
-					error.Tags.AddOrAppend(WhiteListKey, "yes");
-					errors.Remove(error);
-				}
+				ExcuseWhitelistedElements(errors, scopeName);
+				exceptions.AddRange(errors);
 				var warns = elements.Where(e => e.Tags.ContainsKey(WarnKey)).ToHashSet();
-				foreach (var warn in warns.Where(e => whitelist.Contains(Math.Abs(e.Id.Value))).ToArray())
-				{
-					warn.Tags.AddOrAppend(WhiteListKey, "yes");
-					warns.Remove(warn);
-				}
-				exceptions.AddRange(warns.Concat(errors));
+				ExcuseWhitelistedElements(warns, scopeName);
+				exceptions.AddRange(warns);
 				elements.RemoveAll(errors.Contains);
 			}
 
 			return exceptions;
+		}
+
+		private static void ExcuseWhitelistedElements(ICollection<OsmGeo> elements, string scopeName)
+		{
+			var whitelist = Static.Municipalities[scopeName].WhiteList.Select(Math.Abs).ToHashSet();
+			foreach (var error in elements.Where(e => whitelist.Contains(-e.Id.Value)
+					|| e.Tags[Static.maineE911id].Split(';').All(id => whitelist.Contains(long.Parse(id)))).ToArray())
+			{
+				error.Tags.AddOrAppend(WhiteListKey, "yes");
+				elements.Remove(error);
+			}
 		}
 
 		private static void ValidateRoadNamesMatcheRoads(Dictionary<string, OsmGeo> subjectElementsIndexed, List<OsmGeo> create)
