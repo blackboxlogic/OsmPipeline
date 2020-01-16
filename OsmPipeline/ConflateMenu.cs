@@ -13,8 +13,9 @@ namespace OsmPipeline
 		public static Dictionary<string, Municipality> Municipalities;
 	}
 
-	// review file items lost their Ids? Reference and subject have to be read from file to confate.
+	// review file items lost their Ids? Reference and subject have to be read from file to confate! not from memory
 	// split large municipalites by zip?
+	// separate translate and simplify
 	public class ConflateMenu
 	{
 		Func<string, string, bool> Is = (a,b) => a.StartsWith(b, StringComparison.OrdinalIgnoreCase);
