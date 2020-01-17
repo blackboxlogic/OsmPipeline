@@ -315,6 +315,10 @@ namespace OsmPipeline
 				{
 					Log.LogError("Bad PREDIR");
 				}
+				if (string.IsNullOrWhiteSpace((string)f.Properties["STREETNAME"]))
+				{
+					Log.LogError("Bad STREETNAME");
+				}
 				if (!PrePostDIRs.ContainsKey(f.Properties["POSTDIR"]))
 				{
 					Log.LogError("Bad POSTDIR");
