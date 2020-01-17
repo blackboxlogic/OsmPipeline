@@ -13,6 +13,8 @@ namespace OsmPipeline
 		public static Dictionary<string, Municipality> Municipalities;
 	}
 
+	// can't fetch subjects over 50,000 nodes
+	// Null, empty fields break translation and validation
 	// review file items lost their Ids? Reference and subject have to be read from file to confate! not from memory
 	// split large municipalites by zip?
 	// separate translate and simplify
@@ -29,7 +31,7 @@ namespace OsmPipeline
 		{
 			Static.Municipalities = FileSerializer.ReadJsonCacheOrSource("MaineMunicipalities.json",
 				GetMunicipalities).Result;
-			Municipality = "Westbrook"; //ChooseMunicipality();
+			Municipality = ChooseMunicipality();
 
 			while (true)
 			{
@@ -61,7 +63,7 @@ namespace OsmPipeline
 				{
 					// Open JOSM with review layers
 				}
-				if (Is(userInput, "white"))
+				else if (Is(userInput, "white"))
 				{
 					var selection = userInput.Split(' ', 2)[1]
 						.Split(new char[] { ' ', ',', ';', '-' }, StringSplitOptions.RemoveEmptyEntries)
@@ -120,21 +122,27 @@ namespace OsmPipeline
 			}
 		}
 
-		string ChooseMunicipality()
+		private string ChooseMunicipality()
 		{
 			do
 			{
 				Console.WriteLine($"Which municipality?");
 				var input = Console.ReadLine();
+				var match = Static.Municipalities.Keys.FirstOrDefault(s => s.Equals(input, StringComparison.OrdinalIgnoreCase));
+				if (match != null)
+				{
+					Console.WriteLine("Switching to " + match);
+					return match;
+				}
 				var selection = Static.Municipalities.Keys.Where(m => m.StartsWith(input, StringComparison.OrdinalIgnoreCase)).ToArray();
 				if (selection.Length == 1)
 				{
-					Console.Write("Switching to " + selection[0]);
+					Console.WriteLine("Switching to " + selection[0]);
 					return selection[0];
 				}
 				else
 				{
-					Console.Write(string.Join("\n", selection));
+					Console.WriteLine(string.Join("\n", selection));
 				}
 			} while (true);
 		}
