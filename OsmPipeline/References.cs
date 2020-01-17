@@ -323,7 +323,9 @@ namespace OsmPipeline
 					|| ((string)f.Properties["FLOOR"]).Split().All(part =>
 						part.Equals("floor", StringComparison.OrdinalIgnoreCase)
 						|| part.Equals("flr", StringComparison.OrdinalIgnoreCase)
+						|| part.Equals("fl", StringComparison.OrdinalIgnoreCase)
 						|| part.Equals("ll", StringComparison.OrdinalIgnoreCase)
+						|| part.Equals("bsmt", StringComparison.OrdinalIgnoreCase)
 						|| part.All(char.IsNumber));
 				if (!goodFloor)
 				{
@@ -347,8 +349,7 @@ namespace OsmPipeline
 				{
 					Log.LogError("Bad Zipcode: " + (string)f.Properties["ZIPCODE"]);
 				}
-				if (!int.TryParse((string)f.Properties["ADDRESS_NUMBER"], out var addressNumber)
-					|| addressNumber <= 0)
+				if ((f.Properties["ADDRESS_NUMBER"] ?? 0) == 0)
 				{
 					Log.LogError("Bad ADDRESS_NUMBER: " + (string)f.Properties["ADDRESS_NUMBER"].ToString());
 				}
