@@ -112,8 +112,8 @@ namespace OsmPipeline
 
 			var placeTags = PLACE_TYPEs[(string)props["PLACE_TYPE"]].Select(kvp => new Tag(kvp.Key, kvp.Value)).ToArray();
 			tags = tags.Concat(placeTags)
-				.Select(t => new Tag(t.Key, t.Value.Trim()))
-				.Where(t => t.Value != "")
+				.Select(t => new Tag(t.Key, t.Value?.Trim()))
+				.Where(t => t.Value != "" && t.Value != null)
 				.ToArray();
 
 			var n = new Node()
@@ -302,7 +302,7 @@ namespace OsmPipeline
 				.ToArray();
 			if (duplicateObjectIds.Any())
 			{
-				Log.LogError("ObjectIDs aren't unique");
+				Log.LogError("ObjectIDs aren't unique! " + string.Join(",", duplicateObjectIds));
 			}
 
 			foreach (var f in features)
@@ -319,11 +319,12 @@ namespace OsmPipeline
 				{
 					Log.LogError("Bad POSTDIR");
 				}
-				var goodFloor = ((string)f.Properties["FLOOR"]).Split().All(part =>
-					part.Equals("floor", StringComparison.OrdinalIgnoreCase)
-					|| part.Equals("flr", StringComparison.OrdinalIgnoreCase)
-					|| part.Equals("ll", StringComparison.OrdinalIgnoreCase)
-					|| part.All(char.IsNumber));
+				var goodFloor = f.Properties["FLOOR"] == null
+					|| ((string)f.Properties["FLOOR"]).Split().All(part =>
+						part.Equals("floor", StringComparison.OrdinalIgnoreCase)
+						|| part.Equals("flr", StringComparison.OrdinalIgnoreCase)
+						|| part.Equals("ll", StringComparison.OrdinalIgnoreCase)
+						|| part.All(char.IsNumber));
 				if (!goodFloor)
 				{
 					Log.LogWarning("Bad Floor: " + (string)f.Properties["FLOOR"]);
@@ -333,22 +334,23 @@ namespace OsmPipeline
 				{
 					Log.LogWarning("Bad bulding: " + (string)f.Properties["BUILDING"]);
 				}
-				if (f.Properties["ROOM"] != "")
+				if (!string.IsNullOrEmpty(f.Properties["ROOM"]))
 				{
 					Log.LogWarning("Ignoring Room: " + (string)f.Properties["ROOM"]);
 				}
-				if (f.Properties["SEAT"] != "")
+				if (!string.IsNullOrEmpty(f.Properties["SEAT"]))
 				{
 					Log.LogWarning("Ognoring Seat: " + (string)f.Properties["SEAT"]);
 				}
-				if (((string)f.Properties["ZIPCODE"]).Count(char.IsNumber) != 5
-					|| ((string)f.Properties["ZIPCODE"]).Length != 5)
+				if (!int.TryParse((string)f.Properties["ZIPCODE"], out var zip)
+					|| zip < 04000 || zip > 04999)
 				{
 					Log.LogError("Bad Zipcode: " + (string)f.Properties["ZIPCODE"]);
 				}
-				if ((int)f.Properties["ADDRESS_NUMBER"] <= 0)
+				if (!int.TryParse((string)f.Properties["ADDRESS_NUMBER"], out var addressNumber)
+					|| addressNumber <= 0)
 				{
-					Log.LogError("Bad ADDRESS_NUMBER: " + (string)f.Properties["ADDRESS_NUMBER"]);
+					Log.LogError("Bad ADDRESS_NUMBER: " + (string)f.Properties["ADDRESS_NUMBER"].ToString());
 				}
 			}
 		}
@@ -370,26 +372,27 @@ namespace OsmPipeline
 			foreach (var node in nodes)
 			{
 				if (node.Tags["addr:state"] != "ME" ||
-					!node.Tags["addr:street"].All(c => char.IsLetter(c) || c == ' ') ||
-					!node.Tags["addr:housenumber"].All(char.IsNumber) ||
+					!node.Tags["addr:street"].All(c => char.IsLetter(c) || c == ' ') || //"Interstate 95"
+					(!node.Tags.ContainsKey("addr:housenumber") ||
+					!node.Tags["addr:housenumber"].All(char.IsNumber)) ||
 					node.Latitude == 0 || node.Latitude == null ||
 					node.Longitude == 0 || node.Longitude == null)
 				{
-					throw new Exception("BAD ADDRESS " + node);
+					Log.LogError("BAD ADDRESS " + node);
 				}
 			}
 		}
 
 		private static string Name(string landmark, string loc, string building)
 		{
-			if (building.Any() && building.All(char.IsNumber))
+			if (building?.Length > 0 && building?.Length < 4)
 			{
 				building = "BLDG " + building;
 			}
 
-			landmark = ReplaceToken(landmark + ' ' + building + ' ' + loc, UNITs);
+			var name = ReplaceToken(landmark + ' ' + building + ' ' + loc, UNITs);
 
-			return landmark;
+			return name;
 		}
 
 		// "FLR 1", "Floor 1", "1", "bsmt", "second", "flr 1 & 2"
@@ -397,7 +400,7 @@ namespace OsmPipeline
 		private static string Level(string floor, out bool useFloorAsUnit)
 		{
 			useFloorAsUnit = false;
-			if (floor == "") return "";
+			if (floor == null || floor == "") return "";
 			if (floor.Contains("BSMT", StringComparison.OrdinalIgnoreCase) ||
 				floor.Contains("Basement", StringComparison.OrdinalIgnoreCase) ||
 				floor.EndsWith(" LL", StringComparison.OrdinalIgnoreCase)) return "-1";
@@ -438,6 +441,7 @@ namespace OsmPipeline
 
 		private static string ReplaceToken(string input, Dictionary<string, string> translation)
 		{
+			if (input == null) return "";
 			var parts = input.Split(' ', StringSplitOptions.RemoveEmptyEntries);
 			parts = parts.Select(part =>
 				translation.TryGetValue(part, out string replacement)
