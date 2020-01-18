@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net.Http;
 using static OsmPipeline.Fittings.GeoJsonAPISource;
 
 namespace OsmPipeline
@@ -12,6 +13,7 @@ namespace OsmPipeline
 	{
 		public const string maineE911id = "maineE911id";
 		public static Dictionary<string, Municipality> Municipalities;
+		public static HttpClient HttpClient = new HttpClient();
 	}
 
 	// review file items lost their Ids? Reference and subject have to be read from file to confate! not from memory

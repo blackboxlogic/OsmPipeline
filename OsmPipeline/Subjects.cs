@@ -2,13 +2,11 @@
 using OsmSharp;
 using System.Threading.Tasks;
 using OsmPipeline.Fittings;
-using System.Net.Http;
 using OsmSharp.IO.API;
 using OsmSharp.Changesets;
 using OsmSharp.Tags;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Configuration;
-using System.Collections.Generic;
 using System.Linq;
 using System;
 
@@ -36,22 +34,26 @@ namespace OsmPipeline
 			};
 		}
 
-		public static async Task<Osm> GetElementsInBoundingBox(Bounds bounds, int depth = 0)
+		public static async Task<Osm> GetElementsInBoundingBox(Bounds bounds)
+		{
+				Log.LogInformation("Fetching Subject material from OSM");
+				var osmApiClient = new NonAuthClient(Static.Config["OsmApiUrl"], Static.HttpClient,
+					Static.LogFactory.CreateLogger<NonAuthClient>());
+				return await GetElementsInBoundingBox(bounds, osmApiClient);
+		}
+
+		private static async Task<Osm> GetElementsInBoundingBox(Bounds bounds, NonAuthClient client, int depth = 0)
 		{
 			try
 			{
-				Log.LogInformation("Fetching Subject material from OSM");
-				var osmApiClient = new NonAuthClient(Static.Config["OsmApiUrl"], new HttpClient(),
-					Static.LogFactory.CreateLogger<NonAuthClient>());
-				var map = await osmApiClient.GetMap(bounds);
-				return map;
+				return await client.GetMap(bounds);
 			}
 			catch (Exception e)
 			{
 				if (!e.Message.Contains("50000") || depth > 3) throw;
 
 				Log.LogInformation("Fetch area was too big. Splitting it into smaller pieces and re-trying.");
-				var tasks = bounds.Quarter().Select(async bound => await GetElementsInBoundingBox(bound, depth + 1)).ToArray();
+				var tasks = bounds.Quarter().Select(async quarter => await GetElementsInBoundingBox(quarter, client, depth + 1)).ToArray();
 				Task.WaitAll(tasks);
 				return tasks.Select(t => t.Result).Merge();
 			}
@@ -71,11 +73,12 @@ namespace OsmPipeline
 			};
 		}
 
+		// Break into smaller pieces?
 		public static async Task<long> UploadChange(OsmChange change, string municipality)
 		{
 			Log.LogInformation("Uploading change to OSM");
 			var changeTags = GetCommitTags(municipality);
-			var osmApiClient = new BasicAuthClient(new HttpClient(),
+			var osmApiClient = new BasicAuthClient(Static.HttpClient,
 				Static.LogFactory.CreateLogger<BasicAuthClient>(), Static.Config["OsmApiUrl"],
 				Static.Config["OsmUsername"], Static.Config["OsmPassword"]);
 			var changeSetId = await osmApiClient.CreateChangeset(changeTags);
