@@ -1,4 +1,5 @@
 ﻿using OsmPipeline.Fittings;
+using OsmSharp.Changesets;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -13,19 +14,13 @@ namespace OsmPipeline
 		public static Dictionary<string, Municipality> Municipalities;
 	}
 
-	// can't fetch subjects over 50,000 nodes
-	// Null, empty fields break translation and validation
 	// review file items lost their Ids? Reference and subject have to be read from file to confate! not from memory
 	// split large municipalites by zip?
 	// separate translate and simplify
 	public class ConflateMenu
 	{
 		Func<string, string, bool> Is = (a,b) => a.StartsWith(b, StringComparison.OrdinalIgnoreCase);
-
 		private string Municipality;
-		private OsmSharp.API.Osm Reference;
-		private OsmSharp.API.Osm Subject;
-		private OsmSharp.Changesets.OsmChange Change;
 
 		public void Main()
 		{
@@ -40,23 +35,23 @@ namespace OsmPipeline
 
 				if (Is(userInput, "reference"))
 				{
-					Reference = References.Fetch(Municipality).Result;
+					var Reference = References.Fetch(Municipality).Result;
 					FileSerializer.WriteXml(Municipality + "/Reference.osm", Reference);
 				}
 				else if (Is(userInput, "subject"))
 				{
-					Reference = FileSerializer.ReadXmlCacheOrSource(Municipality + "/Reference.osm",
+					var Reference = FileSerializer.ReadXmlCacheOrSource(Municipality + "/Reference.osm",
 						() => References.Fetch(Municipality)).Result;
-					Subject = Subjects.GetElementsInBoundingBox(Reference.Bounds).Result;
+					var Subject = Subjects.GetElementsInBoundingBox(Reference.Bounds).Result;
 					FileSerializer.WriteXml(Municipality + "/Subject.osm", Subject);
 				}
 				else if (Is(userInput, "conflate"))
 				{
-					Reference = FileSerializer.ReadXmlCacheOrSource(Municipality + "/Reference.osm",
+					var Reference = FileSerializer.ReadXmlCacheOrSource(Municipality + "/Reference.osm",
 						() => References.Fetch(Municipality)).Result;
-					Subject = FileSerializer.ReadXmlCacheOrSource(Municipality + "/Subject.osm",
+					var Subject = FileSerializer.ReadXmlCacheOrSource(Municipality + "/Subject.osm",
 						() => Subjects.GetElementsInBoundingBox(Reference.Bounds)).Result;
-					Change = Conflate.Merge(Reference, Subject, Municipality);
+					var Change = Conflate.Merge(Reference, Subject, Municipality);
 					FileSerializer.WriteXml(Municipality + "/Conflated.osc", Change);
 				}
 				else if (Is(userInput, "review"))
@@ -90,7 +85,7 @@ namespace OsmPipeline
 				else if (Is(userInput, "commit"))
 				{
 					// This is commented out so I don't accidentally commit changes to OSM.
-					//if (Change == null) NO!
+					var Change = FileSerializer.ReadXml<OsmChange>(Municipality + "/Conflated.osc");
 					//var results = await Subject.UploadChange(Change, Municipality);
 					//Static.Municipalities[Municipality].ChangeSetIds.Add(results);
 					//Static.Municipalities[Municipality].ImportDate = DateTime.UtcNow;
@@ -99,9 +94,6 @@ namespace OsmPipeline
 				}
 				else if (Is(userInput, "switch"))
 				{
-					Change = null;
-					Subject = null;
-					Reference = null;
 					ChooseMunicipality();
 				}
 				else if (Is(userInput, "help"))
