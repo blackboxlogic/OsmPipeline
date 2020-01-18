@@ -40,5 +40,40 @@ namespace OsmPipeline.Fittings
 				Generator = generator
 			};
 		}
+
+		public static Osm Merge(this IEnumerable<Osm> osms)
+		{
+			return new Osm()
+			{
+				Nodes = osms.SelectMany(o => o.Nodes).DistinctBy(n => n.Id).ToArray(),
+				Ways = osms.SelectMany(o => o.Ways).DistinctBy(n => n.Id).ToArray(),
+				Relations = osms.SelectMany(o => o.Relations).DistinctBy(n => n.Id).ToArray(),
+				Version = osms.First().Version,
+				Generator = osms.First().Generator,
+				Bounds = new Bounds()
+				{
+					MaxLatitude = osms.Max(o => o.Bounds.MaxLatitude),
+					MinLatitude = osms.Min(o => o.Bounds.MinLatitude),
+					MaxLongitude = osms.Max(o => o.Bounds.MaxLongitude),
+					MinLongitude = osms.Min(o => o.Bounds.MinLongitude)
+				}
+			};
+		}
+
+		private static IEnumerable<T> DistinctBy<T, K>(this IEnumerable<T> elements, Func<T, K> id)
+		{
+			var keySet = new HashSet<K>();
+			var valueSet = new List<T>();
+			foreach (var element in elements)
+			{
+				var key = id(element);
+				if (!keySet.Contains(key))
+				{
+					keySet.Add(key);
+					valueSet.Add(element);
+				}
+			}
+			return valueSet;
+		}
 	}
 }
