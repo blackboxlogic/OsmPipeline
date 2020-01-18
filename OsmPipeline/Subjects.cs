@@ -8,6 +8,9 @@ using OsmSharp.Changesets;
 using OsmSharp.Tags;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Configuration;
+using System.Collections.Generic;
+using System.Linq;
+using System;
 
 namespace OsmPipeline
 {
@@ -33,13 +36,25 @@ namespace OsmPipeline
 			};
 		}
 
-		public static async Task<Osm> GetElementsInBoundingBox(Bounds bounds)
+		public static async Task<Osm> GetElementsInBoundingBox(Bounds bounds, int depth = 0)
 		{
-			Log.LogInformation("Fetching Subject material from OSM");
-			var osmApiClient = new NonAuthClient(Static.Config["OsmApiUrl"], new HttpClient(),
-				Static.LogFactory.CreateLogger<NonAuthClient>());
-			var map = await osmApiClient.GetMap(bounds);
-			return map;
+			try
+			{
+				Log.LogInformation("Fetching Subject material from OSM");
+				var osmApiClient = new NonAuthClient(Static.Config["OsmApiUrl"], new HttpClient(),
+					Static.LogFactory.CreateLogger<NonAuthClient>());
+				var map = await osmApiClient.GetMap(bounds);
+				return map;
+			}
+			catch (Exception e)
+			{
+				if (!e.Message.Contains("50000") || depth > 3) throw;
+
+				Log.LogInformation("Fetch area was too big. Splitting it into smaller pieces and re-trying.");
+				var tasks = bounds.Quarter().Select(async bound => await GetElementsInBoundingBox(bound, depth + 1)).ToArray();
+				Task.WaitAll(tasks);
+				return tasks.Select(t => t.Result).Merge();
+			}
 		}
 
 		public static TagsCollection GetCommitTags(string municipality)

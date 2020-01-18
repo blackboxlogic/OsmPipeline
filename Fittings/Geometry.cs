@@ -1,6 +1,7 @@
 ﻿using BAMCIS.GeoJSON;
 using NetTopologySuite.Geometries;
 using OsmSharp;
+using OsmSharp.API;
 using OsmSharp.Complete;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,40 @@ namespace OsmPipeline.Fittings
 {
 	public static class Geometry
 	{
+		public static IEnumerable<Bounds> Quarter(this Bounds bounds)
+		{
+			var halfLat = (bounds.MaxLatitude + bounds.MinLatitude) / 2;
+			var halfLon = (bounds.MaxLongitude + bounds.MinLongitude) / 2;
+			yield return new Bounds()
+			{
+				MaxLatitude = bounds.MaxLatitude,
+				MaxLongitude = bounds.MaxLongitude,
+				MinLatitude = halfLat,
+				MinLongitude = halfLon
+			};
+			yield return new Bounds()
+			{
+				MaxLatitude = halfLat,
+				MaxLongitude = halfLon,
+				MinLatitude = bounds.MinLatitude,
+				MinLongitude = bounds.MinLongitude
+			};
+			yield return new Bounds()
+			{
+				MaxLatitude = bounds.MaxLatitude,
+				MaxLongitude = halfLon,
+				MinLatitude = halfLat,
+				MinLongitude = bounds.MinLongitude
+			};
+			yield return new Bounds()
+			{
+				MaxLatitude = halfLat,
+				MaxLongitude = bounds.MaxLongitude,
+				MinLatitude = bounds.MinLatitude,
+				MinLongitude = halfLon
+			};
+		}
+
 		public static char GetDirectionArrow(Position from, Position to)
 		{
 			var theta = Math.Atan2(to.Latitude - from.Latitude, to.Longitude - from.Longitude);
