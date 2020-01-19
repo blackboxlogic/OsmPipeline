@@ -9,6 +9,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Configuration;
 using System.Linq;
 using System;
+using System.Collections.Generic;
 
 namespace OsmPipeline
 {
@@ -73,17 +74,25 @@ namespace OsmPipeline
 			};
 		}
 
-		// Break into smaller pieces?
-		public static async Task<long> UploadChange(OsmChange change, string municipality)
+		public static long[] UploadChange(OsmChange change, string municipality)
 		{
 			Log.LogInformation("Uploading change to OSM");
 			var changeTags = GetCommitTags(municipality);
 			var osmApiClient = new BasicAuthClient(Static.HttpClient,
 				Static.LogFactory.CreateLogger<BasicAuthClient>(), Static.Config["OsmApiUrl"],
 				Static.Config["OsmUsername"], Static.Config["OsmPassword"]);
-			var changeSetId = await osmApiClient.CreateChangeset(changeTags);
-			var diffResult = await osmApiClient.UploadChangeset(changeSetId, change);
-			await osmApiClient.CloseChangeset(changeSetId);
+			var tasks = change.Split().Select(part => UploadChangePart(part, changeTags, osmApiClient)).ToArray();
+			Task.WaitAll(tasks);
+
+			return tasks.Select(t => t.Result).ToArray();
+		}
+
+		private static async Task<long> UploadChangePart(this OsmChange part, TagsCollection tags, BasicAuthClient client)
+		{
+			var changeSetId = await client.CreateChangeset(tags);
+			Log.LogDebug("Uploading part changeSetId");
+			var diffResult = await client.UploadChangeset(changeSetId, part);
+			await client.CloseChangeset(changeSetId);
 			return changeSetId;
 		}
 	}

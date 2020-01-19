@@ -16,9 +16,8 @@ namespace OsmPipeline
 		public static HttpClient HttpClient = new HttpClient();
 	}
 
-	// review file items lost their Ids? Reference and subject have to be read from file to confate! not from memory
-	// split large municipalites by zip?
-	// separate translate and simplify
+	// Test: Split subject fetch and split change commit
+	// Fast subject fetches might need to be slower to conform to API rules
 	public class ConflateMenu
 	{
 		Func<string, string, bool> Is = (a,b) => a.StartsWith(b, StringComparison.OrdinalIgnoreCase);
@@ -88,8 +87,8 @@ namespace OsmPipeline
 				{
 					// This is commented out so I don't accidentally commit changes to OSM.
 					var Change = FileSerializer.ReadXml<OsmChange>(Municipality + "/Conflated.osc");
-					//var results = await Subject.UploadChange(Change, Municipality);
-					//Static.Municipalities[Municipality].ChangeSetIds.Add(results);
+					//var results = Subjects.UploadChange(Change, Municipality).Result;
+					//Static.Municipalities[Municipality].ChangeSetIds.AddRange(results);
 					//Static.Municipalities[Municipality].ImportDate = DateTime.UtcNow;
 					//FileSerializer.WriteJson("MaineMunicipalities.json", Static.Municipalities);
 					//Console.WriteLine("Finished!");

@@ -60,6 +60,62 @@ namespace OsmPipeline.Fittings
 			};
 		}
 
+		public static IEnumerable<OsmChange> Split(this OsmChange change, int maxPieceSize = 10_000)
+		{
+			if (change.Create.Length + change.Modify.Length + change.Delete.Length <= maxPieceSize)
+			{
+				yield return change;
+				yield break;
+			}
+			if (change.Create.Any())
+			{
+				foreach (var chunk in change.Create.AsChunks(maxPieceSize))
+				{
+					var clone = change.EmptyClone();
+					clone.Create = chunk;
+					yield return clone;
+				}
+			}
+			if (change.Modify.Any())
+			{
+				foreach (var chunk in change.Modify.AsChunks(maxPieceSize))
+				{
+					var clone = change.EmptyClone();
+					clone.Modify = chunk;
+					yield return clone;
+				}
+			}
+			if (change.Delete.Any())
+			{
+				foreach (var chunk in change.Delete.AsChunks(maxPieceSize))
+				{
+					var clone = change.EmptyClone();
+					clone.Delete = chunk;
+					yield return clone;
+				}
+			}
+		}
+
+		private static OsmChange EmptyClone(this OsmChange change)
+		{
+			return new OsmChange()
+			{
+				Attribution = change.Attribution,
+				Copyright = change.Copyright,
+				Generator = change.Generator,
+				License = change.License,
+				Version = change.Version
+			};
+		}
+
+		private static IEnumerable<T[]> AsChunks<T>(this IEnumerable<T> elements, int chunkSize)
+		{
+			for (int chunk = 0; chunk * chunkSize < elements.Count(); chunk++)
+			{
+				yield return elements.Skip(chunk * chunkSize).Take(chunkSize).ToArray();
+			}
+		}
+
 		private static IEnumerable<T> DistinctBy<T, K>(this IEnumerable<T> elements, Func<T, K> id)
 		{
 			var keySet = new HashSet<K>();
