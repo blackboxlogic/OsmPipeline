@@ -18,6 +18,8 @@ namespace OsmPipeline
 
 	// Test: Split subject fetch and split change commit
 	// Fast subject fetches might need to be slower to conform to API rules
+	// Fast change commits might need to be slower.
+	// What are those extra properties on a change.
 	public class ConflateMenu
 	{
 		Func<string, string, bool> Is = (a,b) => a.StartsWith(b, StringComparison.OrdinalIgnoreCase);

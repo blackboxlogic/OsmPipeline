@@ -43,6 +43,7 @@ namespace OsmPipeline.Fittings
 			return null;
 		}
 
+		// Should be async
 		public static T WriteXml<T>(string fileName, T element) where T : IXmlSerializable
 		{
 			var directory = Path.GetDirectoryName(fileName);

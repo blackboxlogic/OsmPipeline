@@ -81,18 +81,22 @@ namespace OsmPipeline
 			var osmApiClient = new BasicAuthClient(Static.HttpClient,
 				Static.LogFactory.CreateLogger<BasicAuthClient>(), Static.Config["OsmApiUrl"],
 				Static.Config["OsmUsername"], Static.Config["OsmPassword"]);
-			var tasks = change.Split().Select(part => UploadChangePart(part, changeTags, osmApiClient)).ToArray();
-			Task.WaitAll(tasks);
-
-			return tasks.Select(t => t.Result).ToArray();
+			// Could be async, but I don't think we want that here. Server probably uses blocking transactions anyway?
+			//var tasks = change.Split().Select(part => UploadChangePart(part, changeTags, osmApiClient)).ToArray();
+			//return tasks.Select(t => t.Result).ToArray();
+			return change.Split().Select(part => UploadChangePart(part, changeTags, osmApiClient, municipality).Result).ToArray();
 		}
 
-		private static async Task<long> UploadChangePart(this OsmChange part, TagsCollection tags, BasicAuthClient client)
+		private static async Task<long> UploadChangePart(this OsmChange part,
+			TagsCollection tags, BasicAuthClient client, string municipality)
 		{
 			var changeSetId = await client.CreateChangeset(tags);
-			Log.LogDebug("Uploading part changeSetId");
+			Log.LogDebug($"Creating ChangeSet {changeSetId}");
+			FileSerializer.WriteXml($"{municipality}/Uploaded/{changeSetId}-Conflated.osc", part);
 			var diffResult = await client.UploadChangeset(changeSetId, part);
+			FileSerializer.WriteXml($"{municipality}/Uploaded/{changeSetId}-DiffResult.diff", diffResult);
 			await client.CloseChangeset(changeSetId);
+			Log.LogDebug($"Closing ChangeSet {changeSetId}");
 			return changeSetId;
 		}
 	}
