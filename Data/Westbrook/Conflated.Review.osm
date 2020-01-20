@@ -214,6 +214,15 @@
     <tag k="maineE911id:info" v="Multiple addresses land in the same building" />
     <tag k="maineE911id:warn" v="New node in building with old nodes" />
   </node>
+  <node id="-1832328" lat="43.6774668374692" lon="-70.3337036647379" version="1">
+    <tag k="addr:housenumber" v="99" />
+    <tag k="addr:street" v="Larrabee Road" />
+    <tag k="addr:city" v="Westbrook" />
+    <tag k="addr:state" v="ME" />
+    <tag k="addr:postcode" v="04092" />
+    <tag k="maineE911id" v="1832328" />
+    <tag k="maineE911id:warn" v="&#xA;	way/650241171.addr:housenumber=95&#xA;	node/-1832328.addr:housenumber=99" />
+  </node>
   <node id="-1895157" lat="43.6517938877303" lon="-70.3527093374586" version="1">
     <tag k="addr:housenumber" v="1" />
     <tag k="addr:street" v="Acadia Common" />

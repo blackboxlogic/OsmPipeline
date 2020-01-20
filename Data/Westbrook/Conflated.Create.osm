@@ -28844,7 +28844,6 @@
     <tag k="addr:postcode" v="04092" />
     <tag k="maineE911id" v="1832328" />
     <tag k="maineE911id:warn" v="&#xA;	way/650241171.addr:housenumber=95&#xA;	node/-1832328.addr:housenumber=99" />
-    <tag k="maineE911id:whitelist" v="yes" />
   </node>
   <node id="-1832342" lat="43.6727377258227" lon="-70.3677800912865" version="1">
     <tag k="addr:housenumber" v="113" />
