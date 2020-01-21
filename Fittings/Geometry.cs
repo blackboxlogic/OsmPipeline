@@ -4,6 +4,7 @@ using OsmSharp;
 using OsmSharp.API;
 using OsmSharp.Complete;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -107,9 +108,96 @@ namespace OsmPipeline.Fittings
 
 		public static Dictionary<ICompleteOsmGeo, Node[]> NodesInCompleteElements(ICompleteOsmGeo[] buildings, Node[] nodes)
 		{
-			return buildings.ToDictionary(b => b, b => nodes.Where(n => IsNodeInBuilding(n, b)).ToArray())
-				.Where(kvp => kvp.Value.Any())
-				.ToDictionary(kvp => kvp.Key, kvp => kvp.Value);
+			var byLat = new SortedList<double, Node[]>(nodes.GroupBy(n => n.Latitude.Value).ToDictionary(g => g.Key, g => g.ToArray()));
+			var byLon = new SortedList<double, Node[]>(nodes.GroupBy(n => n.Longitude.Value).ToDictionary(g => g.Key, g => g.ToArray()));
+
+			var result = new Dictionary<ICompleteOsmGeo, Node[]>();
+			foreach (var building in buildings)
+			{
+				var bounds = building.AsBounds();
+				var candidates = FastNodesInBounds(bounds, byLat, byLon);
+				var inners = candidates.Where(n => IsNodeInBuilding(n, building)).ToArray();
+				if (inners.Any()) result.Add(building, inners);
+			}
+			return result;
+
+			// Heres the n^2 version. But much simpler!
+			//return buildings.ToDictionary(b => b, b => nodes.Where(n => IsNodeInBuilding(n, b)).ToArray())
+			//	.Where(kvp => kvp.Value.Any())
+			//	.ToDictionary(kvp => kvp.Key, kvp => kvp.Value);
+		}
+
+		private static Node[] FastNodesInBounds(Bounds bounds, SortedList<double, Node[]> byLat, SortedList<double, Node[]> byLon)
+		{
+			SeekIndexRange(byLat.Keys, bounds.MinLatitude.Value, bounds.MaxLatitude.Value,
+				out int minLatIndex, out int latCount);
+			SeekIndexRange(byLon.Keys, bounds.MinLongitude.Value, bounds.MaxLongitude.Value,
+				out int minLonIndex, out int lonCount);
+			var subLat = new ArraySegment<Node[]>(byLat.Values.ToArray(), minLatIndex, latCount).SelectMany(n => n).ToArray();
+			var subLon = new ArraySegment<Node[]>(byLon.Values.ToArray(), minLonIndex, lonCount).SelectMany(n => n).ToArray();
+			return subLat.Intersect(subLon).ToArray();
+		}
+
+		private static void SeekIndexRange(IList<double> list, float min, float max, out int minIndex, out int count)
+		{
+			minIndex = 0;
+			int maxIndex = list.Count;
+			int mid = (maxIndex + minIndex) / 2;
+
+			while (mid != minIndex && (list[mid] < min || list[mid -1] >= min))
+			{
+				if (list[mid] < min)
+				{
+					minIndex = mid;
+					mid = (maxIndex + minIndex) / 2;
+				}
+				else if (list[mid - 1] >= min)
+				{
+					maxIndex = mid;
+					mid = (maxIndex + minIndex) / 2;
+				}
+				else
+				{
+					mid--;
+				}
+			}
+
+			minIndex = mid;
+			count = list.Skip(minIndex).TakeWhile(e => e <= max).Count();
+		}
+
+		private static Bounds AsBounds(this ICompleteOsmGeo element)
+		{
+			if (element is Node node)
+			{
+				var bounds = new Bounds();
+				bounds.MaxLatitude = (float)node.Latitude + .00001f; //2.2m
+				bounds.MinLatitude = (float)node.Latitude - .00001f;
+				bounds.MaxLongitude = (float)node.Longitude + .00001f; // 1.6m
+				bounds.MinLongitude = (float)node.Longitude - .00001f;
+				return bounds;
+			}
+			else if (element is CompleteWay way)
+			{
+				var bounds = new Bounds();
+				bounds.MaxLatitude = (float)way.Nodes.Max(n => n.Latitude);
+				bounds.MinLatitude = (float)way.Nodes.Min(n => n.Latitude);
+				bounds.MaxLongitude = (float)way.Nodes.Max(n => n.Longitude);
+				bounds.MinLongitude = (float)way.Nodes.Min(n => n.Longitude);
+				return bounds;
+			}
+			else if (element is CompleteRelation relation)
+			{
+				var allBounds = relation.Members.Select(m => AsBounds(m.Member));
+
+				var bounds = new Bounds();
+				bounds.MaxLatitude = (float)allBounds.Max(n => n.MaxLatitude);
+				bounds.MinLatitude = (float)allBounds.Min(n => n.MinLatitude);
+				bounds.MaxLongitude = (float)allBounds.Max(n => n.MaxLongitude);
+				bounds.MinLongitude = (float)allBounds.Min(n => n.MinLongitude);
+				return bounds;
+			}
+			throw new Exception("element wasn't a node, way or relation");
 		}
 
 		public static bool IsNodeInBuilding(Node node, ICompleteOsmGeo building)

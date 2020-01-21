@@ -111,16 +111,10 @@ namespace OsmPipeline
 
 		private static void LogSummary(OsmChange change, IList<OsmGeo> exceptions)
 		{
-			Log.LogInformation($"{nameof(change.Create)}: {change.Create.Length}");
-			Log.LogInformation($"{nameof(change.Modify)}: {change.Modify.Length}");
-			if (change.Delete.Any()) Log.LogWarning($"{nameof(change.Delete)}: {change.Delete.Length}");
-			if (exceptions.Any()) Log.LogWarning($"{nameof(exceptions)}: {exceptions.Count}");
-
-			var changeCount = change.Create.Length + change.Modify.Length + change.Delete.Length;
-			if (changeCount >= 10_000) // OSM API change set size limit.
-			{
-				Log.LogError($"ChangeSet size ({changeCount}) is bigger than API's 10,000 limit.");
-			}
+			Log.LogInformation($"{nameof(change.Create)}: {change.Create.Length}" +
+				$"\n\t{nameof(change.Modify)}: {change.Modify.Length}" +
+				$"\n\t{nameof(change.Delete)}: {change.Delete.Length}" +
+				$"\n\t{nameof(exceptions)}: {exceptions.Count}");
 		}
 
 		private static void RemoveReviewTags(params IList<OsmGeo>[] elements)
