@@ -1,4 +1,6 @@
 ﻿using OsmPipeline.Fittings;
+using OsmSharp;
+using OsmSharp.API;
 using OsmSharp.Changesets;
 using System;
 using System.Collections.Generic;
@@ -21,7 +23,7 @@ namespace OsmPipeline
 	// Fast change commits might need to be slower
 	public class ConflateMenu
 	{
-		Func<string, string, bool> Is = (a,b) => a.StartsWith(b, StringComparison.OrdinalIgnoreCase);
+		Func<string, string, bool> Is = (a,b) => b.StartsWith(a, StringComparison.OrdinalIgnoreCase);
 		private string Municipality;
 
 		public void Main()
@@ -65,6 +67,20 @@ namespace OsmPipeline
 					var selection = userInput.Split(' ', 2)[1]
 						.Split(new char[] { ' ', ',', ';', '-' }, StringSplitOptions.RemoveEmptyEntries)
 						.Where(c => long.TryParse(c, out _))
+						.Select(long.Parse)
+						.Except(Static.Municipalities[Municipality].WhiteList)
+						.ToArray();
+					Static.Municipalities[Municipality].WhiteList.AddRange(selection);
+
+					FileSerializer.WriteJson("MaineMunicipalities.json", Static.Municipalities);
+				}
+				else if (Is(userInput, "whiteAll"))
+				{
+					var review = FileSerializer.ReadXml<Osm>(Municipality + "/Conflated.Review.osm");
+					var selection = review.OsmToGeos()
+						.Where(e => e.Tags != null && e.Tags.ContainsKey(Static.maineE911id))
+						.Select(e => e.Tags[Static.maineE911id])
+						.SelectMany(id => id.Split(new char[] { ' ', ',', ';', '-' }, StringSplitOptions.RemoveEmptyEntries))
 						.Select(long.Parse)
 						.Except(Static.Municipalities[Municipality].WhiteList)
 						.ToArray();

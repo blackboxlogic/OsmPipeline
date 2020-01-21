@@ -51,7 +51,7 @@ namespace OsmPipeline
 			}
 			catch (Exception e)
 			{
-				if (!e.Message.Contains("50000") || depth > 3) throw;
+				if (!e.Message.Contains("limit is 50000") || depth > 3) throw;
 
 				Log.LogInformation("Fetch area was too big. Splitting it into smaller pieces and re-trying.");
 				var tasks = bounds.Quarter().Select(async quarter => await GetElementsInBoundingBox(quarter, client, depth + 1)).ToArray();

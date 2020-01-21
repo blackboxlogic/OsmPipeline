@@ -7,6 +7,7 @@ using OsmSharp;
 using Microsoft.Extensions.Logging;
 using OsmPipeline.Fittings;
 using OsmSharp.Tags;
+using System.IO;
 
 namespace OsmPipeline
 {
@@ -131,6 +132,8 @@ namespace OsmPipeline
 			if (osmGeos.Any())
 				FileSerializer.WriteXml(fileName,
 					osmGeos.WithChildren(subjectElementsIndexed).Distinct().AsOsm());
+			else if (File.Exists(fileName))
+				File.Delete(fileName);
 		}
 
 		private static void Merge(Osm reference, Dictionary<string, OsmGeo> subjectElementsIndexed, out List<OsmGeo> create,
