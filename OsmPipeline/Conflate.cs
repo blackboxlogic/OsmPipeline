@@ -194,7 +194,7 @@ namespace OsmPipeline
 									create.Remove(referenceElement);
 								}
 							}
-							catch (Exception e)
+							catch (MergeConflictException e)
 							{
 								referenceElement.Tags.AddOrAppend(WarnKey, e.Message);
 							}
@@ -243,7 +243,7 @@ namespace OsmPipeline
 						create.Remove(node);
 						modify.Add(building);
 					}
-					catch (Exception e)
+					catch (MergeConflictException e)
 					{
 						node.Tags.AddOrAppend(WarnKey, e.Message); // or info?
 						if(buildingHasOldNodes)
@@ -328,10 +328,15 @@ namespace OsmPipeline
 			if (conflicts.Any())
 			{
 				subject.Tags = original;
-				throw new Exception(string.Join(";", conflicts));
+				throw new MergeConflictException(string.Join(";", conflicts));
 			}
 
 			return changed;
+		}
+
+		public class MergeConflictException : Exception
+		{
+			public MergeConflictException(string message) : base(message) { }
 		}
 	}
 }

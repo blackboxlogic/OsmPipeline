@@ -1,47 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <osm version="0.6">
-  <node id="-1752929" lat="43.6803204975289" lon="-70.3653966795286" version="1">
-    <tag k="name" v="Building 2" />
-    <tag k="addr:housenumber" v="2" />
-    <tag k="addr:street" v="Walker Street" />
-    <tag k="addr:city" v="Westbrook" />
-    <tag k="addr:state" v="ME" />
-    <tag k="addr:postcode" v="04092" />
-    <tag k="maineE911id" v="1752929" />
-    <tag k="building" v="apartments" />
-    <tag k="maineE911id:warn" v="&#xA;	node/6800847005.name=Hyacinth Place&#xA;	node/-1752929.name=Building 2" />
-  </node>
-  <node id="-1752930" lat="43.6807473998445" lon="-70.3654621911796" version="1">
-    <tag k="name" v="Building 3" />
-    <tag k="addr:housenumber" v="2" />
-    <tag k="addr:street" v="Walker Street" />
-    <tag k="addr:city" v="Westbrook" />
-    <tag k="addr:state" v="ME" />
-    <tag k="addr:postcode" v="04092" />
-    <tag k="maineE911id" v="1752930" />
-    <tag k="building" v="apartments" />
-    <tag k="maineE911id:warn" v="Matched, but too far: 41 meters ↘.&#xA;	node/6800847005" />
-  </node>
-  <node id="-1828412" lat="43.6779113686816" lon="-70.3314866749395" version="1">
-    <tag k="addr:housenumber" v="51" />
-    <tag k="addr:street" v="Main Street" />
-    <tag k="addr:city" v="Westbrook" />
-    <tag k="addr:state" v="ME" />
-    <tag k="addr:postcode" v="04092" />
-    <tag k="maineE911id" v="1828412" />
-    <tag k="maineE911id:info" v="Multiple addresses land in the same building" />
-    <tag k="maineE911id:warn" v="New node in building with old nodes" />
-  </node>
-  <node id="-1831956" lat="43.6785292965174" lon="-70.32945336666" version="1">
-    <tag k="addr:housenumber" v="11" />
-    <tag k="addr:street" v="Main Street" />
-    <tag k="addr:city" v="Westbrook" />
-    <tag k="addr:state" v="ME" />
-    <tag k="addr:postcode" v="04092" />
-    <tag k="maineE911id" v="1831956;2050658" />
-    <tag k="maineE911id:info" v="Multiple addresses land in the same building" />
-    <tag k="maineE911id:warn" v="New node in building with old nodes" />
-  </node>
   <node id="-2050659" lat="43.6784477050929" lon="-70.3295011884341" version="1">
     <tag k="addr:housenumber" v="11" />
     <tag k="addr:unit" v="Suite 2" />
@@ -213,33 +171,5 @@
     <tag k="maineE911id" v="1832194" />
     <tag k="maineE911id:info" v="Multiple addresses land in the same building" />
     <tag k="maineE911id:warn" v="New node in building with old nodes" />
-  </node>
-  <node id="-1832328" lat="43.6774668374692" lon="-70.3337036647379" version="1">
-    <tag k="addr:housenumber" v="99" />
-    <tag k="addr:street" v="Larrabee Road" />
-    <tag k="addr:city" v="Westbrook" />
-    <tag k="addr:state" v="ME" />
-    <tag k="addr:postcode" v="04092" />
-    <tag k="maineE911id" v="1832328" />
-    <tag k="maineE911id:warn" v="&#xA;	way/650241171.addr:housenumber=95&#xA;	node/-1832328.addr:housenumber=99" />
-  </node>
-  <node id="-1883064" lat="43.7237266523935" lon="-70.3404220681836" version="1">
-    <tag k="addr:housenumber" v="651" />
-    <tag k="addr:street" v="Bridgton Road" />
-    <tag k="addr:city" v="Westbrook" />
-    <tag k="addr:state" v="ME" />
-    <tag k="addr:postcode" v="04092" />
-    <tag k="maineE911id" v="1883064" />
-    <tag k="maineE911id:warn" v="Matched, but too far: 113 meters →.&#xA;	way/761328674" />
-  </node>
-  <node id="-1895157" lat="43.6517938877303" lon="-70.3527093374586" version="1">
-    <tag k="addr:housenumber" v="1" />
-    <tag k="addr:street" v="Acadia Common" />
-    <tag k="addr:city" v="Westbrook" />
-    <tag k="addr:state" v="ME" />
-    <tag k="addr:postcode" v="04092" />
-    <tag k="maineE911id" v="1895157" />
-    <tag k="maineE911id:info" v="Cannot find a matching highway" />
-    <tag k="maineE911id:warn" v="&#xA;	way/428010343.addr:housenumber=250&#xA;	node/-1895157.addr:housenumber=1;&#xA;	way/428010343.addr:street=County Road&#xA;	node/-1895157.addr:street=Acadia Common" />
   </node>
 </osm>

@@ -25,7 +25,8 @@ namespace OsmPipeline.Fittings
 				Version = version,
 				Create = create?.ToArray(),
 				Modify = modify?.ToArray(),
-				Delete = delete?.ToArray()
+				Delete = delete?.ToArray(),
+				// License, Attribution, and Copyright are not used by the API.
 			};
 		}
 
@@ -60,6 +61,7 @@ namespace OsmPipeline.Fittings
 			};
 		}
 
+		// Shouldn't matter for address import, but if API generates errors then the elements might need to be re-ordered (nodes -> ways -> relations)
 		public static IEnumerable<OsmChange> Split(this OsmChange change, int maxPieceSize = 10_000)
 		{
 			if (change.Create.Length + change.Modify.Length + change.Delete.Length <= maxPieceSize)
