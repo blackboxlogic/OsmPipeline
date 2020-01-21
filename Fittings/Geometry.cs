@@ -121,37 +121,33 @@ namespace OsmPipeline.Fittings
 			}
 			return result;
 
-			// Heres the n^2 version. But much simpler!
+			// Heres the n^2 version. Much simpler and much slower!
 			//return buildings.ToDictionary(b => b, b => nodes.Where(n => IsNodeInBuilding(n, b)).ToArray())
 			//	.Where(kvp => kvp.Value.Any())
 			//	.ToDictionary(kvp => kvp.Key, kvp => kvp.Value);
 		}
 
-		private static Node[] FastNodesInBounds(Bounds bounds, SortedList<double, Node[]> byLat, SortedList<double, Node[]> byLon)
+		private static IEnumerable<Node> FastNodesInBounds(Bounds bounds, SortedList<double, Node[]> byLat, SortedList<double, Node[]> byLon)
 		{
-			SeekIndexRange(byLat.Keys, bounds.MinLatitude.Value, bounds.MaxLatitude.Value,
-				out int minLatIndex, out int latCount);
-			SeekIndexRange(byLon.Keys, bounds.MinLongitude.Value, bounds.MaxLongitude.Value,
-				out int minLonIndex, out int lonCount);
-			var subLat = new ArraySegment<Node[]>(byLat.Values.ToArray(), minLatIndex, latCount).SelectMany(n => n).ToArray();
-			var subLon = new ArraySegment<Node[]>(byLon.Values.ToArray(), minLonIndex, lonCount).SelectMany(n => n).ToArray();
-			return subLat.Intersect(subLon).ToArray();
+			var subLat = SeekIndexRange(byLat, bounds.MinLatitude.Value, bounds.MaxLatitude.Value);
+			var subLon = SeekIndexRange(byLon, bounds.MinLongitude.Value, bounds.MaxLongitude.Value);
+			return subLat.Intersect(subLon);
 		}
 
-		private static void SeekIndexRange(IList<double> list, float min, float max, out int minIndex, out int count)
+		private static IEnumerable<Node> SeekIndexRange(SortedList<double, Node[]> list, float minKey, float maxKey)
 		{
-			minIndex = 0;
-			int maxIndex = list.Count;
+			int minIndex = 0;
+			int maxIndex = list.Keys.Count;
 			int mid = (maxIndex + minIndex) / 2;
 
-			while (mid != minIndex && (list[mid] < min || list[mid -1] >= min))
+			while (mid != minIndex && (list.Keys[mid] < minKey || list.Keys[mid -1] >= minKey))
 			{
-				if (list[mid] < min)
+				if (list.Keys[mid] < minKey)
 				{
 					minIndex = mid;
 					mid = (maxIndex + minIndex) / 2;
 				}
-				else if (list[mid - 1] >= min)
+				else if (list.Keys[mid - 1] >= minKey)
 				{
 					maxIndex = mid;
 					mid = (maxIndex + minIndex) / 2;
@@ -163,7 +159,9 @@ namespace OsmPipeline.Fittings
 			}
 
 			minIndex = mid;
-			count = list.Skip(minIndex).TakeWhile(e => e <= max).Count();
+			int count = list.Keys.Skip(mid).TakeWhile(e => e <= maxKey).Count();
+			var subValues = list.Values.Skip(mid).Take(count).SelectMany(n => n);
+			return subValues;
 		}
 
 		private static Bounds AsBounds(this ICompleteOsmGeo element)
@@ -171,10 +169,10 @@ namespace OsmPipeline.Fittings
 			if (element is Node node)
 			{
 				var bounds = new Bounds();
-				bounds.MaxLatitude = (float)node.Latitude + .00001f; //2.2m
+				bounds.MaxLatitude = (float)node.Latitude + .00001f; // +2.2m
 				bounds.MinLatitude = (float)node.Latitude - .00001f;
-				bounds.MaxLongitude = (float)node.Longitude + .00001f; // 1.6m
-				bounds.MinLongitude = (float)node.Longitude - .00001f;
+				bounds.MaxLongitude = (float)node.Longitude + .000013f; // +2.1m
+				bounds.MinLongitude = (float)node.Longitude - .000013f;
 				return bounds;
 			}
 			else if (element is CompleteWay way)
@@ -189,7 +187,6 @@ namespace OsmPipeline.Fittings
 			else if (element is CompleteRelation relation)
 			{
 				var allBounds = relation.Members.Select(m => AsBounds(m.Member));
-
 				var bounds = new Bounds();
 				bounds.MaxLatitude = (float)allBounds.Max(n => n.MaxLatitude);
 				bounds.MinLatitude = (float)allBounds.Min(n => n.MinLatitude);
