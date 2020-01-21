@@ -74,17 +74,20 @@ namespace OsmPipeline
 			};
 		}
 
-		public static long[] UploadChange(OsmChange change, string municipality)
+		public static async Task<long[]> UploadChange(OsmChange change, string municipality)
 		{
 			Log.LogInformation("Uploading change to OSM");
 			var changeTags = GetCommitTags(municipality);
 			var osmApiClient = new BasicAuthClient(Static.HttpClient,
 				Static.LogFactory.CreateLogger<BasicAuthClient>(), Static.Config["OsmApiUrl"],
 				Static.Config["OsmUsername"], Static.Config["OsmPassword"]);
-			// Could be async, but I don't think we want that here. Server probably uses blocking transactions anyway?
-			//var tasks = change.Split().Select(part => UploadChangePart(part, changeTags, osmApiClient)).ToArray();
-			//return tasks.Select(t => t.Result).ToArray();
-			return change.Split().Select(part => UploadChangePart(part, changeTags, osmApiClient, municipality).Result).ToArray();
+			var changeParts = change.Split().ToArray();
+			var result = new List<long>();
+			foreach (var part in changeParts)
+			{
+				result.Add(await UploadChangePart(part, changeTags, osmApiClient, municipality));
+			}
+			return result.ToArray();
 		}
 
 		private static async Task<long> UploadChangePart(this OsmChange part,

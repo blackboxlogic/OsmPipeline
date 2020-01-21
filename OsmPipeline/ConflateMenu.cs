@@ -102,13 +102,12 @@ namespace OsmPipeline
 				}
 				else if (Is(userInput, "commit"))
 				{
-					// This is commented out so I don't accidentally commit changes to OSM.
 					var Change = FileSerializer.ReadXml<OsmChange>(Municipality + "/Conflated.osc");
-					//var results = Subjects.UploadChange(Change, Municipality).Result;
-					//Static.Municipalities[Municipality].ChangeSetIds.AddRange(results);
-					//Static.Municipalities[Municipality].ImportDate = DateTime.UtcNow;
-					//FileSerializer.WriteJson("MaineMunicipalities.json", Static.Municipalities);
-					//Console.WriteLine("Finished!");
+					var results = Subjects.UploadChange(Change, Municipality).Result;
+					Static.Municipalities[Municipality].ChangeSetIds.AddRange(results);
+					Static.Municipalities[Municipality].ImportDate = DateTime.UtcNow;
+					FileSerializer.WriteJson("MaineMunicipalities.json", Static.Municipalities);
+					Console.WriteLine("Finished!");
 				}
 				else if (Is(userInput, "switch"))
 				{
