@@ -189,7 +189,6 @@ namespace OsmPipeline
 								{
 									if (modify.Any(n => n.Id == subjectElement.Id))
 										subjectElement.Tags.AddOrAppend(WarnKey, "Subject modified by multiple references");
-									subjectElement.Version++;
 									modify.Add(subjectElement);
 									create.Remove(referenceElement);
 								}
@@ -239,7 +238,6 @@ namespace OsmPipeline
 					try
 					{
 						MergeTags(node, building);
-						building.Version++;
 						create.Remove(node);
 						modify.Add(building);
 					}

@@ -1282,9 +1282,11 @@
 	"Westbrook": {
 		"Name": "Westbrook",
 		"AddressCount": 10149,
-		"ImportDate": null,
+		"ImportDate": "2020-01-21T18:46:56.7746722Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			79872290
+		],
 		"BlackList": [
 			1806360,
 			1882892,
