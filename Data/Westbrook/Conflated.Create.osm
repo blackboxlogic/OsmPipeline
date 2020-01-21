@@ -41477,6 +41477,7 @@
     <tag k="addr:state" v="ME" />
     <tag k="addr:postcode" v="04092" />
     <tag k="maineE911id" v="1883064" />
+    <tag k="maineE911id:warn" v="Matched, but too far: 113 meters →.&#xA;	way/761328674" />
   </node>
   <node id="-1883065" lat="43.7225020142359" lon="-70.3404320036567" version="1">
     <tag k="addr:housenumber" v="610" />

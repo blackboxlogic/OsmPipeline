@@ -223,6 +223,15 @@
     <tag k="maineE911id" v="1832328" />
     <tag k="maineE911id:warn" v="&#xA;	way/650241171.addr:housenumber=95&#xA;	node/-1832328.addr:housenumber=99" />
   </node>
+  <node id="-1883064" lat="43.7237266523935" lon="-70.3404220681836" version="1">
+    <tag k="addr:housenumber" v="651" />
+    <tag k="addr:street" v="Bridgton Road" />
+    <tag k="addr:city" v="Westbrook" />
+    <tag k="addr:state" v="ME" />
+    <tag k="addr:postcode" v="04092" />
+    <tag k="maineE911id" v="1883064" />
+    <tag k="maineE911id:warn" v="Matched, but too far: 113 meters →.&#xA;	way/761328674" />
+  </node>
   <node id="-1895157" lat="43.6517938877303" lon="-70.3527093374586" version="1">
     <tag k="addr:housenumber" v="1" />
     <tag k="addr:street" v="Acadia Common" />
