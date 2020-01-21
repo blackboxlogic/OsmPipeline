@@ -237,9 +237,11 @@ namespace OsmPipeline
 
 					try
 					{
-						MergeTags(node, building);
-						create.Remove(node);
-						modify.Add(building);
+						if (MergeTags(node, building))
+						{
+							create.Remove(node);
+							modify.Add(building);
+						}
 					}
 					catch (MergeConflictException e)
 					{
