@@ -28,10 +28,10 @@ namespace OsmPipeline
 
 			var subjectElements = new OsmGeo[][] { subject.Nodes, subject.Ways, subject.Relations }.SelectMany(e => e);
 			var subjectElementsIndexed = subjectElements.ToDictionary(n => n.Type.ToString() + n.Id);
-			Merge(reference, subjectElementsIndexed, out List<OsmGeo> create, out List<OsmGeo> modify, out List<OsmGeo> delete);
+			MergeNodesByAddressTags(reference, subjectElementsIndexed, out List<OsmGeo> create, out List<OsmGeo> modify, out List<OsmGeo> delete);
 			ValidateRoadNamesMatcheRoads(subjectElementsIndexed, create);
 			Log.LogInformation("Starting conflation, matching by geometry");
-			ApplyNodesToBuildings(subjectElementsIndexed, create, modify);
+			MergeNodesByGeometry(subjectElementsIndexed, create, modify);
 			Log.LogInformation($"Writing {scopeName} review files");
 			var exceptions = GatherExceptions(scopeName, create, delete, modify);
 			WriteToFileWithChildrenIfAny(scopeName + "/Conflated.Review.osm", exceptions, subjectElementsIndexed);
@@ -136,7 +136,7 @@ namespace OsmPipeline
 				File.Delete(fileName);
 		}
 
-		private static void Merge(Osm reference, Dictionary<string, OsmGeo> subjectElementsIndexed, out List<OsmGeo> create,
+		private static void MergeNodesByAddressTags(Osm reference, Dictionary<string, OsmGeo> subjectElementsIndexed, out List<OsmGeo> create,
 			out List<OsmGeo> modify, out List<OsmGeo> delete)
 		{
 			create = new List<OsmGeo>(reference.Nodes);
@@ -190,8 +190,8 @@ namespace OsmPipeline
 									if (modify.Any(n => n.Id == subjectElement.Id))
 										subjectElement.Tags.AddOrAppend(WarnKey, "Subject modified by multiple references");
 									modify.Add(subjectElement);
-									create.Remove(referenceElement);
 								}
+								create.Remove(referenceElement);
 							}
 							catch (MergeConflictException e)
 							{
@@ -203,7 +203,7 @@ namespace OsmPipeline
 			}
 		}
 
-		private static void ApplyNodesToBuildings(Dictionary<string, OsmGeo> subjectElementsIndexed,
+		private static void MergeNodesByGeometry(Dictionary<string, OsmGeo> subjectElementsIndexed,
 			List<OsmGeo> create, List<OsmGeo> modify)
 		{
 			var buildings = subjectElementsIndexed.Values.Where(w => Tags.IsBuilding(w))
