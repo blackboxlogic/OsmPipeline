@@ -106,16 +106,19 @@ namespace OsmPipeline.Fittings
 			throw new Exception("OsmGeo wasn't a Node, Way or Relation.");
 		}
 
+		// Either IN a building, or distanceMeters from a building and no other building within isolationMeters
 		public static Dictionary<ICompleteOsmGeo, Node[]> NodesInOrNearCompleteElements(
-			ICompleteOsmGeo[] buildings, Node[] nodes, double distanceMeters, out Node[] multiMatches)
+			ICompleteOsmGeo[] buildings, Node[] nodes, double distanceMeters, double isolationMeters)
 		{
-			var inside = NodesInCompleteElements(buildings, nodes);
+			var matchInside = NodesInCompleteElements(buildings, nodes);
 
-			buildings = buildings.Except(inside.Keys).ToArray();
-			nodes = nodes.Except(inside.SelectMany(r => r.Value)).ToArray();
-			var near = NodesNearCompleteElements(buildings, nodes, distanceMeters, out multiMatches);
+			buildings = buildings.Except(matchInside.Keys).ToArray();
+			nodes = nodes.Except(matchInside.SelectMany(r => r.Value)).ToArray();
+			var isolated = NodesNearCompleteElements(buildings, nodes, isolationMeters);
+			nodes = isolated.SelectMany(kvp => kvp.Value).GroupBy(n => n).Select(n => n.ToArray()).Where(n => n.Length == 1).SelectMany(n => n).ToArray();
+			var matchNear = NodesNearCompleteElements(buildings, nodes, distanceMeters);
 
-			return inside.Concat(near).ToDictionary(kvp => kvp.Key, kvp => kvp.Value);
+			return matchInside.Concat(matchNear).ToDictionary(kvp => kvp.Key, kvp => kvp.Value);
 		}
 
 		public static Dictionary<ICompleteOsmGeo, Node[]> NodesInCompleteElements(ICompleteOsmGeo[] buildings, Node[] nodes)
@@ -137,8 +140,7 @@ namespace OsmPipeline.Fittings
 
 		// Can return mutliple buildings having the same node near them!
 		public static Dictionary<ICompleteOsmGeo, Node[]> NodesNearCompleteElements(
-			ICompleteOsmGeo[] elements, Node[] nodes, double withinMeters,
-			out Node[] multiMatches)
+			ICompleteOsmGeo[] elements, Node[] nodes, double withinMeters)
 		{
 			var byLat = new SortedList<double, Node[]>(nodes.GroupBy(n => n.Latitude.Value).ToDictionary(g => g.Key, g => g.ToArray()));
 			var byLon = new SortedList<double, Node[]>(nodes.GroupBy(n => n.Longitude.Value).ToDictionary(g => g.Key, g => g.ToArray()));
@@ -153,30 +155,7 @@ namespace OsmPipeline.Fittings
 				if (inners.Any()) result.Add(element, inners);
 			}
 
-			multiMatches = RemoveDuplicateValues(result);
-
 			return result;
-		}
-
-		// Given a dictionary<K, V[]>, remove an V that appear in multiple keys. Remove any keys that are empty.
-		private static V[] RemoveDuplicateValues<K, V>(Dictionary<K, V[]> dictionary)
-		{
-			var nodesInMultipleBuildings = dictionary.SelectMany(b => b.Value)
-				.GroupBy(n => n).Where(n => n.Count() > 1).SelectMany(n => n).ToArray();
-			foreach (var kvp in dictionary.ToArray())
-			{
-				var newNodes = kvp.Value.Except(nodesInMultipleBuildings).ToArray();
-				if (newNodes.Any())
-				{
-					dictionary[kvp.Key] = kvp.Value.Except(nodesInMultipleBuildings).ToArray();
-				}
-				else
-				{
-					dictionary.Remove(kvp.Key);
-				}
-			}
-
-			return nodesInMultipleBuildings;
 		}
 
 		private static IEnumerable<Node> FastNodesInBounds(Bounds bounds, SortedList<double, Node[]> byLat, SortedList<double, Node[]> byLon)

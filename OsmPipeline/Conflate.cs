@@ -210,13 +210,7 @@ namespace OsmPipeline
 				.Select(b => b.AsComplete(subjectElementsIndexed))
 				.ToArray();
 			var newNodes = create.OfType<Node>().ToArray();
-			var buildingsAndInnerNewNodes = Geometry.NodesInOrNearCompleteElements(buildings, newNodes, 10, out Node[] multiMatches);
-
-			foreach (var multiMatch in multiMatches)
-			{
-				multiMatch.Tags.AddOrAppend(WarnKey, "Address matched mutliple buildings by proximity");
-			}
-
+			var buildingsAndInnerNewNodes = Geometry.NodesInOrNearCompleteElements(buildings, newNodes, 10, 100);
 			var oldNodes = subjectElementsIndexed.Values.OfType<Node>().ToArray();
 			var buildingsAndInnerOldNodes = Geometry.NodesInCompleteElements(buildings, oldNodes);
 
