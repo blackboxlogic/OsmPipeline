@@ -2,11 +2,15 @@
 	"Upper Enchanted Twp": {
 		"Name": "Upper Enchanted Twp",
 		"AddressCount": 33,
-		"ImportDate": null,
+		"ImportDate": "2020-01-23T19:28:32.5104563Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			79994089
+		],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [
+			1851090
+		]
 	},
 	"Dixmont": {
 		"Name": "Dixmont",
