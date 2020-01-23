@@ -27,6 +27,7 @@ namespace OsmPipeline
 		{
 			Static.Municipalities = FileSerializer.ReadJsonCacheOrSource("MaineMunicipalities.json",
 				GetMunicipalities).Result;
+			Console.WriteLine(Static.Municipalities.Values.Count(m => m.ChangeSetIds.Any()) +" of " + Static.Municipalities.Count);
 			Municipality = Static.Municipalities.Values.First(m => !m.ChangeSetIds.Any()).Name;
 			Console.WriteLine("Starting in " + Municipality);
 

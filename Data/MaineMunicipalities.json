@@ -15,9 +15,11 @@
 	"Dixmont": {
 		"Name": "Dixmont",
 		"AddressCount": 583,
-		"ImportDate": null,
+		"ImportDate": "2020-01-23T20:03:35.4163015Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			79995093
+		],
 		"BlackList": [],
 		"WhiteList": []
 	},
