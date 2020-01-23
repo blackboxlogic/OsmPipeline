@@ -18,9 +18,6 @@ namespace OsmPipeline
 		public static HttpClient HttpClient = new HttpClient();
 	}
 
-	// Test: Split subject fetch and split change commit
-	// Fast subject fetches might need to be slower to conform to API rules
-	// Fast change commits might need to be slower
 	public class ConflateMenu
 	{
 		Func<string, string, bool> Is = (a,b) => b.StartsWith(a, StringComparison.OrdinalIgnoreCase);
@@ -113,6 +110,11 @@ namespace OsmPipeline
 				{
 					Municipality = ChooseMunicipality();
 				}
+				else if (Is(userInput, "switchNext"))
+				{
+					Municipality = Static.Municipalities.Values.First(m => !m.ChangeSetIds.Any()).Name;
+					Console.WriteLine("Switching to " + Municipality);
+				}
 				else if (Is(userInput, "help"))
 				{
 					Console.WriteLine("Options:");
@@ -141,12 +143,20 @@ namespace OsmPipeline
 				if (match != null)
 				{
 					Console.WriteLine("Switching to " + match);
+					if (Static.Municipalities[Municipality].ChangeSetIds.Any())
+					{
+						Console.WriteLine($"WARNING: {Municipality} already has changesets!");
+					}
 					return match;
 				}
 				var selection = Static.Municipalities.Keys.Where(m => m.StartsWith(input, StringComparison.OrdinalIgnoreCase)).ToArray();
 				if (selection.Length == 1)
 				{
 					Console.WriteLine("Switching to " + selection[0]);
+					if (Static.Municipalities[Municipality].ChangeSetIds.Any())
+					{
+						Console.WriteLine($"WARNING: {Municipality} already has changesets!");
+					}
 					return selection[0];
 				}
 				else
