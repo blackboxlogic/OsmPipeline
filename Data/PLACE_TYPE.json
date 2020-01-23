@@ -72,7 +72,7 @@
         "amenity": "bank"
     },
     "Duplex": {
-        "building": "duplex"
+        "building": "semidetached_house"
     },
     "Golf Club": {
         "leisure": "golf_course"

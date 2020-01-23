@@ -19,7 +19,6 @@
             "residential": {
                 "house": {
                     "apartments": {
-                        "duplex": {},
                         "dormitory": {}
                     },
                     "detached": {
