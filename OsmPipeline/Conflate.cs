@@ -27,7 +27,7 @@ namespace OsmPipeline
 			Log.LogInformation("Starting conflation, matching by address tags");
 
 			var subjectElements = new OsmGeo[][] { subject.Nodes, subject.Ways, subject.Relations }.SelectMany(e => e);
-			var subjectElementsIndexed = subjectElements.ToDictionary(n => n.Type.ToString() + n.Id);
+			var subjectElementsIndexed = subjectElements.ToDictionary(n => n.Type.ToString() + n.Id); // could use OsmGeoKey
 			MergeNodesByAddressTags(reference, subjectElementsIndexed, out List<OsmGeo> create, out List<OsmGeo> modify, out List<OsmGeo> delete);
 			ValidateRoadNamesMatcheRoads(subjectElementsIndexed, create);
 			Log.LogInformation("Starting conflation, matching by geometry");
@@ -210,7 +210,12 @@ namespace OsmPipeline
 				.Select(b => b.AsComplete(subjectElementsIndexed))
 				.ToArray();
 			var newNodes = create.OfType<Node>().ToArray();
-			var buildingsAndInnerNewNodes = Geometry.NodesInCompleteElements(buildings, newNodes);
+			var buildingsAndInnerNewNodes = Geometry.NodesInOrNearCompleteElements(buildings, newNodes, 10, out Node[] multiMatches);
+
+			foreach (var multiMatch in multiMatches)
+			{
+				multiMatch.Tags.AddOrAppend(WarnKey, "Address matched mutliple buildings by proximity");
+			}
 
 			var oldNodes = subjectElementsIndexed.Values.OfType<Node>().ToArray();
 			var buildingsAndInnerOldNodes = Geometry.NodesInCompleteElements(buildings, oldNodes);

@@ -106,6 +106,18 @@ namespace OsmPipeline.Fittings
 			throw new Exception("OsmGeo wasn't a Node, Way or Relation.");
 		}
 
+		public static Dictionary<ICompleteOsmGeo, Node[]> NodesInOrNearCompleteElements(
+			ICompleteOsmGeo[] buildings, Node[] nodes, double distanceMeters, out Node[] multiMatches)
+		{
+			var inside = NodesInCompleteElements(buildings, nodes);
+
+			buildings = buildings.Except(inside.Keys).ToArray();
+			nodes = nodes.Except(inside.SelectMany(r => r.Value)).ToArray();
+			var near = NodesNearCompleteElements(buildings, nodes, distanceMeters, out multiMatches);
+
+			return inside.Concat(near).ToDictionary(kvp => kvp.Key, kvp => kvp.Value);
+		}
+
 		public static Dictionary<ICompleteOsmGeo, Node[]> NodesInCompleteElements(ICompleteOsmGeo[] buildings, Node[] nodes)
 		{
 			var byLat = new SortedList<double, Node[]>(nodes.GroupBy(n => n.Latitude.Value).ToDictionary(g => g.Key, g => g.ToArray()));
@@ -119,12 +131,52 @@ namespace OsmPipeline.Fittings
 				var inners = candidates.Where(n => IsNodeInBuilding(n, building)).ToArray();
 				if (inners.Any()) result.Add(building, inners);
 			}
-			return result;
 
-			// Heres the n^2 version. Much simpler and much slower!
-			//return buildings.ToDictionary(b => b, b => nodes.Where(n => IsNodeInBuilding(n, b)).ToArray())
-			//	.Where(kvp => kvp.Value.Any())
-			//	.ToDictionary(kvp => kvp.Key, kvp => kvp.Value);
+			return result;
+		}
+
+		// Can return mutliple buildings having the same node near them!
+		public static Dictionary<ICompleteOsmGeo, Node[]> NodesNearCompleteElements(
+			ICompleteOsmGeo[] elements, Node[] nodes, double withinMeters,
+			out Node[] multiMatches)
+		{
+			var byLat = new SortedList<double, Node[]>(nodes.GroupBy(n => n.Latitude.Value).ToDictionary(g => g.Key, g => g.ToArray()));
+			var byLon = new SortedList<double, Node[]>(nodes.GroupBy(n => n.Longitude.Value).ToDictionary(g => g.Key, g => g.ToArray()));
+
+			var result = new Dictionary<ICompleteOsmGeo, Node[]>();
+			
+			foreach (var element in elements)
+			{
+				var bounds = element.AsBounds(withinMeters);
+				var candidates = FastNodesInBounds(bounds, byLat, byLon);
+				var inners = candidates.Where(n => DistanceMeters(element, n) <= withinMeters).ToArray();
+				if (inners.Any()) result.Add(element, inners);
+			}
+
+			multiMatches = RemoveDuplicateValues(result);
+
+			return result;
+		}
+
+		// Given a dictionary<K, V[]>, remove an V that appear in multiple keys. Remove any keys that are empty.
+		private static V[] RemoveDuplicateValues<K, V>(Dictionary<K, V[]> dictionary)
+		{
+			var nodesInMultipleBuildings = dictionary.SelectMany(b => b.Value)
+				.GroupBy(n => n).Where(n => n.Count() > 1).SelectMany(n => n).ToArray();
+			foreach (var kvp in dictionary.ToArray())
+			{
+				var newNodes = kvp.Value.Except(nodesInMultipleBuildings).ToArray();
+				if (newNodes.Any())
+				{
+					dictionary[kvp.Key] = kvp.Value.Except(nodesInMultipleBuildings).ToArray();
+				}
+				else
+				{
+					dictionary.Remove(kvp.Key);
+				}
+			}
+
+			return nodesInMultipleBuildings;
 		}
 
 		private static IEnumerable<Node> FastNodesInBounds(Bounds bounds, SortedList<double, Node[]> byLat, SortedList<double, Node[]> byLon)
@@ -164,34 +216,37 @@ namespace OsmPipeline.Fittings
 			return subValues;
 		}
 
-		private static Bounds AsBounds(this ICompleteOsmGeo element)
+		private static Bounds AsBounds(this ICompleteOsmGeo element, double bufferMeters = 0)
 		{
+			var bufferLat = bufferMeters == 0 ? 0f : (float)DistanceLat(bufferMeters);
+			var bufferLon = bufferMeters == 0 ? 0f : (float)DistanceLon(bufferMeters, element.AsPosition().Latitude);
+
 			if (element is Node node)
 			{
 				var bounds = new Bounds();
-				bounds.MaxLatitude = (float)node.Latitude + .00001f; // +2.2m
-				bounds.MinLatitude = (float)node.Latitude - .00001f;
-				bounds.MaxLongitude = (float)node.Longitude + .000013f; // +2.1m
-				bounds.MinLongitude = (float)node.Longitude - .000013f;
+				bounds.MaxLatitude = (float)node.Latitude + bufferLat;
+				bounds.MinLatitude = (float)node.Latitude - bufferLat;
+				bounds.MaxLongitude = (float)node.Longitude + bufferLon;
+				bounds.MinLongitude = (float)node.Longitude - bufferLon;
 				return bounds;
 			}
 			else if (element is CompleteWay way)
 			{
 				var bounds = new Bounds();
-				bounds.MaxLatitude = (float)way.Nodes.Max(n => n.Latitude);
-				bounds.MinLatitude = (float)way.Nodes.Min(n => n.Latitude);
-				bounds.MaxLongitude = (float)way.Nodes.Max(n => n.Longitude);
-				bounds.MinLongitude = (float)way.Nodes.Min(n => n.Longitude);
+				bounds.MaxLatitude = (float)way.Nodes.Max(n => n.Latitude) + bufferLat;
+				bounds.MinLatitude = (float)way.Nodes.Min(n => n.Latitude) - bufferLat;
+				bounds.MaxLongitude = (float)way.Nodes.Max(n => n.Longitude) + bufferLon;
+				bounds.MinLongitude = (float)way.Nodes.Min(n => n.Longitude) - bufferLon;
 				return bounds;
 			}
 			else if (element is CompleteRelation relation)
 			{
 				var allBounds = relation.Members.Select(m => AsBounds(m.Member));
 				var bounds = new Bounds();
-				bounds.MaxLatitude = (float)allBounds.Max(n => n.MaxLatitude);
-				bounds.MinLatitude = (float)allBounds.Min(n => n.MinLatitude);
-				bounds.MaxLongitude = (float)allBounds.Max(n => n.MaxLongitude);
-				bounds.MinLongitude = (float)allBounds.Min(n => n.MinLongitude);
+				bounds.MaxLatitude = (float)allBounds.Max(n => n.MaxLatitude) + bufferLat;
+				bounds.MinLatitude = (float)allBounds.Min(n => n.MinLatitude) - bufferLat;
+				bounds.MaxLongitude = (float)allBounds.Max(n => n.MaxLongitude) + bufferLon;
+				bounds.MinLongitude = (float)allBounds.Min(n => n.MinLongitude) - bufferLon;
 				return bounds;
 			}
 			throw new Exception("element wasn't a node, way or relation");
@@ -265,6 +320,18 @@ namespace OsmPipeline.Fittings
 
 			var distance = Math.Sqrt(dLatKm * dLatKm + dLonKm * dLonKm);
 			return distance;
+		}
+
+		public static double DistanceLat(double distanceMeters)
+		{
+			// 1 lat degree = 100_000/9 meters
+			// 1 meter = 9/100_000 lat degrees
+			return distanceMeters * 9 / 100_000;
+		}
+
+		public static double DistanceLon(double distanceMeters, double latitude)
+		{
+			return distanceMeters * 100_000 / 9 * Math.Cos(latitude);
 		}
 	}
 }
