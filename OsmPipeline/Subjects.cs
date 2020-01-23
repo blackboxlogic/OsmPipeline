@@ -64,7 +64,7 @@ namespace OsmPipeline
 		{
 			return new TagsCollection()
 			{
-				new Tag("comment", Static.Config["CommitComment"]),
+				new Tag("comment", Static.Config["CommitComment"] + " (" + municipality + ")"),
 				new Tag("created_by", "OsmPipeline"),
 				new Tag("created_by_library", Static.Config["created_by_library"]),
 				new Tag("municipality", municipality),
