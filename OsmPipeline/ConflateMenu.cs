@@ -20,14 +20,15 @@ namespace OsmPipeline
 
 	public class ConflateMenu
 	{
-		Func<string, string, bool> Is = (a,b) => b.StartsWith(a, StringComparison.OrdinalIgnoreCase);
+		Func<string, string, bool> Is = (a,b) => a.StartsWith(b, StringComparison.OrdinalIgnoreCase);
 		private string Municipality;
 
 		public void Main()
 		{
 			Static.Municipalities = FileSerializer.ReadJsonCacheOrSource("MaineMunicipalities.json",
 				GetMunicipalities).Result;
-			Municipality = ChooseMunicipality();
+			Municipality = Static.Municipalities.Values.First(m => !m.ChangeSetIds.Any()).Name;
+			Console.WriteLine("Starting in " + Municipality);
 
 			while (true)
 			{
@@ -57,13 +58,15 @@ namespace OsmPipeline
 				}
 				else if (Is(userInput, "review"))
 				{
-					// Open JOSM with review layers
+					// Open JOSM with review layers!
 				}
-				else if (Is(userInput, "white"))
+				else if (Is(userInput, "WhiteAll"))
 				{
-					var selection = userInput.Split(' ', 2)[1]
-						.Split(new char[] { ' ', ',', ';', '-' }, StringSplitOptions.RemoveEmptyEntries)
-						.Where(c => long.TryParse(c, out _))
+					var review = FileSerializer.ReadXml<Osm>(Municipality + "/Conflated.Review.osm");
+					var selection = review.OsmToGeos()
+						.Where(e => e.Tags != null && e.Tags.ContainsKey(Static.maineE911id))
+						.Select(e => e.Tags[Static.maineE911id])
+						.SelectMany(id => id.Split(new char[] { ' ', ',', ';', '-' }, StringSplitOptions.RemoveEmptyEntries))
 						.Select(long.Parse)
 						.Except(Static.Municipalities[Municipality].WhiteList)
 						.ToArray();
@@ -71,13 +74,11 @@ namespace OsmPipeline
 
 					FileSerializer.WriteJson("MaineMunicipalities.json", Static.Municipalities);
 				}
-				else if (Is(userInput, "whiteAll"))
+				else if (Is(userInput, "white"))
 				{
-					var review = FileSerializer.ReadXml<Osm>(Municipality + "/Conflated.Review.osm");
-					var selection = review.OsmToGeos()
-						.Where(e => e.Tags != null && e.Tags.ContainsKey(Static.maineE911id))
-						.Select(e => e.Tags[Static.maineE911id])
-						.SelectMany(id => id.Split(new char[] { ' ', ',', ';', '-' }, StringSplitOptions.RemoveEmptyEntries))
+					var selection = userInput.Split(' ', 2)[1]
+						.Split(new char[] { ' ', ',', ';', '-' }, StringSplitOptions.RemoveEmptyEntries)
+						.Where(c => long.TryParse(c, out _))
 						.Select(long.Parse)
 						.Except(Static.Municipalities[Municipality].WhiteList)
 						.ToArray();
@@ -106,19 +107,20 @@ namespace OsmPipeline
 					FileSerializer.WriteJson("MaineMunicipalities.json", Static.Municipalities);
 					Console.WriteLine("Finished!");
 				}
-				else if (Is(userInput, "switch"))
-				{
-					Municipality = ChooseMunicipality();
-				}
 				else if (Is(userInput, "switchNext"))
 				{
 					Municipality = Static.Municipalities.Values.First(m => !m.ChangeSetIds.Any()).Name;
 					Console.WriteLine("Switching to " + Municipality);
 				}
+				else if (Is(userInput, "switch"))
+				{
+					Municipality = ChooseMunicipality();
+				}
 				else if (Is(userInput, "help"))
 				{
 					Console.WriteLine("Options:");
 					Console.WriteLine("\tSwitch");
+					Console.WriteLine("\tSwitchNext");
 					Console.WriteLine("\tReference");
 					Console.WriteLine("\tSubject");
 					Console.WriteLine("\tConflate");
