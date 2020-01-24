@@ -28,10 +28,11 @@ namespace OsmPipeline
 
 			var subjectElements = new OsmGeo[][] { subject.Nodes, subject.Ways, subject.Relations }.SelectMany(e => e);
 			var subjectElementsIndexed = subjectElements.ToDictionary(n => n.Type.ToString() + n.Id); // could use OsmGeoKey
-			MergeNodesByAddressTags(reference, subjectElementsIndexed, out List<OsmGeo> create, out List<OsmGeo> modify, out List<OsmGeo> delete);
+			MergeNodesByAddressTags(reference, subjectElementsIndexed, Static.Municipalities[scopeName].WhiteList,
+				out List<OsmGeo> create, out List<OsmGeo> modify, out List<OsmGeo> delete);
 			ValidateRoadNamesMatcheRoads(subjectElementsIndexed, create);
 			Log.LogInformation("Starting conflation, matching by geometry");
-			MergeNodesByGeometry(subjectElementsIndexed, create, modify);
+			MergeNodesByGeometry(subjectElementsIndexed, Static.Municipalities[scopeName].WhiteList, create, modify);
 			Log.LogInformation($"Writing {scopeName} review files");
 			var exceptions = GatherExceptions(scopeName, create, delete, modify);
 			WriteToFileWithChildrenIfAny(scopeName + "/Conflated.Review.osm", exceptions, subjectElementsIndexed);
@@ -136,8 +137,9 @@ namespace OsmPipeline
 				File.Delete(fileName);
 		}
 
-		private static void MergeNodesByAddressTags(Osm reference, Dictionary<string, OsmGeo> subjectElementsIndexed, out List<OsmGeo> create,
-			out List<OsmGeo> modify, out List<OsmGeo> delete)
+		private static void MergeNodesByAddressTags(
+			Osm reference, Dictionary<string, OsmGeo> subjectElementsIndexed, List<long> whiteList,
+			out List<OsmGeo> create, out List<OsmGeo> modify, out List<OsmGeo> delete)
 		{
 			create = new List<OsmGeo>(reference.Nodes);
 			modify = new List<OsmGeo>();
@@ -182,7 +184,7 @@ namespace OsmPipeline
 						{
 							try
 							{
-								bool tagsChanged = MergeTags(referenceElement, subjectElement);
+								bool tagsChanged = MergeTags(referenceElement, subjectElement, whiteList.Contains(referenceElement.Id.Value));
 								tagsChanged |= MoveNode(referenceElement, subjectElement, closestMatch.distance);
 
 								if (tagsChanged)
@@ -204,14 +206,14 @@ namespace OsmPipeline
 		}
 
 		private static void MergeNodesByGeometry(Dictionary<string, OsmGeo> subjectElementsIndexed,
-			List<OsmGeo> create, List<OsmGeo> modify)
+			List<long> whiteList, List<OsmGeo> create, List<OsmGeo> modify)
 		{
 			var buildings = subjectElementsIndexed.Values.Where(w => Tags.IsBuilding(w))
 				.Select(b => b.AsComplete(subjectElementsIndexed))
 				.ToArray();
 			var newNodes = create.OfType<Node>().ToArray();
 			var buildingsAndInnerNewNodes = Geometry.NodesInOrNearCompleteElements(buildings, newNodes, 10, 100);
-			var oldNodes = subjectElementsIndexed.Values.OfType<Node>().ToArray();
+			var oldNodes = subjectElementsIndexed.Values.OfType<Node>().Where(n => n.Tags?.Any() == true).ToArray();
 			var buildingsAndInnerOldNodes = Geometry.NodesInCompleteElements(buildings, oldNodes);
 
 			foreach (var buildingAndInners in buildingsAndInnerNewNodes)
@@ -236,7 +238,7 @@ namespace OsmPipeline
 
 					try
 					{
-						if (MergeTags(node, building))
+						if (MergeTags(node, building, whiteList.Contains(node.Id.Value)))
 						{
 							modify.Add(building);
 						}
@@ -281,7 +283,7 @@ namespace OsmPipeline
 			return false;
 		}
 
-		private static bool MergeTags(OsmGeo reference, OsmGeo subject)
+		private static bool MergeTags(OsmGeo reference, OsmGeo subject, bool isWhiteList)
 		{
 			var original = new TagsCollection(subject.Tags); // Deep Clone
 			var conflicts = new List<string>();
@@ -298,7 +300,8 @@ namespace OsmPipeline
 					if (subValue != refTag.Value)
 					{
 						if (TagTree.Keys.ContainsKey(refTag.Key) &&
-							TagTree.Keys[refTag.Key].IsDecendantOf(refTag.Value, subValue))
+							TagTree.Keys[refTag.Key].IsDecendantOf(refTag.Value, subValue)
+							|| isWhiteList)
 						{
 							// Make building tag MORE specific. Marked for easier review.
 							subject.Tags[refTag.Key] = refTag.Value;
