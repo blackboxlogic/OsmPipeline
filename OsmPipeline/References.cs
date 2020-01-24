@@ -369,7 +369,7 @@ namespace OsmPipeline
 
 		private static string Name(string landmark, string loc, string building)
 		{
-			if (building?.Length > 0 && building?.Length < 4)
+			if (!string.IsNullOrWhiteSpace(building) && building?.Length > 0 && building?.Length < 4)
 			{
 				building = "BLDG " + building;
 			}
@@ -384,7 +384,7 @@ namespace OsmPipeline
 		private static string Level(string floor, out bool useFloorAsUnit)
 		{
 			useFloorAsUnit = false;
-			if (floor == null || floor == "") return "";
+			if (string.IsNullOrWhiteSpace(floor)) return "";
 			if (floor.Contains("BSMT", StringComparison.OrdinalIgnoreCase) ||
 				floor.Contains("Basement", StringComparison.OrdinalIgnoreCase) ||
 				floor.EndsWith(" LL", StringComparison.OrdinalIgnoreCase)) return "-1";
@@ -434,7 +434,7 @@ namespace OsmPipeline
 
 		private static string ReplaceToken(string input, Dictionary<string, string> translation)
 		{
-			if (input == null) return "";
+			if (string.IsNullOrWhiteSpace(input)) return "";
 			var parts = input.Split(' ', StringSplitOptions.RemoveEmptyEntries);
 			parts = parts.Select(part =>
 				translation.TryGetValue(part, out string replacement)

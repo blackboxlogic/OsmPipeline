@@ -119,7 +119,7 @@ namespace OsmPipeline
 
 			if (doubleChanges.Any())
 			{
-				Log.LogError("Elements were changed twice. " + string.Join(", ", doubleChanges));
+				Log.LogError("Elements were changed twice! The upload will fail. " + string.Join(", ", doubleChanges));
 			}
 
 			Log.LogInformation($"{nameof(change.Create)}: {change.Create.Length}" +
