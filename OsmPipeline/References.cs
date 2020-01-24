@@ -75,7 +75,6 @@ namespace OsmPipeline
 			var translated = new Osm() { Nodes = nodes, Version = .6 };
 			FileSerializer.WriteXml(scopeName + "/ReferenceTranslated.osm", translated);
 			nodes = HandleStacks(nodes);
-			Validate(nodes);
 			var bounds = new Bounds()
 			{
 				MaxLatitude = (float)nodes.Max(n => n.Latitude) +.001f,
@@ -319,6 +318,10 @@ namespace OsmPipeline
 				{
 					Log.LogError("Bad STREETNAME");
 				}
+				if (((string)f.Properties["STREETNAME"]).Any(char.IsDigit))
+				{
+					Log.LogWarning("Odd Road name: " + (string)f.Properties["STREETNAME"]);
+				}
 				if (!PrePostDIRs.ContainsKey(f.Properties["POSTDIR"]))
 				{
 					Log.LogError("Bad POSTDIR");
@@ -357,37 +360,9 @@ namespace OsmPipeline
 				{
 					Log.LogError("Bad ADDRESS_NUMBER: " + (string)f.Properties["ADDRESS_NUMBER"].ToString());
 				}
-			}
-		}
-
-		private static void Validate(Node[] nodes)
-		{
-			if (nodes.Length > 10_000) Log.LogWarning($"{nodes.Length} Nodes may be too big for one changest");
-
-			var duplicates = nodes.GroupBy(n => new { n.Tags })
-				.Select(g => g.ToArray())
-				.Where(s => s.Length > 1)
-				.ToArray();
-
-			if (duplicates.Any())
-			{
-				Log.LogError(duplicates.Length + " Duplicate Node Tag sets (different lat-lon) have been detected and not corrected.");
-			}
-
-			foreach (var node in nodes)
-			{
-				if (node.Tags["addr:state"] != "ME" ||
-					(!node.Tags.ContainsKey("addr:housenumber") ||
-					!node.Tags["addr:housenumber"].All(char.IsNumber)) ||
-					node.Latitude == 0 || node.Latitude == null ||
-					node.Longitude == 0 || node.Longitude == null)
+				if (f.Properties["STATE"] == "ME")
 				{
-					Log.LogError("BAD ADDRESS " + node);
-				}
-
-				if (!node.Tags["addr:street"].All(c => char.IsLetter(c) || c == ' '))
-				{
-					Log.LogWarning("Odd Road name: " + node.Tags["addr:street"]);
+					Log.LogError("Bad STATE: " + (string)f.Properties["STATE"]);
 				}
 			}
 		}
