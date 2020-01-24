@@ -59,7 +59,18 @@ namespace OsmPipeline
 				}
 				else if (Is(userInput, "review"))
 				{
-					// Open JOSM with review layers!
+					// Last item will appear top of JOSM.
+					var args = string.Join(" ", $"\"{Municipality}/Subject.osm\"",
+						$"\"{Municipality}/Conflated.Review.osm\"",
+						$"\"{Municipality}/Conflated.Create.osm\"",
+						//$"\"{Municipality}/Conflated.Delete.osm\"",
+						$"\"{Municipality}/Conflated.Modify.osm\"");
+					System.Diagnostics.Process.Start(Static.Config["JosmPath"], args);
+				}
+				else if (Is(userInput, "note"))
+				{
+					Static.Municipalities[Municipality].Notes += "/n" + userInput.Split(' ', 2)[1];
+					FileSerializer.WriteJson("MaineMunicipalities.json", Static.Municipalities);
 				}
 				else if (Is(userInput, "WhiteAll"))
 				{
