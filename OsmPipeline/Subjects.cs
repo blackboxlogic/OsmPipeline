@@ -49,7 +49,7 @@ namespace OsmPipeline
 			{
 				return await client.GetMap(bounds);
 			}
-			catch (Exception e)
+			catch (OsmApiException e)
 			{
 				if (!e.Message.Contains("limit is 50000") || depth > 3) throw;
 

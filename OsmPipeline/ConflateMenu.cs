@@ -18,6 +18,7 @@ namespace OsmPipeline
 		public static HttpClient HttpClient = new HttpClient();
 	}
 
+	// Should match by geometry move a node?
 	public class ConflateMenu
 	{
 		Func<string, string, bool> Is = (a,b) => a.StartsWith(b, StringComparison.OrdinalIgnoreCase);
@@ -97,6 +98,7 @@ namespace OsmPipeline
 					Static.Municipalities[Municipality].WhiteList.AddRange(selection);
 
 					FileSerializer.WriteJson("MaineMunicipalities.json", Static.Municipalities);
+					File.Delete(Municipality + "/Conflated.osc");
 				}
 				else if (Is(userInput, "black"))
 				{
@@ -109,6 +111,7 @@ namespace OsmPipeline
 					Static.Municipalities[Municipality].BlackList.AddRange(selection);
 					FileSerializer.WriteJson("MaineMunicipalities.json", Static.Municipalities);
 					File.Delete(Municipality + "/Reference.osm");
+					File.Delete(Municipality + "/Conflated.osc");
 				}
 				else if (Is(userInput, "commit"))
 				{

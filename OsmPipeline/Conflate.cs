@@ -174,7 +174,8 @@ namespace OsmPipeline
 						var subjectElement = closestMatch.element;
 						var completeSubjectElement = subjectElement.AsComplete(subjectElementsIndexed);
 						if (closestMatch.distance > int.Parse(Static.Config["MatchDistanceKmMaz"])
-							&& !Geometry.IsNodeInBuilding(referenceElement, completeSubjectElement))
+							&& !Geometry.IsNodeInBuilding(referenceElement, completeSubjectElement)
+							&& !whiteList.Contains(referenceElement.Id.Value))
 						{
 							var arrow = Geometry.GetDirectionArrow(referenceElement.AsPosition(), completeSubjectElement.AsPosition());
 							referenceElement.Tags.AddOrAppend(WarnKey, $"Matched, but too far: {(int)closestMatch.distance} meters {arrow}.{Identify(subjectElement)}");
@@ -185,7 +186,7 @@ namespace OsmPipeline
 							{
 								bool tagsChanged = MergeTags(referenceElement, subjectElement,
 									whiteList.Contains(Math.Abs(referenceElement.Id.Value)));
-								tagsChanged |= MoveNode(referenceElement, subjectElement, closestMatch.distance);
+								tagsChanged |= MoveNode(referenceElement, subjectElement, subjectElementsIndexed, closestMatch.distance);
 
 								if (tagsChanged)
 								{
@@ -266,12 +267,18 @@ namespace OsmPipeline
 			return "\n\t" + string.Join("\n\t", elements.Select(e => $"{e.Type.ToString().ToLower()}/{e.Id}.{key}={e.Tags[key]}"));
 		}
 
-		private static bool MoveNode(OsmGeo reference, OsmGeo subject, double currentDistanceMeters)
+		private static bool MoveNode(OsmGeo reference, OsmGeo subject,
+			Dictionary<string, OsmGeo> subjectElementsIndexed, double currentDistanceMeters)
 		{
 			if (subject is Node subjectNode
 				&& reference is Node referenceNode
 				&& currentDistanceMeters > int.Parse(Static.Config["MinNodeMoveDistance"]))
 			{
+				if (subjectElementsIndexed.Values.OfType<Way>().Any(w => w.Nodes.Contains(subject.Id.Value)))
+				{
+					subject.Tags.AddOrAppend(ErrorKey, "Moved Node that a Way's memeber");
+				}
+
 				var arrow = Geometry.GetDirectionArrow(subjectNode.AsPosition(), referenceNode.AsPosition());
 				subjectNode.Latitude = referenceNode.Latitude;
 				subjectNode.Longitude = referenceNode.Longitude;
