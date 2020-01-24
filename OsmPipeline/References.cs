@@ -105,7 +105,7 @@ namespace OsmPipeline
 				new Tag("addr:street", streetName),
 				new Tag("addr:city", city),
 				new Tag("addr:state", (string)props["STATE"]),
-				new Tag("addr:postcode", (string)props["ZIPCODE"]),
+				new Tag("addr:postcode", Zip((string)props["ZIPCODE"])),
 				new Tag("level", level),
 				new Tag(Static.maineE911id, ((int)props["OBJECTID"]).ToString())
 			};
@@ -346,12 +346,12 @@ namespace OsmPipeline
 				}
 				if (!string.IsNullOrEmpty(f.Properties["SEAT"]))
 				{
-					Log.LogWarning("Ognoring Seat: " + (string)f.Properties["SEAT"]);
+					Log.LogWarning("ignoring Seat: " + (string)f.Properties["SEAT"]);
 				}
 				if (!int.TryParse((string)f.Properties["ZIPCODE"], out var zip)
-					|| zip < 04000 || zip > 04999)
+					|| zip < 03000 || zip > 04999)
 				{
-					Log.LogError("Bad Zipcode: " + (string)f.Properties["ZIPCODE"]);
+					Log.LogWarning("Ignoring zip: " + (string)f.Properties["ZIPCODE"]);
 				}
 				if ((f.Properties["ADDRESS_NUMBER"] ?? 0) == 0)
 				{
@@ -377,13 +377,17 @@ namespace OsmPipeline
 			foreach (var node in nodes)
 			{
 				if (node.Tags["addr:state"] != "ME" ||
-					!node.Tags["addr:street"].All(c => char.IsLetter(c) || c == ' ') || //"Interstate 95"
 					(!node.Tags.ContainsKey("addr:housenumber") ||
 					!node.Tags["addr:housenumber"].All(char.IsNumber)) ||
 					node.Latitude == 0 || node.Latitude == null ||
 					node.Longitude == 0 || node.Longitude == null)
 				{
 					Log.LogError("BAD ADDRESS " + node);
+				}
+
+				if (!node.Tags["addr:street"].All(c => char.IsLetter(c) || c == ' '))
+				{
+					Log.LogWarning("Odd Road name: " + node.Tags["addr:street"]);
 				}
 			}
 		}
@@ -442,6 +446,15 @@ namespace OsmPipeline
 
 			var fullName = string.Join(" ", parts);
 			return fullName;
+		}
+
+		private static string Zip(string zip)
+		{
+			if (zip.Length != 5) return "";
+			if (zip.Count(char.IsDigit) != 5) return "";
+			if (zip.StartsWith("00")) return "";
+			if (!zip.StartsWith("0")) return "";
+			return zip;
 		}
 
 		private static string ReplaceToken(string input, Dictionary<string, string> translation)
