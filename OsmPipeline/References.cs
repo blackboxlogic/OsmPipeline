@@ -360,7 +360,7 @@ namespace OsmPipeline
 				{
 					Log.LogError("Bad ADDRESS_NUMBER: " + (string)f.Properties["ADDRESS_NUMBER"].ToString());
 				}
-				if (f.Properties["STATE"] == "ME")
+				if (f.Properties["STATE"] != "ME")
 				{
 					Log.LogError("Bad STATE: " + (string)f.Properties["STATE"]);
 				}
