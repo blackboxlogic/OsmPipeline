@@ -112,6 +112,16 @@ namespace OsmPipeline
 
 		private static void LogSummary(OsmChange change, IList<OsmGeo> exceptions)
 		{
+			var doubleChanges = change.Modify.Select(m => m.Id).GroupBy(x => x)
+						.Where(group => group.Count() > 1)
+						.Select(group => group.Key)
+						.ToArray();
+
+			if (doubleChanges.Any())
+			{
+				Log.LogError("Elements were changed twice. " + string.Join(", ", doubleChanges));
+			}
+
 			Log.LogInformation($"{nameof(change.Create)}: {change.Create.Length}" +
 				$"\n\t{nameof(change.Modify)}: {change.Modify.Length}" +
 				$"\n\t{nameof(change.Delete)}: {change.Delete.Length}" +

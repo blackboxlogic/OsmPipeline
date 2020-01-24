@@ -64,10 +64,10 @@ namespace OsmPipeline
 				{
 					// Last item will appear top of JOSM.
 					var args = string.Join(" ", $"\"{Municipality}/Subject.osm\"",
-						$"\"{Municipality}/Conflated.Review.osm\"",
 						$"\"{Municipality}/Conflated.Create.osm\"",
 						//$"\"{Municipality}/Conflated.Delete.osm\"",
-						$"\"{Municipality}/Conflated.Modify.osm\"");
+						$"\"{Municipality}/Conflated.Modify.osm\"",
+						$"\"{Municipality}/Conflated.Review.osm\"");
 					System.Diagnostics.Process.Start(Static.Config["JosmPath"], args);
 				}
 				else if (Is(userInput, "note"))
