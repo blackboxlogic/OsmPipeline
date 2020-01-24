@@ -184,7 +184,8 @@ namespace OsmPipeline
 						{
 							try
 							{
-								bool tagsChanged = MergeTags(referenceElement, subjectElement, whiteList.Contains(referenceElement.Id.Value));
+								bool tagsChanged = MergeTags(referenceElement, subjectElement,
+									whiteList.Contains(Math.Abs(referenceElement.Id.Value)));
 								tagsChanged |= MoveNode(referenceElement, subjectElement, closestMatch.distance);
 
 								if (tagsChanged)
@@ -238,7 +239,7 @@ namespace OsmPipeline
 
 					try
 					{
-						if (MergeTags(node, building, whiteList.Contains(node.Id.Value)))
+						if (MergeTags(node, building, whiteList.Contains(Math.Abs(node.Id.Value))))
 						{
 							modify.Add(building);
 						}
