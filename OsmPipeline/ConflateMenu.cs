@@ -41,6 +41,7 @@ namespace OsmPipeline
 				{
 					var Reference = References.Fetch(Municipality).Result;
 					FileSerializer.WriteXml(Municipality + "/Reference.osm", Reference);
+					File.Delete(Municipality + "/Conflated.osc");
 				}
 				else if (Is(userInput, "subject"))
 				{
@@ -48,6 +49,7 @@ namespace OsmPipeline
 						() => References.Fetch(Municipality)).Result;
 					var Subject = Subjects.GetElementsInBoundingBox(Reference.Bounds).Result;
 					FileSerializer.WriteXml(Municipality + "/Subject.osm", Subject);
+					File.Delete(Municipality + "/Conflated.osc");
 				}
 				else if (Is(userInput, "conflate"))
 				{
@@ -86,6 +88,7 @@ namespace OsmPipeline
 					Static.Municipalities[Municipality].WhiteList.AddRange(selection);
 
 					FileSerializer.WriteJson("MaineMunicipalities.json", Static.Municipalities);
+					File.Delete(Municipality + "/Conflated.osc");
 				}
 				else if (Is(userInput, "white"))
 				{
@@ -125,6 +128,7 @@ namespace OsmPipeline
 				else if (Is(userInput, "next"))
 				{
 					Municipality = Static.Municipalities.Values.First(m => !m.ChangeSetIds.Any()).Name;
+					Console.Clear();
 					Console.WriteLine("Switching to " + Municipality);
 				}
 				else if (Is(userInput, "switch"))
