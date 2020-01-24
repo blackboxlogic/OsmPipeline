@@ -119,7 +119,7 @@ namespace OsmPipeline
 					FileSerializer.WriteJson("MaineMunicipalities.json", Static.Municipalities);
 					Console.WriteLine("Finished!");
 				}
-				else if (Is(userInput, "switchNext"))
+				else if (Is(userInput, "next"))
 				{
 					Municipality = Static.Municipalities.Values.First(m => !m.ChangeSetIds.Any()).Name;
 					Console.WriteLine("Switching to " + Municipality);
@@ -132,11 +132,12 @@ namespace OsmPipeline
 				{
 					Console.WriteLine("Options:");
 					Console.WriteLine("\tSwitch");
-					Console.WriteLine("\tSwitchNext");
+					Console.WriteLine("\tNext");
 					Console.WriteLine("\tReference");
 					Console.WriteLine("\tSubject");
 					Console.WriteLine("\tConflate");
 					Console.WriteLine("\tReview");
+					Console.WriteLine("\tNote [message]");
 					Console.WriteLine("\tWhitelist [###]<,[###]...>");
 					Console.WriteLine("\tBlacklist [###]<,[###]...>");
 					Console.WriteLine("\tCommit");
