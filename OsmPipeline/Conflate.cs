@@ -26,8 +26,7 @@ namespace OsmPipeline
 			Log = Log ?? Static.LogFactory.CreateLogger(typeof(Conflate));
 			Log.LogInformation("Starting conflation, matching by address tags");
 
-			var subjectElements = new OsmGeo[][] { subject.Nodes, subject.Ways, subject.Relations }.SelectMany(e => e);
-			var subjectElementsIndexed = subjectElements.ToDictionary(n => n.Type.ToString() + n.Id); // could use OsmGeoKey
+			var subjectElementsIndexed = subject.OsmToGeos().ToDictionary(n => n.Type.ToString() + n.Id); // could use OsmGeoKey
 			MergeNodesByAddressTags(reference, subjectElementsIndexed, Static.Municipalities[scopeName].WhiteList,
 				out List<OsmGeo> create, out List<OsmGeo> modify, out List<OsmGeo> delete);
 			ValidateRoadNamesMatcheRoads(subjectElementsIndexed, create);
@@ -213,7 +212,7 @@ namespace OsmPipeline
 				.Select(b => b.AsComplete(subjectElementsIndexed))
 				.ToArray();
 			var newNodes = create.OfType<Node>().ToArray();
-			var buildingsAndInnerNewNodes = Geometry.NodesInOrNearCompleteElements(buildings, newNodes, 10, 100);
+			var buildingsAndInnerNewNodes = Geometry.NodesInOrNearCompleteElements(buildings, newNodes, 20, 100);
 			var oldNodes = subjectElementsIndexed.Values.OfType<Node>().Where(n => n.Tags?.Any() == true).ToArray();
 			var buildingsAndInnerOldNodes = Geometry.NodesInCompleteElements(buildings, oldNodes);
 
