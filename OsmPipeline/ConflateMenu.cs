@@ -165,9 +165,9 @@ namespace OsmPipeline
 				if (match != null)
 				{
 					Console.WriteLine("Switching to " + match);
-					if (Static.Municipalities[Municipality].ChangeSetIds.Any())
+					if (Static.Municipalities[match].ChangeSetIds.Any())
 					{
-						Console.WriteLine($"WARNING: {Municipality} already has changesets!");
+						Console.WriteLine($"WARNING: {match} already has changesets!");
 					}
 					return match;
 				}
@@ -175,9 +175,9 @@ namespace OsmPipeline
 				if (selection.Length == 1)
 				{
 					Console.WriteLine("Switching to " + selection[0]);
-					if (Static.Municipalities[Municipality].ChangeSetIds.Any())
+					if (Static.Municipalities[selection[0]].ChangeSetIds.Any())
 					{
-						Console.WriteLine($"WARNING: {Municipality} already has changesets!");
+						Console.WriteLine($"WARNING: {selection[0]} already has changesets!");
 					}
 					return selection[0];
 				}
