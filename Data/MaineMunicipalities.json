@@ -515,21 +515,12 @@
 	},
 	"T15 R6 Wels": {
 		"Name": "T15 R6 Wels",
-		"AddressCount": 9,
+		"AddressCount": 10,
 		"ImportDate": "2020-01-26T13:46:21.8916474Z",
 		"Notes": null,
 		"ChangeSetIds": [
 			80098466
 		],
-		"BlackList": [],
-		"WhiteList": []
-	},
-	"T15 R6 WELS": {
-		"Name": "T15 R6 WELS",
-		"AddressCount": 1,
-		"ImportDate": null,
-		"Notes": null,
-		"ChangeSetIds": [],
 		"BlackList": [],
 		"WhiteList": []
 	},
@@ -1030,16 +1021,7 @@
 	},
 	"Ta R7 Wels": {
 		"Name": "Ta R7 Wels",
-		"AddressCount": 7,
-		"ImportDate": null,
-		"Notes": null,
-		"ChangeSetIds": [],
-		"BlackList": [],
-		"WhiteList": []
-	},
-	"TA R7 WELS": {
-		"Name": "TA R7 WELS",
-		"AddressCount": 2,
+		"AddressCount": 9,
 		"ImportDate": null,
 		"Notes": null,
 		"ChangeSetIds": [],
@@ -1834,16 +1816,7 @@
 	},
 	"T1 R8 Wels": {
 		"Name": "T1 R8 Wels",
-		"AddressCount": 60,
-		"ImportDate": null,
-		"Notes": null,
-		"ChangeSetIds": [],
-		"BlackList": [],
-		"WhiteList": []
-	},
-	"T1 R8 WELS": {
-		"Name": "T1 R8 WELS",
-		"AddressCount": 12,
+		"AddressCount": 72,
 		"ImportDate": null,
 		"Notes": null,
 		"ChangeSetIds": [],
@@ -2005,16 +1978,7 @@
 	},
 	"T28 Md Bpp": {
 		"Name": "T28 Md Bpp",
-		"AddressCount": 6,
-		"ImportDate": null,
-		"Notes": null,
-		"ChangeSetIds": [],
-		"BlackList": [],
-		"WhiteList": []
-	},
-	"T28 MD BPP": {
-		"Name": "T28 MD BPP",
-		"AddressCount": 2,
+		"AddressCount": 8,
 		"ImportDate": null,
 		"Notes": null,
 		"ChangeSetIds": [],
@@ -2050,16 +2014,7 @@
 	},
 	"T6 Nd Bpp": {
 		"Name": "T6 Nd Bpp",
-		"AddressCount": 4,
-		"ImportDate": null,
-		"Notes": null,
-		"ChangeSetIds": [],
-		"BlackList": [],
-		"WhiteList": []
-	},
-	"T6 ND BPP": {
-		"Name": "T6 ND BPP",
-		"AddressCount": 1,
+		"AddressCount": 5,
 		"ImportDate": null,
 		"Notes": null,
 		"ChangeSetIds": [],
@@ -2356,16 +2311,7 @@
 	},
 	"T5 R8 WELS": {
 		"Name": "T5 R8 WELS",
-		"AddressCount": 5,
-		"ImportDate": null,
-		"Notes": null,
-		"ChangeSetIds": [],
-		"BlackList": [],
-		"WhiteList": []
-	},
-	"T5 R8 Wels": {
-		"Name": "T5 R8 Wels",
-		"AddressCount": 1,
+		"AddressCount": 6,
 		"ImportDate": null,
 		"Notes": null,
 		"ChangeSetIds": [],
@@ -2905,16 +2851,7 @@
 	},
 	"TD R2 WELS": {
 		"Name": "TD R2 WELS",
-		"AddressCount": 5,
-		"ImportDate": null,
-		"Notes": null,
-		"ChangeSetIds": [],
-		"BlackList": [],
-		"WhiteList": []
-	},
-	"Td R2 Wels": {
-		"Name": "Td R2 Wels",
-		"AddressCount": 1,
+		"AddressCount": 6,
 		"ImportDate": null,
 		"Notes": null,
 		"ChangeSetIds": [],
@@ -3022,16 +2959,7 @@
 	},
 	"T1 R9 Wels": {
 		"Name": "T1 R9 Wels",
-		"AddressCount": 284,
-		"ImportDate": null,
-		"Notes": null,
-		"ChangeSetIds": [],
-		"BlackList": [],
-		"WhiteList": []
-	},
-	"T1 R9 WELS": {
-		"Name": "T1 R9 WELS",
-		"AddressCount": 73,
+		"AddressCount": 357,
 		"ImportDate": null,
 		"Notes": null,
 		"ChangeSetIds": [],
@@ -3085,16 +3013,7 @@
 	},
 	"T3 R4 Bkp Wkr": {
 		"Name": "T3 R4 Bkp Wkr",
-		"AddressCount": 7,
-		"ImportDate": null,
-		"Notes": null,
-		"ChangeSetIds": [],
-		"BlackList": [],
-		"WhiteList": []
-	},
-	"T3 R4 BKP WKR": {
-		"Name": "T3 R4 BKP WKR",
-		"AddressCount": 7,
+		"AddressCount": 14,
 		"ImportDate": null,
 		"Notes": null,
 		"ChangeSetIds": [],
@@ -3265,16 +3184,7 @@
 	},
 	"Isle au Haut": {
 		"Name": "Isle au Haut",
-		"AddressCount": 202,
-		"ImportDate": null,
-		"Notes": null,
-		"ChangeSetIds": [],
-		"BlackList": [],
-		"WhiteList": []
-	},
-	"Isle Au Haut": {
-		"Name": "Isle Au Haut",
-		"AddressCount": 1,
+		"AddressCount": 203,
 		"ImportDate": null,
 		"Notes": null,
 		"ChangeSetIds": [],
@@ -3697,16 +3607,7 @@
 	},
 	"T3 R11 Wels": {
 		"Name": "T3 R11 Wels",
-		"AddressCount": 3,
-		"ImportDate": null,
-		"Notes": null,
-		"ChangeSetIds": [],
-		"BlackList": [],
-		"WhiteList": []
-	},
-	"T3 R11 WELS": {
-		"Name": "T3 R11 WELS",
-		"AddressCount": 2,
+		"AddressCount": 5,
 		"ImportDate": null,
 		"Notes": null,
 		"ChangeSetIds": [],
@@ -3895,16 +3796,7 @@
 	},
 	"T3 R1 Nbpp": {
 		"Name": "T3 R1 Nbpp",
-		"AddressCount": 10,
-		"ImportDate": null,
-		"Notes": null,
-		"ChangeSetIds": [],
-		"BlackList": [],
-		"WhiteList": []
-	},
-	"T3 R1 NBPP": {
-		"Name": "T3 R1 NBPP",
-		"AddressCount": 1,
+		"AddressCount": 11,
 		"ImportDate": null,
 		"Notes": null,
 		"ChangeSetIds": [],
@@ -4120,16 +4012,7 @@
 	},
 	"T22 Md Bpp": {
 		"Name": "T22 Md Bpp",
-		"AddressCount": 7,
-		"ImportDate": null,
-		"Notes": null,
-		"ChangeSetIds": [],
-		"BlackList": [],
-		"WhiteList": []
-	},
-	"T22 MD BPP": {
-		"Name": "T22 MD BPP",
-		"AddressCount": 1,
+		"AddressCount": 8,
 		"ImportDate": null,
 		"Notes": null,
 		"ChangeSetIds": [],
@@ -4183,16 +4066,7 @@
 	},
 	"T9 R5 Wels": {
 		"Name": "T9 R5 Wels",
-		"AddressCount": 1,
-		"ImportDate": null,
-		"Notes": null,
-		"ChangeSetIds": [],
-		"BlackList": [],
-		"WhiteList": []
-	},
-	"T9 R5 WELS": {
-		"Name": "T9 R5 WELS",
-		"AddressCount": 1,
+		"AddressCount": 2,
 		"ImportDate": null,
 		"Notes": null,
 		"ChangeSetIds": [],
@@ -4201,7 +4075,7 @@
 	},
 	"Rockwood Strip T1 R1 Nbkp": {
 		"Name": "Rockwood Strip T1 R1 Nbkp",
-		"AddressCount": 120,
+		"AddressCount": 216,
 		"ImportDate": null,
 		"Notes": null,
 		"ChangeSetIds": [],
@@ -4211,15 +4085,6 @@
 	"Searsport": {
 		"Name": "Searsport",
 		"AddressCount": 1008,
-		"ImportDate": null,
-		"Notes": null,
-		"ChangeSetIds": [],
-		"BlackList": [],
-		"WhiteList": []
-	},
-	"Rockwood Strip T1 R1 NBKP": {
-		"Name": "Rockwood Strip T1 R1 NBKP",
-		"AddressCount": 96,
 		"ImportDate": null,
 		"Notes": null,
 		"ChangeSetIds": [],
@@ -4336,16 +4201,7 @@
 	},
 	"T4 R13 Wels": {
 		"Name": "T4 R13 Wels",
-		"AddressCount": 1,
-		"ImportDate": null,
-		"Notes": null,
-		"ChangeSetIds": [],
-		"BlackList": [],
-		"WhiteList": []
-	},
-	"T4 R13 WELS": {
-		"Name": "T4 R13 WELS",
-		"AddressCount": 1,
+		"AddressCount": 2,
 		"ImportDate": null,
 		"Notes": null,
 		"ChangeSetIds": [],
@@ -4444,16 +4300,7 @@
 	},
 	"T9 R3 WELS": {
 		"Name": "T9 R3 WELS",
-		"AddressCount": 32,
-		"ImportDate": null,
-		"Notes": null,
-		"ChangeSetIds": [],
-		"BlackList": [],
-		"WhiteList": []
-	},
-	"T9 R3 Wels": {
-		"Name": "T9 R3 Wels",
-		"AddressCount": 7,
+		"AddressCount": 39,
 		"ImportDate": null,
 		"Notes": null,
 		"ChangeSetIds": [],
@@ -5497,16 +5344,7 @@
 	},
 	"T19 MD BPP": {
 		"Name": "T19 MD BPP",
-		"AddressCount": 3,
-		"ImportDate": null,
-		"Notes": null,
-		"ChangeSetIds": [],
-		"BlackList": [],
-		"WhiteList": []
-	},
-	"T19 Md Bpp": {
-		"Name": "T19 Md Bpp",
-		"AddressCount": 1,
+		"AddressCount": 4,
 		"ImportDate": null,
 		"Notes": null,
 		"ChangeSetIds": [],
@@ -5605,16 +5443,7 @@
 	},
 	"T6 R7 Wels": {
 		"Name": "T6 R7 Wels",
-		"AddressCount": 7,
-		"ImportDate": null,
-		"Notes": null,
-		"ChangeSetIds": [],
-		"BlackList": [],
-		"WhiteList": []
-	},
-	"T6 R7 WELS": {
-		"Name": "T6 R7 WELS",
-		"AddressCount": 1,
+		"AddressCount": 8,
 		"ImportDate": null,
 		"Notes": null,
 		"ChangeSetIds": [],
@@ -6448,16 +6277,7 @@
 	},
 	"T5 R7 Wels": {
 		"Name": "T5 R7 Wels",
-		"AddressCount": 54,
-		"ImportDate": null,
-		"Notes": null,
-		"ChangeSetIds": [],
-		"BlackList": [],
-		"WhiteList": []
-	},
-	"T5 R7 WELS": {
-		"Name": "T5 R7 WELS",
-		"AddressCount": 34,
+		"AddressCount": 88,
 		"ImportDate": null,
 		"Notes": null,
 		"ChangeSetIds": [],
@@ -6646,16 +6466,7 @@
 	},
 	"T16 Md Bpp": {
 		"Name": "T16 Md Bpp",
-		"AddressCount": 3,
-		"ImportDate": null,
-		"Notes": null,
-		"ChangeSetIds": [],
-		"BlackList": [],
-		"WhiteList": []
-	},
-	"T16 MD BPP": {
-		"Name": "T16 MD BPP",
-		"AddressCount": 2,
+		"AddressCount": 5,
 		"ImportDate": null,
 		"Notes": null,
 		"ChangeSetIds": [],
@@ -6844,16 +6655,7 @@
 	},
 	"Soldiertown Twp T2 R7 WELS": {
 		"Name": "Soldiertown Twp T2 R7 WELS",
-		"AddressCount": 9,
-		"ImportDate": null,
-		"Notes": null,
-		"ChangeSetIds": [],
-		"BlackList": [],
-		"WhiteList": []
-	},
-	"Soldiertown Twp T2 R7 Wels": {
-		"Name": "Soldiertown Twp T2 R7 Wels",
-		"AddressCount": 3,
+		"AddressCount": 12,
 		"ImportDate": null,
 		"Notes": null,
 		"ChangeSetIds": [],

@@ -18,10 +18,10 @@ namespace OsmPipeline.Fittings
 		{
 			var stats = new[] { new OutStatistics() { statisticType = "count", onStatisticField = "MUNICIPALITY", outStatisticFieldName = "mcount" } };
 
-			var json = await FetchOnce(0, "1=1", "MUNICIPALITY", stats); // GIS responds with json even if f=geojson because groupby
+			var json = await FetchOnce(0, "1=1", "upper(MUNICIPALITY)", stats); // GIS responds with json even if f=geojson because groupby
 			var deserialized = Newtonsoft.Json.JsonConvert.DeserializeObject<GroupByJson>(json);
 			var municipalities = deserialized.Features.ToDictionary(
-				f => (string)f.Attributes["MUNICIPALITY"],
+				f => (string)f.Attributes["Expr1"],
 				f => (long)f.Attributes["mcount"]);
 			return municipalities.ToDictionary(kvp => kvp.Key, kvp => new Municipality() { AddressCount = kvp.Value, Name = kvp.Key });
 		}
@@ -39,7 +39,7 @@ namespace OsmPipeline.Fittings
 
 		public static async Task<FeatureCollection> FetchMunicipality(string municipality, int? limit = null)
 		{
-			return await FetchMany($"MUNICIPALITY='{municipality}'", limit);
+			return await FetchMany($"upper(MUNICIPALITY)=upper('{municipality}')", limit);
 		}
 
 		public static async Task<FeatureCollection> Fetch(Bounds bounds, int? limit = null)
