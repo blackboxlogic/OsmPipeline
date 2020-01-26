@@ -1,7 +1,19 @@
 {
+	"amenity": {
+		"yes": {
+			"restaurant": {
+				"fast_food": {},
+				"cafe": {}
+			},
+			"public_building": {
+				"healthcare": {}
+			},
+			"*": {}
+		}
+	},
     "shop": {
         "yes": {
-            "*": {},
+            "*": {}
         }
     },
     "building": {
@@ -36,8 +48,9 @@
                 },
                 "university": {},
                 "hospital": {},
-                "government": {},
-                "public": {},
+                "public": {
+					"government": {},
+				},
                 "toilets": {},
                 "transportation": {
                     "train_station": {}
