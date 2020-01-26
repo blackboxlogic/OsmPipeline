@@ -54,6 +54,11 @@ namespace OsmPipeline.Fittings
 			return arrow;
 		}
 
+		public static char ReverseArrow(char arrow)
+		{
+			return "→↗↑↖←↙↓↘"["←↙↓↘→↗↑↖".IndexOf(arrow)];
+		}
+
 		// Dictionary is keys on: OsmGeo.Type.ToString() + element.Id
 		public static ICompleteOsmGeo AsComplete(this OsmGeo parent, Dictionary<string, OsmGeo> possibleChilden)
 		{

@@ -64,6 +64,7 @@ namespace OsmPipeline
 				{
 					// Last item will appear top of JOSM.
 					var args = string.Join(" ", $"\"{Municipality}/Subject.osm\"",
+						$"\"{Municipality}/Reference.osm\"",
 						$"\"{Municipality}/Conflated.Create.osm\"",
 						//$"\"{Municipality}/Conflated.Delete.osm\"",
 						$"\"{Municipality}/Conflated.Modify.osm\"",

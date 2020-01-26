@@ -70,7 +70,8 @@ namespace OsmPipeline
 		{
 			var whitelist = Static.Municipalities[scopeName].WhiteList.Select(Math.Abs).ToHashSet();
 			foreach (var error in elements.Where(e => whitelist.Contains(-e.Id.Value)
-					|| e.Tags[Static.maineE911id].Split(';').All(id => whitelist.Contains(long.Parse(id)))).ToArray())
+					|| (e.Tags.ContainsKey(Static.maineE911id)
+						&& e.Tags[Static.maineE911id].Split(';').All(id => whitelist.Contains(long.Parse(id))))).ToArray())
 			{
 				error.Tags.AddOrAppend(WhiteListKey, "yes");
 				elements.Remove(error);
@@ -110,7 +111,7 @@ namespace OsmPipeline
 			}
 		}
 
-		private static void LogSummary(OsmChange change, IList<OsmGeo> exceptions)
+		private static void LogSummary(OsmChange change, IList<OsmGeo> Review)
 		{
 			var doubleChanges = change.Modify.Select(m => m.Id).GroupBy(x => x)
 						.Where(group => group.Count() > 1)
@@ -125,7 +126,7 @@ namespace OsmPipeline
 			Log.LogInformation($"{nameof(change.Create)}: {change.Create.Length}" +
 				$"\n\t{nameof(change.Modify)}: {change.Modify.Length}" +
 				$"\n\t{nameof(change.Delete)}: {change.Delete.Length}" +
-				$"\n\t{nameof(exceptions)}: {exceptions.Count}");
+				$"\n\t{nameof(Review)}: {Review.Count}");
 		}
 
 		private static void RemoveReviewTags(params IList<OsmGeo>[] elements)
@@ -173,6 +174,14 @@ namespace OsmPipeline
 					{
 						// TODO: Resolve these multi-matches by checking tag conflicts (or if IN ONE of them)
 						referenceElement.Tags.AddOrAppend(ErrorKey, "Multiple matches!" + Identify(targetSubjectElements));
+						foreach (var subjectElement in targetSubjectElements)
+						{
+							var arrow = Geometry.GetDirectionArrow(
+								subjectElement.AsComplete(subjectElementsIndexed).AsPosition(),
+								referenceElement.AsPosition());
+							subjectElement.Tags.Add(ErrorKey, "One of the matches " + arrow);
+							modify.Add(subjectElement);
+						}
 					}
 					else
 					{
@@ -185,10 +194,12 @@ namespace OsmPipeline
 						var completeSubjectElement = subjectElement.AsComplete(subjectElementsIndexed);
 						if (closestMatch.distance > int.Parse(Static.Config["MatchDistanceKmMaz"])
 							&& !Geometry.IsNodeInBuilding(referenceElement, completeSubjectElement)
-							&& !whiteList.Contains(referenceElement.Id.Value))
+							&& !whiteList.Contains(Math.Abs(referenceElement.Id.Value)))
 						{
 							var arrow = Geometry.GetDirectionArrow(referenceElement.AsPosition(), completeSubjectElement.AsPosition());
 							referenceElement.Tags.AddOrAppend(WarnKey, $"Matched, but too far: {(int)closestMatch.distance} meters {arrow}.{Identify(subjectElement)}");
+							subjectElement.Tags.Add(ErrorKey, Geometry.ReverseArrow(arrow) + " " + Identify(subjectElement));
+							modify.Add(subjectElement);
 						}
 						else
 						{

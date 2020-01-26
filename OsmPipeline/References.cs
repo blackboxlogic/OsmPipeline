@@ -425,7 +425,7 @@ namespace OsmPipeline
 
 		private static string Zip(string zip)
 		{
-			if (zip.Length != 5) return "";
+			if (zip == null || zip.Length != 5) return "";
 			if (zip.Count(char.IsDigit) != 5) return "";
 			if (zip.StartsWith("00")) return "";
 			if (!zip.StartsWith("0")) return "";
