@@ -46,335 +46,450 @@
 	"Coburn Gore": {
 		"Name": "Coburn Gore",
 		"AddressCount": 39,
-		"ImportDate": null,
-		"Notes": null,
-		"ChangeSetIds": [],
+		"ImportDate": "2020-01-24T16:32:26.7933933Z",
+		"Notes": "/nmanually removed bad zips 00126",
+		"ChangeSetIds": [
+			80044027
+		],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [
+			1833515
+		]
 	},
 	"T7 R11 WELS": {
 		"Name": "T7 R11 WELS",
 		"AddressCount": 1,
-		"ImportDate": null,
+		"ImportDate": "2020-01-24T17:01:16.4382242Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80045041
+		],
 		"BlackList": [],
 		"WhiteList": []
 	},
 	"Parmachenee Twp": {
 		"Name": "Parmachenee Twp",
 		"AddressCount": 1,
-		"ImportDate": null,
+		"ImportDate": "2020-01-24T17:04:11.8185621Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80045141
+		],
 		"BlackList": [],
 		"WhiteList": []
 	},
 	"Gorham": {
 		"Name": "Gorham",
 		"AddressCount": 7154,
-		"ImportDate": null,
+		"ImportDate": "2020-01-24T19:19:03.5210189Z",
 		"Notes": null,
-		"ChangeSetIds": [],
-		"BlackList": [],
-		"WhiteList": []
+		"ChangeSetIds": [
+			80049453
+		],
+		"BlackList": [
+			1840029,
+			1829164,
+			2053908
+		],
+		"WhiteList": [
+			1997398,
+			1436783,
+			1472010,
+			1882855,
+			2558582,
+			1885697,
+			1817681,
+			1885796,
+			1885706,
+			1888242
+		]
 	},
 	"Hermon": {
 		"Name": "Hermon",
 		"AddressCount": 2399,
-		"ImportDate": null,
+		"ImportDate": "2020-01-24T19:41:01.7126215Z",
 		"Notes": null,
-		"ChangeSetIds": [],
-		"BlackList": [],
+		"ChangeSetIds": [
+			80050058
+		],
+		"BlackList": [
+			1495501
+		],
 		"WhiteList": []
 	},
 	"Morrill": {
 		"Name": "Morrill",
 		"AddressCount": 367,
-		"ImportDate": null,
+		"ImportDate": "2020-01-24T19:45:37.6767727Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80050191
+		],
 		"BlackList": [],
 		"WhiteList": []
 	},
 	"Kennebunkport": {
 		"Name": "Kennebunkport",
 		"AddressCount": 2988,
-		"ImportDate": null,
+		"ImportDate": "2020-01-24T20:16:47.6144315Z",
 		"Notes": null,
-		"ChangeSetIds": [],
-		"BlackList": [],
-		"WhiteList": []
+		"ChangeSetIds": [
+			80051043
+		],
+		"BlackList": [
+			1780636
+		],
+		"WhiteList": [
+			1791392,
+			1780296
+		]
 	},
 	"Township C": {
 		"Name": "Township C",
 		"AddressCount": 1,
-		"ImportDate": null,
+		"ImportDate": "2020-01-24T20:24:49.3988858Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80051301
+		],
 		"BlackList": [],
 		"WhiteList": []
 	},
 	"Criehaven Twp": {
 		"Name": "Criehaven Twp",
 		"AddressCount": 61,
-		"ImportDate": null,
+		"ImportDate": "2020-01-24T21:39:10.3496067Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80053163
+		],
 		"BlackList": [],
 		"WhiteList": []
 	},
 	"Orrington": {
 		"Name": "Orrington",
 		"AddressCount": 1704,
-		"ImportDate": null,
+		"ImportDate": "2020-01-24T21:41:43.331065Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80053217
+		],
 		"BlackList": [],
 		"WhiteList": []
 	},
 	"Lee": {
 		"Name": "Lee",
 		"AddressCount": 401,
-		"ImportDate": null,
+		"ImportDate": "2020-01-24T21:46:06.5290017Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80053303
+		],
 		"BlackList": [],
 		"WhiteList": []
 	},
 	"Lexington Twp": {
 		"Name": "Lexington Twp",
 		"AddressCount": 221,
-		"ImportDate": null,
+		"ImportDate": "2020-01-24T21:47:38.8548778Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80053338
+		],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [
+			2544582
+		]
 	},
 	"Stockholm": {
 		"Name": "Stockholm",
 		"AddressCount": 97,
-		"ImportDate": null,
+		"ImportDate": "2020-01-24T21:49:55.4449367Z",
 		"Notes": null,
-		"ChangeSetIds": [],
-		"BlackList": [],
+		"ChangeSetIds": [
+			80053384
+		],
+		"BlackList": [
+			1824820
+		],
 		"WhiteList": []
 	},
 	"T2 R10 Wels": {
 		"Name": "T2 R10 Wels",
 		"AddressCount": 2,
-		"ImportDate": null,
+		"ImportDate": "2020-01-24T21:51:20.0764175Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80053416
+		],
 		"BlackList": [],
 		"WhiteList": []
 	},
 	"Perham": {
 		"Name": "Perham",
 		"AddressCount": 148,
-		"ImportDate": null,
+		"ImportDate": "2020-01-24T21:53:35.0385034Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80053462
+		],
 		"BlackList": [],
 		"WhiteList": []
 	},
 	"Prentiss Twp T4 R4 NBKP": {
 		"Name": "Prentiss Twp T4 R4 NBKP",
 		"AddressCount": 1,
-		"ImportDate": null,
+		"ImportDate": "2020-01-24T21:54:37.7513639Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80053482
+		],
 		"BlackList": [],
 		"WhiteList": []
 	},
 	"Veazie": {
 		"Name": "Veazie",
 		"AddressCount": 697,
-		"ImportDate": null,
+		"ImportDate": "2020-01-24T21:57:09.7758255Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80053550
+		],
 		"BlackList": [],
 		"WhiteList": []
 	},
 	"Presque Isle": {
 		"Name": "Presque Isle",
 		"AddressCount": 3792,
-		"ImportDate": null,
+		"ImportDate": "2020-01-25T15:09:13.1422458Z",
 		"Notes": null,
-		"ChangeSetIds": [],
-		"BlackList": [],
-		"WhiteList": []
+		"ChangeSetIds": [
+			80075115
+		],
+		"BlackList": [
+			1869687
+		],
+		"WhiteList": [
+			1869039,
+			1637721,
+			2453625,
+			2453486,
+			1617493,
+			2451777,
+			2451779,
+			2451778,
+			2451776,
+			2454972,
+			1733230,
+			1867595
+		]
 	},
 	"Dole Brook Twp": {
 		"Name": "Dole Brook Twp",
 		"AddressCount": 1,
-		"ImportDate": null,
+		"ImportDate": "2020-01-25T15:09:51.2350131Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80075131
+		],
 		"BlackList": [],
 		"WhiteList": []
 	},
 	"Smyrna": {
 		"Name": "Smyrna",
 		"AddressCount": 153,
-		"ImportDate": null,
+		"ImportDate": "2020-01-25T15:10:48.550118Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80075170
+		],
 		"BlackList": [],
 		"WhiteList": []
 	},
 	"Plymouth": {
 		"Name": "Plymouth",
 		"AddressCount": 391,
-		"ImportDate": null,
+		"ImportDate": "2020-01-25T15:11:50.2291543Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80075208
+		],
 		"BlackList": [],
 		"WhiteList": []
 	},
 	"West Paris": {
 		"Name": "West Paris",
 		"AddressCount": 793,
-		"ImportDate": null,
+		"ImportDate": "2020-01-25T22:06:18.4206305Z",
 		"Notes": null,
-		"ChangeSetIds": [],
-		"BlackList": [],
+		"ChangeSetIds": [
+			80085229
+		],
+		"BlackList": [
+			1761924,
+			1721635,
+			1988170,
+			1721653
+		],
 		"WhiteList": []
 	},
 	"Waldoboro": {
 		"Name": "Waldoboro",
 		"AddressCount": 2723,
-		"ImportDate": null,
-		"Notes": null,
-		"ChangeSetIds": [],
+		"ImportDate": "2020-01-25T22:26:06.4612016Z",
+		"Notes": "/nmanually removed many buildings that got turned into names like       <tag k=\"name\" v=\"Trailer\" />",
+		"ChangeSetIds": [
+			80085506
+		],
 		"BlackList": [],
 		"WhiteList": []
 	},
 	"Codyville Twp": {
 		"Name": "Codyville Twp",
 		"AddressCount": 13,
-		"ImportDate": null,
+		"ImportDate": "2020-01-25T22:28:08.896649Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80085536
+		],
 		"BlackList": [],
 		"WhiteList": []
 	},
 	"Deer Isle": {
 		"Name": "Deer Isle",
 		"AddressCount": 1614,
-		"ImportDate": null,
+		"ImportDate": "2020-01-25T22:29:47.8751791Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80085559
+		],
 		"BlackList": [],
 		"WhiteList": []
 	},
 	"Frenchtown Twp": {
 		"Name": "Frenchtown Twp",
 		"AddressCount": 106,
-		"ImportDate": null,
+		"ImportDate": "2020-01-25T22:30:04.6409995Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80085562
+		],
 		"BlackList": [],
 		"WhiteList": []
 	},
 	"T17 R3 Wels": {
 		"Name": "T17 R3 Wels",
 		"AddressCount": 144,
-		"ImportDate": null,
+		"ImportDate": "2020-01-25T22:30:12.9797288Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80085565
+		],
 		"BlackList": [],
 		"WhiteList": []
 	},
 	"Cornville": {
 		"Name": "Cornville",
 		"AddressCount": 606,
-		"ImportDate": null,
+		"ImportDate": "2020-01-25T22:31:13.8639693Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80085576
+		],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [
+			1621756
+		]
 	},
 	"Levant": {
 		"Name": "Levant",
 		"AddressCount": 600,
-		"ImportDate": null,
+		"ImportDate": "2020-01-25T22:31:25.9666358Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80085580
+		],
 		"BlackList": [],
 		"WhiteList": []
 	},
 	"Kenduskeag": {
 		"Name": "Kenduskeag",
 		"AddressCount": 268,
-		"ImportDate": null,
+		"ImportDate": "2020-01-25T22:31:36.3345104Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80085583
+		],
 		"BlackList": [],
 		"WhiteList": []
 	},
 	"Columbia": {
 		"Name": "Columbia",
 		"AddressCount": 173,
-		"ImportDate": null,
+		"ImportDate": "2020-01-25T22:32:31.2776061Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80085598
+		],
 		"BlackList": [],
 		"WhiteList": []
 	},
 	"Durham": {
 		"Name": "Durham",
 		"AddressCount": 1714,
-		"ImportDate": null,
+		"ImportDate": "2020-01-25T22:34:55.7640685Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80085627
+		],
 		"BlackList": [],
 		"WhiteList": []
 	},
 	"T2 R8 Nwp": {
 		"Name": "T2 R8 Nwp",
 		"AddressCount": 1,
-		"ImportDate": null,
+		"ImportDate": "2020-01-25T22:35:07.5396414Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80085629
+		],
 		"BlackList": [],
 		"WhiteList": []
 	},
 	"Benedicta Twp": {
 		"Name": "Benedicta Twp",
 		"AddressCount": 150,
-		"ImportDate": null,
+		"ImportDate": "2020-01-25T22:35:16.3711847Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80085631
+		],
 		"BlackList": [],
 		"WhiteList": []
 	},
 	"Seboomook Twp": {
 		"Name": "Seboomook Twp",
 		"AddressCount": 6,
-		"ImportDate": null,
+		"ImportDate": "2020-01-25T22:35:28.0768Z",
 		"Notes": null,
-		"ChangeSetIds": [],
-		"BlackList": [],
-		"WhiteList": []
-	},
-	"Calais": {
-		"Name": "Calais",
-		"AddressCount": 1031,
-		"ImportDate": null,
-		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80085634
+		],
 		"BlackList": [],
 		"WhiteList": []
 	},
 	"Arundel": {
 		"Name": "Arundel",
 		"AddressCount": 2179,
-		"ImportDate": null,
+		"ImportDate": "2020-01-26T03:01:36.2669228Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80087740
+		],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [
+			1789986
+		]
 	},
 	"Appleton": {
 		"Name": "Appleton",
@@ -6034,11 +6149,17 @@
 	"Wiscasset": {
 		"Name": "Wiscasset",
 		"AddressCount": 2086,
-		"ImportDate": null,
+		"ImportDate": "2020-01-25T04:30:55.3724413Z",
 		"Notes": null,
-		"ChangeSetIds": [],
-		"BlackList": [],
-		"WhiteList": []
+		"ChangeSetIds": [
+			80058851
+		],
+		"BlackList": [
+			1508915
+		],
+		"WhiteList": [
+			1709438
+		]
 	},
 	"Saint John Plt": {
 		"Name": "Saint John Plt",
@@ -6731,6 +6852,22 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
+		"WhiteList": []
+	},
+	"Calais": {
+		"Name": "Calais",
+		"AddressCount": 1031,
+		"ImportDate": null,
+		"Notes": "/nseems like many addresses are located very close to the road even when the buildings are further back. This should be corrected?",
+		"ChangeSetIds": [],
+		"BlackList": [
+			1719262,
+			1719679,
+			1708702,
+			1788310,
+			1714064,
+			1722353
+		],
 		"WhiteList": []
 	}
 }
