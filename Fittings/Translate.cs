@@ -30,15 +30,16 @@ namespace OsmPipeline.Fittings
 			};
 		}
 
-		public static Osm AsOsm(this IEnumerable<OsmGeo> geos, double? version = .6, string generator = null)
+		public static Osm AsOsm(this IEnumerable<OsmGeo> elements, double? version = .6, string generator = null)
 		{
 			return new Osm()
 			{
-				Nodes = geos.OfType<Node>().ToArray(),
-				Ways = geos.OfType<Way>().ToArray(),
-				Relations = geos.OfType<Relation>().ToArray(),
+				Nodes = elements.OfType<Node>().ToArray(),
+				Ways = elements.OfType<Way>().ToArray(),
+				Relations = elements.OfType<Relation>().ToArray(),
 				Version = version,
-				Generator = generator
+				Generator = generator,
+				Bounds = elements.OfType<Node>().AsBounds()
 			};
 		}
 

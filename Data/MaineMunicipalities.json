@@ -516,10 +516,11 @@
 	"T15 R6 Wels": {
 		"Name": "T15 R6 Wels",
 		"AddressCount": 10,
-		"ImportDate": "2020-01-26T13:46:21.8916474Z",
+		"ImportDate": "2020-01-26T20:21:51.1486933Z",
 		"Notes": null,
 		"ChangeSetIds": [
-			80098466
+			80098466,
+			80108048
 		],
 		"BlackList": [],
 		"WhiteList": []
@@ -527,10 +528,15 @@
 	"West Gardiner": {
 		"Name": "West Gardiner",
 		"AddressCount": 1103,
-		"ImportDate": null,
+		"ImportDate": "2020-01-26T21:56:05.8180763Z",
 		"Notes": null,
-		"ChangeSetIds": [],
-		"BlackList": [],
+		"ChangeSetIds": [
+			80110159
+		],
+		"BlackList": [
+			1702161,
+			1698722
+		],
 		"WhiteList": []
 	},
 	"Mayfield Twp": {

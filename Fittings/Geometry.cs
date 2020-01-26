@@ -200,7 +200,21 @@ namespace OsmPipeline.Fittings
 			return subValues;
 		}
 
-		private static Bounds AsBounds(this ICompleteOsmGeo element, double bufferMeters = 0)
+		public static Bounds AsBounds(this IEnumerable<ICompleteOsmGeo> elements, double bufferMeters = 0)
+		{
+			var bufferLat = bufferMeters == 0 ? 0f : (float)DistanceLat(bufferMeters);
+			var bufferLon = bufferMeters == 0 ? 0f : (float)DistanceLon(bufferMeters, elements.First().AsPosition().Latitude);
+
+			var allBounds = elements.Select(e => e.AsBounds()).ToArray();
+			var bounds = new Bounds();
+			bounds.MaxLatitude = (float)allBounds.Max(n => n.MaxLatitude) + bufferLat;
+			bounds.MinLatitude = (float)allBounds.Min(n => n.MinLatitude) - bufferLat;
+			bounds.MaxLongitude = (float)allBounds.Max(n => n.MaxLongitude) + bufferLon;
+			bounds.MinLongitude = (float)allBounds.Min(n => n.MinLongitude) - bufferLon;
+			return bounds;
+		}
+
+		public static Bounds AsBounds(this ICompleteOsmGeo element, double bufferMeters = 0)
 		{
 			var bufferLat = bufferMeters == 0 ? 0f : (float)DistanceLat(bufferMeters);
 			var bufferLon = bufferMeters == 0 ? 0f : (float)DistanceLon(bufferMeters, element.AsPosition().Latitude);
