@@ -494,27 +494,33 @@
 	"Appleton": {
 		"Name": "Appleton",
 		"AddressCount": 746,
-		"ImportDate": null,
+		"ImportDate": "2020-01-26T13:41:32.4809646Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80098346
+		],
 		"BlackList": [],
 		"WhiteList": []
 	},
 	"Sebec": {
 		"Name": "Sebec",
 		"AddressCount": 289,
-		"ImportDate": null,
-		"Notes": null,
-		"ChangeSetIds": [],
+		"ImportDate": "2020-01-26T13:44:51.097641Z",
+		"Notes": "/nalso seems to suffer from 'address on road' syndrome",
+		"ChangeSetIds": [
+			80098432
+		],
 		"BlackList": [],
 		"WhiteList": []
 	},
 	"T15 R6 Wels": {
 		"Name": "T15 R6 Wels",
 		"AddressCount": 9,
-		"ImportDate": null,
+		"ImportDate": "2020-01-26T13:46:21.8916474Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80098466
+		],
 		"BlackList": [],
 		"WhiteList": []
 	},
