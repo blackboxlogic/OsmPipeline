@@ -172,14 +172,14 @@ namespace OsmPipeline
 				{
 					if (targetSubjectElements.Length > 1)
 					{
-						// TODO: Resolve these multi-matches by checking tag conflicts (or if IN ONE of them)
+						// TODO: Resolve these multi-matches by checking tag conflicts
 						referenceElement.Tags.AddOrAppend(ErrorKey, "Multiple matches!" + Identify(targetSubjectElements));
 						foreach (var subjectElement in targetSubjectElements)
 						{
 							var arrow = Geometry.GetDirectionArrow(
 								subjectElement.AsComplete(subjectElementsIndexed).AsPosition(),
 								referenceElement.AsPosition());
-							subjectElement.Tags.Add(ErrorKey, "One of the matches " + arrow);
+							subjectElement.Tags.AddOrAppend(ErrorKey, "One of the matches " + arrow);
 							modify.Add(subjectElement);
 						}
 					}
@@ -198,7 +198,7 @@ namespace OsmPipeline
 						{
 							var arrow = Geometry.GetDirectionArrow(referenceElement.AsPosition(), completeSubjectElement.AsPosition());
 							referenceElement.Tags.AddOrAppend(WarnKey, $"Matched, but too far: {(int)closestMatch.distance} meters {arrow}.{Identify(subjectElement)}");
-							subjectElement.Tags.Add(ErrorKey, Geometry.ReverseArrow(arrow) + " " + Identify(subjectElement));
+							subjectElement.Tags.AddOrAppend(ErrorKey, Geometry.ReverseArrow(arrow) + " " + Identify(subjectElement));
 							modify.Add(subjectElement);
 						}
 						else
@@ -220,6 +220,8 @@ namespace OsmPipeline
 							catch (MergeConflictException e)
 							{
 								referenceElement.Tags.AddOrAppend(WarnKey, e.Message);
+								subjectElement.Tags.AddOrAppend(ErrorKey, "This is the conflict");
+								modify.Add(subjectElement);
 							}
 						}
 					}
@@ -273,6 +275,8 @@ namespace OsmPipeline
 						{
 							node.Tags.AddOrAppend(WarnKey, "New node in building with old nodes");
 						}
+						building.Tags.AddOrAppend(ErrorKey, "This building has other nodes");
+						modify.Add(building);
 					}
 				}
 			}
