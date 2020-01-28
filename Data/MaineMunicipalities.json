@@ -542,74 +542,102 @@
 	"Mayfield Twp": {
 		"Name": "Mayfield Twp",
 		"AddressCount": 36,
-		"ImportDate": null,
+		"ImportDate": "2020-01-26T22:16:06.8388658Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80110585
+		],
 		"BlackList": [],
 		"WhiteList": []
 	},
 	"Eustis": {
 		"Name": "Eustis",
 		"AddressCount": 801,
-		"ImportDate": null,
-		"Notes": null,
-		"ChangeSetIds": [],
-		"BlackList": [],
-		"WhiteList": []
+		"ImportDate": "2020-01-28T14:39:13.1257188Z",
+		"Notes": "/nmanually removing \"addr:unit=STRATTON\"",
+		"ChangeSetIds": [
+			80205446
+		],
+		"BlackList": [
+			1492632,
+			1492673
+		],
+		"WhiteList": [
+			1484454,
+			1740520,
+			1484427,
+			1492626,
+			1736219
+		]
 	},
 	"Unity Twp": {
 		"Name": "Unity Twp",
 		"AddressCount": 22,
-		"ImportDate": null,
+		"ImportDate": "2020-01-28T15:13:16.9547567Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80206701
+		],
 		"BlackList": [],
 		"WhiteList": []
 	},
 	"Hopkins Academy Grant Twp": {
 		"Name": "Hopkins Academy Grant Twp",
 		"AddressCount": 3,
-		"ImportDate": null,
+		"ImportDate": "2020-01-28T15:13:29.941749Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80206712
+		],
 		"BlackList": [],
 		"WhiteList": []
 	},
 	"T9 R11 WELS": {
 		"Name": "T9 R11 WELS",
 		"AddressCount": 9,
-		"ImportDate": null,
+		"ImportDate": "2020-01-28T15:15:10.6959827Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80206763
+		],
 		"BlackList": [],
 		"WhiteList": []
 	},
 	"Oqiton Twp": {
 		"Name": "Oqiton Twp",
 		"AddressCount": 1,
-		"ImportDate": null,
+		"ImportDate": "2020-01-28T15:15:23.5856987Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80206771
+		],
 		"BlackList": [],
 		"WhiteList": []
 	},
 	"Industry": {
 		"Name": "Industry",
 		"AddressCount": 573,
-		"ImportDate": null,
+		"ImportDate": "2020-01-28T15:16:35.6655571Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80206814
+		],
 		"BlackList": [],
 		"WhiteList": []
 	},
 	"Carrying Place Town Twp": {
 		"Name": "Carrying Place Town Twp",
 		"AddressCount": 40,
-		"ImportDate": null,
+		"ImportDate": "2020-01-28T15:19:49.2296821Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80206929
+		],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [
+			1852063,
+			1890821
+		]
 	},
 	"South Berwick": {
 		"Name": "South Berwick",
