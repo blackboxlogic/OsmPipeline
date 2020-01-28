@@ -21,19 +21,20 @@ namespace OsmPipeline
 
 		private static ILogger Log;
 
-		public static OsmChange Merge(Osm reference, Osm subject, string scopeName)
+		public static OsmChange Merge(Osm reference, Osm subject, string scopeName, List<long> whitelist = null)
 		{
+			whitelist = whitelist ?? new List<long>();
 			Log = Log ?? Static.LogFactory.CreateLogger(typeof(Conflate));
 			Log.LogInformation("Starting conflation, matching by address tags");
 
 			var subjectElementsIndexed = subject.OsmToGeos().ToDictionary(n => n.Type.ToString() + n.Id); // could use OsmGeoKey
-			MergeNodesByAddressTags(reference, subjectElementsIndexed, Static.Municipalities[scopeName].WhiteList,
+			MergeNodesByAddressTags(reference, subjectElementsIndexed, whitelist,
 				out List<OsmGeo> create, out List<OsmGeo> modify, out List<OsmGeo> delete);
 			ValidateRoadNamesMatcheRoads(subjectElementsIndexed, create);
 			Log.LogInformation("Starting conflation, matching by geometry");
-			MergeNodesByGeometry(subjectElementsIndexed, Static.Municipalities[scopeName].WhiteList, create, modify);
+			MergeNodesByGeometry(subjectElementsIndexed, whitelist, create, modify);
 			Log.LogInformation($"Writing {scopeName} review files");
-			var exceptions = GatherExceptions(scopeName, create, delete, modify);
+			var exceptions = GatherExceptions(whitelist, create, delete, modify);
 			WriteToFileWithChildrenIfAny(scopeName + "/Conflated.Review.osm", exceptions, subjectElementsIndexed);
 			WriteToFileWithChildrenIfAny(scopeName + "/Conflated.Create.osm", create, subjectElementsIndexed);
 			WriteToFileWithChildrenIfAny(scopeName + "/Conflated.Delete.osm", delete, subjectElementsIndexed);
@@ -48,17 +49,17 @@ namespace OsmPipeline
 
 		// Collections are modified by reference. Errors removed and logged. Warns just logged.
 		// Whitelist suppresses warns and errors.
-		private static List<OsmGeo> GatherExceptions(string scopeName, params List<OsmGeo>[] elementss)
+		private static List<OsmGeo> GatherExceptions(List<long> whitelist, params List<OsmGeo>[] elementss)
 		{
 			var exceptions = new List<OsmGeo>();
 
 			foreach (var elements in elementss)
 			{
 				var errors = elements.Where(e => e.Tags.ContainsKey(ErrorKey)).ToHashSet();
-				ExcuseWhitelistedElements(errors, scopeName);
+				ExcuseWhitelistedElements(errors, whitelist);
 				exceptions.AddRange(errors);
 				var warns = elements.Where(e => e.Tags.ContainsKey(WarnKey)).ToHashSet();
-				ExcuseWhitelistedElements(warns, scopeName);
+				ExcuseWhitelistedElements(warns, whitelist);
 				exceptions.AddRange(warns);
 				elements.RemoveAll(errors.Contains);
 			}
@@ -66,12 +67,12 @@ namespace OsmPipeline
 			return exceptions;
 		}
 
-		private static void ExcuseWhitelistedElements(ICollection<OsmGeo> elements, string scopeName)
+		private static void ExcuseWhitelistedElements(ICollection<OsmGeo> elements, List<long> whitelist)
 		{
-			var whitelist = Static.Municipalities[scopeName].WhiteList.Select(Math.Abs).ToHashSet();
-			foreach (var error in elements.Where(e => whitelist.Contains(-e.Id.Value)
+			var whiteSet = whitelist.Select(Math.Abs).ToHashSet();
+			foreach (var error in elements.Where(e => whiteSet.Contains(-e.Id.Value)
 					|| (e.Tags.ContainsKey(Static.maineE911id)
-						&& e.Tags[Static.maineE911id].Split(';').All(id => whitelist.Contains(long.Parse(id))))).ToArray())
+						&& e.Tags[Static.maineE911id].Split(';').All(id => whiteSet.Contains(long.Parse(id))))).ToArray())
 			{
 				error.Tags.AddOrAppend(WhiteListKey, "yes");
 				elements.Remove(error);
@@ -179,7 +180,7 @@ namespace OsmPipeline
 							var arrow = Geometry.GetDirectionArrow(
 								subjectElement.AsComplete(subjectElementsIndexed).AsPosition(),
 								referenceElement.AsPosition());
-							subjectElement.Tags.AddOrAppend(ErrorKey, "One of the matches " + arrow);
+							subjectElement.Tags.AddOrAppend(ErrorKey, "I matched " + referenceElement.Id + " " + arrow);
 							modify.Add(subjectElement);
 						}
 					}
