@@ -34,15 +34,15 @@ namespace OsmPipeline
 			Log.LogInformation("Starting conflation, matching by geometry");
 			MergeNodesByGeometry(subjectElementsIndexed, whitelist, create, modify);
 			Log.LogInformation($"Writing {scopeName} review files");
-			var exceptions = GatherExceptions(whitelist, create, delete, modify);
-			WriteToFileWithChildrenIfAny(scopeName + "/Conflated.Review.osm", exceptions, subjectElementsIndexed);
+			var review = GatherExceptions(whitelist, create, delete, modify);
+			WriteToFileWithChildrenIfAny(scopeName + "/Conflated.Review.osm", review, subjectElementsIndexed);
 			WriteToFileWithChildrenIfAny(scopeName + "/Conflated.Create.osm", create, subjectElementsIndexed);
 			WriteToFileWithChildrenIfAny(scopeName + "/Conflated.Delete.osm", delete, subjectElementsIndexed);
 			WriteToFileWithChildrenIfAny(scopeName + "/Conflated.Modify.osm", modify, subjectElementsIndexed);
 			CheckForOffset(modify);
 			RemoveReviewTags(create, delete, modify);
 			var change = Translate.GeosToChange(create, modify, delete, "OsmPipeline");
-			LogSummary(change, exceptions);
+			LogSummary(change, review);
 
 			return change;
 		}
@@ -51,31 +51,32 @@ namespace OsmPipeline
 		// Whitelist suppresses warns and errors.
 		private static List<OsmGeo> GatherExceptions(List<long> whitelist, params List<OsmGeo>[] elementss)
 		{
-			var exceptions = new List<OsmGeo>();
+			var review = new List<OsmGeo>();
 
 			foreach (var elements in elementss)
 			{
-				var errors = elements.Where(e => e.Tags.ContainsKey(ErrorKey)).ToHashSet();
+				var errors = elements.Where(e => e.Tags.ContainsKey(ErrorKey)).ToList();
 				ExcuseWhitelistedElements(errors, whitelist);
-				exceptions.AddRange(errors);
-				var warns = elements.Where(e => e.Tags.ContainsKey(WarnKey)).ToHashSet();
+				review.AddRange(errors);
+				var warns = elements.Where(e => e.Tags.ContainsKey(WarnKey)).ToList();
 				ExcuseWhitelistedElements(warns, whitelist);
-				exceptions.AddRange(warns);
+				review.AddRange(warns);
 				elements.RemoveAll(errors.Contains);
+				ExcuseWhitelistedElements(elements.ToList(), whitelist); // doesn't remove, just to add maineE911id:whitelist=yes
 			}
 
-			return exceptions;
+			return review;
 		}
 
 		private static void ExcuseWhitelistedElements(ICollection<OsmGeo> elements, List<long> whitelist)
 		{
 			var whiteSet = whitelist.Select(Math.Abs).ToHashSet();
-			foreach (var error in elements.Where(e => whiteSet.Contains(-e.Id.Value)
+			foreach (var element in elements.Where(e => whiteSet.Contains(-e.Id.Value)
 					|| (e.Tags.ContainsKey(Static.maineE911id)
 						&& e.Tags[Static.maineE911id].Split(';').All(id => whiteSet.Contains(long.Parse(id))))).ToArray())
 			{
-				error.Tags.AddOrAppend(WhiteListKey, "yes");
-				elements.Remove(error);
+				element.Tags.AddOrAppend(WhiteListKey, "yes");
+				elements.Remove(element);
 			}
 		}
 
@@ -271,12 +272,13 @@ namespace OsmPipeline
 					}
 					catch (MergeConflictException e)
 					{
-						node.Tags.AddOrAppend(WarnKey, e.Message); // or info?
-						if(buildingHasOldNodes)
+						node.Tags.AddOrAppend(WarnKey, e.Message);
+						building.Tags.AddOrAppend(ErrorKey, "This is the conflict");
+						if (buildingHasOldNodes)
 						{
 							node.Tags.AddOrAppend(WarnKey, "New node in building with old nodes");
+							building.Tags.AddOrAppend(ErrorKey, "This building has other nodes");
 						}
-						building.Tags.AddOrAppend(ErrorKey, "This building has other nodes");
 						modify.Add(building);
 					}
 				}

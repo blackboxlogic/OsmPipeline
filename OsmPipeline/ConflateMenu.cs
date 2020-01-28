@@ -23,6 +23,9 @@ namespace OsmPipeline
 		Func<string, string, bool> Is = (a,b) => a.StartsWith(b, StringComparison.OrdinalIgnoreCase);
 		private string Municipality;
 
+		// log to file?
+		// update osm client
+		// osm client build
 		public void Main()
 		{
 			Static.Municipalities = FileSerializer.ReadJsonCacheOrSource("MaineMunicipalities.json",
@@ -106,7 +109,7 @@ namespace OsmPipeline
 				else if (Is(userInput, "black"))
 				{
 					var selection = userInput.Split(' ', 2)[1]
-						.Split(new char[] { ' ', ',', ';', '-' }, StringSplitOptions.RemoveEmptyEntries)
+						.Split(new char[] { ' ', ',', ';', '-', '=' }, StringSplitOptions.RemoveEmptyEntries)
 						.Where(c => long.TryParse(c, out _))
 						.Select(long.Parse)
 						.Except(Static.Municipalities[Municipality].BlackList)
