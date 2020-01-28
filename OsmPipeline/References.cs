@@ -25,7 +25,15 @@ namespace OsmPipeline
 			{
 				{ "TWP", "Township" },
 				{ "RES", "Reservation" },
-				{ "PLT", "Plantation" }
+				{ "PLT", "Plantation" },
+				{ "CO", "County" },
+				{ "CNTY", "County" },
+				{ "CNT", "County" },
+				{ "S", "South" },
+				{ "St", "Saint" },
+				{ "NE", "North East" },
+				{ "04853", "North Haven" },
+				{ "P*", "Point" }
 			};
 
 		public static Dictionary<string, string> PrePostDIRs =
@@ -51,7 +59,7 @@ namespace OsmPipeline
 			new Dictionary<string, string>(FileSerializer.ReadJson<Dictionary<string, string>>(@"UNIT.json"),
 				StringComparer.OrdinalIgnoreCase);
 
-		public static async Task<Osm> Fetch(string scopeName)
+		public static async Task<Osm> Fetch(string scopeName, Func<Feature, bool> filter = null)
 		{
 			Log = Log ?? Static.LogFactory.CreateLogger(typeof(References));
 			Log.LogInformation("Fetching Reference material from Maine E911 API");
@@ -59,7 +67,7 @@ namespace OsmPipeline
 			// Fetch GIS
 			var stateGis = await FileSerializer.ReadJsonCacheOrSource(
 				scopeName + "/ReferenceRaw.GeoJson", () => GeoJsonAPISource.FetchMunicipality(scopeName));
-			var gisFeatures = stateGis.Features.ToArray();
+			var gisFeatures = stateGis.Features.Where(f => filter == null || filter(f)).ToArray();
 			Log.LogInformation("Validating Reference material");
 			Validate(gisFeatures);
 
@@ -72,17 +80,9 @@ namespace OsmPipeline
 				.Select(Convert)
 				.ToArray();
 
-			var translated = new Osm() { Nodes = nodes, Version = .6 };
-			FileSerializer.WriteXml(scopeName + "/ReferenceTranslated.osm", translated);
+			if (!nodes.Any()) return null;
 			nodes = HandleStacks(nodes);
-			var bounds = new Bounds()
-			{
-				MaxLatitude = (float)nodes.Max(n => n.Latitude) +.001f,
-				MinLatitude = (float)nodes.Min(n => n.Latitude) - .001f,
-				MaxLongitude = (float)nodes.Max(n => n.Longitude) + .001f,
-				MinLongitude = (float)nodes.Min(n => n.Longitude) - .001f,
-			};
-			var filtered = new Osm() { Nodes = nodes, Version = .6, Bounds = bounds };
+			var filtered = new Osm() { Nodes = nodes, Version = .6, Bounds = nodes.AsBounds(15) };
 
 			return filtered;
 		}
@@ -94,7 +94,7 @@ namespace OsmPipeline
 				(string)props["STREETNAME"], (string)props["POSTDIR"], (string)props["SUFFIX"]);
 			var level = Level((string)props["FLOOR"], out bool useFloorAsUnit);
 			var unit = ReplaceToken(useFloorAsUnit ? (string)props["FLOOR"] : (string)props["UNIT"], UNITs);
-			var city = ReplaceToken((string)props["MUNICIPALITY"], MUNICIPALITY);
+			var city = City((string)props["POSTAL_COMMUNITY"], (string)props["MUNICIPALITY"]);
 			var tags = new []
 			{
 				new Tag("name", Name((string)props["LANDMARK"], (string)props["LOC"], (string)props["BUILDING"])),
@@ -430,6 +430,13 @@ namespace OsmPipeline
 			if (zip.StartsWith("00")) return "";
 			if (!zip.StartsWith("0")) return "";
 			return zip;
+		}
+
+		private static string City(string postalCommunity, string municipality)
+		{
+			return string.IsNullOrWhiteSpace(postalCommunity)
+				? ReplaceToken(municipality, MUNICIPALITY)
+				: ReplaceToken(postalCommunity, MUNICIPALITY);
 		}
 
 		private static string ReplaceToken(string input, Dictionary<string, string> translation)
