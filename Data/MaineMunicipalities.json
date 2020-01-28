@@ -914,9 +914,11 @@
 	"Lyman": {
 		"Name": "Lyman",
 		"AddressCount": 2178,
-		"ImportDate": null,
+		"ImportDate": "2020-01-28T19:25:25.2138796Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80216740
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": []
@@ -924,9 +926,11 @@
 	"T10 R15 WELS": {
 		"Name": "T10 R15 WELS",
 		"AddressCount": 2,
-		"ImportDate": null,
+		"ImportDate": "2020-01-28T19:26:55.8395448Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80216793
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": []
@@ -934,9 +938,11 @@
 	"Mercer": {
 		"Name": "Mercer",
 		"AddressCount": 381,
-		"ImportDate": null,
+		"ImportDate": "2020-01-28T19:28:00.8594501Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80216842
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": []
@@ -944,19 +950,27 @@
 	"Jackman": {
 		"Name": "Jackman",
 		"AddressCount": 652,
-		"ImportDate": null,
+		"ImportDate": "2020-01-28T19:35:03.5694771Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80217097
+		],
 		"BlackList": [],
-		"WhiteList": [],
+		"WhiteList": [
+			1667149,
+			1605692,
+			1667125
+		],
 		"BlackTags": []
 	},
 	"T7 Sd Bpp": {
 		"Name": "T7 Sd Bpp",
 		"AddressCount": 12,
-		"ImportDate": null,
+		"ImportDate": "2020-01-28T19:35:16.4771334Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80217107
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": []
@@ -964,9 +978,11 @@
 	"New Canada": {
 		"Name": "New Canada",
 		"AddressCount": 115,
-		"ImportDate": null,
+		"ImportDate": "2020-01-28T19:36:25.2849993Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80217153
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": []
@@ -974,9 +990,11 @@
 	"Kibby Twp": {
 		"Name": "Kibby Twp",
 		"AddressCount": 47,
-		"ImportDate": null,
+		"ImportDate": "2020-01-28T19:36:41.4632422Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80217165
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": []
