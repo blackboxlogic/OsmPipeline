@@ -693,31 +693,60 @@
 	"South Berwick": {
 		"Name": "South Berwick",
 		"AddressCount": 3122,
-		"ImportDate": null,
+		"ImportDate": "2020-01-28T17:00:21.8413645Z",
 		"Notes": null,
-		"ChangeSetIds": [],
-		"BlackList": [],
-		"WhiteList": [],
+		"ChangeSetIds": [
+			80210718
+		],
+		"BlackList": [
+			2065027,
+			2065072,
+			2065519,
+			2064173,
+			2064913,
+			2064914,
+			1762539,
+			1762711,
+			1784652
+		],
+		"WhiteList": [
+			1775071,
+			2064922,
+			2064611,
+			2064919,
+			2065026,
+			2065068,
+			2064910
+		],
 		"BlackTags": [
-			"1499760.name"
+			"1499760.name",
+			"1762535.building",
+			"1501253.name",
+			"2064611;2064919.addr:unit"
 		]
 	},
 	"Chebeague Island": {
 		"Name": "Chebeague Island",
 		"AddressCount": 498,
-		"ImportDate": null,
+		"ImportDate": "2020-01-28T17:09:33.7533502Z",
 		"Notes": null,
-		"ChangeSetIds": [],
-		"BlackList": [],
+		"ChangeSetIds": [
+			80211062
+		],
+		"BlackList": [
+			1810110
+		],
 		"WhiteList": [],
 		"BlackTags": []
 	},
 	"Jim Pond Twp": {
 		"Name": "Jim Pond Twp",
 		"AddressCount": 5,
-		"ImportDate": null,
+		"ImportDate": "2020-01-28T17:10:31.439422Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80211096
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": []
@@ -725,9 +754,11 @@
 	"Dennysville": {
 		"Name": "Dennysville",
 		"AddressCount": 94,
-		"ImportDate": null,
+		"ImportDate": "2020-01-28T17:15:19.7642809Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80211274
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": []
@@ -735,9 +766,11 @@
 	"Lake View Plt": {
 		"Name": "Lake View Plt",
 		"AddressCount": 294,
-		"ImportDate": null,
+		"ImportDate": "2020-01-28T17:17:24.3841966Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80211360
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": []
@@ -745,9 +778,11 @@
 	"Kingman Twp": {
 		"Name": "Kingman Twp",
 		"AddressCount": 132,
-		"ImportDate": null,
+		"ImportDate": "2020-01-28T17:21:39.1880619Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80211525
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": []
@@ -755,19 +790,30 @@
 	"Newfield": {
 		"Name": "Newfield",
 		"AddressCount": 1177,
-		"ImportDate": null,
+		"ImportDate": "2020-01-28T17:22:57.1025583Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80211573
+		],
 		"BlackList": [],
-		"WhiteList": [],
+		"WhiteList": [
+			1672606,
+			1672779,
+			1672877,
+			1672878,
+			1678163,
+			1678164
+		],
 		"BlackTags": []
 	},
 	"Troy": {
 		"Name": "Troy",
 		"AddressCount": 444,
-		"ImportDate": null,
+		"ImportDate": "2020-01-28T17:27:10.5654824Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80211750
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": []
@@ -775,11 +821,94 @@
 	"Kittery": {
 		"Name": "Kittery",
 		"AddressCount": 6852,
-		"ImportDate": null,
-		"Notes": null,
-		"ChangeSetIds": [],
-		"BlackList": [],
-		"WhiteList": [],
+		"ImportDate": "2020-01-28T19:14:16.8554931Z",
+		"Notes": "/n\"Route 1\" could be \"US Route 1\" or \"US 1\"./nadded a tag tree entry for addr:street \"Badger Island West\": {",
+		"ChangeSetIds": [
+			80216330
+		],
+		"BlackList": [
+			1738684,
+			1771786
+		],
+		"WhiteList": [
+			1597381,
+			1580497,
+			2059054,
+			1580499,
+			1471108,
+			2061229,
+			2061274,
+			2061323,
+			1610881,
+			2062035,
+			2061202,
+			2061205,
+			2061275,
+			1610880,
+			2062041,
+			2061228,
+			2061273,
+			2061322,
+			2061660,
+			2061661,
+			1580498,
+			1953936,
+			1524941,
+			1610873,
+			1953935,
+			1953927,
+			1953928,
+			1953933,
+			1953934,
+			1510442,
+			1520159,
+			1520160,
+			1953930,
+			1953932,
+			1953931,
+			1520158,
+			2060558,
+			2061210,
+			2061211,
+			2061212,
+			2061214,
+			2061221,
+			2061264,
+			2061311,
+			1471119,
+			2059434,
+			1732241,
+			2061310,
+			2061758,
+			2061968,
+			2062205,
+			2059079,
+			1475724,
+			2061263,
+			2061309,
+			2061967,
+			2062204,
+			1470908,
+			2059075,
+			2061625,
+			2061759,
+			2061969,
+			2062206,
+			2059084,
+			2059085,
+			2059097,
+			2059101,
+			2059100,
+			2059098,
+			1470911,
+			1470910,
+			2061555,
+			2061626,
+			2061760,
+			2061970,
+			2059091,
+			2059092
+		],
 		"BlackTags": []
 	},
 	"Lyman": {
