@@ -63,6 +63,9 @@ namespace OsmPipeline
 				review.AddRange(warns);
 				elements.RemoveAll(errors.Contains);
 				ExcuseWhitelistedElements(elements.ToList(), whitelist); // doesn't remove, just to add maineE911id:whitelist=yes
+				var distinct = elements.Distinct().ToArray();
+				elements.Clear();
+				elements.AddRange(distinct);
 			}
 
 			return review;
@@ -115,16 +118,6 @@ namespace OsmPipeline
 
 		private static void LogSummary(OsmChange change, IList<OsmGeo> Review)
 		{
-			var doubleChanges = change.Modify.Select(m => m.Id).GroupBy(x => x)
-						.Where(group => group.Count() > 1)
-						.Select(group => group.Key)
-						.ToArray();
-
-			if (doubleChanges.Any())
-			{
-				Log.LogError("Elements were changed twice! The upload will fail. " + string.Join(", ", doubleChanges));
-			}
-
 			Log.LogInformation($"{nameof(change.Create)}: {change.Create.Length}" +
 				$"\n\t{nameof(change.Modify)}: {change.Modify.Length}" +
 				$"\n\t{nameof(change.Delete)}: {change.Delete.Length}" +

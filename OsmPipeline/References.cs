@@ -81,8 +81,8 @@ namespace OsmPipeline
 				.ToArray();
 
 			if (!nodes.Any()) return null;
-			HandleBlackTags(nodes, Static.Municipalities[scopeName].BlackTags);
 			nodes = HandleStacks(nodes);
+			HandleBlackTags(nodes, Static.Municipalities[scopeName].BlackTags);
 			var filtered = new Osm() { Nodes = nodes, Version = .6, Bounds = nodes.AsBounds(15) };
 
 			return filtered;
@@ -332,7 +332,7 @@ namespace OsmPipeline
 				{
 					Log.LogError("Bad STREETNAME");
 				}
-				if (((string)f.Properties["STREETNAME"]).Any(char.IsDigit))
+				if (!((string)f.Properties["STREETNAME"]).Any(char.IsLetter))
 				{
 					Log.LogWarning("Odd Road name: " + (string)f.Properties["STREETNAME"]);
 				}

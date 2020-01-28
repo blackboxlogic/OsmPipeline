@@ -23,8 +23,7 @@ namespace OsmPipeline
 		Func<string, string, bool> Is = (a,b) => a.StartsWith(b, StringComparison.OrdinalIgnoreCase);
 		private string Municipality;
 
-		// 'edited multiple times' might be ok
-		// log to file?
+		// logs to file?
 		// update osm client
 		// osm client build
 		public void Main()
