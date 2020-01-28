@@ -39,7 +39,7 @@ namespace OsmPipeline.Fittings
 				Relations = elements.OfType<Relation>().ToArray(),
 				Version = version,
 				Generator = generator,
-				Bounds = elements.OfType<Node>().AsBounds()
+				Bounds = elements.OfType<Node>().AsBounds(5)
 			};
 		}
 
@@ -47,9 +47,9 @@ namespace OsmPipeline.Fittings
 		{
 			return new Osm()
 			{
-				Nodes = osms.SelectMany(o => o.Nodes).DistinctBy(n => n.Id).ToArray(),
-				Ways = osms.SelectMany(o => o.Ways).DistinctBy(n => n.Id).ToArray(),
-				Relations = osms.SelectMany(o => o.Relations).DistinctBy(n => n.Id).ToArray(),
+				Nodes = osms.SelectMany(o => o.Nodes ?? new Node[0]).DistinctBy(n => n.Id).ToArray(),
+				Ways = osms.SelectMany(o => o.Ways ?? new Way[0]).DistinctBy(n => n.Id).ToArray(),
+				Relations = osms.SelectMany(o => o.Relations ?? new Relation[0]).DistinctBy(n => n.Id).ToArray(),
 				Version = osms.First().Version,
 				Generator = osms.First().Generator,
 				Bounds = new Bounds()

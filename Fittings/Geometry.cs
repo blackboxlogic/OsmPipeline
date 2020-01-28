@@ -205,6 +205,8 @@ namespace OsmPipeline.Fittings
 			var bufferLat = bufferMeters == 0 ? 0f : (float)DistanceLat(bufferMeters);
 			var bufferLon = bufferMeters == 0 ? 0f : (float)DistanceLon(bufferMeters, elements.First().AsPosition().Latitude);
 
+			if (bufferLon < 0) throw new Exception("Bad buffer");
+
 			var allBounds = elements.Select(e => e.AsBounds()).ToArray();
 			var bounds = new Bounds();
 			bounds.MaxLatitude = (float)allBounds.Max(n => n.MaxLatitude) + bufferLat;
@@ -329,7 +331,7 @@ namespace OsmPipeline.Fittings
 
 		public static double DistanceLon(double distanceMeters, double latitude)
 		{
-			return distanceMeters * 100_000 / 9 * Math.Cos(latitude);
+			return distanceMeters * 9 / 100_000 * Math.Cos(latitude / 180 * Math.PI);
 		}
 	}
 }
