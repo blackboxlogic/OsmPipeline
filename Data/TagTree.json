@@ -1,8 +1,17 @@
 {
+	"addr:street": {
+		"*": {
+			"US Route 1": {
+				"Route 1": {}
+			}
+		}
+	},
 	"amenity": {
 		"yes": {
 			"restaurant": {
-				"fast_food": {},
+				"fast_food": {
+					"ice_cream": {}
+				},
 				"cafe": {}
 			},
 			"public_building": {
@@ -11,70 +20,70 @@
 			"*": {}
 		}
 	},
-    "shop": {
-        "yes": {
-            "*": {}
-        }
-    },
-    "building": {
-        "yes": {
-            "*": {},
-            "commercial": {
-                "retail": {
-                    "kiosk": {},
-                    "supermarket": {}
-                },
-                "office": {},
-                "industrial": {},
-                "warehouse": {},
-            },
-            "residential": {
-                "house": {
-                    "apartments": {
-                        "dormitory": {}
-                    },
-                    "detached": {
-                        "semidetached_house": {},
-                        "semi": {}
-                    },
-                    "static_caravan": {},
-                    "hut": {},
-                    "cabin": {}
-                }
-            },
-            "civic": {
-                "school": {
-                    "kindergarten": {}
-                },
-                "university": {},
-                "hospital": {},
-                "public": {
+	"shop": {
+		"yes": {
+			"*": {}
+		}
+	},
+	"building": {
+		"yes": {
+			"*": {},
+			"commercial": {
+				"retail": {
+					"kiosk": {},
+					"supermarket": {}
+				},
+				"office": {},
+				"industrial": {},
+				"warehouse": {},
+			},
+			"residential": {
+				"house": {
+					"apartments": {
+						"dormitory": {}
+					},
+					"detached": {
+						"semidetached_house": {},
+						"semi": {}
+					},
+					"static_caravan": {},
+					"hut": {},
+					"cabin": {}
+				}
+			},
+			"civic": {
+				"school": {
+					"kindergarten": {}
+				},
+				"university": {},
+				"hospital": {},
+				"public": {
 					"government": {},
 				},
-                "toilets": {},
-                "transportation": {
-                    "train_station": {}
-                }
-            },
-            "religious": {
-                "cathedral": {},
-                "chapel": {},
-                "church": {},
-                "mosque": {},
-                "shrine": {},
-                "synagogue": {},
-                "temple": {}
-            },
-            "stadium": {},
-            "parking": {
-                "carport": {},
-                "garage": {},
-                "garages": {}
-            },
-            "service": {
-                "water_tower": {},
-                "storage_tank": {}
-            }
-        }
-    }
+				"toilets": {},
+				"transportation": {
+					"train_station": {}
+				}
+			},
+			"religious": {
+				"cathedral": {},
+				"chapel": {},
+				"church": {},
+				"mosque": {},
+				"shrine": {},
+				"synagogue": {},
+				"temple": {}
+			},
+			"stadium": {},
+			"parking": {
+				"carport": {},
+				"garage": {},
+				"garages": {}
+			},
+			"service": {
+				"water_tower": {},
+				"storage_tank": {}
+			}
+		}
+	}
 }

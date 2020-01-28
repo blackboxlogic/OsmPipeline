@@ -77,7 +77,7 @@ namespace OsmPipeline.Fittings
 
 			public IEnumerable<TreeNode> GetAncestors()
 			{
-				var reference = this;
+				var reference = this.Parent;
 				while (reference != null)
 				{
 					yield return reference;
