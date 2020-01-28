@@ -18,7 +18,6 @@ namespace OsmPipeline
 		public static HttpClient HttpClient = new HttpClient();
 	}
 
-	// Should match by geometry move a node?
 	public class ConflateMenu
 	{
 		Func<string, string, bool> Is = (a,b) => a.StartsWith(b, StringComparison.OrdinalIgnoreCase);
@@ -57,7 +56,7 @@ namespace OsmPipeline
 						() => References.Fetch(Municipality)).Result;
 					var Subject = FileSerializer.ReadXmlCacheOrSource(Municipality + "/Subject.osm",
 						() => Subjects.GetElementsInBoundingBox(Reference.Bounds)).Result;
-					var Change = Conflate.Merge(Reference, Subject, Municipality);
+					var Change = Conflate.Merge(Reference, Subject, Municipality, Static.Municipalities[Municipality].WhiteList);
 					FileSerializer.WriteXml(Municipality + "/Conflated.osc", Change);
 				}
 				else if (Is(userInput, "review"))
@@ -94,7 +93,7 @@ namespace OsmPipeline
 				else if (Is(userInput, "white"))
 				{
 					var selection = userInput.Split(' ', 2)[1]
-						.Split(new char[] { ' ', ',', ';', '-' }, StringSplitOptions.RemoveEmptyEntries)
+						.Split(new char[] { ' ', ',', ';', '-', '=' }, StringSplitOptions.RemoveEmptyEntries)
 						.Where(c => long.TryParse(c, out _))
 						.Select(long.Parse)
 						.Except(Static.Municipalities[Municipality].WhiteList)
@@ -125,6 +124,12 @@ namespace OsmPipeline
 					Static.Municipalities[Municipality].ImportDate = DateTime.UtcNow;
 					FileSerializer.WriteJson("MaineMunicipalities.json", Static.Municipalities);
 					Console.WriteLine("Finished!");
+				}
+				else if (Is(userInput, "skip"))
+				{
+					Static.Municipalities[Municipality].Notes += " SKIPPED";
+					Static.Municipalities[Municipality].ChangeSetIds.Add(-1);
+					FileSerializer.WriteJson("MaineMunicipalities.json", Static.Municipalities);
 				}
 				else if (Is(userInput, "next"))
 				{
