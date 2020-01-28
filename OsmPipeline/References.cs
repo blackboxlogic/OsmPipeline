@@ -81,6 +81,7 @@ namespace OsmPipeline
 				.ToArray();
 
 			if (!nodes.Any()) return null;
+			HandleBlackTags(nodes, Static.Municipalities[scopeName].BlackTags);
 			nodes = HandleStacks(nodes);
 			var filtered = new Osm() { Nodes = nodes, Version = .6, Bounds = nodes.AsBounds(15) };
 
@@ -129,6 +130,19 @@ namespace OsmPipeline
 		}
 		// Keys which can be removed in order to combine congruent nodes
 		private static string[] SacrificialKeys = new[] { "addr:unit", "level", Static.maineE911id };
+
+		private static void HandleBlackTags(Node[] nodes, IList<string> blackTags)
+		{
+			var byId = nodes.ToDictionary(n => n.Tags[Static.maineE911id]);
+
+			foreach (var tag in blackTags)
+			{
+				var parts = tag.Split(".");
+				var node = byId[parts[0]];
+				node.Tags.RemoveKey(parts[1]);
+				node.Tags.Add(Static.maineE911id + ":" + parts[1], "ommitted");
+			}
+		}
 
 		// a
 		// b

@@ -23,6 +23,7 @@ namespace OsmPipeline
 		Func<string, string, bool> Is = (a,b) => a.StartsWith(b, StringComparison.OrdinalIgnoreCase);
 		private string Municipality;
 
+		// 'edited multiple times' might be ok
 		// log to file?
 		// update osm client
 		// osm client build
@@ -104,6 +105,14 @@ namespace OsmPipeline
 					Static.Municipalities[Municipality].WhiteList.AddRange(selection);
 
 					FileSerializer.WriteJson("MaineMunicipalities.json", Static.Municipalities);
+					File.Delete(Municipality + "/Conflated.osc");
+				}
+				else if (Is(userInput, "blacktag"))
+				{
+					var tag = userInput.Split(' ', 2)[1];
+					Static.Municipalities[Municipality].BlackTags.Add(tag);
+					FileSerializer.WriteJson("MaineMunicipalities.json", Static.Municipalities);
+					File.Delete(Municipality + "/Reference.osm");
 					File.Delete(Municipality + "/Conflated.osc");
 				}
 				else if (Is(userInput, "black"))
@@ -202,7 +211,7 @@ namespace OsmPipeline
 		public void ShowProgress()
 		{
 			var changed = Static.Municipalities.Values.Count(m => m.ChangeSetIds.Any(c => c != -1));
-			var skipped = Static.Municipalities.Values.Count(m => m.ChangeSetIds.All(c => c == -1));
+			var skipped = Static.Municipalities.Values.Count(m => m.ChangeSetIds.Any() && m.ChangeSetIds.All(c => c == -1));
 			Console.WriteLine($"{changed} of {Static.Municipalities.Count} ({skipped} skipped)");
 		}
 	}

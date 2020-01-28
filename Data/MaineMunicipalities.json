@@ -10,7 +10,8 @@
 		"BlackList": [],
 		"WhiteList": [
 			1851090
-		]
+		],
+		"BlackTags": []
 	},
 	"Dixmont": {
 		"Name": "Dixmont",
@@ -21,7 +22,8 @@
 			79995093
 		],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Limestone": {
 		"Name": "Limestone",
@@ -41,7 +43,8 @@
 			1612662,
 			1609239
 		],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Coburn Gore": {
 		"Name": "Coburn Gore",
@@ -54,7 +57,8 @@
 		"BlackList": [],
 		"WhiteList": [
 			1833515
-		]
+		],
+		"BlackTags": []
 	},
 	"T7 R11 WELS": {
 		"Name": "T7 R11 WELS",
@@ -65,7 +69,8 @@
 			80045041
 		],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Parmachenee Twp": {
 		"Name": "Parmachenee Twp",
@@ -76,7 +81,8 @@
 			80045141
 		],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Gorham": {
 		"Name": "Gorham",
@@ -102,7 +108,8 @@
 			1885796,
 			1885706,
 			1888242
-		]
+		],
+		"BlackTags": []
 	},
 	"Hermon": {
 		"Name": "Hermon",
@@ -115,7 +122,8 @@
 		"BlackList": [
 			1495501
 		],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Morrill": {
 		"Name": "Morrill",
@@ -126,7 +134,8 @@
 			80050191
 		],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Kennebunkport": {
 		"Name": "Kennebunkport",
@@ -142,7 +151,8 @@
 		"WhiteList": [
 			1791392,
 			1780296
-		]
+		],
+		"BlackTags": []
 	},
 	"Township C": {
 		"Name": "Township C",
@@ -153,7 +163,8 @@
 			80051301
 		],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Criehaven Twp": {
 		"Name": "Criehaven Twp",
@@ -164,7 +175,8 @@
 			80053163
 		],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Orrington": {
 		"Name": "Orrington",
@@ -175,7 +187,8 @@
 			80053217
 		],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Lee": {
 		"Name": "Lee",
@@ -186,7 +199,8 @@
 			80053303
 		],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Lexington Twp": {
 		"Name": "Lexington Twp",
@@ -199,7 +213,8 @@
 		"BlackList": [],
 		"WhiteList": [
 			2544582
-		]
+		],
+		"BlackTags": []
 	},
 	"Stockholm": {
 		"Name": "Stockholm",
@@ -212,7 +227,8 @@
 		"BlackList": [
 			1824820
 		],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"T2 R10 Wels": {
 		"Name": "T2 R10 Wels",
@@ -223,7 +239,8 @@
 			80053416
 		],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Perham": {
 		"Name": "Perham",
@@ -234,7 +251,8 @@
 			80053462
 		],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Prentiss Twp T4 R4 NBKP": {
 		"Name": "Prentiss Twp T4 R4 NBKP",
@@ -245,7 +263,8 @@
 			80053482
 		],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Veazie": {
 		"Name": "Veazie",
@@ -256,7 +275,8 @@
 			80053550
 		],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Presque Isle": {
 		"Name": "Presque Isle",
@@ -282,7 +302,8 @@
 			2454972,
 			1733230,
 			1867595
-		]
+		],
+		"BlackTags": []
 	},
 	"Dole Brook Twp": {
 		"Name": "Dole Brook Twp",
@@ -293,7 +314,8 @@
 			80075131
 		],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Smyrna": {
 		"Name": "Smyrna",
@@ -304,7 +326,8 @@
 			80075170
 		],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Plymouth": {
 		"Name": "Plymouth",
@@ -315,7 +338,8 @@
 			80075208
 		],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"West Paris": {
 		"Name": "West Paris",
@@ -331,7 +355,8 @@
 			1988170,
 			1721653
 		],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Waldoboro": {
 		"Name": "Waldoboro",
@@ -342,7 +367,8 @@
 			80085506
 		],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Codyville Twp": {
 		"Name": "Codyville Twp",
@@ -353,7 +379,8 @@
 			80085536
 		],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Deer Isle": {
 		"Name": "Deer Isle",
@@ -364,7 +391,8 @@
 			80085559
 		],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Frenchtown Twp": {
 		"Name": "Frenchtown Twp",
@@ -375,7 +403,8 @@
 			80085562
 		],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"T17 R3 Wels": {
 		"Name": "T17 R3 Wels",
@@ -386,7 +415,8 @@
 			80085565
 		],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Cornville": {
 		"Name": "Cornville",
@@ -399,7 +429,8 @@
 		"BlackList": [],
 		"WhiteList": [
 			1621756
-		]
+		],
+		"BlackTags": []
 	},
 	"Levant": {
 		"Name": "Levant",
@@ -410,7 +441,8 @@
 			80085580
 		],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Kenduskeag": {
 		"Name": "Kenduskeag",
@@ -421,7 +453,8 @@
 			80085583
 		],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Columbia": {
 		"Name": "Columbia",
@@ -432,7 +465,8 @@
 			80085598
 		],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Durham": {
 		"Name": "Durham",
@@ -443,7 +477,8 @@
 			80085627
 		],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"T2 R8 Nwp": {
 		"Name": "T2 R8 Nwp",
@@ -454,7 +489,8 @@
 			80085629
 		],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Benedicta Twp": {
 		"Name": "Benedicta Twp",
@@ -465,7 +501,8 @@
 			80085631
 		],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Seboomook Twp": {
 		"Name": "Seboomook Twp",
@@ -476,7 +513,8 @@
 			80085634
 		],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Arundel": {
 		"Name": "Arundel",
@@ -489,7 +527,8 @@
 		"BlackList": [],
 		"WhiteList": [
 			1789986
-		]
+		],
+		"BlackTags": []
 	},
 	"Appleton": {
 		"Name": "Appleton",
@@ -500,7 +539,8 @@
 			80098346
 		],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Sebec": {
 		"Name": "Sebec",
@@ -511,7 +551,8 @@
 			80098432
 		],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"T15 R6 Wels": {
 		"Name": "T15 R6 Wels",
@@ -523,7 +564,8 @@
 			80108048
 		],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"West Gardiner": {
 		"Name": "West Gardiner",
@@ -537,7 +579,8 @@
 			1702161,
 			1698722
 		],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Mayfield Twp": {
 		"Name": "Mayfield Twp",
@@ -548,7 +591,8 @@
 			80110585
 		],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Eustis": {
 		"Name": "Eustis",
@@ -568,7 +612,8 @@
 			1484427,
 			1492626,
 			1736219
-		]
+		],
+		"BlackTags": []
 	},
 	"Unity Twp": {
 		"Name": "Unity Twp",
@@ -579,7 +624,8 @@
 			80206701
 		],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Hopkins Academy Grant Twp": {
 		"Name": "Hopkins Academy Grant Twp",
@@ -590,7 +636,8 @@
 			80206712
 		],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"T9 R11 WELS": {
 		"Name": "T9 R11 WELS",
@@ -601,7 +648,8 @@
 			80206763
 		],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Oqiton Twp": {
 		"Name": "Oqiton Twp",
@@ -612,7 +660,8 @@
 			80206771
 		],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Industry": {
 		"Name": "Industry",
@@ -623,7 +672,8 @@
 			80206814
 		],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Carrying Place Town Twp": {
 		"Name": "Carrying Place Town Twp",
@@ -637,7 +687,8 @@
 		"WhiteList": [
 			1852063,
 			1890821
-		]
+		],
+		"BlackTags": []
 	},
 	"South Berwick": {
 		"Name": "South Berwick",
@@ -646,7 +697,10 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": [
+			"1499760.name"
+		]
 	},
 	"Chebeague Island": {
 		"Name": "Chebeague Island",
@@ -655,7 +709,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Jim Pond Twp": {
 		"Name": "Jim Pond Twp",
@@ -664,7 +719,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Dennysville": {
 		"Name": "Dennysville",
@@ -673,7 +729,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Lake View Plt": {
 		"Name": "Lake View Plt",
@@ -682,7 +739,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Kingman Twp": {
 		"Name": "Kingman Twp",
@@ -691,7 +749,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Newfield": {
 		"Name": "Newfield",
@@ -700,7 +759,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Troy": {
 		"Name": "Troy",
@@ -709,7 +769,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Kittery": {
 		"Name": "Kittery",
@@ -718,7 +779,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Lyman": {
 		"Name": "Lyman",
@@ -727,7 +789,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"T10 R15 WELS": {
 		"Name": "T10 R15 WELS",
@@ -736,7 +799,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Mercer": {
 		"Name": "Mercer",
@@ -745,7 +809,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Jackman": {
 		"Name": "Jackman",
@@ -754,7 +819,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"T7 Sd Bpp": {
 		"Name": "T7 Sd Bpp",
@@ -763,7 +829,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"New Canada": {
 		"Name": "New Canada",
@@ -772,7 +839,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Kibby Twp": {
 		"Name": "Kibby Twp",
@@ -781,7 +849,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Portland": {
 		"Name": "Portland",
@@ -790,7 +859,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Monson": {
 		"Name": "Monson",
@@ -799,7 +869,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Limerick": {
 		"Name": "Limerick",
@@ -808,7 +879,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Jefferson": {
 		"Name": "Jefferson",
@@ -817,7 +889,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Lang Twp": {
 		"Name": "Lang Twp",
@@ -826,7 +899,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Dixfield": {
 		"Name": "Dixfield",
@@ -835,7 +909,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Dedham": {
 		"Name": "Dedham",
@@ -844,7 +919,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Elm Stream Twp": {
 		"Name": "Elm Stream Twp",
@@ -853,7 +929,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Clayton Lake Twp": {
 		"Name": "Clayton Lake Twp",
@@ -862,7 +939,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Wade": {
 		"Name": "Wade",
@@ -871,7 +949,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Reed Plt": {
 		"Name": "Reed Plt",
@@ -880,7 +959,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Haynesville": {
 		"Name": "Haynesville",
@@ -889,7 +969,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"North Berwick": {
 		"Name": "North Berwick",
@@ -898,7 +979,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Indian Twp Res": {
 		"Name": "Indian Twp Res",
@@ -907,7 +989,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Wales": {
 		"Name": "Wales",
@@ -916,7 +999,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Grand Isle": {
 		"Name": "Grand Isle",
@@ -925,7 +1009,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Dexter": {
 		"Name": "Dexter",
@@ -934,7 +1019,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Rumford": {
 		"Name": "Rumford",
@@ -943,7 +1029,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Newry": {
 		"Name": "Newry",
@@ -952,7 +1039,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Solon": {
 		"Name": "Solon",
@@ -961,7 +1049,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Madawaska Lake Twp": {
 		"Name": "Madawaska Lake Twp",
@@ -970,7 +1059,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Glenwood Plt": {
 		"Name": "Glenwood Plt",
@@ -979,7 +1069,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Sidney": {
 		"Name": "Sidney",
@@ -988,7 +1079,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"T11 R13 WELS": {
 		"Name": "T11 R13 WELS",
@@ -997,7 +1089,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Blanchard Twp": {
 		"Name": "Blanchard Twp",
@@ -1006,7 +1099,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Van Buren": {
 		"Name": "Van Buren",
@@ -1015,7 +1109,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Rome": {
 		"Name": "Rome",
@@ -1024,7 +1119,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Corinth": {
 		"Name": "Corinth",
@@ -1033,7 +1129,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Pittston Academy Grant": {
 		"Name": "Pittston Academy Grant",
@@ -1042,7 +1139,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Biddeford": {
 		"Name": "Biddeford",
@@ -1051,7 +1149,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Ta R7 Wels": {
 		"Name": "Ta R7 Wels",
@@ -1060,7 +1159,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"T32 MD BPP": {
 		"Name": "T32 MD BPP",
@@ -1069,7 +1169,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Boothbay": {
 		"Name": "Boothbay",
@@ -1078,7 +1179,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Naples": {
 		"Name": "Naples",
@@ -1087,7 +1189,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Pembroke": {
 		"Name": "Pembroke",
@@ -1096,7 +1199,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Waldo": {
 		"Name": "Waldo",
@@ -1105,7 +1209,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Searsmont": {
 		"Name": "Searsmont",
@@ -1114,7 +1219,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Chelsea": {
 		"Name": "Chelsea",
@@ -1123,7 +1229,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Hibberts Gore": {
 		"Name": "Hibberts Gore",
@@ -1132,7 +1239,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"T11 R9 WELS": {
 		"Name": "T11 R9 WELS",
@@ -1141,7 +1249,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Cornish": {
 		"Name": "Cornish",
@@ -1150,7 +1259,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Amity": {
 		"Name": "Amity",
@@ -1159,7 +1269,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Gilead": {
 		"Name": "Gilead",
@@ -1168,7 +1279,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"T7 R12 Wels": {
 		"Name": "T7 R12 Wels",
@@ -1177,7 +1289,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Pownal": {
 		"Name": "Pownal",
@@ -1186,7 +1299,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Greenfield Twp": {
 		"Name": "Greenfield Twp",
@@ -1195,7 +1309,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Old Orchard Beach": {
 		"Name": "Old Orchard Beach",
@@ -1204,7 +1319,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"New Portland": {
 		"Name": "New Portland",
@@ -1213,7 +1329,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Sherman": {
 		"Name": "Sherman",
@@ -1222,7 +1339,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Great Pond": {
 		"Name": "Great Pond",
@@ -1231,7 +1349,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Washington Twp": {
 		"Name": "Washington Twp",
@@ -1240,7 +1359,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Milo": {
 		"Name": "Milo",
@@ -1249,7 +1369,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Temple": {
 		"Name": "Temple",
@@ -1258,7 +1379,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Kossuth Twp": {
 		"Name": "Kossuth Twp",
@@ -1267,7 +1389,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"T7 R8 Wels": {
 		"Name": "T7 R8 Wels",
@@ -1276,7 +1399,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Moosehead Junction Twp": {
 		"Name": "Moosehead Junction Twp",
@@ -1285,7 +1409,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Litchfield": {
 		"Name": "Litchfield",
@@ -1294,7 +1419,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Argyle Twp": {
 		"Name": "Argyle Twp",
@@ -1303,7 +1429,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Paris": {
 		"Name": "Paris",
@@ -1312,7 +1439,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Caratunk": {
 		"Name": "Caratunk",
@@ -1321,7 +1449,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"T16 R5 Wels": {
 		"Name": "T16 R5 Wels",
@@ -1330,7 +1459,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Islesboro": {
 		"Name": "Islesboro",
@@ -1339,7 +1469,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Bradford": {
 		"Name": "Bradford",
@@ -1348,7 +1479,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Vanceboro": {
 		"Name": "Vanceboro",
@@ -1357,7 +1489,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"New Vineyard": {
 		"Name": "New Vineyard",
@@ -1366,7 +1499,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"T41 Md Bpp": {
 		"Name": "T41 Md Bpp",
@@ -1375,7 +1509,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Woolwich": {
 		"Name": "Woolwich",
@@ -1384,7 +1519,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Jonesboro": {
 		"Name": "Jonesboro",
@@ -1393,7 +1529,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Sandy River Plt": {
 		"Name": "Sandy River Plt",
@@ -1402,7 +1539,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Roque Bluffs": {
 		"Name": "Roque Bluffs",
@@ -1411,7 +1549,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Sorrento": {
 		"Name": "Sorrento",
@@ -1420,7 +1559,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Westbrook": {
 		"Name": "Westbrook",
@@ -1576,7 +1716,8 @@
 			1832328,
 			1828412,
 			1831956
-		]
+		],
+		"BlackTags": []
 	},
 	"Edmunds Twp": {
 		"Name": "Edmunds Twp",
@@ -1585,7 +1726,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Monticello": {
 		"Name": "Monticello",
@@ -1594,7 +1736,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Lovell": {
 		"Name": "Lovell",
@@ -1603,7 +1746,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"T19 Ed Bpp": {
 		"Name": "T19 Ed Bpp",
@@ -1612,7 +1756,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Bristol": {
 		"Name": "Bristol",
@@ -1621,7 +1766,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Greenwood": {
 		"Name": "Greenwood",
@@ -1630,7 +1776,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Charlotte": {
 		"Name": "Charlotte",
@@ -1639,7 +1786,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"East Machias": {
 		"Name": "East Machias",
@@ -1648,7 +1796,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Stoneham": {
 		"Name": "Stoneham",
@@ -1657,7 +1806,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"T2 R9 Wels": {
 		"Name": "T2 R9 Wels",
@@ -1666,7 +1816,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Riley Twp": {
 		"Name": "Riley Twp",
@@ -1675,7 +1826,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Atkinson Twp": {
 		"Name": "Atkinson Twp",
@@ -1684,7 +1836,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Lagrange": {
 		"Name": "Lagrange",
@@ -1693,7 +1846,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Allagash": {
 		"Name": "Allagash",
@@ -1702,7 +1856,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Wyman Twp": {
 		"Name": "Wyman Twp",
@@ -1711,7 +1866,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Harfords Point Twp": {
 		"Name": "Harfords Point Twp",
@@ -1720,7 +1876,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Saco": {
 		"Name": "Saco",
@@ -1729,7 +1886,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Matinicus Isle Plt": {
 		"Name": "Matinicus Isle Plt",
@@ -1738,7 +1896,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Gray": {
 		"Name": "Gray",
@@ -1747,7 +1906,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Pierce Pond Twp": {
 		"Name": "Pierce Pond Twp",
@@ -1756,7 +1916,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Kingsbury Plt": {
 		"Name": "Kingsbury Plt",
@@ -1765,7 +1926,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Lowelltown Twp": {
 		"Name": "Lowelltown Twp",
@@ -1774,7 +1936,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Damariscotta": {
 		"Name": "Damariscotta",
@@ -1783,7 +1946,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Hiram": {
 		"Name": "Hiram",
@@ -1792,7 +1956,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Brownville": {
 		"Name": "Brownville",
@@ -1801,7 +1966,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Wells": {
 		"Name": "Wells",
@@ -1810,7 +1976,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Hope": {
 		"Name": "Hope",
@@ -1819,7 +1986,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Cedar Lake Twp": {
 		"Name": "Cedar Lake Twp",
@@ -1828,7 +1996,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Moosehead Lake": {
 		"Name": "Moosehead Lake",
@@ -1837,7 +2006,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"T34 MD BPP": {
 		"Name": "T34 MD BPP",
@@ -1846,7 +2016,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"T1 R8 Wels": {
 		"Name": "T1 R8 Wels",
@@ -1855,7 +2026,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Sabattus": {
 		"Name": "Sabattus",
@@ -1864,7 +2036,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"T4 R10 Wels": {
 		"Name": "T4 R10 Wels",
@@ -1873,7 +2046,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Atkinson": {
 		"Name": "Atkinson",
@@ -1882,7 +2056,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Plymouth Twp": {
 		"Name": "Plymouth Twp",
@@ -1891,7 +2066,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Medway": {
 		"Name": "Medway",
@@ -1900,7 +2076,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Addison": {
 		"Name": "Addison",
@@ -1909,7 +2086,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Blake Gore": {
 		"Name": "Blake Gore",
@@ -1918,7 +2096,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Molunkus Twp": {
 		"Name": "Molunkus Twp",
@@ -1927,7 +2106,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Nobleboro": {
 		"Name": "Nobleboro",
@@ -1936,7 +2116,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Jonesport": {
 		"Name": "Jonesport",
@@ -1945,7 +2126,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Osborn": {
 		"Name": "Osborn",
@@ -1954,7 +2136,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Friendship": {
 		"Name": "Friendship",
@@ -1963,7 +2146,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Winterville Plt": {
 		"Name": "Winterville Plt",
@@ -1972,7 +2156,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Readfield": {
 		"Name": "Readfield",
@@ -1981,7 +2166,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Harpswell": {
 		"Name": "Harpswell",
@@ -1990,7 +2176,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Easton": {
 		"Name": "Easton",
@@ -1999,7 +2186,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Bridgewater": {
 		"Name": "Bridgewater",
@@ -2008,7 +2196,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"T28 Md Bpp": {
 		"Name": "T28 Md Bpp",
@@ -2017,7 +2206,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Baileyville": {
 		"Name": "Baileyville",
@@ -2026,7 +2216,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Moscow": {
 		"Name": "Moscow",
@@ -2035,7 +2226,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Weston": {
 		"Name": "Weston",
@@ -2044,7 +2236,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"T6 Nd Bpp": {
 		"Name": "T6 Nd Bpp",
@@ -2053,7 +2246,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Sullivan": {
 		"Name": "Sullivan",
@@ -2062,7 +2256,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Cushing": {
 		"Name": "Cushing",
@@ -2071,7 +2266,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Casco": {
 		"Name": "Casco",
@@ -2080,7 +2276,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"T11 R16 WELS": {
 		"Name": "T11 R16 WELS",
@@ -2089,7 +2286,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"West Bath": {
 		"Name": "West Bath",
@@ -2098,7 +2296,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"T12 R13 WELS": {
 		"Name": "T12 R13 WELS",
@@ -2107,7 +2306,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Alder Brook Twp": {
 		"Name": "Alder Brook Twp",
@@ -2116,7 +2316,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Pukakon Twp": {
 		"Name": "Pukakon Twp",
@@ -2125,7 +2326,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Clinton": {
 		"Name": "Clinton",
@@ -2134,7 +2336,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Washburn": {
 		"Name": "Washburn",
@@ -2143,7 +2346,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Frenchboro": {
 		"Name": "Frenchboro",
@@ -2152,7 +2356,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Palermo": {
 		"Name": "Palermo",
@@ -2161,7 +2366,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Bowdoin College Grant East Twp": {
 		"Name": "Bowdoin College Grant East Twp",
@@ -2170,7 +2376,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Bangor": {
 		"Name": "Bangor",
@@ -2179,7 +2386,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Berry Twp": {
 		"Name": "Berry Twp",
@@ -2188,7 +2396,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Sebago": {
 		"Name": "Sebago",
@@ -2197,7 +2406,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Cyr Plt": {
 		"Name": "Cyr Plt",
@@ -2206,7 +2416,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"T3 R13 WELS": {
 		"Name": "T3 R13 WELS",
@@ -2215,7 +2426,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Howland": {
 		"Name": "Howland",
@@ -2224,7 +2436,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Mexico": {
 		"Name": "Mexico",
@@ -2233,7 +2446,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Winn": {
 		"Name": "Winn",
@@ -2242,7 +2456,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"T9 R12 WELS": {
 		"Name": "T9 R12 WELS",
@@ -2251,7 +2466,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Aurora": {
 		"Name": "Aurora",
@@ -2260,7 +2476,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Steuben": {
 		"Name": "Steuben",
@@ -2269,7 +2486,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Long A Twp": {
 		"Name": "Long A Twp",
@@ -2278,7 +2496,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Surry": {
 		"Name": "Surry",
@@ -2287,7 +2506,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Bremen": {
 		"Name": "Bremen",
@@ -2296,7 +2516,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"T4 R7 WELS": {
 		"Name": "T4 R7 WELS",
@@ -2305,7 +2526,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Robbinston": {
 		"Name": "Robbinston",
@@ -2314,7 +2536,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Whitneyville": {
 		"Name": "Whitneyville",
@@ -2323,7 +2546,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Frye Island": {
 		"Name": "Frye Island",
@@ -2332,7 +2556,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Whiting": {
 		"Name": "Whiting",
@@ -2341,7 +2566,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"T5 R8 WELS": {
 		"Name": "T5 R8 WELS",
@@ -2350,7 +2576,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Mapleton": {
 		"Name": "Mapleton",
@@ -2359,7 +2586,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Skinner Twp": {
 		"Name": "Skinner Twp",
@@ -2368,7 +2596,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Acton": {
 		"Name": "Acton",
@@ -2377,7 +2606,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Bancroft Twp": {
 		"Name": "Bancroft Twp",
@@ -2386,7 +2616,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Mount Chase": {
 		"Name": "Mount Chase",
@@ -2395,7 +2626,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Katahdin Iron Works Twp": {
 		"Name": "Katahdin Iron Works Twp",
@@ -2404,7 +2636,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Grand Falls Twp": {
 		"Name": "Grand Falls Twp",
@@ -2413,7 +2646,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Kineo Twp": {
 		"Name": "Kineo Twp",
@@ -2422,7 +2656,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Bethel": {
 		"Name": "Bethel",
@@ -2431,7 +2666,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Webster Plt": {
 		"Name": "Webster Plt",
@@ -2440,7 +2676,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Livermore Falls": {
 		"Name": "Livermore Falls",
@@ -2449,7 +2686,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Caribou": {
 		"Name": "Caribou",
@@ -2458,7 +2696,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Orono": {
 		"Name": "Orono",
@@ -2467,7 +2706,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Norridgewock": {
 		"Name": "Norridgewock",
@@ -2476,7 +2716,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Eliot": {
 		"Name": "Eliot",
@@ -2485,7 +2726,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Falmouth": {
 		"Name": "Falmouth",
@@ -2494,7 +2736,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Forsyth Twp": {
 		"Name": "Forsyth Twp",
@@ -2503,7 +2746,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Lebanon": {
 		"Name": "Lebanon",
@@ -2512,7 +2756,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Franklin": {
 		"Name": "Franklin",
@@ -2521,7 +2766,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Springfield": {
 		"Name": "Springfield",
@@ -2530,7 +2776,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Fletchers Landing Twp": {
 		"Name": "Fletchers Landing Twp",
@@ -2539,7 +2786,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"T2 R8 WELS": {
 		"Name": "T2 R8 WELS",
@@ -2548,7 +2796,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Harmony": {
 		"Name": "Harmony",
@@ -2557,7 +2806,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"South Portland": {
 		"Name": "South Portland",
@@ -2566,7 +2816,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Mount Desert": {
 		"Name": "Mount Desert",
@@ -2575,7 +2826,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Chesuncook Twp": {
 		"Name": "Chesuncook Twp",
@@ -2584,7 +2836,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Harrison": {
 		"Name": "Harrison",
@@ -2593,7 +2846,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Garfield Plt": {
 		"Name": "Garfield Plt",
@@ -2602,7 +2856,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Oakfield": {
 		"Name": "Oakfield",
@@ -2611,7 +2866,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Marshfield": {
 		"Name": "Marshfield",
@@ -2620,7 +2876,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Palmyra": {
 		"Name": "Palmyra",
@@ -2629,7 +2886,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Chase Stream Twp": {
 		"Name": "Chase Stream Twp",
@@ -2638,7 +2896,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Dover-Foxcroft": {
 		"Name": "Dover-Foxcroft",
@@ -2647,7 +2906,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Brooksville": {
 		"Name": "Brooksville",
@@ -2656,7 +2916,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Dennistown Plt": {
 		"Name": "Dennistown Plt",
@@ -2665,7 +2926,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Caswell": {
 		"Name": "Caswell",
@@ -2674,7 +2936,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Carthage": {
 		"Name": "Carthage",
@@ -2683,7 +2946,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Castine": {
 		"Name": "Castine",
@@ -2692,7 +2956,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Cherryfield": {
 		"Name": "Cherryfield",
@@ -2701,7 +2966,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Hebron": {
 		"Name": "Hebron",
@@ -2710,7 +2976,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Greenbush": {
 		"Name": "Greenbush",
@@ -2719,7 +2986,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Saint Francis": {
 		"Name": "Saint Francis",
@@ -2728,7 +2996,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Deblois": {
 		"Name": "Deblois",
@@ -2737,7 +3006,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Waterville": {
 		"Name": "Waterville",
@@ -2746,7 +3016,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Belmont": {
 		"Name": "Belmont",
@@ -2755,7 +3026,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Sinclair Twp": {
 		"Name": "Sinclair Twp",
@@ -2764,7 +3036,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Soldiertown Twp T2 R3 Nbkp": {
 		"Name": "Soldiertown Twp T2 R3 Nbkp",
@@ -2773,7 +3046,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Passadumkeag": {
 		"Name": "Passadumkeag",
@@ -2782,7 +3056,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Bowerbank": {
 		"Name": "Bowerbank",
@@ -2791,7 +3066,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Flagstaff Twp": {
 		"Name": "Flagstaff Twp",
@@ -2800,7 +3076,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Soper Mountain Twp": {
 		"Name": "Soper Mountain Twp",
@@ -2809,7 +3086,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"T9 R8 Wels": {
 		"Name": "T9 R8 Wels",
@@ -2818,7 +3096,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Dallas Plt": {
 		"Name": "Dallas Plt",
@@ -2827,7 +3106,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"T5 R20 Wels": {
 		"Name": "T5 R20 Wels",
@@ -2836,7 +3116,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Fowler Twp": {
 		"Name": "Fowler Twp",
@@ -2845,7 +3126,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Lincolnville": {
 		"Name": "Lincolnville",
@@ -2854,7 +3136,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Concord Twp": {
 		"Name": "Concord Twp",
@@ -2863,7 +3146,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Holeb Twp": {
 		"Name": "Holeb Twp",
@@ -2872,7 +3156,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Hartland": {
 		"Name": "Hartland",
@@ -2881,7 +3166,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"TD R2 WELS": {
 		"Name": "TD R2 WELS",
@@ -2890,7 +3176,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"South Thomaston": {
 		"Name": "South Thomaston",
@@ -2899,7 +3186,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Kingfield": {
 		"Name": "Kingfield",
@@ -2908,7 +3196,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Buxton": {
 		"Name": "Buxton",
@@ -2917,7 +3206,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"T2 R12 Wels": {
 		"Name": "T2 R12 Wels",
@@ -2926,7 +3216,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Attean Twp": {
 		"Name": "Attean Twp",
@@ -2935,7 +3226,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Albany Twp": {
 		"Name": "Albany Twp",
@@ -2944,7 +3236,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Brooklin": {
 		"Name": "Brooklin",
@@ -2953,7 +3246,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Chesterville": {
 		"Name": "Chesterville",
@@ -2962,7 +3256,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Brewer": {
 		"Name": "Brewer",
@@ -2971,7 +3266,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Houlton": {
 		"Name": "Houlton",
@@ -2980,7 +3276,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Jackson": {
 		"Name": "Jackson",
@@ -2989,7 +3286,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"T1 R9 Wels": {
 		"Name": "T1 R9 Wels",
@@ -2998,7 +3296,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Patten": {
 		"Name": "Patten",
@@ -3007,7 +3306,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Piscataquis County Island": {
 		"Name": "Piscataquis County Island",
@@ -3016,7 +3316,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Tb R10 Wels": {
 		"Name": "Tb R10 Wels",
@@ -3025,7 +3326,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Waterboro": {
 		"Name": "Waterboro",
@@ -3034,7 +3336,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Centerville Twp": {
 		"Name": "Centerville Twp",
@@ -3043,7 +3346,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"T3 R4 Bkp Wkr": {
 		"Name": "T3 R4 Bkp Wkr",
@@ -3052,7 +3356,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Forest Twp": {
 		"Name": "Forest Twp",
@@ -3061,7 +3366,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Milford": {
 		"Name": "Milford",
@@ -3070,7 +3376,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Mattawamkeag": {
 		"Name": "Mattawamkeag",
@@ -3079,7 +3386,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Connor Twp": {
 		"Name": "Connor Twp",
@@ -3088,7 +3396,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Belgrade": {
 		"Name": "Belgrade",
@@ -3097,7 +3406,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Ebeemee Twp": {
 		"Name": "Ebeemee Twp",
@@ -3106,7 +3416,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Rockport": {
 		"Name": "Rockport",
@@ -3115,7 +3426,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Lubec": {
 		"Name": "Lubec",
@@ -3124,7 +3436,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Andover North Surplus Twp": {
 		"Name": "Andover North Surplus Twp",
@@ -3133,7 +3446,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Blue Hill": {
 		"Name": "Blue Hill",
@@ -3142,7 +3456,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"South Bristol": {
 		"Name": "South Bristol",
@@ -3151,7 +3466,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Livermore": {
 		"Name": "Livermore",
@@ -3160,7 +3476,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Bar Harbor": {
 		"Name": "Bar Harbor",
@@ -3169,7 +3486,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Shapleigh": {
 		"Name": "Shapleigh",
@@ -3178,7 +3496,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Crystal": {
 		"Name": "Crystal",
@@ -3187,7 +3506,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Mars Hill": {
 		"Name": "Mars Hill",
@@ -3196,7 +3516,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Maxfield": {
 		"Name": "Maxfield",
@@ -3205,7 +3526,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Cary Twp": {
 		"Name": "Cary Twp",
@@ -3214,7 +3536,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Isle au Haut": {
 		"Name": "Isle au Haut",
@@ -3223,7 +3546,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Mattamiscontis Twp": {
 		"Name": "Mattamiscontis Twp",
@@ -3232,7 +3556,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Auburn": {
 		"Name": "Auburn",
@@ -3241,7 +3566,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Bridgton": {
 		"Name": "Bridgton",
@@ -3250,7 +3576,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Rangeley": {
 		"Name": "Rangeley",
@@ -3259,7 +3586,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Lily Bay Twp": {
 		"Name": "Lily Bay Twp",
@@ -3268,7 +3596,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"T6 R6 Wels": {
 		"Name": "T6 R6 Wels",
@@ -3277,7 +3606,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"T13 R8 WELS": {
 		"Name": "T13 R8 WELS",
@@ -3286,7 +3616,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Linneus": {
 		"Name": "Linneus",
@@ -3295,7 +3626,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Pleasant Point": {
 		"Name": "Pleasant Point",
@@ -3304,7 +3636,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Athens": {
 		"Name": "Athens",
@@ -3313,7 +3646,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Parkman": {
 		"Name": "Parkman",
@@ -3322,7 +3656,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Monroe": {
 		"Name": "Monroe",
@@ -3331,7 +3666,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Long Pond Twp": {
 		"Name": "Long Pond Twp",
@@ -3340,7 +3676,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"T35 Md Bpp": {
 		"Name": "T35 Md Bpp",
@@ -3349,7 +3686,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"T5 R7 BKP WKR": {
 		"Name": "T5 R7 BKP WKR",
@@ -3358,7 +3696,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Wallagrass": {
 		"Name": "Wallagrass",
@@ -3367,7 +3706,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Cross Lake Twp": {
 		"Name": "Cross Lake Twp",
@@ -3376,7 +3716,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"The Forks Plt": {
 		"Name": "The Forks Plt",
@@ -3385,7 +3726,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Davis Twp": {
 		"Name": "Davis Twp",
@@ -3394,7 +3736,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Freeman Twp": {
 		"Name": "Freeman Twp",
@@ -3403,7 +3746,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Bowdoin": {
 		"Name": "Bowdoin",
@@ -3412,7 +3756,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Northport": {
 		"Name": "Northport",
@@ -3421,7 +3766,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Medford": {
 		"Name": "Medford",
@@ -3430,7 +3776,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"East Moxie Twp": {
 		"Name": "East Moxie Twp",
@@ -3439,7 +3786,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Randolph": {
 		"Name": "Randolph",
@@ -3448,7 +3796,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Ashland": {
 		"Name": "Ashland",
@@ -3457,7 +3806,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Gouldsboro": {
 		"Name": "Gouldsboro",
@@ -3466,7 +3816,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Magalloway Plt": {
 		"Name": "Magalloway Plt",
@@ -3475,7 +3826,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Sweden": {
 		"Name": "Sweden",
@@ -3484,7 +3836,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Old Town": {
 		"Name": "Old Town",
@@ -3493,7 +3846,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Warren": {
 		"Name": "Warren",
@@ -3502,7 +3856,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"T3 R12 WELS": {
 		"Name": "T3 R12 WELS",
@@ -3511,7 +3866,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Lambert Lake Twp": {
 		"Name": "Lambert Lake Twp",
@@ -3520,7 +3876,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Exeter": {
 		"Name": "Exeter",
@@ -3529,7 +3886,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Beddington": {
 		"Name": "Beddington",
@@ -3538,7 +3896,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"China": {
 		"Name": "China",
@@ -3547,7 +3906,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Northfield": {
 		"Name": "Northfield",
@@ -3556,7 +3916,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Misery Gore Twp": {
 		"Name": "Misery Gore Twp",
@@ -3565,7 +3926,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"T11 R11 WELS": {
 		"Name": "T11 R11 WELS",
@@ -3574,7 +3936,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Canaan": {
 		"Name": "Canaan",
@@ -3583,7 +3946,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Winslow": {
 		"Name": "Winslow",
@@ -3592,7 +3956,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Washington": {
 		"Name": "Washington",
@@ -3601,7 +3966,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Richmond": {
 		"Name": "Richmond",
@@ -3610,7 +3976,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Taunton & Raynham Academy Grant": {
 		"Name": "Taunton & Raynham Academy Grant",
@@ -3619,7 +3986,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Burnham": {
 		"Name": "Burnham",
@@ -3628,7 +3996,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Gorham Gore": {
 		"Name": "Gorham Gore",
@@ -3637,7 +4006,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"T3 R11 Wels": {
 		"Name": "T3 R11 Wels",
@@ -3646,7 +4016,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Corinna": {
 		"Name": "Corinna",
@@ -3655,7 +4026,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Owls Head": {
 		"Name": "Owls Head",
@@ -3664,7 +4036,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Swanville": {
 		"Name": "Swanville",
@@ -3673,7 +4046,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Silver Ridge Twp": {
 		"Name": "Silver Ridge Twp",
@@ -3682,7 +4056,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Mariaville": {
 		"Name": "Mariaville",
@@ -3691,7 +4066,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Blaine": {
 		"Name": "Blaine",
@@ -3700,7 +4076,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Camden": {
 		"Name": "Camden",
@@ -3709,7 +4086,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Abbot": {
 		"Name": "Abbot",
@@ -3718,7 +4096,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Dead River Twp": {
 		"Name": "Dead River Twp",
@@ -3727,7 +4106,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Indian Island": {
 		"Name": "Indian Island",
@@ -3736,7 +4116,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Windham": {
 		"Name": "Windham",
@@ -3745,7 +4126,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Enfield": {
 		"Name": "Enfield",
@@ -3754,7 +4136,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Cathance Twp": {
 		"Name": "Cathance Twp",
@@ -3763,7 +4146,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Hartford": {
 		"Name": "Hartford",
@@ -3772,7 +4156,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Sakom Twp": {
 		"Name": "Sakom Twp",
@@ -3781,7 +4166,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Grindstone Twp": {
 		"Name": "Grindstone Twp",
@@ -3790,7 +4176,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Poland": {
 		"Name": "Poland",
@@ -3799,7 +4186,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"E Twp": {
 		"Name": "E Twp",
@@ -3808,7 +4196,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Scarborough": {
 		"Name": "Scarborough",
@@ -3817,7 +4206,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Ripley": {
 		"Name": "Ripley",
@@ -3826,7 +4216,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"T3 R1 Nbpp": {
 		"Name": "T3 R1 Nbpp",
@@ -3835,7 +4226,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Fayette": {
 		"Name": "Fayette",
@@ -3844,7 +4236,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Comstock Twp": {
 		"Name": "Comstock Twp",
@@ -3853,7 +4246,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Alfred": {
 		"Name": "Alfred",
@@ -3862,7 +4256,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Winter Harbor": {
 		"Name": "Winter Harbor",
@@ -3871,7 +4266,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Cumberland": {
 		"Name": "Cumberland",
@@ -3880,7 +4276,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Meddybemps": {
 		"Name": "Meddybemps",
@@ -3889,7 +4286,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Littleton": {
 		"Name": "Littleton",
@@ -3898,7 +4296,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Barnard Twp": {
 		"Name": "Barnard Twp",
@@ -3907,7 +4306,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Belfast": {
 		"Name": "Belfast",
@@ -3916,7 +4316,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Bowdoinham": {
 		"Name": "Bowdoinham",
@@ -3925,7 +4326,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Lincoln": {
 		"Name": "Lincoln",
@@ -3934,7 +4336,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Pittsfield": {
 		"Name": "Pittsfield",
@@ -3943,7 +4346,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Upton": {
 		"Name": "Upton",
@@ -3952,7 +4356,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"T8 R4 Nbpp": {
 		"Name": "T8 R4 Nbpp",
@@ -3961,7 +4366,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"T2 R9 NWP": {
 		"Name": "T2 R9 NWP",
@@ -3970,7 +4376,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Ellsworth": {
 		"Name": "Ellsworth",
@@ -3979,7 +4386,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Grand Lake Stream Plt": {
 		"Name": "Grand Lake Stream Plt",
@@ -3988,7 +4396,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Bingham": {
 		"Name": "Bingham",
@@ -3997,7 +4406,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Andover": {
 		"Name": "Andover",
@@ -4006,7 +4416,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Greenlaw Chopping Twp": {
 		"Name": "Greenlaw Chopping Twp",
@@ -4015,7 +4426,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Georgetown": {
 		"Name": "Georgetown",
@@ -4024,7 +4436,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Merrill": {
 		"Name": "Merrill",
@@ -4033,7 +4446,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Peru": {
 		"Name": "Peru",
@@ -4042,7 +4456,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"T22 Md Bpp": {
 		"Name": "T22 Md Bpp",
@@ -4051,7 +4466,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Day Block Twp": {
 		"Name": "Day Block Twp",
@@ -4060,7 +4476,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Thomaston": {
 		"Name": "Thomaston",
@@ -4069,7 +4486,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Topsham": {
 		"Name": "Topsham",
@@ -4078,7 +4496,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Vienna": {
 		"Name": "Vienna",
@@ -4087,7 +4506,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Montville": {
 		"Name": "Montville",
@@ -4096,7 +4516,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"T9 R5 Wels": {
 		"Name": "T9 R5 Wels",
@@ -4105,7 +4526,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Rockwood Strip T1 R1 Nbkp": {
 		"Name": "Rockwood Strip T1 R1 Nbkp",
@@ -4114,7 +4536,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Searsport": {
 		"Name": "Searsport",
@@ -4123,7 +4546,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Mechanic Falls": {
 		"Name": "Mechanic Falls",
@@ -4132,7 +4556,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Shirley": {
 		"Name": "Shirley",
@@ -4141,7 +4566,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Lamoine": {
 		"Name": "Lamoine",
@@ -4150,7 +4576,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"T10 Sd Bpp": {
 		"Name": "T10 Sd Bpp",
@@ -4159,7 +4586,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Jay": {
 		"Name": "Jay",
@@ -4168,7 +4596,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Rockland": {
 		"Name": "Rockland",
@@ -4177,7 +4606,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Starks": {
 		"Name": "Starks",
@@ -4186,7 +4616,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"T7 R9 NWP": {
 		"Name": "T7 R9 NWP",
@@ -4195,7 +4626,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Smithfield": {
 		"Name": "Smithfield",
@@ -4204,7 +4636,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Stow": {
 		"Name": "Stow",
@@ -4213,7 +4646,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Forest City Twp": {
 		"Name": "Forest City Twp",
@@ -4222,7 +4656,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Newport": {
 		"Name": "Newport",
@@ -4231,7 +4666,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"T4 R13 Wels": {
 		"Name": "T4 R13 Wels",
@@ -4240,7 +4676,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Sumner": {
 		"Name": "Sumner",
@@ -4249,7 +4686,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Devereaux Twp": {
 		"Name": "Devereaux Twp",
@@ -4258,7 +4696,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Sapling Twp": {
 		"Name": "Sapling Twp",
@@ -4267,7 +4706,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Burlington": {
 		"Name": "Burlington",
@@ -4276,7 +4716,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Fairfield": {
 		"Name": "Fairfield",
@@ -4285,7 +4726,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"New Limerick": {
 		"Name": "New Limerick",
@@ -4294,7 +4736,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Bradley": {
 		"Name": "Bradley",
@@ -4303,7 +4746,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Prospect": {
 		"Name": "Prospect",
@@ -4312,7 +4756,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Woodland": {
 		"Name": "Woodland",
@@ -4321,7 +4766,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Millinocket": {
 		"Name": "Millinocket",
@@ -4330,7 +4776,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"T9 R3 WELS": {
 		"Name": "T9 R3 WELS",
@@ -4339,7 +4786,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Ta R11 Wels": {
 		"Name": "Ta R11 Wels",
@@ -4348,7 +4796,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Fort Kent": {
 		"Name": "Fort Kent",
@@ -4357,7 +4806,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Nashville Plt": {
 		"Name": "Nashville Plt",
@@ -4366,7 +4816,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Ta R2 Wels": {
 		"Name": "Ta R2 Wels",
@@ -4375,7 +4826,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Knox": {
 		"Name": "Knox",
@@ -4384,7 +4836,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Bucksport": {
 		"Name": "Bucksport",
@@ -4393,7 +4846,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Etna": {
 		"Name": "Etna",
@@ -4402,7 +4856,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Frankfort": {
 		"Name": "Frankfort",
@@ -4411,7 +4866,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Ludlow": {
 		"Name": "Ludlow",
@@ -4420,7 +4876,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Highland Plt": {
 		"Name": "Highland Plt",
@@ -4429,7 +4886,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Eagle Lake": {
 		"Name": "Eagle Lake",
@@ -4438,7 +4896,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Crawford": {
 		"Name": "Crawford",
@@ -4447,7 +4906,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Limington": {
 		"Name": "Limington",
@@ -4456,7 +4916,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Cutler": {
 		"Name": "Cutler",
@@ -4465,7 +4926,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Stockton Springs": {
 		"Name": "Stockton Springs",
@@ -4474,7 +4936,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Talmadge": {
 		"Name": "Talmadge",
@@ -4483,7 +4946,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Greenville": {
 		"Name": "Greenville",
@@ -4492,7 +4956,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Garland": {
 		"Name": "Garland",
@@ -4501,7 +4966,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Mason Twp": {
 		"Name": "Mason Twp",
@@ -4510,7 +4976,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Sandbar Tract Twp": {
 		"Name": "Sandbar Tract Twp",
@@ -4519,7 +4986,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Prentiss Twp T7 R3 NBPP": {
 		"Name": "Prentiss Twp T7 R3 NBPP",
@@ -4528,7 +4996,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Liberty": {
 		"Name": "Liberty",
@@ -4537,7 +5006,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Boothbay Harbor": {
 		"Name": "Boothbay Harbor",
@@ -4546,7 +5016,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Ogunquit": {
 		"Name": "Ogunquit",
@@ -4555,7 +5026,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"T37 MD BPP": {
 		"Name": "T37 MD BPP",
@@ -4564,7 +5036,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"West Forks Plt": {
 		"Name": "West Forks Plt",
@@ -4573,7 +5046,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Berwick": {
 		"Name": "Berwick",
@@ -4582,7 +5056,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Saint Agatha": {
 		"Name": "Saint Agatha",
@@ -4591,7 +5066,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Phippsburg": {
 		"Name": "Phippsburg",
@@ -4600,7 +5076,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Northeast Carry Twp": {
 		"Name": "Northeast Carry Twp",
@@ -4609,7 +5086,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Southport": {
 		"Name": "Southport",
@@ -4618,7 +5096,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Trenton": {
 		"Name": "Trenton",
@@ -4627,7 +5106,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Moro Plt": {
 		"Name": "Moro Plt",
@@ -4636,7 +5116,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"T4 Indian Purchase Twp": {
 		"Name": "T4 Indian Purchase Twp",
@@ -4645,7 +5126,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"T14 R5 Wels": {
 		"Name": "T14 R5 Wels",
@@ -4654,7 +5136,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Coplin Plt": {
 		"Name": "Coplin Plt",
@@ -4663,7 +5146,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"T2 R13 WELS": {
 		"Name": "T2 R13 WELS",
@@ -4672,7 +5156,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Marion Twp": {
 		"Name": "Marion Twp",
@@ -4681,7 +5166,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Parlin Pond Twp": {
 		"Name": "Parlin Pond Twp",
@@ -4690,7 +5176,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Princeton": {
 		"Name": "Princeton",
@@ -4699,7 +5186,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Dresden": {
 		"Name": "Dresden",
@@ -4708,7 +5196,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Amherst": {
 		"Name": "Amherst",
@@ -4717,7 +5206,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Macwahoc Plt": {
 		"Name": "Macwahoc Plt",
@@ -4726,7 +5216,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Yarmouth": {
 		"Name": "Yarmouth",
@@ -4735,7 +5226,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Oxbow North Twp": {
 		"Name": "Oxbow North Twp",
@@ -4744,7 +5236,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Summit Twp": {
 		"Name": "Summit Twp",
@@ -4753,7 +5246,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"T14 R7 WELS": {
 		"Name": "T14 R7 WELS",
@@ -4762,7 +5256,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Verona Island": {
 		"Name": "Verona Island",
@@ -4771,7 +5266,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Orland": {
 		"Name": "Orland",
@@ -4780,7 +5276,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Vassalboro": {
 		"Name": "Vassalboro",
@@ -4789,7 +5286,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Waltham": {
 		"Name": "Waltham",
@@ -4798,7 +5296,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Seboeis Plt": {
 		"Name": "Seboeis Plt",
@@ -4807,7 +5306,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Stonington": {
 		"Name": "Stonington",
@@ -4816,7 +5316,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Lower Cupsuptic Twp": {
 		"Name": "Lower Cupsuptic Twp",
@@ -4825,7 +5326,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"T3 Indian Purchase Twp": {
 		"Name": "T3 Indian Purchase Twp",
@@ -4834,7 +5336,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Salem Twp": {
 		"Name": "Salem Twp",
@@ -4843,7 +5346,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"New Gloucester": {
 		"Name": "New Gloucester",
@@ -4852,7 +5356,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Drew Plt": {
 		"Name": "Drew Plt",
@@ -4861,7 +5366,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Woodstock": {
 		"Name": "Woodstock",
@@ -4870,7 +5376,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Carroll Plt": {
 		"Name": "Carroll Plt",
@@ -4879,7 +5386,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Lowell": {
 		"Name": "Lowell",
@@ -4888,7 +5396,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Benton": {
 		"Name": "Benton",
@@ -4897,7 +5406,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Cambridge": {
 		"Name": "Cambridge",
@@ -4906,7 +5416,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Avon": {
 		"Name": "Avon",
@@ -4915,7 +5426,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Adamstown Twp": {
 		"Name": "Adamstown Twp",
@@ -4924,7 +5436,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Brunswick": {
 		"Name": "Brunswick",
@@ -4933,7 +5446,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Glenburn": {
 		"Name": "Glenburn",
@@ -4942,7 +5456,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Alexander": {
 		"Name": "Alexander",
@@ -4951,7 +5466,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Woodville": {
 		"Name": "Woodville",
@@ -4960,7 +5476,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Ta R10 Wels": {
 		"Name": "Ta R10 Wels",
@@ -4969,7 +5486,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Skowhegan": {
 		"Name": "Skowhegan",
@@ -4978,7 +5496,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Moose River": {
 		"Name": "Moose River",
@@ -4987,7 +5506,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Somerville": {
 		"Name": "Somerville",
@@ -4996,7 +5516,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Eddington": {
 		"Name": "Eddington",
@@ -5005,7 +5526,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Trescott Twp": {
 		"Name": "Trescott Twp",
@@ -5014,7 +5536,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Alton": {
 		"Name": "Alton",
@@ -5023,7 +5546,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Fryeburg": {
 		"Name": "Fryeburg",
@@ -5032,7 +5556,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"T8 R3 Nbpp": {
 		"Name": "T8 R3 Nbpp",
@@ -5041,7 +5566,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Unity": {
 		"Name": "Unity",
@@ -5050,7 +5576,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Portage Lake": {
 		"Name": "Portage Lake",
@@ -5059,7 +5586,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Bath": {
 		"Name": "Bath",
@@ -5068,7 +5596,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Carmel": {
 		"Name": "Carmel",
@@ -5077,7 +5606,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Norway": {
 		"Name": "Norway",
@@ -5086,7 +5616,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Williamsburg Twp": {
 		"Name": "Williamsburg Twp",
@@ -5095,7 +5626,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Johnson Mountain Twp": {
 		"Name": "Johnson Mountain Twp",
@@ -5104,7 +5636,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Monmouth": {
 		"Name": "Monmouth",
@@ -5113,7 +5646,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Roxbury": {
 		"Name": "Roxbury",
@@ -5122,7 +5656,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Carrabassett Valley": {
 		"Name": "Carrabassett Valley",
@@ -5131,7 +5666,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Madison": {
 		"Name": "Madison",
@@ -5140,7 +5676,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"T5 R19 Wels": {
 		"Name": "T5 R19 Wels",
@@ -5149,7 +5686,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Hudson": {
 		"Name": "Hudson",
@@ -5158,7 +5696,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Freeport": {
 		"Name": "Freeport",
@@ -5167,7 +5706,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Brownfield": {
 		"Name": "Brownfield",
@@ -5176,7 +5716,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"East Millinocket": {
 		"Name": "East Millinocket",
@@ -5185,7 +5726,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"T1 R5 Wels": {
 		"Name": "T1 R5 Wels",
@@ -5194,7 +5736,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Greene": {
 		"Name": "Greene",
@@ -5203,7 +5746,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Brighton Plt": {
 		"Name": "Brighton Plt",
@@ -5212,7 +5756,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Elliottsville Twp": {
 		"Name": "Elliottsville Twp",
@@ -5221,7 +5766,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"T7 R16 Wels": {
 		"Name": "T7 R16 Wels",
@@ -5230,7 +5776,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Standish": {
 		"Name": "Standish",
@@ -5239,7 +5786,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Vinalhaven": {
 		"Name": "Vinalhaven",
@@ -5248,7 +5796,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Westport Island": {
 		"Name": "Westport Island",
@@ -5257,7 +5806,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Forkstown Twp": {
 		"Name": "Forkstown Twp",
@@ -5266,7 +5816,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Hancock": {
 		"Name": "Hancock",
@@ -5275,7 +5826,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Beals": {
 		"Name": "Beals",
@@ -5284,7 +5836,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"T1 R10 WELS": {
 		"Name": "T1 R10 WELS",
@@ -5293,7 +5846,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Herseytown Twp": {
 		"Name": "Herseytown Twp",
@@ -5302,7 +5856,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Sanford": {
 		"Name": "Sanford",
@@ -5311,7 +5866,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Lisbon": {
 		"Name": "Lisbon",
@@ -5320,7 +5876,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Hampden": {
 		"Name": "Hampden",
@@ -5329,7 +5886,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Tremont": {
 		"Name": "Tremont",
@@ -5338,7 +5896,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Stetsontown Twp": {
 		"Name": "Stetsontown Twp",
@@ -5347,7 +5906,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Oxford": {
 		"Name": "Oxford",
@@ -5356,7 +5916,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"T8 R11 Wels": {
 		"Name": "T8 R11 Wels",
@@ -5365,7 +5926,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Baring Plt": {
 		"Name": "Baring Plt",
@@ -5374,7 +5936,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"T19 MD BPP": {
 		"Name": "T19 MD BPP",
@@ -5383,7 +5946,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Sedgwick": {
 		"Name": "Sedgwick",
@@ -5392,7 +5956,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Long Island": {
 		"Name": "Long Island",
@@ -5401,7 +5966,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Machias": {
 		"Name": "Machias",
@@ -5410,7 +5976,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Waterford": {
 		"Name": "Waterford",
@@ -5419,7 +5986,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"T6 R8 WELS": {
 		"Name": "T6 R8 WELS",
@@ -5428,7 +5996,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Penobscot": {
 		"Name": "Penobscot",
@@ -5437,7 +6006,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Union": {
 		"Name": "Union",
@@ -5446,7 +6016,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Hammond": {
 		"Name": "Hammond",
@@ -5455,7 +6026,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Raymond": {
 		"Name": "Raymond",
@@ -5464,7 +6036,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Moxie Gore": {
 		"Name": "Moxie Gore",
@@ -5473,7 +6046,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"T6 R7 Wels": {
 		"Name": "T6 R7 Wels",
@@ -5482,7 +6056,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Swans Island": {
 		"Name": "Swans Island",
@@ -5491,7 +6066,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Pittston": {
 		"Name": "Pittston",
@@ -5500,7 +6076,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Cranberry Isles": {
 		"Name": "Cranberry Isles",
@@ -5509,7 +6086,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"North Yarmouth": {
 		"Name": "North Yarmouth",
@@ -5518,7 +6096,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Machiasport": {
 		"Name": "Machiasport",
@@ -5527,7 +6106,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"T11 R17 WELS": {
 		"Name": "T11 R17 WELS",
@@ -5536,7 +6116,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"New Sharon": {
 		"Name": "New Sharon",
@@ -5545,7 +6126,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Lakeville": {
 		"Name": "Lakeville",
@@ -5554,7 +6136,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Wesley": {
 		"Name": "Wesley",
@@ -5563,7 +6146,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Masardis": {
 		"Name": "Masardis",
@@ -5572,7 +6156,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Cove Point Twp": {
 		"Name": "Cove Point Twp",
@@ -5581,7 +6166,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Parsonsfield": {
 		"Name": "Parsonsfield",
@@ -5590,7 +6176,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Hersey": {
 		"Name": "Hersey",
@@ -5599,7 +6186,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Island Falls": {
 		"Name": "Island Falls",
@@ -5608,7 +6196,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Rangeley Plt": {
 		"Name": "Rangeley Plt",
@@ -5617,7 +6206,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Denmark": {
 		"Name": "Denmark",
@@ -5626,7 +6216,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Frenchville": {
 		"Name": "Frenchville",
@@ -5635,7 +6226,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Danforth": {
 		"Name": "Danforth",
@@ -5644,7 +6236,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Lynchtown Twp": {
 		"Name": "Lynchtown Twp",
@@ -5653,7 +6246,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Arrowsic": {
 		"Name": "Arrowsic",
@@ -5662,7 +6256,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Turner": {
 		"Name": "Turner",
@@ -5671,7 +6266,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Detroit": {
 		"Name": "Detroit",
@@ -5680,7 +6276,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Bald Mountain Twp T4 R3": {
 		"Name": "Bald Mountain Twp T4 R3",
@@ -5689,7 +6286,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Whitefield": {
 		"Name": "Whitefield",
@@ -5698,7 +6296,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Wellington": {
 		"Name": "Wellington",
@@ -5707,7 +6306,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Baldwin": {
 		"Name": "Baldwin",
@@ -5716,7 +6316,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Embden": {
 		"Name": "Embden",
@@ -5725,7 +6326,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Edgecomb": {
 		"Name": "Edgecomb",
@@ -5734,7 +6336,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Alna": {
 		"Name": "Alna",
@@ -5743,7 +6346,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"T9 Sd Bpp": {
 		"Name": "T9 Sd Bpp",
@@ -5752,7 +6356,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Buckfield": {
 		"Name": "Buckfield",
@@ -5761,7 +6366,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Holden": {
 		"Name": "Holden",
@@ -5770,7 +6376,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Perry": {
 		"Name": "Perry",
@@ -5779,7 +6386,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Chester": {
 		"Name": "Chester",
@@ -5788,7 +6396,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Lincoln Plt": {
 		"Name": "Lincoln Plt",
@@ -5797,7 +6406,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Otis": {
 		"Name": "Otis",
@@ -5806,7 +6416,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Farmingdale": {
 		"Name": "Farmingdale",
@@ -5815,7 +6426,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Leeds": {
 		"Name": "Leeds",
@@ -5824,7 +6436,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Wayne": {
 		"Name": "Wayne",
@@ -5833,7 +6446,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Albion": {
 		"Name": "Albion",
@@ -5842,7 +6456,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Monhegan Island Plt": {
 		"Name": "Monhegan Island Plt",
@@ -5851,7 +6466,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Otisfield": {
 		"Name": "Otisfield",
@@ -5860,7 +6476,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Big Lake Twp": {
 		"Name": "Big Lake Twp",
@@ -5869,7 +6486,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Chain of Ponds Twp": {
 		"Name": "Chain of Ponds Twp",
@@ -5878,7 +6496,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"T11 R4 Wels": {
 		"Name": "T11 R4 Wels",
@@ -5887,7 +6506,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Big Moose Twp": {
 		"Name": "Big Moose Twp",
@@ -5896,7 +6516,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Saint Albans": {
 		"Name": "Saint Albans",
@@ -5905,7 +6526,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Phillips": {
 		"Name": "Phillips",
@@ -5914,7 +6536,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Madrid Twp": {
 		"Name": "Madrid Twp",
@@ -5923,7 +6546,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Minot": {
 		"Name": "Minot",
@@ -5932,7 +6556,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Dayton": {
 		"Name": "Dayton",
@@ -5941,7 +6566,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Lewiston": {
 		"Name": "Lewiston",
@@ -5950,7 +6576,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Byron": {
 		"Name": "Byron",
@@ -5959,7 +6586,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Dyer Brook": {
 		"Name": "Dyer Brook",
@@ -5968,7 +6596,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Saint George": {
 		"Name": "Saint George",
@@ -5977,7 +6606,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Clifton": {
 		"Name": "Clifton",
@@ -5986,7 +6616,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Columbia Falls": {
 		"Name": "Columbia Falls",
@@ -5995,7 +6626,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"New Sweden": {
 		"Name": "New Sweden",
@@ -6004,7 +6636,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Castle Hill": {
 		"Name": "Castle Hill",
@@ -6013,7 +6646,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Wiscasset": {
 		"Name": "Wiscasset",
@@ -6028,7 +6662,8 @@
 		],
 		"WhiteList": [
 			1709438
-		]
+		],
+		"BlackTags": []
 	},
 	"Saint John Plt": {
 		"Name": "Saint John Plt",
@@ -6037,7 +6672,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Harrington": {
 		"Name": "Harrington",
@@ -6046,7 +6682,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Brooks": {
 		"Name": "Brooks",
@@ -6055,7 +6692,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"T12 R8 WELS": {
 		"Name": "T12 R8 WELS",
@@ -6064,7 +6702,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Orient": {
 		"Name": "Orient",
@@ -6073,7 +6712,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Anson": {
 		"Name": "Anson",
@@ -6082,7 +6722,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Massachusetts Gore": {
 		"Name": "Massachusetts Gore",
@@ -6091,7 +6732,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Tim Pond Twp": {
 		"Name": "Tim Pond Twp",
@@ -6100,7 +6742,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"T4 R9 Nwp": {
 		"Name": "T4 R9 Nwp",
@@ -6109,7 +6752,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Wilton": {
 		"Name": "Wilton",
@@ -6118,7 +6762,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Edinburg": {
 		"Name": "Edinburg",
@@ -6127,7 +6772,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Milbridge": {
 		"Name": "Milbridge",
@@ -6136,7 +6782,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Sangerville": {
 		"Name": "Sangerville",
@@ -6145,7 +6792,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Cooper": {
 		"Name": "Cooper",
@@ -6154,7 +6802,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Sandy Bay Twp": {
 		"Name": "Sandy Bay Twp",
@@ -6163,7 +6812,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Richardsontown Twp": {
 		"Name": "Richardsontown Twp",
@@ -6172,7 +6822,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Orneville Twp": {
 		"Name": "Orneville Twp",
@@ -6181,7 +6832,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Gardiner": {
 		"Name": "Gardiner",
@@ -6190,7 +6842,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Grafton Twp": {
 		"Name": "Grafton Twp",
@@ -6199,7 +6852,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Hallowell": {
 		"Name": "Hallowell",
@@ -6208,7 +6862,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Charleston": {
 		"Name": "Charleston",
@@ -6217,7 +6872,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Chapman": {
 		"Name": "Chapman",
@@ -6226,7 +6882,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Kennebunk": {
 		"Name": "Kennebunk",
@@ -6235,7 +6892,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Guilford": {
 		"Name": "Guilford",
@@ -6244,7 +6902,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Southwest Harbor": {
 		"Name": "Southwest Harbor",
@@ -6253,7 +6912,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Alder Stream Twp": {
 		"Name": "Alder Stream Twp",
@@ -6262,7 +6922,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Weld": {
 		"Name": "Weld",
@@ -6271,7 +6932,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"North Haven": {
 		"Name": "North Haven",
@@ -6280,7 +6942,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Winterport": {
 		"Name": "Winterport",
@@ -6289,7 +6952,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Strong": {
 		"Name": "Strong",
@@ -6298,7 +6962,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Cape Elizabeth": {
 		"Name": "Cape Elizabeth",
@@ -6307,7 +6972,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"T5 R7 Wels": {
 		"Name": "T5 R7 Wels",
@@ -6316,7 +6982,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Stetson": {
 		"Name": "Stetson",
@@ -6325,7 +6992,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Tomhegan Twp": {
 		"Name": "Tomhegan Twp",
@@ -6334,7 +7002,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Eastbrook": {
 		"Name": "Eastbrook",
@@ -6343,7 +7012,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Milton Twp": {
 		"Name": "Milton Twp",
@@ -6352,7 +7022,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Pleasant Ridge Plt": {
 		"Name": "Pleasant Ridge Plt",
@@ -6361,7 +7032,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Manchester": {
 		"Name": "Manchester",
@@ -6370,7 +7042,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"T1 R12 WELS": {
 		"Name": "T1 R12 WELS",
@@ -6379,7 +7052,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Hodgdon": {
 		"Name": "Hodgdon",
@@ -6388,7 +7062,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Hamlin": {
 		"Name": "Hamlin",
@@ -6397,7 +7072,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Winthrop": {
 		"Name": "Winthrop",
@@ -6406,7 +7082,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Waite": {
 		"Name": "Waite",
@@ -6415,7 +7092,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Newburgh": {
 		"Name": "Newburgh",
@@ -6424,7 +7102,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Brookton Twp": {
 		"Name": "Brookton Twp",
@@ -6433,7 +7112,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Perkins Twp": {
 		"Name": "Perkins Twp",
@@ -6442,7 +7122,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"T5 R6 BKP WKR": {
 		"Name": "T5 R6 BKP WKR",
@@ -6451,7 +7132,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"York": {
 		"Name": "York",
@@ -6460,7 +7142,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Hollis": {
 		"Name": "Hollis",
@@ -6469,7 +7152,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Mount Vernon": {
 		"Name": "Mount Vernon",
@@ -6478,7 +7162,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Porter": {
 		"Name": "Porter",
@@ -6487,7 +7172,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Hanover": {
 		"Name": "Hanover",
@@ -6496,7 +7182,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"T16 Md Bpp": {
 		"Name": "T16 Md Bpp",
@@ -6505,7 +7192,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Canton": {
 		"Name": "Canton",
@@ -6514,7 +7202,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Willimantic": {
 		"Name": "Willimantic",
@@ -6523,7 +7212,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Westfield": {
 		"Name": "Westfield",
@@ -6532,7 +7222,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Windsor": {
 		"Name": "Windsor",
@@ -6541,7 +7232,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Little W Twp": {
 		"Name": "Little W Twp",
@@ -6550,7 +7242,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Westmanland": {
 		"Name": "Westmanland",
@@ -6559,7 +7252,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Newcastle": {
 		"Name": "Newcastle",
@@ -6568,7 +7262,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Madawaska": {
 		"Name": "Madawaska",
@@ -6577,7 +7272,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Augusta": {
 		"Name": "Augusta",
@@ -6586,7 +7282,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Indian Stream Twp": {
 		"Name": "Indian Stream Twp",
@@ -6595,7 +7292,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Thorndike": {
 		"Name": "Thorndike",
@@ -6604,7 +7302,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Farmington": {
 		"Name": "Farmington",
@@ -6613,7 +7312,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Fort Fairfield": {
 		"Name": "Fort Fairfield",
@@ -6622,7 +7322,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Topsfield": {
 		"Name": "Topsfield",
@@ -6631,7 +7332,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Redington Twp": {
 		"Name": "Redington Twp",
@@ -6640,7 +7342,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Oakland": {
 		"Name": "Oakland",
@@ -6649,7 +7352,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Stacyville": {
 		"Name": "Stacyville",
@@ -6658,7 +7362,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Beaver Cove": {
 		"Name": "Beaver Cove",
@@ -6667,7 +7372,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Eastport": {
 		"Name": "Eastport",
@@ -6676,7 +7382,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Freedom": {
 		"Name": "Freedom",
@@ -6685,7 +7392,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Soldiertown Twp T2 R7 WELS": {
 		"Name": "Soldiertown Twp T2 R7 WELS",
@@ -6694,7 +7402,8 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	},
 	"Calais": {
 		"Name": "Calais",
@@ -6710,6 +7419,7 @@
 			1714064,
 			1722353
 		],
-		"WhiteList": []
+		"WhiteList": [],
+		"BlackTags": []
 	}
 }
