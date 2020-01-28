@@ -39,7 +39,7 @@ namespace OsmPipeline.Fittings
 				Relations = elements.OfType<Relation>().ToArray(),
 				Version = version,
 				Generator = generator,
-				Bounds = elements.OfType<Node>().AsBounds(5)
+				Bounds = elements.OfType<Node>().AsBounds(15)
 			};
 		}
 

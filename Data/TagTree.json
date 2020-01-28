@@ -14,8 +14,9 @@
 				},
 				"cafe": {}
 			},
-			"public_building": {
-				"healthcare": {}
+			"public_building": {},
+			"healthcare": {
+				"clinic": {}
 			},
 			"*": {}
 		}
