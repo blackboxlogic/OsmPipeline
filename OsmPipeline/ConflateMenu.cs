@@ -30,7 +30,7 @@ namespace OsmPipeline
 		{
 			Static.Municipalities = FileSerializer.ReadJsonCacheOrSource("MaineMunicipalities.json",
 				GetMunicipalities).Result;
-			Console.WriteLine(Static.Municipalities.Values.Count(m => m.ChangeSetIds.Any()) +" of " + Static.Municipalities.Count);
+			ShowProgress();
 			Municipality = Static.Municipalities.Values.First(m => !m.ChangeSetIds.Any()).Name;
 			Console.WriteLine("Starting in " + Municipality);
 
@@ -138,11 +138,13 @@ namespace OsmPipeline
 				{
 					Municipality = Static.Municipalities.Values.First(m => !m.ChangeSetIds.Any()).Name;
 					Console.Clear();
+					ShowProgress();
 					Console.WriteLine("Switching to " + Municipality);
 				}
 				else if (Is(userInput, "switch"))
 				{
 					Municipality = ChooseMunicipality();
+					ShowProgress();
 				}
 				else if (Is(userInput, "help"))
 				{
@@ -195,6 +197,13 @@ namespace OsmPipeline
 					Console.WriteLine(string.Join("\n", selection));
 				}
 			} while (true);
+		}
+
+		public void ShowProgress()
+		{
+			var changed = Static.Municipalities.Values.Count(m => m.ChangeSetIds.Any(c => c != -1));
+			var skipped = Static.Municipalities.Values.Count(m => m.ChangeSetIds.All(c => c == -1));
+			Console.WriteLine($"{changed} of {Static.Municipalities.Count} ({skipped} skipped)");
 		}
 	}
 }
