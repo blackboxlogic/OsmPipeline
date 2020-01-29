@@ -9,7 +9,7 @@ namespace OsmPipeline.Fittings
 {
 	public class OsmApiEnder
 	{
-		private readonly AuthClient Client;
+		private readonly IAuthClient Client;
 		private readonly TagsCollectionBase Tags;
 
 		public OsmApiEnder(ILogger logger, string baseAddress, string userName, string password, TagsCollectionBase tags)

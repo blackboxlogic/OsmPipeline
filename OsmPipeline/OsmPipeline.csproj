@@ -10,9 +10,9 @@
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="2.2.0" />
     <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="2.2.0" />
     <PackageReference Include="NetTopologySuite" Version="2.0.0" />
-    <PackageReference Include="OsmApiClient" Version="0.0.1-beta.3" />
-    <PackageReference Include="OsmSharp" Version="7.0.0-pre001" />
-    <PackageReference Include="SharpKml.Core" Version="5.0.1" />
+    <PackageReference Include="OsmApiClient" Version="0.0.1-beta.7" />
+    <PackageReference Include="OsmSharp" Version="7.0.0-pre006" />
+    <PackageReference Include="SharpKml.Core" Version="5.1.0" />
     <PackageReference Include="System.Net.Http" Version="4.3.4" />
   </ItemGroup>
 

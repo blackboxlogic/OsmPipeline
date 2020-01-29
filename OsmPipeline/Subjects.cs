@@ -97,7 +97,7 @@ namespace OsmPipeline
 			Log.LogDebug($"Creating ChangeSet {changeSetId}");
 			FileSerializer.WriteXml($"{municipality}/Uploaded/{changeSetId}-Conflated.osc", part);
 			var diffResult = await client.UploadChangeset(changeSetId, part);
-			//FileSerializer.WriteXml($"{municipality}/Uploaded/{changeSetId}-DiffResult.diff", diffResult);
+			FileSerializer.WriteXml($"{municipality}/Uploaded/{changeSetId}-DiffResult.diff", diffResult);
 			await client.CloseChangeset(changeSetId);
 			Log.LogDebug($"Closing ChangeSet {changeSetId}");
 			return changeSetId;
