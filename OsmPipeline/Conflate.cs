@@ -17,13 +17,15 @@ namespace OsmPipeline
 		private const string WarnKey = Static.maineE911id + ":warn";
 		private const string MovedKey = Static.maineE911id + ":moved";
 		private const string InfoKey = Static.maineE911id + ":info";
+		private const string ReviewWithKey = Static.maineE911id + ":review-with";
 		private const string WhiteListKey = Static.maineE911id + ":whitelist";
 
 		private static ILogger Log;
 
-		public static OsmChange Merge(Osm reference, Osm subject, string scopeName, List<long> whitelist = null)
+		public static OsmChange Merge(Osm reference, Osm subject, string scopeName, List<long> whitelist = null, List<long> ignoreList = null)
 		{
 			whitelist = whitelist ?? new List<long>();
+			ignoreList = ignoreList ?? new List<long>();
 			Log = Log ?? Static.LogFactory.CreateLogger(typeof(Conflate));
 			Log.LogInformation("Starting conflation, matching by address tags");
 
@@ -34,7 +36,7 @@ namespace OsmPipeline
 			Log.LogInformation("Starting conflation, matching by geometry");
 			MergeNodesByGeometry(subjectElementsIndexed, whitelist, create, modify);
 			Log.LogInformation($"Writing {scopeName} review files");
-			var review = GatherExceptions(whitelist, create, delete, modify);
+			var review = GatherExceptions(whitelist, ignoreList, subjectElementsIndexed, create, delete, modify);
 			WriteToFileWithChildrenIfAny(scopeName + "/Conflated.Review.osm", review, subjectElementsIndexed);
 			WriteToFileWithChildrenIfAny(scopeName + "/Conflated.Create.osm", create, subjectElementsIndexed);
 			WriteToFileWithChildrenIfAny(scopeName + "/Conflated.Delete.osm", delete, subjectElementsIndexed);
@@ -49,38 +51,47 @@ namespace OsmPipeline
 
 		// Collections are modified by reference. Errors removed and logged. Warns just logged.
 		// Whitelist suppresses warns and errors.
-		private static List<OsmGeo> GatherExceptions(List<long> whitelist, params List<OsmGeo>[] elementss)
+		private static List<OsmGeo> GatherExceptions(List<long> whiteList, List<long> ignoreList,
+			Dictionary<string, OsmGeo> subjectElementsIndexed, params List<OsmGeo>[] elementss)
 		{
 			var review = new List<OsmGeo>();
 
 			foreach (var elements in elementss)
 			{
 				var errors = elements.Where(e => e.Tags.ContainsKey(ErrorKey)).ToList();
-				ExcuseWhitelistedElements(errors, whitelist);
+				ExcuseWhitelistedElements(errors, whiteList);
 				review.AddRange(errors);
 				var warns = elements.Where(e => e.Tags.ContainsKey(WarnKey)).ToList();
-				ExcuseWhitelistedElements(warns, whitelist);
+				ExcuseWhitelistedElements(warns, whiteList);
 				review.AddRange(warns);
 				elements.RemoveAll(errors.Contains);
-				ExcuseWhitelistedElements(elements.ToList(), whitelist); // doesn't remove, just to add maineE911id:whitelist=yes
+				ExcuseWhitelistedElements(elements.ToList(), whiteList); // doesn't remove, just to add maineE911id:whitelist=yes
 				var distinct = elements.Distinct().ToArray();
 				elements.Clear();
 				elements.AddRange(distinct);
 			}
+
+			review.RemoveAll(r => IsOnTheList(r, ignoreList));
+			review.AddRange(review.ToArray().Where(e => e.Tags.ContainsKey(ReviewWithKey))
+				.SelectMany(e => e.Tags[ReviewWithKey].Split(";").Select(rw => subjectElementsIndexed[rw])).Distinct());
 
 			return review;
 		}
 
 		private static void ExcuseWhitelistedElements(ICollection<OsmGeo> elements, List<long> whitelist)
 		{
-			var whiteSet = whitelist.Select(Math.Abs).ToHashSet();
-			foreach (var element in elements.Where(e => whiteSet.Contains(-e.Id.Value)
-					|| (e.Tags.ContainsKey(Static.maineE911id)
-						&& e.Tags[Static.maineE911id].Split(';').All(id => whiteSet.Contains(long.Parse(id))))).ToArray())
+			foreach (var element in elements.Where(e => IsOnTheList(e, whitelist)).ToArray())
 			{
 				element.Tags.AddOrAppend(WhiteListKey, "yes");
 				elements.Remove(element);
 			}
+		}
+
+		private static bool IsOnTheList(OsmGeo element, List<long> list)
+		{
+			return list.Contains(Math.Abs(element.Id.Value))
+				|| (element.Tags.ContainsKey(Static.maineE911id)
+					&& element.Tags[Static.maineE911id].Split(';').All(id => list.Contains(long.Parse(id))));
 		}
 
 		private static void ValidateRoadNamesMatcheRoads(Dictionary<string, OsmGeo> subjectElementsIndexed, List<OsmGeo> create)
@@ -169,14 +180,7 @@ namespace OsmPipeline
 					{
 						// TODO: Resolve these multi-matches by checking tag conflicts
 						referenceElement.Tags.AddOrAppend(ErrorKey, "Multiple matches!" + Identify(targetSubjectElements));
-						foreach (var subjectElement in targetSubjectElements)
-						{
-							var arrow = Geometry.GetDirectionArrow(
-								subjectElement.AsComplete(subjectElementsIndexed).AsPosition(),
-								referenceElement.AsPosition());
-							subjectElement.Tags.AddOrAppend(ErrorKey, "I matched " + referenceElement.Id + " " + arrow);
-							modify.Add(subjectElement);
-						}
+						referenceElement.Tags.AddOrAppend(ReviewWithKey, targetSubjectElements.Select(e => e.Type.ToString() + e.Id).ToArray());
 					}
 					else
 					{
@@ -193,8 +197,7 @@ namespace OsmPipeline
 						{
 							var arrow = Geometry.GetDirectionArrow(referenceElement.AsPosition(), completeSubjectElement.AsPosition());
 							referenceElement.Tags.AddOrAppend(WarnKey, $"Matched, but too far: {(int)closestMatch.distance} meters {arrow}.{Identify(subjectElement)}");
-							subjectElement.Tags.AddOrAppend(ErrorKey, Geometry.ReverseArrow(arrow) + " " + Identify(subjectElement));
-							modify.Add(subjectElement);
+							referenceElement.Tags.AddOrAppend(ReviewWithKey, subjectElement.Type.ToString() + subjectElement.Id);
 						}
 						else
 						{
@@ -215,8 +218,7 @@ namespace OsmPipeline
 							catch (MergeConflictException e)
 							{
 								referenceElement.Tags.AddOrAppend(WarnKey, e.Message);
-								subjectElement.Tags.AddOrAppend(ErrorKey, "This is the conflict");
-								modify.Add(subjectElement);
+								referenceElement.Tags.AddOrAppend(ReviewWithKey, subjectElement.Type.ToString() + subjectElement.Id);
 							}
 						}
 					}
@@ -231,22 +233,24 @@ namespace OsmPipeline
 				.Select(b => b.AsComplete(subjectElementsIndexed))
 				.ToArray();
 			var newNodes = create.OfType<Node>().ToArray();
-			var buildingsAndInnerNewNodes = Geometry.NodesInOrNearCompleteElements(buildings, newNodes, 20, 100);
+			var buildingsAndInnerNewNodes = Geometry.NodesInOrNearCompleteElements(buildings, newNodes, 10, 100);
 			var oldNodes = subjectElementsIndexed.Values.OfType<Node>().Where(n => n.Tags?.Any() == true).ToArray();
 			var buildingsAndInnerOldNodes = Geometry.NodesInCompleteElements(buildings, oldNodes);
 
 			foreach (var buildingAndInners in buildingsAndInnerNewNodes)
 			{
-				var buildingHasOldNodes = buildingsAndInnerOldNodes.ContainsKey(buildingAndInners.Key);
+				var buildingHasOldNodes = buildingsAndInnerOldNodes.TryGetValue(buildingAndInners.Key, out Node[] oldInners);
 
 				if (buildingAndInners.Value.Length > 1)
 				{
 					foreach (var node in buildingAndInners.Value)
 					{
 						node.Tags.AddOrAppend(InfoKey, "Multiple addresses land in the same building");
+						node.Tags.AddOrAppend(ReviewWithKey, buildingAndInners.Key.Type.ToString() + buildingAndInners.Key.Id);
 						if (buildingHasOldNodes)
 						{
 							node.Tags.AddOrAppend(WarnKey, "New node in building with old nodes");
+							node.Tags.AddOrAppend(ReviewWithKey, oldInners.Select(i => i.Type.ToString() + i.Id).ToArray());
 						}
 					}
 				}
@@ -265,17 +269,36 @@ namespace OsmPipeline
 					}
 					catch (MergeConflictException e)
 					{
-						node.Tags.AddOrAppend(WarnKey, e.Message);
-						building.Tags.AddOrAppend(ErrorKey, "This is the conflict");
-						if (buildingHasOldNodes)
+						if (LikelyNeighbors(node, building))
 						{
-							node.Tags.AddOrAppend(WarnKey, "New node in building with old nodes");
-							building.Tags.AddOrAppend(ErrorKey, "This building has other nodes");
+							node.Tags.AddOrAppend(InfoKey, "Assummed to be a multi-address building");
 						}
-						modify.Add(building);
+						else
+						{
+							node.Tags.AddOrAppend(WarnKey, e.Message);
+							node.Tags.AddOrAppend(ReviewWithKey, building.Type.ToString() + building.Id);
+							if (buildingHasOldNodes)
+							{
+								node.Tags.AddOrAppend(WarnKey, "New node in building with old nodes");
+								node.Tags.AddOrAppend(ReviewWithKey, oldInners.Select(i => i.Type.ToString() + i.Id).ToArray());
+							}
+						}
 					}
 				}
 			}
+		}
+
+		private static bool LikelyNeighbors(OsmGeo a, OsmGeo b)
+		{
+			return a.Tags != null && b.Tags != null
+				&& a.Tags.TryGetValue("addr:street", out string aStreet)
+				&& b.Tags.TryGetValue("addr:street", out string bStreet)
+				&& aStreet == bStreet
+				&& a.Tags.TryGetValue("addr:housenumber", out string aNum)
+				&& b.Tags.TryGetValue("addr:housenumber", out string bNum)
+				&& int.TryParse(aNum, out int aInt)
+				&& int.TryParse(bNum, out int bInt)
+				&& Math.Abs(aInt - bInt) == 2;
 		}
 
 		private static string Identify(params OsmGeo[] elements)
@@ -297,7 +320,7 @@ namespace OsmPipeline
 			{
 				if (subjectElementsIndexed.Values.OfType<Way>().Any(w => w.Nodes.Contains(subject.Id.Value)))
 				{
-					subject.Tags.AddOrAppend(ErrorKey, "Moved Node that a Way's memeber");
+					subject.Tags.AddOrAppend(ErrorKey, "Moved Node which was a Way's member");
 				}
 
 				var arrow = Geometry.GetDirectionArrow(subjectNode.AsPosition(), referenceNode.AsPosition());

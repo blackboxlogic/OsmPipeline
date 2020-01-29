@@ -13,15 +13,19 @@ namespace OsmPipeline.Fittings
 				: new TagsCollection(element.Tags?.Where(t => t.Key == "addr:street" || t.Key == "addr:housenumber") ?? new Tag[0]);
 		}
 
-		public static void AddOrAppend(this TagsCollectionBase tags, string key, string newValue)
+		public static void AddOrAppend(this TagsCollectionBase tags, string key, params string[] newValues)
 		{
 			if (tags.TryGetValue(key, out var oldValue))
 			{
-				if (oldValue.Contains(newValue)) return;
-				newValue = oldValue + ";" + newValue;
+				foreach (var newValue in newValues.Where(n => oldValue.Contains(n)))
+				{
+					tags[key] += ";" + newValue;
+				}
 			}
-
-			tags.AddOrReplace(key, newValue);
+			else
+			{
+				tags.Add(key, string.Join(";", newValues));
+			}
 		}
 
 		public static bool IsAddressy(OsmGeo element)

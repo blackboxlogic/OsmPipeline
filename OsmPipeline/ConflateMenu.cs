@@ -24,8 +24,7 @@ namespace OsmPipeline
 		private string Municipality;
 
 		// logs to file?
-		// update osm client
-		// osm client build
+		// use tag tree when matching by address
 		public void Main()
 		{
 			Static.Municipalities = FileSerializer.ReadJsonCacheOrSource("MaineMunicipalities.json",
@@ -59,7 +58,9 @@ namespace OsmPipeline
 						() => References.Fetch(Municipality)).Result;
 					var Subject = FileSerializer.ReadXmlCacheOrSource(Municipality + "/Subject.osm",
 						() => Subjects.GetElementsInBoundingBox(Reference.Bounds)).Result;
-					var Change = Conflate.Merge(Reference, Subject, Municipality, Static.Municipalities[Municipality].WhiteList);
+					var Change = Conflate.Merge(Reference, Subject, Municipality,
+						Static.Municipalities[Municipality].WhiteList,
+						Static.Municipalities[Municipality].IgnoreList);
 					FileSerializer.WriteXml(Municipality + "/Conflated.osc", Change);
 				}
 				else if (Is(userInput, "review"))
@@ -116,16 +117,15 @@ namespace OsmPipeline
 				}
 				else if (Is(userInput, "black"))
 				{
-					var selection = userInput.Split(' ', 2)[1]
-						.Split(new char[] { ' ', ',', ';', '-', '=' }, StringSplitOptions.RemoveEmptyEntries)
-						.Where(c => long.TryParse(c, out _))
-						.Select(long.Parse)
-						.Except(Static.Municipalities[Municipality].BlackList)
-						.ToArray();
-					Static.Municipalities[Municipality].BlackList.AddRange(selection);
+					AddToList(userInput.Split(' ', 2)[1], Static.Municipalities[Municipality].BlackList);
 					FileSerializer.WriteJson("MaineMunicipalities.json", Static.Municipalities);
 					File.Delete(Municipality + "/Reference.osm");
 					File.Delete(Municipality + "/Conflated.osc");
+				}
+				else if (Is(userInput, "ignore"))
+				{
+					AddToList(userInput.Split(' ', 2)[1], Static.Municipalities[Municipality].IgnoreList);
+					FileSerializer.WriteJson("MaineMunicipalities.json", Static.Municipalities);
 				}
 				else if (Is(userInput, "commit"))
 				{
@@ -165,13 +165,27 @@ namespace OsmPipeline
 					Console.WriteLine("\tReview");
 					Console.WriteLine("\tNote [message]");
 					Console.WriteLine("\tWhitelist [###]<,[###]...>");
+					Console.WriteLine("\tWhiteAll");
 					Console.WriteLine("\tBlacklist [###]<,[###]...>");
+					Console.WriteLine("\tBlackTag [###].[key]");
+					Console.WriteLine("\tIgnore [###]<,[###]...>");
 					Console.WriteLine("\tCommit");
 				}
 				else Console.WriteLine("What?");
 
 				Console.WriteLine("Done");
 			}
+		}
+
+		private void AddToList(string input, List<long> list)
+		{
+			var selection = input
+				.Split(new char[] { ' ', ',', ';', '-', '=' }, StringSplitOptions.RemoveEmptyEntries)
+				.Where(c => long.TryParse(c, out _))
+				.Select(long.Parse)
+				.Except(list)
+				.ToArray();
+			list.AddRange(selection);
 		}
 
 		private string ChooseMunicipality()

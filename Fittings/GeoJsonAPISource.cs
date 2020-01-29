@@ -36,6 +36,7 @@ namespace OsmPipeline.Fittings
 			public List<long> BlackList = new List<long>();
 			public List<long> WhiteList = new List<long>();
 			public List<string> BlackTags = new List<string>(); // like: [ "12345.name", "12345.building" ]
+			public List<long> IgnoreList = new List<long>();
 		}
 
 		public static async Task<FeatureCollection> FetchMunicipality(string municipality, int? limit = null)
