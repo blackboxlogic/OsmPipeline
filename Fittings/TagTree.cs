@@ -57,8 +57,8 @@ namespace OsmPipeline.Fittings
 
 		public string FindFirstCommonAncestor(string a, string b)
 		{
-			var left = Index[a].GetAncestors().Select(n => n.Value).Reverse();
-			var right = Index[b].GetAncestors().Select(n => n.Value).Reverse();
+			var left = Index[a].GetSelfAndAncestors().Select(n => n.Value).Reverse();
+			var right = Index[b].GetSelfAndAncestors().Select(n => n.Value).Reverse();
 			var firstCommonAncestor = left.Zip(right, (l, r) => l == r ? l : null).Last(p => p != null);
 			return firstCommonAncestor;
 		}
@@ -74,6 +74,16 @@ namespace OsmPipeline.Fittings
 			public string Value;
 			public TreeNode Parent;
 			public List<TreeNode> Children = new List<TreeNode>();
+
+			public IEnumerable<TreeNode> GetSelfAndAncestors()
+			{
+				var reference = this;
+				while (reference != null)
+				{
+					yield return reference;
+					reference = reference.Parent;
+				}
+			}
 
 			public IEnumerable<TreeNode> GetAncestors()
 			{

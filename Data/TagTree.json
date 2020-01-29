@@ -1,8 +1,10 @@
 {
 	"addr:street": {
 		"*": {
-			"US Route 1": {
-				"Route 1": {}
+			"US 1": {
+				"US Route 1": {
+					"Route 1": {},					
+				}
 			}
 		}
 	},
