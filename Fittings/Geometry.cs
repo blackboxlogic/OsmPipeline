@@ -46,6 +46,11 @@ namespace OsmPipeline.Fittings
 			};
 		}
 
+		public static string GetDistanceAndDirectionArrow(Position from, Position to)
+		{
+			return (int)DistanceMeters(from, to) + "m" + GetDirectionArrow(from, to);
+		}
+
 		public static char GetDirectionArrow(Position from, Position to)
 		{
 			var theta = Math.Atan2(to.Latitude - from.Latitude, to.Longitude - from.Longitude);
@@ -74,6 +79,7 @@ namespace OsmPipeline.Fittings
 			else if (parent is Relation relation)
 			{
 				var members = relation.Members
+						.Where(m => possibleChilden.ContainsKey(m.Type.ToString() + m.Id))
 						.Select(m => new CompleteRelationMember()
 						{
 							Member = AsComplete(possibleChilden[m.Type.ToString() + m.Id], possibleChilden),
