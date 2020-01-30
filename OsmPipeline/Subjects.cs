@@ -82,12 +82,17 @@ namespace OsmPipeline
 				Static.LogFactory.CreateLogger<BasicAuthClient>(), Static.Config["OsmApiUrl"],
 				Static.Config["OsmUsername"], Static.Config["OsmPassword"]);
 			var changeParts = change.Split().ToArray();
-			var result = new List<long>();
+			var result = new long[changeParts.Length];
+			int i = 0;
+
 			foreach (var part in changeParts)
 			{
-				result.Add(await UploadChangePart(part, changeTags, osmApiClient, municipality));
+				if (changeParts.Length > 1) changeTags.AddOrReplace("change-part", $"part {i+1} of {changeParts.Length}");
+				result[i] = await UploadChangePart(part, changeTags, osmApiClient, municipality);
+				i++;
 			}
-			return result.ToArray();
+
+			return result;
 		}
 
 		private static async Task<long> UploadChangePart(this OsmChange part,
