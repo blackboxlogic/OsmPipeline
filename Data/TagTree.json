@@ -4,7 +4,18 @@
 			"US 1": {
 				"US Route 1": {
 					"Route 1": {},					
-				}
+				},
+			}
+		}
+	},
+	"addr:postcode": {
+		"*": {}
+	},
+	"leisure": {
+		"*": {
+			"sports_centre": {
+				"stadium": {},
+				"ice_rink": {}
 			}
 		}
 	},
