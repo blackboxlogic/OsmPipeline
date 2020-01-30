@@ -138,9 +138,11 @@ namespace OsmPipeline
 			foreach (var tag in blackTags)
 			{
 				var parts = tag.Split(".");
-				var node = byId[parts[0]];
-				node.Tags.RemoveKey(parts[1]);
-				node.Tags.Add(Static.maineE911id + ":" + parts[1], "ommitted");
+				if (byId.TryGetValue(parts[0], out Node node))
+				{
+					node.Tags.RemoveKey(parts[1]);
+					node.Tags.Add(Static.maineE911id + ":" + parts[1], "ommitted");
+				}
 			}
 		}
 

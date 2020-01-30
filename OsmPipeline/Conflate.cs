@@ -72,8 +72,21 @@ namespace OsmPipeline
 			}
 
 			review.RemoveAll(r => IsOnTheList(r, ignoreList));
-			review.AddRange(review.ToArray().Where(e => e.Tags.ContainsKey(ReviewWithKey))
-				.SelectMany(e => e.Tags[ReviewWithKey].Split(";").Select(rw => subjectElementsIndexed[rw])).Distinct());
+			var reviewsWith = review.ToArray().Where(e => e.Tags.ContainsKey(ReviewWithKey))
+				.ToDictionary(r => r,
+				r => r.Tags[ReviewWithKey].Split(";").Select(rw => subjectElementsIndexed[rw]));
+			foreach (var reviewWith in reviewsWith)
+			{
+				foreach (var with in reviewWith.Value)
+				{
+					var arrow = Geometry.GetDirectionArrow(
+						with.AsComplete(subjectElementsIndexed).AsPosition(),
+						reviewWith.Key.AsComplete(subjectElementsIndexed).AsPosition());
+					with.Tags.AddOrAppend(InfoKey, arrow.ToString());
+					with.Tags.AddOrAppend(Static.maineE911id + ":osm-id", with.Type + "/" + with.Id);
+					review.Add(with);
+				}
+			}
 
 			return review;
 		}
@@ -249,7 +262,7 @@ namespace OsmPipeline
 						node.Tags.AddOrAppend(ReviewWithKey, buildingAndInners.Key.Type.ToString() + buildingAndInners.Key.Id);
 						if (buildingHasOldNodes)
 						{
-							node.Tags.AddOrAppend(WarnKey, "New node in building with old nodes");
+							node.Tags.AddOrAppend(InfoKey, "New node in building with old nodes");
 							node.Tags.AddOrAppend(ReviewWithKey, oldInners.Select(i => i.Type.ToString() + i.Id).ToArray());
 						}
 					}
@@ -279,7 +292,7 @@ namespace OsmPipeline
 							node.Tags.AddOrAppend(ReviewWithKey, building.Type.ToString() + building.Id);
 							if (buildingHasOldNodes)
 							{
-								node.Tags.AddOrAppend(WarnKey, "New node in building with old nodes");
+								node.Tags.AddOrAppend(InfoKey, "New node in building with old nodes");
 								node.Tags.AddOrAppend(ReviewWithKey, oldInners.Select(i => i.Type.ToString() + i.Id).ToArray());
 							}
 						}
@@ -298,7 +311,8 @@ namespace OsmPipeline
 				&& b.Tags.TryGetValue("addr:housenumber", out string bNum)
 				&& int.TryParse(aNum, out int aInt)
 				&& int.TryParse(bNum, out int bInt)
-				&& Math.Abs(aInt - bInt) == 2;
+				&& (Math.Abs(aInt - bInt) == 2
+					|| Math.Abs(aInt - bInt) == 4);
 		}
 
 		private static string Identify(params OsmGeo[] elements)
@@ -320,7 +334,8 @@ namespace OsmPipeline
 			{
 				if (subjectElementsIndexed.Values.OfType<Way>().Any(w => w.Nodes.Contains(subject.Id.Value)))
 				{
-					subject.Tags.AddOrAppend(ErrorKey, "Moved Node which was a Way's member");
+					subject.Tags.AddOrAppend(WarnKey, "Chose not to move node because it is part of a way");
+					return false;
 				}
 
 				var arrow = Geometry.GetDirectionArrow(subjectNode.AsPosition(), referenceNode.AsPosition());
@@ -348,7 +363,7 @@ namespace OsmPipeline
 				}
 				else if (subject.Tags.TryGetValue(refTag.Key, out string subValue))
 				{
-					if (subValue != refTag.Value)
+					if (subValue != refTag.Value && !subValue.Split(";-,".ToArray()).Contains(refTag.Value))
 					{
 						if (TagTree.Keys.ContainsKey(refTag.Key) &&
 							TagTree.Keys[refTag.Key].IsDecendantOf(refTag.Value, subValue)

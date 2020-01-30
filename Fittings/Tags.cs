@@ -17,7 +17,7 @@ namespace OsmPipeline.Fittings
 		{
 			if (tags.TryGetValue(key, out var oldValue))
 			{
-				foreach (var newValue in newValues.Where(n => oldValue.Contains(n)))
+				foreach (var newValue in newValues.Where(n => !oldValue.Contains(n)))
 				{
 					tags[key] += ";" + newValue;
 				}
