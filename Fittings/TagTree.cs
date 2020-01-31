@@ -41,7 +41,7 @@ namespace OsmPipeline.Fittings
 		public TagTree(string root)
 		{
 			Root = new TreeNode() { Value = root };
-			Index = new Dictionary<string, TreeNode>() { { root, Root } };
+			Index = new Dictionary<string, TreeNode>(StringComparer.OrdinalIgnoreCase) { { root, Root } };
 		}
 
 		public void Add(string parent, params string[] values)
@@ -67,6 +67,11 @@ namespace OsmPipeline.Fittings
 		{
 			return (Index.TryGetValue(a, out var node) || Index.TryGetValue("*", out node))
 				&& node.GetAncestors().Any(n => n.Value == b);
+		}
+
+		public IEnumerable<string> GetAllNonLeafNodes()
+		{
+			return Index.Values.Where(v => v.Children.Any()).Select(v => v.Value);
 		}
 
 		private class TreeNode

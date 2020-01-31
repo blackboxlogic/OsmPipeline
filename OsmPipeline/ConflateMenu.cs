@@ -1,4 +1,5 @@
-﻿using OsmPipeline.Fittings;
+﻿using BAMCIS.GeoJSON;
+using OsmPipeline.Fittings;
 using OsmSharp;
 using OsmSharp.API;
 using OsmSharp.Changesets;
@@ -20,11 +21,17 @@ namespace OsmPipeline
 
 	public class ConflateMenu
 	{
+		static ConflateMenu()
+		{
+			// Increase Console input max length
+			byte[] inputBuffer = new byte[2048];
+			Stream inputStream = Console.OpenStandardInput(inputBuffer.Length);
+			Console.SetIn(new StreamReader(inputStream, Console.InputEncoding, false, inputBuffer.Length));
+		}
+
 		Func<string, string, bool> Is = (a,b) => a.StartsWith(b, StringComparison.OrdinalIgnoreCase);
 		private string Municipality;
 
-		// logs to file?
-		// use tag tree when matching by address
 		public void Main()
 		{
 			Static.Municipalities = FileSerializer.ReadJsonCacheOrSource("MaineMunicipalities.json",
@@ -40,6 +47,7 @@ namespace OsmPipeline
 
 				if (Is(userInput, "reference"))
 				{
+					//Func<Feature, bool> filter = f => (f.Geometry as Point).Coordinates.Longitude >= -70.505;
 					var Reference = References.Fetch(Municipality).Result;
 					FileSerializer.WriteXml(Municipality + "/Reference.osm", Reference);
 					File.Delete(Municipality + "/Conflated.osc");
@@ -66,12 +74,13 @@ namespace OsmPipeline
 				else if (Is(userInput, "review"))
 				{
 					// Last item will appear top of JOSM.
-					var args = string.Join(" ", $"\"{Municipality}/Subject.osm\"",
+					var args = string.Join(" ", new[] {
+						$"\"{Municipality}/Subject.osm\"",
 						$"\"{Municipality}/Reference.osm\"",
 						$"\"{Municipality}/Conflated.Create.osm\"",
-						//$"\"{Municipality}/Conflated.Delete.osm\"",
+						$"\"{Municipality}/Conflated.Delete.osm\"",
 						$"\"{Municipality}/Conflated.Modify.osm\"",
-						$"\"{Municipality}/Conflated.Review.osm\"");
+						$"\"{Municipality}/Conflated.Review.osm\""}.Where(f => File.Exists(f.Trim('"'))));
 					System.Diagnostics.Process.Start(Static.Config["JosmPath"], args);
 				}
 				else if (Is(userInput, "note"))

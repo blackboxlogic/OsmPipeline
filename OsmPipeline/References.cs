@@ -320,27 +320,35 @@ namespace OsmPipeline
 				Log.LogError("ObjectIDs aren't unique! " + string.Join(",", duplicateObjectIds));
 			}
 
+			var reports = new HashSet<string>();
+
+			var ambiguouseStreets = TagTree.Keys["addr:street"].GetAllNonLeafNodes().ToHashSet();
+
 			foreach (var f in features)
 			{
 				if (!StreetSUFFIX.ContainsKey(f.Properties["SUFFIX"]))
 				{
-					Log.LogError("Bad SUFFIX");
+					reports.Add("Bad SUFFIX" + f.Properties["SUFFIX"]);
 				}
 				if (!PrePostDIRs.ContainsKey(f.Properties["PREDIR"]))
 				{
-					Log.LogError("Bad PREDIR");
+					reports.Add("Bad PREDIR" + f.Properties["PREDIR"]);
 				}
 				if (string.IsNullOrWhiteSpace((string)f.Properties["STREETNAME"]))
 				{
-					Log.LogError("Bad STREETNAME");
+					reports.Add("Bad STREETNAME");
+				}
+				if (ambiguouseStreets.Contains((string)f.Properties["STREETNAME"]))
+				{
+					reports.Add($"STREETNAME {f.Properties["STREETNAME"]} has decendants in the tag tree.");
 				}
 				if (!((string)f.Properties["STREETNAME"]).Any(char.IsLetter))
 				{
-					Log.LogWarning("Odd Road name: " + (string)f.Properties["STREETNAME"]);
+					reports.Add($"Odd Road name: {f.Properties["STREETNAME"]}");
 				}
 				if (!PrePostDIRs.ContainsKey(f.Properties["POSTDIR"]))
 				{
-					Log.LogError("Bad POSTDIR");
+					reports.Add("Bad POSTDIR" + f.Properties["POSTDIR"]);
 				}
 				var goodFloor = f.Properties["FLOOR"] == null
 					|| ((string)f.Properties["FLOOR"]).Split().All(part =>
@@ -352,34 +360,39 @@ namespace OsmPipeline
 						|| part.All(char.IsNumber));
 				if (!goodFloor)
 				{
-					Log.LogWarning("Bad Floor: " + (string)f.Properties["FLOOR"]);
+					reports.Add("Bad Floor: " + f.Properties["FLOOR"]);
 				}
 				if (!((string)f.Properties["BUILDING"]).All(char.IsNumber)
 					&& !((string)f.Properties["BUILDING"]).StartsWith("Bldg", StringComparison.OrdinalIgnoreCase))
 				{
-					Log.LogWarning("Bad bulding: " + (string)f.Properties["BUILDING"]);
+					reports.Add("Bad bulding: " + (string)f.Properties["BUILDING"]);
 				}
 				if (!string.IsNullOrEmpty(f.Properties["ROOM"]))
 				{
-					Log.LogWarning("Ignoring Room: " + (string)f.Properties["ROOM"]);
+					reports.Add("Ignoring Room: " + (string)f.Properties["ROOM"]);
 				}
 				if (!string.IsNullOrEmpty(f.Properties["SEAT"]))
 				{
-					Log.LogWarning("ignoring Seat: " + (string)f.Properties["SEAT"]);
+					reports.Add("ignoring Seat: " + (string)f.Properties["SEAT"]);
 				}
 				if (!int.TryParse((string)f.Properties["ZIPCODE"], out var zip)
 					|| zip < 03000 || zip > 04999)
 				{
-					Log.LogWarning("Ignoring zip: " + (string)f.Properties["ZIPCODE"]);
+					reports.Add("Ignoring zip: " + (string)f.Properties["ZIPCODE"]);
 				}
 				if ((f.Properties["ADDRESS_NUMBER"] ?? 0) == 0)
 				{
-					Log.LogError("Bad ADDRESS_NUMBER: " + (string)f.Properties["ADDRESS_NUMBER"].ToString());
+					reports.Add("Bad ADDRESS_NUMBER: " + (string)f.Properties["ADDRESS_NUMBER"].ToString());
 				}
 				if (f.Properties["STATE"] != "ME")
 				{
-					Log.LogError("Bad STATE: " + (string)f.Properties["STATE"]);
+					reports.Add("Bad STATE: " + (string)f.Properties["STATE"]);
 				}
+			}
+
+			foreach (var report in reports)
+			{
+				Log.LogError(report);
 			}
 		}
 
@@ -389,6 +402,8 @@ namespace OsmPipeline
 			{
 				building = "BLDG " + building;
 			}
+
+			if (double.TryParse(loc, out _)) loc = ""; // Some LOCations are like "377162.5568"?
 
 			var name = ReplaceToken(landmark + ' ' + building + ' ' + loc, UNITs);
 

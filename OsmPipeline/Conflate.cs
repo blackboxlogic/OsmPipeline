@@ -204,12 +204,20 @@ namespace OsmPipeline
 							.OrderBy(match => match.distance).First();
 						var subjectElement = closestMatch.element;
 						var completeSubjectElement = subjectElement.AsComplete(subjectElementsIndexed);
-						if (closestMatch.distance > int.Parse(Static.Config["MatchDistanceKmMaz"])
+
+						if (closestMatch.element.Tags.TryGetValue("addr:city", out string subCity)
+							&& referenceElement.Tags.TryGetValue("addr:city", out string refCity)
+							&& !string.Equals(subCity, refCity, StringComparison.OrdinalIgnoreCase)
+							&& closestMatch.distance > 200)
+						{
+							// Not a match
+						}
+						else if (closestMatch.distance > int.Parse(Static.Config["MatchDistanceKmMaz"])
 							&& !Geometry.IsNodeInBuilding(referenceElement, completeSubjectElement)
 							&& !whiteList.Contains(Math.Abs(referenceElement.Id.Value)))
 						{
 							var arrow = Geometry.GetDirectionArrow(referenceElement.AsPosition(), completeSubjectElement.AsPosition());
-							referenceElement.Tags.AddOrAppend(WarnKey, $"Matched, but too far: {(int)closestMatch.distance} meters {arrow}.{Identify(subjectElement)}");
+							referenceElement.Tags.AddOrAppend(WarnKey, $"Matched, but too far: {(int)closestMatch.distance} m {arrow}.{Identify(subjectElement)}");
 							referenceElement.Tags.AddOrAppend(ReviewWithKey, subjectElement.Type.ToString() + subjectElement.Id);
 						}
 						else
@@ -246,7 +254,7 @@ namespace OsmPipeline
 				.Select(b => b.AsComplete(subjectElementsIndexed))
 				.ToArray();
 			var newNodes = create.OfType<Node>().ToArray();
-			var buildingsAndInnerNewNodes = Geometry.NodesInOrNearCompleteElements(buildings, newNodes, 10, 100);
+			var buildingsAndInnerNewNodes = Geometry.NodesInOrNearCompleteElements(buildings, newNodes, 30, 100);
 			var oldNodes = subjectElementsIndexed.Values.OfType<Node>().Where(n => n.Tags?.Any() == true).ToArray();
 			var buildingsAndInnerOldNodes = Geometry.NodesInCompleteElements(buildings, oldNodes);
 
@@ -342,7 +350,7 @@ namespace OsmPipeline
 				subjectNode.Latitude = referenceNode.Latitude;
 				subjectNode.Longitude = referenceNode.Longitude;
 				// Mark it for easier review
-				subject.Tags.AddOrReplace(MovedKey, (int)currentDistanceMeters + " meters " + arrow);
+				subject.Tags.AddOrReplace(MovedKey, (int)currentDistanceMeters + " m " + arrow);
 				return true;
 			}
 
@@ -390,6 +398,11 @@ namespace OsmPipeline
 					changed = true;
 					subject.Tags[refTag.Key] = refTag.Value;
 					subject.Tags[Static.maineE911id + ":" + refTag.Key] = "added";
+
+					if (refTag.Key == "building" && (subject is Relation || subject is Way subWay && subWay.Nodes.Length > 10))
+					{
+						subject.Tags.AddOrAppend(WarnKey, "Made this a building");
+					}
 				}
 			}
 
