@@ -5,11 +5,26 @@
 				"US Route 1": {
 					"Route 1": {},					
 				},
+			},
+			"US-2": {
+				"US Route 2": {
+					"Route 2": {}
+				}
+			},
+			"Route Three": {
+				"Route 3": {}
 			}
 		}
 	},
 	"addr:postcode": {
 		"*": {}
+	},
+	"tourism": {
+		"*": {
+			"attraction": {
+				"museum": {}
+			}
+		}
 	},
 	"leisure": {
 		"*": {
