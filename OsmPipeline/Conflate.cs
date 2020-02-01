@@ -189,34 +189,31 @@ namespace OsmPipeline
 				}
 				else if (subjectAddressIndex.TryGetValue(addr, out var targetSubjectElements))
 				{
-					
 					var matchDistances = targetSubjectElements
 						.Select(element => new { element, complete = element.AsComplete(subjectElementsIndexed) })
-						.Select(match => new { match.element, distance = Geometry.DistanceMeters(referenceElement, match.complete) })
+						.Select(match => new { match.element, match.complete, distance = Geometry.DistanceMeters(referenceElement, match.complete) })
 						// Remove elements in other towns
-						.Where(match => !ProbablyInAnotherCity(match.element, referenceElement,
-							Geometry.DistanceMeters(match.element.AsComplete(subjectElementsIndexed), referenceElement)))
+						.Where(match => !ProbablyInAnotherCity(match.element, referenceElement, match.distance))
 						.ToArray();
 
-					if (targetSubjectElements.Length > 1)
+					if (matchDistances.Length > 1)
 					{
 						// TODO: Resolve these multi-matches by checking tag conflicts
-						referenceElement.Tags.AddOrAppend(ErrorKey, "Multiple matches!" + Identify(targetSubjectElements));
-						referenceElement.Tags.AddOrAppend(ReviewWithKey, targetSubjectElements.Select(e => e.Type.ToString() + e.Id).ToArray());
+						referenceElement.Tags.AddOrAppend(ErrorKey, "Multiple matches!");
+						referenceElement.Tags.AddOrAppend(ReviewWithKey, Identify(matchDistances.Select(m => m.element).ToArray()));
 					}
-					else if (targetSubjectElements.Length == 1)
+					else if (matchDistances.Length == 1)
 					{
 						var closestMatch = matchDistances.OrderBy(match => match.distance).First();
 						var subjectElement = closestMatch.element;
-						var completeSubjectElement = subjectElement.AsComplete(subjectElementsIndexed);
 
 						if (closestMatch.distance > int.Parse(Static.Config["MatchDistanceKmMaz"])
-							&& !Geometry.IsNodeInBuilding(referenceElement, completeSubjectElement)
+							&& !Geometry.IsNodeInBuilding(referenceElement, closestMatch.complete)
 							&& !whiteList.Contains(Math.Abs(referenceElement.Id.Value)))
 						{
-							var arrow = Geometry.GetDirectionArrow(referenceElement.AsPosition(), completeSubjectElement.AsPosition());
-							referenceElement.Tags.AddOrAppend(WarnKey, $"Matched, but too far: {(int)closestMatch.distance} m {arrow}.{Identify(subjectElement)}");
-							referenceElement.Tags.AddOrAppend(ReviewWithKey, subjectElement.Type.ToString() + subjectElement.Id);
+							var arrow = Geometry.GetDirectionArrow(referenceElement.AsPosition(), closestMatch.complete.AsPosition());
+							referenceElement.Tags.AddOrAppend(WarnKey, $"Matched, but too far: {(int)closestMatch.distance} m {arrow}");
+							referenceElement.Tags.AddOrAppend(ReviewWithKey, Identify(subjectElement));
 						}
 						else
 						{
@@ -237,7 +234,7 @@ namespace OsmPipeline
 							catch (MergeConflictException e)
 							{
 								referenceElement.Tags.AddOrAppend(WarnKey, e.Message);
-								referenceElement.Tags.AddOrAppend(ReviewWithKey, subjectElement.Type.ToString() + subjectElement.Id);
+								referenceElement.Tags.AddOrAppend(ReviewWithKey, Identify(subjectElement));
 							}
 						}
 					}
@@ -331,12 +328,12 @@ namespace OsmPipeline
 
 		private static string Identify(params OsmGeo[] elements)
 		{
-			return "\n\t" + string.Join("\n\t", elements.Select(e => $"{e.Type.ToString().ToLower()}/{e.Id}"));
+			return string.Join(";", elements.Select(e => $"{e.Type.ToString()}{e.Id}"));
 		}
 
 		private static string Identify(string key, params OsmGeo[] elements)
 		{
-			return "\n\t" + string.Join("\n\t", elements.Select(e => $"{e.Type.ToString().ToLower()}/{e.Id}.{key}={e.Tags[key]}"));
+			return string.Join(";", elements.Select(e => $"{e.Type.ToString()}{e.Id}.{key}={e.Tags[key]}"));
 		}
 
 		private static bool MoveNode(OsmGeo reference, OsmGeo subject,
