@@ -13,6 +13,11 @@
 			},
 			"Route Three": {
 				"Route 3": {}
+			},
+			"ME-32": {
+				"State Route 32": {
+					"Route 32": {}
+				}
 			}
 		}
 	},
@@ -22,7 +27,8 @@
 	"tourism": {
 		"*": {
 			"attraction": {
-				"museum": {}
+				"museum": {},
+				"theme_park": {}
 			}
 		}
 	},
@@ -44,7 +50,8 @@
 			},
 			"public_building": {},
 			"healthcare": {
-				"clinic": {}
+				"clinic": {},
+				"nursing_home": {}
 			},
 			"*": {}
 		}

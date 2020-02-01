@@ -189,30 +189,28 @@ namespace OsmPipeline
 				}
 				else if (subjectAddressIndex.TryGetValue(addr, out var targetSubjectElements))
 				{
+					
+					var matchDistances = targetSubjectElements
+						.Select(element => new { element, complete = element.AsComplete(subjectElementsIndexed) })
+						.Select(match => new { match.element, distance = Geometry.DistanceMeters(referenceElement, match.complete) })
+						// Remove elements in other towns
+						.Where(match => !ProbablyInAnotherCity(match.element, referenceElement,
+							Geometry.DistanceMeters(match.element.AsComplete(subjectElementsIndexed), referenceElement)))
+						.ToArray();
+
 					if (targetSubjectElements.Length > 1)
 					{
 						// TODO: Resolve these multi-matches by checking tag conflicts
 						referenceElement.Tags.AddOrAppend(ErrorKey, "Multiple matches!" + Identify(targetSubjectElements));
 						referenceElement.Tags.AddOrAppend(ReviewWithKey, targetSubjectElements.Select(e => e.Type.ToString() + e.Id).ToArray());
 					}
-					else
+					else if (targetSubjectElements.Length == 1)
 					{
-						var refCentroid = Geometry.AsPosition(referenceElement.AsComplete(subjectElementsIndexed));
-						var closestMatch = targetSubjectElements
-							.Select(element => new { element, centroid = Geometry.AsPosition(element.AsComplete(subjectElementsIndexed)) })
-							.Select(match => new { match.element, distance = Geometry.DistanceMeters(refCentroid, match.centroid) })
-							.OrderBy(match => match.distance).First();
+						var closestMatch = matchDistances.OrderBy(match => match.distance).First();
 						var subjectElement = closestMatch.element;
 						var completeSubjectElement = subjectElement.AsComplete(subjectElementsIndexed);
 
-						if (closestMatch.element.Tags.TryGetValue("addr:city", out string subCity)
-							&& referenceElement.Tags.TryGetValue("addr:city", out string refCity)
-							&& !string.Equals(subCity, refCity, StringComparison.OrdinalIgnoreCase)
-							&& closestMatch.distance > 200)
-						{
-							// Not a match
-						}
-						else if (closestMatch.distance > int.Parse(Static.Config["MatchDistanceKmMaz"])
+						if (closestMatch.distance > int.Parse(Static.Config["MatchDistanceKmMaz"])
 							&& !Geometry.IsNodeInBuilding(referenceElement, completeSubjectElement)
 							&& !whiteList.Contains(Math.Abs(referenceElement.Id.Value)))
 						{
@@ -245,6 +243,14 @@ namespace OsmPipeline
 					}
 				}
 			}
+		}
+
+		private static bool ProbablyInAnotherCity(OsmGeo a, OsmGeo b, double distanceMeters)
+		{
+			return a.Tags.TryGetValue("addr:city", out string aCity)
+				&& b.Tags.TryGetValue("addr:city", out string bCity)
+				&& !string.Equals(aCity, bCity, StringComparison.OrdinalIgnoreCase)
+				&& distanceMeters > 200;
 		}
 
 		private static void MergeNodesByGeometry(Dictionary<string, OsmGeo> subjectElementsIndexed,

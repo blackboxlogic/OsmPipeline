@@ -407,6 +407,8 @@ namespace OsmPipeline
 
 			var name = ReplaceToken(landmark + ' ' + building + ' ' + loc, UNITs);
 
+			if (!string.IsNullOrWhiteSpace(name)) Log.LogInformation("Name: " + name);
+
 			return name;
 		}
 
