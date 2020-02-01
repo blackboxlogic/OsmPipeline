@@ -81,7 +81,38 @@ namespace OsmPipeline
 						$"\"{Municipality}/Conflated.Delete.osm\"",
 						$"\"{Municipality}/Conflated.Modify.osm\"",
 						$"\"{Municipality}/Conflated.Review.osm\""}.Where(f => File.Exists(f.Trim('"'))));
-					System.Diagnostics.Process.Start(Static.Config["JosmPath"], args);
+					if (args.Length == 0) Console.WriteLine("But there aren't any files :(");
+					else System.Diagnostics.Process.Start(Static.Config["JosmPath"], args);
+				}
+				else if (Is(userInput, "list"))
+				{
+					var key = userInput.Split(" ")[1];
+					var Reference = FileSerializer.ReadXmlCacheOrSource(Municipality + "/Reference.osm",
+						() => References.Fetch(Municipality)).Result;
+					var values = Reference.OsmToGeos().Where(e => e.Tags.ContainsKey(key)).Select(e => e.Tags[key]).Distinct().ToArray();
+
+					Console.WriteLine(string.Join("\n\t", values));
+				}
+				else if (Is(userInput, "filter"))
+				{
+					var key = userInput.Split(" ")[1];
+					var Reference = FileSerializer.ReadXmlCacheOrSource(Municipality + "/Reference.osm",
+						() => References.Fetch(Municipality)).Result;
+					var valuesElements = Reference.OsmToGeos().Where(e => e.Tags.ContainsKey(key)).GroupBy(e => e.Tags[key]).ToArray();
+					foreach (var valueElements in valuesElements)
+					{
+						Console.WriteLine(valueElements.Key + "?");
+						if (char.ToUpper(Console.ReadKey(true).KeyChar) == 'N')
+						{
+							foreach (var element in valueElements)
+							{
+								Static.Municipalities[Municipality].BlackTags.Add(element.Id + "." + key);
+							}
+						}
+					}
+					FileSerializer.WriteJson("MaineMunicipalities.json", Static.Municipalities);
+					File.Delete(Municipality + "/Reference.osm");
+					File.Delete(Municipality + "/Conflated.osc");
 				}
 				else if (Is(userInput, "note"))
 				{
@@ -172,6 +203,8 @@ namespace OsmPipeline
 					Console.WriteLine("\tSubject");
 					Console.WriteLine("\tConflate");
 					Console.WriteLine("\tReview");
+					Console.WriteLine("\tList [key]");
+					Console.WriteLine("\tFilter [key]");
 					Console.WriteLine("\tNote [message]");
 					Console.WriteLine("\tWhitelist [###]<,[###]...>");
 					Console.WriteLine("\tWhiteAll");
