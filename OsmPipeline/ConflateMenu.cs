@@ -101,12 +101,12 @@ namespace OsmPipeline
 					var valuesElements = Reference.OsmToGeos().Where(e => e.Tags.ContainsKey(key)).GroupBy(e => e.Tags[key]).ToArray();
 					foreach (var valueElements in valuesElements)
 					{
-						Console.WriteLine(valueElements.Key + "?");
+						Console.WriteLine("?\t" + valueElements.Key);
 						if (char.ToUpper(Console.ReadKey(true).KeyChar) == 'N')
 						{
 							foreach (var element in valueElements)
 							{
-								Static.Municipalities[Municipality].BlackTags.Add(element.Id + "." + key);
+								Static.Municipalities[Municipality].BlackTags.Add(Math.Abs(element.Id.Value) + "." + key);
 							}
 						}
 					}
