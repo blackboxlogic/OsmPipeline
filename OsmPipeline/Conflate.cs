@@ -72,7 +72,7 @@ namespace OsmPipeline
 			}
 
 			review.RemoveAll(r => IsOnTheList(r, ignoreList));
-			var reviewsWith = review.ToArray().Where(e => e.Tags.ContainsKey(ReviewWithKey))
+			var reviewsWith = review.ToArray().Where(e => e.Tags.ContainsKey(ReviewWithKey)).Distinct()
 				.ToDictionary(r => r,
 				r => r.Tags[ReviewWithKey].Split(";").Select(rw => subjectElementsIndexed[rw]));
 			foreach (var reviewWith in reviewsWith)

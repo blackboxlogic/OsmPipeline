@@ -5,6 +5,7 @@ using OsmSharp.API;
 using OsmSharp.Changesets;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Net.Http;
@@ -82,7 +83,7 @@ namespace OsmPipeline
 						$"\"{Municipality}/Conflated.Modify.osm\"",
 						$"\"{Municipality}/Conflated.Review.osm\""}.Where(f => File.Exists(f.Trim('"'))));
 					if (args.Length == 0) Console.WriteLine("But there aren't any files :(");
-					else System.Diagnostics.Process.Start(Static.Config["JosmPath"], args);
+					else Process.Start(Static.Config["JosmPath"], args);
 				}
 				else if (Is(userInput, "list"))
 				{
@@ -193,6 +194,10 @@ namespace OsmPipeline
 				{
 					Municipality = ChooseMunicipality();
 					ShowProgress();
+				}
+				else if (Is(userInput, "folder"))
+				{
+					Process.Start(Environment.GetEnvironmentVariable("WINDIR") + @"\explorer.exe", Environment.CurrentDirectory + "\\" + Municipality);
 				}
 				else if (Is(userInput, "help"))
 				{
