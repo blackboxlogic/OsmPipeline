@@ -3846,9 +3846,11 @@
 	"Matinicus Isle Plt": {
 		"Name": "Matinicus Isle Plt",
 		"AddressCount": 99,
-		"ImportDate": null,
+		"ImportDate": "2020-02-01T02:10:15.8455469Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80397908
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -3857,20 +3859,29 @@
 	"Gray": {
 		"Name": "Gray",
 		"AddressCount": 4222,
-		"ImportDate": null,
+		"ImportDate": "2020-02-01T02:24:59.6539059Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80398030
+		],
 		"BlackList": [],
-		"WhiteList": [],
+		"WhiteList": [
+			2277252
+		],
 		"BlackTags": [],
-		"IgnoreList": []
+		"IgnoreList": [
+			1823629,
+			1462889
+		]
 	},
 	"Pierce Pond Twp": {
 		"Name": "Pierce Pond Twp",
 		"AddressCount": 4,
-		"ImportDate": null,
+		"ImportDate": "2020-02-01T02:26:04.6196539Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80398043
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -3879,9 +3890,11 @@
 	"Kingsbury Plt": {
 		"Name": "Kingsbury Plt",
 		"AddressCount": 113,
-		"ImportDate": null,
+		"ImportDate": "2020-02-01T02:27:33.4759157Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80398063
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -3890,9 +3903,11 @@
 	"Lowelltown Twp": {
 		"Name": "Lowelltown Twp",
 		"AddressCount": 1,
-		"ImportDate": null,
+		"ImportDate": "2020-02-01T02:27:46.0777799Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80398066
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -3901,20 +3916,26 @@
 	"Damariscotta": {
 		"Name": "Damariscotta",
 		"AddressCount": 1506,
-		"ImportDate": null,
-		"Notes": null,
-		"ChangeSetIds": [],
+		"ImportDate": "2020-02-01T02:41:04.6984909Z",
+		"Notes": "/ni removed many addr:unit",
+		"ChangeSetIds": [
+			80398185
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
-		"IgnoreList": []
+		"IgnoreList": [
+			1991662
+		]
 	},
 	"Hiram": {
 		"Name": "Hiram",
 		"AddressCount": 826,
-		"ImportDate": null,
+		"ImportDate": "2020-02-01T02:45:05.9911856Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80398208
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -3923,31 +3944,46 @@
 	"Brownville": {
 		"Name": "Brownville",
 		"AddressCount": 408,
-		"ImportDate": null,
+		"ImportDate": "2020-02-01T02:49:48.7641314Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80398264
+		],
 		"BlackList": [],
-		"WhiteList": [],
+		"WhiteList": [
+			1588625
+		],
 		"BlackTags": [],
-		"IgnoreList": []
+		"IgnoreList": [
+			1960465
+		]
 	},
 	"Wells": {
 		"Name": "Wells",
 		"AddressCount": 7491,
-		"ImportDate": null,
-		"Notes": null,
-		"ChangeSetIds": [],
-		"BlackList": [],
+		"ImportDate": "2020-02-01T03:25:03.5304131Z",
+		"Notes": "/nmanually removing many names",
+		"ChangeSetIds": [
+			80398561
+		],
+		"BlackList": [
+			1421760,
+			1648130
+		],
 		"WhiteList": [],
 		"BlackTags": [],
-		"IgnoreList": []
+		"IgnoreList": [
+			1603450
+		]
 	},
 	"Hope": {
 		"Name": "Hope",
 		"AddressCount": 868,
-		"ImportDate": null,
+		"ImportDate": "2020-02-01T03:25:58.7446806Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80398569
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -3956,9 +3992,11 @@
 	"Cedar Lake Twp": {
 		"Name": "Cedar Lake Twp",
 		"AddressCount": 99,
-		"ImportDate": null,
-		"Notes": null,
-		"ChangeSetIds": [],
+		"ImportDate": "2020-02-01T03:28:08.375855Z",
+		"Notes": "/nmanually removing names",
+		"ChangeSetIds": [
+			80398590
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -3967,9 +4005,11 @@
 	"Moosehead Lake": {
 		"Name": "Moosehead Lake",
 		"AddressCount": 4,
-		"ImportDate": null,
+		"ImportDate": "2020-02-01T03:32:16.7120416Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80398614
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -3978,9 +4018,11 @@
 	"T34 MD BPP": {
 		"Name": "T34 MD BPP",
 		"AddressCount": 1,
-		"ImportDate": null,
+		"ImportDate": "2020-02-01T03:33:28.7989256Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80398626
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -3989,31 +4031,52 @@
 	"T1 R8 Wels": {
 		"Name": "T1 R8 Wels",
 		"AddressCount": 72,
-		"ImportDate": null,
+		"ImportDate": "2020-02-01T03:57:55.618979Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80398777
+		],
 		"BlackList": [],
 		"WhiteList": [],
-		"BlackTags": [],
+		"BlackTags": [
+			"1830078.addr:city"
+		],
 		"IgnoreList": []
 	},
 	"Sabattus": {
 		"Name": "Sabattus",
 		"AddressCount": 2393,
-		"ImportDate": null,
-		"Notes": null,
-		"ChangeSetIds": [],
-		"BlackList": [],
-		"WhiteList": [],
+		"ImportDate": "2020-02-01T04:07:00.4584213Z",
+		"Notes": "/nsome of these addresses are clumped at the start of roads",
+		"ChangeSetIds": [
+			80398833
+		],
+		"BlackList": [
+			2065822
+		],
+		"WhiteList": [
+			1798466,
+			1798546,
+			1941206,
+			1795828,
+			1610706,
+			1610700,
+			1610704
+		],
 		"BlackTags": [],
-		"IgnoreList": []
+		"IgnoreList": [
+			2065822,
+			1610698
+		]
 	},
 	"T4 R10 Wels": {
 		"Name": "T4 R10 Wels",
 		"AddressCount": 1,
-		"ImportDate": null,
+		"ImportDate": "2020-02-01T04:09:48.1750064Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80398846
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -4022,9 +4085,11 @@
 	"Atkinson": {
 		"Name": "Atkinson",
 		"AddressCount": 1,
-		"ImportDate": null,
+		"ImportDate": "2020-02-01T04:11:43.1674642Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80398860
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -4033,9 +4098,11 @@
 	"Plymouth Twp": {
 		"Name": "Plymouth Twp",
 		"AddressCount": 2,
-		"ImportDate": null,
+		"ImportDate": "2020-02-01T04:12:38.1855985Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80398866
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -4044,20 +4111,26 @@
 	"Medway": {
 		"Name": "Medway",
 		"AddressCount": 500,
-		"ImportDate": null,
+		"ImportDate": "2020-02-01T04:15:26.3813775Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80398879
+		],
 		"BlackList": [],
-		"WhiteList": [],
+		"WhiteList": [
+			1534860
+		],
 		"BlackTags": [],
 		"IgnoreList": []
 	},
 	"Addison": {
 		"Name": "Addison",
 		"AddressCount": 468,
-		"ImportDate": null,
+		"ImportDate": "2020-02-01T04:17:48.4839432Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80398893
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -4066,9 +4139,11 @@
 	"Blake Gore": {
 		"Name": "Blake Gore",
 		"AddressCount": 2,
-		"ImportDate": null,
+		"ImportDate": "2020-02-01T19:56:57.7366168Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80419991
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -4077,9 +4152,11 @@
 	"Molunkus Twp": {
 		"Name": "Molunkus Twp",
 		"AddressCount": 72,
-		"ImportDate": null,
+		"ImportDate": "2020-02-01T20:00:58.2644478Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80420059
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -4088,31 +4165,55 @@
 	"Nobleboro": {
 		"Name": "Nobleboro",
 		"AddressCount": 1273,
-		"ImportDate": null,
+		"ImportDate": "2020-02-01T22:19:58.8153728Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80422511
+		],
 		"BlackList": [],
 		"WhiteList": [],
-		"BlackTags": [],
+		"BlackTags": [
+			"1432778.name",
+			"1432827.name",
+			"1432859.name",
+			"1694626.name",
+			"1432876.name",
+			"1433023.name",
+			"1433046.name",
+			"1433055.name",
+			"1433105.name",
+			"1433116.name",
+			"1694673.name",
+			"1694673.name"
+		],
 		"IgnoreList": []
 	},
 	"Jonesport": {
 		"Name": "Jonesport",
 		"AddressCount": 816,
-		"ImportDate": null,
+		"ImportDate": "2020-02-01T22:50:44.6470966Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80422884
+		],
 		"BlackList": [],
 		"WhiteList": [],
-		"BlackTags": [],
+		"BlackTags": [
+			"1593904.name",
+			"2373525.name",
+			"2426725.name",
+			"2426726.name"
+		],
 		"IgnoreList": []
 	},
 	"Osborn": {
 		"Name": "Osborn",
 		"AddressCount": 28,
-		"ImportDate": null,
+		"ImportDate": "2020-02-01T22:51:36.1541949Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80422895
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -4121,9 +4222,11 @@
 	"Friendship": {
 		"Name": "Friendship",
 		"AddressCount": 867,
-		"ImportDate": null,
+		"ImportDate": "2020-02-02T04:08:17.0465438Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80425612
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -4132,9 +4235,11 @@
 	"Winterville Plt": {
 		"Name": "Winterville Plt",
 		"AddressCount": 216,
-		"ImportDate": null,
+		"ImportDate": "2020-02-02T04:12:03.4768953Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80425640
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -4143,31 +4248,52 @@
 	"Readfield": {
 		"Name": "Readfield",
 		"AddressCount": 1287,
-		"ImportDate": null,
+		"ImportDate": "2020-02-02T04:23:08.9746061Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80425708
+		],
 		"BlackList": [],
-		"WhiteList": [],
-		"BlackTags": [],
-		"IgnoreList": []
+		"WhiteList": [
+			1629962,
+			1629963,
+			1629964
+		],
+		"BlackTags": [
+			"2443415.name"
+		],
+		"IgnoreList": [
+			1970908,
+			2280357
+		]
 	},
 	"Harpswell": {
 		"Name": "Harpswell",
 		"AddressCount": 5236,
-		"ImportDate": null,
-		"Notes": null,
-		"ChangeSetIds": [],
+		"ImportDate": "2020-02-02T17:02:12.1847418Z",
+		"Notes": "/nsome of the names maybe should be descriptions.",
+		"ChangeSetIds": [
+			80441177
+		],
 		"BlackList": [],
-		"WhiteList": [],
-		"BlackTags": [],
+		"WhiteList": [
+			1882458,
+			1828147
+		],
+		"BlackTags": [
+			"1899670.name",
+			"1851701.name"
+		],
 		"IgnoreList": []
 	},
 	"Easton": {
 		"Name": "Easton",
 		"AddressCount": 590,
-		"ImportDate": null,
-		"Notes": null,
-		"ChangeSetIds": [],
+		"ImportDate": "2020-02-02T19:43:37.1453398Z",
+		"Notes": "/nunits are in the floor field.",
+		"ChangeSetIds": [
+			80444938
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -4176,9 +4302,11 @@
 	"Bridgewater": {
 		"Name": "Bridgewater",
 		"AddressCount": 323,
-		"ImportDate": null,
+		"ImportDate": "2020-02-02T19:47:46.840834Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80445033
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -4187,9 +4315,11 @@
 	"T28 Md Bpp": {
 		"Name": "T28 Md Bpp",
 		"AddressCount": 8,
-		"ImportDate": null,
+		"ImportDate": "2020-02-02T19:49:03.8293535Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80445067
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -4198,31 +4328,55 @@
 	"Baileyville": {
 		"Name": "Baileyville",
 		"AddressCount": 478,
-		"ImportDate": null,
+		"ImportDate": "2020-02-02T19:52:42.8788186Z",
 		"Notes": null,
-		"ChangeSetIds": [],
-		"BlackList": [],
-		"WhiteList": [],
+		"ChangeSetIds": [
+			80445152
+		],
+		"BlackList": [
+			1699645
+		],
+		"WhiteList": [
+			2516769
+		],
 		"BlackTags": [],
 		"IgnoreList": []
 	},
 	"Moscow": {
 		"Name": "Moscow",
 		"AddressCount": 264,
-		"ImportDate": null,
+		"ImportDate": "2020-02-02T19:56:37.1842504Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80445246
+		],
 		"BlackList": [],
 		"WhiteList": [],
-		"BlackTags": [],
+		"BlackTags": [
+			"1724990.name",
+			"1725011.name",
+			"1725049.name",
+			"1725060.name",
+			"1725091.name",
+			"1725154.name",
+			"1725172.name",
+			"1725106.name",
+			"1725112.name",
+			"1725127.name",
+			"1725130.name",
+			"1725148.name",
+			"1725158.name"
+		],
 		"IgnoreList": []
 	},
 	"Weston": {
 		"Name": "Weston",
 		"AddressCount": 141,
-		"ImportDate": null,
+		"ImportDate": "2020-02-02T19:58:06.8934039Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80445270
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -4231,9 +4385,11 @@
 	"T6 Nd Bpp": {
 		"Name": "T6 Nd Bpp",
 		"AddressCount": 5,
-		"ImportDate": null,
+		"ImportDate": "2020-02-02T19:59:59.1076069Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80445325
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -4242,9 +4398,11 @@
 	"Sullivan": {
 		"Name": "Sullivan",
 		"AddressCount": 671,
-		"ImportDate": null,
+		"ImportDate": "2020-02-03T00:24:20.5172378Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80449350
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -4253,13 +4411,19 @@
 	"Cushing": {
 		"Name": "Cushing",
 		"AddressCount": 997,
-		"ImportDate": null,
+		"ImportDate": "2020-02-03T00:31:19.3936843Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80449408
+		],
 		"BlackList": [],
-		"WhiteList": [],
+		"WhiteList": [
+			2436592
+		],
 		"BlackTags": [],
-		"IgnoreList": []
+		"IgnoreList": [
+			2545912
+		]
 	},
 	"Casco": {
 		"Name": "Casco",
@@ -4269,7 +4433,24 @@
 		"ChangeSetIds": [],
 		"BlackList": [],
 		"WhiteList": [],
-		"BlackTags": [],
+		"BlackTags": [
+			"2496529.name",
+			"1611895.name",
+			"1611897.name",
+			"1969472.name",
+			"1759330.name",
+			"1819640.name",
+			"1835005.name",
+			"1835060.name",
+			"1961669.name",
+			"2052650.name",
+			"2054155.name",
+			"2083216.name",
+			"2181975.name",
+			"2294281.name",
+			"2542132.name",
+			"2544661.name"
+		],
 		"IgnoreList": []
 	},
 	"T11 R16 WELS": {
@@ -7654,13 +7835,19 @@
 	"New Gloucester": {
 		"Name": "New Gloucester",
 		"AddressCount": 2426,
-		"ImportDate": null,
+		"ImportDate": "2020-02-02T19:34:50.6727551Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80444734
+		],
 		"BlackList": [],
-		"WhiteList": [],
+		"WhiteList": [
+			1788782
+		],
 		"BlackTags": [],
-		"IgnoreList": []
+		"IgnoreList": [
+			1788619
+		]
 	},
 	"Drew Plt": {
 		"Name": "Drew Plt",
