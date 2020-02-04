@@ -3,7 +3,7 @@
 		"*": {
 			"US 1": {
 				"US Route 1": {
-					"Route 1": {},					
+					"Route 1": {},
 				},
 			},
 			"US-2": {
@@ -58,7 +58,12 @@
 	},
 	"shop": {
 		"yes": {
-			"*": {}
+			"mall": {
+				"clothes": {},
+				"department_store": {},
+				"craft": {},
+				"*": {}
+			}
 		}
 	},
 	"building": {
