@@ -88,6 +88,21 @@ namespace OsmPipeline
 			return filtered;
 		}
 
+		public static void Report(Node[] nodes)
+		{
+			Console.WriteLine("Report");
+			var keys = nodes.SelectMany(n => n.Tags)
+				.Where(t => !t.Key.StartsWith(Static.maineE911id) && t.Key != "addr:housenumber" && t.Key != "addr:street")
+				.GroupBy(t => t)
+				.Select(t => "\t" + t.First() + "\t\tx" + t.Count())
+				.OrderBy(t => t);
+
+			foreach (var keyValue in keys)
+			{
+				Console.WriteLine(keyValue);
+			}
+		}
+
 		private static Node Convert(Feature feature)
 		{
 			var props = feature.Properties;
@@ -137,12 +152,24 @@ namespace OsmPipeline
 
 			foreach (var tag in blackTags)
 			{
-				var parts = tag.Split(".");
-				if (byId.TryGetValue(parts[0], out Node node))
+				var parts = tag.Split('.', 2);
+				if (parts[0] == "*") // *.name=House
 				{
-					node.Tags.RemoveKey(parts[1]);
-					node.Tags.Add(Static.maineE911id + ":" + parts[1], "ommitted");
+					parts = parts[1].Split('=', 2);
+					foreach (var node in nodes)
+					{
+						if (node.Tags.RemoveKeyValue(new Tag(parts[0], parts[1])))
+						{
+							node.Tags.Add(Static.maineE911id + ":" + parts[0], "ommitted");
+						}
+					}
 				}
+				else if (byId.TryGetValue(parts[0], out Node nodeById)) // 2984323.name
+				{
+					nodeById.Tags.RemoveKey(parts[1]);
+					nodeById.Tags.Add(Static.maineE911id + ":" + parts[1], "ommitted");
+				}
+
 			}
 		}
 
@@ -406,7 +433,7 @@ namespace OsmPipeline
 			if (double.TryParse(loc, out _)) loc = ""; // Some LOCations are like "377162.5568"?
 
 			var name = ReplaceToken(landmark + ' ' + building + ' ' + loc, UNITs);
-
+			name = name.Replace("Building Building", "Building");
 			return name;
 		}
 

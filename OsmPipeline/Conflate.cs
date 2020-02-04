@@ -49,6 +49,18 @@ namespace OsmPipeline
 			return change;
 		}
 
+		public static void Review(string scopeName)
+		{
+			var review = FileSerializer.ReadXml<Osm>(scopeName + "/Conflated.Review.osm");
+			if (review != null)
+			{
+				foreach (var revTag in review.OsmToGeos().SelectMany(e => e.Tags?.Where(t => t.Key == WarnKey || t.Key == ErrorKey) ?? new Tag[0]))
+				{
+					Console.WriteLine(revTag);
+				}
+			}
+		}
+
 		// Collections are modified by reference. Errors removed and logged. Warns just logged.
 		// Whitelist suppresses warns and errors.
 		private static List<OsmGeo> GatherExceptions(List<long> whiteList, List<long> ignoreList,
@@ -110,7 +122,7 @@ namespace OsmPipeline
 		private static void ValidateRoadNamesMatcheRoads(Dictionary<string, OsmGeo> subjectElementsIndexed, List<OsmGeo> create)
 		{
 			var roadNames = subjectElementsIndexed.Values
-				.Where(w => w.Tags != null && w.Tags.ContainsKey("highway") && w.Tags.ContainsKey("name"))
+				.Where(w => w.Tags != null && w.Tags.ContainsKey("highway") && w.Tags.ContainsKey("name")) // should expand this... official_name, ref etc
 				.SelectMany(w => w.Tags)
 				.Where(t => t.Key.Contains("name"))
 				.Select(t => t.Value)
@@ -118,7 +130,7 @@ namespace OsmPipeline
 
 			foreach (var created in create)
 			{
-				if (!roadNames.Contains(created.Tags["addr:street"]))
+				if (created.Tags.ContainsKey("addr:street") && !roadNames.Contains(created.Tags["addr:street"]))
 				{
 					created.Tags.AddOrAppend(InfoKey, "Cannot find a matching highway");
 				}
@@ -374,7 +386,7 @@ namespace OsmPipeline
 				}
 				else if (subject.Tags.TryGetValue(refTag.Key, out string subValue))
 				{
-					if (subValue != refTag.Value && !subValue.Split(";-,".ToArray()).Contains(refTag.Value))
+					if (subValue != refTag.Value && !subValue.Split(";-,:".ToArray()).Contains(refTag.Value))
 					{
 						if (TagTree.Keys.ContainsKey(refTag.Key) &&
 							TagTree.Keys[refTag.Key].IsDecendantOf(refTag.Value, subValue)
@@ -404,7 +416,12 @@ namespace OsmPipeline
 
 					if (refTag.Key == "building" && (subject is Relation || subject is Way subWay && subWay.Nodes.Length > 10))
 					{
-						subject.Tags.AddOrAppend(WarnKey, "Made this a building");
+						subject.Tags.AddOrAppend(ErrorKey, "Made this a building");
+					}
+
+					if (subject is Way subWay2 && subWay2.Nodes.First() != subWay2.Nodes.Last())
+					{
+						subject.Tags.AddOrAppend(ErrorKey, "Modified an open way");
 					}
 				}
 			}

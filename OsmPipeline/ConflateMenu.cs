@@ -46,12 +46,18 @@ namespace OsmPipeline
 				Console.Write("> ");
 				var userInput = Console.ReadLine();
 
+
 				if (Is(userInput, "reference"))
 				{
 					//Func<Feature, bool> filter = f => (f.Geometry as Point).Coordinates.Longitude >= -70.505;
 					var Reference = References.Fetch(Municipality).Result;
 					FileSerializer.WriteXml(Municipality + "/Reference.osm", Reference);
 					File.Delete(Municipality + "/Conflated.osc");
+				}
+				else if(Is(userInput, "review ref"))
+				{
+					var reference = FileSerializer.ReadXml<Osm>(Municipality + "/Reference.osm");
+					References.Report(reference.Nodes);
 				}
 				else if (Is(userInput, "subject"))
 				{
@@ -63,14 +69,11 @@ namespace OsmPipeline
 				}
 				else if (Is(userInput, "conflate"))
 				{
-					var Reference = FileSerializer.ReadXmlCacheOrSource(Municipality + "/Reference.osm",
-						() => References.Fetch(Municipality)).Result;
-					var Subject = FileSerializer.ReadXmlCacheOrSource(Municipality + "/Subject.osm",
-						() => Subjects.GetElementsInBoundingBox(Reference.Bounds)).Result;
-					var Change = Conflate.Merge(Reference, Subject, Municipality,
-						Static.Municipalities[Municipality].WhiteList,
-						Static.Municipalities[Municipality].IgnoreList);
-					FileSerializer.WriteXml(Municipality + "/Conflated.osc", Change);
+					DoConflate();
+				}
+				else if (Is(userInput, "review con"))
+				{
+					Conflate.Review(Municipality);
 				}
 				else if (Is(userInput, "review"))
 				{
@@ -90,25 +93,22 @@ namespace OsmPipeline
 					var key = userInput.Split(" ")[1];
 					var Reference = FileSerializer.ReadXmlCacheOrSource(Municipality + "/Reference.osm",
 						() => References.Fetch(Municipality)).Result;
-					var values = Reference.OsmToGeos().Where(e => e.Tags.ContainsKey(key)).Select(e => e.Tags[key]).Distinct().ToArray();
+					var values = Reference.OsmToGeos().Where(e => e.Tags.ContainsKey(key)).Select(e => "\n\t" + e.Tags[key]).Distinct().ToArray();
 
-					Console.WriteLine(string.Join("\n\t", values));
+					Console.WriteLine(string.Concat(values));
 				}
 				else if (Is(userInput, "filter"))
 				{
 					var key = userInput.Split(" ")[1];
 					var Reference = FileSerializer.ReadXmlCacheOrSource(Municipality + "/Reference.osm",
 						() => References.Fetch(Municipality)).Result;
-					var valuesElements = Reference.OsmToGeos().Where(e => e.Tags.ContainsKey(key)).GroupBy(e => e.Tags[key]).ToArray();
-					foreach (var valueElements in valuesElements)
+					var values = Reference.OsmToGeos().Where(e => e.Tags.ContainsKey(key)).Select(e => e.Tags[key]).Distinct().OrderBy(v => v).ToArray();
+					foreach (var value in values)
 					{
-						Console.WriteLine("?\t" + valueElements.Key);
+						Console.WriteLine("?\t" + value);
 						if (char.ToUpper(Console.ReadKey(true).KeyChar) == 'N')
 						{
-							foreach (var element in valueElements)
-							{
-								Static.Municipalities[Municipality].BlackTags.Add(Math.Abs(element.Id.Value) + "." + key);
-							}
+							Static.Municipalities[Municipality].BlackTags.Add($"*.{key}={value}");
 						}
 					}
 					FileSerializer.WriteJson("MaineMunicipalities.json", Static.Municipalities);
@@ -150,7 +150,7 @@ namespace OsmPipeline
 				}
 				else if (Is(userInput, "blacktag"))
 				{
-					var tag = userInput.Split(' ', 2)[1];
+					var tag = userInput.Split(' ', 2)[1].Replace("maineE911id=", "");
 					Static.Municipalities[Municipality].BlackTags.Add(tag);
 					FileSerializer.WriteJson("MaineMunicipalities.json", Static.Municipalities);
 					File.Delete(Municipality + "/Reference.osm");
@@ -176,6 +176,8 @@ namespace OsmPipeline
 					Static.Municipalities[Municipality].ImportDate = DateTime.UtcNow;
 					FileSerializer.WriteJson("MaineMunicipalities.json", Static.Municipalities);
 					Console.WriteLine("Finished!");
+
+					Next();
 				}
 				else if (Is(userInput, "skip"))
 				{
@@ -185,10 +187,7 @@ namespace OsmPipeline
 				}
 				else if (Is(userInput, "next"))
 				{
-					Municipality = Static.Municipalities.Values.First(m => !m.ChangeSetIds.Any()).Name;
-					Console.Clear();
-					ShowProgress();
-					Console.WriteLine("Switching to " + Municipality);
+					Next();
 				}
 				else if (Is(userInput, "switch"))
 				{
@@ -197,7 +196,7 @@ namespace OsmPipeline
 				}
 				else if (Is(userInput, "folder"))
 				{
-					Process.Start(Environment.GetEnvironmentVariable("WINDIR") + @"\explorer.exe", Environment.CurrentDirectory + "\\" + Municipality);
+					OpenExplorer();
 				}
 				else if (Is(userInput, "help"))
 				{
@@ -205,8 +204,10 @@ namespace OsmPipeline
 					Console.WriteLine("\tSwitch");
 					Console.WriteLine("\tNext");
 					Console.WriteLine("\tReference");
+					Console.WriteLine("\tReview Reference");
 					Console.WriteLine("\tSubject");
 					Console.WriteLine("\tConflate");
+					Console.WriteLine("\tReview Conflate");
 					Console.WriteLine("\tReview");
 					Console.WriteLine("\tList [key]");
 					Console.WriteLine("\tFilter [key]");
@@ -214,7 +215,7 @@ namespace OsmPipeline
 					Console.WriteLine("\tWhitelist [###]<,[###]...>");
 					Console.WriteLine("\tWhiteAll");
 					Console.WriteLine("\tBlacklist [###]<,[###]...>");
-					Console.WriteLine("\tBlackTag [###].[key]");
+					Console.WriteLine("\tBlackTag [###].[key] || *.[key]=[value]");
 					Console.WriteLine("\tIgnore [###]<,[###]...>");
 					Console.WriteLine("\tCommit");
 				}
@@ -222,6 +223,32 @@ namespace OsmPipeline
 
 				Console.WriteLine("Done");
 			}
+		}
+
+		private void Next()
+		{
+			Municipality = Static.Municipalities.Values.First(m => !m.ChangeSetIds.Any()).Name;
+			Console.Clear();
+			ShowProgress();
+			Console.WriteLine("Switching to " + Municipality);
+			DoConflate();
+		}
+
+		private void DoConflate()
+		{
+			var Reference = FileSerializer.ReadXmlCacheOrSource(Municipality + "/Reference.osm",
+				() => References.Fetch(Municipality)).Result;
+			var Subject = FileSerializer.ReadXmlCacheOrSource(Municipality + "/Subject.osm",
+				() => Subjects.GetElementsInBoundingBox(Reference.Bounds)).Result;
+			var Change = Conflate.Merge(Reference, Subject, Municipality,
+				Static.Municipalities[Municipality].WhiteList,
+				Static.Municipalities[Municipality].IgnoreList);
+			FileSerializer.WriteXml(Municipality + "/Conflated.osc", Change);
+		}
+
+		private void OpenExplorer()
+		{
+			Process.Start(Environment.GetEnvironmentVariable("WINDIR") + @"\explorer.exe", Environment.CurrentDirectory + "\\" + Municipality);
 		}
 
 		private void AddToList(string input, List<long> list)
