@@ -5215,9 +5215,11 @@
 	"Bethel": {
 		"Name": "Bethel",
 		"AddressCount": 1993,
-		"ImportDate": null,
+		"ImportDate": "2020-02-04T20:34:01.280254Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80553934
+		],
 		"BlackList": [
 			1591305,
 			1550159,
@@ -5309,9 +5311,11 @@
 	"Webster Plt": {
 		"Name": "Webster Plt",
 		"AddressCount": 22,
-		"ImportDate": null,
+		"ImportDate": "2020-02-04T20:34:11.1497755Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80553943
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -5320,75 +5324,277 @@
 	"Livermore Falls": {
 		"Name": "Livermore Falls",
 		"AddressCount": 1738,
-		"ImportDate": null,
+		"ImportDate": "2020-02-04T20:36:24.3928611Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80554011
+		],
 		"BlackList": [],
 		"WhiteList": [],
-		"BlackTags": [],
+		"BlackTags": [
+			"*.name=address changed from 159 Campground Rd",
+			"*.name=address changed from 161 Campground Rd",
+			"*.name=large garage"
+		],
 		"IgnoreList": []
 	},
 	"Caribou": {
 		"Name": "Caribou",
 		"AddressCount": 4577,
-		"ImportDate": null,
+		"ImportDate": "2020-02-04T20:43:27.9492628Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80554217
+		],
 		"BlackList": [],
-		"WhiteList": [],
-		"BlackTags": [],
-		"IgnoreList": []
+		"WhiteList": [
+			1943516,
+			1943517,
+			1943518,
+			1943519,
+			1943520,
+			1943521,
+			1943522,
+			1943523,
+			1943524,
+			1943525,
+			1943526,
+			1788558,
+			1945715,
+			1944177,
+			1944178,
+			1944179,
+			1944180,
+			1944181,
+			1944182,
+			1944183,
+			1944184,
+			1637403,
+			1788466,
+			1943839,
+			1943840,
+			1943841,
+			1943842,
+			1943843,
+			1943844,
+			1609229,
+			1943853,
+			1944571,
+			1944572,
+			1944573,
+			1944574,
+			1944575,
+			1640916
+		],
+		"BlackTags": [
+			"*.name=CO",
+			"*.name=telecom shed"
+		],
+		"IgnoreList": [
+			1948850,
+			1945855,
+			1945854
+		]
 	},
 	"Orono": {
 		"Name": "Orono",
 		"AddressCount": 2491,
-		"ImportDate": null,
+		"ImportDate": "2020-02-04T21:09:01.5168788Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80554862
+		],
 		"BlackList": [],
-		"WhiteList": [],
-		"BlackTags": [],
-		"IgnoreList": []
+		"WhiteList": [
+			1551524,
+			1551664,
+			2230139,
+			2230191,
+			2230209,
+			2230130,
+			2232946,
+			1503096
+		],
+		"BlackTags": [
+			"2232950.name",
+			"1641178.name",
+			"1963412.name",
+			"2232963.name",
+			"2232904.name",
+			"2232898.name",
+			"2232944.name",
+			"2232936.name",
+			"2232938.name",
+			"2232923.name",
+			"1748517.name",
+			"2232913.name",
+			"1748515.name"
+		],
+		"IgnoreList": [
+			1507401,
+			2232966,
+			2232965,
+			1502929
+		]
 	},
 	"Norridgewock": {
 		"Name": "Norridgewock",
 		"AddressCount": 1255,
-		"ImportDate": null,
+		"ImportDate": "2020-02-04T21:17:54.9282385Z",
 		"Notes": null,
-		"ChangeSetIds": [],
-		"BlackList": [],
-		"WhiteList": [],
-		"BlackTags": [],
+		"ChangeSetIds": [
+			80555078
+		],
+		"BlackList": [
+			1725699,
+			1761040,
+			1760930
+		],
+		"WhiteList": [
+			1595503,
+			1725699,
+			2559910,
+			1899727
+		],
+		"BlackTags": [
+			"1761082.name",
+			"1761010.name"
+		],
 		"IgnoreList": []
 	},
 	"Eliot": {
 		"Name": "Eliot",
 		"AddressCount": 3845,
-		"ImportDate": null,
+		"ImportDate": "2020-02-04T21:21:41.4453556Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80555167
+		],
 		"BlackList": [],
-		"WhiteList": [],
+		"WhiteList": [
+			2058173,
+			2058174,
+			2058175,
+			2058176,
+			2058177,
+			2058178,
+			2058179,
+			2058180,
+			2058181,
+			2058182,
+			2058183,
+			2058184,
+			2058185,
+			2058186,
+			2058187,
+			2058188,
+			2058189,
+			2058190,
+			2058191,
+			2058192,
+			2058193,
+			2058194,
+			2058195,
+			2058196,
+			2058197,
+			2058198,
+			2058199,
+			2058200,
+			1527077,
+			2058172,
+			2058201,
+			1527079,
+			1893225,
+			1885551
+		],
 		"BlackTags": [],
 		"IgnoreList": []
 	},
 	"Falmouth": {
 		"Name": "Falmouth",
 		"AddressCount": 5690,
-		"ImportDate": null,
+		"ImportDate": "2020-02-05T17:17:08.2385259Z",
 		"Notes": null,
-		"ChangeSetIds": [],
-		"BlackList": [],
-		"WhiteList": [],
-		"BlackTags": [],
-		"IgnoreList": []
+		"ChangeSetIds": [
+			80600833
+		],
+		"BlackList": [
+			1847151,
+			1847155,
+			1847154,
+			1847150,
+			1847149,
+			1839881
+		],
+		"WhiteList": [
+			1808597,
+			1821609,
+			1958145,
+			2104926,
+			1884852,
+			1461736,
+			1899793,
+			1958666,
+			1832279,
+			2221929,
+			1583571,
+			1815204,
+			1840284,
+			1840270,
+			1829127,
+			1958259,
+			1958260,
+			1958261,
+			1958262,
+			1958250,
+			1958251,
+			1958252,
+			1958253,
+			1958254,
+			1958255,
+			1958256,
+			1958257,
+			1958258,
+			1835186,
+			1958249,
+			1819965
+		],
+		"BlackTags": [
+			"*.name=above garage",
+			"*.name=Barn",
+			"*.name=Building 1",
+			"*.name=Building 4",
+			"*.name=Building 5",
+			"*.name=Building 6",
+			"*.name=Building 7",
+			"*.name=Building 8",
+			"*.name=Building A1",
+			"*.name=Building A2",
+			"*.name=Building B1",
+			"*.name=Building B2",
+			"*.name=Building C1",
+			"*.name=Building C2",
+			"*.name=Building D1",
+			"*.name=was 18 allen ave ext",
+			"*.name=was 59 Falmouth Rd"
+		],
+		"IgnoreList": [
+			1958919,
+			1958920,
+			1821601,
+			1957516,
+			1958690,
+			1868288
+		]
 	},
 	"Forsyth Twp": {
 		"Name": "Forsyth Twp",
 		"AddressCount": 1,
-		"ImportDate": null,
+		"ImportDate": "2020-02-05T17:19:36.0715149Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80600899
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -5397,31 +5603,44 @@
 	"Lebanon": {
 		"Name": "Lebanon",
 		"AddressCount": 2933,
-		"ImportDate": null,
+		"ImportDate": "2020-02-05T17:29:28.1489752Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80601218
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
-		"IgnoreList": []
+		"IgnoreList": [
+			1569633
+		]
 	},
 	"Franklin": {
 		"Name": "Franklin",
 		"AddressCount": 1010,
-		"ImportDate": null,
+		"ImportDate": "2020-02-05T17:32:14.2362317Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80601315
+		],
 		"BlackList": [],
 		"WhiteList": [],
-		"BlackTags": [],
+		"BlackTags": [
+			"*.name=Camp",
+			"*.name=Campsite with tool shed",
+			"*.name=Garage",
+			"*.name=Shed/storage Building"
+		],
 		"IgnoreList": []
 	},
 	"Springfield": {
 		"Name": "Springfield",
 		"AddressCount": 144,
-		"ImportDate": null,
+		"ImportDate": "2020-02-05T17:52:29.6234704Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80602267
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -5430,9 +5649,11 @@
 	"Fletchers Landing Twp": {
 		"Name": "Fletchers Landing Twp",
 		"AddressCount": 50,
-		"ImportDate": null,
+		"ImportDate": "2020-02-05T17:52:38.7423056Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80602275
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -5441,9 +5662,11 @@
 	"T2 R8 WELS": {
 		"Name": "T2 R8 WELS",
 		"AddressCount": 9,
-		"ImportDate": null,
+		"ImportDate": "2020-02-05T17:52:47.2869789Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80602284
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -5452,24 +5675,95 @@
 	"Harmony": {
 		"Name": "Harmony",
 		"AddressCount": 492,
-		"ImportDate": null,
+		"ImportDate": "2020-02-05T17:53:44.2725658Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80602337
+		],
 		"BlackList": [],
 		"WhiteList": [],
-		"BlackTags": [],
+		"BlackTags": [
+			"*.name=r/o/w to cell tower"
+		],
 		"IgnoreList": []
 	},
 	"South Portland": {
 		"Name": "South Portland",
 		"AddressCount": 13535,
-		"ImportDate": null,
-		"Notes": null,
-		"ChangeSetIds": [],
-		"BlackList": [],
-		"WhiteList": [],
-		"BlackTags": [],
-		"IgnoreList": []
+		"ImportDate": "2020-02-05T18:16:49.5405035Z",
+		"Notes": "/nSummit Terrace and Ashbourne Court neighborhoods have their addresses squished to one area",
+		"ChangeSetIds": [
+			80603389
+		],
+		"BlackList": [
+			1585630
+		],
+		"WhiteList": [
+			1666813,
+			1809945,
+			2037458,
+			2037459,
+			2037460,
+			1960979,
+			2038350,
+			1472888,
+			2038463,
+			2038464,
+			2038465,
+			2038466,
+			2038467,
+			2038468,
+			2038469,
+			2038470,
+			2038471,
+			2038472,
+			2038473,
+			2038474,
+			2038475,
+			2038476,
+			2038477,
+			2038478,
+			2038479,
+			2038480,
+			2038481,
+			2038482,
+			2038483,
+			2038484,
+			2038485,
+			2038486,
+			2038487,
+			2038488,
+			2038489,
+			2038490,
+			2038491,
+			2038492,
+			2038493,
+			2038494,
+			1472895,
+			1585480,
+			1878660,
+			1810481
+		],
+		"BlackTags": [
+			"2034856;2034857;2034858;2034859;2034860;2034861;2034862;2034863;2034864;2034865;2034866;2034867;2034868;2034869;2034870;2034871;2034872;2034873;2034874;2034875;2034876;2034877;1666640;2034855.building"
+		],
+		"IgnoreList": [
+			1810102,
+			2036345,
+			2036346,
+			2036347,
+			2036348,
+			2036349,
+			2036036,
+			2036037,
+			2038498,
+			2038499,
+			2038500,
+			2038501,
+			1472867,
+			2038496,
+			2038497
+		]
 	},
 	"Mount Desert": {
 		"Name": "Mount Desert",
