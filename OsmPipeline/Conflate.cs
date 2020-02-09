@@ -256,10 +256,11 @@ namespace OsmPipeline
 
 		private static bool ProbablyInAnotherCity(OsmGeo a, OsmGeo b, double distanceMeters)
 		{
-			return a.Tags.TryGetValue("addr:city", out string aCity)
+			return (a.Tags.TryGetValue("addr:city", out string aCity)
 				&& b.Tags.TryGetValue("addr:city", out string bCity)
 				&& !string.Equals(aCity, bCity, StringComparison.OrdinalIgnoreCase)
-				&& distanceMeters > 200;
+				&& distanceMeters > 200)
+				|| distanceMeters > 2000;
 		}
 
 		private static void MergeNodesByGeometry(Dictionary<string, OsmGeo> subjectElementsIndexed,

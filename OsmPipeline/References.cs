@@ -473,8 +473,8 @@ namespace OsmPipeline
 			var parts = new string[] {
 					PrePostDIRs[predir],
 					name,
-					PrePostDIRs[postdir],
-					StreetSUFFIX[suffix]
+					StreetSUFFIX[suffix],
+					PrePostDIRs[postdir]
 				}.Where(p => p != "");
 
 			var fullName = string.Join(" ", parts);

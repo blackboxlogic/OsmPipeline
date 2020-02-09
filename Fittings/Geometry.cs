@@ -265,8 +265,9 @@ namespace OsmPipeline.Fittings
 			else if (building is CompleteWay buildingWay)
 			{
 				var point = new NetTopologySuite.Geometries.Point(node.Longitude.Value, node.Latitude.Value);
+				if (buildingWay.Nodes.Length < 4 || (buildingWay.Nodes.First() != buildingWay.Nodes.Last())) return false;
 				var ring = new NetTopologySuite.Geometries.LinearRing(
-					buildingWay.Nodes.Append(buildingWay.Nodes[0]).Select(n => new Coordinate(n.Longitude.Value, n.Latitude.Value)).ToArray());
+					buildingWay.Nodes.Select(n => new Coordinate(n.Longitude.Value, n.Latitude.Value)).ToArray());
 				var polygon = new NetTopologySuite.Geometries.Polygon(ring);
 				return point.Within(polygon);
 			}
