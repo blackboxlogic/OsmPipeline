@@ -330,7 +330,7 @@ namespace OsmPipeline
 			return a.Tags != null && b.Tags != null
 				&& a.Tags.TryGetValue("addr:street", out string aStreet)
 				&& b.Tags.TryGetValue("addr:street", out string bStreet)
-				&& aStreet == bStreet
+				&& (aStreet == bStreet || TagTree.Keys["addr:street"].IsDecendantOf(aStreet, bStreet))
 				&& a.Tags.TryGetValue("addr:housenumber", out string aNum)
 				&& b.Tags.TryGetValue("addr:housenumber", out string bNum)
 				&& int.TryParse(aNum, out int aInt)
@@ -352,6 +352,8 @@ namespace OsmPipeline
 		private static bool MoveNode(OsmGeo reference, OsmGeo subject,
 			Dictionary<string, OsmGeo> subjectElementsIndexed, double currentDistanceMeters)
 		{
+			//return false;
+
 			if (subject is Node subjectNode
 				&& reference is Node referenceNode
 				&& currentDistanceMeters > int.Parse(Static.Config["MinNodeMoveDistance"]))
@@ -400,7 +402,7 @@ namespace OsmPipeline
 						}
 						else if (TagTree.Keys.ContainsKey(refTag.Key) &&
 							TagTree.Keys[refTag.Key].IsDecendantOf(subValue, refTag.Value))
-						{
+						{ 
 							// Nothing, it is already more specific.
 						}
 						else
@@ -415,7 +417,7 @@ namespace OsmPipeline
 					subject.Tags[refTag.Key] = refTag.Value;
 					subject.Tags[Static.maineE911id + ":" + refTag.Key] = "added";
 
-					if (refTag.Key == "building" && (subject is Relation || subject is Way subWay && subWay.Nodes.Length > 10))
+					if (refTag.Key == "building" && (subject is Relation || subject is Way subWay))
 					{
 						subject.Tags.AddOrAppend(ErrorKey, "Made this a building");
 					}
