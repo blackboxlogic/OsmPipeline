@@ -140,7 +140,7 @@ namespace OsmPipeline.Fittings
 			var result = new Dictionary<ICompleteOsmGeo, Node[]>();
 			foreach (var building in buildings)
 			{
-				var bounds = building.AsBounds();
+				var bounds = building.AsBounds(1); // 1 because we loose precision from double to float
 				var candidates = FastNodesInBounds(bounds, byLat, byLon);
 				var inners = candidates.Where(n => IsNodeInBuilding(n, building)).ToArray();
 				if (inners.Any()) result.Add(building, inners);
@@ -209,7 +209,8 @@ namespace OsmPipeline.Fittings
 		public static Bounds AsBounds(this IEnumerable<ICompleteOsmGeo> elements, double bufferMeters = 0)
 		{
 			var bufferLat = bufferMeters == 0 ? 0f : (float)DistanceLat(bufferMeters);
-			var bufferLon = bufferMeters == 0 ? 0f : (float)DistanceLon(bufferMeters, elements.First().AsPosition().Latitude);
+			var approxLat = elements.First().AsPosition().Latitude;
+			var bufferLon = bufferMeters == 0 ? 0f : (float)DistanceLon(bufferMeters, approxLat);
 
 			if (bufferLon < 0) throw new Exception("Bad buffer");
 
@@ -331,14 +332,15 @@ namespace OsmPipeline.Fittings
 
 		public static double DistanceLat(double distanceMeters)
 		{
-			// 1 lat degree = 100_000/9 meters
-			// 1 meter = 9/100_000 lat degrees
-			return distanceMeters * 9 / 100_000;
+			// 1 lat degree = 1_000_000/9 meters
+			// 1 meter = 9/1_000_000 lat degrees
+			return distanceMeters * 9 / 1_000_000;
 		}
 
 		public static double DistanceLon(double distanceMeters, double latitude)
 		{
-			return distanceMeters * 9 / 100_000 * Math.Cos(latitude / 180 * Math.PI);
+			var lon = distanceMeters * 9 / 1_000_000 / Math.Cos(latitude / 180 * Math.PI);
+			return lon;
 		}
 	}
 }
