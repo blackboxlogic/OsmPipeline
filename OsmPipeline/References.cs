@@ -78,6 +78,7 @@ namespace OsmPipeline
 			var nodes = gisFeatures
 				.Where(f => !blacklist.Contains((long)f.Properties["OBJECTID"]))
 				.Select(Convert)
+				.Where(n => n.Tags.ContainsKey("addr:housenumber"))
 				.ToArray();
 
 			if (!nodes.Any()) return null;
@@ -160,14 +161,14 @@ namespace OsmPipeline
 					{
 						if (node.Tags.RemoveKeyValue(new Tag(parts[0], parts[1])))
 						{
-							node.Tags.Add(Static.maineE911id + ":" + parts[0], "ommitted");
+							node.Tags.Add(Static.maineE911id + ":" + parts[0], "ommitted " + parts[1]);
 						}
 					}
 				}
 				else if (byId.TryGetValue(parts[0], out Node nodeById)) // 2984323.name
 				{
 					nodeById.Tags.RemoveKey(parts[1]);
-					nodeById.Tags.Add(Static.maineE911id + ":" + parts[1], "ommitted");
+					nodeById.Tags.Add(Static.maineE911id + ":" + parts[1], "ommitted " + parts[1]);
 				}
 
 			}
@@ -425,12 +426,15 @@ namespace OsmPipeline
 
 		private static string Name(string landmark, string loc, string building)
 		{
+
+			if (double.TryParse(loc, out _)) loc = ""; // Some LOCations are like "377162.5568"?
+			if (landmark == loc) loc = ""; // Sometimes they just duplicate each other?
+			if (landmark == building || loc == building) building = ""; // Sometimes they just duplicate each other?
+
 			if (!string.IsNullOrWhiteSpace(building) && building?.Length > 0 && building?.Length < 4)
 			{
 				building = "BLDG " + building;
 			}
-
-			if (double.TryParse(loc, out _)) loc = ""; // Some LOCations are like "377162.5568"?
 
 			var name = ReplaceToken(landmark + ' ' + building + ' ' + loc, UNITs);
 			name = name.Replace("Building Building", "Building");
