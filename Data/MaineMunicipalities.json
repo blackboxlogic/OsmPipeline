@@ -4725,7 +4725,6 @@
 			1740273,
 			1551741,
 			1953371,
-			0,
 			1558730,
 			1524368,
 			1530997,
@@ -5845,19 +5844,42 @@
 		"Name": "Mount Desert",
 		"AddressCount": 2194,
 		"ImportDate": null,
-		"Notes": null,
-		"ChangeSetIds": [],
+		"Notes": "/nI turned off \"move\". Existing nodes will not be repositioned to where E911 thinks they should be. I found osm data to be more accurate here./nI'm skipping because addr:city and addr:postal conflict with existing mapped features, I've asked for help from https://www.openstreetmap.org/user/Alan%20Bragg SKIPPED",
+		"ChangeSetIds": [
+			-1
+		],
 		"BlackList": [],
-		"WhiteList": [],
-		"BlackTags": [],
-		"IgnoreList": []
+		"WhiteList": [
+			1673280,
+			1547671
+		],
+		"BlackTags": [
+			"*.name=2 Unit Duplex",
+			"*.name=Accessory Structure",
+			"*.name=Building #2",
+			"*.name=Building #3",
+			"*.name=Building A",
+			"*.name=Building B",
+			"*.name=Host site A-loop",
+			"*.name=Host site B-loop",
+			"*.name=Main house",
+			"*.name=Office",
+			"*.name=Rental Unit",
+			"1650716.building"
+		],
+		"IgnoreList": [
+			1547326,
+			1654204
+		]
 	},
 	"Chesuncook Twp": {
 		"Name": "Chesuncook Twp",
 		"AddressCount": 50,
-		"ImportDate": null,
+		"ImportDate": "2020-02-09T19:57:33.9016212Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80762613
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -5866,20 +5888,32 @@
 	"Harrison": {
 		"Name": "Harrison",
 		"AddressCount": 1853,
-		"ImportDate": null,
+		"ImportDate": "2020-02-09T20:00:20.8972067Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80762698
+		],
 		"BlackList": [],
 		"WhiteList": [],
-		"BlackTags": [],
+		"BlackTags": [
+			"*.name=Affiliated with Camps Newfound / Owatonna",
+			"*.name=Brewery",
+			"*.name=Garage",
+			"*.name=resident accesss home from Shirlely Ln",
+			"*.name=resident using this address",
+			"*.name=shed",
+			"*.name=Shed"
+		],
 		"IgnoreList": []
 	},
 	"Garfield Plt": {
 		"Name": "Garfield Plt",
 		"AddressCount": 45,
-		"ImportDate": null,
+		"ImportDate": "2020-02-09T20:14:00.6385204Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80762990
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -5888,20 +5922,26 @@
 	"Oakfield": {
 		"Name": "Oakfield",
 		"AddressCount": 333,
-		"ImportDate": null,
+		"ImportDate": "2020-02-09T20:53:03.5060795Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80763933
+		],
 		"BlackList": [],
-		"WhiteList": [],
+		"WhiteList": [
+			1676795
+		],
 		"BlackTags": [],
 		"IgnoreList": []
 	},
 	"Marshfield": {
 		"Name": "Marshfield",
 		"AddressCount": 158,
-		"ImportDate": null,
+		"ImportDate": "2020-02-09T20:54:58.5114614Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80763980
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -5910,20 +5950,42 @@
 	"Palmyra": {
 		"Name": "Palmyra",
 		"AddressCount": 891,
-		"ImportDate": null,
+		"ImportDate": "2020-02-09T21:06:52.9768694Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80764276
+		],
 		"BlackList": [],
-		"WhiteList": [],
-		"BlackTags": [],
-		"IgnoreList": []
+		"WhiteList": [
+			1764999
+		],
+		"BlackTags": [
+			"*.name=Apartment - 2",
+			"*.name=Apartment - GARAGE",
+			"*.name=Apartment 2",
+			"*.name=Apartment Rear",
+			"*.name=B",
+			"*.name=Building BARN",
+			"*.name=Building MNHS",
+			"*.name=Building Trailer",
+			"*.name=GALE RD",
+			"*.name=Lot Trailer",
+			"*.name=Room Apartment GARAGE",
+			"*.name=Room Unit RIGHT",
+			"*.name=Suite 1"
+		],
+		"IgnoreList": [
+			1571537
+		]
 	},
 	"Chase Stream Twp": {
 		"Name": "Chase Stream Twp",
 		"AddressCount": 1,
-		"ImportDate": null,
+		"ImportDate": "2020-02-09T21:07:56.2871751Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80764305
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -5932,20 +5994,73 @@
 	"Dover-Foxcroft": {
 		"Name": "Dover-Foxcroft",
 		"AddressCount": 2414,
-		"ImportDate": null,
+		"ImportDate": "2020-02-10T03:09:53.7045863Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80770837
+		],
 		"BlackList": [],
-		"WhiteList": [],
-		"BlackTags": [],
-		"IgnoreList": []
+		"WhiteList": [
+			1575417,
+			1586442
+		],
+		"BlackTags": [
+			"*.name=2 units",
+			"*.name=3 units",
+			"*.name=3 Units",
+			"*.name=4 units",
+			"*.name=5 units",
+			"*.name=address changed from 123 Bolton Rd",
+			"*.name=address changed from 65 Towne Rd",
+			"*.name=airplane hangar",
+			"*.name=Also the Cutting Board Hair Salon in back.",
+			"*.name=Apartment over garage",
+			"*.name=Bears Den upstairs Apartment",
+			"*.name=Camper",
+			"*.name=Camper Trailer",
+			"*.name=changed from 315 Gray Hill Rd",
+			"*.name=Church Parsonage address changed from 142 E Main St",
+			"*.name=Country Meadows Apartments APTS 14-19",
+			"*.name=Country Meadows Apartments APTS 1-7",
+			"*.name=Country Meadows Apartments APTS 20-24",
+			"*.name=Country Meadows Apartments APTS 8-13",
+			"*.name=Double Wide",
+			"*.name=Garage",
+			"*.name=Garage Only",
+			"*.name=Grounds keeper garage",
+			"*.name=Gym Entrance",
+			"*.name=Living Space above garage",
+			"*.name=Maintenance Building for Hospital",
+			"*.name=oil tanks",
+			"*.name=Oil Tanks",
+			"*.name=Old potato house on ITS 83",
+			"*.name=Over Garage",
+			"*.name=pump station",
+			"*.name=storage Building",
+			"*.name=Storage Building",
+			"*.name=Telecom Cabinet",
+			"*.name=The Store N More",
+			"*.name=Warehouse",
+			"*.name=Warehouse addres changed from 57 Dwelley Ave",
+			"*.name=Warehouse, old Agway Building",
+			"*.name=Storage Barn",
+			"*.name=Large Barn",
+			"*.name=Double wide",
+			"1586349.name",
+			"1574770.name"
+		],
+		"IgnoreList": [
+			1591689
+		]
 	},
 	"Brooksville": {
 		"Name": "Brooksville",
 		"AddressCount": 910,
-		"ImportDate": null,
+		"ImportDate": "2020-02-10T03:20:44.8732865Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80771159
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -5954,9 +6069,11 @@
 	"Dennistown Plt": {
 		"Name": "Dennistown Plt",
 		"AddressCount": 16,
-		"ImportDate": null,
+		"ImportDate": "2020-02-10T03:21:50.5583529Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80771202
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -5965,9 +6082,11 @@
 	"Caswell": {
 		"Name": "Caswell",
 		"AddressCount": 167,
-		"ImportDate": null,
+		"ImportDate": "2020-02-10T03:24:53.340561Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80771294
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -5976,32 +6095,47 @@
 	"Carthage": {
 		"Name": "Carthage",
 		"AddressCount": 300,
-		"ImportDate": null,
+		"ImportDate": "2020-02-10T03:27:11.534791Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80771357
+		],
 		"BlackList": [],
 		"WhiteList": [],
-		"BlackTags": [],
+		"BlackTags": [
+			"*.name=Building MAIN House",
+			"*.name=Building Trailer"
+		],
 		"IgnoreList": []
 	},
 	"Castine": {
 		"Name": "Castine",
 		"AddressCount": 678,
-		"ImportDate": null,
+		"ImportDate": "2020-02-10T03:40:17.5551007Z",
 		"Notes": null,
-		"ChangeSetIds": [],
-		"BlackList": [],
+		"ChangeSetIds": [
+			80771755
+		],
+		"BlackList": [
+			1661034
+		],
 		"WhiteList": [],
 		"BlackTags": [],
-		"IgnoreList": []
+		"IgnoreList": [
+			1673392
+		]
 	},
 	"Cherryfield": {
 		"Name": "Cherryfield",
 		"AddressCount": 380,
-		"ImportDate": null,
+		"ImportDate": "2020-02-10T03:51:07.8025405Z",
 		"Notes": null,
-		"ChangeSetIds": [],
-		"BlackList": [],
+		"ChangeSetIds": [
+			80772097
+		],
+		"BlackList": [
+			1716570
+		],
 		"WhiteList": [],
 		"BlackTags": [],
 		"IgnoreList": []
@@ -6009,31 +6143,50 @@
 	"Hebron": {
 		"Name": "Hebron",
 		"AddressCount": 541,
-		"ImportDate": null,
+		"ImportDate": "2020-02-10T03:55:26.3636405Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80772239
+		],
 		"BlackList": [],
 		"WhiteList": [],
-		"BlackTags": [],
-		"IgnoreList": []
+		"BlackTags": [
+			"*.name=A",
+			"*.name=Apartment 1",
+			"*.name=Apartment 2",
+			"*.name=Apartment ABOVE GARAGE",
+			"*.name=GARAGE",
+			"*.name=LEFT IN SERVICE",
+			"*.name=Lot 2"
+		],
+		"IgnoreList": [
+			1659319
+		]
 	},
 	"Greenbush": {
 		"Name": "Greenbush",
 		"AddressCount": 470,
-		"ImportDate": null,
+		"ImportDate": "2020-02-10T03:58:38.6600296Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80772342
+		],
 		"BlackList": [],
-		"WhiteList": [],
+		"WhiteList": [
+			467282492,
+			2416353
+		],
 		"BlackTags": [],
 		"IgnoreList": []
 	},
 	"Saint Francis": {
 		"Name": "Saint Francis",
 		"AddressCount": 185,
-		"ImportDate": null,
+		"ImportDate": "2020-02-10T03:59:57.9166671Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80772391
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -6042,9 +6195,11 @@
 	"Deblois": {
 		"Name": "Deblois",
 		"AddressCount": 81,
-		"ImportDate": null,
+		"ImportDate": "2020-02-10T04:01:20.9629009Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80772438
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -6053,42 +6208,89 @@
 	"Waterville": {
 		"Name": "Waterville",
 		"AddressCount": 4982,
-		"ImportDate": null,
+		"ImportDate": "2020-02-10T20:31:02.1364851Z",
 		"Notes": null,
-		"ChangeSetIds": [],
-		"BlackList": [],
-		"WhiteList": [],
-		"BlackTags": [],
-		"IgnoreList": []
+		"ChangeSetIds": [
+			80814190
+		],
+		"BlackList": [
+			1838762,
+			1839025,
+			2053383,
+			1864327,
+			1864508,
+			1837459,
+			1838891
+		],
+		"WhiteList": [
+			1837212,
+			1878705,
+			1862077,
+			1842363
+		],
+		"BlackTags": [
+			"*.name=Building A",
+			"*.name=Building B",
+			"1878705.aeroway",
+			"1825765.name",
+			"1834368.name",
+			"2508807.name",
+			"1871898.building",
+			"1862077.shop"
+		],
+		"IgnoreList": [
+			1838799,
+			1855674,
+			1842298,
+			1842320,
+			1834387
+		]
 	},
 	"Belmont": {
 		"Name": "Belmont",
 		"AddressCount": 380,
-		"ImportDate": null,
+		"ImportDate": "2020-02-10T20:34:51.6208091Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80814336
+		],
 		"BlackList": [],
 		"WhiteList": [],
-		"BlackTags": [],
+		"BlackTags": [
+			"*.name=142A",
+			"*.name=28B",
+			"*.name=BROWN RANCH W/2 CAR",
+			"*.name=OPX IN Trailer",
+			"*.name=START - NO INFO",
+			"*.name=TENANT'S NAME IS MOR",
+			"*.name=Trailer 1"
+		],
 		"IgnoreList": []
 	},
 	"Sinclair Twp": {
 		"Name": "Sinclair Twp",
 		"AddressCount": 196,
-		"ImportDate": null,
+		"ImportDate": "2020-02-10T20:36:59.71509Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80814410
+		],
 		"BlackList": [],
 		"WhiteList": [],
-		"BlackTags": [],
+		"BlackTags": [
+			"*.name=changed from 326 Sinclair Rd",
+			"*.name=garage"
+		],
 		"IgnoreList": []
 	},
 	"Soldiertown Twp T2 R3 Nbkp": {
 		"Name": "Soldiertown Twp T2 R3 Nbkp",
 		"AddressCount": 1,
-		"ImportDate": null,
+		"ImportDate": "2020-02-10T20:37:19.2883446Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80814419
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -6097,9 +6299,11 @@
 	"Passadumkeag": {
 		"Name": "Passadumkeag",
 		"AddressCount": 103,
-		"ImportDate": null,
+		"ImportDate": "2020-02-10T20:40:37.1149204Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80814529
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -6108,9 +6312,11 @@
 	"Bowerbank": {
 		"Name": "Bowerbank",
 		"AddressCount": 177,
-		"ImportDate": null,
+		"ImportDate": "2020-02-10T20:42:39.2723765Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80814586
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -6119,9 +6325,11 @@
 	"Flagstaff Twp": {
 		"Name": "Flagstaff Twp",
 		"AddressCount": 12,
-		"ImportDate": null,
+		"ImportDate": "2020-02-10T20:42:54.7356237Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80814594
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -6130,9 +6338,11 @@
 	"Soper Mountain Twp": {
 		"Name": "Soper Mountain Twp",
 		"AddressCount": 2,
-		"ImportDate": null,
+		"ImportDate": "2020-02-10T23:58:42.6116956Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80818962
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -6141,9 +6351,11 @@
 	"T9 R8 Wels": {
 		"Name": "T9 R8 Wels",
 		"AddressCount": 1,
-		"ImportDate": null,
+		"ImportDate": "2020-02-10T23:58:58.6776134Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80818967
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -6152,31 +6364,52 @@
 	"Dallas Plt": {
 		"Name": "Dallas Plt",
 		"AddressCount": 428,
-		"ImportDate": null,
+		"ImportDate": "2020-02-11T00:03:21.632967Z",
 		"Notes": null,
-		"ChangeSetIds": [],
-		"BlackList": [],
+		"ChangeSetIds": [
+			80819045
+		],
+		"BlackList": [
+			1891595
+		],
 		"WhiteList": [],
-		"BlackTags": [],
+		"BlackTags": [
+			"*.name=Garage",
+			"*.name=repeating antenna",
+			"*.addr:unit=Building Building COTTAGE",
+			"*.addr:unit=Building Lot 13",
+			"*.addr:unit=Floor FLR 2",
+			"*.addr:unit=Lot 2HB",
+			"*.addr:unit=Lot 52",
+			"*.addr:unit=Room Unit LEFT"
+		],
 		"IgnoreList": []
 	},
 	"T5 R20 Wels": {
 		"Name": "T5 R20 Wels",
 		"AddressCount": 15,
-		"ImportDate": null,
-		"Notes": null,
-		"ChangeSetIds": [],
+		"ImportDate": "2020-02-12T18:56:13.6912879Z",
+		"Notes": "/nfollowing up conflicts on https://osmcha.mapbox.com/changesets/72632661/",
+		"ChangeSetIds": [
+			80920019
+		],
 		"BlackList": [],
-		"WhiteList": [],
+		"WhiteList": [
+			1887232,
+			1887233,
+			1887235
+		],
 		"BlackTags": [],
 		"IgnoreList": []
 	},
 	"Fowler Twp": {
 		"Name": "Fowler Twp",
 		"AddressCount": 1,
-		"ImportDate": null,
+		"ImportDate": "2020-02-12T18:56:26.82881Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80920026
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -6185,31 +6418,83 @@
 	"Lincolnville": {
 		"Name": "Lincolnville",
 		"AddressCount": 1261,
-		"ImportDate": null,
+		"ImportDate": "2020-02-13T02:39:48.1145267Z",
 		"Notes": null,
-		"ChangeSetIds": [],
-		"BlackList": [],
+		"ChangeSetIds": [
+			80929945
+		],
+		"BlackList": [
+			1420474,
+			1421357,
+			1420550
+		],
 		"WhiteList": [],
-		"BlackTags": [],
+		"BlackTags": [
+			"*.name=@JIMS HME&OFC",
+			"*.name=11 MCKAY RD",
+			"*.name=262 MAIN ST",
+			"*.name=46NORTON POND",
+			"*.name=6RENA YONG LN",
+			"*.name=78NORTN-GARAG",
+			"*.name=Apartment 1",
+			"*.name=Apartment 2",
+			"*.name=Apartment 4",
+			"*.name=Apartment 6",
+			"*.name=Apartment 7",
+			"*.name=Apartment B",
+			"*.name=Apartment OVER GARAGE",
+			"*.name=BLUE COTTAGE",
+			"*.name=Building CMDNMEEL",
+			"*.name=Building TERN",
+			"*.name=Building Trailer",
+			"*.name=BUNK HOUSE",
+			"*.name=CHEZ MICHEL",
+			"*.name=COTTAGE",
+			"*.name=DOWNSTAIRS Apartment",
+			"*.name=DOWNSTARIS Apartment",
+			"*.name=Front STORE",
+			"*.name=GARAGE",
+			"*.name=GARAGE Apartment",
+			"*.name=GARAGE SHOP",
+			"*.name=HORSEBARN Office",
+			"*.name=HOUSE",
+			"*.name=IN GARAGE",
+			"*.name=IN OUT BLDING",
+			"*.name=LINCOLNVILLE",
+			"*.name=LOG CABIN",
+			"*.name=Lower Apartment",
+			"*.name=SHINGLED BARN",
+			"*.name=SHP211SLB CTY",
+			"*.name=STORAGE Building",
+			"*.name=STORE",
+			"*.name=Trailer",
+			"*.name=Unit 1"
+		],
 		"IgnoreList": []
 	},
 	"Concord Twp": {
 		"Name": "Concord Twp",
 		"AddressCount": 118,
-		"ImportDate": null,
+		"ImportDate": "2020-02-13T02:45:06.2225291Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80930093
+		],
 		"BlackList": [],
 		"WhiteList": [],
-		"BlackTags": [],
+		"BlackTags": [
+			"*.name=Building Trailer"
+		],
 		"IgnoreList": []
 	},
 	"Holeb Twp": {
 		"Name": "Holeb Twp",
 		"AddressCount": 38,
-		"ImportDate": null,
+		"ImportDate": "2020-02-13T02:47:35.7070384Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80930152
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -6218,20 +6503,38 @@
 	"Hartland": {
 		"Name": "Hartland",
 		"AddressCount": 834,
-		"ImportDate": null,
+		"ImportDate": "2020-02-13T16:46:33.9522855Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80967878
+		],
 		"BlackList": [],
 		"WhiteList": [],
-		"BlackTags": [],
+		"BlackTags": [
+			"*.name=1116 GREAT MOOSE DR",
+			"*.name=A",
+			"*.name=A/104",
+			"*.name=A/3",
+			"*.name=Apartment - RC",
+			"*.name=Apartment 1",
+			"*.name=Apartment 3",
+			"*.name=Apartment A",
+			"*.name=Apartment B",
+			"*.name=ATTACHED GARAGE UPPE",
+			"*.name=Floor 1",
+			"*.name=OPX 529 DEVILS HEAD",
+			"*.name=OPX GARAGE_52 CROSBY"
+		],
 		"IgnoreList": []
 	},
 	"TD R2 WELS": {
 		"Name": "TD R2 WELS",
 		"AddressCount": 6,
-		"ImportDate": null,
+		"ImportDate": "2020-02-13T16:46:51.4346073Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80967887
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -6240,20 +6543,26 @@
 	"South Thomaston": {
 		"Name": "South Thomaston",
 		"AddressCount": 758,
-		"ImportDate": null,
+		"ImportDate": "2020-02-13T17:05:45.5396106Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80968547
+		],
 		"BlackList": [],
 		"WhiteList": [],
-		"BlackTags": [],
+		"BlackTags": [
+			"*.name=concrete hut"
+		],
 		"IgnoreList": []
 	},
 	"Kingfield": {
 		"Name": "Kingfield",
 		"AddressCount": 742,
-		"ImportDate": null,
+		"ImportDate": "2020-02-13T17:18:34.8506017Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80968930
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -6262,20 +6571,64 @@
 	"Buxton": {
 		"Name": "Buxton",
 		"AddressCount": 3711,
-		"ImportDate": null,
+		"ImportDate": "2020-02-13T18:27:26.6979015Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80971451
+		],
 		"BlackList": [],
-		"WhiteList": [],
-		"BlackTags": [],
+		"WhiteList": [
+			1823772
+		],
+		"BlackTags": [
+			"*.name=2nd flr over garage",
+			"*.name=3728",
+			"*.name=Above garage",
+			"*.name=Accessory structure",
+			"*.name=Accounting Office",
+			"*.name=Apartment A, B and C",
+			"*.name=Apartment over garage",
+			"*.name=Auto Repair",
+			"*.name=Auto Repair Garage",
+			"*.name=barn",
+			"*.name=Barn",
+			"*.name=buisness/storage",
+			"*.name=camp",
+			"*.name=Cat Grooming Facility",
+			"*.name=Colonial Tree - Arborist",
+			"*.name=craft shop in Basement",
+			"*.name=Dance Studio 1st flr, masonic lodge 2nd flr",
+			"*.name=Day care facility and 2 apts",
+			"*.name=Daycare",
+			"*.name=Double wide",
+			"*.name=Farm Stand",
+			"*.name=Garage",
+			"*.name=Gravel Pit",
+			"*.name=In Basement of 140 Haines Meadow Rd",
+			"*.name=light manufacturing",
+			"*.name=Mobile ice cream stand",
+			"*.name=Old One Room school house",
+			"*.name=Old School House",
+			"*.name=over garage",
+			"*.name=Parsonage",
+			"*.name=Pole Barn",
+			"*.name=rental Unit",
+			"*.name=River Drive",
+			"*.name=sawmill",
+			"*.name=shed",
+			"*.name=three bay garage and Office",
+			"*.name=workshop"
+		],
 		"IgnoreList": []
 	},
 	"T2 R12 Wels": {
 		"Name": "T2 R12 Wels",
 		"AddressCount": 1,
-		"ImportDate": null,
+		"ImportDate": "2020-02-13T18:30:41.0557193Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80971563
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -6284,9 +6637,11 @@
 	"Attean Twp": {
 		"Name": "Attean Twp",
 		"AddressCount": 2,
-		"ImportDate": null,
+		"ImportDate": "2020-02-13T18:30:53.3015751Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80971568
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -6295,9 +6650,11 @@
 	"Albany Twp": {
 		"Name": "Albany Twp",
 		"AddressCount": 438,
-		"ImportDate": null,
+		"ImportDate": "2020-02-13T18:32:58.9116633Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80971616
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -6306,9 +6663,11 @@
 	"Brooklin": {
 		"Name": "Brooklin",
 		"AddressCount": 739,
-		"ImportDate": null,
+		"ImportDate": "2020-02-13T18:35:53.5785337Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80971672
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -6317,9 +6676,11 @@
 	"Chesterville": {
 		"Name": "Chesterville",
 		"AddressCount": 744,
-		"ImportDate": null,
+		"ImportDate": "2020-02-13T18:37:35.5687846Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80971710
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -6328,64 +6689,173 @@
 	"Brewer": {
 		"Name": "Brewer",
 		"AddressCount": 3771,
-		"ImportDate": null,
+		"ImportDate": "2020-02-13T18:58:17.3760477Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80972225
+		],
 		"BlackList": [],
-		"WhiteList": [],
-		"BlackTags": [],
+		"WhiteList": [
+			1878311
+		],
+		"BlackTags": [
+			"*.name=7/11/2017 address changed from 146 State St.",
+			"*.name=7/11/2017 address changed from 148 State St.",
+			"*.name=address changed from 11 Canterbury Ct",
+			"*.name=address changed from 484 S Main St",
+			"*.name=address changed from 8 Harriman Ln",
+			"*.name=Building 1",
+			"1869986.building",
+			"1873740.building",
+			"1861006.building"
+		],
 		"IgnoreList": []
 	},
 	"Houlton": {
 		"Name": "Houlton",
 		"AddressCount": 4895,
-		"ImportDate": null,
+		"ImportDate": "2020-02-13T19:14:54.6517125Z",
 		"Notes": null,
-		"ChangeSetIds": [],
-		"BlackList": [],
-		"WhiteList": [],
-		"BlackTags": [],
-		"IgnoreList": []
+		"ChangeSetIds": [
+			80972598
+		],
+		"BlackList": [
+			1633913,
+			1956039
+		],
+		"WhiteList": [
+			1504697,
+			1617195,
+			1791817
+		],
+		"BlackTags": [
+			"*.name=Building 2",
+			"*.name=CO",
+			"*.name=Double wide",
+			"1846144.building",
+			"1956038.building"
+		],
+		"IgnoreList": [
+			1630397,
+			1637625,
+			1956319,
+			1956320,
+			1956321,
+			1956322,
+			1956323,
+			1956324,
+			1956325,
+			1956326,
+			1956327,
+			1956328,
+			1956329,
+			1956330,
+			1956331,
+			1956332,
+			1956318
+		]
 	},
 	"Jackson": {
 		"Name": "Jackson",
 		"AddressCount": 235,
-		"ImportDate": null,
+		"ImportDate": "2020-02-13T19:17:09.5150715Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80972647
+		],
 		"BlackList": [],
 		"WhiteList": [],
-		"BlackTags": [],
+		"BlackTags": [
+			"*.name=A",
+			"*.name=A - WHITE Trailer PARL",
+			"*.name=Unit 1 is a house Unit 2 is a camp"
+		],
 		"IgnoreList": []
 	},
 	"T1 R9 Wels": {
 		"Name": "T1 R9 Wels",
 		"AddressCount": 357,
-		"ImportDate": null,
+		"ImportDate": "2020-02-13T20:23:07.4651409Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80974426
+		],
 		"BlackList": [],
 		"WhiteList": [],
-		"BlackTags": [],
+		"BlackTags": [
+			"*.name=address changed from 42 Doc Moreys Ln",
+			"*.name=address changed from 44 Doc Moreys Ln",
+			"*.name=Baird",
+			"*.name=Bruce and Lori Boyton",
+			"*.name=CALLIER WEEKS",
+			"*.name=Carl Difrederico",
+			"*.name=Chester Hamm Lot 86",
+			"*.name=Chinock",
+			"*.name=Cousins",
+			"*.name=Croczer",
+			"*.name=DAVID MOORE",
+			"*.name=donald Bolduc",
+			"*.name=DOUGLAS ADAMS",
+			"*.name=DOUGLAS FARQUHAR",
+			"*.name=Douglas segee Lot 98",
+			"*.name=Dustin",
+			"*.name=ERWIN BACON",
+			"*.name=Everett Johnson",
+			"*.name=G. Vernon MacDonanld",
+			"*.name=George Jordan Jr lots 81-82",
+			"*.name=James Giffune",
+			"*.name=John Boyle Lot 90",
+			"*.name=Keith Beaupain",
+			"*.name=Lyon",
+			"*.name=Mark Cleaves Lot 88",
+			"*.name=Martin",
+			"*.name=Menard",
+			"*.name=MICHAEL MCLAIN",
+			"*.name=Michael Northway Lot 89",
+			"*.name=Morrison",
+			"*.name=Peter Stratton Lot 84",
+			"*.name=Pierce",
+			"*.name=Randal and Debra Atwood Lot 99-100",
+			"*.name=Robert McAvoy Lot 87",
+			"*.name=Robinson",
+			"*.name=Ron Laplante Lot 97",
+			"*.name=Scot Smith Lot 86",
+			"*.name=Stephan Barnett Lot 95-96",
+			"*.name=TERRANCE BARNES",
+			"*.name=Tibetts",
+			"*.name=WALTER HEAL",
+			"*.name=William Boddy Lot 91"
+		],
 		"IgnoreList": []
 	},
 	"Patten": {
 		"Name": "Patten",
 		"AddressCount": 608,
-		"ImportDate": null,
+		"ImportDate": "2020-02-13T20:32:33.4042812Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80974732
+		],
 		"BlackList": [],
-		"WhiteList": [],
-		"BlackTags": [],
+		"WhiteList": [
+			1847004,
+			1857235
+		],
+		"BlackTags": [
+			"*.name=address changed from 356 North Rd",
+			"*.name=address changed from 59 Hollis Ln",
+			"1857642.shop"
+		],
 		"IgnoreList": []
 	},
 	"Piscataquis County Island": {
 		"Name": "Piscataquis County Island",
 		"AddressCount": 1,
-		"ImportDate": null,
+		"ImportDate": "2020-02-13T20:34:47.0032146Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80974803
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -6394,9 +6864,11 @@
 	"Tb R10 Wels": {
 		"Name": "Tb R10 Wels",
 		"AddressCount": 1,
-		"ImportDate": null,
+		"ImportDate": "2020-02-13T20:35:42.1533035Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80974836
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -6405,20 +6877,38 @@
 	"Waterboro": {
 		"Name": "Waterboro",
 		"AddressCount": 3771,
-		"ImportDate": null,
+		"ImportDate": "2020-02-13T20:50:43.9246699Z",
 		"Notes": null,
-		"ChangeSetIds": [],
-		"BlackList": [],
-		"WhiteList": [],
-		"BlackTags": [],
-		"IgnoreList": []
+		"ChangeSetIds": [
+			80975249
+		],
+		"BlackList": [
+			1685351
+		],
+		"WhiteList": [
+			2412388,
+			2412389
+		],
+		"BlackTags": [
+			"*.name=Barn",
+			"1690931.building",
+			"1693329.shop",
+			"1693297.building",
+			"1693361.building"
+		],
+		"IgnoreList": [
+			1693669,
+			1693615
+		]
 	},
 	"Centerville Twp": {
 		"Name": "Centerville Twp",
 		"AddressCount": 13,
-		"ImportDate": null,
+		"ImportDate": "2020-02-13T20:53:16.9600625Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80975334
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -6427,20 +6917,27 @@
 	"T3 R4 Bkp Wkr": {
 		"Name": "T3 R4 Bkp Wkr",
 		"AddressCount": 14,
-		"ImportDate": null,
+		"ImportDate": "2020-02-13T20:54:27.7957666Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80975381
+		],
 		"BlackList": [],
 		"WhiteList": [],
-		"BlackTags": [],
+		"BlackTags": [
+			"*.name=Seasonal",
+			"*.name=Seasonal Waterfront"
+		],
 		"IgnoreList": []
 	},
 	"Forest Twp": {
 		"Name": "Forest Twp",
 		"AddressCount": 23,
-		"ImportDate": null,
+		"ImportDate": "2020-02-13T20:55:00.9198139Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80975407
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -6449,42 +6946,64 @@
 	"Milford": {
 		"Name": "Milford",
 		"AddressCount": 1177,
-		"ImportDate": null,
+		"ImportDate": "2020-02-13T21:34:19.3812503Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80976518
+		],
 		"BlackList": [],
 		"WhiteList": [],
-		"BlackTags": [],
+		"BlackTags": [
+			"*.name=gas manifold"
+		],
 		"IgnoreList": []
 	},
 	"Mattawamkeag": {
 		"Name": "Mattawamkeag",
 		"AddressCount": 307,
-		"ImportDate": null,
+		"ImportDate": "2020-02-13T21:50:52.3668453Z",
 		"Notes": null,
-		"ChangeSetIds": [],
-		"BlackList": [],
+		"ChangeSetIds": [
+			80976962
+		],
+		"BlackList": [
+			2053217
+		],
 		"WhiteList": [],
-		"BlackTags": [],
-		"IgnoreList": []
+		"BlackTags": [
+			"1527551.building"
+		],
+		"IgnoreList": [
+			1816179
+		]
 	},
 	"Connor Twp": {
 		"Name": "Connor Twp",
 		"AddressCount": 230,
-		"ImportDate": null,
+		"ImportDate": "2020-02-13T21:54:40.3335196Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80977049
+		],
 		"BlackList": [],
-		"WhiteList": [],
-		"BlackTags": [],
-		"IgnoreList": []
+		"WhiteList": [
+			1866139
+		],
+		"BlackTags": [
+			"*.name=camper Trailer"
+		],
+		"IgnoreList": [
+			1949297
+		]
 	},
 	"Belgrade": {
 		"Name": "Belgrade",
 		"AddressCount": 2031,
-		"ImportDate": null,
+		"ImportDate": "2020-02-13T21:58:01.4033334Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80977148
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -6493,9 +7012,11 @@
 	"Ebeemee Twp": {
 		"Name": "Ebeemee Twp",
 		"AddressCount": 149,
-		"ImportDate": null,
+		"ImportDate": "2020-02-13T22:00:24.9637548Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			80977210
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -6504,31 +7025,64 @@
 	"Rockport": {
 		"Name": "Rockport",
 		"AddressCount": 2387,
-		"ImportDate": null,
+		"ImportDate": "2020-02-15T21:29:50.0719739Z",
 		"Notes": null,
-		"ChangeSetIds": [],
-		"BlackList": [],
+		"ChangeSetIds": [
+			81055540
+		],
+		"BlackList": [
+			1842464
+		],
 		"WhiteList": [],
-		"BlackTags": [],
-		"IgnoreList": []
+		"BlackTags": [
+			"*.name=All Creatures Veterinary Hospital, Inc. All Creatures Veterinary Hospital, Inc Veterinary Hospital",
+			"*.name=Apartment in cellar",
+			"*.name=Coffee shop/store",
+			"*.name=Primary residence",
+			"*.name=PS",
+			"*.name=Tradesman shop and future dwelling Unit",
+			"2432230;2432231;2432232;2432233;2432234;2432551;2432552;2432553;2432554;2432555.amenity"
+		],
+		"IgnoreList": [
+			1848040,
+			1847505,
+			2069955
+		]
 	},
 	"Lubec": {
 		"Name": "Lubec",
 		"AddressCount": 1214,
-		"ImportDate": null,
+		"ImportDate": "2020-02-15T21:35:21.4312088Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			81055658
+		],
 		"BlackList": [],
-		"WhiteList": [],
-		"BlackTags": [],
+		"WhiteList": [
+			2514352,
+			2514353
+		],
+		"BlackTags": [
+			"*.name=address changed from 13 Forest Ln",
+			"*.name=Camper",
+			"*.name=Camper Trailer",
+			"*.name=changed from 272 S Lubec Rd",
+			"*.name=Hangar",
+			"*.name=Office",
+			"2516783.building",
+			"2516789.building",
+			"2535274.building"
+		],
 		"IgnoreList": []
 	},
 	"Andover North Surplus Twp": {
 		"Name": "Andover North Surplus Twp",
 		"AddressCount": 7,
-		"ImportDate": null,
+		"ImportDate": "2020-02-15T21:35:38.7819325Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			81055673
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -6537,20 +7091,39 @@
 	"Blue Hill": {
 		"Name": "Blue Hill",
 		"AddressCount": 1751,
-		"ImportDate": null,
+		"ImportDate": "2020-02-15T21:39:01.5875255Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			81055755
+		],
 		"BlackList": [],
 		"WhiteList": [],
-		"BlackTags": [],
+		"BlackTags": [
+			"*.name=Also offices of Blue Hill Fair",
+			"*.name=Building B",
+			"*.name=Camper",
+			"*.name=Construction shed Construction shed",
+			"*.name=Cottage",
+			"*.name=Cottage on property",
+			"*.name=Garage with Apartment",
+			"*.name=Odd address on even Side of road",
+			"*.name=Pool house",
+			"*.name=Rental Suite",
+			"*.name=Salt/Sand Shed Salt/Sand Shed",
+			"*.name=Shop",
+			"*.name=Tent with intention to build",
+			"1876156.building"
+		],
 		"IgnoreList": []
 	},
 	"South Bristol": {
 		"Name": "South Bristol",
 		"AddressCount": 1033,
-		"ImportDate": null,
+		"ImportDate": "2020-02-15T21:40:30.8691054Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			81055796
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -6559,9 +7132,11 @@
 	"Livermore": {
 		"Name": "Livermore",
 		"AddressCount": 1222,
-		"ImportDate": null,
+		"ImportDate": "2020-02-15T21:42:15.4056357Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			81055846
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -6571,8 +7146,10 @@
 		"Name": "Bar Harbor",
 		"AddressCount": 3983,
 		"ImportDate": null,
-		"Notes": null,
-		"ChangeSetIds": [],
+		"Notes": " SKIPPED",
+		"ChangeSetIds": [
+			-1
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -6581,20 +7158,53 @@
 	"Shapleigh": {
 		"Name": "Shapleigh",
 		"AddressCount": 2244,
-		"ImportDate": null,
+		"ImportDate": "2020-02-15T21:48:48.8021751Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			81055989
+		],
 		"BlackList": [],
-		"WhiteList": [],
-		"BlackTags": [],
+		"WhiteList": [
+			1760177,
+			2543377
+		],
+		"BlackTags": [
+			"*.name=1ST Floor",
+			"*.name=A",
+			"*.name=Apartment 1",
+			"*.name=Apartment 2",
+			"*.name=Apartment A",
+			"*.name=Barn",
+			"*.name=Building BARN",
+			"*.name=Building Trailer",
+			"*.name=CABINET",
+			"*.name=Floor FLR 1",
+			"*.name=Floor FLR OUTSI",
+			"*.name=Garage",
+			"*.name=Horse Barn",
+			"*.name=Lot 6 AND 7",
+			"*.name=Main House",
+			"*.name=MAIN HOUSE",
+			"*.name=Mousam Lake",
+			"*.name=MOUSAM LK",
+			"*.name=Room Apartment Basement",
+			"*.name=Room Unit RIGHT",
+			"*.name=Spicer Pond",
+			"*.name=Unit 15",
+			"*.name=Unit 17",
+			"*.name=Unit A",
+			"*.name=Unit THREE POND"
+		],
 		"IgnoreList": []
 	},
 	"Crystal": {
 		"Name": "Crystal",
 		"AddressCount": 143,
-		"ImportDate": null,
+		"ImportDate": "2020-02-15T21:49:18.1362936Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			81056004
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -6603,10 +7213,16 @@
 	"Mars Hill": {
 		"Name": "Mars Hill",
 		"AddressCount": 349,
-		"ImportDate": null,
+		"ImportDate": "2020-02-15T21:52:00.5358799Z",
 		"Notes": null,
-		"ChangeSetIds": [],
-		"BlackList": [],
+		"ChangeSetIds": [
+			81056085
+		],
+		"BlackList": [
+			0,
+			1630180,
+			1617085
+		],
 		"WhiteList": [],
 		"BlackTags": [],
 		"IgnoreList": []
@@ -6614,9 +7230,11 @@
 	"Maxfield": {
 		"Name": "Maxfield",
 		"AddressCount": 28,
-		"ImportDate": null,
+		"ImportDate": "2020-02-15T21:52:49.69798Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			81056100
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -6625,9 +7243,11 @@
 	"Cary Twp": {
 		"Name": "Cary Twp",
 		"AddressCount": 123,
-		"ImportDate": null,
+		"ImportDate": "2020-02-15T21:53:11.0915031Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			81056110
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -6636,9 +7256,11 @@
 	"Isle au Haut": {
 		"Name": "Isle au Haut",
 		"AddressCount": 203,
-		"ImportDate": null,
+		"ImportDate": "2020-02-15T21:54:30.6266401Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			81056146
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -6647,9 +7269,11 @@
 	"Mattamiscontis Twp": {
 		"Name": "Mattamiscontis Twp",
 		"AddressCount": 47,
-		"ImportDate": null,
+		"ImportDate": "2020-02-15T21:55:06.8068078Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			81056159
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -6658,42 +7282,374 @@
 	"Auburn": {
 		"Name": "Auburn",
 		"AddressCount": 13682,
-		"ImportDate": null,
+		"ImportDate": "2020-02-16T00:16:21.0788234Z",
 		"Notes": null,
-		"ChangeSetIds": [],
-		"BlackList": [],
-		"WhiteList": [],
-		"BlackTags": [],
-		"IgnoreList": []
+		"ChangeSetIds": [
+			81058657
+		],
+		"BlackList": [
+			1590228,
+			1903092,
+			1903093,
+			1903094,
+			1903095,
+			1903096,
+			1903097,
+			1903098,
+			1903099,
+			1903100,
+			1903101,
+			1903102,
+			1903103,
+			1903104,
+			1903105,
+			1903106,
+			1903107,
+			1903108,
+			1903109,
+			1903110,
+			1903111,
+			1903112,
+			1903113,
+			1903114,
+			1903115,
+			1903116,
+			1903117,
+			1903118,
+			1589840,
+			1906552,
+			1906553,
+			1906554,
+			1906555,
+			1906556,
+			1906557,
+			1906558,
+			1906559,
+			1906560,
+			1569818,
+			1909009,
+			1909010,
+			1909011,
+			1909012,
+			1909013,
+			1909014,
+			1909015,
+			1909016,
+			1909017,
+			1909018,
+			1909008,
+			1798477,
+			1802564,
+			1902660
+		],
+		"WhiteList": [
+			1543847,
+			1526666,
+			1892738,
+			1431064,
+			1909001,
+			1734209,
+			1589838,
+			1623452,
+			1802583,
+			1907706,
+			1907707,
+			1786660,
+			1907395,
+			1907752,
+			1907753,
+			1907754,
+			1907755,
+			1907756,
+			1907757,
+			1907758,
+			1907759,
+			1907760,
+			1907761,
+			1907762,
+			1907763,
+			1907764,
+			1907765,
+			1907766,
+			1907767,
+			1907768,
+			1907751,
+			1800204,
+			1906362,
+			1905610,
+			1905611,
+			1905612,
+			1905613,
+			1905614,
+			1905615,
+			1905616,
+			1905617,
+			1905618,
+			1905619,
+			1905609,
+			1906342,
+			1906343,
+			1906344,
+			1906345,
+			1906346,
+			1904526,
+			1904527,
+			1904528,
+			1904529,
+			1904530,
+			1904531,
+			1904532,
+			1904533,
+			1904534,
+			1904535,
+			1904536,
+			1904537,
+			1904538,
+			1904539,
+			1904540,
+			1904541,
+			1904542,
+			1904543,
+			1904544,
+			1904545,
+			1904546,
+			1904547,
+			1904548,
+			1904549,
+			1904550,
+			1904551,
+			1904521,
+			1904522,
+			1904523,
+			1904524,
+			1904525
+		],
+		"BlackTags": [
+			"*.name=address changed from 32 Talon Dr",
+			"*.name=address changed from 36 Talon Dr",
+			"*.name=address changed from 38 Talon Dr",
+			"*.name=address changed from 40 Talon Dr",
+			"*.name=address changed from 43 Talon Dr",
+			"*.name=substation",
+			"1477826.building",
+			"1541511.name",
+			"1838251.name",
+			"2430473.building",
+			"2187964.building",
+			"1556056.building"
+		],
+		"IgnoreList": [
+			1903411,
+			1547738,
+			1841102,
+			1907406,
+			1907405,
+			1909340,
+			1905062,
+			1590260,
+			1844489,
+			1904554,
+			1904555,
+			1904556,
+			1904557,
+			1904558,
+			1904559,
+			1904560,
+			1904561,
+			1904562,
+			1904563,
+			1904564,
+			1904565,
+			1904566,
+			1904567,
+			1904568,
+			1904569,
+			1904570,
+			1904571,
+			1904572,
+			1904573,
+			1904574,
+			1904575,
+			1904576,
+			1904577,
+			1904578,
+			1904579,
+			1904580,
+			1904581,
+			1904582,
+			1904583,
+			1904584,
+			1904585,
+			1904586,
+			1904587,
+			1904588,
+			1904589,
+			1904590,
+			1904591,
+			1904592,
+			1904593,
+			1904594,
+			1904595,
+			1904596,
+			1904597,
+			1904598,
+			1904599,
+			1904600,
+			1904601,
+			1904602,
+			1904603,
+			1904604,
+			1904605,
+			1904606,
+			1904607,
+			1904608,
+			1904609,
+			1904610,
+			1904611,
+			1904612,
+			1904613,
+			1904614,
+			1904615,
+			1904616,
+			1904617,
+			1904618,
+			1904619,
+			1904620,
+			1904621,
+			1904622,
+			1904623,
+			1904624,
+			1904625,
+			1904626,
+			1904627,
+			1904628,
+			1904629,
+			1904630,
+			1904631,
+			1904632,
+			1904633,
+			1904634,
+			1904635,
+			1904636,
+			1904637,
+			1904638,
+			1904639,
+			1904640,
+			1904641,
+			1904642,
+			1904643,
+			1904644,
+			1904645,
+			1904646,
+			1904647,
+			1904648,
+			1904649,
+			1904650,
+			1904651,
+			1904652,
+			1904653,
+			1904552,
+			1904553,
+			1477896,
+			1543844,
+			1904945,
+			1804181,
+			1905195,
+			1477840,
+			1739059
+		]
 	},
 	"Bridgton": {
 		"Name": "Bridgton",
 		"AddressCount": 4659,
-		"ImportDate": null,
+		"ImportDate": "2020-02-16T00:24:13.1295376Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			81058836
+		],
 		"BlackList": [],
-		"WhiteList": [],
-		"BlackTags": [],
-		"IgnoreList": []
+		"WhiteList": [
+			1823285
+		],
+		"BlackTags": [
+			"*.name=Auto Dealer",
+			"*.name=Auto Garage",
+			"*.name=Auto Repair",
+			"*.name=Barn Equipment she",
+			"*.name=Birthwise Midwifery",
+			"*.name=Boat Shop and Residence",
+			"*.name=Boat Storage",
+			"*.name=Boys Camp",
+			"*.name=Capped foundation",
+			"*.name=Car Dealership",
+			"*.name=Car Wash",
+			"*.name=Caretaker Building",
+			"*.name=Community Center",
+			"*.name=Dental Office",
+			"*.name=Dentist Office and Apartment",
+			"*.name=Dock",
+			"*.name=Driving Range",
+			"*.name=Excavation garage",
+			"*.name=Florist",
+			"*.name=former North Bridgton Library",
+			"*.name=Funeral Home",
+			"*.name=Garage",
+			"*.name=Gas Station",
+			"*.name=Gift Shop",
+			"*.name=Gymnasium",
+			"*.name=Living quarters too",
+			"*.name=Machine Shop",
+			"*.name=Mobile Home/Auto Garage",
+			"*.name=Old Garage/Vehicle Storage",
+			"*.name=Parsonage for Christian Missionary Alliance Church",
+			"*.name=Residence and Junk Yard",
+			"*.name=Residential and Beauty Salon",
+			"*.name=Residential and Beauty Shop",
+			"*.name=Residential and Boat Repairs",
+			"*.name=Residential and Commercial",
+			"*.name=restaurant and gas station",
+			"*.name=Shed",
+			"*.name=sheds",
+			"*.name=Ski Resort",
+			"*.name=State Rest Area",
+			"*.name=Storage Building",
+			"*.name=Storage Facility and Retail Shop",
+			"*.name=Storage, shipping center and residential",
+			"*.name=Town Garage",
+			"1475435.name",
+			"1776605.name",
+			"1829835.building",
+			"1475435.building"
+		],
+		"IgnoreList": [
+			1835616
+		]
 	},
 	"Rangeley": {
 		"Name": "Rangeley",
 		"AddressCount": 1783,
-		"ImportDate": null,
+		"ImportDate": "2020-02-16T00:26:29.6979646Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			81058914
+		],
 		"BlackList": [],
-		"WhiteList": [],
+		"WhiteList": [
+			2536036
+		],
 		"BlackTags": [],
-		"IgnoreList": []
+		"IgnoreList": [
+			1646600
+		]
 	},
 	"Lily Bay Twp": {
 		"Name": "Lily Bay Twp",
 		"AddressCount": 38,
-		"ImportDate": null,
+		"ImportDate": "2020-02-16T00:26:41.411666Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			81058919
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -6702,9 +7658,11 @@
 	"T6 R6 Wels": {
 		"Name": "T6 R6 Wels",
 		"AddressCount": 11,
-		"ImportDate": null,
+		"ImportDate": "2020-02-16T00:26:49.4188442Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			81058924
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -6713,9 +7671,11 @@
 	"T13 R8 WELS": {
 		"Name": "T13 R8 WELS",
 		"AddressCount": 1,
-		"ImportDate": null,
+		"ImportDate": "2020-02-16T00:26:57.8437005Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			81058931
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -6724,9 +7684,11 @@
 	"Linneus": {
 		"Name": "Linneus",
 		"AddressCount": 458,
-		"ImportDate": null,
+		"ImportDate": "2020-02-16T00:27:56.387459Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			81058965
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -6735,9 +7697,11 @@
 	"Pleasant Point": {
 		"Name": "Pleasant Point",
 		"AddressCount": 332,
-		"ImportDate": null,
+		"ImportDate": "2020-02-16T00:29:26.8091293Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			81059010
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -6746,20 +7710,36 @@
 	"Athens": {
 		"Name": "Athens",
 		"AddressCount": 415,
-		"ImportDate": null,
+		"ImportDate": "2020-02-16T00:31:26.7726416Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			81059026
+		],
 		"BlackList": [],
-		"WhiteList": [],
-		"BlackTags": [],
+		"WhiteList": [
+			1570587
+		],
+		"BlackTags": [
+			"*.name=2 car garage 2 car garage",
+			"*.name=A",
+			"*.name=Cabin",
+			"*.name=Large Cabin",
+			"*.name=Log cabin",
+			"*.name=Lot A",
+			"*.name=Room 1",
+			"*.name=small camp",
+			"*.name=Unit B"
+		],
 		"IgnoreList": []
 	},
 	"Parkman": {
 		"Name": "Parkman",
 		"AddressCount": 296,
-		"ImportDate": null,
+		"ImportDate": "2020-02-16T00:31:41.1157763Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			81059031
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -6768,31 +7748,51 @@
 	"Monroe": {
 		"Name": "Monroe",
 		"AddressCount": 380,
-		"ImportDate": null,
+		"ImportDate": "2020-02-16T00:32:41.9946781Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			81059042
+		],
 		"BlackList": [],
 		"WhiteList": [],
-		"BlackTags": [],
+		"BlackTags": [
+			"*.name=Apartment GARAGE",
+			"*.name=Building BARN",
+			"*.name=Building CABIN",
+			"*.name=Building Lot Trailer",
+			"*.name=Building MAIN House",
+			"*.name=Building MAIN HOUSE",
+			"*.name=Building SHOP",
+			"*.name=Building Trailer",
+			"*.name=FLR 1",
+			"*.name=FLR 2"
+		],
 		"IgnoreList": []
 	},
 	"Long Pond Twp": {
 		"Name": "Long Pond Twp",
 		"AddressCount": 58,
-		"ImportDate": null,
+		"ImportDate": "2020-02-16T00:33:17.3512295Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			81059049
+		],
 		"BlackList": [],
 		"WhiteList": [],
-		"BlackTags": [],
+		"BlackTags": [
+			"*.name=Building MAIN House",
+			"*.name=Building Trailer"
+		],
 		"IgnoreList": []
 	},
 	"T35 Md Bpp": {
 		"Name": "T35 Md Bpp",
 		"AddressCount": 1,
-		"ImportDate": null,
+		"ImportDate": "2020-02-16T00:33:26.4789187Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			81059052
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -6801,9 +7801,11 @@
 	"T5 R7 BKP WKR": {
 		"Name": "T5 R7 BKP WKR",
 		"AddressCount": 1,
-		"ImportDate": null,
+		"ImportDate": "2020-02-16T00:46:32.0432866Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			81059275
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -6812,9 +7814,11 @@
 	"Wallagrass": {
 		"Name": "Wallagrass",
 		"AddressCount": 226,
-		"ImportDate": null,
+		"ImportDate": "2020-02-16T00:50:02.662223Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			81059305
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -6823,31 +7827,43 @@
 	"Cross Lake Twp": {
 		"Name": "Cross Lake Twp",
 		"AddressCount": 210,
-		"ImportDate": null,
+		"ImportDate": "2020-02-16T00:51:33.4246204Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			81059314
+		],
 		"BlackList": [],
 		"WhiteList": [],
-		"BlackTags": [],
+		"BlackTags": [
+			"*.name=Irving Lease #1558",
+			"*.name=Irving Lease #1647",
+			"*.name=Irving Lease #1649, garage"
+		],
 		"IgnoreList": []
 	},
 	"The Forks Plt": {
 		"Name": "The Forks Plt",
 		"AddressCount": 69,
-		"ImportDate": null,
+		"ImportDate": "2020-02-16T00:52:18.1975887Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			81059332
+		],
 		"BlackList": [],
 		"WhiteList": [],
-		"BlackTags": [],
+		"BlackTags": [
+			"*.name=Building Trailer"
+		],
 		"IgnoreList": []
 	},
 	"Davis Twp": {
 		"Name": "Davis Twp",
 		"AddressCount": 27,
-		"ImportDate": null,
+		"ImportDate": "2020-02-16T00:52:34.3022941Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			81059337
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -6856,9 +7872,11 @@
 	"Freeman Twp": {
 		"Name": "Freeman Twp",
 		"AddressCount": 177,
-		"ImportDate": null,
+		"ImportDate": "2020-02-16T00:52:52.5025231Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			81059341
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -6867,31 +7885,76 @@
 	"Bowdoin": {
 		"Name": "Bowdoin",
 		"AddressCount": 1342,
-		"ImportDate": null,
+		"ImportDate": "2020-02-16T00:55:26.2720255Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			81059383
+		],
 		"BlackList": [],
 		"WhiteList": [],
-		"BlackTags": [],
+		"BlackTags": [
+			"*.name=Farm shed",
+			"*.name=Farm Shed",
+			"*.name=Garage",
+			"*.name=Gas",
+			"*.name=Radio Tower",
+			"*.name=Shed",
+			"*.name=Sugar Shack",
+			"*.name=Telephone call box",
+			"*.name=Telephone Switchbox"
+		],
 		"IgnoreList": []
 	},
 	"Northport": {
 		"Name": "Northport",
 		"AddressCount": 836,
-		"ImportDate": null,
+		"ImportDate": "2020-02-16T01:04:06.582567Z",
 		"Notes": null,
-		"ChangeSetIds": [],
-		"BlackList": [],
-		"WhiteList": [],
-		"BlackTags": [],
+		"ChangeSetIds": [
+			81059531
+		],
+		"BlackList": [
+			1744671
+		],
+		"WhiteList": [
+			1422975
+		],
+		"BlackTags": [
+			"*.name=Apartment Basement",
+			"*.name=Apartment over garage",
+			"*.name=Building",
+			"*.name=Building COTTAGE",
+			"*.name=Building GUEST",
+			"*.name=Building Lot 10",
+			"*.name=Building Lot 5",
+			"*.name=Building Lot 8",
+			"*.name=Building MAIN House",
+			"*.name=Building Trailer",
+			"*.name=CLAPP HOUSE - NEAR W",
+			"*.name=Floor FLR 1",
+			"*.name=Floor FLR 2 Room Apartment RIGH",
+			"*.name=Lot 2",
+			"*.name=Lot 61",
+			"*.name=Lot 7",
+			"*.name=Lot Trailer",
+			"*.name=METAL CABINET",
+			"*.name=Odd address is on even Side of road",
+			"*.name=Room 4",
+			"*.name=Room Apartment 1",
+			"*.name=Room Apartment 6",
+			"*.name=Room Apartment GARAGE",
+			"*.name=Room Apartment IN-LAW"
+		],
 		"IgnoreList": []
 	},
 	"Medford": {
 		"Name": "Medford",
 		"AddressCount": 71,
-		"ImportDate": null,
+		"ImportDate": "2020-02-16T01:07:13.643058Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			81059558
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -6900,9 +7963,11 @@
 	"East Moxie Twp": {
 		"Name": "East Moxie Twp",
 		"AddressCount": 3,
-		"ImportDate": null,
+		"ImportDate": "2020-02-16T01:07:26.6783215Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			81059563
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -6911,9 +7976,11 @@
 	"Randolph": {
 		"Name": "Randolph",
 		"AddressCount": 731,
-		"ImportDate": null,
+		"ImportDate": "2020-02-16T01:08:09.7989392Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			81059569
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -6922,31 +7989,47 @@
 	"Ashland": {
 		"Name": "Ashland",
 		"AddressCount": 560,
-		"ImportDate": null,
+		"ImportDate": "2020-02-16T01:10:08.885345Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			81059604
+		],
 		"BlackList": [],
-		"WhiteList": [],
+		"WhiteList": [
+			1733962,
+			1633582
+		],
 		"BlackTags": [],
 		"IgnoreList": []
 	},
 	"Gouldsboro": {
 		"Name": "Gouldsboro",
 		"AddressCount": 1259,
-		"ImportDate": null,
+		"ImportDate": "2020-02-16T02:20:55.0081672Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			81060499
+		],
 		"BlackList": [],
-		"WhiteList": [],
-		"BlackTags": [],
-		"IgnoreList": []
+		"WhiteList": [
+			1485080
+		],
+		"BlackTags": [
+			"*.name=Barn with a residence above",
+			"*.name=Camp"
+		],
+		"IgnoreList": [
+			1485007
+		]
 	},
 	"Magalloway Plt": {
 		"Name": "Magalloway Plt",
 		"AddressCount": 70,
-		"ImportDate": null,
+		"ImportDate": "2020-02-16T02:21:46.8575386Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			81060512
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -6955,42 +8038,69 @@
 	"Sweden": {
 		"Name": "Sweden",
 		"AddressCount": 272,
-		"ImportDate": null,
+		"ImportDate": "2020-02-16T02:24:07.4090074Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			81060552
+		],
 		"BlackList": [],
 		"WhiteList": [],
-		"BlackTags": [],
+		"BlackTags": [
+			"*.name=Apartment 1",
+			"*.name=Apartment 2",
+			"*.name=Building 7",
+			"*.name=Building Rear Room Rear",
+			"*.name=Building Trailer",
+			"*.name=Room C810"
+		],
 		"IgnoreList": []
 	},
 	"Old Town": {
 		"Name": "Old Town",
 		"AddressCount": 2729,
-		"ImportDate": null,
+		"ImportDate": "2020-02-16T02:30:22.8469995Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			81060599
+		],
 		"BlackList": [],
-		"WhiteList": [],
-		"BlackTags": [],
-		"IgnoreList": []
+		"WhiteList": [
+			1559403
+		],
+		"BlackTags": [
+			"*.name=CO"
+		],
+		"IgnoreList": [
+			1507443
+		]
 	},
 	"Warren": {
 		"Name": "Warren",
 		"AddressCount": 1941,
-		"ImportDate": null,
+		"ImportDate": "2020-02-16T02:32:35.6646356Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			81060621
+		],
 		"BlackList": [],
 		"WhiteList": [],
-		"BlackTags": [],
+		"BlackTags": [
+			"*.name=Boat/Self storage",
+			"*.name=Standpipe",
+			"*.name=Storage Units",
+			"*.name=Two barns",
+			"*.name=Workshop"
+		],
 		"IgnoreList": []
 	},
 	"T3 R12 WELS": {
 		"Name": "T3 R12 WELS",
 		"AddressCount": 9,
-		"ImportDate": null,
+		"ImportDate": "2020-02-16T02:33:24.0925263Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			81060630
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -6999,9 +8109,11 @@
 	"Lambert Lake Twp": {
 		"Name": "Lambert Lake Twp",
 		"AddressCount": 35,
-		"ImportDate": null,
+		"ImportDate": "2020-02-16T02:33:33.4453205Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			81060631
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -7010,10 +8122,15 @@
 	"Exeter": {
 		"Name": "Exeter",
 		"AddressCount": 352,
-		"ImportDate": null,
+		"ImportDate": "2020-02-16T02:35:52.8331519Z",
 		"Notes": null,
-		"ChangeSetIds": [],
-		"BlackList": [],
+		"ChangeSetIds": [
+			81060656
+		],
+		"BlackList": [
+			1470200,
+			1538087
+		],
 		"WhiteList": [],
 		"BlackTags": [],
 		"IgnoreList": []
@@ -7021,9 +8138,11 @@
 	"Beddington": {
 		"Name": "Beddington",
 		"AddressCount": 253,
-		"ImportDate": null,
+		"ImportDate": "2020-02-16T02:37:55.3968089Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			81060675
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -7032,20 +8151,26 @@
 	"China": {
 		"Name": "China",
 		"AddressCount": 2354,
-		"ImportDate": null,
+		"ImportDate": "2020-02-16T02:42:58.6601264Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			81060713
+		],
 		"BlackList": [],
 		"WhiteList": [],
-		"BlackTags": [],
+		"BlackTags": [
+			"1752405.name"
+		],
 		"IgnoreList": []
 	},
 	"Northfield": {
 		"Name": "Northfield",
 		"AddressCount": 133,
-		"ImportDate": null,
+		"ImportDate": "2020-02-16T02:43:37.39324Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			81060715
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -7054,9 +8179,11 @@
 	"Misery Gore Twp": {
 		"Name": "Misery Gore Twp",
 		"AddressCount": 4,
-		"ImportDate": null,
+		"ImportDate": "2020-02-16T02:43:44.1969182Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			81060717
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -7065,9 +8192,11 @@
 	"T11 R11 WELS": {
 		"Name": "T11 R11 WELS",
 		"AddressCount": 5,
-		"ImportDate": null,
+		"ImportDate": "2020-02-16T02:43:51.6919194Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			81060718
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -7076,53 +8205,85 @@
 	"Canaan": {
 		"Name": "Canaan",
 		"AddressCount": 1143,
-		"ImportDate": null,
+		"ImportDate": "2020-02-16T02:44:55.3723413Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			81060724
+		],
 		"BlackList": [],
 		"WhiteList": [],
-		"BlackTags": [],
+		"BlackTags": [
+			"*.name=Apartment - Front",
+			"*.name=Building Lot 7",
+			"*.name=Building MAIN House",
+			"*.name=Camp",
+			"*.name=Floor FLR 1",
+			"*.name=Room Apartment GARAGE"
+		],
 		"IgnoreList": []
 	},
 	"Winslow": {
 		"Name": "Winslow",
 		"AddressCount": 3232,
-		"ImportDate": null,
+		"ImportDate": "2020-02-16T02:58:33.5003363Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			81060836
+		],
 		"BlackList": [],
 		"WhiteList": [],
-		"BlackTags": [],
+		"BlackTags": [
+			"1442158.name"
+		],
 		"IgnoreList": []
 	},
 	"Washington": {
 		"Name": "Washington",
 		"AddressCount": 822,
-		"ImportDate": null,
+		"ImportDate": "2020-02-16T02:59:22.6983393Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			81060843
+		],
 		"BlackList": [],
 		"WhiteList": [],
-		"BlackTags": [],
+		"BlackTags": [
+			"*.name=Garage",
+			"*.name=Gravel Pit"
+		],
 		"IgnoreList": []
 	},
 	"Richmond": {
 		"Name": "Richmond",
 		"AddressCount": 1580,
-		"ImportDate": null,
+		"ImportDate": "2020-02-16T04:58:36.5337588Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			81061743
+		],
 		"BlackList": [],
-		"WhiteList": [],
-		"BlackTags": [],
-		"IgnoreList": []
+		"WhiteList": [
+			1827043
+		],
+		"BlackTags": [
+			"*.name=Cell Tower",
+			"*.name=Farm",
+			"*.name=Garage",
+			"*.name=Upstairs Apartment",
+			"1472394.name"
+		],
+		"IgnoreList": [
+			1827045
+		]
 	},
 	"Taunton & Raynham Academy Grant": {
 		"Name": "Taunton & Raynham Academy Grant",
 		"AddressCount": 4,
-		"ImportDate": null,
+		"ImportDate": "2020-02-16T05:04:31.5586736Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			81061812
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -7131,20 +8292,30 @@
 	"Burnham": {
 		"Name": "Burnham",
 		"AddressCount": 463,
-		"ImportDate": null,
+		"ImportDate": "2020-02-16T19:48:20.5035523Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			81080295
+		],
 		"BlackList": [],
 		"WhiteList": [],
-		"BlackTags": [],
+		"BlackTags": [
+			"*.name=AKA@ 11 MAPLECROFT L",
+			"*.name=Apartment - A",
+			"*.name=Building Trailer",
+			"*.name=Lot Trailer",
+			"*.name=Unit A"
+		],
 		"IgnoreList": []
 	},
 	"Gorham Gore": {
 		"Name": "Gorham Gore",
 		"AddressCount": 1,
-		"ImportDate": null,
+		"ImportDate": "2020-02-16T19:48:30.0629633Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			81080299
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -7153,9 +8324,11 @@
 	"T3 R11 Wels": {
 		"Name": "T3 R11 Wels",
 		"AddressCount": 5,
-		"ImportDate": null,
+		"ImportDate": "2020-02-16T19:48:38.8319142Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			81080302
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -7164,10 +8337,14 @@
 	"Corinna": {
 		"Name": "Corinna",
 		"AddressCount": 773,
-		"ImportDate": null,
+		"ImportDate": "2020-02-16T19:50:45.4136726Z",
 		"Notes": null,
-		"ChangeSetIds": [],
-		"BlackList": [],
+		"ChangeSetIds": [
+			81080351
+		],
+		"BlackList": [
+			1530468
+		],
 		"WhiteList": [],
 		"BlackTags": [],
 		"IgnoreList": []
@@ -7175,31 +8352,55 @@
 	"Owls Head": {
 		"Name": "Owls Head",
 		"AddressCount": 1034,
-		"ImportDate": null,
+		"ImportDate": "2020-02-16T19:55:34.7239207Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			81080438
+		],
 		"BlackList": [],
-		"WhiteList": [],
+		"WhiteList": [
+			1571467
+		],
 		"BlackTags": [],
 		"IgnoreList": []
 	},
 	"Swanville": {
 		"Name": "Swanville",
 		"AddressCount": 604,
-		"ImportDate": null,
+		"ImportDate": "2020-02-16T20:08:15.0852374Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			81080685
+		],
 		"BlackList": [],
 		"WhiteList": [],
-		"BlackTags": [],
-		"IgnoreList": []
+		"BlackTags": [
+			"*.name=Building Front",
+			"*.name=Building GARAGE",
+			"*.name=Building Lot A",
+			"*.name=Building Lot Trailer",
+			"*.name=Building MAIN House",
+			"*.name=Building Rear",
+			"*.name=Building Trailer",
+			"*.name=Building Trailer 3",
+			"*.name=DLC RT",
+			"*.name=Room Apartment 3",
+			"*.name=Room Apartment B",
+			"*.name=Room Apartment GARAGE",
+			"*.name=Room Lot 27"
+		],
+		"IgnoreList": [
+			2138238
+		]
 	},
 	"Silver Ridge Twp": {
 		"Name": "Silver Ridge Twp",
 		"AddressCount": 41,
-		"ImportDate": null,
+		"ImportDate": "2020-02-16T20:08:30.5290087Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			81080689
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -7208,20 +8409,27 @@
 	"Mariaville": {
 		"Name": "Mariaville",
 		"AddressCount": 346,
-		"ImportDate": null,
+		"ImportDate": "2020-02-16T20:09:38.6432455Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			81080711
+		],
 		"BlackList": [],
 		"WhiteList": [],
-		"BlackTags": [],
+		"BlackTags": [
+			"*.name=Gravel Pit Temp job site Office",
+			"*.name=Temp camper"
+		],
 		"IgnoreList": []
 	},
 	"Blaine": {
 		"Name": "Blaine",
 		"AddressCount": 256,
-		"ImportDate": null,
+		"ImportDate": "2020-02-16T20:10:26.8540306Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			81080724
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -7230,13 +8438,148 @@
 	"Camden": {
 		"Name": "Camden",
 		"AddressCount": 3690,
-		"ImportDate": null,
+		"ImportDate": "2020-02-16T20:27:01.078195Z",
 		"Notes": null,
-		"ChangeSetIds": [],
-		"BlackList": [],
-		"WhiteList": [],
-		"BlackTags": [],
-		"IgnoreList": []
+		"ChangeSetIds": [
+			81081042
+		],
+		"BlackList": [
+			1444270
+		],
+		"WhiteList": [
+			1444142,
+			1435332,
+			2431638,
+			2431639,
+			2431640,
+			2431641,
+			2431642,
+			2431643,
+			2431644,
+			2431645,
+			2431646,
+			2431647,
+			2431648,
+			2431649,
+			2431650,
+			2431651,
+			2431652,
+			2431653,
+			2431654,
+			2431655,
+			2431656,
+			2431657,
+			2431658,
+			2431659,
+			2431660,
+			2431661,
+			2431662,
+			2431663,
+			2431664,
+			2431665,
+			2431666,
+			2431667,
+			2431668,
+			2431669,
+			2431670,
+			2431671,
+			2431672,
+			2431673,
+			2431674,
+			2431675,
+			2431676,
+			2431677,
+			2431678,
+			2431679,
+			2431680,
+			2431681,
+			2431682,
+			2431683,
+			2431684,
+			2431685,
+			2431686,
+			2431687,
+			2431688,
+			2431689,
+			2431690,
+			2431691,
+			2431692,
+			2431693,
+			2431694,
+			2431695,
+			2431696,
+			2431697,
+			2431698,
+			2431699,
+			2431700,
+			2431701,
+			2431702,
+			2431703,
+			2431704,
+			2431705,
+			2431706,
+			2431707,
+			2431708,
+			2431709,
+			2431710,
+			2431711,
+			2431712,
+			2431713,
+			2431714,
+			2431715,
+			2431716,
+			2431717,
+			2431718,
+			2431719,
+			2431720,
+			2431721,
+			2431722,
+			2431723,
+			2431724,
+			2431725,
+			2431726,
+			2431727,
+			2431728,
+			2431729,
+			2431730,
+			2431731,
+			2431732,
+			2431733,
+			2431734,
+			2431735,
+			2431736,
+			2431737,
+			2431738,
+			2431739
+		],
+		"BlackTags": [
+			"*.name=25 Bayview St Camden Conference",
+			"*.name=25 Bayview St Goose River Exchange",
+			"*.name=25 Bayview St Law Offices",
+			"*.name=25 Bayview St Sugar Tools",
+			"*.name=Above garage",
+			"*.name=Building 2",
+			"*.name=Building H44",
+			"*.name=Front of Building",
+			"*.name=Garage/Shop",
+			"*.name=Harrell, Walsh, Vacant, Heard, Vacant, Zwerling, Slade, Clemons",
+			"*.name=Home/Office",
+			"*.name=Leased Location",
+			"*.name=Office/Residence",
+			"*.name=Outboard Center/Red Shed",
+			"*.name=Prof Office",
+			"*.name=Rear of Building",
+			"*.name=Rental",
+			"1435264.name",
+			"1439286.name",
+			"2431929.name",
+			"*.name=Hope Health"
+		],
+		"IgnoreList": [
+			1439287,
+			2429659,
+			1898664
+		]
 	},
 	"Abbot": {
 		"Name": "Abbot",
@@ -7245,7 +8588,10 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": [],
+		"WhiteList": [
+			1730066,
+			1730127
+		],
 		"BlackTags": [],
 		"IgnoreList": []
 	},
