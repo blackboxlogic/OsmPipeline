@@ -84,7 +84,7 @@ namespace OsmPipeline
 			if (!nodes.Any()) return null;
 			nodes = HandleStacks(nodes);
 			HandleBlackTags(nodes, Static.Municipalities[scopeName].BlackTags);
-			var filtered = new Osm() { Nodes = nodes, Version = .6, Bounds = nodes.AsBounds(15) };
+			var filtered = new Osm() { Nodes = nodes, Version = .6, Bounds = nodes.AsBounds() };
 
 			return filtered;
 		}
@@ -161,14 +161,14 @@ namespace OsmPipeline
 					{
 						if (node.Tags.RemoveKeyValue(new Tag(parts[0], parts[1])))
 						{
-							node.Tags.Add(Static.maineE911id + ":" + parts[0], "ommitted " + parts[1]);
+							node.Tags.Add(Static.maineE911id + ":" + parts[0], "ommitted: " + parts[1]);
 						}
 					}
 				}
 				else if (byId.TryGetValue(parts[0], out Node nodeById)) // 2984323.name
 				{
 					nodeById.Tags.RemoveKey(parts[1]);
-					nodeById.Tags.Add(Static.maineE911id + ":" + parts[1], "ommitted " + parts[1]);
+					nodeById.Tags.Add(Static.maineE911id + ":" + parts[1], "ommitted");
 				}
 
 			}

@@ -33,6 +33,10 @@ namespace OsmPipeline
 		Func<string, string, bool> Is = (a,b) => a.StartsWith(b, StringComparison.OrdinalIgnoreCase);
 		private string Municipality;
 
+
+		// nohousenumber=yes
+		// consider just leaving out all addr:unit=*
+		// option to moveNode or not. (Do you trust E911 locations more than OSM?)
 		public void Main()
 		{
 			Static.Municipalities = FileSerializer.ReadJsonCacheOrSource("MaineMunicipalities.json",
@@ -63,7 +67,7 @@ namespace OsmPipeline
 				{
 					var Reference = FileSerializer.ReadXmlCacheOrSource(Municipality + "/Reference.osm",
 						() => References.Fetch(Municipality)).Result;
-					var Subject = Subjects.GetElementsInBoundingBox(Reference.Bounds).Result;
+					var Subject = Subjects.GetElementsInBoundingBox(Reference.Bounds.ExpandBy(15));
 					FileSerializer.WriteXml(Municipality + "/Subject.osm", Subject);
 					File.Delete(Municipality + "/Conflated.osc");
 				}
@@ -152,6 +156,7 @@ namespace OsmPipeline
 				{
 					var tag = userInput.Split(' ', 2)[1].Replace("maineE911id=", "");
 					Static.Municipalities[Municipality].BlackTags.Add(tag);
+					Static.Municipalities[Municipality].BlackTags = Static.Municipalities[Municipality].BlackTags.Distinct().ToList();
 					FileSerializer.WriteJson("MaineMunicipalities.json", Static.Municipalities);
 					File.Delete(Municipality + "/Reference.osm");
 					File.Delete(Municipality + "/Conflated.osc");
@@ -239,7 +244,7 @@ namespace OsmPipeline
 			var Reference = FileSerializer.ReadXmlCacheOrSource(Municipality + "/Reference.osm",
 				() => References.Fetch(Municipality)).Result;
 			var Subject = FileSerializer.ReadXmlCacheOrSource(Municipality + "/Subject.osm",
-				() => Subjects.GetElementsInBoundingBox(Reference.Bounds)).Result;
+				() => Subjects.GetElementsInBoundingBox(Reference.Bounds.ExpandBy(15)));
 			var Change = Conflate.Merge(Reference, Subject, Municipality,
 				Static.Municipalities[Municipality].WhiteList,
 				Static.Municipalities[Municipality].IgnoreList);
@@ -299,7 +304,7 @@ namespace OsmPipeline
 		{
 			var changed = Static.Municipalities.Values.Count(m => m.ChangeSetIds.Any(c => c != -1));
 			var skipped = Static.Municipalities.Values.Count(m => m.ChangeSetIds.Any() && m.ChangeSetIds.All(c => c == -1));
-			Console.WriteLine($"{changed} of {Static.Municipalities.Count} ({skipped} skipped)");
+			Console.WriteLine($"{(int)(100*changed / Static.Municipalities.Count)}%: {changed} of {Static.Municipalities.Count} ({skipped} skipped)");
 		}
 	}
 }

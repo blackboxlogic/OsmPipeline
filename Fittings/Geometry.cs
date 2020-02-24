@@ -4,7 +4,6 @@ using OsmSharp;
 using OsmSharp.API;
 using OsmSharp.Complete;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -12,38 +11,54 @@ namespace OsmPipeline.Fittings
 {
 	public static class Geometry
 	{
-		public static IEnumerable<Bounds> Quarter(this Bounds bounds)
+		public static Bounds ExpandBy(this Bounds bounds, double bufferMeters)
+		{
+			if (bufferMeters == 0) return bounds;
+			var bufferLat = (float)DistanceLat(bufferMeters);
+			var approxLat = bounds.MinLatitude.Value;
+			var bufferLon = (float)DistanceLon(bufferMeters, approxLat);
+
+			return new Bounds()
+			{
+				MaxLatitude = bounds.MaxLatitude + bufferLat,
+				MinLatitude = bounds.MinLatitude - bufferLat,
+				MaxLongitude = bounds.MaxLongitude + bufferLon,
+				MinLongitude = bounds.MinLongitude - bufferLon
+			};
+		}
+
+		public static Bounds[] Quarter(this Bounds bounds)
 		{
 			var halfLat = (bounds.MaxLatitude + bounds.MinLatitude) / 2;
 			var halfLon = (bounds.MaxLongitude + bounds.MinLongitude) / 2;
-			yield return new Bounds()
+			return new[] {new Bounds()
 			{
 				MaxLatitude = bounds.MaxLatitude,
 				MaxLongitude = bounds.MaxLongitude,
 				MinLatitude = halfLat,
 				MinLongitude = halfLon
-			};
-			yield return new Bounds()
+			},
+			new Bounds()
 			{
 				MaxLatitude = halfLat,
 				MaxLongitude = halfLon,
 				MinLatitude = bounds.MinLatitude,
 				MinLongitude = bounds.MinLongitude
-			};
-			yield return new Bounds()
+			},
+			new Bounds()
 			{
 				MaxLatitude = bounds.MaxLatitude,
 				MaxLongitude = halfLon,
 				MinLatitude = halfLat,
 				MinLongitude = bounds.MinLongitude
-			};
-			yield return new Bounds()
+			},
+			new Bounds()
 			{
 				MaxLatitude = halfLat,
 				MaxLongitude = bounds.MaxLongitude,
 				MinLatitude = bounds.MinLatitude,
 				MinLongitude = halfLon
-			};
+			} };
 		}
 
 		public static string GetDistanceAndDirectionArrow(Position from, Position to)
@@ -140,7 +155,7 @@ namespace OsmPipeline.Fittings
 			var result = new Dictionary<ICompleteOsmGeo, Node[]>();
 			foreach (var building in buildings)
 			{
-				var bounds = building.AsBounds(1); // 1 because we loose precision from double to float
+				var bounds = building.AsBounds().ExpandBy(1); // 1 because we loose precision from double to float
 				var candidates = FastNodesInBounds(bounds, byLat, byLon);
 				var inners = candidates.Where(n => IsNodeInBuilding(n, building)).ToArray();
 				if (inners.Any()) result.Add(building, inners);
@@ -160,7 +175,7 @@ namespace OsmPipeline.Fittings
 			
 			foreach (var element in elements)
 			{
-				var bounds = element.AsBounds(withinMeters);
+				var bounds = element.AsBounds().ExpandBy(withinMeters);
 				var candidates = FastNodesInBounds(bounds, byLat, byLon);
 				var inners = candidates.Where(n => DistanceMeters(element, n) <= withinMeters).ToArray();
 				if (inners.Any()) result.Add(element, inners);
@@ -206,55 +221,46 @@ namespace OsmPipeline.Fittings
 			return subValues;
 		}
 
-		public static Bounds AsBounds(this IEnumerable<ICompleteOsmGeo> elements, double bufferMeters = 0)
+		public static Bounds AsBounds(this IEnumerable<ICompleteOsmGeo> elements)
 		{
-			var bufferLat = bufferMeters == 0 ? 0f : (float)DistanceLat(bufferMeters);
-			var approxLat = elements.First().AsPosition().Latitude;
-			var bufferLon = bufferMeters == 0 ? 0f : (float)DistanceLon(bufferMeters, approxLat);
-
-			if (bufferLon < 0) throw new Exception("Bad buffer");
-
 			var allBounds = elements.Select(e => e.AsBounds()).ToArray();
-			var bounds = new Bounds();
-			bounds.MaxLatitude = (float)allBounds.Max(n => n.MaxLatitude) + bufferLat;
-			bounds.MinLatitude = (float)allBounds.Min(n => n.MinLatitude) - bufferLat;
-			bounds.MaxLongitude = (float)allBounds.Max(n => n.MaxLongitude) + bufferLon;
-			bounds.MinLongitude = (float)allBounds.Min(n => n.MinLongitude) - bufferLon;
-			return bounds;
+			return new Bounds() {
+				MaxLatitude = (float)allBounds.Max(n => n.MaxLatitude),
+				MinLatitude = (float)allBounds.Min(n => n.MinLatitude),
+				MaxLongitude = (float)allBounds.Max(n => n.MaxLongitude),
+				MinLongitude = (float)allBounds.Min(n => n.MinLongitude)
+			};
 		}
 
-		public static Bounds AsBounds(this ICompleteOsmGeo element, double bufferMeters = 0)
+		public static Bounds AsBounds(this ICompleteOsmGeo element)
 		{
-			var bufferLat = bufferMeters == 0 ? 0f : (float)DistanceLat(bufferMeters);
-			var bufferLon = bufferMeters == 0 ? 0f : (float)DistanceLon(bufferMeters, element.AsPosition().Latitude);
-
 			if (element is Node node)
 			{
-				var bounds = new Bounds();
-				bounds.MaxLatitude = (float)node.Latitude + bufferLat;
-				bounds.MinLatitude = (float)node.Latitude - bufferLat;
-				bounds.MaxLongitude = (float)node.Longitude + bufferLon;
-				bounds.MinLongitude = (float)node.Longitude - bufferLon;
-				return bounds;
+				return new Bounds() {
+					MaxLatitude = (float)node.Latitude,
+					MinLatitude = (float)node.Latitude,
+					MaxLongitude = (float)node.Longitude,
+					MinLongitude = (float)node.Longitude
+				};
 			}
 			else if (element is CompleteWay way)
 			{
-				var bounds = new Bounds();
-				bounds.MaxLatitude = (float)way.Nodes.Max(n => n.Latitude) + bufferLat;
-				bounds.MinLatitude = (float)way.Nodes.Min(n => n.Latitude) - bufferLat;
-				bounds.MaxLongitude = (float)way.Nodes.Max(n => n.Longitude) + bufferLon;
-				bounds.MinLongitude = (float)way.Nodes.Min(n => n.Longitude) - bufferLon;
-				return bounds;
+				return new Bounds() {
+					MaxLatitude = (float)way.Nodes.Max(n => n.Latitude),
+					MinLatitude = (float)way.Nodes.Min(n => n.Latitude),
+					MaxLongitude = (float)way.Nodes.Max(n => n.Longitude),
+					MinLongitude = (float)way.Nodes.Min(n => n.Longitude)
+				};
 			}
 			else if (element is CompleteRelation relation)
 			{
 				var allBounds = relation.Members.Select(m => AsBounds(m.Member));
-				var bounds = new Bounds();
-				bounds.MaxLatitude = (float)allBounds.Max(n => n.MaxLatitude) + bufferLat;
-				bounds.MinLatitude = (float)allBounds.Min(n => n.MinLatitude) - bufferLat;
-				bounds.MaxLongitude = (float)allBounds.Max(n => n.MaxLongitude) + bufferLon;
-				bounds.MinLongitude = (float)allBounds.Min(n => n.MinLongitude) - bufferLon;
-				return bounds;
+				return new Bounds() {
+					MaxLatitude = (float)allBounds.Max(n => n.MaxLatitude),
+					MinLatitude = (float)allBounds.Min(n => n.MinLatitude),
+					MaxLongitude = (float)allBounds.Max(n => n.MaxLongitude),
+					MinLongitude = (float)allBounds.Min(n => n.MinLongitude)
+				};
 			}
 			throw new Exception("element wasn't a node, way or relation");
 		}
@@ -340,6 +346,9 @@ namespace OsmPipeline.Fittings
 		public static double DistanceLon(double distanceMeters, double latitude)
 		{
 			var lon = distanceMeters * 9 / 1_000_000 / Math.Cos(latitude / 180 * Math.PI);
+
+			if (lon < 0 && distanceMeters >= 0) throw new Exception("Bad calculated lon");
+
 			return lon;
 		}
 	}

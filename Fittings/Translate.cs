@@ -46,12 +46,16 @@ namespace OsmPipeline.Fittings
 				Relations = elements.OfType<Relation>().ToArray(),
 				Version = version,
 				Generator = generator,
-				Bounds = elements.OfType<Node>().AsBounds(100)
+				Bounds = elements.OfType<Node>().AsBounds().ExpandBy(15)
 			};
 		}
 
-		public static Osm Merge(this IEnumerable<Osm> osms)
+		public static Osm Merge(this IEnumerable<Osm> osms, double boundsBufferMeters = 0)
 		{
+			var bufferLat = boundsBufferMeters == 0 ? 0f : (float)Geometry.DistanceLat(boundsBufferMeters);
+			var approxLat = osms.First().Bounds.MaxLatitude.Value;
+			var bufferLon = boundsBufferMeters == 0 ? 0f : (float)Geometry.DistanceLon(boundsBufferMeters, approxLat);
+
 			return new Osm()
 			{
 				Nodes = osms.SelectMany(o => o.Nodes ?? new Node[0]).DistinctBy(n => n.Id).ToArray(),
@@ -61,10 +65,10 @@ namespace OsmPipeline.Fittings
 				Generator = osms.First().Generator,
 				Bounds = new Bounds()
 				{
-					MaxLatitude = osms.Max(o => o.Bounds.MaxLatitude),
-					MinLatitude = osms.Min(o => o.Bounds.MinLatitude),
-					MaxLongitude = osms.Max(o => o.Bounds.MaxLongitude),
-					MinLongitude = osms.Min(o => o.Bounds.MinLongitude)
+					MaxLatitude = osms.Max(o => o.Bounds.MaxLatitude) + bufferLat,
+					MinLatitude = osms.Min(o => o.Bounds.MinLatitude) - bufferLat,
+					MaxLongitude = osms.Max(o => o.Bounds.MaxLongitude) + bufferLon,
+					MinLongitude = osms.Min(o => o.Bounds.MinLongitude) - bufferLon
 				}
 			};
 		}

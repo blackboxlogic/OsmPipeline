@@ -35,15 +35,18 @@ namespace OsmPipeline
 			};
 		}
 
-		public static async Task<Osm> GetElementsInBoundingBox(Bounds bounds)
+		public static Osm GetElementsInBoundingBox(params Bounds[] bounds)
 		{
-				Log.LogInformation("Fetching Subject material from OSM");
-				var osmApiClient = new NonAuthClient(Static.Config["OsmApiUrl"], Static.HttpClient,
-					Static.LogFactory.CreateLogger<NonAuthClient>());
-				return await GetElementsInBoundingBox(bounds, osmApiClient);
+			Log.LogInformation("Fetching Subject material from OSM");
+			var osmApiClient = new NonAuthClient(Static.Config["OsmApiUrl"], Static.HttpClient,
+				Static.LogFactory.CreateLogger<NonAuthClient>());
+
+			var tasks = bounds.Select(async bound => await GetElementsInBoundingBox(bound, osmApiClient)).ToArray();
+			Task.WaitAll(tasks);
+			return tasks.Select(t => t.Result).Merge();
 		}
 
-		private static async Task<Osm> GetElementsInBoundingBox(Bounds bounds, NonAuthClient client, int depth = 0)
+		private static async Task<Osm> GetElementsInBoundingBox(Bounds bounds, NonAuthClient client, int depth = 0, int maxDepth = 3)
 		{
 			try
 			{
@@ -51,7 +54,7 @@ namespace OsmPipeline
 			}
 			catch (OsmApiException e)
 			{
-				if (!e.Message.Contains("limit is 50000") || depth > 3) throw;
+				if (!e.Message.Contains("limit is 50000") || depth > maxDepth) throw;
 
 				Log.LogInformation("Fetch area was too big. Splitting it into smaller pieces and re-trying.");
 				var tasks = bounds.Quarter().Select(async quarter => await GetElementsInBoundingBox(quarter, client, depth + 1)).ToArray();
