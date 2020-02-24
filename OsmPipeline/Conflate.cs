@@ -210,7 +210,12 @@ namespace OsmPipeline
 
 					if (matchDistances.Length > 1)
 					{
-						// TODO: Resolve these multi-matches by checking tag conflicts
+						var matchTag = GetMostDescriptiveTag(referenceElement.Tags);
+						if (matchTag.Key != null) matchDistances = matchDistances.Where(md => md.element.Tags.Contains(matchTag)).ToArray();
+					}
+
+					if (matchDistances.Length > 1)
+					{
 						referenceElement.Tags.AddOrAppend(ErrorKey, "Multiple matches!");
 						referenceElement.Tags.AddOrAppend(ReviewWithKey, Identify(matchDistances.Select(m => m.element).ToArray()));
 					}
@@ -252,6 +257,13 @@ namespace OsmPipeline
 					}
 				}
 			}
+		}
+
+		private static Tag GetMostDescriptiveTag(TagsCollectionBase tags)
+		{
+			var descriptiveKeys = new[] { "name", "amendity" };
+			var key = descriptiveKeys.FirstOrDefault(k => tags.ContainsKey(k));
+			return tags.FirstOrDefault(t => t.Key == key);
 		}
 
 		private static bool ProbablyInAnotherCity(OsmGeo a, OsmGeo b, double distanceMeters)
