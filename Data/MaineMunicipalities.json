@@ -10902,10 +10902,11 @@
 	"Winter Harbor": {
 		"Name": "Winter Harbor",
 		"AddressCount": 537,
-		"ImportDate": "2020-02-20T16:58:41.7359284Z",
-		"Notes": null,
+		"ImportDate": "2020-02-24T22:31:05.0982264Z",
+		"Notes": "/nfist commit set addr:city to Winterharbor. Second commit fixed that",
 		"ChangeSetIds": [
-			81282793
+			81282793,
+			81425582
 		],
 		"BlackList": [],
 		"WhiteList": [

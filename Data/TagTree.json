@@ -21,6 +21,11 @@
 			}
 		}
 	},
+	"addr:city": {
+		"Winterharbor" : {
+			"Winter Harbor" : {}
+		}
+	},
 	"addr:postcode": {
 		"*": {}
 	},
