@@ -9,14 +9,14 @@ namespace OsmPipeline.Fittings
 {
 	public static class Translate
 	{
-		public static IEnumerable<OsmGeo> OsmToGeos(this Osm osm)
+		public static IEnumerable<OsmGeo> GetElements(this Osm osm)
 		{
 			return new OsmGeo[][] { osm.Nodes, osm.Ways, osm.Relations }
 				.Where(a => a != null)
 				.SelectMany(a => a);
 		}
 
-		public static IEnumerable<OsmGeo> OsmToGeos(this OsmChange change)
+		public static IEnumerable<OsmGeo> GetElements(this OsmChange change)
 		{
 			return new OsmGeo[][] { change.Create, change.Modify, change.Delete }
 				.Where(a => a != null)
@@ -24,7 +24,7 @@ namespace OsmPipeline.Fittings
 		}
 
 		public static OsmChange GeosToChange(IEnumerable<OsmGeo> create, IEnumerable<OsmGeo> modify,
-			IEnumerable<OsmGeo> delete, string generator, double? version = .6)
+			IEnumerable<OsmGeo> delete, string generator = null, double? version = .6)
 		{
 			return new OsmChange()
 			{
@@ -37,7 +37,7 @@ namespace OsmPipeline.Fittings
 			};
 		}
 
-		public static Osm AsOsm(this IEnumerable<OsmGeo> elements, double? version = .6, string generator = null)
+		public static Osm AsOsm(this IEnumerable<OsmGeo> elements, string generator = null, double? version = .6)
 		{
 			return new Osm()
 			{
@@ -76,7 +76,7 @@ namespace OsmPipeline.Fittings
 		// Shouldn't matter for address import, but if API generates errors then the elements might need to be re-ordered (nodes -> ways -> relations)
 		public static IEnumerable<OsmChange> Split(this OsmChange change, int maxPieceSize = 10_000)
 		{
-			if (change.Create.Length + change.Modify.Length + change.Delete.Length <= maxPieceSize)
+			if (change.GetElements().Count() <= maxPieceSize)
 			{
 				yield return change;
 				yield break;

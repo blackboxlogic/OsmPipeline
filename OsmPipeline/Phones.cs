@@ -36,7 +36,7 @@ namespace OsmPipeline
 			var osmApi = new OsmApiEnder(loggerFactory.CreateLogger(typeof(OsmApiEnder)),
 				config["OsmApiUrl"], config["OsmUsername"], config["OsmPassword"], ChangeTags);
 
-			var badPhones = OverpassApi.Get(BadPhoneQuery(scope, Tag)).OsmToGeos();
+			var badPhones = OverpassApi.Get(BadPhoneQuery(scope, Tag)).GetElements();
 			var betterPhones = FixPhones(badPhones, Tag, rejector).ToArray();
 			var change = Translate.GeosToChange(null, betterPhones, null, nameof(OsmPipeline));
 

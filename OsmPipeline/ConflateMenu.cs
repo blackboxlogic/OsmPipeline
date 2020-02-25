@@ -33,10 +33,10 @@ namespace OsmPipeline
 		Func<string, string, bool> Is = (a,b) => a.StartsWith(b, StringComparison.OrdinalIgnoreCase);
 		private string Municipality;
 
-
 		// nohousenumber=yes
 		// consider just leaving out all addr:unit=*
 		// option to moveNode or not. (Do you trust E911 locations more than OSM?)
+		// MatchWidth list to handle multi-match
 		public void Main()
 		{
 			Static.Municipalities = FileSerializer.ReadJsonCacheOrSource("MaineMunicipalities.json",
@@ -54,20 +54,19 @@ namespace OsmPipeline
 				if (Is(userInput, "reference"))
 				{
 					//Func<Feature, bool> filter = f => (f.Geometry as Point).Coordinates.Longitude >= -70.505;
-					var Reference = References.Fetch(Municipality).Result;
-					FileSerializer.WriteXml(Municipality + "/Reference.osm", Reference);
+					var reference = References.Fetch(Municipality).Result;
+					FileSerializer.WriteXml(Municipality + "/Reference.osm", reference);
 					File.Delete(Municipality + "/Conflated.osc");
 				}
 				else if(Is(userInput, "review ref"))
 				{
-					var reference = FileSerializer.ReadXml<Osm>(Municipality + "/Reference.osm");
+					var reference = GetReference();
 					References.Report(reference.Nodes);
 				}
 				else if (Is(userInput, "subject"))
 				{
-					var Reference = FileSerializer.ReadXmlCacheOrSource(Municipality + "/Reference.osm",
-						() => References.Fetch(Municipality)).Result;
-					var Subject = Subjects.GetElementsInBoundingBox(Reference.Bounds.ExpandBy(15));
+					var reference = GetReference();
+					var Subject = Subjects.GetElementsInBoundingBox(reference.Bounds.ExpandBy(15));
 					FileSerializer.WriteXml(Municipality + "/Subject.osm", Subject);
 					File.Delete(Municipality + "/Conflated.osc");
 				}
@@ -81,7 +80,7 @@ namespace OsmPipeline
 				}
 				else if (Is(userInput, "review"))
 				{
-					// Last item will appear top of JOSM.
+					// Last item will appear top of JOSM. Quotes because Municipality could have a space.
 					var args = string.Join(" ", new[] {
 						$"\"{Municipality}/Subject.osm\"",
 						$"\"{Municipality}/Reference.osm\"",
@@ -95,18 +94,16 @@ namespace OsmPipeline
 				else if (Is(userInput, "list"))
 				{
 					var key = userInput.Split(" ")[1];
-					var Reference = FileSerializer.ReadXmlCacheOrSource(Municipality + "/Reference.osm",
-						() => References.Fetch(Municipality)).Result;
-					var values = Reference.OsmToGeos().Where(e => e.Tags.ContainsKey(key)).Select(e => "\n\t" + e.Tags[key]).Distinct().ToArray();
+					var reference = GetReference();
+					var values = reference.GetElements().Where(e => e.Tags.ContainsKey(key)).Select(e => "\n\t" + e.Tags[key]).Distinct().ToArray();
 
 					Console.WriteLine(string.Concat(values));
 				}
 				else if (Is(userInput, "filter"))
 				{
 					var key = userInput.Split(" ")[1];
-					var Reference = FileSerializer.ReadXmlCacheOrSource(Municipality + "/Reference.osm",
-						() => References.Fetch(Municipality)).Result;
-					var values = Reference.OsmToGeos().Where(e => e.Tags.ContainsKey(key)).Select(e => e.Tags[key]).Distinct().OrderBy(v => v).ToArray();
+					var reference = GetReference();
+					var values = reference.GetElements().Where(e => e.Tags.ContainsKey(key)).Select(e => e.Tags[key]).Distinct().OrderBy(v => v).ToArray();
 					foreach (var value in values)
 					{
 						Console.WriteLine("?\t" + value);
@@ -127,7 +124,7 @@ namespace OsmPipeline
 				else if (Is(userInput, "WhiteAll"))
 				{
 					var review = FileSerializer.ReadXml<Osm>(Municipality + "/Conflated.Review.osm");
-					var selection = review.OsmToGeos()
+					var selection = review.GetElements()
 						.Where(e => e.Tags != null && e.Tags.ContainsKey(Static.maineE911id))
 						.Select(e => e.Tags[Static.maineE911id])
 						.SelectMany(id => id.Split(new char[] { ' ', ',', ';', '-' }, StringSplitOptions.RemoveEmptyEntries))
@@ -239,13 +236,23 @@ namespace OsmPipeline
 			DoConflate();
 		}
 
+		private Osm GetReference()
+		{
+			return FileSerializer.ReadXmlCacheOrSource(Municipality + "/Reference.osm",
+				() => References.Fetch(Municipality)).Result;
+		}
+
+		private Osm GetSubject(Bounds bounds)
+		{
+			return FileSerializer.ReadXmlCacheOrSource(Municipality + "/Subject.osm",
+				() => Subjects.GetElementsInBoundingBox(bounds));
+		}
+
 		private void DoConflate()
 		{
-			var Reference = FileSerializer.ReadXmlCacheOrSource(Municipality + "/Reference.osm",
-				() => References.Fetch(Municipality)).Result;
-			var Subject = FileSerializer.ReadXmlCacheOrSource(Municipality + "/Subject.osm",
-				() => Subjects.GetElementsInBoundingBox(Reference.Bounds.ExpandBy(15)));
-			var Change = Conflate.Merge(Reference, Subject, Municipality,
+			var reference = GetReference();
+			var subject = GetSubject(reference.Bounds.ExpandBy(15));
+			var Change = Conflate.Merge(reference, subject, Municipality,
 				Static.Municipalities[Municipality].WhiteList,
 				Static.Municipalities[Municipality].IgnoreList);
 			FileSerializer.WriteXml(Municipality + "/Conflated.osc", Change);

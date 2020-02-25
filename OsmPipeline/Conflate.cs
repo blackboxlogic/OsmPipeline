@@ -29,7 +29,7 @@ namespace OsmPipeline
 			Log = Log ?? Static.LogFactory.CreateLogger(typeof(Conflate));
 			Log.LogInformation("Starting conflation, matching by address tags");
 
-			var subjectElementsIndexed = subject.OsmToGeos().ToDictionary(n => n.Type.ToString() + n.Id); // could use OsmGeoKey
+			var subjectElementsIndexed = subject.GetElements().ToDictionary(n => n.Type.ToString() + n.Id); // could use OsmGeoKey
 			MergeNodesByAddressTags(reference, subjectElementsIndexed, whitelist,
 				out List<OsmGeo> create, out List<OsmGeo> modify, out List<OsmGeo> delete);
 			ValidateRoadNamesMatcheRoads(subjectElementsIndexed, create);
@@ -54,7 +54,7 @@ namespace OsmPipeline
 			var review = FileSerializer.ReadXml<Osm>(scopeName + "/Conflated.Review.osm");
 			if (review != null)
 			{
-				foreach (var revTag in review.OsmToGeos().SelectMany(e => e.Tags?.Where(t => t.Key == WarnKey || t.Key == ErrorKey) ?? new Tag[0]))
+				foreach (var revTag in review.GetElements().SelectMany(e => e.Tags?.Where(t => t.Key == WarnKey || t.Key == ErrorKey) ?? new Tag[0]))
 				{
 					Console.WriteLine(revTag);
 				}
