@@ -231,6 +231,18 @@ namespace OsmPipeline
 							var arrow = Geometry.GetDirectionArrow(referenceElement.AsPosition(), closestMatch.complete.AsPosition());
 							referenceElement.Tags.AddOrAppend(WarnKey, $"Matched, but too far: {(int)closestMatch.distance} m {arrow}");
 							referenceElement.Tags.AddOrAppend(ReviewWithKey, Identify(subjectElement));
+							// Also show tag differences!
+
+							try
+							{
+								bool tagsChanged = MergeTags(referenceElement, subjectElement,
+									whiteList.Contains(Math.Abs(referenceElement.Id.Value)), true);
+							}
+							catch (MergeConflictException e)
+							{
+								referenceElement.Tags.AddOrAppend(WarnKey, e.Message);
+								referenceElement.Tags.AddOrAppend(ReviewWithKey, Identify(subjectElement));
+							}
 						}
 						else
 						{
@@ -387,7 +399,7 @@ namespace OsmPipeline
 			return false;
 		}
 
-		private static bool MergeTags(OsmGeo reference, OsmGeo subject, bool isWhiteList)
+		private static bool MergeTags(OsmGeo reference, OsmGeo subject, bool isWhiteList, bool onlyTestForConflicts = false)
 		{
 			var original = new TagsCollection(subject.Tags); // Deep Clone
 			var conflicts = new List<string>();
@@ -431,12 +443,12 @@ namespace OsmPipeline
 
 					if (refTag.Key == "building" && (subject is Relation || subject is Way subWay))
 					{
-						subject.Tags.AddOrAppend(ErrorKey, "Made this a building");
+						conflicts.Add("Made that a building");
 					}
 
 					if (subject is Way subWay2 && subWay2.Nodes.First() != subWay2.Nodes.Last())
 					{
-						subject.Tags.AddOrAppend(ErrorKey, "Modified an open way");
+						conflicts.Add("Modified an open way");
 					}
 				}
 			}
@@ -445,6 +457,10 @@ namespace OsmPipeline
 			{
 				subject.Tags = original;
 				throw new MergeConflictException(string.Join(";", conflicts));
+			}
+			else if (onlyTestForConflicts)
+			{
+				subject.Tags = original;
 			}
 
 			return changed;
