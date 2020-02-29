@@ -11499,10 +11499,15 @@
 	"Georgetown": {
 		"Name": "Georgetown",
 		"AddressCount": 996,
-		"ImportDate": null,
+		"ImportDate": "2020-02-25T14:08:28.7312421Z",
 		"Notes": null,
-		"ChangeSetIds": [],
-		"BlackList": [],
+		"ChangeSetIds": [
+			81459183
+		],
+		"BlackList": [
+			1463247,
+			1463248
+		],
 		"WhiteList": [],
 		"BlackTags": [],
 		"IgnoreList": []
@@ -11510,9 +11515,11 @@
 	"Merrill": {
 		"Name": "Merrill",
 		"AddressCount": 112,
-		"ImportDate": null,
+		"ImportDate": "2020-02-25T14:09:14.1038824Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			81459223
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -11521,20 +11528,34 @@
 	"Peru": {
 		"Name": "Peru",
 		"AddressCount": 822,
-		"ImportDate": null,
+		"ImportDate": "2020-02-25T14:11:49.9599563Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			81459339
+		],
 		"BlackList": [],
 		"WhiteList": [],
-		"BlackTags": [],
+		"BlackTags": [
+			"*.name=2 Bay Workshop",
+			"*.name=Apartment - TJG",
+			"*.name=Apartment A",
+			"*.name=Building A",
+			"*.name=Building Lot 16",
+			"*.name=Building MAIN House",
+			"*.name=Building MAIN HOUSE",
+			"*.name=Building Trailer",
+			"*.name=Trailer"
+		],
 		"IgnoreList": []
 	},
 	"T22 Md Bpp": {
 		"Name": "T22 Md Bpp",
 		"AddressCount": 8,
-		"ImportDate": null,
+		"ImportDate": "2020-02-25T14:12:24.1581589Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			81459380
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -11543,9 +11564,11 @@
 	"Day Block Twp": {
 		"Name": "Day Block Twp",
 		"AddressCount": 11,
-		"ImportDate": null,
+		"ImportDate": "2020-02-25T14:21:09.9911753Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			81459768
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -11554,12 +11577,21 @@
 	"Thomaston": {
 		"Name": "Thomaston",
 		"AddressCount": 1568,
-		"ImportDate": null,
+		"ImportDate": "2020-02-25T15:02:00.997678Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			81461186
+		],
 		"BlackList": [],
-		"WhiteList": [],
-		"BlackTags": [],
+		"WhiteList": [
+			1620212
+		],
+		"BlackTags": [
+			"*.name=Wal Mart",
+			"*.name=Tenant TBA",
+			"1851899.name",
+			"1620236.name"
+		],
 		"IgnoreList": []
 	},
 	"Topsham": {
@@ -11569,8 +11601,15 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": [],
-		"BlackTags": [],
+		"WhiteList": [
+			2544841,
+			1660373,
+			1467940
+		],
+		"BlackTags": [
+			"1467939.name",
+			"1467940.name"
+		],
 		"IgnoreList": []
 	},
 	"Vienna": {
