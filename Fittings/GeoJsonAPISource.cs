@@ -59,7 +59,7 @@ namespace OsmPipeline.Fittings
 			{
 				int before = fullSet.Count;
 				string json = await FetchOnce(fullSet.Count, where);
-				FeatureCollection collection = FeatureCollection.FromJson(json);
+				FeatureCollection collection = FeatureCollection.FromJson(json); // can throw Newtonsoft.Json.JsonReaderException
 				fullSet.AddRange(collection.Features);
 				int added = fullSet.Count - before;
 				if (added < MaxRecords || fullSet.Count >= limit) break;

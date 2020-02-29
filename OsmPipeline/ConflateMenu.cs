@@ -1,5 +1,4 @@
-﻿using BAMCIS.GeoJSON;
-using OsmPipeline.Fittings;
+﻿using OsmPipeline.Fittings;
 using OsmSharp;
 using OsmSharp.API;
 using OsmSharp.Changesets;
@@ -80,16 +79,7 @@ namespace OsmPipeline
 				}
 				else if (Is(userInput, "review"))
 				{
-					// Last item will appear top of JOSM. Quotes because Municipality could have a space.
-					var args = string.Join(" ", new[] {
-						$"\"{Municipality}/Subject.osm\"",
-						$"\"{Municipality}/Reference.osm\"",
-						$"\"{Municipality}/Conflated.Create.osm\"",
-						$"\"{Municipality}/Conflated.Delete.osm\"",
-						$"\"{Municipality}/Conflated.Modify.osm\"",
-						$"\"{Municipality}/Conflated.Review.osm\""}.Where(f => File.Exists(f.Trim('"'))));
-					if (args.Length == 0) Console.WriteLine("But there aren't any files :(");
-					else Process.Start(Static.Config["JosmPath"], args);
+					OpenJosm();
 				}
 				else if (Is(userInput, "list"))
 				{
@@ -225,6 +215,25 @@ namespace OsmPipeline
 
 				Console.WriteLine("Done");
 			}
+		}
+
+		private void OpenJosm()
+		{
+			var reviewFiles = new[] {
+				$"Conflated.Review.osm",
+				$"Conflated.Modify.osm",
+				$"Conflated.Delete.osm",
+				$"Conflated.Create.osm",
+				$"Reference.osm",
+				$"Subject.osm"
+			};
+			var args = string.Join(" ", reviewFiles
+				.Reverse() // To get the layer order correct in JOSM.
+				.Select(f => $"{Municipality}/{f}")
+				.Where(File.Exists)
+				.Select(f => $"\"{f}\"")); //Quotes, because Municipality could have a space.
+			if (args.Length == 0) Console.WriteLine("But there aren't any files :(");
+			else Process.Start(Static.Config["JosmPath"], args);
 		}
 
 		private void Next()
