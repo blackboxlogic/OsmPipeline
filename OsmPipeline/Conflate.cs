@@ -32,9 +32,14 @@ namespace OsmPipeline
 			var subjectElementsIndexed = subject.GetElements().ToDictionary(n => n.Type.ToString() + n.Id); // could use OsmGeoKey
 			MergeNodesByAddressTags(reference, subjectElementsIndexed, whitelist,
 				out List<OsmGeo> create, out List<OsmGeo> modify, out List<OsmGeo> delete);
-			ValidateRoadNamesMatcheRoads(subjectElementsIndexed, create);
 			Log.LogInformation("Starting conflation, matching by geometry");
 			MergeNodesByGeometry(subjectElementsIndexed, whitelist, create, modify);
+
+			ValidateNamesMatch(subjectElementsIndexed, create.Concat(modify), "highway", "addr:street");
+			ValidateNamesMatch(subjectElementsIndexed, create.Concat(modify), "place", "addr:place");
+			// Maybe fix addr:street to addr:place is there is no matchig highway but there is a matching place
+			// Maybe fix addr:street punctuation on elements that I didn't add or update
+
 			Log.LogInformation($"Writing {scopeName} review files");
 			var review = GatherExceptions(whitelist, ignoreList, subjectElementsIndexed, create, delete, modify);
 			WriteToFileWithChildrenIfAny(scopeName + "/Conflated.Review.osm", review, subjectElementsIndexed);
@@ -119,20 +124,36 @@ namespace OsmPipeline
 					&& element.Tags[Static.maineE911id].Split(';').All(id => list.Contains(long.Parse(id))));
 		}
 
-		private static void ValidateRoadNamesMatcheRoads(Dictionary<string, OsmGeo> subjectElementsIndexed, List<OsmGeo> create)
+		private static void ValidateNamesMatch(Dictionary<string, OsmGeo> subjectElementsIndexed,
+			IEnumerable<OsmGeo> elements, string parentFilterKey, string childKey)
 		{
-			var roadNames = subjectElementsIndexed.Values
-				.Where(w => w.Tags != null && w.Tags.ContainsKey("highway") && w.Tags.ContainsKey("name")) // should expand this... official_name, ref etc
-				.SelectMany(w => w.Tags)
-				.Where(t => t.Key.Contains("name"))
-				.Select(t => t.Value)
+			var parentNames = subjectElementsIndexed.Values
+				.Where(w => w.Tags != null && w.Tags.ContainsKey(parentFilterKey))
+				.SelectMany(w => Tags.GetNames(w.Tags))
 				.ToHashSet();
 
-			foreach (var created in create)
+			var parentNamesMinusPunctuation = parentNames
+				.Where(Tags.HasPunctuation)
+				.ToDictionary(Tags.WithoutPunctuation);
+
+			var elementsWithKeyChanges = elements.Where(e => e.Tags.ContainsKey(childKey)
+				&& (e.Tags.ContainsKey(Static.maineE911id) // added element
+					|| e.Tags.ContainsKey(Static.maineE911id + ":" + childKey))); // changed element
+
+			foreach (var element in elementsWithKeyChanges)
 			{
-				if (created.Tags.ContainsKey("addr:street") && !roadNames.Contains(created.Tags["addr:street"]))
+				var childName = element.Tags[childKey];
+				if (!parentNames.Contains(childName))
 				{
-					created.Tags.AddOrAppend(InfoKey, "Cannot find a matching highway");
+					if (parentNamesMinusPunctuation.TryGetValue(childName, out string withPunctuation))
+					{
+						element.Tags[childKey] = withPunctuation;
+						element.Tags.AddOrAppend(InfoKey, "punctuation was added to street name"); // should not be error
+					}
+					else
+					{
+						element.Tags.AddOrAppend(InfoKey, "Cannot find a matching " + parentFilterKey);
+					}
 				}
 			}
 		}
@@ -185,32 +206,22 @@ namespace OsmPipeline
 			create = new List<OsmGeo>(reference.Nodes);
 			modify = new List<OsmGeo>();
 			delete = new List<OsmGeo>();
+			var elementIndex = new ElementIndex(subjectElementsIndexed.Values);
 
-			var subjectAddressIndex = subjectElementsIndexed.Values
-				.GroupBy(e => Tags.GetAddrTags(e, false))
-				.Where(g => g.Key.Any())
-				.ToDictionary(g => g.Key, g => g.ToArray());
-
-			foreach (var referenceElement in create.OfType<Node>().ToArray())
+			foreach (var referenceElement in create.Cast<Node>().ToArray())
 			{
-				var addr = referenceElement.GetAddrTags();
-
-				if (!referenceElement.Tags.ContainsKey("addr:housenumber"))
-				{
-					referenceElement.Tags.AddOrAppend(ErrorKey, "Missing house number!");
-				}
-				else if (subjectAddressIndex.TryGetValue(addr, out var targetSubjectElements))
+				if (elementIndex.TryGetMatchingElements(referenceElement.Tags, out var targetSubjectElements))
 				{
 					var matchDistances = targetSubjectElements
 						.Select(element => new { element, complete = element.AsComplete(subjectElementsIndexed) })
 						.Select(match => new { match.element, match.complete, distance = Geometry.DistanceMeters(referenceElement, match.complete) })
-						// Remove elements in other towns
+						// Remove elements in neighbor towns
 						.Where(match => !ProbablyInAnotherCity(match.element, referenceElement, match.distance))
 						.ToArray();
 
 					if (matchDistances.Length > 1)
 					{
-						var matchTag = GetMostDescriptiveTag(referenceElement.Tags);
+						var matchTag = Tags.GetMostDescriptiveTag(referenceElement.Tags);
 						if (matchTag.Key != null) matchDistances = matchDistances.Where(md => md.element.Tags.Contains(matchTag)).ToArray();
 					}
 
@@ -231,7 +242,6 @@ namespace OsmPipeline
 							var arrow = Geometry.GetDirectionArrow(referenceElement.AsPosition(), closestMatch.complete.AsPosition());
 							referenceElement.Tags.AddOrAppend(WarnKey, $"Matched, but too far: {(int)closestMatch.distance} m {arrow}");
 							referenceElement.Tags.AddOrAppend(ReviewWithKey, Identify(subjectElement));
-							// Also show tag differences!
 
 							try
 							{
@@ -271,13 +281,6 @@ namespace OsmPipeline
 			}
 		}
 
-		private static Tag GetMostDescriptiveTag(TagsCollectionBase tags)
-		{
-			var descriptiveKeys = new[] { "name", "amendity" };
-			var key = descriptiveKeys.FirstOrDefault(k => tags.ContainsKey(k));
-			return tags.FirstOrDefault(t => t.Key == key);
-		}
-
 		private static bool ProbablyInAnotherCity(OsmGeo a, OsmGeo b, double distanceMeters)
 		{
 			return (a.Tags.TryGetValue("addr:city", out string aCity)
@@ -293,7 +296,7 @@ namespace OsmPipeline
 			var buildings = subjectElementsIndexed.Values.Where(w => Tags.IsBuilding(w))
 				.Select(b => b.AsComplete(subjectElementsIndexed))
 				.ToArray();
-			var newNodes = create.OfType<Node>().ToArray();
+			var newNodes = create.Cast<Node>().ToArray();
 			var buildingsAndInnerNewNodes = Geometry.NodesInOrNearCompleteElements(buildings, newNodes, 30, 100);
 			var oldNodes = subjectElementsIndexed.Values.OfType<Node>().Where(n => n.Tags?.Any() == true).ToArray();
 			var buildingsAndInnerOldNodes = Geometry.NodesInCompleteElements(buildings, oldNodes);
@@ -411,46 +414,32 @@ namespace OsmPipeline
 				{
 					subject.Tags.AddOrAppend(refTag.Key, refTag.Value);
 				}
-				else if (subject.Tags.TryGetValue(refTag.Key, out string subValue))
+				else if (!Tags.TagMatchesTags(refTag, subject.Tags, out bool isMoreSpecific, out string matchedKey))
 				{
-					if (subValue != refTag.Value && !subValue.Split(";-,:".ToArray()).Contains(refTag.Value))
+					matchedKey = matchedKey ?? refTag.Key;
+
+					if (!subject.Tags.ContainsKey(matchedKey)) // absent
 					{
-						if (TagTree.Keys.ContainsKey(refTag.Key) &&
-							TagTree.Keys[refTag.Key].IsDecendantOf(refTag.Value, subValue)
-							|| isWhiteList)
-						{
-							// Make building tag MORE specific. Marked for easier review.
-							subject.Tags[refTag.Key] = refTag.Value;
-							subject.Tags[Static.maineE911id + ":" + refTag.Key] = "changed from: " + subValue;
-							changed = true;
-						}
-						else if (TagTree.Keys.ContainsKey(refTag.Key) &&
-							TagTree.Keys[refTag.Key].IsDecendantOf(subValue, refTag.Value))
-						{ 
-							// Nothing, it is already more specific.
-						}
-						else
-						{
-							conflicts.Add(Identify(refTag.Key, subject, reference));
-						}
+						changed = true;
+						subject.Tags[matchedKey] = refTag.Value;
+						subject.Tags[Static.maineE911id + ":" + matchedKey] = "added";
+					}
+					else if (isMoreSpecific || isWhiteList) // compelled
+					{
+						changed = true;
+						subject.Tags[matchedKey] = refTag.Value;
+						subject.Tags[Static.maineE911id + ":" + matchedKey] = $"changed by {refTag.Key} from: {subject.Tags[matchedKey]}";
+					}
+					else // conflict
+					{
+						conflicts.Add(Identify(matchedKey, subject, reference));
 					}
 				}
-				else
-				{
-					changed = true;
-					subject.Tags[refTag.Key] = refTag.Value;
-					subject.Tags[Static.maineE911id + ":" + refTag.Key] = "added";
+			}
 
-					if (refTag.Key == "building" && (subject is Relation || subject is Way subWay))
-					{
-						conflicts.Add("Made that a building");
-					}
-
-					if (subject is Way subWay2 && subWay2.Nodes.First() != subWay2.Nodes.Last())
-					{
-						conflicts.Add("Modified an open way");
-					}
-				}
+			if (changed)
+			{
+				ValidateMergedTags(subject, conflicts);
 			}
 
 			if (conflicts.Any())
@@ -464,6 +453,25 @@ namespace OsmPipeline
 			}
 
 			return changed;
+		}
+
+		private static void ValidateMergedTags(OsmGeo subject, List<string> conflicts)
+		{
+			if (subject.Tags.ContainsKey("highway") || Geometry.IsOpenWay(subject))
+			{
+				conflicts.Add("Modified a highway or open way");
+			}
+
+			if (subject.Tags.Contains(Static.maineE911id + ":building", "added") && !(subject is Node))
+			{
+				conflicts.Add($"Made a {subject.Type} into a building");
+			}
+
+			if (subject.Tags.Contains(Static.maineE911id + ":addr:street", "added")
+				&& subject.Tags.ContainsKey("addr:place"))
+			{
+				conflicts.Add("Added street to a place");
+			}
 		}
 
 		public class MergeConflictException : Exception

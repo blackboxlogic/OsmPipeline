@@ -11602,14 +11602,11 @@
 		"ChangeSetIds": [],
 		"BlackList": [],
 		"WhiteList": [
-			2544841,
 			1660373,
+			2544841,
 			1467940
 		],
-		"BlackTags": [
-			"1467939.name",
-			"1467940.name"
-		],
+		"BlackTags": [],
 		"IgnoreList": []
 	},
 	"Vienna": {

@@ -351,5 +351,10 @@ namespace OsmPipeline.Fittings
 
 			return lon;
 		}
+
+		public static bool IsOpenWay(OsmGeo subject)
+		{
+			return subject is Way subWay2 && subWay2.Nodes.First() != subWay2.Nodes.Last();
+		}
 	}
 }
