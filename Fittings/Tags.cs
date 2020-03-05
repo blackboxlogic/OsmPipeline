@@ -8,11 +8,11 @@ namespace OsmPipeline.Fittings
 {
 	public static class Tags
 	{
-		public static readonly Dictionary<string, string> AlternateKeys = new Dictionary<string, string>()
+		public static readonly Dictionary<string, string[]> AlternateKeys = new Dictionary<string, string[]>()
 		{
-			{ "addr:street", "addr:place" },
-			{ "building", "amenity" },
-			{ "name", "alt_name" } // new [] { "alt_name", "official_name", "old_name", "local_name", "ref", "name:left", "name:right", "name_1" } }
+			{ "addr:street", new [] { "addr:place" } },
+			{ "building", new [] { "amenity" } },
+			{ "name", new [] { "alt_name", "official_name", "old_name", "local_name", "short_name", "ref", "name:left", "name:right", "name_1" } }
 		};
 
 		public static readonly Dictionary<string, Func<string, string[]>> MatchableTagKeys =
@@ -113,15 +113,25 @@ namespace OsmPipeline.Fittings
 			return tags.Where(t => t.Key == "ref" || t.Key.Split('_', ':').Contains("name")).Select(t => t.Value);
 		}
 
+		// Return true if less specific
+		// Return false if more specific
 		public static bool TagMatchesTags(Tag tag, TagsCollectionBase tags, out bool isMoreSpecific, out string key)
 		{
-			// Return true if is less specific!
 			isMoreSpecific = false;
 			key = tag.Key;
-			return (tags.ContainsKey(key) && ValuesMatch(key, tags[key], tag.Value, out isMoreSpecific))
-				|| (AlternateKeys.TryGetValue(key, out key)
-					&& tags.ContainsKey(key)
-					&& ValuesMatch(tag.Key, tags[key], tag.Value, out isMoreSpecific));
+			if (tags.ContainsKey(key) && ValuesMatch(key, tags[key], tag.Value, out isMoreSpecific)) return true;
+			if (!AlternateKeys.TryGetValue(key, out string[] altKeys)) return false;
+
+			foreach (var altKey in altKeys.Where(k => tags.ContainsKey(k)))
+			{
+				if (ValuesMatch(tag.Key, tags[altKey], tag.Value, out isMoreSpecific))
+				{
+					key = altKey;
+					return true;
+				}
+			}
+
+			return false;
 		}
 
 		private static bool ValuesMatch(string key, string parent, string suspectedchild, out bool isMoreSpecific)

@@ -44,10 +44,18 @@ namespace OsmPipeline
 		{
 			elements = null;
 
-			return (TagKeyTagValueElements.TryGetValue(tag.Key, out var tagValues)
+			if (TagKeyTagValueElements.TryGetValue(tag.Key, out var tagValues)
 					&& tagValues.TryGetValue(tag.Value, out elements))
-				|| (Tags.AlternateKeys.TryGetValue(tag.Key, out string altKey)
-						&& TryGetValue(new Tag(altKey, tag.Value), out elements));
+				return true;
+
+			if (!Tags.AlternateKeys.TryGetValue(tag.Key, out string[] altKeys)) return false;
+
+			foreach (string altKey in altKeys)
+			{
+				if (TryGetValue(new Tag(altKey, tag.Value), out elements)) return true;
+			}
+
+			return false;
 		}
 	}
 }

@@ -416,8 +416,6 @@ namespace OsmPipeline
 				}
 				else if (!Tags.TagMatchesTags(refTag, subject.Tags, out bool isMoreSpecific, out string matchedKey))
 				{
-					matchedKey = matchedKey ?? refTag.Key;
-
 					if (!subject.Tags.ContainsKey(matchedKey)) // absent
 					{
 						changed = true;
