@@ -47,7 +47,8 @@ namespace OsmPipeline.Fittings
 					var range = part.Split('-');
 					if (range.Length == 2 && int.TryParse(range[0], out int start) && int.TryParse(range[1], out int end) && start < end)
 					{
-						numbers.AddRange(Enumerable.Range(start, end - start).Select(n => n.ToString()));
+						var count = end - start + 1; // + 1 because inclusive
+						numbers.AddRange(Enumerable.Range(start, count).Select(n => n.ToString()));
 					}
 				}
 				else
@@ -120,7 +121,7 @@ namespace OsmPipeline.Fittings
 			return (tags.ContainsKey(key) && ValuesMatch(key, tags[key], tag.Value, out isMoreSpecific))
 				|| (AlternateKeys.TryGetValue(key, out key)
 					&& tags.ContainsKey(key)
-					&& ValuesMatch(key, tags[key], tag.Value, out isMoreSpecific));
+					&& ValuesMatch(tag.Key, tags[key], tag.Value, out isMoreSpecific));
 		}
 
 		private static bool ValuesMatch(string key, string parent, string suspectedchild, out bool isMoreSpecific)
