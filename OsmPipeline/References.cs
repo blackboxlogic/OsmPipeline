@@ -68,6 +68,10 @@ namespace OsmPipeline
 			var stateGis = await FileSerializer.ReadJsonCacheOrSource(
 				scopeName + "/ReferenceRaw.GeoJson", () => GeoJsonAPISource.FetchMunicipality(scopeName));
 			var gisFeatures = stateGis.Features.Where(f => filter == null || filter(f)).ToArray();
+			if (IsFeatureSchemaOld(gisFeatures[0]))
+			{
+				gisFeatures = gisFeatures.Select(UpdateFeatureSchema).ToArray();
+			}
 			Log.LogInformation("Validating Reference material");
 			Validate(gisFeatures);
 
@@ -76,7 +80,7 @@ namespace OsmPipeline
 			Log.LogInformation("Translating Reference material");
 			// Convert
 			var nodes = gisFeatures
-				.Where(f => !blacklist.Contains((long)f.Properties["OBJECTID"]))
+				.Where(f => !blacklist.Contains((long)f.Properties[KEYS.OBJECTID]))
 				.Select(Convert)
 				.Where(n => n.Tags.ContainsKey("addr:housenumber"))
 				.ToArray();
@@ -87,6 +91,25 @@ namespace OsmPipeline
 			var filtered = new Osm() { Nodes = nodes, Version = .6, Bounds = nodes.AsBounds() };
 
 			return filtered;
+		}
+
+		public static bool IsFeatureSchemaOld(Feature feature)
+		{
+			return feature.Properties.ContainsKey("MUNICIPALITY");
+		}
+
+		public static Feature UpdateFeatureSchema(Feature feature)
+		{
+			var upgrades = new Dictionary<string, string>() {
+				{ "MUNICIPALITY", KEYS.TOWN },
+				{ "POSTAL_COMMUNITY", KEYS.POSTCOMM }
+			};
+			foreach (var upgrade in upgrades)
+			{
+				feature.Properties[upgrade.Value] = feature.Properties[upgrade.Key];
+				feature.Properties.Remove(upgrade.Key);
+			}
+			return feature;
 		}
 
 		public static void Report(Node[] nodes)
@@ -107,23 +130,24 @@ namespace OsmPipeline
 		private static Node Convert(Feature feature)
 		{
 			var props = feature.Properties;
-			var streetName = BuildStreetName((string)props["PREDIR"],
-				(string)props["STREETNAME"], (string)props["POSTDIR"], (string)props["SUFFIX"]);
-			var level = Level((string)props["FLOOR"], out bool useFloorAsUnit);
-			var unit = ReplaceToken(useFloorAsUnit ? (string)props["FLOOR"] : (string)props["UNIT"], UNITs);
-			var city = City((string)props["POSTAL_COMMUNITY"], (string)props["MUNICIPALITY"]);
+			var streetName = BuildStreetName((string)props[KEYS.PREDIR],
+				(string)props[KEYS.STREETNAME], (string)props[KEYS.POSTDIR], (string)props[KEYS.SUFFIX]);
+			var level = Level((string)props[KEYS.FLOOR], out bool useFloorAsUnit);
+			var unit = ReplaceToken(useFloorAsUnit ? (string)props[KEYS.FLOOR] : (string)props[KEYS.UNIT], UNITs);
+			var city = City((string)props[KEYS.POSTCOMM], (string)props[KEYS.TOWN]);
+			var houseNumber = HouseNumber(props[KEYS.ADDRESS_NUMBER], props[KEYS.ADDNUMSUF]);
 			var tags = new []
 			{
-				new Tag("name", Name((string)props["LANDMARK"], (string)props["LOC"], (string)props["BUILDING"])),
+				new Tag("name", Name((string)props[KEYS.LANDMARK], (string)props[KEYS.LOC], (string)props[KEYS.BUILDING])),
 				// Missing house numbers will have a "0" here. Mostly: Lewiston.
-				new Tag("addr:housenumber", (int)props["ADDRESS_NUMBER"] == 0 ? "" : ((int)props["ADDRESS_NUMBER"]).ToString()),
+				new Tag("addr:housenumber", houseNumber),
 				new Tag("addr:unit", unit),
 				new Tag("addr:street", streetName),
 				new Tag("addr:city", city),
-				new Tag("addr:state", (string)props["STATE"]),
-				new Tag("addr:postcode", Zip((string)props["ZIPCODE"])),
+				new Tag("addr:state", (string)props[KEYS.STATE]),
+				new Tag("addr:postcode", Zip((string)props[KEYS.ZIPCODE])),
 				new Tag("level", level),
-				new Tag(Static.maineE911id, ((int)props["OBJECTID"]).ToString())
+				new Tag(Static.maineE911id, ((int)props[KEYS.OBJECTID]).ToString())
 			};
 
 			var placeTags = PLACE_TYPEs[(string)props["PLACE_TYPE"]].Select(kvp => new Tag(kvp.Key, kvp.Value)).ToArray();
@@ -138,7 +162,7 @@ namespace OsmPipeline
 				Latitude = (feature.Geometry as Point).Coordinates.Latitude,
 				Longitude = (feature.Geometry as Point).Coordinates.Longitude,
 				Tags = new TagsCollection(tags),
-				Id = -(int)props["OBJECTID"],
+				Id = -(int)props[KEYS.OBJECTID],
 				Version = 1
 			};
 
@@ -338,7 +362,7 @@ namespace OsmPipeline
 		private static void Validate(Feature[] features)
 		{
 			int[] duplicateObjectIds = features
-				.Select(f => (int)f.Properties["OBJECTID"])
+				.Select(f => (int)f.Properties[KEYS.OBJECTID])
 				.GroupBy(x => x)
 				.Where(x => x.Skip(1).Any())
 				.Select(x => x.Key)
@@ -354,32 +378,32 @@ namespace OsmPipeline
 
 			foreach (var f in features)
 			{
-				if (!StreetSUFFIX.ContainsKey(f.Properties["SUFFIX"]))
+				if (!StreetSUFFIX.ContainsKey(f.Properties[KEYS.SUFFIX]))
 				{
-					reports.Add("Bad SUFFIX" + f.Properties["SUFFIX"]);
+					reports.Add("Bad SUFFIX" + f.Properties[KEYS.SUFFIX]);
 				}
-				if (!PrePostDIRs.ContainsKey(f.Properties["PREDIR"]))
+				if (!PrePostDIRs.ContainsKey(f.Properties[KEYS.PREDIR]))
 				{
-					reports.Add("Bad PREDIR" + f.Properties["PREDIR"]);
+					reports.Add("Bad PREDIR" + f.Properties[KEYS.PREDIR]);
 				}
-				if (string.IsNullOrWhiteSpace((string)f.Properties["STREETNAME"]))
+				if (string.IsNullOrWhiteSpace((string)f.Properties[KEYS.STREETNAME]))
 				{
 					reports.Add("Bad STREETNAME");
 				}
-				if (ambiguouseStreets.Contains((string)f.Properties["STREETNAME"]))
+				if (ambiguouseStreets.Contains((string)f.Properties[KEYS.STREETNAME]))
 				{
-					reports.Add($"STREETNAME {f.Properties["STREETNAME"]} has decendants in the tag tree.");
+					reports.Add($"STREETNAME {f.Properties[KEYS.STREETNAME]} has decendants in the tag tree.");
 				}
-				if (!((string)f.Properties["STREETNAME"]).Any(char.IsLetter))
+				if (!((string)f.Properties[KEYS.STREETNAME]).Any(char.IsLetter))
 				{
-					reports.Add($"Odd Road name: {f.Properties["STREETNAME"]}");
+					reports.Add($"Odd Road name: {f.Properties[KEYS.STREETNAME]}");
 				}
-				if (!PrePostDIRs.ContainsKey(f.Properties["POSTDIR"]))
+				if (!PrePostDIRs.ContainsKey(f.Properties[KEYS.POSTDIR]))
 				{
-					reports.Add("Bad POSTDIR" + f.Properties["POSTDIR"]);
+					reports.Add("Bad POSTDIR" + f.Properties[KEYS.POSTDIR]);
 				}
-				var goodFloor = f.Properties["FLOOR"] == null
-					|| ((string)f.Properties["FLOOR"]).Split().All(part =>
+				var goodFloor = f.Properties[KEYS.FLOOR] == null
+					|| ((string)f.Properties[KEYS.FLOOR]).Split().All(part =>
 						part.Equals("floor", StringComparison.OrdinalIgnoreCase)
 						|| part.Equals("flr", StringComparison.OrdinalIgnoreCase)
 						|| part.Equals("fl", StringComparison.OrdinalIgnoreCase)
@@ -388,33 +412,33 @@ namespace OsmPipeline
 						|| part.All(char.IsNumber));
 				if (!goodFloor)
 				{
-					reports.Add("Bad Floor: " + f.Properties["FLOOR"]);
+					reports.Add("Bad Floor: " + f.Properties[KEYS.FLOOR]);
 				}
-				if (!((string)f.Properties["BUILDING"]).All(char.IsNumber)
-					&& !((string)f.Properties["BUILDING"]).StartsWith("Bldg", StringComparison.OrdinalIgnoreCase))
+				if (!((string)f.Properties[KEYS.BUILDING]).All(char.IsNumber)
+					&& !((string)f.Properties[KEYS.BUILDING]).StartsWith("Bldg", StringComparison.OrdinalIgnoreCase))
 				{
-					reports.Add("Bad bulding: " + (string)f.Properties["BUILDING"]);
+					reports.Add("Bad bulding: " + (string)f.Properties[KEYS.BUILDING]);
 				}
-				if (!string.IsNullOrEmpty(f.Properties["ROOM"]))
+				if (!string.IsNullOrEmpty(f.Properties[KEYS.ROOM]))
 				{
-					reports.Add("Ignoring Room: " + (string)f.Properties["ROOM"]);
+					reports.Add("Ignoring Room: " + (string)f.Properties[KEYS.ROOM]);
 				}
-				if (!string.IsNullOrEmpty(f.Properties["SEAT"]))
+				if (!string.IsNullOrEmpty(f.Properties[KEYS.SEAT]))
 				{
-					reports.Add("ignoring Seat: " + (string)f.Properties["SEAT"]);
+					reports.Add("ignoring Seat: " + (string)f.Properties[KEYS.SEAT]);
 				}
-				if (!int.TryParse((string)f.Properties["ZIPCODE"], out var zip)
+				if (!int.TryParse((string)f.Properties[KEYS.ZIPCODE], out var zip)
 					|| zip < 03000 || zip > 04999)
 				{
-					reports.Add("Ignoring zip: " + (string)f.Properties["ZIPCODE"]);
+					reports.Add("Ignoring zip: " + (string)f.Properties[KEYS.ZIPCODE]);
 				}
-				if ((f.Properties["ADDRESS_NUMBER"] ?? 0) == 0)
+				if ((f.Properties[KEYS.ADDRESS_NUMBER] ?? 0) == 0)
 				{
-					reports.Add("Bad ADDRESS_NUMBER: " + (string)f.Properties["ADDRESS_NUMBER"].ToString());
+					reports.Add("Bad ADDRESS_NUMBER: " + (string)f.Properties[KEYS.ADDRESS_NUMBER].ToString());
 				}
-				if (f.Properties["STATE"] != "ME")
+				if (f.Properties[KEYS.STATE] != "ME")
 				{
-					reports.Add("Bad STATE: " + (string)f.Properties["STATE"]);
+					reports.Add("Bad STATE: " + (string)f.Properties[KEYS.STATE]);
 				}
 			}
 
@@ -494,6 +518,11 @@ namespace OsmPipeline
 			return zip;
 		}
 
+		private static string HouseNumber(int addressNumber, string suffix)
+		{
+			return (addressNumber == 0 ? "" : addressNumber + " " + suffix).Trim();
+		}
+
 		private static string City(string postalCommunity, string municipality)
 		{
 			return string.IsNullOrWhiteSpace(postalCommunity)
@@ -511,6 +540,62 @@ namespace OsmPipeline
 					: part).ToArray();
 
 			return string.Join(' ', parts);
+		}
+
+		public class KEYS
+		{
+			public const string OBJECTID = "OBJECTID";
+			public const string SOURCE_OF_DATA = "SOURCE_OF_DATA";
+			public const string DATEUPDATE = "DATEUPDATE";
+			public const string SITE_UID = "SITE_UID";
+			public const string COUNTRY = "COUNTRY";
+			public const string STATE = "STATE";
+			public const string COUNTY = "COUNTY";
+			public const string TOWN = "TOWN";
+			public const string ADDRESS_NUMBER = "ADDRESS_NUMBER";
+			public const string ADDNUMSUF = "ADDNUMSUF";
+			public const string PREDIR = "PREDIR";
+			public const string STREETNAME = "STREETNAME";
+			public const string SUFFIX = "SUFFIX";
+			public const string POSTDIR = "POSTDIR";
+			public const string ESN = "ESN";
+			public const string MSAGCOMM = "MSAGCOMM";
+			public const string POSTCOMM = "POSTCOMM";
+			public const string ZIPCODE = "ZIPCODE";
+			public const string ZIPPLUS4 = "ZIPPLUS4";
+			public const string BUILDING = "BUILDING";
+			public const string FLOOR = "FLOOR";
+			public const string UNIT = "UNIT";
+			public const string ROOM = "ROOM";
+			public const string SEAT = "SEAT";
+			public const string LOC = "LOC";
+			public const string LANDMARK = "LANDMARK";
+			public const string PLACE_TYPE = "PLACE_TYPE";
+			public const string PLACEMENT = "PLACEMENT";
+			public const string LONGITUDE = "LONGITUDE";
+			public const string LATITUDE = "LATITUDE";
+			public const string ELEVATION = "ELEVATION";
+			public const string RDNAME = "RDNAME";
+			public const string ADDRESS = "ADDRESS";
+			public const string SOURCE = "SOURCE";
+			public const string MAO_NAME = "MAO_NAME";
+			public const string MAO_DATE = "MAO_DATE";
+			public const string MAO_EXCEPTION = "MAO_EXCEPTION";
+			public const string STATE_ID = "STATE_ID";
+			public const string MAP_BK_LOT = "MAP_BK_LOT";
+			public const string TPL = "TPL";
+			public const string GPL = "GPL";
+			public const string MSAGCODE = "MSAGCODE";
+			public const string CONGRESS_CODE = "CONGRESS_CODE";
+			public const string PSAP = "PSAP";
+			public const string AMUPDDAT = "AMUPDDAT";
+			public const string AMUPDORG = "AMUPDORG";
+			public const string FMUPDDAT = "FMUPDDAT";
+			public const string FMUPDORG = "FMUPDORG";
+			public const string CREATDAT = "CREATDAT";
+			public const string CREATORG = "CREATORG";
+			public const string GlobalID = "GlobalID";
+			public const string SHAPE = "SHAPE";
 		}
 	}
 }
