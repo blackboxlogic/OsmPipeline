@@ -9,6 +9,24 @@ namespace OsmPipeline.Fittings
 {
 	public static class Translate
 	{
+		public static OsmGeoResult AsDiffResult(this OsmGeo element, long? newId = null, long? newVersion = null)
+		{
+			if (newId == null && element.Id <= 0)
+				throw new Exception("Invalid ID");
+
+			var result = element.Type == OsmGeoType.Node
+				? new NodeResult()
+				: element.Type == OsmGeoType.Way
+					? (OsmGeoResult)new WayResult()
+					: new RelationResult();
+
+			result.OldId = element.Id;
+			result.NewId = newId ?? element.Id;
+			result.NewVersion = newVersion ?? element.Version + 1;
+
+			return result;
+		}
+
 		public static IEnumerable<OsmGeo> GetElements(this Osm osm)
 		{
 			return new OsmGeo[][] { osm.Nodes, osm.Ways, osm.Relations }

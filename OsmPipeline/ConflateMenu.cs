@@ -36,6 +36,11 @@ namespace OsmPipeline
 		// consider just leaving out all addr:unit=*
 		// option to moveNode or not. (Do you trust E911 locations more than OSM?)
 		// MatchWidth list to handle multi-match
+
+		// Maybe fix addr:street punctuation on elements that I didn't add or update
+		// Maybe fix addr:street should be addr:place on elements that I didn't add or update
+		// Maybe fix nodes merging into buildings on elements that I didn't add or update
+		// Maybe review all the names I added?
 		public void Main()
 		{
 			Static.Municipalities = FileSerializer.ReadJsonCacheOrSource("MaineMunicipalities.json",

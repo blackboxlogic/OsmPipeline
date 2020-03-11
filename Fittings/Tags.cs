@@ -12,21 +12,27 @@ namespace OsmPipeline.Fittings
 		{
 			{ "addr:street", new [] { "addr:place" } },
 			{ "building", new [] { "amenity" } },
-			{ "name", new [] { "alt_name", "official_name", "old_name", "local_name", "short_name", "ref", "name:left", "name:right", "name_1" } }
+			{ "name", new [] { "alt_name", "ref", "official_name", "old_name", "local_name", "short_name", "name:left", "name:right", "name_1" } }
 		};
 
-		public static readonly Dictionary<string, Func<string, string[]>> MatchableTagKeys =
+		public static readonly Dictionary<string, Func<string, string[]>> IndexableTagKeys =
 			new Dictionary<string, Func<string, string[]>>()
 			{
 				{ "addr:street", Tags.WithOrWithoutPunctuation },
 				{ "addr:place", Tags.WithOrWithoutPunctuation },
 				{ "addr:housenumber", Tags.GetNumbersFromRangeOrList },
-				{ "name", Tags.WithOrWithoutPunctuation }
+				{ "name", Tags.WithOrWithoutPunctuation },
+				{ "place", s => new []{ s } }
 			};
 
 		public static Func<string, string[]> GetMatchingFunction(string key)
 		{
-			return MatchableTagKeys.TryGetValue(key, out var value) ? value : GetPartsFromList;
+			return IndexableTagKeys.TryGetValue(key, out var value) ? value : GetPartsFromList;
+		}
+
+		public static string[] GetMatchingValues(Tag tag)
+		{
+			return GetMatchingFunction(tag.Key)(tag.Value);
 		}
 
 		private static string[] GetPartsFromList(string value)
@@ -155,6 +161,11 @@ namespace OsmPipeline.Fittings
 			var descriptiveKeys = new[] { "name", "amenity" };
 			var key = descriptiveKeys.FirstOrDefault(k => tags.ContainsKey(k));
 			return tags.FirstOrDefault(t => t.Key == key);
+		}
+
+		public static bool AreEqual(TagsCollectionBase left, TagsCollectionBase right)
+		{
+			return left.Count == right.Count && left.All(l => right.Contains(l));
 		}
 	}
 }

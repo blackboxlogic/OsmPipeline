@@ -10,10 +10,14 @@ namespace OsmPipeline
 	public class ElementIndex
 	{
 		private readonly Dictionary<string, Dictionary<string, OsmGeo[]>> TagKeyTagValueElements;
+		public readonly Dictionary<string, OsmGeo> ByOsmGeoKey;
+
+		public ICollection<OsmGeo> Elements => ByOsmGeoKey.Values;
 
 		public ElementIndex(ICollection<OsmGeo> elements)
 		{
-			TagKeyTagValueElements = Tags.MatchableTagKeys.ToDictionary(
+			ByOsmGeoKey = elements.ToDictionary(n => n.Type.ToString() + n.Id); // could use OsmGeoKey
+			TagKeyTagValueElements = Tags.IndexableTagKeys.ToDictionary(
 				keyOptionsPair => keyOptionsPair.Key,
 				keyOptionsPair => elements
 					.Where(e => e.Tags != null && e.Tags.ContainsKey(keyOptionsPair.Key))
@@ -21,18 +25,20 @@ namespace OsmPipeline
 						.Select(tagValue => new { tagValue, element }))
 					.GroupBy(ne => ne.tagValue)
 					.ToDictionary(g => g.Key, g => g.Select(ne => ne.element).ToArray()));
+			foreach (var valueDictionary in TagKeyTagValueElements.Values)
+			{
+				valueDictionary.Add("*", valueDictionary.Values.SelectMany(v => v).Distinct().ToArray());
+			}
 		}
 
-		public bool TryGetMatchingElements(TagsCollectionBase keyTags, out OsmGeo[] values)
+		// Search tags are expected to be in connonical form, missing punctuation, single house numbers
+		public bool TryGetMatchingElements(TagsCollectionBase searchTags, out OsmGeo[] values)
 		{
 			values = null;
 
-			var matchableTags = keyTags.Where(tag => Tags.MatchableTagKeys.ContainsKey(tag.Key)).ToArray();
-			if (matchableTags.Length < 2) throw new Exception("Tried to match on 1 tag.");
-
-			foreach (var tag in matchableTags)
+			foreach (var tag in searchTags)
 			{
-				if (!TryGetValue(tag, out OsmGeo[] elements)) return false;
+				if (!TryGetElements(tag, out OsmGeo[] elements)) return false;
 				values = values?.Intersect(elements).ToArray() ?? elements;
 				if (!values.Any()) return false;
 			}
@@ -40,19 +46,18 @@ namespace OsmPipeline
 			return true;
 		}
 
-		private bool TryGetValue(Tag tag, out OsmGeo[] elements)
+		private bool TryGetElements(Tag tag, out OsmGeo[] elements)
 		{
 			elements = null;
 
 			if (TagKeyTagValueElements.TryGetValue(tag.Key, out var tagValues)
-					&& tagValues.TryGetValue(tag.Value, out elements))
-				return true;
+				&& tagValues.TryGetValue(tag.Value, out elements)) return true;
 
 			if (!Tags.AlternateKeys.TryGetValue(tag.Key, out string[] altKeys)) return false;
 
 			foreach (string altKey in altKeys)
 			{
-				if (TryGetValue(new Tag(altKey, tag.Value), out elements)) return true;
+				if (TryGetElements(new Tag(altKey, tag.Value), out elements)) return true;
 			}
 
 			return false;

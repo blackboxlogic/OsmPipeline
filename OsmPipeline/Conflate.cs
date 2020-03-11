@@ -29,23 +29,22 @@ namespace OsmPipeline
 			Log = Log ?? Static.LogFactory.CreateLogger(typeof(Conflate));
 			Log.LogInformation("Starting conflation, matching by address tags");
 
-			var subjectElementsIndexed = subject.GetElements().ToDictionary(n => n.Type.ToString() + n.Id); // could use OsmGeoKey
-			MergeNodesByAddressTags(reference, subjectElementsIndexed, whitelist,
+			var subjectElementIndex = new ElementIndex(subject.GetElements().ToArray());
+			MergeNodesByAddressTags(reference, subjectElementIndex, whitelist,
 				out List<OsmGeo> create, out List<OsmGeo> modify, out List<OsmGeo> delete);
 			Log.LogInformation("Starting conflation, matching by geometry");
-			MergeNodesByGeometry(subjectElementsIndexed, whitelist, create, modify);
-
-			ValidateNamesMatch(subjectElementsIndexed, create.Concat(modify), "highway", "addr:street");
-			ValidateNamesMatch(subjectElementsIndexed, create.Concat(modify), "place", "addr:place");
-			// Maybe fix addr:street to addr:place is there is no matchig highway but there is a matching place
-			// Maybe fix addr:street punctuation on elements that I didn't add or update
+			MergeNodesByGeometry(subjectElementIndex, whitelist, create, modify);
+			ValidateNamesMatch(subjectElementIndex, create.Concat(modify), "highway", "addr:street",
+				(element, key) => ShouldStreetBeAPlace(element, subjectElementIndex));
+			ValidateNamesMatch(subjectElementIndex, create.Concat(modify), "place", "addr:place",
+				(element, key) => element.Tags.AddOrAppend(InfoKey, "Cannot find a matching " + key));
 
 			Log.LogInformation($"Writing {scopeName} review files");
-			var review = GatherExceptions(whitelist, ignoreList, subjectElementsIndexed, create, delete, modify);
-			WriteToFileWithChildrenIfAny(scopeName + "/Conflated.Review.osm", review, subjectElementsIndexed);
-			WriteToFileWithChildrenIfAny(scopeName + "/Conflated.Create.osm", create, subjectElementsIndexed);
-			WriteToFileWithChildrenIfAny(scopeName + "/Conflated.Delete.osm", delete, subjectElementsIndexed);
-			WriteToFileWithChildrenIfAny(scopeName + "/Conflated.Modify.osm", modify, subjectElementsIndexed);
+			var review = GatherExceptions(whitelist, ignoreList, subjectElementIndex, create, delete, modify);
+			WriteToFileWithChildrenIfAny(scopeName + "/Conflated.Review.osm", review, subjectElementIndex);
+			WriteToFileWithChildrenIfAny(scopeName + "/Conflated.Create.osm", create, subjectElementIndex);
+			WriteToFileWithChildrenIfAny(scopeName + "/Conflated.Delete.osm", delete, subjectElementIndex);
+			WriteToFileWithChildrenIfAny(scopeName + "/Conflated.Modify.osm", modify, subjectElementIndex);
 			CheckForOffset(modify);
 			RemoveReviewTags(create, delete, modify);
 			var change = Translate.GeosToChange(create, modify, delete, "OsmPipeline");
@@ -69,7 +68,7 @@ namespace OsmPipeline
 		// Collections are modified by reference. Errors removed and logged. Warns just logged.
 		// Whitelist suppresses warns and errors.
 		private static List<OsmGeo> GatherExceptions(List<long> whiteList, List<long> ignoreList,
-			Dictionary<string, OsmGeo> subjectElementsIndexed, params List<OsmGeo>[] elementss)
+			ElementIndex subjectElementIndex, params List<OsmGeo>[] elementss)
 		{
 			var review = new List<OsmGeo>();
 
@@ -91,14 +90,14 @@ namespace OsmPipeline
 			review.RemoveAll(r => IsOnTheList(r, ignoreList));
 			var reviewsWith = review.ToArray().Where(e => e.Tags.ContainsKey(ReviewWithKey)).Distinct()
 				.ToDictionary(r => r,
-				r => r.Tags[ReviewWithKey].Split(";").Select(rw => subjectElementsIndexed[rw]));
+				r => r.Tags[ReviewWithKey].Split(";").Select(rw => subjectElementIndex.ByOsmGeoKey[rw]));
 			foreach (var reviewWith in reviewsWith)
 			{
 				foreach (var with in reviewWith.Value)
 				{
 					var arrow = Geometry.GetDirectionArrow(
-						with.AsComplete(subjectElementsIndexed).AsPosition(),
-						reviewWith.Key.AsComplete(subjectElementsIndexed).AsPosition());
+						with.AsComplete(subjectElementIndex.ByOsmGeoKey).AsPosition(),
+						reviewWith.Key.AsComplete(subjectElementIndex.ByOsmGeoKey).AsPosition());
 					with.Tags.AddOrAppend(InfoKey, arrow.ToString());
 					with.Tags.AddOrAppend(Static.maineE911id + ":osm-id", with.Type + "/" + with.Id);
 					review.Add(with);
@@ -124,10 +123,11 @@ namespace OsmPipeline
 					&& element.Tags[Static.maineE911id].Split(';').All(id => list.Contains(long.Parse(id))));
 		}
 
-		private static void ValidateNamesMatch(Dictionary<string, OsmGeo> subjectElementsIndexed,
-			IEnumerable<OsmGeo> elements, string parentFilterKey, string childKey)
+		private static void ValidateNamesMatch(ElementIndex subjectElementIndex,
+			IEnumerable<OsmGeo> elements, string parentFilterKey, string childKey,
+			Action<OsmGeo, string> whenMissing)
 		{
-			var parentNames = subjectElementsIndexed.Values
+			var parentNames = subjectElementIndex.Elements
 				.Where(w => w.Tags != null && w.Tags.ContainsKey(parentFilterKey))
 				.SelectMany(w => Tags.GetNames(w.Tags))
 				.ToHashSet();
@@ -152,9 +152,27 @@ namespace OsmPipeline
 					}
 					else
 					{
-						element.Tags.AddOrAppend(InfoKey, "Cannot find a matching " + parentFilterKey);
+						whenMissing(element, parentFilterKey);
 					}
 				}
+			}
+		}
+
+		private static void ShouldStreetBeAPlace(OsmGeo element, ElementIndex subjectElementIndex)
+		{
+			var search = new TagsCollection(
+				new Tag("place", "*"),
+				new Tag("name", element.Tags["addr:street"]));
+			if (subjectElementIndex.TryGetMatchingElements(search, out OsmGeo[] elements))
+			{
+				var name = elements.Select(e => e.Tags["name"]).Distinct().Single();
+				element.Tags.Add("addr:place", name);
+				element.Tags.RemoveKey("addr:street");
+				element.Tags.AddOrAppend(InfoKey, $"Changed addr:street to addr:place by context");
+			}
+			else
+			{
+				element.Tags.AddOrAppend(InfoKey, "Cannot find a matching addr:street");
 			}
 		}
 
@@ -190,30 +208,31 @@ namespace OsmPipeline
 		}
 
 		private static void WriteToFileWithChildrenIfAny(string fileName, IList<OsmGeo> osmGeos,
-			Dictionary<string, OsmGeo> subjectElementsIndexed)
+			ElementIndex subjectElementIndex)
 		{
 			if (osmGeos.Any())
 				FileSerializer.WriteXml(fileName,
-					osmGeos.WithChildren(subjectElementsIndexed).Distinct().AsOsm());
+					osmGeos.WithChildren(subjectElementIndex.ByOsmGeoKey).Distinct().AsOsm());
 			else if (File.Exists(fileName))
 				File.Delete(fileName);
 		}
 
 		private static void MergeNodesByAddressTags(
-			Osm reference, Dictionary<string, OsmGeo> subjectElementsIndexed, List<long> whiteList,
+			Osm reference, ElementIndex subjectElementIndex, List<long> whiteList,
 			out List<OsmGeo> create, out List<OsmGeo> modify, out List<OsmGeo> delete)
 		{
 			create = new List<OsmGeo>(reference.Nodes);
 			modify = new List<OsmGeo>();
 			delete = new List<OsmGeo>();
-			var elementIndex = new ElementIndex(subjectElementsIndexed.Values);
 
 			foreach (var referenceElement in create.Cast<Node>().ToArray())
 			{
-				if (elementIndex.TryGetMatchingElements(referenceElement.Tags, out var targetSubjectElements))
+				var searchTags = referenceElement.Tags.Where(t => t.Key == "addr:street" || t.Key == "addr:housenumber");
+
+				if (subjectElementIndex.TryGetMatchingElements(new TagsCollection(searchTags), out var targetSubjectElements))
 				{
 					var matchDistances = targetSubjectElements
-						.Select(element => new { element, complete = element.AsComplete(subjectElementsIndexed) })
+						.Select(element => new { element, complete = element.AsComplete(subjectElementIndex.ByOsmGeoKey) })
 						.Select(match => new { match.element, match.complete, distance = Geometry.DistanceMeters(referenceElement, match.complete) })
 						// Remove elements in neighbor towns
 						.Where(match => !ProbablyInAnotherCity(match.element, referenceElement, match.distance))
@@ -260,7 +279,7 @@ namespace OsmPipeline
 							{
 								bool tagsChanged = MergeTags(referenceElement, subjectElement,
 									whiteList.Contains(Math.Abs(referenceElement.Id.Value)));
-								tagsChanged |= MoveNode(referenceElement, subjectElement, subjectElementsIndexed, closestMatch.distance);
+								tagsChanged |= MoveNode(referenceElement, subjectElement, subjectElementIndex, closestMatch.distance);
 
 								if (tagsChanged)
 								{
@@ -290,15 +309,15 @@ namespace OsmPipeline
 				|| distanceMeters > 2000;
 		}
 
-		private static void MergeNodesByGeometry(Dictionary<string, OsmGeo> subjectElementsIndexed,
+		private static void MergeNodesByGeometry(ElementIndex subjectElementIndex,
 			List<long> whiteList, List<OsmGeo> create, List<OsmGeo> modify)
 		{
-			var buildings = subjectElementsIndexed.Values.Where(w => Tags.IsBuilding(w))
-				.Select(b => b.AsComplete(subjectElementsIndexed))
+			var buildings = subjectElementIndex.Elements.Where(w => Tags.IsBuilding(w))
+				.Select(b => b.AsComplete(subjectElementIndex.ByOsmGeoKey))
 				.ToArray();
 			var newNodes = create.Cast<Node>().ToArray();
 			var buildingsAndInnerNewNodes = Geometry.NodesInOrNearCompleteElements(buildings, newNodes, 30, 100);
-			var oldNodes = subjectElementsIndexed.Values.OfType<Node>().Where(n => n.Tags?.Any() == true).ToArray();
+			var oldNodes = subjectElementIndex.Elements.OfType<Node>().Where(n => n.Tags?.Any() == true).ToArray();
 			var buildingsAndInnerOldNodes = Geometry.NodesInCompleteElements(buildings, oldNodes);
 
 			foreach (var buildingAndInners in buildingsAndInnerNewNodes)
@@ -321,7 +340,7 @@ namespace OsmPipeline
 				else
 				{
 					var node = buildingAndInners.Value.First();
-					var building = subjectElementsIndexed[buildingAndInners.Key.Type.ToString() + buildingAndInners.Key.Id];
+					var building = subjectElementIndex.ByOsmGeoKey[buildingAndInners.Key.Type.ToString() + buildingAndInners.Key.Id];
 
 					try
 					{
@@ -377,7 +396,7 @@ namespace OsmPipeline
 		}
 
 		private static bool MoveNode(OsmGeo reference, OsmGeo subject,
-			Dictionary<string, OsmGeo> subjectElementsIndexed, double currentDistanceMeters)
+			ElementIndex subjectElementIndex, double currentDistanceMeters)
 		{
 			//return false;
 
@@ -385,7 +404,7 @@ namespace OsmPipeline
 				&& reference is Node referenceNode
 				&& currentDistanceMeters > int.Parse(Static.Config["MinNodeMoveDistance"]))
 			{
-				if (subjectElementsIndexed.Values.OfType<Way>().Any(w => w.Nodes.Contains(subject.Id.Value)))
+				if (subjectElementIndex.Elements.OfType<Way>().Any(w => w.Nodes.Contains(subject.Id.Value)))
 				{
 					subject.Tags.AddOrAppend(WarnKey, "Chose not to move node because it is part of a way");
 					return false;
@@ -425,8 +444,11 @@ namespace OsmPipeline
 					else if (isMoreSpecific || isWhiteList) // compelled
 					{
 						changed = true;
+						subject.Tags[Static.maineE911id + ":" + matchedKey] =
+							matchedKey == refTag.Key
+							? $"changed from: {subject.Tags[matchedKey]}"
+							: $"changed by {matchedKey} from: {subject.Tags[matchedKey]}";
 						subject.Tags[matchedKey] = refTag.Value;
-						subject.Tags[Static.maineE911id + ":" + matchedKey] = $"changed by {refTag.Key} from: {subject.Tags[matchedKey]}";
 					}
 					else // conflict
 					{
