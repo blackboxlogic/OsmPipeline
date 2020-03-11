@@ -11,14 +11,18 @@ namespace OsmPipeline.Fittings
 {
 	public static class GeoJsonAPISource
 	{
+		//https://gis.maine.gov/arcgis/rest/services/Location/Maine_E911_Addresses_Roads_PSAP/MapServer/1?f=pjson
+		//maxRecordCount
 		private const int MaxRecords = 5000;
+		//"currentVersion": 10.4,
+		//"cimVersion": "1.2.0",
 
 		// gets dictionary MunicipalityName -> Number of addresses
 		public static async Task<Dictionary<string, Municipality>> GetMunicipalities()
 		{
-			var stats = new[] { new OutStatistics() { statisticType = "count", onStatisticField = "MUNICIPALITY", outStatisticFieldName = "mcount" } };
+			var stats = new[] { new OutStatistics() { statisticType = "count", onStatisticField = "TOWN", outStatisticFieldName = "mcount" } };
 
-			var json = await FetchOnce(0, "1=1", "upper(MUNICIPALITY)", stats); // GIS responds with json even if f=geojson because groupby
+			var json = await FetchOnce(0, "1=1", "upper(TOWN)", stats); // GIS responds with json even if f=geojson because groupby
 			var deserialized = Newtonsoft.Json.JsonConvert.DeserializeObject<GroupByJson>(json);
 			var municipalities = deserialized.Features.ToDictionary(
 				f => (string)f.Attributes["Expr1"],
@@ -37,11 +41,13 @@ namespace OsmPipeline.Fittings
 			public List<long> WhiteList = new List<long>();
 			public List<string> BlackTags = new List<string>(); // like: [ "12345.name", "12345.building" ]
 			public List<long> IgnoreList = new List<long>();
+
+			public override string ToString() => Name;
 		}
 
-		public static async Task<FeatureCollection> FetchMunicipality(string municipality, int? limit = null)
+		public static async Task<FeatureCollection> FetchMunicipality(string town, int? limit = null)
 		{
-			return await FetchMany($"upper(MUNICIPALITY)=upper('{municipality}')", limit);
+			return await FetchMany($"upper(TOWN)=upper('{town}')", limit);
 		}
 
 		public static async Task<FeatureCollection> Fetch(Bounds bounds, int? limit = null)

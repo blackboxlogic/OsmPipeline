@@ -523,10 +523,10 @@ namespace OsmPipeline
 			return (addressNumber == 0 ? "" : addressNumber + " " + suffix).Trim();
 		}
 
-		private static string City(string postalCommunity, string municipality)
+		private static string City(string postalCommunity, string town)
 		{
 			return string.IsNullOrWhiteSpace(postalCommunity)
-				? ReplaceToken(municipality, MUNICIPALITY)
+				? ReplaceToken(town, MUNICIPALITY)
 				: ReplaceToken(postalCommunity, MUNICIPALITY);
 		}
 
