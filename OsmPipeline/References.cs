@@ -518,7 +518,7 @@ namespace OsmPipeline
 			return zip;
 		}
 
-		private static string HouseNumber(int addressNumber, string suffix)
+		private static string HouseNumber(long addressNumber, string suffix)
 		{
 			return (addressNumber == 0 ? "" : addressNumber + " " + suffix).Trim();
 		}
