@@ -22,7 +22,8 @@ namespace OsmPipeline.Fittings
 				{ "addr:place", Tags.WithOrWithoutPunctuation },
 				{ "addr:housenumber", Tags.GetNumbersFromRangeOrList },
 				{ "name", Tags.WithOrWithoutPunctuation },
-				{ "place", s => new []{ s } }
+				{ "place", s => new []{ s } },
+				{ "waterway", s => new []{ s } }
 			};
 
 		public static Func<string, string[]> GetMatchingFunction(string key)
@@ -130,11 +131,13 @@ namespace OsmPipeline.Fittings
 
 			foreach (var altKey in altKeys.Where(k => tags.ContainsKey(k)))
 			{
-				if (ValuesMatch(tag.Key, tags[altKey], tag.Value, out isMoreSpecific))
+				if (ValuesMatch(tag.Key, tags[altKey], tag.Value, out bool isAltKeyMoreSpecific))
 				{
 					key = altKey;
 					return true;
 				}
+
+				isMoreSpecific |= isAltKeyMoreSpecific;
 			}
 
 			return false;

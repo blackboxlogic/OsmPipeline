@@ -36,8 +36,7 @@ namespace OsmPipeline
 			MergeNodesByGeometry(subjectElementIndex, whitelist, create, modify);
 			ValidateNamesMatch(subjectElementIndex, create.Concat(modify), "highway", "addr:street",
 				(element, key) => ShouldStreetBeAPlace(element, subjectElementIndex));
-			ValidateNamesMatch(subjectElementIndex, create.Concat(modify), "place", "addr:place",
-				(element, key) => element.Tags.AddOrAppend(InfoKey, "Cannot find a matching " + key));
+			ValidateNamesMatch(subjectElementIndex, create.Concat(modify), "place", "addr:place");
 
 			Log.LogInformation($"Writing {scopeName} review files");
 			var review = GatherExceptions(whitelist, ignoreList, subjectElementIndex, create, delete, modify);
@@ -125,8 +124,11 @@ namespace OsmPipeline
 
 		private static void ValidateNamesMatch(ElementIndex subjectElementIndex,
 			IEnumerable<OsmGeo> elements, string parentFilterKey, string childKey,
-			Action<OsmGeo, string> whenMissing)
+			Action<OsmGeo, string> whenMissing = null)
 		{
+			whenMissing = whenMissing
+				?? ((element, key) => element.Tags.AddOrAppend(InfoKey, "Cannot find a matching " + key));
+
 			var parentNames = subjectElementIndex.Elements
 				.Where(w => w.Tags != null && w.Tags.ContainsKey(parentFilterKey))
 				.SelectMany(w => Tags.GetNames(w.Tags))
@@ -160,20 +162,27 @@ namespace OsmPipeline
 
 		private static void ShouldStreetBeAPlace(OsmGeo element, ElementIndex subjectElementIndex)
 		{
-			var search = new TagsCollection(
-				new Tag("place", "*"),
-				new Tag("name", element.Tags["addr:street"]));
-			if (subjectElementIndex.TryGetMatchingElements(search, out OsmGeo[] elements))
+			var searches = new[] {
+				new TagsCollection(
+					new Tag("place", "*"),
+					new Tag("name", element.Tags["addr:street"])),
+				new TagsCollection(
+					new Tag("waterway", "*"),
+					new Tag("name", element.Tags["addr:street"]))
+			};
+			foreach (var search in searches)
 			{
-				var name = elements.Select(e => e.Tags["name"]).Distinct().Single();
-				element.Tags.Add("addr:place", name);
-				element.Tags.RemoveKey("addr:street");
-				element.Tags.AddOrAppend(InfoKey, $"Changed addr:street to addr:place by context");
+				if (subjectElementIndex.TryGetMatchingElements(search, out OsmGeo[] elements))
+				{
+					var name = elements.Select(e => e.Tags["name"]).Distinct().Single();
+					element.Tags.Add("addr:place", name);
+					element.Tags.RemoveKey("addr:street");
+					element.Tags.AddOrAppend(InfoKey, $"Changed addr:street to addr:place by context");
+					return;
+				}
 			}
-			else
-			{
-				element.Tags.AddOrAppend(InfoKey, "Cannot find a matching addr:street");
-			}
+
+			element.Tags.AddOrAppend(InfoKey, "Cannot find a matching addr:street");
 		}
 
 		private static void CheckForOffset(IList<OsmGeo> modify)

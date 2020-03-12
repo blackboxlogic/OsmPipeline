@@ -22,8 +22,13 @@
 		}
 	},
 	"addr:city": {
-		"Winterharbor" : {
-			"Winter Harbor" : {}
+		"*": {
+			"Winterharbor" : {
+				"Winter Harbor" : {}
+			},
+			"Rockwood Strip T1 R1 Nbkp": {
+				"Rockwood": {}
+			}
 		}
 	},
 	"addr:postcode": {
