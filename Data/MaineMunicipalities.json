@@ -12074,20 +12074,31 @@
 	"Prospect": {
 		"Name": "Prospect",
 		"AddressCount": 313,
-		"ImportDate": null,
+		"ImportDate": "2020-03-12T19:33:04.7088828Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			82127963
+		],
 		"BlackList": [],
 		"WhiteList": [],
-		"BlackTags": [],
+		"BlackTags": [
+			"*.name=Building Trailer",
+			"*.name=FLR 2",
+			"*.name=Room Apartment 3A",
+			"*.name=Room Apartment B",
+			"*.name=Town is aware this is an odd address on the even Side of road",
+			"*.name=Under Bridge"
+		],
 		"IgnoreList": []
 	},
 	"Woodland": {
 		"Name": "Woodland",
 		"AddressCount": 302,
-		"ImportDate": null,
+		"ImportDate": "2020-03-12T19:34:53.2191709Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			82128020
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -12096,20 +12107,44 @@
 	"Millinocket": {
 		"Name": "Millinocket",
 		"AddressCount": 2342,
-		"ImportDate": null,
-		"Notes": null,
-		"ChangeSetIds": [],
-		"BlackList": [],
-		"WhiteList": [],
-		"BlackTags": [],
-		"IgnoreList": []
+		"ImportDate": "2020-03-12T20:44:22.4954532Z",
+		"Notes": "/nzip codes are wrong here. 04662 should be 04462",
+		"ChangeSetIds": [
+			82130004
+		],
+		"BlackList": [
+			370468,
+			87246,
+			433590,
+			688227
+		],
+		"WhiteList": [
+			689084,
+			138644
+		],
+		"BlackTags": [
+			"*.name=CO",
+			"687655.building",
+			"688241.building",
+			"98354.name",
+			"138644.name",
+			"688108.building"
+		],
+		"IgnoreList": [
+			688197,
+			687758,
+			138698,
+			261079
+		]
 	},
 	"T9 R3 WELS": {
 		"Name": "T9 R3 WELS",
 		"AddressCount": 39,
-		"ImportDate": null,
+		"ImportDate": "2020-03-12T20:44:31.5354547Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			82130010
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -12118,9 +12153,11 @@
 	"Ta R11 Wels": {
 		"Name": "Ta R11 Wels",
 		"AddressCount": 1,
-		"ImportDate": null,
+		"ImportDate": "2020-03-12T20:44:38.7597767Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			82130013
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -12129,20 +12166,28 @@
 	"Fort Kent": {
 		"Name": "Fort Kent",
 		"AddressCount": 2366,
-		"ImportDate": null,
+		"ImportDate": "2020-03-12T20:51:15.6097968Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			82130188
+		],
 		"BlackList": [],
-		"WhiteList": [],
-		"BlackTags": [],
+		"WhiteList": [
+			209787
+		],
+		"BlackTags": [
+			"55234.name"
+		],
 		"IgnoreList": []
 	},
 	"Nashville Plt": {
 		"Name": "Nashville Plt",
 		"AddressCount": 13,
-		"ImportDate": null,
+		"ImportDate": "2020-03-12T20:51:26.8451201Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			82130194
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -12151,9 +12196,11 @@
 	"Ta R2 Wels": {
 		"Name": "Ta R2 Wels",
 		"AddressCount": 2,
-		"ImportDate": null,
+		"ImportDate": "2020-03-12T20:51:32.2484994Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			82130196
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -12162,53 +12209,90 @@
 	"Knox": {
 		"Name": "Knox",
 		"AddressCount": 356,
-		"ImportDate": null,
+		"ImportDate": "2020-03-12T20:52:41.6048898Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			82130213
+		],
 		"BlackList": [],
 		"WhiteList": [],
-		"BlackTags": [],
+		"BlackTags": [
+			"*.name=Apartment 3",
+			"*.name=C"
+		],
 		"IgnoreList": []
 	},
 	"Bucksport": {
 		"Name": "Bucksport",
 		"AddressCount": 2464,
-		"ImportDate": null,
+		"ImportDate": "2020-03-12T20:56:56.3716848Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			82130314
+		],
 		"BlackList": [],
-		"WhiteList": [],
-		"BlackTags": [],
+		"WhiteList": [
+			269918
+		],
+		"BlackTags": [
+			"*.name=Separate entrance for 148 Main St",
+			"*.name=To be demolished",
+			"*.name=Used to be 136 Main St"
+		],
 		"IgnoreList": []
 	},
 	"Etna": {
 		"Name": "Etna",
 		"AddressCount": 455,
-		"ImportDate": null,
+		"ImportDate": "2020-03-12T20:59:59.7530667Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			82130397
+		],
 		"BlackList": [],
-		"WhiteList": [],
+		"WhiteList": [
+			110728
+		],
 		"BlackTags": [],
-		"IgnoreList": []
+		"IgnoreList": [
+			50725
+		]
 	},
 	"Frankfort": {
 		"Name": "Frankfort",
 		"AddressCount": 402,
-		"ImportDate": null,
+		"ImportDate": "2020-03-12T21:01:01.3770384Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			82130430
+		],
 		"BlackList": [],
 		"WhiteList": [],
-		"BlackTags": [],
+		"BlackTags": [
+			"*.name=Apartment B",
+			"*.name=Building COTTAGE",
+			"*.name=Building GARAGE",
+			"*.name=Building Lot 3",
+			"*.name=Building MAIN",
+			"*.name=Building MAIN House",
+			"*.name=Building Trailer",
+			"*.name=Building Trailer B",
+			"*.name=DLC RTE 110 P.2 1 OV",
+			"*.name=Floor 1 Room Unit RIGHT",
+			"*.name=Floor FLR 2",
+			"*.name=FLR 1",
+			"*.name=Room Apartment IN-LAW"
+		],
 		"IgnoreList": []
 	},
 	"Ludlow": {
 		"Name": "Ludlow",
 		"AddressCount": 237,
-		"ImportDate": null,
+		"ImportDate": "2020-03-12T21:01:52.9360988Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			82130452
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -12217,9 +12301,11 @@
 	"Highland Plt": {
 		"Name": "Highland Plt",
 		"AddressCount": 33,
-		"ImportDate": null,
+		"ImportDate": "2020-03-12T21:02:04.8792177Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			82130456
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -12228,9 +12314,11 @@
 	"Eagle Lake": {
 		"Name": "Eagle Lake",
 		"AddressCount": 589,
-		"ImportDate": null,
+		"ImportDate": "2020-03-12T21:02:51.3958138Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			82130472
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -12239,9 +12327,11 @@
 	"Crawford": {
 		"Name": "Crawford",
 		"AddressCount": 137,
-		"ImportDate": null,
+		"ImportDate": "2020-03-12T21:03:42.0367865Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			82130498
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -12250,31 +12340,64 @@
 	"Limington": {
 		"Name": "Limington",
 		"AddressCount": 1744,
-		"ImportDate": null,
+		"ImportDate": "2020-03-12T21:06:05.9889171Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			82130559
+		],
 		"BlackList": [],
 		"WhiteList": [],
-		"BlackTags": [],
+		"BlackTags": [
+			"*.name=Apartment #1",
+			"*.name=Apartment 1A",
+			"*.name=Apartment 2",
+			"*.name=Apartment A",
+			"*.name=Apartment ABOVE GARAGE",
+			"*.name=Apartment B",
+			"*.name=Apartment C",
+			"*.name=Apartment DOWNSTAIRS",
+			"*.name=Apartment GARAGE",
+			"*.name=Building 2",
+			"*.name=Building 2 FLR 1 Apartment 1B",
+			"*.name=Building GARRAGE",
+			"*.name=Building MAIN House",
+			"*.name=GR COLONIAL W/DK GR",
+			"*.name=In Law Apartment",
+			"*.name=in-law Apartment over garage",
+			"*.name=Lot 4",
+			"*.name=Lot C",
+			"*.name=OPX: 21 OSSIPEE TRAI",
+			"*.name=OPX: 88 MILLTURN RD",
+			"*.name=Room Apartment IN-LAW",
+			"*.name=TAN CAPE W/P[ORCH",
+			"*.name=Tuff Farm equipment storage shed",
+			"*.name=Unit A"
+		],
 		"IgnoreList": []
 	},
 	"Cutler": {
 		"Name": "Cutler",
 		"AddressCount": 227,
-		"ImportDate": null,
+		"ImportDate": "2020-03-12T21:08:48.533754Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			82130631
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
-		"IgnoreList": []
+		"IgnoreList": [
+			292108
+		]
 	},
 	"Stockton Springs": {
 		"Name": "Stockton Springs",
 		"AddressCount": 762,
-		"ImportDate": null,
+		"ImportDate": "2020-03-13T02:19:01.9711612Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			82136308
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -12283,9 +12406,11 @@
 	"Talmadge": {
 		"Name": "Talmadge",
 		"AddressCount": 16,
-		"ImportDate": null,
+		"ImportDate": "2020-03-14T02:08:34.4270432Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			82184794
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -12298,9 +12423,13 @@
 		"Notes": null,
 		"ChangeSetIds": [],
 		"BlackList": [],
-		"WhiteList": [],
+		"WhiteList": [
+			70173
+		],
 		"BlackTags": [],
-		"IgnoreList": []
+		"IgnoreList": [
+			168478
+		]
 	},
 	"Garland": {
 		"Name": "Garland",
