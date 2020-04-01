@@ -12419,9 +12419,11 @@
 	"Greenville": {
 		"Name": "Greenville",
 		"AddressCount": 899,
-		"ImportDate": null,
+		"ImportDate": "2020-03-29T15:40:43.0045935Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			82783086
+		],
 		"BlackList": [],
 		"WhiteList": [
 			70173
@@ -12434,20 +12436,26 @@
 	"Garland": {
 		"Name": "Garland",
 		"AddressCount": 390,
-		"ImportDate": null,
+		"ImportDate": "2020-03-29T16:33:00.0240712Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			82784687
+		],
 		"BlackList": [],
 		"WhiteList": [],
-		"BlackTags": [],
+		"BlackTags": [
+			"279461.shop"
+		],
 		"IgnoreList": []
 	},
 	"Mason Twp": {
 		"Name": "Mason Twp",
 		"AddressCount": 48,
-		"ImportDate": null,
+		"ImportDate": "2020-03-29T16:39:33.9581573Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			82784897
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -12456,9 +12464,11 @@
 	"Sandbar Tract Twp": {
 		"Name": "Sandbar Tract Twp",
 		"AddressCount": 28,
-		"ImportDate": null,
+		"ImportDate": "2020-03-29T16:41:36.5469587Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			82784956
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -12467,53 +12477,118 @@
 	"Prentiss Twp T7 R3 NBPP": {
 		"Name": "Prentiss Twp T7 R3 NBPP",
 		"AddressCount": 224,
-		"ImportDate": null,
+		"ImportDate": "2020-03-29T16:43:20.0423858Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			82785003
+		],
 		"BlackList": [],
 		"WhiteList": [],
-		"BlackTags": [],
+		"BlackTags": [
+			"*.name=changed from 714 Tar Ridge Rd"
+		],
 		"IgnoreList": []
 	},
 	"Liberty": {
 		"Name": "Liberty",
 		"AddressCount": 695,
-		"ImportDate": null,
+		"ImportDate": "2020-03-29T16:44:36.7784583Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			82785050
+		],
 		"BlackList": [],
 		"WhiteList": [],
-		"BlackTags": [],
+		"BlackTags": [
+			"*.name=Apartment 3",
+			"*.name=Apartment 5",
+			"*.name=Apartment 9"
+		],
 		"IgnoreList": []
 	},
 	"Boothbay Harbor": {
 		"Name": "Boothbay Harbor",
 		"AddressCount": 2467,
-		"ImportDate": null,
+		"ImportDate": "2020-03-29T17:00:46.623034Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			82785521
+		],
 		"BlackList": [],
-		"WhiteList": [],
-		"BlackTags": [],
+		"WhiteList": [
+			45518
+		],
+		"BlackTags": [
+			"*.addr:unit=Apartment GARAGE",
+			"*.addr:unit=Building Building CO",
+			"*.addr:unit=Building Building COTTAGE",
+			"*.addr:unit=Building Building GUEST House",
+			"*.addr:unit=Building Building MAIN House",
+			"*.addr:unit=Building Building Trailer",
+			"*.addr:unit=Building CTTG",
+			"*.addr:unit=Building MAIN House",
+			"*.addr:unit=Building MAIN HOUSE",
+			"*.addr:unit=Building Pier 1",
+			"*.addr:unit=Building Trailer",
+			"*.addr:unit=DES STORE",
+			"*.addr:unit=ENTR AT 8 LAKEVIEW R",
+			"*.addr:unit=FAX",
+			"*.addr:unit=Floor 2 Room Apartment 2",
+			"*.addr:unit=Floor FLR 1",
+			"*.addr:unit=Floor FLR 1 Room Apartment A",
+			"*.addr:unit=Floor FLR 1 Room Unit FRO",
+			"*.addr:unit=Floor FLR 2",
+			"*.addr:unit=Floor FLR 3",
+			"*.addr:unit=FLR 1",
+			"*.addr:unit=FLR 1, Unit A",
+			"*.addr:unit=FLR 2",
+			"*.addr:unit=GARAGE",
+			"*.addr:unit=Pier 1 WHITE BOOTH",
+			"*.addr:unit=Room Apartment A",
+			"*.addr:unit=Room Apartment L",
+			"*.addr:unit=Room BARN Apartment",
+			"*.addr:unit=Room Room MGR",
+			"*.addr:unit=Room Unit 2",
+			"*.addr:unit=Room Unit 8A",
+			"*.addr:unit=Room Unit A LEFT",
+			"*.addr:unit=Room Unit H24",
+			"*.addr:unit=Suite SUIT A",
+			"*.addr:unit=Unit BEDROOM"
+		],
 		"IgnoreList": []
 	},
 	"Ogunquit": {
 		"Name": "Ogunquit",
 		"AddressCount": 1828,
-		"ImportDate": null,
+		"ImportDate": "2020-03-29T18:05:30.9457397Z",
 		"Notes": null,
-		"ChangeSetIds": [],
-		"BlackList": [],
-		"WhiteList": [],
-		"BlackTags": [],
-		"IgnoreList": []
+		"ChangeSetIds": [
+			82787257
+		],
+		"BlackList": [
+			469867,
+			360384
+		],
+		"WhiteList": [
+			284419
+		],
+		"BlackTags": [
+			"*.name=Unit 1"
+		],
+		"IgnoreList": [
+			393138,
+			280878,
+			412174
+		]
 	},
 	"T37 MD BPP": {
 		"Name": "T37 MD BPP",
 		"AddressCount": 2,
-		"ImportDate": null,
+		"ImportDate": "2020-03-29T18:05:42.9867389Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			82787266
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -12522,31 +12597,47 @@
 	"West Forks Plt": {
 		"Name": "West Forks Plt",
 		"AddressCount": 77,
-		"ImportDate": null,
+		"ImportDate": "2020-03-29T18:07:18.8658697Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			82787304
+		],
 		"BlackList": [],
 		"WhiteList": [],
-		"BlackTags": [],
+		"BlackTags": [
+			"*.name=Building Trailer",
+			"*.name=CO",
+			"*.name=Floor FLR 2",
+			"*.name=Lot 2"
+		],
 		"IgnoreList": []
 	},
 	"Berwick": {
 		"Name": "Berwick",
 		"AddressCount": 4889,
-		"ImportDate": null,
+		"ImportDate": "2020-03-29T18:19:47.6424126Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			82787617
+		],
 		"BlackList": [],
 		"WhiteList": [],
-		"BlackTags": [],
+		"BlackTags": [
+			"*.name=was 253 little river rd",
+			"*.name=was 7 Lyman St",
+			"379888.name",
+			"451435.name"
+		],
 		"IgnoreList": []
 	},
 	"Saint Agatha": {
 		"Name": "Saint Agatha",
 		"AddressCount": 256,
-		"ImportDate": null,
+		"ImportDate": "2020-03-29T18:26:08.481921Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			82787733
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -12555,42 +12646,69 @@
 	"Phippsburg": {
 		"Name": "Phippsburg",
 		"AddressCount": 1774,
-		"ImportDate": null,
+		"ImportDate": "2020-03-29T18:29:10.8695088Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			82787795
+		],
 		"BlackList": [],
 		"WhiteList": [],
-		"BlackTags": [],
+		"BlackTags": [
+			"*.name=Apartment 1",
+			"*.name=garage conversion"
+		],
 		"IgnoreList": []
 	},
 	"Northeast Carry Twp": {
 		"Name": "Northeast Carry Twp",
 		"AddressCount": 22,
-		"ImportDate": null,
+		"ImportDate": "2020-03-29T18:31:28.7753994Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			82787835
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
-		"IgnoreList": []
+		"IgnoreList": [
+			456283
+		]
 	},
 	"Southport": {
 		"Name": "Southport",
 		"AddressCount": 755,
-		"ImportDate": null,
+		"ImportDate": "2020-03-29T18:37:38.175695Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			82787968
+		],
 		"BlackList": [],
 		"WhiteList": [],
-		"BlackTags": [],
-		"IgnoreList": []
+		"BlackTags": [
+			"*.name=Building BARN",
+			"*.name=Building CABIN",
+			"*.name=Building COTTAGE",
+			"*.name=Building Lot 12",
+			"*.name=Building Lot 3",
+			"*.name=Building MAIN",
+			"*.name=Building MAIN House",
+			"*.name=Building MAIN House R",
+			"*.name=Building QESTHSE",
+			"*.name=Building Trailer"
+		],
+		"IgnoreList": [
+			353812,
+			126610
+		]
 	},
 	"Trenton": {
 		"Name": "Trenton",
 		"AddressCount": 669,
-		"ImportDate": null,
+		"ImportDate": "2020-03-29T18:41:11.9458427Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			82788058
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -12599,9 +12717,11 @@
 	"Moro Plt": {
 		"Name": "Moro Plt",
 		"AddressCount": 32,
-		"ImportDate": null,
+		"ImportDate": "2020-03-29T18:41:27.9148802Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			82788065
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -12610,20 +12730,61 @@
 	"T4 Indian Purchase Twp": {
 		"Name": "T4 Indian Purchase Twp",
 		"AddressCount": 300,
-		"ImportDate": null,
+		"ImportDate": "2020-03-29T18:44:11.3465592Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			82788123
+		],
 		"BlackList": [],
 		"WhiteList": [],
-		"BlackTags": [],
+		"BlackTags": [
+			"*.name=ABBT",
+			"*.name=ALLEN",
+			"*.name=BLUEBERRY COVE III",
+			"*.name=BOLTON",
+			"*.name=C MORIN",
+			"*.name=CROSBY HC #74 BOX 548",
+			"*.name=GEBOW",
+			"*.name=GILES",
+			"*.name=HAINES",
+			"*.name=HAYNES",
+			"*.name=HIPPERN",
+			"*.name=HOMERS HAVEN",
+			"*.name=HRICKO",
+			"*.name=JAMES and DEBRA BARNES",
+			"*.name=KOLLER",
+			"*.name=LAUBER-CAMPBELL",
+			"*.name=LEVEILLE",
+			"*.name=LOWELL",
+			"*.name=MANZO",
+			"*.name=MARDEN 239",
+			"*.name=MARTIN 251",
+			"*.name=MCADAM",
+			"*.name=MOSCA",
+			"*.name=MOUNTAIN LOUR ALL",
+			"*.name=OUELLETTE",
+			"*.name=PAGE",
+			"*.name=PINETTE",
+			"*.name=PURCELL",
+			"*.name=ROBERT JOHNSON",
+			"*.name=roland sirios",
+			"*.name=SIMPSON",
+			"*.name=SNIDER",
+			"*.name=STRETTBACHER",
+			"*.name=THERIAULT",
+			"*.name=WHEELER?",
+			"*.name=WHITNEY"
+		],
 		"IgnoreList": []
 	},
 	"T14 R5 Wels": {
 		"Name": "T14 R5 Wels",
 		"AddressCount": 1,
-		"ImportDate": null,
+		"ImportDate": "2020-03-29T18:44:19.7639501Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			82788131
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -12632,9 +12793,11 @@
 	"Coplin Plt": {
 		"Name": "Coplin Plt",
 		"AddressCount": 112,
-		"ImportDate": null,
+		"ImportDate": "2020-03-29T18:53:39.7668175Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			82788359
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -12643,9 +12806,11 @@
 	"T2 R13 WELS": {
 		"Name": "T2 R13 WELS",
 		"AddressCount": 24,
-		"ImportDate": null,
+		"ImportDate": "2020-03-29T22:36:45.6379013Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			82794840
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -12654,9 +12819,11 @@
 	"Marion Twp": {
 		"Name": "Marion Twp",
 		"AddressCount": 27,
-		"ImportDate": null,
+		"ImportDate": "2020-03-29T22:37:54.7304779Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			82794855
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -12665,20 +12832,26 @@
 	"Parlin Pond Twp": {
 		"Name": "Parlin Pond Twp",
 		"AddressCount": 22,
-		"ImportDate": null,
+		"ImportDate": "2020-03-29T22:51:37.83138Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			82795011
+		],
 		"BlackList": [],
 		"WhiteList": [],
-		"BlackTags": [],
+		"BlackTags": [
+			"*.name=Room LODGE"
+		],
 		"IgnoreList": []
 	},
 	"Princeton": {
 		"Name": "Princeton",
 		"AddressCount": 333,
-		"ImportDate": null,
+		"ImportDate": "2020-04-01T01:54:03.0913068Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			82895463
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
