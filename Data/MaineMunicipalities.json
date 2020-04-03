@@ -12860,20 +12860,30 @@
 	"Dresden": {
 		"Name": "Dresden",
 		"AddressCount": 915,
-		"ImportDate": null,
+		"ImportDate": "2020-04-01T16:51:32.9892372Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			82936917
+		],
 		"BlackList": [],
-		"WhiteList": [],
-		"BlackTags": [],
+		"WhiteList": [
+			308979
+		],
+		"BlackTags": [
+			"653555.building",
+			"40493.name",
+			"654004.building"
+		],
 		"IgnoreList": []
 	},
 	"Amherst": {
 		"Name": "Amherst",
 		"AddressCount": 144,
-		"ImportDate": null,
+		"ImportDate": "2020-04-01T16:53:55.6466208Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			82937005
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -12882,9 +12892,11 @@
 	"Macwahoc Plt": {
 		"Name": "Macwahoc Plt",
 		"AddressCount": 46,
-		"ImportDate": null,
+		"ImportDate": "2020-04-01T16:54:33.7264759Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			82937030
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -12893,20 +12905,93 @@
 	"Yarmouth": {
 		"Name": "Yarmouth",
 		"AddressCount": 4126,
-		"ImportDate": null,
+		"ImportDate": "2020-04-02T17:18:49.7901568Z",
 		"Notes": null,
-		"ChangeSetIds": [],
-		"BlackList": [],
-		"WhiteList": [],
-		"BlackTags": [],
-		"IgnoreList": []
+		"ChangeSetIds": [
+			82993238
+		],
+		"BlackList": [
+			125205
+		],
+		"WhiteList": [
+			125257,
+			125151,
+			350188,
+			125329,
+			615874,
+			615872,
+			615873,
+			615820,
+			615821,
+			615822,
+			615823,
+			615824,
+			615825,
+			615826,
+			615827,
+			615828,
+			615829,
+			615830,
+			615831,
+			615832,
+			615833,
+			615834,
+			615835,
+			615836,
+			384307,
+			615819,
+			325802,
+			325804,
+			325803,
+			615950
+		],
+		"BlackTags": [
+			"*.name=Delorme",
+			"69571.name",
+			"350188.name"
+		],
+		"IgnoreList": [
+			125050,
+			608893,
+			608894,
+			608895,
+			608896,
+			608897,
+			608898,
+			608899,
+			356209,
+			608892,
+			382641,
+			611033,
+			611034,
+			611035,
+			611036,
+			611037,
+			611038,
+			611039,
+			611040,
+			611041,
+			611042,
+			611043,
+			611044,
+			611045,
+			611046,
+			611047,
+			611048,
+			611049,
+			125201,
+			611032,
+			405347
+		]
 	},
 	"Oxbow North Twp": {
 		"Name": "Oxbow North Twp",
 		"AddressCount": 29,
-		"ImportDate": null,
+		"ImportDate": "2020-04-02T17:20:01.5530867Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			82993282
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -12915,9 +13000,11 @@
 	"Summit Twp": {
 		"Name": "Summit Twp",
 		"AddressCount": 13,
-		"ImportDate": null,
+		"ImportDate": "2020-04-02T17:21:15.3955351Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			82993318
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -12926,9 +13013,11 @@
 	"T14 R7 WELS": {
 		"Name": "T14 R7 WELS",
 		"AddressCount": 1,
-		"ImportDate": null,
+		"ImportDate": "2020-04-02T17:21:20.964479Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			82993321
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -12937,9 +13026,11 @@
 	"Verona Island": {
 		"Name": "Verona Island",
 		"AddressCount": 196,
-		"ImportDate": null,
+		"ImportDate": "2020-04-02T17:23:48.3760034Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			82993392
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -12948,31 +13039,49 @@
 	"Orland": {
 		"Name": "Orland",
 		"AddressCount": 1400,
-		"ImportDate": null,
+		"ImportDate": "2020-04-02T18:22:17.5677064Z",
 		"Notes": null,
-		"ChangeSetIds": [],
-		"BlackList": [],
-		"WhiteList": [],
-		"BlackTags": [],
+		"ChangeSetIds": [
+			82995381
+		],
+		"BlackList": [
+			675727
+		],
+		"WhiteList": [
+			252073
+		],
+		"BlackTags": [
+			"*.name=Bus garage",
+			"*.name=Farm",
+			"*.name=Stand pipe"
+		],
 		"IgnoreList": []
 	},
 	"Vassalboro": {
 		"Name": "Vassalboro",
 		"AddressCount": 2029,
-		"ImportDate": null,
+		"ImportDate": "2020-04-02T18:43:05.4679301Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			82996071
+		],
 		"BlackList": [],
-		"WhiteList": [],
-		"BlackTags": [],
+		"WhiteList": [
+			79585
+		],
+		"BlackTags": [
+			"630976.name"
+		],
 		"IgnoreList": []
 	},
 	"Waltham": {
 		"Name": "Waltham",
 		"AddressCount": 131,
-		"ImportDate": null,
+		"ImportDate": "2020-04-02T18:44:31.9365949Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			82996114
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -12981,9 +13090,11 @@
 	"Seboeis Plt": {
 		"Name": "Seboeis Plt",
 		"AddressCount": 21,
-		"ImportDate": null,
+		"ImportDate": "2020-04-02T18:46:48.798352Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			82996180
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -12992,20 +13103,32 @@
 	"Stonington": {
 		"Name": "Stonington",
 		"AddressCount": 937,
-		"ImportDate": null,
+		"ImportDate": "2020-04-02T18:49:50.399212Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			82996268
+		],
 		"BlackList": [],
 		"WhiteList": [],
-		"BlackTags": [],
-		"IgnoreList": []
+		"BlackTags": [
+			"*.name=Cell Tower",
+			"*.name=Cottage",
+			"*.name=Located on even Side of road. AO confirmed.",
+			"*.name=Rental",
+			"*.name=Rental Property"
+		],
+		"IgnoreList": [
+			256248
+		]
 	},
 	"Lower Cupsuptic Twp": {
 		"Name": "Lower Cupsuptic Twp",
 		"AddressCount": 5,
-		"ImportDate": null,
+		"ImportDate": "2020-04-02T18:50:01.4589136Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			82996277
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -13014,23 +13137,34 @@
 	"T3 Indian Purchase Twp": {
 		"Name": "T3 Indian Purchase Twp",
 		"AddressCount": 135,
-		"ImportDate": null,
+		"ImportDate": "2020-04-02T19:01:56.3374031Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			82996649
+		],
 		"BlackList": [],
 		"WhiteList": [],
-		"BlackTags": [],
-		"IgnoreList": []
+		"BlackTags": [
+			"*.name=CROSBY HC # 74 BOX 250"
+		],
+		"IgnoreList": [
+			446858,
+			446859
+		]
 	},
 	"Salem Twp": {
 		"Name": "Salem Twp",
 		"AddressCount": 179,
-		"ImportDate": null,
+		"ImportDate": "2020-04-02T19:04:30.8343431Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			82996717
+		],
 		"BlackList": [],
 		"WhiteList": [],
-		"BlackTags": [],
+		"BlackTags": [
+			"*.name=Camper"
+		],
 		"IgnoreList": []
 	},
 	"New Gloucester": {
@@ -13053,9 +13187,11 @@
 	"Drew Plt": {
 		"Name": "Drew Plt",
 		"AddressCount": 15,
-		"ImportDate": null,
+		"ImportDate": "2020-04-02T19:06:16.8157892Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			82996762
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -13064,20 +13200,30 @@
 	"Woodstock": {
 		"Name": "Woodstock",
 		"AddressCount": 845,
-		"ImportDate": null,
+		"ImportDate": "2020-04-02T19:18:12.6919848Z",
 		"Notes": null,
-		"ChangeSetIds": [],
-		"BlackList": [],
+		"ChangeSetIds": [
+			82997103
+		],
+		"BlackList": [
+			334096
+		],
 		"WhiteList": [],
-		"BlackTags": [],
+		"BlackTags": [
+			"*.name=ALARM LN",
+			"*.name=Apartment 3",
+			"*.name=Unit G"
+		],
 		"IgnoreList": []
 	},
 	"Carroll Plt": {
 		"Name": "Carroll Plt",
 		"AddressCount": 72,
-		"ImportDate": null,
+		"ImportDate": "2020-04-02T19:21:03.1874615Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			82997173
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -13086,9 +13232,11 @@
 	"Lowell": {
 		"Name": "Lowell",
 		"AddressCount": 141,
-		"ImportDate": null,
+		"ImportDate": "2020-04-02T19:23:42.5094581Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			82997251
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -13097,31 +13245,49 @@
 	"Benton": {
 		"Name": "Benton",
 		"AddressCount": 804,
-		"ImportDate": null,
+		"ImportDate": "2020-04-02T19:31:12.5805406Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			82997464
+		],
 		"BlackList": [],
-		"WhiteList": [],
-		"BlackTags": [],
+		"WhiteList": [
+			47637
+		],
+		"BlackTags": [
+			"47911.city",
+			"47637.city",
+			"47637.addr:city",
+			"47911.addr:city"
+		],
 		"IgnoreList": []
 	},
 	"Cambridge": {
 		"Name": "Cambridge",
 		"AddressCount": 231,
-		"ImportDate": null,
+		"ImportDate": "2020-04-02T19:33:10.6368516Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			82997513
+		],
 		"BlackList": [],
 		"WhiteList": [],
-		"BlackTags": [],
+		"BlackTags": [
+			"*.name=Lot 2",
+			"*.name=OPX 348 RIPLEY RD",
+			"*.name=OPX GREEN/RED Building",
+			"*.name=Unit 3"
+		],
 		"IgnoreList": []
 	},
 	"Avon": {
 		"Name": "Avon",
 		"AddressCount": 280,
-		"ImportDate": null,
+		"ImportDate": "2020-04-02T19:38:29.0153579Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			82997633
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -13130,9 +13296,11 @@
 	"Adamstown Twp": {
 		"Name": "Adamstown Twp",
 		"AddressCount": 36,
-		"ImportDate": null,
+		"ImportDate": "2020-04-02T19:40:55.1687495Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			82997704
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -13141,42 +13309,127 @@
 	"Brunswick": {
 		"Name": "Brunswick",
 		"AddressCount": 12264,
-		"ImportDate": null,
+		"ImportDate": "2020-04-03T16:25:19.5521875Z",
 		"Notes": null,
-		"ChangeSetIds": [],
-		"BlackList": [],
-		"WhiteList": [],
-		"BlackTags": [],
-		"IgnoreList": []
+		"ChangeSetIds": [
+			83045072
+		],
+		"BlackList": [
+			534045,
+			534046,
+			534047,
+			534048,
+			534049,
+			534050,
+			534051,
+			534052,
+			534053,
+			534054,
+			534055,
+			534056,
+			534057,
+			534058,
+			117558,
+			534044
+		],
+		"WhiteList": [
+			374965,
+			162031,
+			530327,
+			530328,
+			530329,
+			530330,
+			156374,
+			530326,
+			530526,
+			368405,
+			401812,
+			424873,
+			530609,
+			530610,
+			530608,
+			320820,
+			365531,
+			356988,
+			356986
+		],
+		"BlackTags": [
+			"*.name=Apartment in Barn",
+			"*.name=Boat Storage Facility",
+			"*.name=Building at Railroad Crossing",
+			"*.name=Bunker for Storage",
+			"*.name=Call box on bike path",
+			"*.name=Call Box on bike path",
+			"*.name=http://mapping.ngesi.maine.gov/Files/Layout.pdf",
+			"595159.building",
+			"655142.building",
+			"636917.building",
+			"429889.name",
+			"451187.name",
+			"408646.name",
+			"410815.name",
+			"429885.name",
+			"374859.name",
+			"438768.name",
+			"429895.name",
+			"429899.name"
+		],
+		"IgnoreList": [
+			533592,
+			359004,
+			429892,
+			316630,
+			410816,
+			438769,
+			384927,
+			530852,
+			438773
+		]
 	},
 	"Glenburn": {
 		"Name": "Glenburn",
 		"AddressCount": 1091,
-		"ImportDate": null,
+		"ImportDate": "2020-04-03T16:35:30.2463338Z",
 		"Notes": null,
-		"ChangeSetIds": [],
-		"BlackList": [],
+		"ChangeSetIds": [
+			83045619
+		],
+		"BlackList": [
+			152415
+		],
 		"WhiteList": [],
-		"BlackTags": [],
+		"BlackTags": [
+			"*.name=address changed from 71 Poplar Rd",
+			"*.name=changed from 1420 Hudson Rd",
+			"*.name=changed from 243 Lancaster Brook Rd",
+			"*.name=Garage Apartment",
+			"*.addr:unit=Lot ?"
+		],
 		"IgnoreList": []
 	},
 	"Alexander": {
 		"Name": "Alexander",
 		"AddressCount": 264,
-		"ImportDate": null,
+		"ImportDate": "2020-04-03T16:37:49.300166Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			83045735
+		],
 		"BlackList": [],
-		"WhiteList": [],
+		"WhiteList": [
+			308340
+		],
 		"BlackTags": [],
 		"IgnoreList": []
 	},
 	"Woodville": {
 		"Name": "Woodville",
 		"AddressCount": 147,
-		"ImportDate": null,
+		"ImportDate": "2020-04-03T16:42:02.4330449Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			83045933
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -13185,9 +13438,11 @@
 	"Ta R10 Wels": {
 		"Name": "Ta R10 Wels",
 		"AddressCount": 1,
-		"ImportDate": null,
+		"ImportDate": "2020-04-03T16:42:09.599626Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			83045940
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
