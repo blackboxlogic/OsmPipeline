@@ -1,10 +1,12 @@
 {
 	"addr:street": {
 		"*": {
-			"US 1": {
-				"US Route 1": {
-					"Route 1": {},
-				},
+			"US-1": {
+				"US 1": {
+					"US Route 1": {
+						"Route 1": {},
+					}
+				}
 			},
 			"US-2": {
 				"US Route 2": {
@@ -18,6 +20,21 @@
 				"State Route 32": {
 					"Route 32": {}
 				}
+			},
+			"Pamola Park": {
+				"Cedar Street": {}
+			},
+			"Long Meadows Drive": {
+				"Long Meadow Drive": {}
+			},
+			"Campus Road North":{
+				"North Campus Drive": {}
+			},
+			"Campus Road South": {
+				"South Campus Drive": {}
+			},
+			"Cleveland Street": {
+				"Cleaveland Street": {}
 			}
 		}
 	},
@@ -28,11 +45,21 @@
 			},
 			"Rockwood Strip T1 R1 Nbkp": {
 				"Rockwood": {}
+			},
+			"Qgunquit": {
+				"Ogunquit": {}
 			}
 		}
 	},
 	"addr:postcode": {
-		"*": {}
+		"*": {
+			"04662": {
+				"04462": {}
+			},
+			"03907-0837":{
+				"03907": {}
+			}
+		}
 	},
 	"tourism": {
 		"*": {
@@ -59,21 +86,46 @@
 				"cafe": {}
 			},
 			"public_building": {},
-			"healthcare": {
-				"clinic": {},
-				"nursing_home": {}
+			"social_facility": {
+				"healthcare": {
+					"clinic": {},
+					"nursing_home": {}
+				}
 			},
 			"*": {}
 		}
 	},
 	"shop": {
 		"yes": {
+			"*": {
+			},
 			"mall": {
 				"clothes": {},
 				"department_store": {},
-				"craft": {},
-				"*": {}
+				"craft": {}
+			},
+			"general": {
+				"convenience": {}
 			}
+		}
+	},
+	"aeroway": {
+		"*": {
+			"aerodrome": {
+				"hangar": {}
+			}
+		}
+	},
+	"man_made":{
+		"yes":{
+			"tower": {
+				"water_tower": {},
+				"mast": {
+					"communications_tower": {},
+				},
+				"lighthouse": {}
+			},
+			"*": {}
 		}
 	},
 	"building": {
