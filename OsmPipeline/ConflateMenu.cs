@@ -266,9 +266,7 @@ namespace OsmPipeline
 		{
 			var reference = GetReference();
 			var subject = GetSubject(reference.Bounds.ExpandBy(15));
-			var Change = Conflate.Merge(reference, subject, Municipality,
-				Static.Municipalities[Municipality].WhiteList,
-				Static.Municipalities[Municipality].IgnoreList);
+			var Change = Conflate.Merge(reference, subject, Municipality, Static.Municipalities[Municipality]);
 			FileSerializer.WriteXml(Municipality + "/Conflated.osc", Change);
 		}
 

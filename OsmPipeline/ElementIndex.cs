@@ -16,15 +16,15 @@ namespace OsmPipeline
 
 		public ElementIndex(ICollection<OsmGeo> elements)
 		{
-			ByOsmGeoKey = elements.ToDictionary(n => n.Type.ToString() + n.Id); // could use OsmGeoKey
+			ByOsmGeoKey = elements.ToDictionary(n => n.Type.ToString() + n.Id); // should use OsmGeoKey
 			TagKeyTagValueElements = Tags.IndexableTagKeys.ToDictionary(
 				keyOptionsPair => keyOptionsPair.Key,
 				keyOptionsPair => elements
 					.Where(e => e.Tags != null && e.Tags.ContainsKey(keyOptionsPair.Key))
 					.SelectMany(element => keyOptionsPair.Value(element.Tags[keyOptionsPair.Key])
 						.Select(tagValue => new { tagValue, element }))
-					.GroupBy(ne => ne.tagValue)
-					.ToDictionary(g => g.Key, g => g.Select(ne => ne.element).ToArray()));
+					.GroupBy(ne => ne.tagValue, StringComparer.OrdinalIgnoreCase)
+					.ToDictionary(g => g.Key, g => g.Select(ne => ne.element).ToArray(), StringComparer.OrdinalIgnoreCase));
 			foreach (var valueDictionary in TagKeyTagValueElements.Values)
 			{
 				valueDictionary.Add("*", valueDictionary.Values.SelectMany(v => v).Distinct().ToArray());

@@ -19,27 +19,27 @@ namespace OsmPipeline
 		private const string InfoKey = Static.maineE911id + ":info";
 		private const string ReviewWithKey = Static.maineE911id + ":review-with";
 		private const string WhiteListKey = Static.maineE911id + ":whitelist";
+		private const string IgnoreListKey = Static.maineE911id + ":ignore";
 
 		private static ILogger Log;
 
-		public static OsmChange Merge(Osm reference, Osm subject, string scopeName, List<long> whitelist = null, List<long> ignoreList = null)
+		public static OsmChange Merge(Osm reference, Osm subject, string scopeName, GeoJsonAPISource.Municipality municipality)
 		{
-			whitelist = whitelist ?? new List<long>();
-			ignoreList = ignoreList ?? new List<long>();
 			Log = Log ?? Static.LogFactory.CreateLogger(typeof(Conflate));
 			Log.LogInformation("Starting conflation, matching by address tags");
 
-			var subjectElementIndex = new ElementIndex(subject.GetElements().ToArray());
-			MergeNodesByAddressTags(reference, subjectElementIndex, whitelist,
+			var subjectElements = subject.GetElements().Where(e => !municipality.BlackList.Contains(e.Id.Value));
+			var subjectElementIndex = new ElementIndex(subjectElements.ToArray());
+			MergeNodesByAddressTags(reference, subjectElementIndex, municipality.WhiteList,
 				out List<OsmGeo> create, out List<OsmGeo> modify, out List<OsmGeo> delete);
 			Log.LogInformation("Starting conflation, matching by geometry");
-			MergeNodesByGeometry(subjectElementIndex, whitelist, create, modify);
+			MergeNodesByGeometry(subjectElementIndex, municipality.WhiteList, create, modify);
 			ValidateNamesMatch(subjectElementIndex, create.Concat(modify), "highway", "addr:street",
 				(element, key) => ShouldStreetBeAPlace(element, subjectElementIndex));
 			ValidateNamesMatch(subjectElementIndex, create.Concat(modify), "place", "addr:place");
 
 			Log.LogInformation($"Writing {scopeName} review files");
-			var review = GatherExceptions(whitelist, ignoreList, subjectElementIndex, create, delete, modify);
+			var review = GatherExceptions(municipality.WhiteList, municipality.IgnoreList, subjectElementIndex, create, delete, modify);
 			WriteToFileWithChildrenIfAny(scopeName + "/Conflated.Review.osm", review, subjectElementIndex);
 			WriteToFileWithChildrenIfAny(scopeName + "/Conflated.Create.osm", create, subjectElementIndex);
 			WriteToFileWithChildrenIfAny(scopeName + "/Conflated.Delete.osm", delete, subjectElementIndex);
@@ -74,19 +74,19 @@ namespace OsmPipeline
 			foreach (var elements in elementss)
 			{
 				var errors = elements.Where(e => e.Tags.ContainsKey(ErrorKey)).ToList();
-				ExcuseWhitelistedElements(errors, whiteList);
+				ExcuseListedElements(errors, whiteList, WhiteListKey);
 				review.AddRange(errors);
 				var warns = elements.Where(e => e.Tags.ContainsKey(WarnKey)).ToList();
-				ExcuseWhitelistedElements(warns, whiteList);
+				ExcuseListedElements(warns, whiteList, WhiteListKey);
 				review.AddRange(warns);
 				elements.RemoveAll(errors.Contains);
-				ExcuseWhitelistedElements(elements.ToList(), whiteList); // doesn't remove, just to add maineE911id:whitelist=yes
+				ExcuseListedElements(elements.ToList(), whiteList, WhiteListKey); // doesn't remove, just to add maineE911id:whitelist=yes
 				var distinct = elements.Distinct().ToArray();
 				elements.Clear();
 				elements.AddRange(distinct);
 			}
 
-			review.RemoveAll(r => IsOnTheList(r, ignoreList));
+			ExcuseListedElements(review, ignoreList, IgnoreListKey);
 			var reviewsWith = review.ToArray().Where(e => e.Tags.ContainsKey(ReviewWithKey)).Distinct()
 				.ToDictionary(r => r,
 				r => r.Tags[ReviewWithKey].Split(";").Select(rw => subjectElementIndex.ByOsmGeoKey[rw]));
@@ -106,11 +106,11 @@ namespace OsmPipeline
 			return review;
 		}
 
-		private static void ExcuseWhitelistedElements(ICollection<OsmGeo> elements, List<long> whitelist)
+		private static void ExcuseListedElements(ICollection<OsmGeo> elements, List<long> excuseList, string keyToFlagYes)
 		{
-			foreach (var element in elements.Where(e => IsOnTheList(e, whitelist)).ToArray())
+			foreach (var element in elements.Where(e => IsOnTheList(e, excuseList)).ToArray())
 			{
-				element.Tags.AddOrAppend(WhiteListKey, "yes");
+				element.Tags.AddOrAppend(keyToFlagYes, "yes");
 				elements.Remove(element);
 			}
 		}
@@ -135,8 +135,8 @@ namespace OsmPipeline
 				.ToHashSet();
 
 			var parentNamesMinusPunctuation = parentNames
-				.Where(Tags.HasPunctuation)
-				.ToDictionary(Tags.WithoutPunctuation);
+				.GroupBy(s => Tags.WithoutPunctuation(s), StringComparer.OrdinalIgnoreCase)
+				.ToDictionary(g => g.Key, g => g.ToArray(), StringComparer.OrdinalIgnoreCase);
 
 			var elementsWithKeyChanges = elements.Where(e => e.Tags.ContainsKey(childKey)
 				&& (e.Tags.ContainsKey(Static.maineE911id) // added element
@@ -147,10 +147,20 @@ namespace OsmPipeline
 				var childName = element.Tags[childKey];
 				if (!parentNames.Contains(childName))
 				{
-					if (parentNamesMinusPunctuation.TryGetValue(childName, out string withPunctuation))
+					if (parentNamesMinusPunctuation.TryGetValue(childName, out string[] withPunctuationAndCase)
+						&& !withPunctuationAndCase.Contains(childName))
 					{
-						element.Tags[childKey] = withPunctuation;
-						element.Tags.AddOrAppend(InfoKey, "punctuation was added to street name"); // should not be error
+						if (withPunctuationAndCase.Length > 1)
+						{
+							element.Tags.AddOrAppend(WarnKey, $"Couldn't fix {childKey}={childName}, precidents conflict: {string.Join(", ", withPunctuationAndCase)}");
+						}
+						else
+						{
+							var fixedName = withPunctuationAndCase.Single();
+							element.Tags[childKey] = fixedName;
+							var fixType = Tags.HasPunctuation(fixedName) ? "punctuation" : "capitalization";
+							element.Tags.AddOrAppend(Static.maineE911id + childKey, $"{fixType} fixed based on precident from {childName}");
+						}
 					}
 					else
 					{
@@ -260,7 +270,7 @@ namespace OsmPipeline
 					}
 					else if (matchDistances.Length == 1)
 					{
-						var closestMatch = matchDistances.OrderBy(match => match.distance).First();
+						var closestMatch = matchDistances.First();
 						var subjectElement = closestMatch.element;
 
 						if (closestMatch.distance > int.Parse(Static.Config["MatchDistanceKmMaz"])
@@ -321,7 +331,7 @@ namespace OsmPipeline
 		private static void MergeNodesByGeometry(ElementIndex subjectElementIndex,
 			List<long> whiteList, List<OsmGeo> create, List<OsmGeo> modify)
 		{
-			var buildings = subjectElementIndex.Elements.Where(w => Tags.IsBuilding(w))
+			var buildings = subjectElementIndex.Elements.Where(w => Tags.IsMatchable(w))
 				.Select(b => b.AsComplete(subjectElementIndex.ByOsmGeoKey))
 				.ToArray();
 			var newNodes = create.Cast<Node>().ToArray();
@@ -491,9 +501,12 @@ namespace OsmPipeline
 				conflicts.Add("Modified a highway or open way");
 			}
 
-			if (subject.Tags.Contains(Static.maineE911id + ":building", "added") && !(subject is Node))
+			foreach (var key in Tags.PrimaryElementKeys.Keys)
 			{
-				conflicts.Add($"Made a {subject.Type} into a building");
+				if (subject.Tags.Contains(Static.maineE911id + ":" + key, "added")) // && !(subject is Node)
+				{
+					conflicts.Add($"Made a {subject.Type} into a {key}");
+				}
 			}
 
 			if (subject.Tags.Contains(Static.maineE911id + ":addr:street", "added")

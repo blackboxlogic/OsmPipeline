@@ -26,7 +26,7 @@ namespace OsmPipeline.Fittings
 				{ "waterway", s => new []{ s } }
 			};
 
-		public static Func<string, string[]> GetMatchingFunction(string key)
+		private static Func<string, string[]> GetMatchingFunction(string key)
 		{
 			return IndexableTagKeys.TryGetValue(key, out var value) ? value : GetPartsFromList;
 		}
@@ -104,9 +104,18 @@ namespace OsmPipeline.Fittings
 			return element.Tags?.Any(t => t.Key.StartsWith("addr:")) == true;
 		}
 
-		public static bool IsBuilding(OsmGeo element)
+		public static Dictionary<string, string[]> PrimaryElementKeys =
+			new Dictionary<string, string[]> {
+				{ "building", null },
+				{ "aeroway", new [] { "aerodrome", "heliport", "helipad", "hanger" } },
+				{ "man_made", new [] { "communications_tower", "tower", "lighthouse", "observatory", "pumping_station", "wastewater_plant", "water_tower", "works" } }
+			};
+
+		public static bool IsMatchable(OsmGeo element)
 		{
-			return element.Tags?.ContainsKey("building") == true;
+			return PrimaryElementKeys.Any(kvp => element.Tags != null
+				&& element.Tags.TryGetValue(kvp.Key, out var value)
+				&& (kvp.Value?.Contains(value) ?? true));
 		}
 
 		public static TagsCollectionBase GetBaseAddress(Node node)
@@ -143,18 +152,18 @@ namespace OsmPipeline.Fittings
 			return false;
 		}
 
-		private static bool ValuesMatch(string key, string parent, string suspectedchild, out bool isMoreSpecific)
+		private static bool ValuesMatch(string key, string parent, string suspectedchild, out bool childIsMoreSpecific)
 		{
 			var matcher = GetMatchingFunction(key);
 			var parentVariations = matcher(parent);
 			var childVariations = matcher(suspectedchild);
 
-			isMoreSpecific = false;
-			if (parentVariations.Any(childVariations.Contains)) return true;
+			childIsMoreSpecific = false;
+			if (parentVariations.Any(pv => childVariations.Contains(pv, StringComparer.OrdinalIgnoreCase))) return true;
 			if (!TagTree.Keys.TryGetValue(key, out TagTree tagTree)) return false;
 			if (parentVariations.Any(p => childVariations.Any(c => tagTree.IsDecendantOf(p, c)))) return true;
 
-			isMoreSpecific = parentVariations.Any(p => childVariations.Any(c => tagTree.IsDecendantOf(c, p)));
+			childIsMoreSpecific = parentVariations.Any(p => childVariations.Any(c => tagTree.IsDecendantOf(c, p)));
 
 			return false;
 		}
