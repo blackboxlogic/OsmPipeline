@@ -90,8 +90,7 @@
         "vacant": "yes"
     },
     "Tower": {
-        "man_made": "tower",
-        "tower:type": "communication"
+        "man_made": "communications_tower"
     },
     "Military": {
         "landuse": "military"
@@ -192,5 +191,11 @@
     },
     "Restaurant": {
         "amenity": "restaurant"
-    }
+    },
+	"Solar Site": {
+		"power": "plant",
+		"plant:source": "solar",
+		"plant:method": "photovoltaic",
+		"plant:output:electricity": "yes"
+	}
 }
