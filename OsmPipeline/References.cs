@@ -8,6 +8,7 @@ using OsmPipeline.Fittings;
 using System.Collections.Generic;
 using OsmSharp.API;
 using System.Threading.Tasks;
+using OsmSharp.Db;
 
 namespace OsmPipeline
 {
@@ -61,6 +62,8 @@ namespace OsmPipeline
 
 		public static async Task<Osm> Fetch(string scopeName, Func<Feature, bool> filter = null)
 		{
+			TagTree.Reload();
+
 			Log = Log ?? Static.LogFactory.CreateLogger(typeof(References));
 			Log.LogInformation("Fetching Reference material from Maine E911 API");
 
@@ -171,9 +174,9 @@ namespace OsmPipeline
 		// Keys which can be removed in order to combine congruent nodes
 		private static string[] SacrificialKeys = new[] { "addr:unit", "level", Static.maineE911id };
 
-		private static void HandleBlackTags(Node[] nodes, IList<string> blackTags)
+		public static void HandleBlackTags(IList<OsmGeo> elements, IList<string> blackTags)
 		{
-			var byId = nodes.ToDictionary(n => n.Tags[Static.maineE911id]);
+			var byId = elements.ToDictionary(e => e.Tags[Static.maineE911id]);
 
 			foreach (var tag in blackTags)
 			{
@@ -181,20 +184,19 @@ namespace OsmPipeline
 				if (parts[0] == "*") // *.name=House
 				{
 					parts = parts[1].Split('=', 2);
-					foreach (var node in nodes)
+					foreach (var element in elements)
 					{
-						if (node.Tags.RemoveKeyValue(new Tag(parts[0], parts[1])))
+						if (element.Tags.RemoveKeyValue(new Tag(parts[0], parts[1])))
 						{
-							node.Tags.Add(Static.maineE911id + ":" + parts[0], "ommitted: " + parts[1]);
+							element.Tags.Add(Static.maineE911id + ":" + parts[0], "ommitted: " + parts[1]);
 						}
 					}
 				}
-				else if (byId.TryGetValue(parts[0], out Node nodeById)) // 2984323.name
+				else if (byId.TryGetValue(parts[0], out OsmGeo elementById)) // 2984323.name
 				{
-					nodeById.Tags.RemoveKey(parts[1]);
-					nodeById.Tags.Add(Static.maineE911id + ":" + parts[1], "ommitted");
+					elementById.Tags.RemoveKey(parts[1]);
+					elementById.Tags.Add(Static.maineE911id + ":" + parts[1], "ommitted");
 				}
-
 			}
 		}
 
@@ -302,13 +304,14 @@ namespace OsmPipeline
 			tags.Add(new Tag(Static.maineE911id, ids));
 			stack[0].Tags = new TagsCollection(tags);
 
-			var levels = stack.SelectMany(n => n.Tags)
-				.Where(t => t.Key == "level")
-				.Select(t =>
-				{
-					int.TryParse(t.Value, out int level);
-					return level;
-				}).DefaultIfEmpty().Max();
+			//var levels = stack.SelectMany(n => n.Tags)
+			//	.Where(t => t.Key == "level")
+			//	.Select(t =>
+			//	{
+			//		int.TryParse(t.Value, out int level);
+			//		return level;
+			//	}).DefaultIfEmpty().Max();
+			//if (levels > 0) stack[0].Tags["building:levels"] = levels;
 
 			stack[0].Latitude = stack.Average(n => n.Latitude);
 			stack[0].Longitude = stack.Average(n => n.Longitude);
@@ -537,7 +540,9 @@ namespace OsmPipeline
 			parts = parts.Select(part =>
 				translation.TryGetValue(part, out string replacement)
 					? replacement
-					: part).ToArray();
+					: part)
+				.Distinct()
+				.ToArray();
 
 			return string.Join(' ', parts);
 		}

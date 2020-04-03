@@ -14,6 +14,17 @@ namespace OsmPipeline.Fittings
 
 		static TagTree()
 		{
+			Load();
+		}
+
+		public static void Reload()
+		{
+			Keys.Clear();
+			Load();
+		}
+
+		private static void Load()
+		{
 			var json = File.ReadAllText("TagTree.json");
 			var jObject = (jo)Newtonsoft.Json.JsonConvert.DeserializeObject(json);
 
