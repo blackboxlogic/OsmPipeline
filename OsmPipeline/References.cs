@@ -115,11 +115,12 @@ namespace OsmPipeline
 			return feature;
 		}
 
-		public static void Report(Node[] nodes)
+		public static void Report(OsmGeo[] nodes)
 		{
 			Console.WriteLine("Report");
 			var keys = nodes.SelectMany(n => n.Tags)
-				.Where(t => !t.Key.StartsWith(Static.maineE911id) && t.Key != "addr:housenumber" && t.Key != "addr:street")
+				.Where(t => !t.Key.StartsWith(Static.maineE911id)
+					&& t.Key != "addr:housenumber" && t.Key != "addr:street" && t.Key != "addr:place")
 				.GroupBy(t => t)
 				.Select(t => "\t" + t.First() + "\t\tx" + t.Count())
 				.OrderBy(t => t);
@@ -127,6 +128,20 @@ namespace OsmPipeline
 			foreach (var keyValue in keys)
 			{
 				Console.WriteLine(keyValue);
+			}
+
+			Console.WriteLine();
+
+			var streetSuffixes = nodes.SelectMany(n => n.Tags)
+				.Where(t => t.Key == "addr:street" || t.Key == "addr:place")
+				.Select(t => t.Key + "=*" + t.Value.Split(' ').Last())
+				.GroupBy(t => t)
+				.Select(t => "\t" + t.First() + "\t\tx" + t.Count())
+				.OrderBy(t => t);
+
+			foreach (var streetSuffix in streetSuffixes)
+			{
+				Console.WriteLine(streetSuffix);
 			}
 		}
 
@@ -181,21 +196,46 @@ namespace OsmPipeline
 			foreach (var tag in blackTags)
 			{
 				var parts = tag.Split('.', 2);
-				if (parts[0] == "*") // *.name=House
+				var osmId = parts[0];
+				var tagPattern = parts[1];
+				if (osmId == "*") // *.name=Apt 1
 				{
-					parts = parts[1].Split('=', 2);
+					parts = tagPattern.Split(new char[] { '=', '~' }, 3);
+					var oldKey = parts[0];
+					var tagValue = parts[1];
+					var newKey = parts.Length == 3 ? parts[2] : null;
 					foreach (var element in elements)
 					{
-						if (element.Tags.RemoveKeyValue(new Tag(parts[0], parts[1])))
+						if (element.Tags.RemoveKeyValue(new Tag(oldKey, tagValue)))
 						{
-							element.Tags.Add(Static.maineE911id + ":" + parts[0], "ommitted: " + parts[1]);
+							if (newKey != null) // *.name=Apt 1~addr:unit
+							{
+								element.Tags.AddOrAppend(newKey, tagValue);
+								element.Tags.Add(Static.maineE911id + ":" + newKey, "moved from: " + oldKey);
+							}
+							else
+							{
+								element.Tags.Add(Static.maineE911id + ":" + oldKey, "ommitted: " + tagValue);
+							}
 						}
 					}
 				}
 				else if (byId.TryGetValue(parts[0], out OsmGeo elementById)) // 2984323.name
 				{
-					elementById.Tags.RemoveKey(parts[1]);
-					elementById.Tags.Add(Static.maineE911id + ":" + parts[1], "ommitted");
+					parts = tagPattern.Split('~', 2);
+					var oldKey = parts[0];
+					var newKey = parts.Length == 2 ? parts[1] : null;
+					if (newKey != null) // 2984323.name~addr:unit
+					{
+						elementById.Tags.Add(newKey, elementById.Tags[oldKey]);
+						elementById.Tags.RemoveKey(oldKey);
+						elementById.Tags.Add(Static.maineE911id + ":" + newKey, "moved from: " + oldKey);
+					}
+					else
+					{
+						elementById.Tags.Add(Static.maineE911id + ":" + oldKey, "ommitted: " + elementById.Tags[oldKey]);
+						elementById.Tags.RemoveKey(oldKey);
+					}
 				}
 			}
 		}
