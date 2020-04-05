@@ -8,6 +8,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Net.Http;
+using System.Runtime.CompilerServices;
 using static OsmPipeline.Fittings.GeoJsonAPISource;
 
 namespace OsmPipeline
@@ -65,7 +66,7 @@ namespace OsmPipeline
 				else if(Is(userInput, "review ref"))
 				{
 					var reference = GetReference();
-					References.Report(reference.Nodes);
+					References.Report(reference.GetElements().ToArray());
 				}
 				else if (Is(userInput, "subject"))
 				{
@@ -98,16 +99,7 @@ namespace OsmPipeline
 				{
 					var key = userInput.Split(" ")[1];
 					var reference = GetReference();
-					var values = reference.GetElements().Where(e => e.Tags.ContainsKey(key)).Select(e => e.Tags[key]).Distinct().OrderBy(v => v).ToArray();
-					foreach (var value in values)
-					{
-						Console.WriteLine("?\t" + value);
-						if (char.ToUpper(Console.ReadKey(true).KeyChar) == 'N')
-						{
-							Static.Municipalities[Municipality].BlackTags.Add($"*.{key}={value}");
-						}
-					}
-					FileSerializer.WriteJson("MaineMunicipalities.json", Static.Municipalities);
+					DoFilter(key, reference.GetElements());
 					File.Delete(Municipality + "/Reference.osm");
 					File.Delete(Municipality + "/Conflated.osc");
 				}
@@ -208,6 +200,7 @@ namespace OsmPipeline
 					Console.WriteLine("\tReview");
 					Console.WriteLine("\tList [key]");
 					Console.WriteLine("\tFilter [key]");
+					Console.WriteLine("\t\t[Y/N/AUnit/Descr/Build/Move]");
 					Console.WriteLine("\tNote [message]");
 					Console.WriteLine("\tWhitelist [###]<,[###]...>");
 					Console.WriteLine("\tWhiteAll");
@@ -268,6 +261,7 @@ namespace OsmPipeline
 			var subject = GetSubject(reference.Bounds.ExpandBy(15));
 			var Change = Conflate.Merge(reference, subject, Municipality, Static.Municipalities[Municipality]);
 			FileSerializer.WriteXml(Municipality + "/Conflated.osc", Change);
+			References.Report(reference.GetElements().ToArray());
 		}
 
 		private void OpenExplorer()
@@ -324,6 +318,49 @@ namespace OsmPipeline
 			var changed = Static.Municipalities.Values.Count(m => m.ChangeSetIds.Any(c => c != -1));
 			var skipped = Static.Municipalities.Values.Count(m => m.ChangeSetIds.Any() && m.ChangeSetIds.All(c => c == -1));
 			Console.WriteLine($"{(int)(100*changed / Static.Municipalities.Count)}%: {changed} of {Static.Municipalities.Count} ({skipped} skipped)");
+		}
+
+		public void DoFilter(string key, IEnumerable<OsmGeo> elements)
+		{
+			var values = elements.Where(e => e.Tags.ContainsKey(key)).Select(e => e.Tags[key]).Distinct().OrderBy(v => v).ToArray();
+			foreach (var value in values)
+			{
+				Console.WriteLine("?\t" + value);
+				var choice = char.ToUpper(Console.ReadKey(true).KeyChar);
+				if (choice == 'N')
+				{
+					Static.Municipalities[Municipality].BlackTags.Add($"*.{key}={value}");
+				}
+				else if (choice == 'U')
+				{
+					Static.Municipalities[Municipality].BlackTags.Add($"*.{key}={value}~addr:unit");
+				}
+				else if (choice == 'D')
+				{
+					Static.Municipalities[Municipality].BlackTags.Add($"*.{key}={value}~description");
+				}
+				else if (choice == 'B')
+				{
+					Static.Municipalities[Municipality].BlackTags.Add($"*.{key}={value}~building");
+				}
+				else if (choice == 'M')
+				{
+					Console.WriteLine($"Move '{value}' to what key?");
+					var newKey = Console.ReadLine();
+					Static.Municipalities[Municipality].BlackTags.Add($"*.{key}={value}~{newKey}");
+				}
+				else if (choice == 'Y')
+				{
+
+				}
+				else
+				{
+					Console.WriteLine("Canceling");
+					return;
+				}
+			}
+
+			FileSerializer.WriteJson("MaineMunicipalities.json", Static.Municipalities);
 		}
 	}
 }
