@@ -13451,31 +13451,111 @@
 	"Skowhegan": {
 		"Name": "Skowhegan",
 		"AddressCount": 5019,
-		"ImportDate": null,
+		"ImportDate": "2020-04-04T00:44:05.9345416Z",
 		"Notes": null,
-		"ChangeSetIds": [],
-		"BlackList": [],
-		"WhiteList": [],
-		"BlackTags": [],
-		"IgnoreList": []
+		"ChangeSetIds": [
+			83057265
+		],
+		"BlackList": [
+			171505,
+			738989,
+			738990,
+			738991,
+			738992,
+			85648
+		],
+		"WhiteList": [
+			105986,
+			178662,
+			50156,
+			373302,
+			738818,
+			738819,
+			738820,
+			738821,
+			738822,
+			738823,
+			738824,
+			738825,
+			738826,
+			738827,
+			738828,
+			738829,
+			738830,
+			738831,
+			738832,
+			738833,
+			738834,
+			738835,
+			738836,
+			738837,
+			738838,
+			738839,
+			738840,
+			738841,
+			738842,
+			738843,
+			105952
+		],
+		"BlackTags": [
+			"105986.addr:city",
+			"105986.addr:zip",
+			"85603.name",
+			"127853.name",
+			"179084.name",
+			"373302.name",
+			"405540.name",
+			"171695.name",
+			"636899.building",
+			"636900.building",
+			"738098.building",
+			"105952.building",
+			"739419;737565.man_made",
+			"739420.man_made",
+			"739421;737365.man_made",
+			"105986.addr:postcode"
+		],
+		"IgnoreList": [
+			86036,
+			181594,
+			175090,
+			105981,
+			739326,
+			739327,
+			739328,
+			187114,
+			85630,
+			52670,
+			636764
+		]
 	},
 	"Moose River": {
 		"Name": "Moose River",
 		"AddressCount": 134,
-		"ImportDate": null,
+		"ImportDate": "2020-04-04T00:46:12.6005419Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			83057290
+		],
 		"BlackList": [],
 		"WhiteList": [],
-		"BlackTags": [],
+		"BlackTags": [
+			"*.name=Building MOTEL",
+			"*.name=Building Trailer",
+			"*.name=Floor FLR 1",
+			"*.name=Lot 2",
+			"*.name=Lot A"
+		],
 		"IgnoreList": []
 	},
 	"Somerville": {
 		"Name": "Somerville",
 		"AddressCount": 322,
-		"ImportDate": null,
+		"ImportDate": "2020-04-04T00:52:41.0776627Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			83057364
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -13484,20 +13564,28 @@
 	"Eddington": {
 		"Name": "Eddington",
 		"AddressCount": 807,
-		"ImportDate": null,
+		"ImportDate": "2020-04-04T01:16:27.904914Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			83057620
+		],
 		"BlackList": [],
 		"WhiteList": [],
-		"BlackTags": [],
+		"BlackTags": [
+			"*.name=address changed from 1551 Main Rd",
+			"*.name=address changed from 338 Main Rd",
+			"*.name=garage"
+		],
 		"IgnoreList": []
 	},
 	"Trescott Twp": {
 		"Name": "Trescott Twp",
 		"AddressCount": 221,
-		"ImportDate": null,
+		"ImportDate": "2020-04-04T01:18:19.6249805Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			83057650
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -13506,9 +13594,11 @@
 	"Alton": {
 		"Name": "Alton",
 		"AddressCount": 373,
-		"ImportDate": null,
+		"ImportDate": "2020-04-04T01:21:10.2694128Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			83057670
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -13517,86 +13607,281 @@
 	"Fryeburg": {
 		"Name": "Fryeburg",
 		"AddressCount": 2143,
-		"ImportDate": null,
+		"ImportDate": "2020-04-04T21:24:11.2565243Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			83083597
+		],
 		"BlackList": [],
 		"WhiteList": [],
-		"BlackTags": [],
+		"BlackTags": [
+			"*.name=Apartment 1~addr:unit",
+			"*.name=A~addr:unit",
+			"*.name=Apartment - 1~addr:unit",
+			"*.name=Apartment - RP~addr:unit",
+			"*.name=Apartment 2~addr:unit",
+			"*.name=Apartment 3~addr:unit",
+			"*.name=Apartment A~addr:unit",
+			"*.name=Apartment B~addr:unit",
+			"*.name=Apartment DMD~addr:unit",
+			"*.name=Apartment HH~addr:unit",
+			"*.name=Apartment W1~addr:unit",
+			"*.name=Barn/hangar",
+			"*.name=Basement Apartment~addr:unit",
+			"*.name=Lot 1~addr:unit",
+			"*.name=Lot 4~addr:unit",
+			"*.name=Room 9A~addr:unit",
+			"*.name=Shed/Campsite",
+			"*.name=substation~description",
+			"*.name=Suite 6~addr:unit",
+			"*.name=Suite A~addr:unit",
+			"*.name=Unit 1~addr:unit",
+			"105634.aeroway"
+		],
 		"IgnoreList": []
 	},
 	"T8 R3 Nbpp": {
 		"Name": "T8 R3 Nbpp",
 		"AddressCount": 19,
-		"ImportDate": null,
+		"ImportDate": "2020-04-04T21:32:33.3699233Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			83083743
+		],
 		"BlackList": [],
 		"WhiteList": [],
-		"BlackTags": [],
+		"BlackTags": [
+			"*.man_made=communications_tower"
+		],
 		"IgnoreList": []
 	},
 	"Unity": {
 		"Name": "Unity",
 		"AddressCount": 807,
-		"ImportDate": null,
+		"ImportDate": "2020-04-04T22:02:05.0399957Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			83084209
+		],
 		"BlackList": [],
-		"WhiteList": [],
+		"WhiteList": [
+			122237
+		],
 		"BlackTags": [],
 		"IgnoreList": []
 	},
 	"Portage Lake": {
 		"Name": "Portage Lake",
 		"AddressCount": 440,
-		"ImportDate": null,
+		"ImportDate": "2020-04-04T22:06:08.1871117Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			83084265
+		],
 		"BlackList": [],
 		"WhiteList": [],
-		"BlackTags": [],
+		"BlackTags": [
+			"157709.landuse"
+		],
 		"IgnoreList": []
 	},
 	"Bath": {
 		"Name": "Bath",
 		"AddressCount": 3852,
-		"ImportDate": null,
+		"ImportDate": "2020-04-04T23:33:58.0059375Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			83085362
+		],
 		"BlackList": [],
-		"WhiteList": [],
-		"BlackTags": [],
-		"IgnoreList": []
+		"WhiteList": [
+			128539,
+			264873
+		],
+		"BlackTags": [
+			"*.name=2 story unit, entrance in Front",
+			"*.name=2 story unit, entry in Rear",
+			"*.name=2 story, entrance in Front",
+			"*.name=2 story, entry in Front and Rear",
+			"*.name=2 Unit",
+			"*.name=2 units",
+			"*.name=3 bldgs on property",
+			"*.name=3 Unit",
+			"*.name=3rd Floor unit, entrance in back",
+			"*.name=4 units",
+			"*.name=Barn for cattle/bison~description",
+			"*.name=Bed and Breakfast (owners reside onsite)~description",
+			"*.name=best access on centere st",
+			"*.name=BIW parking~description",
+			"*.name=Building 2~addr:unit",
+			"*.name=Building 3~addr:unit",
+			"*.name=Commercial St Pump Station~description",
+			"*.name=Dance Studio/Day Care~description",
+			"*.name=Duplex building, 2 doors",
+			"*.name=Duplex, 2 doors",
+			"*.name=Entrance at Ancona and Clearview Ave",
+			"*.name=Fuel Tanks~description",
+			"*.name=Garage~building",
+			"*.name=Gas Station and Fast Food (Dunkin Donuts)~description",
+			"*.name=Gas Station/Convenience~description",
+			"*.name=Gravel mining~description",
+			"*.name=Group Home for Homeless Youth~description",
+			"*.name=Hampton Inn secondary entrance~description",
+			"*.name=Informal boat launch for Mill Pond (non- motorized) City owned~description",
+			"*.name=Lower unity primary entry in Rear of Lot",
+			"*.name=Office~building",
+			"*.name=Parking associated with medical Office~description",
+			"*.name=Parking Lot new police station~description",
+			"*.name=Rear",
+			"*.name=Rear of 110 Front St, Art Studio",
+			"*.name=shed on Lot and entry road~description",
+			"*.name=two units/entrance on this Side~description",
+			"*.name=Upper Unit has primary entrance on Pearl St",
+			"*.name=Utility shed for Aegis Dr condominiums~description",
+			"*.name=Vocational Tech Workshop for home Building~description",
+			"*.name=was 1540 Washington",
+			"*.name=Water Tank~description",
+			"465020.name",
+			"460562.name",
+			"428986.name",
+			"428986.building",
+			"640100.building",
+			"690848;419485.name",
+			"690848;419485.level",
+			"*.name=Bathport",
+			"*.name=bathport"
+		],
+		"IgnoreList": [
+			428828,
+			57742
+		]
 	},
 	"Carmel": {
 		"Name": "Carmel",
 		"AddressCount": 691,
-		"ImportDate": null,
+		"ImportDate": "2020-04-05T00:07:23.1021545Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			83085661
+		],
 		"BlackList": [],
-		"WhiteList": [],
-		"BlackTags": [],
+		"WhiteList": [
+			118017
+		],
+		"BlackTags": [
+			"*.name=above garage",
+			"*.name=address changed from 211 Dyer Rd",
+			"*.name=address changed from 572 Fuller Rd",
+			"*.name=camp~description",
+			"*.name=N/O OVERPASS NB Side~description",
+			"21416.building"
+		],
 		"IgnoreList": []
 	},
 	"Norway": {
 		"Name": "Norway",
 		"AddressCount": 3648,
-		"ImportDate": null,
+		"ImportDate": "2020-04-05T02:35:37.1968984Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			83086855
+		],
 		"BlackList": [],
 		"WhiteList": [],
-		"BlackTags": [],
-		"IgnoreList": []
+		"BlackTags": [
+			"*.name=address changed from 111 Eddie Kahkonen Rd",
+			"*.name=address changed from 118 Eddie Kahkonen Rd",
+			"*.name=address changed from 147 Eddie Kahkonen Rd",
+			"*.name=address changed from 165 Eddie Kahkonen Rd",
+			"*.name=address changed from 208 Eddie Kahkonen Rd",
+			"*.name=address changed from 212 Eddie Kahkonen Rd",
+			"*.name=address changed from 226 Eddie Kahkonen Rd",
+			"*.name=address changed from 232 Eddie Kahkonen Rd",
+			"*.name=address changed from 236 Eddie Kahkonen Rd",
+			"*.name=address changed from 260 Eddie Kahkonen Rd",
+			"*.name=address changed from 272 Eddie Kahkonen Rd",
+			"*.name=address changed from 70 Eddie Kahkonen Rd",
+			"*.name=address changed from 74 Eddie Kahkonen Rd",
+			"*.name=address changed from 75 Eddie Kahkonen Rd",
+			"*.name=address changed from 79 Eddie Kahkonen Rd",
+			"*.name=address changed from 93 Eddie Kahkonen Rd",
+			"*.name=Apartment 1~addr:unit",
+			"*.name=Apartment 10~addr:unit",
+			"*.name=Apartment 2~addr:unit",
+			"*.name=Apartment 3~addr:unit",
+			"*.name=Apartment A~addr:unit",
+			"*.name=Apartment SFM~addr:unit",
+			"*.name=Building Lot 138~addr:unit",
+			"*.name=Building Lot 183~addr:unit",
+			"*.name=Building Lot 97~addr:unit",
+			"*.name=Building Suite Lot 134~addr:unit",
+			"*.name=Building Trailer~addr:unit",
+			"*.name=DLC RTE 5 P.1 1 OV 2",
+			"*.name=FIRE LN 014~description",
+			"*.name=Floor 006~addr:unit",
+			"*.name=Floor 018~addr:unit",
+			"*.name=Floor 2~addr:unit",
+			"*.name=Floor 201~addr:unit",
+			"*.name=Floor 206~addr:unit",
+			"*.name=Floor 302~addr:unit",
+			"*.name=Floor FLR 1~addr:unit",
+			"*.name=Floor FLR 1 Room Apartment~addr:unit",
+			"*.name=Floor FLR 2 Room Unit LEF~addr:unit",
+			"*.name=FLR 1~addr:unit",
+			"*.name=GARAGE~building",
+			"*.name=Guy E Rowe School",
+			"*.name=INVOL DISC~description",
+			"*.name=INVOL DISC Apartment 1~description",
+			"*.name=INVOL DISC Apartment 2~description",
+			"*.name=INVOL DISC Apartment 5~description",
+			"*.name=LN 004",
+			"*.name=LN 201",
+			"*.name=LN 204",
+			"*.name=Lot 100~addr:unit",
+			"*.name=Lot 112~addr:unit",
+			"*.name=Lot 116~addr:unit",
+			"*.name=Lot 117~addr:unit",
+			"*.name=Lot 119~addr:unit",
+			"*.name=Lot 124~addr:unit",
+			"*.name=Lot 125~addr:unit",
+			"*.name=Lot 141~addr:unit",
+			"*.name=Lot 145~addr:unit",
+			"*.name=Lot 146~addr:unit",
+			"*.name=Lot 155~addr:unit",
+			"*.name=Lot 158~addr:unit",
+			"*.name=Lot 185~addr:unit",
+			"*.name=Lot 225~addr:unit",
+			"*.name=Lot 23~addr:unit",
+			"*.name=Lot 89~addr:unit",
+			"*.name=Lot 90~addr:unit",
+			"*.name=Lot Trailer~addr:unit",
+			"*.name=LOT# 239~addr:unit",
+			"*.name=OFF FIRE LN 018~description",
+			"*.name=OFF Floor 018~description",
+			"*.name=OFF Floor 201~addr:unit",
+			"*.name=OFF Floor 300~addr:unit",
+			"*.name=OPX 87~addr:unit",
+			"*.name=Room 15B~addr:unit",
+			"*.name=Room Apartment 1~addr:unit",
+			"*.name=Room Apartment 6~addr:unit",
+			"*.name=Room Unit 5~addr:unit",
+			"*.name=Suite Lot 173~addr:unit",
+			"*.name=Suite Lot 75~addr:unit",
+			"*.addr:street=Dow Island~addr:place",
+			"549907;344343.addr:unit"
+		],
+		"IgnoreList": [
+			346657
+		]
 	},
 	"Williamsburg Twp": {
 		"Name": "Williamsburg Twp",
 		"AddressCount": 30,
-		"ImportDate": null,
+		"ImportDate": "2020-04-05T02:35:57.5813633Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			83086864
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -13605,12 +13890,16 @@
 	"Johnson Mountain Twp": {
 		"Name": "Johnson Mountain Twp",
 		"AddressCount": 23,
-		"ImportDate": null,
+		"ImportDate": "2020-04-05T02:44:21.991748Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			83086936
+		],
 		"BlackList": [],
 		"WhiteList": [],
-		"BlackTags": [],
+		"BlackTags": [
+			"*.addr:street=Parlin Pond Eastern Shore~addr:place"
+		],
 		"IgnoreList": []
 	},
 	"Monmouth": {
