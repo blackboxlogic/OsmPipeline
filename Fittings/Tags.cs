@@ -108,7 +108,8 @@ namespace OsmPipeline.Fittings
 			new Dictionary<string, string[]> {
 				{ "building", null },
 				{ "aeroway", new [] { "aerodrome", "heliport", "helipad", "hanger" } },
-				{ "man_made", new [] { "communications_tower", "tower", "lighthouse", "observatory", "pumping_station", "wastewater_plant", "water_tower", "works" } }
+				{ "man_made", new [] { "communications_tower", "tower", "lighthouse", "observatory", "pumping_station", "wastewater_plant", "water_tower", "works" } },
+				{ "power", new [] { "generator" } }
 			};
 
 		public static bool IsMatchable(OsmGeo element)
