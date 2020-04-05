@@ -190,6 +190,10 @@ namespace OsmPipeline
 					element.Tags.AddOrAppend(InfoKey, $"Changed addr:street to addr:place by context");
 					return;
 				}
+				else if (element.Tags["addr:street"].EndsWith("Island"))
+				{
+					element.Tags.AddOrAppend(WarnKey, "This should probably be a place");
+				}
 			}
 
 			element.Tags.AddOrAppend(InfoKey, "Cannot find a matching addr:street");
