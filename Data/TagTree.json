@@ -35,6 +35,15 @@
 			},
 			"Cleveland Street": {
 				"Cleaveland Street": {}
+			},
+			"Fairgrounds Market Place":{
+				"Fairgrounds Marketplace": {}
+			},
+			"Waterville Rd": {
+				"Waterville Road": {}
+			},
+			"Red Bridle Road": {
+				"Red Bridge Road": {}
 			}
 		}
 	},
@@ -146,12 +155,16 @@
 						"dormitory": {}
 					},
 					"detached": {
-						"semidetached_house": {},
-						"semi": {}
-					},
-					"static_caravan": {},
-					"hut": {},
-					"cabin": {}
+						"semi": {
+							"semidetached_house": {},
+						},
+						"bungalow": {
+							"cabin": {
+								"hut": {}
+							}
+						},
+						"static_caravan": {}
+					}
 				}
 			},
 			"civic": {
