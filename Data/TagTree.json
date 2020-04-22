@@ -3,8 +3,10 @@
 		"*": {
 			"US-1": {
 				"US 1": {
-					"US Route 1": {
-						"Route 1": {},
+					"Us Route One": {
+						"US Route 1": {
+							"Route 1": {},
+						}
 					}
 				}
 			},
@@ -44,6 +46,38 @@
 			},
 			"Red Bridle Road": {
 				"Red Bridge Road": {}
+			},
+			"St Ignatius Street": {
+				"Saint Ignatius Street": {}
+			},
+			"S Curve Road": {
+				"S-Curve Road": {
+					"South Curve Road": {}
+				}
+			},
+			"St Louis Street": {
+				"Saint Louis Street": {}
+			},
+			"Wm Oscar Emery Drive": {
+				"William Oscar Emery Drive": {}
+			},
+			"Jamieson Street": {
+				"Jameson Street": {}
+			},
+			"Spring Hill Drive": {
+				"Springhill Drive": {}
+			},
+			"Sacapee Road":{
+				"Sacopee Road": {}
+			},
+			"Side Track Lane": {
+				"Sidetrack Lane": {}
+			},
+			"Cyro Road": {
+				"Cyro Drive": {}
+			},
+			"Country Club Rd 1": {
+				"Country Club Road 1": {}
 			}
 		}
 	},
@@ -57,6 +91,9 @@
 			},
 			"Qgunquit": {
 				"Ogunquit": {}
+			},
+			"Sanford": {
+				"Springvale": {}
 			}
 		}
 	},
@@ -67,6 +104,9 @@
 			},
 			"03907-0837":{
 				"03907": {}
+			},
+			"04073":{
+				"04083": {}
 			}
 		}
 	},
@@ -97,6 +137,7 @@
 			"public_building": {},
 			"social_facility": {
 				"healthcare": {
+					"doctors": {},
 					"clinic": {},
 					"nursing_home": {}
 				}
