@@ -77,6 +77,29 @@ namespace OsmPipeline
 			};
 		}
 
+		public static async Task<long[]> UploadChange(string changeFile, string description)
+		{
+			var change = FileSerializer.ReadXml<OsmChange>(changeFile);
+			Log.LogInformation("Uploading change to OSM");
+			var changeTags = GetCommitTags(description);
+			changeTags.RemoveKey("municipality");
+			var osmApiClient = new BasicAuthClient(Static.HttpClient,
+				Static.LogFactory.CreateLogger<BasicAuthClient>(), Static.Config["OsmApiUrl"],
+				Static.Config["OsmUsername"], Static.Config["OsmPassword"]);
+			var changeParts = change.Split().ToArray();
+			var result = new long[changeParts.Length];
+			int i = 0;
+
+			foreach (var part in changeParts)
+			{
+				if (changeParts.Length > 1) changeTags.AddOrReplace("change-part", $"part {i + 1} of {changeParts.Length}");
+				result[i] = await UploadChangePart(part, changeTags, osmApiClient, description);
+				i++;
+			}
+
+			return result;
+		}
+
 		public static async Task<long[]> UploadChange(OsmChange change, string municipality)
 		{
 			Log.LogInformation("Uploading change to OSM");
@@ -109,6 +132,15 @@ namespace OsmPipeline
 			await client.CloseChangeset(changeSetId);
 			Log.LogDebug($"Closing ChangeSet {changeSetId}");
 			return changeSetId;
+		}
+
+		public static async Task<long> CreateNote(double lat, double lon, string message)
+		{
+			var client = new BasicAuthClient(Static.HttpClient,
+				Static.LogFactory.CreateLogger<BasicAuthClient>(), Static.Config["OsmApiUrl"],
+				Static.Config["OsmUsername"], Static.Config["OsmPassword"]);
+			var note = await client.CreateNote((float)lat, (float)lon, message); // remove cast after next osmApiClient version is released
+			return note.Id.Value;
 		}
 	}
 }
