@@ -8,7 +8,6 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Net.Http;
-using System.Runtime.CompilerServices;
 using static OsmPipeline.Fittings.GeoJsonAPISource;
 
 namespace OsmPipeline
@@ -63,7 +62,7 @@ namespace OsmPipeline
 					FileSerializer.WriteXml(Municipality + "/Reference.osm", reference);
 					File.Delete(Municipality + "/Conflated.osc");
 				}
-				else if(Is(userInput, "review ref"))
+				else if (Is(userInput, "review ref"))
 				{
 					var reference = GetReference();
 					References.Report(reference.GetElements().ToArray());
@@ -187,6 +186,15 @@ namespace OsmPipeline
 				{
 					OpenExplorer();
 				}
+				else if (Is(userInput, "remind"))
+				{
+					var parts = userInput.Split(' ', 3);
+					var id = long.Parse(parts[1].Replace("maineE911id=", ""));
+					var reference = GetReference();
+					var element = reference.Nodes.First(e => Math.Abs(e.Id.Value) == Math.Abs(id));
+					var message = parts.Length > 2 ? parts[2] : "The addresses imported on this neighborhood need to be aligned with the correct buildings";
+					Subjects.CreateNote(element.Latitude.Value, element.Longitude.Value, message).Wait();
+				}
 				else if (Is(userInput, "help"))
 				{
 					Console.WriteLine("Options:");
@@ -207,6 +215,7 @@ namespace OsmPipeline
 					Console.WriteLine("\tBlacklist [###]<,[###]...>");
 					Console.WriteLine("\tBlackTag [###].[key] || *.[key]=[value]");
 					Console.WriteLine("\tIgnore [###]<,[###]...>");
+					Console.WriteLine("\tRemind [ref###] <message>");
 					Console.WriteLine("\tCommit");
 				}
 				else Console.WriteLine("What?");
@@ -249,7 +258,7 @@ namespace OsmPipeline
 				() => References.Fetch(Municipality)).Result;
 		}
 
-		private Osm GetSubject(Bounds bounds)
+		private Osm GetSubject(Bounds bounds = null)
 		{
 			return FileSerializer.ReadXmlCacheOrSource(Municipality + "/Subject.osm",
 				() => Subjects.GetElementsInBoundingBox(bounds));
