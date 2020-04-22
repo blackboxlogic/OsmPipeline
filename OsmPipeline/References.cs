@@ -8,7 +8,6 @@ using OsmPipeline.Fittings;
 using System.Collections.Generic;
 using OsmSharp.API;
 using System.Threading.Tasks;
-using OsmSharp.Db;
 
 namespace OsmPipeline
 {
@@ -91,6 +90,14 @@ namespace OsmPipeline
 			if (!nodes.Any()) return null;
 			nodes = HandleStacks(nodes);
 			HandleBlackTags(nodes, Static.Municipalities[scopeName].BlackTags);
+
+			foreach (var node in nodes.Where(n => n.Tags.ContainsKey("addr:unit")))
+			{
+				var newUnit = RemoveTokens(ReplaceTokens(node.Tags["addr:unit"], UNITs), Tags.UnitOmmisionable);
+				if (newUnit == "") node.Tags.RemoveKey("addr:unit");
+				else node.Tags["addr:unit"] = newUnit;
+			}
+
 			var filtered = new Osm() { Nodes = nodes, Version = .6, Bounds = nodes.AsBounds() };
 
 			return filtered;
@@ -151,9 +158,9 @@ namespace OsmPipeline
 			var streetName = BuildStreetName((string)props[KEYS.PREDIR],
 				(string)props[KEYS.STREETNAME], (string)props[KEYS.POSTDIR], (string)props[KEYS.SUFFIX]);
 			var level = Level((string)props[KEYS.FLOOR], out bool useFloorAsUnit);
-			var unit = ReplaceToken(useFloorAsUnit ? (string)props[KEYS.FLOOR] : (string)props[KEYS.UNIT], UNITs);
+			var unit = useFloorAsUnit ? (string)props[KEYS.FLOOR] : (string)props[KEYS.UNIT] + (string)props[KEYS.ADDNUMSUF];
 			var city = City((string)props[KEYS.POSTCOMM], (string)props[KEYS.TOWN]);
-			var houseNumber = HouseNumber(props[KEYS.ADDRESS_NUMBER], props[KEYS.ADDNUMSUF]);
+			var houseNumber = HouseNumber(props[KEYS.ADDRESS_NUMBER]);
 			var tags = new []
 			{
 				new Tag("name", Name((string)props[KEYS.LANDMARK], (string)props[KEYS.LOC], (string)props[KEYS.BUILDING])),
@@ -415,7 +422,7 @@ namespace OsmPipeline
 				Log.LogError("ObjectIDs aren't unique! " + string.Join(",", duplicateObjectIds));
 			}
 
-			var reports = new HashSet<string>();
+			var reports = new List<string>();
 
 			var ambiguouseStreets = TagTree.Keys["addr:street"].GetAllNonLeafNodes().ToHashSet();
 
@@ -483,11 +490,16 @@ namespace OsmPipeline
 				{
 					reports.Add("Bad STATE: " + (string)f.Properties[KEYS.STATE]);
 				}
+
+				if ((f.Properties[KEYS.TOWN] ?? f.Properties[KEYS.POSTCOMM]) != (f.Properties[KEYS.POSTCOMM] ?? f.Properties[KEYS.TOWN]))
+				{
+					reports.Add($"Ambiguous TOWN: {f.Properties[KEYS.TOWN]}, POSTCOMM: {f.Properties[KEYS.POSTCOMM]}");
+				}
 			}
 
-			foreach (var report in reports)
+			foreach (var report in reports.GroupBy(r => r).OrderBy(r => r.Key))
 			{
-				Log.LogError(report);
+				Log.LogError(report.Key + "\t\tx" + report.Count());
 			}
 		}
 
@@ -503,9 +515,20 @@ namespace OsmPipeline
 				building = "BLDG " + building;
 			}
 
-			var name = ReplaceToken(landmark + ' ' + building + ' ' + loc, UNITs);
-			name = name.Replace("Building Building", "Building");
+			var name = ReplaceTokens(landmark + ' ' + building + ' ' + loc, UNITs);
+			name = DeDuple(name);
 			return name;
+		}
+
+		//.Replace("Building Building", "Building")
+		private static string DeDuple(string name)
+		{
+			var parts = name.Split();
+			for (int i = 1; i < parts.Length; i++)
+			{
+				if (parts[i] == parts[i - 1]) parts[i] = null;
+			}
+			return string.Join(" ", parts);
 		}
 
 		// "FLR 1", "Floor 1", "1", "bsmt", "second", "flr 1 & 2"
@@ -561,19 +584,23 @@ namespace OsmPipeline
 			return zip;
 		}
 
-		private static string HouseNumber(long addressNumber, string suffix)
+		private static string HouseNumber(long addressNumber)
 		{
-			return (addressNumber == 0 ? "" : addressNumber + " " + suffix).Trim();
+			return addressNumber == 0 ? "" : addressNumber.ToString();
 		}
 
 		private static string City(string postalCommunity, string town)
 		{
+			//return string.IsNullOrWhiteSpace(town)
+			//	? ReplaceToken(postalCommunity, MUNICIPALITY)
+			//	: ReplaceToken(town, MUNICIPALITY);
+
 			return string.IsNullOrWhiteSpace(postalCommunity)
-				? ReplaceToken(town, MUNICIPALITY)
-				: ReplaceToken(postalCommunity, MUNICIPALITY);
+				? ReplaceTokens(town, MUNICIPALITY)
+				: ReplaceTokens(postalCommunity, MUNICIPALITY);
 		}
 
-		private static string ReplaceToken(string input, Dictionary<string, string> translation)
+		private static string ReplaceTokens(string input, Dictionary<string, string> translation)
 		{
 			if (string.IsNullOrWhiteSpace(input)) return "";
 			var parts = input.Split(' ', StringSplitOptions.RemoveEmptyEntries);
@@ -584,7 +611,17 @@ namespace OsmPipeline
 				.Distinct()
 				.ToArray();
 
-			return string.Join(' ', parts);
+			return string.Join(' ', parts).Trim();
+		}
+
+		private static string RemoveTokens(string input, string[] removables)
+		{
+			if (string.IsNullOrWhiteSpace(input)) return "";
+			var parts = input.Split(' ', StringSplitOptions.RemoveEmptyEntries)
+				.Except(removables, StringComparer.OrdinalIgnoreCase)
+				.ToArray();
+
+			return string.Join(' ', parts).Trim();
 		}
 
 		public class KEYS

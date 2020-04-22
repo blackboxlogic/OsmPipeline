@@ -104,12 +104,17 @@ namespace OsmPipeline.Fittings
 			return element.Tags?.Any(t => t.Key.StartsWith("addr:")) == true;
 		}
 
+		public static string[] UnitOmmisionable = new[] {
+			"Apartment", "Building", "Department", "Floor", "Hanger", "House", "Key",
+			"Lot", "Main", "Office", "Penthouse", "Pier", "Room", "Slip",
+			"Space", "Stop", "Suite", "Trailer", "Unit", "#"};
+
 		public static Dictionary<string, string[]> PrimaryElementKeys =
 			new Dictionary<string, string[]> {
 				{ "building", null },
 				{ "aeroway", new [] { "aerodrome", "heliport", "helipad", "hanger" } },
 				{ "man_made", new [] { "communications_tower", "tower", "lighthouse", "observatory", "pumping_station", "wastewater_plant", "water_tower", "works" } },
-				{ "power", new [] { "generator" } }
+				{ "power", new [] { "generator", "substation", "plant" } }
 			};
 
 		public static bool IsMatchable(OsmGeo element)
