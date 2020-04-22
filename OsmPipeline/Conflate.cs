@@ -78,6 +78,7 @@ namespace OsmPipeline
 				review.AddRange(errors);
 				var warns = elements.Where(e => e.Tags.ContainsKey(WarnKey)).ToList();
 				ExcuseListedElements(warns, whiteList, WhiteListKey);
+				AddFixMe(warns);
 				review.AddRange(warns);
 				elements.RemoveAll(errors.Contains);
 				ExcuseListedElements(elements.ToList(), whiteList, WhiteListKey); // doesn't remove, just to add maineE911id:whitelist=yes
@@ -104,6 +105,14 @@ namespace OsmPipeline
 			}
 
 			return review;
+		}
+
+		private static void AddFixMe(IEnumerable<OsmGeo> elements)
+		{
+			foreach (var element in elements)
+			{
+				element.Tags.AddOrAppend("fixme", element.Tags[WarnKey] + ". See " + element.Tags[ReviewWithKey]);
+			}
 		}
 
 		private static void ExcuseListedElements(ICollection<OsmGeo> elements, List<long> excuseList, string keyToFlagYes)
@@ -159,7 +168,7 @@ namespace OsmPipeline
 							var fixedName = withPunctuationAndCase.Single();
 							element.Tags[childKey] = fixedName;
 							var fixType = Tags.HasPunctuation(fixedName) ? "punctuation" : "capitalization";
-							element.Tags.AddOrAppend(Static.maineE911id + childKey, $"{fixType} fixed based on precident from {childName}");
+							element.Tags.AddOrAppend(Static.maineE911id + ":" + childKey, $"{fixType} fixed based on precident from {childName}");
 						}
 					}
 					else
@@ -259,6 +268,7 @@ namespace OsmPipeline
 						.Select(match => new { match.element, match.complete, distance = Geometry.DistanceMeters(referenceElement, match.complete) })
 						// Remove elements in neighbor towns
 						.Where(match => !ProbablyInAnotherCity(match.element, referenceElement, match.distance))
+						.OrderBy(md => md.distance)
 						.ToArray();
 
 					if (matchDistances.Length > 1)
@@ -269,8 +279,18 @@ namespace OsmPipeline
 
 					if (matchDistances.Length > 1)
 					{
-						referenceElement.Tags.AddOrAppend(ErrorKey, "Multiple matches!");
-						referenceElement.Tags.AddOrAppend(ReviewWithKey, Identify(matchDistances.Select(m => m.element).ToArray()));
+						if (matchDistances.Any(matchDistance =>
+							!WouldMergeTagsHaveAnyEffect(referenceElement, matchDistance.element, whiteList.Contains(Math.Abs(referenceElement.Id.Value)))
+								&& matchDistance.distance <= int.Parse(Static.Config["MatchDistanceKmMaz"])))
+						{
+							referenceElement.Tags.AddOrAppend(InfoKey, "Multiple matches, but didn't have anything new to add");
+							create.Remove(referenceElement);
+						}
+						else
+						{
+							referenceElement.Tags.AddOrAppend(WarnKey, "Multiple matches!");
+							referenceElement.Tags.AddOrAppend(ReviewWithKey, Identify(matchDistances.Select(m => m.element).ToArray()));
+						}
 					}
 					else if (matchDistances.Length == 1)
 					{
@@ -282,12 +302,12 @@ namespace OsmPipeline
 							&& !whiteList.Contains(Math.Abs(referenceElement.Id.Value)))
 						{
 							var arrow = Geometry.GetDirectionArrow(referenceElement.AsPosition(), closestMatch.complete.AsPosition());
-							referenceElement.Tags.AddOrAppend(WarnKey, $"Matched, but too far: {(int)closestMatch.distance} m {arrow}");
+							referenceElement.Tags.AddOrAppend(WarnKey, $"Matched address is too far: {(int)closestMatch.distance} m {arrow}");
 							referenceElement.Tags.AddOrAppend(ReviewWithKey, Identify(subjectElement));
 
 							try
 							{
-								bool tagsChanged = MergeTags(referenceElement, subjectElement,
+								MergeTags(referenceElement, subjectElement,
 									whiteList.Contains(Math.Abs(referenceElement.Id.Value)), true);
 							}
 							catch (MergeConflictException e)
@@ -399,7 +419,9 @@ namespace OsmPipeline
 			return a.Tags != null && b.Tags != null
 				&& a.Tags.TryGetValue("addr:street", out string aStreet)
 				&& b.Tags.TryGetValue("addr:street", out string bStreet)
-				&& (aStreet == bStreet || TagTree.Keys["addr:street"].IsDecendantOf(aStreet, bStreet))
+				&& (aStreet == bStreet
+					|| TagTree.Keys["addr:street"].IsDecendantOf(aStreet, bStreet)
+					|| TagTree.Keys["addr:street"].IsDecendantOf(bStreet, aStreet))
 				&& a.Tags.TryGetValue("addr:housenumber", out string aNum)
 				&& b.Tags.TryGetValue("addr:housenumber", out string bNum)
 				&& int.TryParse(aNum, out int aInt)
@@ -421,8 +443,6 @@ namespace OsmPipeline
 		private static bool MoveNode(OsmGeo reference, OsmGeo subject,
 			ElementIndex subjectElementIndex, double currentDistanceMeters)
 		{
-			//return false;
-
 			if (subject is Node subjectNode
 				&& reference is Node referenceNode
 				&& currentDistanceMeters > int.Parse(Static.Config["MinNodeMoveDistance"]))
@@ -444,7 +464,23 @@ namespace OsmPipeline
 			return false;
 		}
 
-		private static bool MergeTags(OsmGeo reference, OsmGeo subject, bool isWhiteList, bool onlyTestForConflicts = false)
+		private static bool WouldMergeTagsHaveAnyEffect(OsmGeo reference, OsmGeo subject, bool isWhiteList)
+		{
+			try
+			{
+				return MergeTags(reference,subject, isWhiteList, true);
+			}
+			catch (Exception)
+			{
+				return true;
+			}
+		}
+
+		// Delete this.
+		private static string[] KeysToOverrideOnMerge = new[] { "addr:city", "addr:postcode" };
+		private static string[] KeysToIgnore = new[] { "building", "addr:state" };
+
+		private static bool MergeTags(OsmGeo reference, OsmGeo subject, bool isWhiteList, bool onlyTesting = false)
 		{
 			var original = new TagsCollection(subject.Tags); // Deep Clone
 			var conflicts = new List<string>();
@@ -458,22 +494,27 @@ namespace OsmPipeline
 				}
 				else if (!Tags.TagMatchesTags(refTag, subject.Tags, out bool isMoreSpecific, out string matchedKey))
 				{
-					if (!subject.Tags.ContainsKey(matchedKey)) // absent
+					var metaKey = Static.maineE911id + ":" + matchedKey;
+					if (!subject.Tags.ContainsKey(matchedKey)) // absent: add
 					{
-						changed = true;
+						if (!KeysToIgnore.Contains(refTag.Key)) changed = true;
 						subject.Tags[matchedKey] = refTag.Value;
-						subject.Tags[Static.maineE911id + ":" + matchedKey] = "added";
+						subject.Tags[metaKey] = "added";
 					}
-					else if (isMoreSpecific || isWhiteList) // compelled
+					else if (isMoreSpecific || isWhiteList || KeysToOverrideOnMerge.Contains(refTag.Key)) // present: update
 					{
-						changed = true;
-						subject.Tags[Static.maineE911id + ":" + matchedKey] =
+						if (!KeysToIgnore.Contains(refTag.Key)) changed = true;
+						subject.Tags[metaKey] =
 							matchedKey == refTag.Key
 							? $"changed from: {subject.Tags[matchedKey]}"
 							: $"changed by {matchedKey} from: {subject.Tags[matchedKey]}";
 						subject.Tags[matchedKey] = refTag.Value;
 					}
-					else // conflict
+					else if (KeysToIgnore.Contains(refTag.Key)) // conflict: ignore
+					{
+						subject.Tags[metaKey] = $"{refTag.Value} conflicted with: {matchedKey}:{subject.Tags[matchedKey]}, but ignored";
+					}
+					else // conflict: flag
 					{
 						conflicts.Add(Identify(matchedKey, subject, reference));
 					}
@@ -490,7 +531,7 @@ namespace OsmPipeline
 				subject.Tags = original;
 				throw new MergeConflictException(string.Join(";", conflicts));
 			}
-			else if (onlyTestForConflicts)
+			else if (onlyTesting)
 			{
 				subject.Tags = original;
 			}
