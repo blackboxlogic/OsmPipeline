@@ -78,7 +78,6 @@ namespace OsmPipeline
 				review.AddRange(errors);
 				var warns = elements.Where(e => e.Tags.ContainsKey(WarnKey)).ToList();
 				ExcuseListedElements(warns, whiteList, WhiteListKey);
-				AddFixMe(warns);
 				review.AddRange(warns);
 				elements.RemoveAll(errors.Contains);
 				ExcuseListedElements(elements.ToList(), whiteList, WhiteListKey); // doesn't remove, just to add maineE911id:whitelist=yes
@@ -88,6 +87,7 @@ namespace OsmPipeline
 			}
 
 			ExcuseListedElements(review, ignoreList, IgnoreListKey);
+			AddFixMe(review);
 			var reviewsWith = review.ToArray().Where(e => e.Tags.ContainsKey(ReviewWithKey)).Distinct()
 				.ToDictionary(r => r,
 				r => r.Tags[ReviewWithKey].Split(";").Select(rw => subjectElementIndex.ByOsmGeoKey[rw]));
@@ -111,7 +111,8 @@ namespace OsmPipeline
 		{
 			foreach (var element in elements)
 			{
-				element.Tags.AddOrAppend("fixme", element.Tags[WarnKey] + ". See " + element.Tags[ReviewWithKey]);
+				var warning = element.Tags[WarnKey].Replace(Identify(element), "E911id-" + (-element.Id));
+				element.Tags.AddOrAppend("fixme", warning + ". See " + element.Tags[ReviewWithKey]);
 			}
 		}
 
@@ -365,9 +366,9 @@ namespace OsmPipeline
 
 			foreach (var buildingAndInners in buildingsAndInnerNewNodes)
 			{
-				var buildingHasOldNodes = buildingsAndInnerOldNodes.TryGetValue(buildingAndInners.Key, out Node[] oldInners);
+				var buildingHasOldNodes = buildingsAndInnerOldNodes.TryGetValue(buildingAndInners.Key, out List<Node> oldInners);
 
-				if (buildingAndInners.Value.Length > 1)
+				if (buildingAndInners.Value.Count > 1)
 				{
 					foreach (var node in buildingAndInners.Value)
 					{
@@ -477,8 +478,8 @@ namespace OsmPipeline
 		}
 
 		// Delete this.
-		private static string[] KeysToOverrideOnMerge = new[] { "addr:city", "addr:postcode" };
-		private static string[] KeysToIgnore = new[] { "building", "addr:state" };
+			private static string[] KeysToOverrideOnMerge = new[] { "addr:city", "addr:postcode" };
+			private static string[] KeysToIgnore = new[] { "building", "addr:state" };
 
 		private static bool MergeTags(OsmGeo reference, OsmGeo subject, bool isWhiteList, bool onlyTesting = false)
 		{
@@ -558,6 +559,13 @@ namespace OsmPipeline
 				&& subject.Tags.ContainsKey("addr:place"))
 			{
 				conflicts.Add("Added street to a place");
+			}
+
+			if (subject.Tags.Contains(Static.maineE911id + ":addr:unit", "added") // Added a unit to something with a name
+				&& subject.Tags.ContainsKey("name")
+				&& !subject.Tags.Contains(Static.maineE911id + "name", "added"))
+			{
+				conflicts.Add("Added a unit to a place with a name");
 			}
 		}
 
