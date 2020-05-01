@@ -240,7 +240,7 @@ namespace OsmPipeline
 					}
 					else
 					{
-						elementById.Tags.Add(Static.maineE911id + ":" + oldKey, "ommitted: " + elementById.Tags[oldKey]);
+						elementById.Tags.AddOrAppend(Static.maineE911id + ":" + oldKey, "ommitted: " + elementById.Tags[oldKey]);
 						elementById.Tags.RemoveKey(oldKey);
 					}
 				}
@@ -591,9 +591,9 @@ namespace OsmPipeline
 
 		private static string City(string postalCommunity, string town)
 		{
-			//return string.IsNullOrWhiteSpace(town)
-			//	? ReplaceToken(postalCommunity, MUNICIPALITY)
-			//	: ReplaceToken(town, MUNICIPALITY);
+				//return string.IsNullOrWhiteSpace(town)
+				//	? ReplaceToken(postalCommunity, MUNICIPALITY)
+				//	: ReplaceToken(town, MUNICIPALITY);
 
 			return string.IsNullOrWhiteSpace(postalCommunity)
 				? ReplaceTokens(town, MUNICIPALITY)
