@@ -70,9 +70,10 @@ namespace OsmPipeline
 				else if (Is(userInput, "subject"))
 				{
 					var reference = GetReference();
-					var Subject = Subjects.GetElementsInBoundingBox(reference.Bounds.ExpandBy(15));
-					FileSerializer.WriteXml(Municipality + "/Subject.osm", Subject);
+					var subject = Subjects.GetElementsInBoundingBox(reference.Bounds.ExpandBy(15).Quarter());
+					FileSerializer.WriteXml(Municipality + "/Subject.osm", subject);
 					File.Delete(Municipality + "/Conflated.osc");
+					Console.WriteLine("ChangeId high watermark: " + subject.GetElements().Max(e => e.ChangeSetId.Value));
 				}
 				else if (Is(userInput, "conflate"))
 				{
@@ -158,8 +159,8 @@ namespace OsmPipeline
 				}
 				else if (Is(userInput, "commit"))
 				{
-					var Change = FileSerializer.ReadXml<OsmChange>(Municipality + "/Conflated.osc");
-					var results = Subjects.UploadChange(Change, Municipality).Result;
+					var change = FileSerializer.ReadXml<OsmChange>(Municipality + "/Conflated.osc");
+					var results = Subjects.UploadChange(change, Municipality).Result;
 					Static.Municipalities[Municipality].ChangeSetIds.AddRange(results);
 					Static.Municipalities[Municipality].ImportDate = DateTime.UtcNow;
 					FileSerializer.WriteJson("MaineMunicipalities.json", Static.Municipalities);
@@ -260,8 +261,10 @@ namespace OsmPipeline
 
 		private Osm GetSubject(Bounds bounds = null)
 		{
-			return FileSerializer.ReadXmlCacheOrSource(Municipality + "/Subject.osm",
+			var subject = FileSerializer.ReadXmlCacheOrSource(Municipality + "/Subject.osm",
 				() => Subjects.GetElementsInBoundingBox(bounds));
+			Console.WriteLine("ChangeId high watermark: " + subject.GetElements().Max(e => e.ChangeSetId.Value));
+			return subject;
 		}
 
 		private void DoConflate()
