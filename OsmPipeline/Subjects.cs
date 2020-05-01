@@ -41,9 +41,16 @@ namespace OsmPipeline
 			var osmApiClient = new NonAuthClient(Static.Config["OsmApiUrl"], Static.HttpClient,
 				Static.LogFactory.CreateLogger<NonAuthClient>());
 
-			var tasks = bounds.Select(async bound => await GetElementsInBoundingBox(bound, osmApiClient)).ToArray();
-			Task.WaitAll(tasks);
-			return tasks.Select(t => t.Result).Merge();
+			var answers = new List<Osm>();
+			foreach (var bound in bounds)
+			{
+				answers.Add(GetElementsInBoundingBox(bound, osmApiClient).Result);
+			}
+			return answers.Merge();
+
+			//var tasks = bounds.Select(async bound => await GetElementsInBoundingBox(bound, osmApiClient)).ToArray();
+			//Task.WaitAll(tasks);
+			//return tasks.Select(t => t.Result).Merge();
 		}
 
 		private static async Task<Osm> GetElementsInBoundingBox(Bounds bounds, NonAuthClient client, int depth = 0, int maxDepth = 3)
