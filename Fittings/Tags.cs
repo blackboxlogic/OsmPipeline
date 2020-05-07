@@ -114,7 +114,10 @@ namespace OsmPipeline.Fittings
 				{ "building", null },
 				{ "aeroway", new [] { "aerodrome", "heliport", "helipad", "hanger" } },
 				{ "man_made", new [] { "communications_tower", "tower", "lighthouse", "observatory", "pumping_station", "wastewater_plant", "water_tower", "works" } },
-				{ "power", new [] { "generator", "substation", "plant" } }
+				{ "power", new [] { "generator", "substation", "plant" } },
+				{ "tourism", null },
+				{ "amenity", new [] { "ferry_terminal", "fire_station", "library", "restaurant", "post_office", "townhall", "place_of_worship", "grave_yard", "school" } },
+				{ "shop", null }
 			};
 
 		public static bool IsMatchable(OsmGeo element)
