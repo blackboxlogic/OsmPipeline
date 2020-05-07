@@ -187,7 +187,9 @@
 					"supermarket": {}
 				},
 				"office": {},
-				"industrial": {},
+				"industrial": {
+					"mill": {}
+				},
 				"warehouse": {},
 			},
 			"residential": {
