@@ -26,12 +26,16 @@ namespace OsmPipeline
 		public static OsmChange Merge(Osm reference, Osm subject, string scopeName, GeoJsonAPISource.Municipality municipality)
 		{
 			Log = Log ?? Static.LogFactory.CreateLogger(typeof(Conflate));
-			Log.LogInformation("Starting conflation, matching by address tags");
-
+			Log.LogInformation("Starting conflation, matching by tags");
+			// Can blacklist subject elements also!
 			var subjectElements = subject.GetElements().Where(e => !municipality.BlackList.Contains(e.Id.Value));
 			var subjectElementIndex = new ElementIndex(subjectElements.ToArray());
-			MergeNodesByAddressTags(reference, subjectElementIndex, municipality.WhiteList,
-				out List<OsmGeo> create, out List<OsmGeo> modify, out List<OsmGeo> delete);
+
+			List<OsmGeo> create = new List<OsmGeo>(reference.Nodes);
+			List<OsmGeo> modify = new List<OsmGeo>();
+			List<OsmGeo> delete = new List<OsmGeo>();
+			MergeNodesByTags(new[] { "addr:street", "addr:housenumber" }, subjectElementIndex, municipality.WhiteList, create, modify);
+			MergeNodesByTags(new[] { "name" }, subjectElementIndex, municipality.WhiteList, create, modify);
 			Log.LogInformation("Starting conflation, matching by geometry");
 			MergeNodesByGeometry(subjectElementIndex, municipality.WhiteList, create, modify);
 			ValidateNamesMatch(subjectElementIndex, create.Concat(modify), "highway", "addr:street",
@@ -112,7 +116,11 @@ namespace OsmPipeline
 			foreach (var element in elements)
 			{
 				var warning = element.Tags[WarnKey].Replace(Identify(element), "E911id-" + (-element.Id));
-				element.Tags.AddOrAppend("fixme", warning + ". See " + element.Tags[ReviewWithKey]);
+				if (element.Tags.TryGetValue(ReviewWithKey, out string reviewWith))
+				{
+					warning += ". See " + reviewWith;
+				}
+				element.Tags.AddOrAppend("fixme", warning);
 			}
 		}
 
@@ -202,7 +210,7 @@ namespace OsmPipeline
 				}
 				else if (element.Tags["addr:street"].EndsWith("Island"))
 				{
-					element.Tags.AddOrAppend(WarnKey, "This should probably be a place");
+					element.Tags.AddOrAppend(WarnKey, "This should probably use addr:place instead of addr:street");
 				}
 			}
 
@@ -250,19 +258,16 @@ namespace OsmPipeline
 				File.Delete(fileName);
 		}
 
-		private static void MergeNodesByAddressTags(
-			Osm reference, ElementIndex subjectElementIndex, List<long> whiteList,
-			out List<OsmGeo> create, out List<OsmGeo> modify, out List<OsmGeo> delete)
+		private static void MergeNodesByTags(string[] searchKeys, ElementIndex subjectElementIndex,
+			List<long> whiteList, List<OsmGeo> create, List<OsmGeo> modify)
 		{
-			create = new List<OsmGeo>(reference.Nodes);
-			modify = new List<OsmGeo>();
-			delete = new List<OsmGeo>();
+			var candidateReferenceElements = create.Where(e => searchKeys.All(sk => e.Tags.ContainsKey(sk))).Cast<Node>().ToArray();
 
-			foreach (var referenceElement in create.Cast<Node>().ToArray())
+			foreach (var referenceElement in candidateReferenceElements)
 			{
-				var searchTags = referenceElement.Tags.Where(t => t.Key == "addr:street" || t.Key == "addr:housenumber");
+				var searchTags = referenceElement.Tags.KeepKeysOf(searchKeys); // generalize
 
-				if (subjectElementIndex.TryGetMatchingElements(new TagsCollection(searchTags), out var targetSubjectElements))
+				if (subjectElementIndex.TryGetMatchingElements(searchTags, out var targetSubjectElements))
 				{
 					var matchDistances = targetSubjectElements
 						.Select(element => new { element, complete = element.AsComplete(subjectElementIndex.ByOsmGeoKey) })
@@ -303,7 +308,7 @@ namespace OsmPipeline
 							&& !whiteList.Contains(Math.Abs(referenceElement.Id.Value)))
 						{
 							var arrow = Geometry.GetDirectionArrow(referenceElement.AsPosition(), closestMatch.complete.AsPosition());
-							referenceElement.Tags.AddOrAppend(WarnKey, $"Matched address is too far: {(int)closestMatch.distance} m {arrow}");
+							referenceElement.Tags.AddOrAppend(WarnKey, $"Matched elemet is too far: {(int)closestMatch.distance} m {arrow}");
 							referenceElement.Tags.AddOrAppend(ReviewWithKey, Identify(subjectElement));
 
 							try
@@ -477,9 +482,9 @@ namespace OsmPipeline
 			}
 		}
 
-		// Delete this.
-			private static string[] KeysToOverrideOnMerge = new[] { "addr:city", "addr:postcode" };
-			private static string[] KeysToIgnore = new[] { "building", "addr:state" };
+		private static string[] KeysToOverrideOnMerge = new[] { "addr:city", "addr:postcode" };
+		// Don't report conflicts for these.
+		private static string[] KeysToIgnore = new string[] { };// new[] { "building", "addr:state" };
 
 		private static bool MergeTags(OsmGeo reference, OsmGeo subject, bool isWhiteList, bool onlyTesting = false)
 		{
@@ -524,7 +529,7 @@ namespace OsmPipeline
 
 			if (changed)
 			{
-				ValidateMergedTags(subject, conflicts);
+				conflicts.AddRange(ValidateMergedTags(subject));
 			}
 
 			if (conflicts.Any())
@@ -540,11 +545,17 @@ namespace OsmPipeline
 			return changed;
 		}
 
-		private static void ValidateMergedTags(OsmGeo subject, List<string> conflicts)
+		private static List<string> ValidateMergedTags(OsmGeo subject)
 		{
+			var conflicts = new List<string>();
 			if (subject.Tags.ContainsKey("highway") || Geometry.IsOpenWay(subject))
 			{
 				conflicts.Add("Modified a highway or open way");
+			}
+
+			if (subject.Type == OsmGeoType.Relation)
+			{
+				conflicts.Add("Modified a relation");
 			}
 
 			foreach (var key in Tags.PrimaryElementKeys.Keys)
@@ -567,6 +578,8 @@ namespace OsmPipeline
 			{
 				conflicts.Add("Added a unit to a place with a name");
 			}
+
+			return conflicts;
 		}
 
 		public class MergeConflictException : Exception
