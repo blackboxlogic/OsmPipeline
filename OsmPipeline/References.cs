@@ -175,7 +175,7 @@ namespace OsmPipeline
 				new Tag(Static.maineE911id, ((int)props[KEYS.OBJECTID]).ToString())
 			};
 
-			var placeTags = PLACE_TYPEs[(string)props["PLACE_TYPE"]].Select(kvp => new Tag(kvp.Key, kvp.Value)).ToArray();
+			var placeTags = PLACE_TYPEs[((string)props["PLACE_TYPE"]).Trim()].Select(kvp => new Tag(kvp.Key, kvp.Value)).ToArray();
 			tags = tags.Concat(placeTags)
 				.Select(t => new Tag(t.Key, t.Value?.Trim()))
 				.Where(t => t.Value != "" && t.Value != null)
@@ -207,17 +207,18 @@ namespace OsmPipeline
 				var tagPattern = parts[1];
 				if (osmId == "*") // *.name=Apt 1
 				{
-					parts = tagPattern.Split(new char[] { '=', '~' }, 3);
+					parts = tagPattern.Split(new char[] { '=', '~' }, 4);
 					var oldKey = parts[0];
 					var tagValue = parts[1];
-					var newKey = parts.Length == 3 ? parts[2] : null;
+					var newKey = parts.Length >= 3 ? parts[2] : null;
 					foreach (var element in elements)
 					{
 						if (element.Tags.RemoveKeyValue(new Tag(oldKey, tagValue)))
 						{
 							if (newKey != null) // *.name=Apt 1~addr:unit
 							{
-								element.Tags.AddOrAppend(newKey, tagValue);
+								var newValue = parts.Length == 4 ? parts[3] : tagValue; // *.name=Apt 1~addr:unit=1
+								element.Tags.AddOrAppend(newKey, newValue);
 								element.Tags.Add(Static.maineE911id + ":" + newKey, "moved from: " + oldKey);
 							}
 							else
@@ -229,13 +230,14 @@ namespace OsmPipeline
 				}
 				else if (byId.TryGetValue(parts[0], out OsmGeo elementById)) // 2984323.name
 				{
-					parts = tagPattern.Split('~', 2);
+					parts = tagPattern.Split(new char[] { '=', '~' }, 3);
 					var oldKey = parts[0];
-					var newKey = parts.Length == 2 ? parts[1] : null;
+					var newKey = parts.Length >= 2 ? parts[1] : null;
 					if (newKey != null) // 2984323.name~addr:unit
 					{
-						elementById.Tags.Add(newKey, elementById.Tags[oldKey]);
+						var newValue = parts.Length == 3 ? parts[2] : elementById.Tags[oldKey]; // 2984323.name~addr:unit=1
 						elementById.Tags.RemoveKey(oldKey);
+						elementById.Tags.Add(newKey, newValue);
 						elementById.Tags.Add(Static.maineE911id + ":" + newKey, "moved from: " + oldKey);
 					}
 					else
@@ -591,9 +593,9 @@ namespace OsmPipeline
 
 		private static string City(string postalCommunity, string town)
 		{
-				//return string.IsNullOrWhiteSpace(town)
-				//	? ReplaceToken(postalCommunity, MUNICIPALITY)
-				//	: ReplaceToken(town, MUNICIPALITY);
+			//return string.IsNullOrWhiteSpace(town)
+			//	? ReplaceTokens(postalCommunity, MUNICIPALITY)
+			//	: ReplaceTokens(town, MUNICIPALITY);
 
 			return string.IsNullOrWhiteSpace(postalCommunity)
 				? ReplaceTokens(town, MUNICIPALITY)
