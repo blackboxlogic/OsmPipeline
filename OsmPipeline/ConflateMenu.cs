@@ -54,7 +54,6 @@ namespace OsmPipeline
 				Console.Write("> ");
 				var userInput = Console.ReadLine();
 
-
 				if (Is(userInput, "reference"))
 				{
 					//Func<Feature, bool> filter = f => (f.Geometry as Point).Coordinates.Longitude >= -70.505;
@@ -70,10 +69,10 @@ namespace OsmPipeline
 				else if (Is(userInput, "subject"))
 				{
 					var reference = GetReference();
-					var subject = Subjects.GetElementsInBoundingBox(reference.Bounds.ExpandBy(15).Quarter());
+					var subject = Subjects.GetElementsInBoundingBox(reference.Bounds.ExpandBy(15));
 					FileSerializer.WriteXml(Municipality + "/Subject.osm", subject);
 					File.Delete(Municipality + "/Conflated.osc");
-					Console.WriteLine("ChangeId high watermark: " + subject.GetElements().Max(e => e.ChangeSetId.Value));
+					Console.WriteLine("ChangeId high watermark: " + subject.GetHighestChangeSetId());
 				}
 				else if (Is(userInput, "conflate"))
 				{
@@ -91,9 +90,9 @@ namespace OsmPipeline
 				{
 					var key = userInput.Split(" ")[1];
 					var reference = GetReference();
-					var values = reference.GetElements().Where(e => e.Tags.ContainsKey(key)).Select(e => "\n\t" + e.Tags[key]).Distinct().ToArray();
+					var values = reference.GetElements().Where(e => e.Tags.ContainsKey(key)).Select(e => "\n\t" + e.Tags[key]).GroupBy(n => n).ToArray();
 
-					Console.WriteLine(string.Concat(values));
+					Console.WriteLine(string.Concat(values.Select(v => v.Key + "\tx" + v.Count())));
 				}
 				else if (Is(userInput, "filter"))
 				{
@@ -263,7 +262,7 @@ namespace OsmPipeline
 		{
 			var subject = FileSerializer.ReadXmlCacheOrSource(Municipality + "/Subject.osm",
 				() => Subjects.GetElementsInBoundingBox(bounds));
-			Console.WriteLine("ChangeId high watermark: " + subject.GetElements().Max(e => e.ChangeSetId.Value));
+			Console.WriteLine("ChangeId high watermark: " + subject.GetHighestChangeSetId());
 			return subject;
 		}
 
@@ -360,6 +359,10 @@ namespace OsmPipeline
 					Console.WriteLine($"Move '{value}' to what key?");
 					var newKey = Console.ReadLine();
 					Static.Municipalities[Municipality].BlackTags.Add($"*.{key}={value}~{newKey}");
+				}
+				else if (choice == 'A')
+				{
+					Static.Municipalities[Municipality].BlackTags.Add($"*.{key}={value}~alt_name");
 				}
 				else if (choice == 'Y')
 				{
