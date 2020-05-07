@@ -4,6 +4,7 @@ using OsmSharp;
 using OsmSharp.API;
 using OsmSharp.Complete;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -88,7 +89,8 @@ namespace OsmPipeline.Fittings
 				return new CompleteWay()
 				{
 					Id = way.Id.Value,
-					Nodes = way.Nodes.Select(n => possibleChilden[OsmGeoType.Node.ToString() + n]).OfType<Node>().ToArray()
+					Nodes = way.Nodes.Select(n => possibleChilden[OsmGeoType.Node.ToString() + n]).OfType<Node>().ToArray(),
+					Tags = way.Tags
 				};
 			}
 			else if (parent is Relation relation)
@@ -104,7 +106,8 @@ namespace OsmPipeline.Fittings
 				return new CompleteRelation()
 				{
 					Id = relation.Id.Value,
-					Members = members
+					Members = members,
+					Tags = relation.Tags
 				};
 			}
 			throw new Exception("OsmGeo wasn't a Node, Way or Relation.");
@@ -126,58 +129,94 @@ namespace OsmPipeline.Fittings
 			else if (parent is Relation relation)
 			{
 				return relation.Members
-					.SelectMany(m => WithChildren(possibleChilden[m.Type.ToString() + m.Id], possibleChilden))
+					.SelectMany(m => possibleChilden.TryGetValue(m.Type.ToString() + m.Id, out OsmGeo child)
+						? WithChildren(child, possibleChilden)
+						: Enumerable.Empty<OsmGeo>())
+					.Where(m => m != null)
 					.Append(parent);
 			}
 			throw new Exception("OsmGeo wasn't a Node, Way or Relation.");
 		}
 
 		// Either IN a building, or distanceMeters from a building and no other building within isolationMeters
-		public static Dictionary<ICompleteOsmGeo, Node[]> NodesInOrNearCompleteElements(
+		public static Dictionary<ICompleteOsmGeo, List<Node>> NodesInOrNearCompleteElements(
 			ICompleteOsmGeo[] buildings, Node[] nodes, double distanceMeters, double isolationMeters)
 		{
 			var matchInside = NodesInCompleteElements(buildings, nodes);
 
 			buildings = buildings.Except(matchInside.Keys).ToArray();
 			nodes = nodes.Except(matchInside.SelectMany(r => r.Value)).ToArray();
+			// buildings -> (nodes -> distances)
 			var isolated = NodesNearCompleteElements(buildings, nodes, isolationMeters);
-			nodes = isolated.SelectMany(kvp => kvp.Value).GroupBy(n => n).Select(n => n.ToArray()).Where(n => n.Length == 1).SelectMany(n => n).ToArray();
-			var matchNear = NodesNearCompleteElements(buildings, nodes, distanceMeters);
+
+			//nodes = isolated.SelectMany(kvp => kvp.Value).GroupBy(n => n).Select(n => n.ToArray()).Where(n => n.Length == 1).SelectMany(n => n).ToArray();
+			//var matchNear = NodesNearCompleteElements(buildings, nodes, distanceMeters);
+
+			var matchNear = isolated.SelectMany(bnd => bnd.Value.Select(nd => new { node = nd.Key, building = bnd.Key, distance = nd.Value }))
+				.GroupBy(nbd => nbd.node, nbd => new { nbd.building, nbd.distance })
+				.Select(ng => new { node = ng.Key, buildingDistances = ng.OrderBy(g => g.distance).Take(2).ToArray() })
+				// It's close and (nothing else is nearby OR the next closest thing is 10x farther away)
+				.Where(ng => ng.buildingDistances[0].distance < distanceMeters
+					&& (ng.buildingDistances.Length == 1
+						|| ng.buildingDistances[0].distance * 10 < ng.buildingDistances[1].distance))
+				.SelectMany(ng => ng.buildingDistances.Select(bd => new { ng.node, bd.building }))
+				.GroupBy(nb => nb.building)
+				.ToDictionary(nbg => nbg.Key, nbg => nbg.Select(n => n.node).ToList());
 
 			return matchInside.Concat(matchNear).ToDictionary(kvp => kvp.Key, kvp => kvp.Value);
 		}
 
-		public static Dictionary<ICompleteOsmGeo, Node[]> NodesInCompleteElements(ICompleteOsmGeo[] buildings, Node[] nodes)
+		public static Dictionary<ICompleteOsmGeo, List<Node>> NodesInCompleteElements(ICompleteOsmGeo[] buildings, Node[] nodes)
 		{
 			var byLat = new SortedList<double, Node[]>(nodes.GroupBy(n => n.Latitude.Value).ToDictionary(g => g.Key, g => g.ToArray()));
 			var byLon = new SortedList<double, Node[]>(nodes.GroupBy(n => n.Longitude.Value).ToDictionary(g => g.Key, g => g.ToArray()));
 
-			var result = new Dictionary<ICompleteOsmGeo, Node[]>();
+			var result = new Dictionary<ICompleteOsmGeo, List<Node>>();
 			foreach (var building in buildings)
 			{
 				var bounds = building.AsBounds().ExpandBy(1); // 1 because we loose precision from double to float
 				var candidates = FastNodesInBounds(bounds, byLat, byLon);
-				var inners = candidates.Where(n => IsNodeInBuilding(n, building)).ToArray();
+				var inners = candidates.Where(n => IsNodeInBuilding(n, building)).ToList();
 				if (inners.Any()) result.Add(building, inners);
+			}
+
+			// If a node is in multiple buildings, remove it from all but the closest one.
+			var nodesInMultipleElements = result.SelectMany(r => r.Value.Select(node => new { node, buidling = r.Key }))
+				.GroupBy(pair => pair.node)
+				.Where(g => g.Count() > 1)
+				.ToDictionary(g => g.Key,
+					g => g.Select(pair => pair.buidling)
+						.OrderBy(b => DistanceMeters(g.Key, b)).ToArray());
+
+			foreach (var inMany in nodesInMultipleElements)
+			{
+				foreach (var fartherBuilding in inMany.Value.Skip(1))
+				{
+					var inners = result[fartherBuilding];
+					if (inners.Count > 1) inners.Remove(inMany.Key);
+					else result.Remove(fartherBuilding);
+				}
 			}
 
 			return result;
 		}
 
 		// Can return mutliple buildings having the same node near them!
-		public static Dictionary<ICompleteOsmGeo, Node[]> NodesNearCompleteElements(
+		public static Dictionary<ICompleteOsmGeo, Dictionary<Node, double>> NodesNearCompleteElements(
 			ICompleteOsmGeo[] elements, Node[] nodes, double withinMeters)
 		{
 			var byLat = new SortedList<double, Node[]>(nodes.GroupBy(n => n.Latitude.Value).ToDictionary(g => g.Key, g => g.ToArray()));
 			var byLon = new SortedList<double, Node[]>(nodes.GroupBy(n => n.Longitude.Value).ToDictionary(g => g.Key, g => g.ToArray()));
 
-			var result = new Dictionary<ICompleteOsmGeo, Node[]>();
+			var result = new Dictionary<ICompleteOsmGeo, Dictionary<Node, double>>();
 			
 			foreach (var element in elements)
 			{
 				var bounds = element.AsBounds().ExpandBy(withinMeters);
 				var candidates = FastNodesInBounds(bounds, byLat, byLon);
-				var inners = candidates.Where(n => DistanceMeters(element, n) <= withinMeters).ToArray();
+				var inners = candidates.Select(n => new { n, dist = DistanceMeters(element, n) })
+					.Where(edge => edge.dist <= withinMeters)
+					.ToDictionary(edge => edge.n, edge => edge.dist);
 				if (inners.Any()) result.Add(element, inners);
 			}
 
