@@ -27,6 +27,11 @@ namespace OsmPipeline.Fittings
 			return result;
 		}
 
+		public static long? GetHighestChangeSetId(this Osm osm)
+		{
+			return osm.GetElements().Max(e => e.ChangeSetId);
+		}
+
 		public static IEnumerable<OsmGeo> GetElements(this Osm osm)
 		{
 			return new OsmGeo[][] { osm.Nodes, osm.Ways, osm.Relations }
