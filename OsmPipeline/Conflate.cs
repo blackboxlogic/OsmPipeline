@@ -388,6 +388,10 @@ namespace OsmPipeline
 						{
 							modify.Add(building);
 							building.Tags.AddOrAppend(Static.maineE911id + ":matched", "geometry");
+							if (building is Node buildingNode)
+							{
+								MoveNode(node, building, subjectElementIndex, Geometry.DistanceMeters(node, buildingNode));
+							}
 						}
 						create.Remove(node);
 					}
