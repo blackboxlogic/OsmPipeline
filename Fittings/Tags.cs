@@ -116,7 +116,7 @@ namespace OsmPipeline.Fittings
 				{ "man_made", new [] { "communications_tower", "tower", "lighthouse", "observatory", "pumping_station", "wastewater_plant", "water_tower", "works" } },
 				{ "power", new [] { "generator", "substation", "plant" } },
 				{ "tourism", null },
-				{ "amenity", new [] { "ferry_terminal", "fire_station", "library", "restaurant", "post_office", "townhall", "place_of_worship", "grave_yard", "school" } },
+				{ "amenity", new [] { "ferry_terminal", "fire_station", "library", "restaurant", "post_office", "townhall", "place_of_worship", "school" } },
 				{ "shop", null }
 			};
 
