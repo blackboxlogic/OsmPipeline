@@ -2,6 +2,7 @@
 using OsmSharp;
 using OsmSharp.API;
 using OsmSharp.Changesets;
+using OsmSharp.Tags;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -273,6 +274,7 @@ namespace OsmPipeline
 			var Change = Conflate.Merge(reference, subject, Municipality, Static.Municipalities[Municipality]);
 			FileSerializer.WriteXml(Municipality + "/Conflated.osc", Change);
 			References.Report(reference.GetElements().ToArray());
+			Conflate.Review(Municipality);
 		}
 
 		private void OpenExplorer()
@@ -337,7 +339,7 @@ namespace OsmPipeline
 			foreach (var value in values)
 			{
 				Console.WriteLine("?\t" + value);
-				var choice = char.ToUpper(Console.ReadKey(true).KeyChar);
+				var choice = char.ToUpper(Console.ReadKey().KeyChar);
 				if (choice == 'N')
 				{
 					Static.Municipalities[Municipality].BlackTags.Add($"*.{key}={value}");
@@ -350,9 +352,13 @@ namespace OsmPipeline
 				{
 					Static.Municipalities[Municipality].BlackTags.Add($"*.{key}={value}~description");
 				}
+				else if (choice == 'O')
+				{
+					Static.Municipalities[Municipality].BlackTags.Add($"*.{key}={value}~operator");
+				}
 				else if (choice == 'B')
 				{
-					Static.Municipalities[Municipality].BlackTags.Add($"*.{key}={value}~building");
+					Static.Municipalities[Municipality].BlackTags.Add($"*.{key}={value}~building={value.ToLower()}");
 				}
 				else if (choice == 'M')
 				{

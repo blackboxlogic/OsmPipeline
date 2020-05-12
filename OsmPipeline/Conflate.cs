@@ -1,13 +1,13 @@
-﻿using OsmSharp.API;
-using OsmSharp.Changesets;
-using System;
-using System.Linq;
+﻿using System;
 using System.Collections.Generic;
-using OsmSharp;
+using System.IO;
+using System.Linq;
 using Microsoft.Extensions.Logging;
 using OsmPipeline.Fittings;
+using OsmSharp;
+using OsmSharp.API;
+using OsmSharp.Changesets;
 using OsmSharp.Tags;
-using System.IO;
 
 namespace OsmPipeline
 {
@@ -26,18 +26,20 @@ namespace OsmPipeline
 		public static OsmChange Merge(Osm reference, Osm subject, string scopeName, GeoJsonAPISource.Municipality municipality)
 		{
 			Log = Log ?? Static.LogFactory.CreateLogger(typeof(Conflate));
-			Log.LogInformation("Starting conflation, matching by tags");
-			// Can blacklist subject elements also!
+			// Can blacklist subject elements also! Fixme: colisions between different element types with the same ID
 			var subjectElements = subject.GetElements().Where(e => !municipality.BlackList.Contains(e.Id.Value));
 			var subjectElementIndex = new ElementIndex(subjectElements.ToArray());
-
 			List<OsmGeo> create = new List<OsmGeo>(reference.Nodes);
 			List<OsmGeo> modify = new List<OsmGeo>();
 			List<OsmGeo> delete = new List<OsmGeo>();
+
+			Log.LogInformation("Starting conflation, matching by tags");
 			MergeNodesByTags(new[] { "addr:street", "addr:housenumber" }, subjectElementIndex, municipality.WhiteList, create, modify);
 			MergeNodesByTags(new[] { "name" }, subjectElementIndex, municipality.WhiteList, create, modify);
+
 			Log.LogInformation("Starting conflation, matching by geometry");
 			MergeNodesByGeometry(subjectElementIndex, municipality.WhiteList, create, modify);
+
 			ValidateNamesMatch(subjectElementIndex, create.Concat(modify), "highway", "addr:street",
 				(element, key) => ShouldStreetBeAPlace(element, subjectElementIndex));
 			ValidateNamesMatch(subjectElementIndex, create.Concat(modify), "place", "addr:place");
@@ -48,7 +50,7 @@ namespace OsmPipeline
 			WriteToFileWithChildrenIfAny(scopeName + "/Conflated.Create.osm", create, subjectElementIndex);
 			WriteToFileWithChildrenIfAny(scopeName + "/Conflated.Delete.osm", delete, subjectElementIndex);
 			WriteToFileWithChildrenIfAny(scopeName + "/Conflated.Modify.osm", modify, subjectElementIndex);
-			CheckForOffset(modify);
+
 			RemoveReviewTags(create, delete, modify);
 			var change = Translate.GeosToChange(create, modify, delete, "OsmPipeline");
 			LogSummary(change, review);
@@ -61,9 +63,12 @@ namespace OsmPipeline
 			var review = FileSerializer.ReadXml<Osm>(scopeName + "/Conflated.Review.osm");
 			if (review != null)
 			{
-				foreach (var revTag in review.GetElements().SelectMany(e => e.Tags?.Where(t => t.Key == WarnKey || t.Key == ErrorKey) ?? new Tag[0]))
+				foreach (var element in review.GetElements().Where(e => e.Tags != null))
 				{
-					Console.WriteLine(revTag);
+					foreach (var revTag in element.Tags.Where(t => t.Key == WarnKey || t.Key == ErrorKey))
+					{
+						Console.WriteLine(Identify(element) + " " + revTag);
+					}
 				}
 			}
 		}
@@ -217,21 +222,6 @@ namespace OsmPipeline
 			element.Tags.AddOrAppend(InfoKey, "Cannot find a matching addr:street");
 		}
 
-		private static void CheckForOffset(IList<OsmGeo> modify)
-		{
-			// Try to detect if the data is geographically shifted
-			var arrowsSummary = modify
-				.Where(m => m.Tags.ContainsKey(MovedKey))
-				.Select(m => m.Tags[MovedKey].Last())
-				.GroupBy(c => c)
-				.ToDictionary(c => c.Key, c => c.Count());
-
-			if (arrowsSummary.Values.DefaultIfEmpty().Max() + 1 > 10 * arrowsSummary.Values.DefaultIfEmpty().Min() + 1)
-			{
-				Log.LogWarning("There might be an offset!");
-			}
-		}
-
 		private static void LogSummary(OsmChange change, IList<OsmGeo> Review)
 		{
 			Log.LogInformation($"{nameof(change.Create)}: {change.Create.Length}" +
@@ -265,7 +255,7 @@ namespace OsmPipeline
 
 			foreach (var referenceElement in candidateReferenceElements)
 			{
-				var searchTags = referenceElement.Tags.KeepKeysOf(searchKeys); // generalize
+				var searchTags = referenceElement.Tags.KeepKeysOf(searchKeys);
 
 				if (subjectElementIndex.TryGetMatchingElements(searchTags, out var targetSubjectElements))
 				{
@@ -335,6 +325,7 @@ namespace OsmPipeline
 									if (modify.Any(n => n.Id == subjectElement.Id))
 										subjectElement.Tags.AddOrAppend(WarnKey, "Subject modified by multiple references");
 									modify.Add(subjectElement);
+									subjectElement.Tags.AddOrAppend(Static.maineE911id + ":matched", string.Join(";", searchKeys));
 								}
 								create.Remove(referenceElement);
 							}
@@ -396,6 +387,7 @@ namespace OsmPipeline
 						if (MergeTags(node, building, whiteList.Contains(Math.Abs(node.Id.Value))))
 						{
 							modify.Add(building);
+							building.Tags.AddOrAppend(Static.maineE911id + ":matched", "geometry");
 						}
 						create.Remove(node);
 					}
@@ -532,7 +524,7 @@ namespace OsmPipeline
 				conflicts.AddRange(ValidateMergedTags(subject));
 			}
 
-			if (conflicts.Any())
+			if (!isWhiteList && conflicts.Any())
 			{
 				subject.Tags = original;
 				throw new MergeConflictException(string.Join(";", conflicts));
@@ -560,9 +552,9 @@ namespace OsmPipeline
 
 			foreach (var key in Tags.PrimaryElementKeys.Keys)
 			{
-				if (subject.Tags.Contains(Static.maineE911id + ":" + key, "added")) // && !(subject is Node)
+				if (subject.Tags.Contains(Static.maineE911id + ":" + key, "added"))
 				{
-					conflicts.Add($"Made a {subject.Type} into a {key}");
+					conflicts.Add($"Made {Identify(subject)} into a {key}:{subject.Tags[key]}");
 				}
 			}
 
