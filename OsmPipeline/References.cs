@@ -426,8 +426,6 @@ namespace OsmPipeline
 
 			var reports = new List<string>();
 
-			var ambiguouseStreets = TagTree.Keys["addr:street"].GetAllNonLeafNodes().ToHashSet();
-
 			foreach (var f in features)
 			{
 				if (!StreetSUFFIX.ContainsKey(f.Properties[KEYS.SUFFIX]))
@@ -441,10 +439,6 @@ namespace OsmPipeline
 				if (string.IsNullOrWhiteSpace((string)f.Properties[KEYS.STREETNAME]))
 				{
 					reports.Add("Bad STREETNAME");
-				}
-				if (ambiguouseStreets.Contains((string)f.Properties[KEYS.STREETNAME]))
-				{
-					reports.Add($"STREETNAME {f.Properties[KEYS.STREETNAME]} has decendants in the tag tree.");
 				}
 				if (!((string)f.Properties[KEYS.STREETNAME]).Any(char.IsLetter))
 				{
@@ -593,13 +587,30 @@ namespace OsmPipeline
 
 		private static string City(string postalCommunity, string town)
 		{
-			//return string.IsNullOrWhiteSpace(town)
-			//	? ReplaceTokens(postalCommunity, MUNICIPALITY)
-			//	: ReplaceTokens(town, MUNICIPALITY);
+			//if (string.IsNullOrWhiteSpace(town))
+			//{
+			//	return ReplaceTokens(postalCommunity, MUNICIPALITY);
+			//}
+			//else if (string.IsNullOrWhiteSpace(postalCommunity))
+			//{
+			//	return ReplaceTokens(town, MUNICIPALITY);
+			//}
+			//else if (Static.Municipalities.ContainsKey(postalCommunity)) // A neighboring municipality manages the mail
+			//{
+			//	return ReplaceTokens(town, MUNICIPALITY);
+			//}
+			//else
+			//{
+			//	return ReplaceTokens(postalCommunity, MUNICIPALITY);
+			//}
 
-			return string.IsNullOrWhiteSpace(postalCommunity)
-				? ReplaceTokens(town, MUNICIPALITY)
-				: ReplaceTokens(postalCommunity, MUNICIPALITY);
+			return string.IsNullOrWhiteSpace(town)
+				? ReplaceTokens(postalCommunity, MUNICIPALITY)
+				: ReplaceTokens(town, MUNICIPALITY);
+
+			//return string.IsNullOrWhiteSpace(postalCommunity)
+			//	? ReplaceTokens(town, MUNICIPALITY)
+			//	: ReplaceTokens(postalCommunity, MUNICIPALITY);
 		}
 
 		private static string ReplaceTokens(string input, Dictionary<string, string> translation)

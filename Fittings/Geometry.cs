@@ -142,28 +142,27 @@ namespace OsmPipeline.Fittings
 		public static Dictionary<ICompleteOsmGeo, List<Node>> NodesInOrNearCompleteElements(
 			ICompleteOsmGeo[] buildings, Node[] nodes, double distanceMeters, double isolationMeters)
 		{
-			var matchInside = NodesInCompleteElements(buildings, nodes);
+			// Dont connect to TAGGED or IN buildings. TAGGED and IN should run INTERFERANCE
+			var inside = NodesInCompleteElements(buildings, nodes);
+			var umatchedBuildings = buildings.Except(inside.Keys).ToArray();
+			var unmatchedNodes = nodes.Except(inside.SelectMany(r => r.Value)).ToArray();
 
-			buildings = buildings.Except(matchInside.Keys).ToArray();
-			nodes = nodes.Except(matchInside.SelectMany(r => r.Value)).ToArray();
-			// buildings -> (nodes -> distances)
-			var isolated = NodesNearCompleteElements(buildings, nodes, isolationMeters);
+			var edges = NodesNearCompleteElements(umatchedBuildings, unmatchedNodes, isolationMeters);
+			var byReference = edges.GroupBy(edge => edge.Reference)
+				.ToDictionary(edgeGroup => edgeGroup.Key, edgeGroup => edgeGroup.OrderBy(g => g.Distance).ToArray());
+			var bySubject = edges.GroupBy(edge => edge.Subject)
+				.ToDictionary(edgeGroup => edgeGroup.Key, edgeGroup => edgeGroup.OrderBy(g => g.Distance).ToArray());
 
-			//nodes = isolated.SelectMany(kvp => kvp.Value).GroupBy(n => n).Select(n => n.ToArray()).Where(n => n.Length == 1).SelectMany(n => n).ToArray();
-			//var matchNear = NodesNearCompleteElements(buildings, nodes, distanceMeters);
+			Func<Edge[], Edge, bool> IsNear = (connectedEdges, edge) =>
+				connectedEdges.TakeWhile((e,i) => e.Distance < distanceMeters
+					&& e.Distance < 10 * connectedEdges[0].Distance)
+				.Contains(edge);
 
-			var matchNear = isolated.SelectMany(bnd => bnd.Value.Select(nd => new { node = nd.Key, building = bnd.Key, distance = nd.Value }))
-				.GroupBy(nbd => nbd.node, nbd => new { nbd.building, nbd.distance })
-				.Select(ng => new { node = ng.Key, buildingDistances = ng.OrderBy(g => g.distance).Take(2).ToArray() })
-				// It's close and (nothing else is nearby OR the next closest thing is 10x farther away)
-				.Where(ng => ng.buildingDistances[0].distance < distanceMeters
-					&& (ng.buildingDistances.Length == 1
-						|| ng.buildingDistances[0].distance * 10 < ng.buildingDistances[1].distance))
-				.SelectMany(ng => ng.buildingDistances.Select(bd => new { ng.node, bd.building }))
-				.GroupBy(nb => nb.building)
-				.ToDictionary(nbg => nbg.Key, nbg => nbg.Select(n => n.node).ToList());
+			var near = edges.Where(e => IsNear(byReference[e.Reference], e) && IsNear(bySubject[e.Subject], e))
+				.GroupBy(edge => edge.Subject)
+				.ToDictionary(edgeGroup => edgeGroup.Key, edgeGroup => edgeGroup.Select(e => e.Reference).ToList());
 
-			return matchInside.Concat(matchNear).ToDictionary(kvp => kvp.Key, kvp => kvp.Value);
+			return inside.Concat(near).ToDictionary(kvp => kvp.Key, kvp => kvp.Value);
 		}
 
 		public static Dictionary<ICompleteOsmGeo, List<Node>> NodesInCompleteElements(ICompleteOsmGeo[] buildings, Node[] nodes)
@@ -202,25 +201,37 @@ namespace OsmPipeline.Fittings
 		}
 
 		// Can return mutliple buildings having the same node near them!
-		public static Dictionary<ICompleteOsmGeo, Dictionary<Node, double>> NodesNearCompleteElements(
-			ICompleteOsmGeo[] elements, Node[] nodes, double withinMeters)
+		private static List<Edge> NodesNearCompleteElements(
+			ICompleteOsmGeo[] subjects, Node[] references, double withinMeters)
 		{
-			var byLat = new SortedList<double, Node[]>(nodes.GroupBy(n => n.Latitude.Value).ToDictionary(g => g.Key, g => g.ToArray()));
-			var byLon = new SortedList<double, Node[]>(nodes.GroupBy(n => n.Longitude.Value).ToDictionary(g => g.Key, g => g.ToArray()));
+			var byLat = new SortedList<double, Node[]>(references.GroupBy(n => n.Latitude.Value).ToDictionary(g => g.Key, g => g.ToArray()));
+			var byLon = new SortedList<double, Node[]>(references.GroupBy(n => n.Longitude.Value).ToDictionary(g => g.Key, g => g.ToArray()));
 
 			var result = new Dictionary<ICompleteOsmGeo, Dictionary<Node, double>>();
-			
-			foreach (var element in elements)
+			var edges = new List<Edge>();
+
+			foreach (var subject in subjects)
 			{
-				var bounds = element.AsBounds().ExpandBy(withinMeters);
-				var candidates = FastNodesInBounds(bounds, byLat, byLon);
-				var inners = candidates.Select(n => new { n, dist = DistanceMeters(element, n) })
-					.Where(edge => edge.dist <= withinMeters)
-					.ToDictionary(edge => edge.n, edge => edge.dist);
-				if (inners.Any()) result.Add(element, inners);
+				var bounds = subject.AsBounds().ExpandBy(withinMeters);
+				var candidates = FastNodesInBounds(bounds, byLat, byLon)
+					.Select(reference => new Edge() { Reference = reference, Subject = subject })
+					.Where(edge => edge.Distance <= withinMeters);
+				edges.AddRange(candidates);
 			}
 
-			return result;
+			return edges;
+		}
+
+		class Edge
+		{
+			public Node Reference;
+			public ICompleteOsmGeo Subject;
+			public double Distance {
+				get {
+					return distance ?? (distance = DistanceMeters(Subject, Reference)).Value;
+				}
+			}
+			private double? distance;
 		}
 
 		private static IEnumerable<Node> FastNodesInBounds(Bounds bounds, SortedList<double, Node[]> byLat, SortedList<double, Node[]> byLon)

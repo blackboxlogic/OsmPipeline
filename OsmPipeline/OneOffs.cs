@@ -7,6 +7,7 @@ using OsmSharp.Changesets;
 using OsmSharp;
 using Microsoft.Extensions.Logging;
 using OsmSharp.IO.API;
+using OsmSharp.Tags;
 
 namespace OsmPipeline
 {
@@ -40,6 +41,36 @@ namespace OsmPipeline
 						var diffResult = new DiffResult() { Version = 0.6, Generator = "OsmPipeline", Results = results.ToArray() };
 						FileSerializer.WriteXml(diffPath, diffResult);
 					}
+				}
+			}
+		}
+
+		public static IEnumerable<OsmGeo> GetAllChangeElements(Func<OsmGeo, bool> filter)
+		{
+			foreach(var change in GetAllChangeFiles())
+			{
+				var changedElements = change.Create.Concat(change.Modify);
+
+				foreach (var changedElement in changedElements)
+				{
+					yield return changedElement;
+				}
+			}
+		}
+
+		private static IEnumerable<OsmChange> GetAllChangeFiles()
+		{
+			Static.Municipalities = FileSerializer.ReadJson<Dictionary<string, GeoJsonAPISource.Municipality>>("MaineMunicipalities.json");
+			var osmApiClient = new NonAuthClient(Static.Config["OsmApiUrl"], Static.HttpClient,
+				Static.LogFactory.CreateLogger<NonAuthClient>());
+
+			foreach (var municipality in Static.Municipalities.Values.Where(m => m.ChangeSetIds.Any(id => id != -1)))
+			{
+				foreach (var changeId in municipality.ChangeSetIds)
+				{
+					var changePath = $"{municipality.Name}/Uploaded/{changeId}-Conflated.osc";
+					var change = FileSerializer.ReadXml<OsmChange>(changePath);
+					yield return change;
 				}
 			}
 		}

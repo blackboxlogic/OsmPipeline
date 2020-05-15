@@ -421,9 +421,7 @@ namespace OsmPipeline
 			return a.Tags != null && b.Tags != null
 				&& a.Tags.TryGetValue("addr:street", out string aStreet)
 				&& b.Tags.TryGetValue("addr:street", out string bStreet)
-				&& (aStreet == bStreet
-					|| TagTree.Keys["addr:street"].IsDecendantOf(aStreet, bStreet)
-					|| TagTree.Keys["addr:street"].IsDecendantOf(bStreet, aStreet))
+				&& aStreet == bStreet
 				&& a.Tags.TryGetValue("addr:housenumber", out string aNum)
 				&& b.Tags.TryGetValue("addr:housenumber", out string bNum)
 				&& int.TryParse(aNum, out int aInt)

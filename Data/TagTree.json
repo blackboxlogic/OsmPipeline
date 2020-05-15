@@ -1,115 +1,4 @@
 {
-	"addr:street": {
-		"*": {
-			"US-1": {
-				"US 1": {
-					"Us Route One": {
-						"US Route 1": {
-							"Route 1": {},
-						}
-					}
-				}
-			},
-			"US-2": {
-				"US Route 2": {
-					"Route 2": {}
-				}
-			},
-			"Route Three": {
-				"Route 3": {}
-			},
-			"ME-32": {
-				"State Route 32": {
-					"Route 32": {}
-				}
-			},
-			"Pamola Park": {
-				"Cedar Street": {}
-			},
-			"Long Meadows Drive": {
-				"Long Meadow Drive": {}
-			},
-			"Campus Road North":{
-				"North Campus Drive": {}
-			},
-			"Campus Road South": {
-				"South Campus Drive": {}
-			},
-			"Cleveland Street": {
-				"Cleaveland Street": {}
-			},
-			"Fairgrounds Market Place":{
-				"Fairgrounds Marketplace": {}
-			},
-			"Waterville Rd": {
-				"Waterville Road": {}
-			},
-			"Red Bridle Road": {
-				"Red Bridge Road": {}
-			},
-			"St Ignatius Street": {
-				"Saint Ignatius Street": {}
-			},
-			"S Curve Road": {
-				"S-Curve Road": {
-					"South Curve Road": {}
-				}
-			},
-			"St Louis Street": {
-				"Saint Louis Street": {}
-			},
-			"Wm Oscar Emery Drive": {
-				"William Oscar Emery Drive": {}
-			},
-			"Jamieson Street": {
-				"Jameson Street": {}
-			},
-			"Spring Hill Drive": {
-				"Springhill Drive": {}
-			},
-			"Sacapee Road":{
-				"Sacopee Road": {}
-			},
-			"Side Track Lane": {
-				"Sidetrack Lane": {}
-			},
-			"Cyro Road": {
-				"Cyro Drive": {}
-			},
-			"Country Club Rd 1": {
-				"Country Club Road 1": {}
-			}
-		}
-	},
-	"addr:city": {
-		"*": {
-			"Winterharbor" : {
-				"Winter Harbor" : {}
-			},
-			"Rockwood Strip T1 R1 Nbkp": {
-				"Rockwood": {}
-			},
-			"Qgunquit": {
-				"Ogunquit": {}
-			},
-			"Sanford": {
-				"Springvale": {}
-			}
-		}
-	},
-	"addr:postcode": {
-		"*": {
-			"04662": {
-				"04462": {}
-			},
-			"03907-0837":{
-				"03907": {}
-			},
-			"04073":{
-				"04083": {}
-			}
-		}
-	},
 	"tourism": {
 		"*": {
 			"attraction": {
@@ -225,13 +114,14 @@
 				}
 			},
 			"religious": {
-				"cathedral": {},
-				"chapel": {},
-				"church": {},
-				"mosque": {},
-				"shrine": {},
-				"synagogue": {},
-				"temple": {}
+				"church": {
+					"cathedral": {},
+					"chapel": {},
+					"mosque": {},
+					"shrine": {},
+					"synagogue": {},
+					"temple": {}
+				}
 			},
 			"stadium": {},
 			"parking": {
