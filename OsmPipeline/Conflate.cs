@@ -34,6 +34,7 @@ namespace OsmPipeline
 			List<OsmGeo> delete = new List<OsmGeo>();
 
 			Log.LogInformation("Starting conflation, matching by tags");
+			MergeNodesByTags(new[] { "addr:street", "addr:housenumber", "addr:unit" }, subjectElementIndex, municipality.WhiteList, create, modify);
 			MergeNodesByTags(new[] { "addr:street", "addr:housenumber" }, subjectElementIndex, municipality.WhiteList, create, modify);
 			MergeNodesByTags(new[] { "name" }, subjectElementIndex, municipality.WhiteList, create, modify);
 
@@ -292,6 +293,7 @@ namespace OsmPipeline
 					{
 						var closestMatch = matchDistances.First();
 						var subjectElement = closestMatch.element;
+						referenceElement.Tags.AddOrAppend(Static.maineE911id + ":matched", string.Join(";", searchKeys) + " to " + Identify(referenceElement));
 
 						if (closestMatch.distance > int.Parse(Static.Config["MatchDistanceKmMaz"])
 							&& !Geometry.IsNodeInBuilding(referenceElement, closestMatch.complete)
@@ -325,7 +327,6 @@ namespace OsmPipeline
 									if (modify.Any(n => n.Id == subjectElement.Id))
 										subjectElement.Tags.AddOrAppend(WarnKey, "Subject modified by multiple references");
 									modify.Add(subjectElement);
-									subjectElement.Tags.AddOrAppend(Static.maineE911id + ":matched", string.Join(";", searchKeys));
 								}
 								create.Remove(referenceElement);
 							}
@@ -356,7 +357,9 @@ namespace OsmPipeline
 				.Select(b => b.AsComplete(subjectElementIndex.ByOsmGeoKey))
 				.ToArray();
 			var newNodes = create.Cast<Node>().ToArray();
-			var buildingsAndInnerNewNodes = Geometry.NodesInOrNearCompleteElements(buildings, newNodes, 30, 100);
+			var buildingsAndInnerNewNodes = Geometry.NodesInOrNearCompleteElements(buildings, newNodes, 30, 100,
+				buildings.Where(e => e.Tags?.ContainsKey("maineE911id:matched") ?? false).Select(m => m.Id).ToHashSet());
+
 			var oldNodes = subjectElementIndex.Elements.OfType<Node>().Where(n => n.Tags?.Any() == true).ToArray();
 			var buildingsAndInnerOldNodes = Geometry.NodesInCompleteElements(buildings, oldNodes);
 
@@ -368,7 +371,7 @@ namespace OsmPipeline
 				{
 					foreach (var node in buildingAndInners.Value)
 					{
-						node.Tags.AddOrAppend(InfoKey, "Multiple addresses land in the same building");
+						node.Tags.AddOrAppend(InfoKey, "Multiple addresses match the same building by geometry");
 						node.Tags.AddOrAppend(ReviewWithKey, buildingAndInners.Key.Type.ToString() + buildingAndInners.Key.Id);
 						if (buildingHasOldNodes)
 						{
@@ -384,10 +387,17 @@ namespace OsmPipeline
 
 					try
 					{
+						node.Tags.AddOrAppend(Static.maineE911id + ":matched", "geometry" + " to " + Identify(node));
+
+						if (building.Tags.Contains("gnis:reviewed", "no") || building.Tags.ContainsKey("fixme"))
+						{
+							node.Tags.AddOrAppend(WarnKey, "Matched an unreliable element by geometry");
+						}
+
 						if (MergeTags(node, building, whiteList.Contains(Math.Abs(node.Id.Value))))
 						{
 							modify.Add(building);
-							building.Tags.AddOrAppend(Static.maineE911id + ":matched", "geometry");
+
 							if (building is Node buildingNode)
 							{
 								MoveNode(node, building, subjectElementIndex, Geometry.DistanceMeters(node, buildingNode));

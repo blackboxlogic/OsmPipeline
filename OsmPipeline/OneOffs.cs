@@ -34,7 +34,7 @@ namespace OsmPipeline
 						var mine = change.Create.OfType<Node>().ToArray();
 						var theirs = osmApiClient.GetChangesetDownload(changeId).Result;
 						List<OsmGeoResult> results = theirs.Modify.Select(e => e.AsDiffResult()).ToList();
-						var map = Geometry.NodesInOrNearCompleteElements(theirs.Create.OfType<Node>().ToArray(), mine, 0, 0);
+						var map = Geometry.NodesInOrNearCompleteElements(theirs.Create.OfType<Node>().ToArray(), mine, 0, 0, new HashSet<long>());
 						if (map.Count != theirs.Create.Length || map.Any(pair => pair.Value.Count(v => Tags.AreEqual(v.Tags, pair.Key.Tags)) != 1))
 							throw new Exception("bad map");
 						results.AddRange(map.Select(pair => pair.Value.Single(v => Tags.AreEqual(v.Tags, pair.Key.Tags)).AsDiffResult(pair.Key.Id, 1)));

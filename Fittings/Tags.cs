@@ -21,6 +21,7 @@ namespace OsmPipeline.Fittings
 				{ "addr:street", Tags.WithOrWithoutPunctuation },
 				{ "addr:place", Tags.WithOrWithoutPunctuation },
 				{ "addr:housenumber", Tags.GetNumbersFromRangeOrList },
+				{ "addr:unit", Tags.WithOrWithoutPunctuation },
 				{ "name", Tags.WithOrWithoutPunctuation },
 				{ "place", s => new []{ s } },
 				{ "waterway", s => new []{ s } }
@@ -116,7 +117,7 @@ namespace OsmPipeline.Fittings
 				{ "man_made", new [] { "communications_tower", "tower", "lighthouse", "observatory", "pumping_station", "wastewater_plant", "water_tower", "works" } },
 				{ "power", new [] { "generator", "substation", "plant" } },
 				{ "tourism", null },
-				{ "amenity", new [] { "ferry_terminal", "fire_station", "library", "restaurant", "post_office", "townhall", "place_of_worship", "school" } },
+				{ "amenity", new [] { "ferry_terminal", "fire_station", "library", "restaurant", "post_office", "townhall", "place_of_worship", "school", "arts_centre" } },
 				{ "shop", null }
 			};
 
