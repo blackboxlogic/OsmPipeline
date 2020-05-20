@@ -138,28 +138,31 @@ namespace OsmPipeline.Fittings
 			throw new Exception("OsmGeo wasn't a Node, Way or Relation.");
 		}
 
-		// Either IN a building, or distanceMeters from a building and no other building within isolationMeters
+		// Either IN a building, or distanceMeters from a building and no other plausible building within isolationMeters
 		public static Dictionary<ICompleteOsmGeo, List<Node>> NodesInOrNearCompleteElements(
-			ICompleteOsmGeo[] buildings, Node[] nodes, double distanceMeters, double isolationMeters)
+			ICompleteOsmGeo[] subjects, Node[] references, double distanceMeters, double isolationMeters,
+			HashSet<long> ineligibleSubjectIds, int confidenceFactor = 4)
 		{
-			// Dont connect to TAGGED or IN buildings. TAGGED and IN should run INTERFERANCE
-			var inside = NodesInCompleteElements(buildings, nodes);
-			var umatchedBuildings = buildings.Except(inside.Keys).ToArray();
-			var unmatchedNodes = nodes.Except(inside.SelectMany(r => r.Value)).ToArray();
+			var inside = NodesInCompleteElements(subjects, references);
+			var unmatchedNodes = references.Except(inside.SelectMany(r => r.Value)).ToArray();
 
-			var edges = NodesNearCompleteElements(umatchedBuildings, unmatchedNodes, isolationMeters);
+			var edges = NodesNearCompleteElements(subjects, unmatchedNodes, isolationMeters);
 			var byReference = edges.GroupBy(edge => edge.Reference)
 				.ToDictionary(edgeGroup => edgeGroup.Key, edgeGroup => edgeGroup.OrderBy(g => g.Distance).ToArray());
 			var bySubject = edges.GroupBy(edge => edge.Subject)
 				.ToDictionary(edgeGroup => edgeGroup.Key, edgeGroup => edgeGroup.OrderBy(g => g.Distance).ToArray());
+			var primaryPlausibleEdges = edges.Where(edge =>
+				edge.Distance < distanceMeters
+				// Is edge THE SOLE plausible connection from the reference
+				&& (byReference[edge.Reference].Length == 1
+					|| byReference[edge.Reference][1].Distance > edge.Distance * confidenceFactor)
+				// Is edge a plausible from the subject
+				&& edge.Distance < bySubject[edge.Subject][0].Distance * confidenceFactor);
 
-			Func<Edge[], Edge, bool> IsNear = (connectedEdges, edge) =>
-				connectedEdges.TakeWhile((e,i) => e.Distance < distanceMeters
-					&& e.Distance < 10 * connectedEdges[0].Distance)
-				.Contains(edge);
-
-			var near = edges.Where(e => IsNear(byReference[e.Reference], e) && IsNear(bySubject[e.Subject], e))
+			var near = primaryPlausibleEdges
 				.GroupBy(edge => edge.Subject)
+				.Where(edgeGroup => !inside.ContainsKey(edgeGroup.Key)
+					&& !ineligibleSubjectIds.Contains(edgeGroup.Key.Id))
 				.ToDictionary(edgeGroup => edgeGroup.Key, edgeGroup => edgeGroup.Select(e => e.Reference).ToList());
 
 			return inside.Concat(near).ToDictionary(kvp => kvp.Key, kvp => kvp.Value);
@@ -175,7 +178,7 @@ namespace OsmPipeline.Fittings
 			{
 				var bounds = building.AsBounds().ExpandBy(1); // 1 because we loose precision from double to float
 				var candidates = FastNodesInBounds(bounds, byLat, byLon);
-				var inners = candidates.Where(n => IsNodeInBuilding(n, building)).ToList();
+				var inners = candidates.Where(n => n.Id != building.Id && IsNodeInBuilding(n, building)).ToList();
 				if (inners.Any()) result.Add(building, inners);
 			}
 
@@ -215,7 +218,7 @@ namespace OsmPipeline.Fittings
 				var bounds = subject.AsBounds().ExpandBy(withinMeters);
 				var candidates = FastNodesInBounds(bounds, byLat, byLon)
 					.Select(reference => new Edge() { Reference = reference, Subject = subject })
-					.Where(edge => edge.Distance <= withinMeters);
+					.Where(edge => edge.Distance <= withinMeters && edge.Subject.Id != edge.Reference.Id);
 				edges.AddRange(candidates);
 			}
 
@@ -232,6 +235,11 @@ namespace OsmPipeline.Fittings
 				}
 			}
 			private double? distance;
+
+			public override string ToString()
+			{
+				return string.Join(" ", Reference.Id, Subject.Id, distance);
+			}
 		}
 
 		private static IEnumerable<Node> FastNodesInBounds(Bounds bounds, SortedList<double, Node[]> byLat, SortedList<double, Node[]> byLon)
