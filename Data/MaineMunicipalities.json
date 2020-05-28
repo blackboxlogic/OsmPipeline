@@ -19158,12 +19158,15 @@
 	"Oakland": {
 		"Name": "Oakland",
 		"AddressCount": 2739,
-		"ImportDate": null,
+		"ImportDate": "2020-05-28T18:04:54.6433822Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			85903220
+		],
 		"BlackList": [],
 		"WhiteList": [
-			413901
+			413901,
+			309799
 		],
 		"BlackTags": [
 			"*.name=Boat landing and swimm area~description",
@@ -19178,60 +19181,93 @@
 			"*.name=Suite A~addr:unit",
 			"*.name=Unit 1~addr:unit",
 			"*.name=Unit 1 Store, 2 attached Garage",
-			"388789.name"
+			"388789.name",
+			"*.name=Sunny Shore Camps~operator"
 		],
 		"IgnoreList": []
 	},
 	"Stacyville": {
 		"Name": "Stacyville",
 		"AddressCount": 270,
-		"ImportDate": null,
+		"ImportDate": "2020-05-28T18:17:12.794511Z",
 		"Notes": null,
-		"ChangeSetIds": [],
-		"BlackList": [],
+		"ChangeSetIds": [
+			85903653
+		],
+		"BlackList": [
+			358235041
+		],
 		"WhiteList": [],
-		"BlackTags": [],
+		"BlackTags": [
+			"*.name=address changed from 1135 Station Rd"
+		],
 		"IgnoreList": []
 	},
 	"Beaver Cove": {
 		"Name": "Beaver Cove",
 		"AddressCount": 132,
-		"ImportDate": null,
+		"ImportDate": "2020-05-28T18:29:04.4638471Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			85904095
+		],
 		"BlackList": [],
-		"WhiteList": [],
+		"WhiteList": [
+			747797
+		],
 		"BlackTags": [],
 		"IgnoreList": []
 	},
 	"Eastport": {
 		"Name": "Eastport",
 		"AddressCount": 1263,
-		"ImportDate": null,
+		"ImportDate": "2020-05-28T18:53:17.0223907Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			85904905
+		],
 		"BlackList": [],
-		"WhiteList": [],
+		"WhiteList": [
+			422428,
+			290451,
+			452558,
+			281704
+		],
 		"BlackTags": [],
-		"IgnoreList": []
+		"IgnoreList": [
+			407004,
+			346037,
+			412561,
+			412714,
+			452324,
+			455912
+		]
 	},
 	"Freedom": {
 		"Name": "Freedom",
 		"AddressCount": 341,
-		"ImportDate": null,
+		"ImportDate": "2020-05-28T18:55:03.7919016Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			85904975
+		],
 		"BlackList": [],
 		"WhiteList": [],
-		"BlackTags": [],
+		"BlackTags": [
+			"*.name=189A~addr:unit",
+			"*.name=BROWN House",
+			"*.name=Trailer"
+		],
 		"IgnoreList": []
 	},
 	"Soldiertown Twp T2 R7 WELS": {
 		"Name": "Soldiertown Twp T2 R7 WELS",
 		"AddressCount": 12,
-		"ImportDate": null,
+		"ImportDate": "2020-05-28T19:04:01.3968641Z",
 		"Notes": null,
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			85905278
+		],
 		"BlackList": [],
 		"WhiteList": [],
 		"BlackTags": [],
@@ -19240,19 +19276,34 @@
 	"Calais": {
 		"Name": "Calais",
 		"AddressCount": 1031,
-		"ImportDate": null,
+		"ImportDate": "2020-05-28T21:34:04.4719617Z",
 		"Notes": "/nseems like many addresses are located very close to the road even when the buildings are further back. This should be corrected?",
-		"ChangeSetIds": [],
+		"ChangeSetIds": [
+			85909558
+		],
 		"BlackList": [
 			1719262,
 			1719679,
 			1708702,
 			1788310,
 			1714064,
-			1722353
+			1722353,
+			5302496815,
+			297890,
+			287007
 		],
-		"WhiteList": [],
-		"BlackTags": [],
-		"IgnoreList": []
+		"WhiteList": [
+			678890,
+			297481,
+			365673,
+			292331
+		],
+		"BlackTags": [
+			"1880027.building",
+			"455997.building"
+		],
+		"IgnoreList": [
+			297890
+		]
 	}
 }
