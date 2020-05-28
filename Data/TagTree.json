@@ -36,8 +36,7 @@
 	},
 	"shop": {
 		"yes": {
-			"*": {
-			},
+			"*": {},
 			"mall": {
 				"clothes": {},
 				"department_store": {},
@@ -51,7 +50,8 @@
 	"aeroway": {
 		"*": {
 			"aerodrome": {
-				"hangar": {}
+				"hangar": {},
+				"terminal": {}
 			}
 		}
 	},
