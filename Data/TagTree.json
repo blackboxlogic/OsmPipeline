@@ -40,7 +40,9 @@
 			"mall": {
 				"clothes": {},
 				"department_store": {},
-				"craft": {}
+				"craft": {},
+				"variety_store": {},
+				"country_store": {}
 			},
 			"general": {
 				"convenience": {}

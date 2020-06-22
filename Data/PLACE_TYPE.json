@@ -4,7 +4,8 @@
         "building": "supermarket"
     },
     "School": {
-        "building": "school"
+        "building": "school",
+        "amenity": "school"
     },
     "MSCommNet Site": {
         "man_made": "communications_tower"
@@ -55,7 +56,9 @@
     "Park": {
         "leisure": "park"
     },
-    "Law Enforcement - Military": {},
+    "Law Enforcement - Military": {
+        "landuse": "military"
+    },
     "Mixed Use": {},
     "Library": {
         "amenity": "library"
@@ -63,7 +66,6 @@
     "Convience Store": {
         "shop": "convenience"
     },
-    "6": {},
     "EMS Station": {
         "emergency": "ambulance_station"
     },
