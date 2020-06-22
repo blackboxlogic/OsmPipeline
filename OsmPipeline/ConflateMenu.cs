@@ -1,8 +1,8 @@
-﻿using OsmPipeline.Fittings;
+﻿using Microsoft.VisualBasic.CompilerServices;
+using OsmPipeline.Fittings;
 using OsmSharp;
 using OsmSharp.API;
 using OsmSharp.Changesets;
-using OsmSharp.Tags;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -17,7 +17,7 @@ namespace OsmPipeline
 	{
 		public const string maineE911id = "maineE911id";
 		public static Dictionary<string, Municipality> Municipalities;
-		public static HttpClient HttpClient = new HttpClient();
+		public static HttpClient HttpClient = new HttpClient() { Timeout = new TimeSpan(0, 10, 0) };
 	}
 
 	public class ConflateMenu
@@ -43,6 +43,12 @@ namespace OsmPipeline
 		// Maybe fix nodes merging into buildings on elements that I didn't add or update
 		// Maybe review all the names I added?
 		public void Main()
+		{
+			OneOffs.CombineSegments();
+			return;
+		}
+
+		public void DoImportConsole()
 		{
 			Static.Municipalities = FileSerializer.ReadJsonCacheOrSource("MaineMunicipalities.json",
 				GetMunicipalities).Result;
@@ -358,7 +364,8 @@ namespace OsmPipeline
 				}
 				else if (choice == 'B')
 				{
-					Static.Municipalities[Municipality].BlackTags.Add($"*.{key}={value}~building={value.ToLower()}");
+					var newValue = value.ToLower().Replace("building", "").Trim();
+					Static.Municipalities[Municipality].BlackTags.Add($"*.{key}={value}~building={newValue}");
 				}
 				else if (choice == 'M')
 				{

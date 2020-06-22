@@ -38,7 +38,7 @@ namespace OsmPipeline
 
 			var badPhones = OverpassApi.Get(BadPhoneQuery(scope, Tag)).GetElements();
 			var betterPhones = FixPhones(badPhones, Tag, rejector).ToArray();
-			var change = Translate.GeosToChange(null, betterPhones, null, nameof(OsmPipeline));
+			var change = Changes.FromGeos(null, betterPhones, null, nameof(OsmPipeline));
 
 			osmApi.Upload(change);
 		}

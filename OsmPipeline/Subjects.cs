@@ -10,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using System.Linq;
 using System;
 using System.Collections.Generic;
+using System.IO;
 
 namespace OsmPipeline
 {
@@ -93,14 +94,14 @@ namespace OsmPipeline
 			var osmApiClient = new BasicAuthClient(Static.HttpClient,
 				Static.LogFactory.CreateLogger<BasicAuthClient>(), Static.Config["OsmApiUrl"],
 				Static.Config["OsmUsername"], Static.Config["OsmPassword"]);
-			var changeParts = change.Split().ToArray();
+			var changeParts = change.SplitByCount().ToArray();
 			var result = new long[changeParts.Length];
 			int i = 0;
 
 			foreach (var part in changeParts)
 			{
 				if (changeParts.Length > 1) changeTags.AddOrReplace("change-part", $"part {i + 1} of {changeParts.Length}");
-				result[i] = await UploadChangePart(part, changeTags, osmApiClient, description);
+				result[i] = await UploadChangePart(part, changeTags, osmApiClient, $"{description}/Uploaded/");
 				i++;
 			}
 
@@ -114,14 +115,34 @@ namespace OsmPipeline
 			var osmApiClient = new BasicAuthClient(Static.HttpClient,
 				Static.LogFactory.CreateLogger<BasicAuthClient>(), Static.Config["OsmApiUrl"],
 				Static.Config["OsmUsername"], Static.Config["OsmPassword"]);
-			var changeParts = change.Split().ToArray();
+			var changeParts = change.SplitByCount().ToArray();
 			var result = new long[changeParts.Length];
 			int i = 0;
 
 			foreach (var part in changeParts)
 			{
 				if (changeParts.Length > 1) changeTags.AddOrReplace("change-part", $"part {i+1} of {changeParts.Length}");
-				result[i] = await UploadChangePart(part, changeTags, osmApiClient, municipality);
+				result[i] = await UploadChangePart(part, changeTags, osmApiClient, $"{municipality}/Uploaded/");
+				i++;
+			}
+
+			return result;
+		}
+
+		public static async Task<long[]> UploadChange(OsmChange change, TagsCollection changeTags, string pathForFiles)
+		{
+			Log.LogInformation("Uploading change to OSM");
+			var osmApiClient = new BasicAuthClient(Static.HttpClient,
+				Static.LogFactory.CreateLogger<BasicAuthClient>(), Static.Config["OsmApiUrl"],
+				Static.Config["OsmUsername"], Static.Config["OsmPassword"]);
+			var changeParts = change.SplitByCount().ToArray();
+			var result = new long[changeParts.Length];
+			int i = 0;
+
+			foreach (var part in changeParts)
+			{
+				if (changeParts.Length > 1) changeTags.AddOrReplace("change-part", $"part {i + 1} of {changeParts.Length}");
+				result[i] = await UploadChangePart(part, changeTags, osmApiClient, pathForFiles);
 				i++;
 			}
 
@@ -129,13 +150,13 @@ namespace OsmPipeline
 		}
 
 		private static async Task<long> UploadChangePart(this OsmChange part,
-			TagsCollection tags, BasicAuthClient client, string municipality)
+			TagsCollection tags, BasicAuthClient client, string pathForFiles)
 		{
 			var changeSetId = await client.CreateChangeset(tags);
 			Log.LogDebug($"Creating ChangeSet {changeSetId}");
-			FileSerializer.WriteXml($"{municipality}/Uploaded/{changeSetId}-Conflated.osc", part);
+			FileSerializer.WriteXml(Path.Combine(pathForFiles, $"{changeSetId}-Conflated.osc"), part);
 			var diffResult = await client.UploadChangeset(changeSetId, part);
-			FileSerializer.WriteXml($"{municipality}/Uploaded/{changeSetId}-DiffResult.diff", diffResult);
+			FileSerializer.WriteXml(Path.Combine(pathForFiles, $"{changeSetId}-DiffResult.diff"), diffResult);
 			await client.CloseChangeset(changeSetId);
 			Log.LogDebug($"Closing ChangeSet {changeSetId}");
 			return changeSetId;

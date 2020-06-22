@@ -219,7 +219,7 @@ namespace OsmPipeline
 							{
 								var newValue = parts.Length == 4 ? parts[3] : tagValue; // *.name=Apt 1~addr:unit=1
 								element.Tags.AddOrAppend(newKey, newValue);
-								element.Tags.Add(Static.maineE911id + ":" + newKey, "moved from: " + oldKey);
+								element.Tags.AddOrAppend(Static.maineE911id + ":" + newKey, "moved from: " + oldKey);
 							}
 							else
 							{
@@ -274,7 +274,7 @@ namespace OsmPipeline
 				.ToArray();
 			foreach (var address in addresses)
 			{
-				var nearDuplicateSets = GroupCloseNeighbors(address, int.Parse(Static.Config["MatchDistanceKmMin"]));
+				var nearDuplicateSets = GroupCloseNeighbors(address, int.Parse(Static.Config["MatchDistanceMetersMin"]));
 
 				foreach (var nearDuplicateSet in nearDuplicateSets)
 				{
@@ -313,7 +313,7 @@ namespace OsmPipeline
 			return results.ToArray();
 		}
 
-		private static List<List<Node>> GroupCloseNeighbors(Node[] address, double closenessMeters)
+		public static List<List<Node>> GroupCloseNeighbors(Node[] address, double closenessMeters)
 		{
 			var stacks = address.GroupBy(Fittings.Geometry.AsPosition)
 				.Select(stack => new
@@ -604,13 +604,15 @@ namespace OsmPipeline
 			//	return ReplaceTokens(postalCommunity, MUNICIPALITY);
 			//}
 
-			return string.IsNullOrWhiteSpace(town)
-				? ReplaceTokens(postalCommunity, MUNICIPALITY)
-				: ReplaceTokens(town, MUNICIPALITY);
+			// Use TOWN
+			//return string.IsNullOrWhiteSpace(town)
+			//	? ReplaceTokens(postalCommunity, MUNICIPALITY)
+			//	: ReplaceTokens(town, MUNICIPALITY);
 
-			//return string.IsNullOrWhiteSpace(postalCommunity)
-			//	? ReplaceTokens(town, MUNICIPALITY)
-			//	: ReplaceTokens(postalCommunity, MUNICIPALITY);
+			// Use POSTAL COM
+			return string.IsNullOrWhiteSpace(postalCommunity)
+				? ReplaceTokens(town, MUNICIPALITY)
+				: ReplaceTokens(postalCommunity, MUNICIPALITY);
 		}
 
 		private static string ReplaceTokens(string input, Dictionary<string, string> translation)

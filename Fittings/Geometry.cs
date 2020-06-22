@@ -3,8 +3,8 @@ using NetTopologySuite.Geometries;
 using OsmSharp;
 using OsmSharp.API;
 using OsmSharp.Complete;
+using OsmSharp.Db;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -14,7 +14,7 @@ namespace OsmPipeline.Fittings
 	{
 		public static Bounds ExpandBy(this Bounds bounds, double bufferMeters)
 		{
-			if (bufferMeters == 0) return bounds;
+			if (bufferMeters == 0 || bounds == null) return bounds;
 			var bufferLat = (float)DistanceLat(bufferMeters);
 			var approxLat = bounds.MinLatitude.Value;
 			var bufferLon = (float)DistanceLon(bufferMeters, approxLat);
@@ -80,22 +80,76 @@ namespace OsmPipeline.Fittings
 			return "→↗↑↖←↙↓↘"["←↙↓↘→↗↑↖".IndexOf(arrow)];
 		}
 
-		// Dictionary is keys on: OsmGeo.Type.ToString() + element.Id
-		public static ICompleteOsmGeo AsComplete(this OsmGeo parent, Dictionary<string, OsmGeo> possibleChilden)
+		public static ICompleteOsmGeo AsComplete(this OsmGeo parent, IOsmGeoSource possibleChilden)
 		{
-			if (parent is ICompleteOsmGeo done) return done;
+			return parent.CreateComplete(possibleChilden);
+		}
+
+		// Dictionary is keys on: OsmGeo.Type.ToString() + element.Id
+		public static ICompleteOsmGeo AsComplete(this OsmGeo parent, Dictionary<OsmGeoKey, OsmGeo> possibleChilden)
+		{
+			if (parent is ICompleteOsmGeo node) return node;
 			else if (parent is Way way)
 			{
-				return new CompleteWay()
-				{
-					Id = way.Id.Value,
-					Nodes = way.Nodes.Select(n => possibleChilden[OsmGeoType.Node.ToString() + n]).OfType<Node>().ToArray(),
-					Tags = way.Tags
-				};
+				return AsComplete(way, possibleChilden);
 			}
 			else if (parent is Relation relation)
 			{
-				var members = relation.Members
+				return AsComplete(relation, possibleChilden);
+			}
+			throw new Exception("OsmGeo wasn't a Node, Way or Relation.");
+		}
+
+		// Dictionary is keys on: OsmGeo.Type.ToString() + element.Id
+		public static ICompleteOsmGeo AsComplete(this OsmGeo parent, Dictionary<string, OsmGeo> possibleChilden)
+		{
+			if (parent is ICompleteOsmGeo node) return node;
+			else if (parent is Way way)
+			{
+				return AsComplete(way, possibleChilden);
+			}
+			else if (parent is Relation relation)
+			{
+				return AsComplete(relation, possibleChilden);
+			}
+			throw new Exception("OsmGeo wasn't a Node, Way or Relation.");
+		}
+
+		public static CompleteWay AsComplete(this Way way, Dictionary<string, OsmGeo> possibleChilden)
+		{
+			return new CompleteWay()
+			{
+				Id = way.Id.Value,
+				Nodes = way.Nodes.Select(n => possibleChilden[OsmGeoType.Node.ToString() + n]).OfType<Node>().ToArray(),
+				Tags = way.Tags,
+				Version = way.Version,
+				Visible = way.Visible,
+				ChangeSetId = way.ChangeSetId,
+				TimeStamp = way.TimeStamp,
+				UserId = way.UserId,
+				UserName = way.UserName
+			};
+		}
+
+		public static CompleteWay AsComplete(this Way way, Dictionary<OsmGeoKey, OsmGeo> possibleChilden)
+		{
+			return new CompleteWay()
+			{
+				Id = way.Id.Value,
+				Nodes = way.Nodes.Select(n => possibleChilden[new OsmGeoKey(OsmGeoType.Node, n)]).OfType<Node>().ToArray(),
+				Tags = way.Tags,
+				Version = way.Version,
+				Visible = way.Visible,
+				ChangeSetId = way.ChangeSetId,
+				TimeStamp = way.TimeStamp,
+				UserId = way.UserId,
+				UserName = way.UserName
+			};
+		}
+
+		public static CompleteRelation AsComplete(this Relation relation, Dictionary<string, OsmGeo> possibleChilden)
+		{
+			var members = relation.Members
 						.Where(m => possibleChilden.ContainsKey(m.Type.ToString() + m.Id))
 						.Select(m => new CompleteRelationMember()
 						{
@@ -103,17 +157,72 @@ namespace OsmPipeline.Fittings
 							Role = m.Role
 						})
 						.ToArray();
-				return new CompleteRelation()
+			return new CompleteRelation()
+			{
+				Id = relation.Id.Value,
+				Members = members,
+				Tags = relation.Tags,
+				ChangeSetId = relation.ChangeSetId,
+				TimeStamp = relation.TimeStamp,
+				UserId = relation.UserId,
+				UserName = relation.UserName,
+				Version = relation.Version,
+				Visible = relation.Visible
+			};
+		}
+
+		public static CompleteRelation AsComplete(this Relation relation, Dictionary<OsmGeoKey, OsmGeo> possibleChilden)
+		{
+			var members = relation.Members
+				.Where(m => possibleChilden.ContainsKey(new OsmGeoKey(m.Type, m.Id)))
+				.Select(m => new CompleteRelationMember()
 				{
-					Id = relation.Id.Value,
-					Members = members,
-					Tags = relation.Tags
-				};
-			}
-			throw new Exception("OsmGeo wasn't a Node, Way or Relation.");
+					Member = AsComplete(possibleChilden[new OsmGeoKey(m.Type, m.Id)], possibleChilden),
+					Role = m.Role
+				})
+				.ToArray();
+			return new CompleteRelation()
+			{
+				Id = relation.Id.Value,
+				Members = members,
+				Tags = relation.Tags,
+				ChangeSetId = relation.ChangeSetId,
+				TimeStamp = relation.TimeStamp,
+				UserId = relation.UserId,
+				UserName = relation.UserName,
+				Version = relation.Version,
+				Visible = relation.Visible
+			};
+		}
+
+		public static Way AsOsmGeo(this CompleteWay way)
+		{
+			return new Way()
+			{
+				Id = way.Id,
+				Nodes = way.Nodes.Select(n => n.Id.Value).ToArray(),
+				Tags = way.Tags,
+				Version = way.Version,
+				Visible = way.Visible,
+				ChangeSetId = way.ChangeSetId,
+				TimeStamp = way.TimeStamp,
+				UserId = way.UserId,
+				UserName = way.UserName
+			};
+		}
+
+		// Playing with different ways to index elements, this one is the intent of OsmSharp
+		public static IEnumerable<OsmGeo> WithChildren(this IEnumerable<OsmGeo> parents, IOsmGeoSource possibleChilden)
+		{
+			return parents.SelectMany(p => p.WithChildren(possibleChilden));
 		}
 
 		public static IEnumerable<OsmGeo> WithChildren(this IEnumerable<OsmGeo> parents, Dictionary<string, OsmGeo> possibleChilden)
+		{
+			return parents.SelectMany(p => p.WithChildren(possibleChilden));
+		}
+
+		public static IEnumerable<OsmGeo> WithChildren(this IEnumerable<OsmGeo> parents, Dictionary<OsmGeoKey, OsmGeo> possibleChilden)
 		{
 			return parents.SelectMany(p => p.WithChildren(possibleChilden));
 		}
@@ -132,6 +241,51 @@ namespace OsmPipeline.Fittings
 					.SelectMany(m => possibleChilden.TryGetValue(m.Type.ToString() + m.Id, out OsmGeo child)
 						? WithChildren(child, possibleChilden)
 						: Enumerable.Empty<OsmGeo>())
+					.Where(m => m != null)
+					.Append(parent);
+			}
+			throw new Exception("OsmGeo wasn't a Node, Way or Relation.");
+		}
+
+		public static IEnumerable<OsmGeo> WithChildren(this OsmGeo parent, Dictionary<OsmGeoKey, OsmGeo> possibleChilden)
+		{
+			if (parent is Node) return new[] { parent };
+			else if (parent is Way way)
+			{
+				return way.Nodes.Select(n => possibleChilden[new OsmGeoKey(OsmGeoType.Node, n)])
+					.Append(parent);
+			}
+			else if (parent is Relation relation)
+			{
+				return relation.Members
+					.SelectMany(m => possibleChilden.TryGetValue(new OsmGeoKey(m.Type, m.Id), out OsmGeo child)
+						? WithChildren(child, possibleChilden)
+						: Enumerable.Empty<OsmGeo>())
+					.Where(m => m != null)
+					.Append(parent);
+			}
+			throw new Exception("OsmGeo wasn't a Node, Way or Relation.");
+		}
+
+		// Needs to prevent infinite recusion using a reference id exclusion listS
+		public static IEnumerable<OsmGeo> WithChildren(this OsmGeo parent, IOsmGeoSource possibleChilden)
+		{
+			if (parent is Node) return new[] { parent };
+			else if (parent is Way way)
+			{
+				return way.Nodes.Select(n => possibleChilden.Get(OsmGeoType.Node, n))
+					.Append(parent);
+			}
+			else if (parent is Relation relation)
+			{
+				return relation.Members
+					.SelectMany(m =>
+					{
+						var child = possibleChilden.Get(m.Type, m.Id);
+						return child != null
+							? WithChildren(child, possibleChilden)
+							: Enumerable.Empty<OsmGeo>();
+					})
 					.Where(m => m != null)
 					.Append(parent);
 			}
@@ -282,11 +436,12 @@ namespace OsmPipeline.Fittings
 		public static Bounds AsBounds(this IEnumerable<ICompleteOsmGeo> elements)
 		{
 			var allBounds = elements.Select(e => e.AsBounds()).ToArray();
+			if (!allBounds.Any()) return null;
 			return new Bounds() {
-				MaxLatitude = (float)allBounds.Max(n => n.MaxLatitude),
-				MinLatitude = (float)allBounds.Min(n => n.MinLatitude),
-				MaxLongitude = (float)allBounds.Max(n => n.MaxLongitude),
-				MinLongitude = (float)allBounds.Min(n => n.MinLongitude)
+				MaxLatitude = allBounds.Max(n => n.MaxLatitude),
+				MinLatitude = allBounds.Min(n => n.MinLatitude),
+				MaxLongitude = allBounds.Max(n => n.MaxLongitude),
+				MinLongitude = allBounds.Min(n => n.MinLongitude)
 			};
 		}
 
@@ -356,6 +511,20 @@ namespace OsmPipeline.Fittings
 			}
 		}
 
+		public static Node[] AsNodes(this ICompleteOsmGeo element)
+		{
+			if (element is Node node) return new[] { node };
+			else if (element is CompleteWay way)
+			{
+				return way.Nodes;
+			}
+			else if (element is CompleteRelation relation)
+			{
+				return relation.Members.SelectMany(m => AsNodes(m.Member)).ToArray();
+			}
+			throw new Exception("element wasn't a node, way or relation");
+		}
+
 		public static Position AsPosition(this ICompleteOsmGeo element)
 		{
 			if (element is Node node) return new Position(node.Longitude.Value, node.Latitude.Value);
@@ -371,6 +540,16 @@ namespace OsmPipeline.Fittings
 				return new Position(positions.Average(n => n.Longitude), positions.Average(n => n.Latitude));
 			}
 			throw new Exception("element wasn't a node, way or relation");
+		}
+
+		public static double MaxDistanceMeters(Position from, ICompleteOsmGeo to)
+		{
+			return to.AsNodes().Max(n => DistanceMeters(n.AsPosition(), from));
+		}
+
+		public static double MinDistanceMeters(Position from, ICompleteOsmGeo to)
+		{
+			return to.AsNodes().Min(n => DistanceMeters(n.AsPosition(), from));
 		}
 
 		public static double DistanceMeters(ICompleteOsmGeo left, ICompleteOsmGeo right)
@@ -413,6 +592,38 @@ namespace OsmPipeline.Fittings
 		public static bool IsOpenWay(OsmGeo subject)
 		{
 			return subject is Way subWay2 && subWay2.Nodes.First() != subWay2.Nodes.Last();
+		}
+
+		public static List<List<OsmGeo>> GroupCloseNeighbors(OsmGeo[] elements, double closenessMeters, IOsmGeoSource index, bool all = true)
+		{
+			var stacks = elements.GroupBy(a => a.AsComplete(index).AsPosition())
+				.Select(stack => new
+				{
+					positions = new List<Position> { stack.Key },
+					nodes = stack.ToList()
+				})
+				.ToList();
+			// Combine groups when everything in them is close to everything in another group.
+			for (int i = 0; i < stacks.Count - 1; i++)
+			{
+				for (int j = i + 1; j < stacks.Count; j++)
+				{
+					var maybeMergeable = all ?
+						stacks[i].positions.SelectMany(l => stacks[j].positions, DistanceMeters)
+							.All(d => d < closenessMeters)
+						: stacks[i].positions.SelectMany(l => stacks[j].positions, DistanceMeters)
+							.Any(d => d < closenessMeters);
+					if (maybeMergeable)
+					{
+						stacks[i].positions.AddRange(stacks[j].positions);
+						stacks[i].nodes.AddRange(stacks[j].nodes);
+						stacks.RemoveAt(j);
+						j--;
+					}
+				}
+			}
+
+			return stacks.Select(g => g.nodes).ToList();
 		}
 	}
 }

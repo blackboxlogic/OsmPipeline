@@ -1,6 +1,7 @@
 ﻿using OsmSharp;
 using OsmSharp.API;
 using OsmSharp.Changesets;
+using OsmSharp.Db;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -46,20 +47,6 @@ namespace OsmPipeline.Fittings
 				.SelectMany(a => a);
 		}
 
-		public static OsmChange GeosToChange(IEnumerable<OsmGeo> create, IEnumerable<OsmGeo> modify,
-			IEnumerable<OsmGeo> delete, string generator = null, double? version = .6)
-		{
-			return new OsmChange()
-			{
-				Generator = generator,
-				Version = version,
-				Create = create?.ToArray(),
-				Modify = modify?.ToArray(),
-				Delete = delete?.ToArray(),
-				// License, Attribution, and Copyright are not used by the API.
-			};
-		}
-
 		public static Osm AsOsm(this IEnumerable<OsmGeo> elements, string generator = null, double? version = .6)
 		{
 			return new Osm()
@@ -96,64 +83,7 @@ namespace OsmPipeline.Fittings
 			};
 		}
 
-		// Shouldn't matter for address import, but if API generates errors then the elements might need to be re-ordered (nodes -> ways -> relations)
-		public static IEnumerable<OsmChange> Split(this OsmChange change, int maxPieceSize = 10_000)
-		{
-			if (change.GetElements().Count() <= maxPieceSize)
-			{
-				yield return change;
-				yield break;
-			}
-			if (change.Create.Any())
-			{
-				foreach (var chunk in change.Create.AsChunks(maxPieceSize))
-				{
-					var clone = change.EmptyClone();
-					clone.Create = chunk;
-					yield return clone;
-				}
-			}
-			if (change.Modify.Any())
-			{
-				foreach (var chunk in change.Modify.AsChunks(maxPieceSize))
-				{
-					var clone = change.EmptyClone();
-					clone.Modify = chunk;
-					yield return clone;
-				}
-			}
-			if (change.Delete.Any())
-			{
-				foreach (var chunk in change.Delete.AsChunks(maxPieceSize))
-				{
-					var clone = change.EmptyClone();
-					clone.Delete = chunk;
-					yield return clone;
-				}
-			}
-		}
-
-		private static OsmChange EmptyClone(this OsmChange change)
-		{
-			return new OsmChange()
-			{
-				Attribution = change.Attribution,
-				Copyright = change.Copyright,
-				Generator = change.Generator,
-				License = change.License,
-				Version = change.Version
-			};
-		}
-
-		private static IEnumerable<T[]> AsChunks<T>(this IEnumerable<T> elements, int chunkSize)
-		{
-			for (int chunk = 0; chunk * chunkSize < elements.Count(); chunk++)
-			{
-				yield return elements.Skip(chunk * chunkSize).Take(chunkSize).ToArray();
-			}
-		}
-
-		private static IEnumerable<T> DistinctBy<T, K>(this IEnumerable<T> elements, Func<T, K> id)
+		public static IEnumerable<T> DistinctBy<T, K>(this IEnumerable<T> elements, Func<T, K> id)
 		{
 			var keySet = new HashSet<K>();
 			var valueSet = new List<T>();
@@ -167,6 +97,26 @@ namespace OsmPipeline.Fittings
 				}
 			}
 			return valueSet;
+		}
+
+		public static Dictionary<K, T[]> ToDictionary<T, K>(this IEnumerable<IGrouping<K, T>> groups)
+		{
+			return groups.ToDictionary(g => g.Key, g => g.ToArray());
+		}
+
+		public static Dictionary<K, int> GroupCount<T, K>(this IEnumerable<T> elements, Func<T, K> selector)
+		{
+			return elements.GroupBy(selector).ToDictionary(g => g.Key, g => g.Count());
+		}
+
+		public static Dictionary<T, int> GroupCount<T>(this IEnumerable<T> elements)
+		{
+			return elements.GroupBy(a => a).ToDictionary(g => g.Key, g => g.Count());
+		}
+
+		public static Dictionary<T, K> ToDictionary<T, K>(this IEnumerable<KeyValuePair<T, K>> elements)
+		{
+			return elements.ToDictionary(kvp => kvp.Key, kvp => kvp.Value);
 		}
 	}
 }

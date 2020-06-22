@@ -53,7 +53,7 @@ namespace OsmPipeline
 			WriteToFileWithChildrenIfAny(scopeName + "/Conflated.Modify.osm", modify, subjectElementIndex);
 
 			RemoveReviewTags(create, delete, modify);
-			var change = Translate.GeosToChange(create, modify, delete, "OsmPipeline");
+			var change = Changes.FromGeos(create, modify, delete, "OsmPipeline");
 			LogSummary(change, review);
 
 			return change;
@@ -252,6 +252,7 @@ namespace OsmPipeline
 		private static void MergeNodesByTags(string[] searchKeys, ElementIndex subjectElementIndex,
 			List<long> whiteList, List<OsmGeo> create, List<OsmGeo> modify)
 		{
+			var matchedBy = string.Join(";", searchKeys.Select(k => k.Replace("addr:", ""))) + " to ";
 			var candidateReferenceElements = create.Where(e => searchKeys.All(sk => e.Tags.ContainsKey(sk))).Cast<Node>().ToArray();
 
 			foreach (var referenceElement in candidateReferenceElements)
@@ -278,7 +279,7 @@ namespace OsmPipeline
 					{
 						if (matchDistances.Any(matchDistance =>
 							!WouldMergeTagsHaveAnyEffect(referenceElement, matchDistance.element, whiteList.Contains(Math.Abs(referenceElement.Id.Value)))
-								&& matchDistance.distance <= int.Parse(Static.Config["MatchDistanceKmMaz"])))
+								&& matchDistance.distance <= int.Parse(Static.Config["MatchDistanceMetersMax"])))
 						{
 							referenceElement.Tags.AddOrAppend(InfoKey, "Multiple matches, but didn't have anything new to add");
 							create.Remove(referenceElement);
@@ -293,9 +294,9 @@ namespace OsmPipeline
 					{
 						var closestMatch = matchDistances.First();
 						var subjectElement = closestMatch.element;
-						referenceElement.Tags.AddOrAppend(Static.maineE911id + ":matched", string.Join(";", searchKeys) + " to " + Identify(referenceElement));
+						referenceElement.Tags.AddOrAppend(Static.maineE911id + ":matched", matchedBy + Identify(subjectElement));
 
-						if (closestMatch.distance > int.Parse(Static.Config["MatchDistanceKmMaz"])
+						if (closestMatch.distance > int.Parse(Static.Config["MatchDistanceMetersMax"])
 							&& !Geometry.IsNodeInBuilding(referenceElement, closestMatch.complete)
 							&& !whiteList.Contains(Math.Abs(referenceElement.Id.Value)))
 						{
@@ -387,7 +388,7 @@ namespace OsmPipeline
 
 					try
 					{
-						node.Tags.AddOrAppend(Static.maineE911id + ":matched", "geometry" + " to " + Identify(node));
+						node.Tags.AddOrAppend(Static.maineE911id + ":matched", "geometry" + " to " + Identify(building));
 
 						if (building.Tags.Contains("gnis:reviewed", "no") || building.Tags.ContainsKey("fixme"))
 						{
@@ -578,7 +579,7 @@ namespace OsmPipeline
 
 			if (subject.Tags.Contains(Static.maineE911id + ":addr:unit", "added") // Added a unit to something with a name
 				&& subject.Tags.ContainsKey("name")
-				&& !subject.Tags.Contains(Static.maineE911id + "name", "added"))
+				&& !subject.Tags.Contains(Static.maineE911id + ":name", "added"))
 			{
 				conflicts.Add("Added a unit to a place with a name");
 			}

@@ -9,8 +9,8 @@
     <PackageReference Include="GeoJSON" Version="2.1.0" />
     <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="2.2.0" />
     <PackageReference Include="NetTopologySuite" Version="2.0.0" />
-    <PackageReference Include="OsmApiClient" Version="0.0.3" />
-    <PackageReference Include="OsmSharp" Version="7.0.0-pre006" />
+    <PackageReference Include="OsmApiClient" Version="0.0.5" />
+    <PackageReference Include="OsmSharp" Version="7.0.0-pre014" />
   </ItemGroup>
 
   <ItemGroup>
