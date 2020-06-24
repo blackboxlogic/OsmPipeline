@@ -116,72 +116,21 @@ namespace OsmPipeline
 			FileSerializer.WriteXml("Touchers.osm", touchers);
 		}
 
-		public static void CombineSegments()
-		{
-			var osm = OpenFile(@"C:\Users\Alex\Downloads\Franklin_Full_Street_Name_simplified.osm").ToArray();
-			var index = OsmSharp.Db.Impl.Extensions.CreateSnapshotDb(new MemorySnapshotDb(osm));
-			var highways = osm.OfType<Way>()
-				.Where(w => w.Tags != null && w.Tags.ContainsKey("highway") && w.Tags.ContainsKey("name")).ToHashSet();
-			var highwaysGrouped = highways.GroupBy(h => h.Tags["name"]);
-			var doneNames = new HashSet<string>();
-
-			restart: // gross but effective
-			var highwaysByNames = highwaysGrouped.Where(g => g.Count() > 1 && !doneNames.Contains(g.Key));
-
-			foreach (var byName in highwaysByNames)
-			{
-				var ends = byName.SelectMany(highway => new[] { highway.Nodes.First(), highway.Nodes.Last() }.Select(node => new { node, highway }))
-					.GroupBy(nh => nh.node).Select(g => g.Select(gw => gw.highway).Distinct());
-
-				var intersection = ends.FirstOrDefault(g => g.Count() > 1)?.ToArray();
-				if (intersection != null)
-				{
-					CombineSegments(intersection[0], intersection[1]);
-					highways.Remove(intersection[1]);
-					goto restart;
-				}
-				else
-				{
-					doneNames.Add(byName.Key);
-				}
-			}
-
-			FileSerializer.WriteXml("Touchers.osm", highways.WithChildren(index).AsOsm());
-		}
-
-		private static void CombineSegments(Way subject, Way reference)
-		{
-			if (!subject.Tags.Equals(reference.Tags)) throw new Exception("these tags are different, can't merge ways");
-
-			if (subject.Nodes.Last() == reference.Nodes.First())
-			{
-				subject.Nodes = subject.Nodes.Concat(reference.Nodes.Skip(1)).ToArray();
-			}
-			else if (subject.Nodes.Last() == reference.Nodes.Last())
-			{
-				if (reference.Tags != null && reference.Tags.ContainsKey("oneway")) throw new Exception("Reversing a oneway");
-				subject.Nodes = subject.Nodes.Concat(reference.Nodes.Reverse().Skip(1)).ToArray();
-			}
-			else if (subject.Nodes.First() == reference.Nodes.Last())
-			{
-				subject.Nodes = reference.Nodes.Concat(subject.Nodes.Skip(1)).ToArray();
-			}
-			else if (subject.Nodes.First() == reference.Nodes.First())
-			{
-				if (reference.Tags != null && reference.Tags.ContainsKey("oneway")) throw new Exception("Reversing a oneway");
-				subject.Nodes = reference.Nodes.Reverse().Concat(subject.Nodes.Skip(1)).ToArray();
-			}
-			else
-			{
-				throw new Exception("Ways are not end-to-end, and can't be combined");
-			}
-		}
-
 		private static bool EndsAreTouching(Way a, Way b)
 		{
 			var aEnds = new [] { a.Nodes.First(), a.Nodes.Last() };
 			var bEnds = new [] { b.Nodes.First(), b.Nodes.Last() };
 			return aEnds.Intersect(bEnds).Any();
+		}
+
+		public static void CombineSegments()
+		{
+			var osm = OpenFile(@"C:\Users\Alex\Downloads\Franklin_Full_Street_Name_simplified.osm").ToArray();
+			var index = OsmSharp.Db.Impl.Extensions.CreateSnapshotDb(new MemorySnapshotDb(osm));
+			var highways = osm.OfType<Way>()
+				.Where(w => w.Tags != null && w.Tags.ContainsKey("highway") && w.Tags.ContainsKey("name")).ToArray();
+			var highwaysWithChildren = Geometry.CombineSegments(highways).WithChildren(index);
+			FileSerializer.WriteXml("Touchers.osm", highwaysWithChildren.AsOsm());
 		}
 
 		public static void SummarizeKeys()

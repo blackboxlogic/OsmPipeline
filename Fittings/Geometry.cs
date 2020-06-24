@@ -4,6 +4,7 @@ using OsmSharp;
 using OsmSharp.API;
 using OsmSharp.Complete;
 using OsmSharp.Db;
+using OsmSharp.Tags;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -624,6 +625,66 @@ namespace OsmPipeline.Fittings
 			}
 
 			return stacks.Select(g => g.nodes).ToList();
+		}
+
+		public static Way[] CombineSegments(Way[] ways, string idKey = null)
+		{
+			var highways = new HashSet<Way>(ways);
+
+			var highwaysGrouped = highways.GroupBy(h => new TagsCollection(h.Tags.Where(t => idKey != t.Key)));
+			var doneNames = new HashSet<TagsCollection>();
+
+			restart: // gross but effective
+			var highwaysByNames = highwaysGrouped.Where(g => g.Count() > 1 && !doneNames.Contains(g.Key));
+
+			foreach (var byName in highwaysByNames)
+			{
+				var ends = byName.SelectMany(highway => new[] { highway.Nodes.First(), highway.Nodes.Last() }.Select(node => new { node, highway }))
+					.GroupBy(nh => nh.node).Select(g => g.Select(gw => gw.highway).Distinct());
+
+				var intersection = ends.FirstOrDefault(g => g.Count() > 1)?.ToArray();
+				if (intersection != null)
+				{
+					CombineSegments(intersection[0], intersection[1]);
+					highways.Remove(intersection[1]);
+					if (idKey != null) intersection[0].Tags.AddOrAppend(idKey, intersection[1].Tags[idKey]);
+					goto restart;
+				}
+				else
+				{
+					doneNames.Add(byName.Key);
+				}
+			}
+
+			return highways.ToArray();
+		}
+
+		public static void CombineSegments(Way subject, Way reference)
+		{
+			if (!subject.Tags.Equals(reference.Tags)) throw new Exception("these tags are different, can't merge ways");
+
+			if (subject.Nodes.Last() == reference.Nodes.First())
+			{
+				subject.Nodes = subject.Nodes.Concat(reference.Nodes.Skip(1)).ToArray();
+			}
+			else if (subject.Nodes.Last() == reference.Nodes.Last())
+			{
+				if (reference.Tags != null && reference.Tags.ContainsKey("oneway")) throw new Exception("Reversing a oneway");
+				subject.Nodes = subject.Nodes.Concat(reference.Nodes.Reverse().Skip(1)).ToArray();
+			}
+			else if (subject.Nodes.First() == reference.Nodes.Last())
+			{
+				subject.Nodes = reference.Nodes.Concat(subject.Nodes.Skip(1)).ToArray();
+			}
+			else if (subject.Nodes.First() == reference.Nodes.First())
+			{
+				if (reference.Tags != null && reference.Tags.ContainsKey("oneway")) throw new Exception("Reversing a oneway");
+				subject.Nodes = reference.Nodes.Reverse().Concat(subject.Nodes.Skip(1)).ToArray();
+			}
+			else
+			{
+				throw new Exception("Ways are not end-to-end, and can't be combined");
+			}
 		}
 	}
 }
