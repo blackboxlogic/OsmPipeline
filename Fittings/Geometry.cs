@@ -1,7 +1,6 @@
 ﻿using BAMCIS.GeoJSON;
 using NetTopologySuite.Geometries;
 using OsmSharp;
-using OsmSharp.API;
 using OsmSharp.Complete;
 using OsmSharp.Db;
 using OsmSharp.Tags;
@@ -13,56 +12,6 @@ namespace OsmPipeline.Fittings
 {
 	public static class Geometry
 	{
-		public static Bounds ExpandBy(this Bounds bounds, double bufferMeters)
-		{
-			if (bufferMeters == 0 || bounds == null) return bounds;
-			var bufferLat = (float)DistanceLat(bufferMeters);
-			var approxLat = bounds.MinLatitude.Value;
-			var bufferLon = (float)DistanceLon(bufferMeters, approxLat);
-
-			return new Bounds()
-			{
-				MaxLatitude = bounds.MaxLatitude + bufferLat,
-				MinLatitude = bounds.MinLatitude - bufferLat,
-				MaxLongitude = bounds.MaxLongitude + bufferLon,
-				MinLongitude = bounds.MinLongitude - bufferLon
-			};
-		}
-
-		public static Bounds[] Quarter(this Bounds bounds)
-		{
-			var halfLat = (bounds.MaxLatitude + bounds.MinLatitude) / 2;
-			var halfLon = (bounds.MaxLongitude + bounds.MinLongitude) / 2;
-			return new[] {new Bounds()
-			{
-				MaxLatitude = bounds.MaxLatitude,
-				MaxLongitude = bounds.MaxLongitude,
-				MinLatitude = halfLat,
-				MinLongitude = halfLon
-			},
-			new Bounds()
-			{
-				MaxLatitude = halfLat,
-				MaxLongitude = halfLon,
-				MinLatitude = bounds.MinLatitude,
-				MinLongitude = bounds.MinLongitude
-			},
-			new Bounds()
-			{
-				MaxLatitude = bounds.MaxLatitude,
-				MaxLongitude = halfLon,
-				MinLatitude = halfLat,
-				MinLongitude = bounds.MinLongitude
-			},
-			new Bounds()
-			{
-				MaxLatitude = halfLat,
-				MaxLongitude = bounds.MaxLongitude,
-				MinLatitude = bounds.MinLatitude,
-				MinLongitude = halfLon
-			} };
-		}
-
 		public static string GetDistanceAndDirectionArrow(Position from, Position to)
 		{
 			return (int)DistanceMeters(from, to) + "m" + GetDirectionArrow(from, to);
@@ -332,7 +281,7 @@ namespace OsmPipeline.Fittings
 			foreach (var building in buildings)
 			{
 				var bounds = building.AsBounds().ExpandBy(1); // 1 because we loose precision from double to float
-				var candidates = FastNodesInBounds(bounds, byLat, byLon);
+				var candidates = bounds.FastNodesInBounds(byLat, byLon);
 				var inners = candidates.Where(n => n.Id != building.Id && IsNodeInBuilding(n, building)).ToList();
 				if (inners.Any()) result.Add(building, inners);
 			}
@@ -371,7 +320,7 @@ namespace OsmPipeline.Fittings
 			foreach (var subject in subjects)
 			{
 				var bounds = subject.AsBounds().ExpandBy(withinMeters);
-				var candidates = FastNodesInBounds(bounds, byLat, byLon)
+				var candidates = bounds.FastNodesInBounds(byLat, byLon)
 					.Select(reference => new Edge() { Reference = reference, Subject = subject })
 					.Where(edge => edge.Distance <= withinMeters && edge.Subject.Id != edge.Reference.Id);
 				edges.AddRange(candidates);
@@ -395,88 +344,6 @@ namespace OsmPipeline.Fittings
 			{
 				return string.Join(" ", Reference.Id, Subject.Id, distance);
 			}
-		}
-
-		private static IEnumerable<Node> FastNodesInBounds(Bounds bounds, SortedList<double, Node[]> byLat, SortedList<double, Node[]> byLon)
-		{
-			var subLat = SeekIndexRange(byLat, bounds.MinLatitude.Value, bounds.MaxLatitude.Value);
-			var subLon = SeekIndexRange(byLon, bounds.MinLongitude.Value, bounds.MaxLongitude.Value);
-			return subLat.Intersect(subLon);
-		}
-
-		private static IEnumerable<Node> SeekIndexRange(SortedList<double, Node[]> list, float minKey, float maxKey)
-		{
-			int minIndex = 0;
-			int maxIndex = list.Keys.Count;
-			int mid = (maxIndex + minIndex) / 2;
-
-			while (mid != minIndex && (list.Keys[mid] < minKey || list.Keys[mid -1] >= minKey))
-			{
-				if (list.Keys[mid] < minKey)
-				{
-					minIndex = mid;
-					mid = (maxIndex + minIndex) / 2;
-				}
-				else if (list.Keys[mid - 1] >= minKey)
-				{
-					maxIndex = mid;
-					mid = (maxIndex + minIndex) / 2;
-				}
-				else
-				{
-					mid--;
-				}
-			}
-
-			minIndex = mid;
-			int count = list.Keys.Skip(mid).TakeWhile(e => e <= maxKey).Count();
-			var subValues = list.Values.Skip(mid).Take(count).SelectMany(n => n);
-			return subValues;
-		}
-
-		public static Bounds AsBounds(this IEnumerable<ICompleteOsmGeo> elements)
-		{
-			var allBounds = elements.Select(e => e.AsBounds()).ToArray();
-			if (!allBounds.Any()) return null;
-			return new Bounds() {
-				MaxLatitude = allBounds.Max(n => n.MaxLatitude),
-				MinLatitude = allBounds.Min(n => n.MinLatitude),
-				MaxLongitude = allBounds.Max(n => n.MaxLongitude),
-				MinLongitude = allBounds.Min(n => n.MinLongitude)
-			};
-		}
-
-		public static Bounds AsBounds(this ICompleteOsmGeo element)
-		{
-			if (element is Node node)
-			{
-				return new Bounds() {
-					MaxLatitude = (float)node.Latitude,
-					MinLatitude = (float)node.Latitude,
-					MaxLongitude = (float)node.Longitude,
-					MinLongitude = (float)node.Longitude
-				};
-			}
-			else if (element is CompleteWay way)
-			{
-				return new Bounds() {
-					MaxLatitude = (float)way.Nodes.Max(n => n.Latitude),
-					MinLatitude = (float)way.Nodes.Min(n => n.Latitude),
-					MaxLongitude = (float)way.Nodes.Max(n => n.Longitude),
-					MinLongitude = (float)way.Nodes.Min(n => n.Longitude)
-				};
-			}
-			else if (element is CompleteRelation relation)
-			{
-				var allBounds = relation.Members.Select(m => AsBounds(m.Member));
-				return new Bounds() {
-					MaxLatitude = (float)allBounds.Max(n => n.MaxLatitude),
-					MinLatitude = (float)allBounds.Min(n => n.MinLatitude),
-					MaxLongitude = (float)allBounds.Max(n => n.MaxLongitude),
-					MinLongitude = (float)allBounds.Min(n => n.MinLongitude)
-				};
-			}
-			throw new Exception("element wasn't a node, way or relation");
 		}
 
 		public static bool IsNodeInBuilding(Node node, ICompleteOsmGeo building)
@@ -677,6 +544,69 @@ namespace OsmPipeline.Fittings
 				subject.Nodes = reference.Nodes.Concat(subject.Nodes.Skip(1)).ToArray();
 			}
 			else if (subject.Nodes.First() == reference.Nodes.First())
+			{
+				if (reference.Tags != null && reference.Tags.ContainsKey("oneway")) throw new Exception("Reversing a oneway");
+				subject.Nodes = reference.Nodes.Reverse().Concat(subject.Nodes.Skip(1)).ToArray();
+			}
+			else
+			{
+				throw new Exception("Ways are not end-to-end, and can't be combined");
+			}
+		}
+
+		public static CompleteWay[] CombineSegments(CompleteWay[] ways)
+		{
+			var highways = new HashSet<CompleteWay>(ways);
+
+			var ise = new TagsCollection(new Tag("a", "a"), new Tag("b", "b"));
+			var ise2 = new TagsCollection(new Tag("b", "b"), new Tag("a", "a"));
+			var yep = ise == ise2;
+
+			var highwaysGrouped = highways.GroupBy(h => h.Tags);
+			var doneNames = new HashSet<TagsCollectionBase>();
+
+			restart: // gross but effective
+			var highwaysByNames = highwaysGrouped.Where(g => g.Count() > 1 && !doneNames.Contains(g.Key));
+
+			foreach (var byName in highwaysByNames)
+			{
+				var ends = byName.SelectMany(highway => new[] { highway.Nodes.First(), highway.Nodes.Last() }.Select(node => new { node, highway }))
+					.GroupBy(nh => nh.node).Select(g => g.Select(gw => gw.highway).Distinct());
+
+				var intersection = ends.FirstOrDefault(g => g.Count() > 1)?.ToArray();
+				if (intersection != null)
+				{
+					CombineSegments(intersection[0], intersection[1]);
+					highways.Remove(intersection[1]);
+					goto restart;
+				}
+				else
+				{
+					doneNames.Add(byName.Key);
+				}
+			}
+
+			return highways.ToArray();
+		}
+
+		public static void CombineSegments(CompleteWay subject, CompleteWay reference)
+		{
+			if (!subject.Tags.Equals(reference.Tags)) throw new Exception("these tags are different, can't merge ways");
+
+			if (subject.Nodes.Last().Id == reference.Nodes.First().Id)
+			{
+				subject.Nodes = subject.Nodes.Concat(reference.Nodes.Skip(1)).ToArray();
+			}
+			else if (subject.Nodes.Last().Id == reference.Nodes.Last().Id)
+			{
+				if (reference.Tags != null && reference.Tags.ContainsKey("oneway")) throw new Exception("Reversing a oneway");
+				subject.Nodes = subject.Nodes.Concat(reference.Nodes.Reverse().Skip(1)).ToArray();
+			}
+			else if (subject.Nodes.First().Id == reference.Nodes.Last().Id)
+			{
+				subject.Nodes = reference.Nodes.Concat(subject.Nodes.Skip(1)).ToArray();
+			}
+			else if (subject.Nodes.First().Id == reference.Nodes.First().Id)
 			{
 				if (reference.Tags != null && reference.Tags.ContainsKey("oneway")) throw new Exception("Reversing a oneway");
 				subject.Nodes = reference.Nodes.Reverse().Concat(subject.Nodes.Skip(1)).ToArray();
