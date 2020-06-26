@@ -189,5 +189,18 @@ namespace OsmPipeline.Fittings
 		{
 			return left.Count == right.Count && left.All(l => right.Contains(l));
 		}
+
+		public class TagsCollectionComparer : EqualityComparer<TagsCollectionBase>
+		{
+			public override bool Equals(TagsCollectionBase x, TagsCollectionBase y)
+			{
+				return AreEqual(x, y);
+			}
+
+			public override int GetHashCode(TagsCollectionBase obj)
+			{
+				return obj.Sum(t => t.Key.GetHashCode() + t.Value.GetHashCode());
+			}
+		}
 	}
 }

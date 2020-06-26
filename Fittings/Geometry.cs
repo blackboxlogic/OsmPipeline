@@ -7,6 +7,7 @@ using OsmSharp.Tags;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using static OsmPipeline.Fittings.Tags;
 
 namespace OsmPipeline.Fittings
 {
@@ -557,12 +558,7 @@ namespace OsmPipeline.Fittings
 		public static CompleteWay[] CombineSegments(CompleteWay[] ways)
 		{
 			var highways = new HashSet<CompleteWay>(ways);
-
-			var ise = new TagsCollection(new Tag("a", "a"), new Tag("b", "b"));
-			var ise2 = new TagsCollection(new Tag("b", "b"), new Tag("a", "a"));
-			var yep = ise == ise2;
-
-			var highwaysGrouped = highways.GroupBy(h => h.Tags);
+			var highwaysGrouped = highways.GroupBy(h => h.Tags, TagsCollectionComparer.Default);
 			var doneNames = new HashSet<TagsCollectionBase>();
 
 			restart: // gross but effective

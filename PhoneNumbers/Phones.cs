@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using static OsmPipeline.Fittings.OverpassQuery;
 
-namespace OsmPipeline
+namespace OsmPipeline.PhoneNumbers
 {
 	public static class Phones
 	{

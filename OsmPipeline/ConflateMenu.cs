@@ -1,5 +1,4 @@
-﻿using Microsoft.VisualBasic.CompilerServices;
-using OsmPipeline.Fittings;
+﻿using OsmPipeline.Fittings;
 using OsmSharp;
 using OsmSharp.API;
 using OsmSharp.Changesets;
@@ -41,14 +40,7 @@ namespace OsmPipeline
 		// Maybe fix addr:street punctuation on elements that I didn't add or update
 		// Maybe fix addr:street should be addr:place on elements that I didn't add or update
 		// Maybe fix nodes merging into buildings on elements that I didn't add or update
-		// Maybe review all the names I added?
 		public void Main()
-		{
-			OneOffs.CombineSegments();
-			return;
-		}
-
-		public void DoImportConsole()
 		{
 			Static.Municipalities = FileSerializer.ReadJsonCacheOrSource("MaineMunicipalities.json",
 				GetMunicipalities).Result;
