@@ -4,6 +4,7 @@ using System.Linq;
 using OsmPipeline.Fittings;
 using OsmSharp.API;
 using OsmSharp.Complete;
+using OsmSharp.Db.Impl;
 using OsmSharp.Streams;
 
 namespace MaineRoads
@@ -12,16 +13,19 @@ namespace MaineRoads
 	{
 		public static string[] Generate()
 		{
-			// fetch
 			var osm = FileSerializer.ReadXml<Osm>(@"C:\Users\Alex\Desktop\Maine_E911_Roads-shp\Maine_E911_Roads.osm");
 			var translated = Translate(osm);
 			var combined = Geometry.CombineSegments(translated);
-			var split = combined.SliceRecusive(100).ToArray();
-			var splitt = combined.SliceRecusive(1000).ToArray();
-			// translate
-			// simplify
-			// slice by TOWN
-			// Create JOSM session files
+			var slices = combined.SliceRecusive(1000).ToArray();
+
+			var index = OsmSharp.Db.Impl.Extensions.CreateSnapshotDb(new MemorySnapshotDb(osm.GetElements()));
+			var firstSlice = slices[0].Select(e => e.ToSimple()).WithChildren(index).AsOsm();
+			FileSerializer.WriteXml("firstSlice.osm", firstSlice);
+			//foreach (var slice in slices)
+			//{
+			//	// Create JOSM session files
+			//}
+
 			// recruit/discuss
 			return null;
 		}

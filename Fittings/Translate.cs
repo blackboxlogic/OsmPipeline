@@ -99,9 +99,9 @@ namespace OsmPipeline.Fittings
 			return valueSet;
 		}
 
-		public static Dictionary<K, T[]> ToDictionary<T, K>(this IEnumerable<IGrouping<K, T>> groups)
+		public static Dictionary<K, V[]> ToDictionary<K, V>(this IEnumerable<IGrouping<K, V>> groups, IEqualityComparer<K> equalityComparer = null)
 		{
-			return groups.ToDictionary(g => g.Key, g => g.ToArray());
+			return groups.ToDictionary(g => g.Key, g => g.ToArray(), equalityComparer);
 		}
 
 		public static Dictionary<K, int> GroupCount<T, K>(this IEnumerable<T> elements, Func<T, K> selector)
@@ -114,9 +114,14 @@ namespace OsmPipeline.Fittings
 			return elements.GroupBy(a => a).ToDictionary(g => g.Key, g => g.Count());
 		}
 
-		public static Dictionary<T, K> ToDictionary<T, K>(this IEnumerable<KeyValuePair<T, K>> elements)
+		public static Dictionary<K, V> ToDictionary<K, V>(this IEnumerable<KeyValuePair<K, V>> elements, IEqualityComparer<K> equalityComparer = null)
 		{
-			return elements.ToDictionary(kvp => kvp.Key, kvp => kvp.Value);
+			return elements.ToDictionary(kvp => kvp.Key, kvp => kvp.Value, equalityComparer);
+		}
+
+		public static IEnumerable<T> SelectMany<T>(this IEnumerable<IEnumerable<T>> elements)
+		{
+			return elements.SelectMany(a => a);
 		}
 	}
 }

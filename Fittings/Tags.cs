@@ -199,7 +199,8 @@ namespace OsmPipeline.Fittings
 
 			public override int GetHashCode(TagsCollectionBase obj)
 			{
-				return obj.Sum(t => t.Key.GetHashCode() + t.Value.GetHashCode());
+				return obj.Select(a => a.Key.GetHashCode() ^ a.Value.GetHashCode())
+					.Aggregate(0, (a,b) => a^b);
 			}
 		}
 	}

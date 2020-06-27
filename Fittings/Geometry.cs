@@ -557,32 +557,52 @@ namespace OsmPipeline.Fittings
 
 		public static CompleteWay[] CombineSegments(CompleteWay[] ways)
 		{
-			var highways = new HashSet<CompleteWay>(ways);
-			var highwaysGrouped = highways.GroupBy(h => h.Tags, TagsCollectionComparer.Default);
-			var doneNames = new HashSet<TagsCollectionBase>();
+			var highwaysGrouped = ways.GroupBy(h => h.Tags, new TagsCollectionComparer()).Select(g => g.ToList()).ToArray();
+			var deadNodes = new HashSet<long>();
 
-			restart: // gross but effective
-			var highwaysByNames = highwaysGrouped.Where(g => g.Count() > 1 && !doneNames.Contains(g.Key));
-
-			foreach (var byName in highwaysByNames)
+			foreach (var byName in highwaysGrouped)
 			{
-				var ends = byName.SelectMany(highway => new[] { highway.Nodes.First(), highway.Nodes.Last() }.Select(node => new { node, highway }))
-					.GroupBy(nh => nh.node).Select(g => g.Select(gw => gw.highway).Distinct());
+				bool progress = true;
+				while (progress)
+				{
+					progress = false;
+					var intersections = byName.SelectMany(highway => new[] {
+							new { node = highway.Nodes.First(), highway },
+							new { node = highway.Nodes.Last(), highway }
+						})
+						.GroupBy(nh => nh.node)
+						.Where(g => !deadNodes.Contains(g.Key.Id.Value))
+						.Select(g => g.Select(gw => gw.highway).Distinct());
 
-				var intersection = ends.FirstOrDefault(g => g.Count() > 1)?.ToArray();
-				if (intersection != null)
-				{
-					CombineSegments(intersection[0], intersection[1]);
-					highways.Remove(intersection[1]);
-					goto restart;
-				}
-				else
-				{
-					doneNames.Add(byName.Key);
+					var intersection = intersections.FirstOrDefault(g => g.Count() > 1)?.ToArray();
+
+					if (intersection == null)
+					{
+						break;
+					}
+
+					for (int i = 0; i < intersection.Length - 1 && !progress; i++)
+						for (int j = i + 1; j < intersection.Length && !progress; j++)
+						{
+							try
+							{
+								CombineSegments(intersection[i], intersection[j]);
+								byName.Remove(intersection[j]);
+								progress = true;
+							}
+							catch { }
+						}
+
+					if (!progress)
+					{
+						var commonNodeId = intersection.Select(w => w.Nodes.Select(n => n.Id.Value)).Aggregate((a, b) => a.Intersect(b)).First();
+						deadNodes.Add(commonNodeId);
+						progress = true;
+					}
 				}
 			}
 
-			return highways.ToArray();
+			return highwaysGrouped.SelectMany().ToArray();
 		}
 
 		public static void CombineSegments(CompleteWay subject, CompleteWay reference)
@@ -595,7 +615,7 @@ namespace OsmPipeline.Fittings
 			}
 			else if (subject.Nodes.Last().Id == reference.Nodes.Last().Id)
 			{
-				if (reference.Tags != null && reference.Tags.ContainsKey("oneway")) throw new Exception("Reversing a oneway");
+				if (reference.Tags != null && reference.Tags.ContainsKey("oneway")) throw new InvalidOperationException("Reversing a oneway");
 				subject.Nodes = subject.Nodes.Concat(reference.Nodes.Reverse().Skip(1)).ToArray();
 			}
 			else if (subject.Nodes.First().Id == reference.Nodes.Last().Id)
@@ -604,7 +624,7 @@ namespace OsmPipeline.Fittings
 			}
 			else if (subject.Nodes.First().Id == reference.Nodes.First().Id)
 			{
-				if (reference.Tags != null && reference.Tags.ContainsKey("oneway")) throw new Exception("Reversing a oneway");
+				if (reference.Tags != null && reference.Tags.ContainsKey("oneway")) throw new InvalidOperationException("Reversing a oneway");
 				subject.Nodes = reference.Nodes.Reverse().Concat(subject.Nodes.Skip(1)).ToArray();
 			}
 			else

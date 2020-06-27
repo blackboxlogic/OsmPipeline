@@ -25,7 +25,7 @@ namespace OsmPipeline.Fittings
 			};
 		}
 
-		public static IEnumerable<CompleteOsmGeo[]> SliceRecusive(this CompleteWay[] elements, int maxElementsPerSlice = 1000)
+		public static IEnumerable<CompleteOsmGeo[]> SliceRecusive(this CompleteWay[] elements, int maxElementsPerSlice = 1000, Bounds bounds = null)
 		{
 			if (elements.Length <= maxElementsPerSlice)
 			{
@@ -33,12 +33,13 @@ namespace OsmPipeline.Fittings
 				yield break;
 			}
 
-			var quarters = elements.AsBounds().Half();
-			var groups = elements.GroupBy(e => IsTouching(quarters[0], e)).Select(g => g.ToArray());
+			var halfs = (bounds ?? elements.AsBounds()).Half();
+			var inFirstHalf = elements.Where(e => IsTouching(halfs[0], e)).ToArray();
+			var groups = new[] { inFirstHalf, elements.Except(inFirstHalf).ToArray() };
 
-			foreach (var group in groups)
+			for (int i = 0; i < halfs.Length; i++)
 			{
-				foreach (var subGroup in group.SliceRecusive(maxElementsPerSlice))
+				foreach (var subGroup in groups[i].SliceRecusive(maxElementsPerSlice, halfs[i]))
 				{
 					if (subGroup.Any())
 						yield return subGroup;
@@ -84,7 +85,7 @@ namespace OsmPipeline.Fittings
 			var halfLat = (bounds.MaxLatitude + bounds.MinLatitude) / 2;
 			var halfLon = (bounds.MaxLongitude + bounds.MinLongitude) / 2;
 
-			if (halfLat > halfLon)
+			if (bounds.MaxLatitude - bounds.MinLatitude > bounds.MaxLongitude - bounds.MinLongitude)
 			{
 				return new[] {new Bounds()
 					{
