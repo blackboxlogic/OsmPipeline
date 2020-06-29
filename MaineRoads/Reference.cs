@@ -1,9 +1,12 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using OsmPipeline.Fittings;
 using OsmSharp.API;
 using OsmSharp.Complete;
+using OsmSharp.Db;
 using OsmSharp.Db.Impl;
 using OsmSharp.Streams;
 
@@ -11,23 +14,39 @@ namespace MaineRoads
 {
 	public static class Reference
 	{
-		public static string[] Generate()
+		public static IEnumerable<Osm> Generate()
 		{
-			var osm = FileSerializer.ReadXml<Osm>(@"C:\Users\Alex\Desktop\Maine_E911_Roads-shp\Maine_E911_Roads.osm");
-			var translated = Translate(osm);
-			var combined = Geometry.CombineSegments(translated);
-			var slices = combined.SliceRecusive(1000).ToArray();
-
+			var osm = FileSerializer.ReadXml<Osm>(@"ReferenceRaw.osm");
 			var index = OsmSharp.Db.Impl.Extensions.CreateSnapshotDb(new MemorySnapshotDb(osm.GetElements()));
-			var firstSlice = slices[0].Select(e => e.ToSimple()).WithChildren(index).AsOsm();
-			FileSerializer.WriteXml("firstSlice.osm", firstSlice);
-			//foreach (var slice in slices)
-			//{
-			//	// Create JOSM session files
-			//}
+			var asD = osm.GetElements().ToDictionary(e => new OsmSharp.OsmGeoKey(e));
 
-			// recruit/discuss
-			return null;
+			var translated = Translate(osm);
+			FileSerializer.WriteXml("ReferenceTranslated.osm", translated.AsOsm(index));
+
+			ReverseOneWays(translated);
+
+			var combined = Geometry.CombineSegments(translated);
+			// Object Id could be element id after combine()
+			FileSerializer.WriteXml("ReferenceTranslatedCombined.osm", combined.AsOsm(index));
+
+			var slices = combined.SliceRecusive(1000).ToDictionary();
+			var simpleSlices = slices.Select(kvp => kvp.Value.Select(e => e.ToSimple()).WithChildren(index).AsOsm(null, .6, kvp.Key));
+
+			return simpleSlices;
+		}
+
+		private static void ReverseOneWays(CompleteWay[] ways)
+		{
+			foreach (var way in ways.Where(w => w.Tags.Contains("oneway", "-1")))
+			{
+				way.Nodes = way.Nodes.Reverse().ToArray();
+				way.Tags["oneway"] = "yes";
+			}
+		}
+
+		private static Osm AsOsm(this IEnumerable<CompleteOsmGeo> elements, IOsmGeoSource index)
+		{
+			return elements.Select(e => e.ToSimple()).WithChildren(index).AsOsm();
 		}
 
 		private static CompleteWay[] Translate(Osm osm)

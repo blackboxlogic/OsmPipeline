@@ -47,7 +47,7 @@ namespace OsmPipeline.Fittings
 				.SelectMany(a => a);
 		}
 
-		public static Osm AsOsm(this IEnumerable<OsmGeo> elements, string generator = null, double? version = .6)
+		public static Osm AsOsm(this IEnumerable<OsmGeo> elements, string generator = null, double? version = .6, Bounds bounds = null)
 		{
 			return new Osm()
 			{
@@ -56,7 +56,7 @@ namespace OsmPipeline.Fittings
 				Relations = elements.OfType<Relation>().ToArray(),
 				Version = version,
 				Generator = generator,
-				Bounds = elements.OfType<Node>().AsBounds().ExpandBy(15)
+				Bounds = bounds ?? elements.OfType<Node>().AsBounds().ExpandBy(15)
 			};
 		}
 

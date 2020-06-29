@@ -10,7 +10,7 @@
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="2.2.0" />
     <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="2.2.0" />
     <PackageReference Include="OsmSharp" Version="7.0.0-pre014" />
-    <PackageReference Include="OsmTagsTranslator" Version="0.0.1-alpha" />
+    <PackageReference Include="OsmTagsTranslator" Version="0.0.1-alpha-2" />
   </ItemGroup>
 
   <ItemGroup>

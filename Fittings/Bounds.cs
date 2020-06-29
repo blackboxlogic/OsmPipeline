@@ -13,7 +13,7 @@ namespace OsmPipeline.Fittings
 		{
 			if (bufferMeters == 0 || bounds == null) return bounds;
 			var bufferLat = (float)Geometry.DistanceLat(bufferMeters);
-			var approxLat = bounds.MinLatitude.Value;
+			var approxLat = (bounds.MinLatitude.Value + bounds.MaxLatitude.Value) / 2;
 			var bufferLon = (float)Geometry.DistanceLon(bufferMeters, approxLat);
 
 			return new Bounds()
@@ -25,23 +25,24 @@ namespace OsmPipeline.Fittings
 			};
 		}
 
-		public static IEnumerable<CompleteOsmGeo[]> SliceRecusive(this CompleteWay[] elements, int maxElementsPerSlice = 1000, Bounds bounds = null)
+		public static IEnumerable<KeyValuePair<Bounds, CompleteOsmGeo[]>> SliceRecusive(this CompleteWay[] elements, int maxElementsPerSlice = 1000, Bounds bounds = null)
 		{
+			bounds = bounds ?? elements.AsBounds();
 			if (elements.Length <= maxElementsPerSlice)
 			{
-				yield return elements;
+				yield return new KeyValuePair<Bounds, CompleteOsmGeo[]>(bounds, elements);
 				yield break;
 			}
 
-			var halfs = (bounds ?? elements.AsBounds()).Half();
+			var halfs = bounds.Half();
 			var inFirstHalf = elements.Where(e => IsTouching(halfs[0], e)).ToArray();
 			var groups = new[] { inFirstHalf, elements.Except(inFirstHalf).ToArray() };
 
 			for (int i = 0; i < halfs.Length; i++)
 			{
-				foreach (var subGroup in groups[i].SliceRecusive(maxElementsPerSlice, halfs[i]))
+				foreach (var subGroup in groups[i].SliceRecusive(maxElementsPerSlice, halfs[i]).ToArray())
 				{
-					if (subGroup.Any())
+					if (subGroup.Value.Any())
 						yield return subGroup;
 				}
 			}

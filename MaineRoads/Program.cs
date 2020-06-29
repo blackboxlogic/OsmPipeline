@@ -1,13 +1,10 @@
 ﻿using System;
+using System.IO;
 using System.Linq;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using OsmPipeline.Fittings;
-using OsmSharp;
-using OsmSharp.API;
-using OsmSharp.Complete;
-using OsmSharp.Streams;
 
 namespace MaineRoads
 {
@@ -31,7 +28,16 @@ namespace MaineRoads
 
 			try
 			{
-				Reference.Generate();
+				var references = Reference.Generate();
+
+				int i = 0;
+				foreach (var slice in references)
+				{
+					Directory.CreateDirectory(i.ToString());
+					FileSerializer.WriteXml($"{i}\\Reference.osm", slice);
+					// Get Subject
+					// Create JOSM session files
+				}
 			}
 			catch (Exception e)
 			{
