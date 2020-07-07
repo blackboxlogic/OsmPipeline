@@ -7,6 +7,7 @@ Update elements set route_num = '' where route_num = '0';
 Update elements set SPEED = '' where speed in ('0', '2', '3', '253');
 Update elements set route_num = '202/4' where objectid = '145597' AND route_num = '2002/4';
 update elements set STREETNAME = 'Green' where objectid in ('25384', '131257') AND STREETNAME = 'Greene';
+update elements set ONEWAY = 'FT' where objectid in ('104293') and ONEWAY is null
 
 -- Schema Translation
 WITH routes(xid, xtype, [ref], [alt_name]) AS (
@@ -19,7 +20,7 @@ WITH routes(xid, xtype, [ref], [alt_name]) AS (
 			Substr(rest, Instr(rest, '/') + 1)
 		FROM route_nums
 		WHERE rest <> '')
-	-- Translate RouteNum into ref and Alt_name, and join them with ;
+	-- Translate RouteNum into ref and alt_name, and join them with ;
 	SELECT
 			xid,
 			xtype,
@@ -29,7 +30,7 @@ WITH routes(xid, xtype, [ref], [alt_name]) AS (
 					Replace(
 						Coalesce(prefix.value, 'Route'),
 						'I', 'Interstate'),
-					'US', 'U.S. Route') || ' ' || [route], ';') AS [alt_name]
+					'US', 'US Route') || ' ' || [route], ';') AS [alt_name]
 		FROM route_nums
 		LEFT JOIN RoutePrefixes AS prefix
 			ON route = prefix.id
