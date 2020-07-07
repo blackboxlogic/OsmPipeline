@@ -7,7 +7,7 @@ Update elements set route_num = '' where route_num = '0';
 Update elements set SPEED = '' where speed in ('0', '2', '3', '253');
 Update elements set route_num = '202/4' where objectid = '145597' AND route_num = '2002/4';
 update elements set STREETNAME = 'Green' where objectid in ('25384', '131257') AND STREETNAME = 'Greene';
-update elements set ONEWAY = 'FT' where objectid in ('104293') and ONEWAY is null
+update elements set ONEWAY = 'FT' where objectid in ('104293') and ONEWAY is null;
 
 -- Schema Translation
 WITH routes(xid, xtype, [ref], [alt_name]) AS (
@@ -24,7 +24,7 @@ WITH routes(xid, xtype, [ref], [alt_name]) AS (
 	SELECT
 			xid,
 			xtype,
-			group_concat(Coalesce(prefix.value, 'ME') || ' ' || [route], ';') AS [ref],
+			group_concat(Coalesce(prefix.value, (select value from RoutePrefixes where id = '*')) || ' ' || [route], ';') AS [ref],
 			group_concat(
 				Replace(
 					Replace(
