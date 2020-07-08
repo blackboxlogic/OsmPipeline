@@ -30,7 +30,6 @@
     },
     "Private": {
         "highway": "service",
-        "access": "permissive",
         "ownership": "private"
     },
     "Vehicular Trail": {
