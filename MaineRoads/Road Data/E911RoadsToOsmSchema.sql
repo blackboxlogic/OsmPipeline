@@ -12,24 +12,25 @@ update elements set streetname = 'William L Clarke Drive' where objectid in ('62
 update elements set RDCLASS = 'Paper Street' where objectid = '50784' and RDCLASS = 'Private'; -- Road should be east of where indicated.
 
 -- Schema Translation
-WITH routes(xid, xtype, [ref]) AS (
-	-- Split RouteNum by /
+WITH routes(xid, xtype, [ref], [alt_name]) AS (
 	WITH RECURSIVE route_nums(xid, xtype, route, rest) AS (
 		SELECT xid, xtype, '', route_num || '/' FROM elements WHERE route_num
-			UNION ALL SELECT xid, xtype,
-				Substr(rest, 0, Instr(rest, '/')),
-				Substr(rest, Instr(rest, '/') + 1)
-			FROM route_nums
-			WHERE rest <> '')
-	-- Translate RouteNum into ref, and rejoin with ;
+			UNION ALL
+		SELECT xid, xtype,
+			Substr(rest, 0, Instr(rest, '/')),
+			Substr(rest, Instr(rest, '/') + 1)
+		FROM route_nums
+		WHERE rest <> '')
 	SELECT
 			xid,
 			xtype,
+			group_concat(Coalesce(prefix.value, 'ME') || ' ' || [route], ';') AS [ref],
 			group_concat(
-				Coalesce(
-					prefix.value,
-					(select value from RoutePrefixes where id = '*'))
-				|| ' ' || [route], ';') AS [ref]
+				Replace(
+					Replace(
+						Coalesce(prefix.value, 'Route'),
+						'I', 'Interstate'),
+					'US', 'U.S. Route') || ' ' || [route], ';') AS [alt_name]
 		FROM route_nums
 		LEFT JOIN RoutePrefixes AS prefix
 			ON route = prefix.id
@@ -44,10 +45,11 @@ SELECT
 			|| COALESCE(' ' || post.value, '') AS [name],
 		CASE ONEWAY
 			WHEN 'FT' THEN 'yes'
-			WHEN 'TF' THEN '-1' -- Later: reverse these ways, change to 'yes'
+			WHEN 'TF' THEN '-1' -- TODO: reverse these ways, change to 'yes'
 		END AS [oneway],
 		Routes.ref,
-		otherTags.*, -- highway:residential could be {primary, seconday, tertiary, residential, unclassified}
+		Routes.alt_name,
+		otherTags.*, -- highway:residential could be {primary, seconday, tertiary, residential}
 		OBJECTID AS [medot:objectid]
 	FROM Elements
 	LEFT JOIN Routes
