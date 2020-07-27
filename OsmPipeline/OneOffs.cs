@@ -451,13 +451,13 @@ namespace OsmPipeline
 			}
 		}
 
-		public static long[] UndoTagFromAllUserChanges(long userId, Tag badTag)
+		public static long[] UndoTagFromAllUserChanges(long userId, Tag badTag, Tag? replaceWith = null)
 		{
 			var changesetids = OneOffs.GetUsersChangesetIds(userId);
 			var changes = OneOffs.GetElementsFromChanges(changesetids);
 			var badChanges = changes.Where(e => e.Tags != null && e.Tags.Contains(badTag)).Select(e => new OsmGeoKey(e)).Distinct().ToArray();
 			var currentVersions = OsmApiClient.GetElements(badChanges).Result;
-			var fix = OneOffs.UndoTagFromElements(badTag, currentVersions);
+			var fix = OneOffs.UndoTagFromElements(badTag, currentVersions, replaceWith);
 			var changesetTags = GetCommitTags($"Undo all instances of {badTag} from user {userId}.");
 			var fixIds = Subjects.UploadChange(fix, changesetTags, @"FIX Offices\Uploaded\").Result;
 			return fixIds;
@@ -542,13 +542,14 @@ namespace OsmPipeline
 			return updatedElements.Where(e => e.Visible == true).ToArray();
 		}
 
-		public static OsmChange UndoTagFromElements(Tag tagToRemove, OsmGeo[] osmGeos)
+		public static OsmChange UndoTagFromElements(Tag tagToRemove, OsmGeo[] osmGeos, Tag? replaceWith = null)
 		{
 			var stillBad = osmGeos.Where(e => e.Tags != null && e.Tags.Contains(tagToRemove) && e.Visible == true).ToArray();
 
 			foreach (var e in stillBad)
 			{
 				e.Tags.RemoveKeyValue(tagToRemove);
+				if (replaceWith != null) e.Tags.Add(replaceWith.Value);
 			}
 
 			var theFix = Changes.FromGeos(null, stillBad, null);
@@ -593,7 +594,7 @@ namespace OsmPipeline
 			do
 			{
 				var before = newChanges.DefaultIfEmpty(new Changeset() { CreatedAt = DateTime.UtcNow }).Min(c => c.CreatedAt.Value);
-				newChanges = OsmApiClient.QueryChangesets(null, userId, null, DateTime.MinValue, before, false, false, null).Result;
+				newChanges = OsmApiClient.QueryChangesets(null, userId, null, DateTime.MinValue, null, false, false, null).Result;
 				Thread.Sleep(10000);
 				if (newChanges != null) changes.AddRange(newChanges);
 			} while (newChanges?.Length == 100);

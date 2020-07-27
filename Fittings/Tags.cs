@@ -15,21 +15,21 @@ namespace OsmPipeline.Fittings
 			{ "name", new [] { "alt_name", "ref", "official_name", "old_name", "local_name", "short_name", "name:left", "name:right", "name_1" } }
 		};
 
-		public static readonly Dictionary<string, Func<string, string[]>> IndexableTagKeys =
+		public static readonly Dictionary<string, Func<string, string[]>> IndexableAddressTagKeys =
 			new Dictionary<string, Func<string, string[]>>()
 			{
 				{ "addr:street", Tags.WithOrWithoutPunctuation },
 				{ "addr:place", Tags.WithOrWithoutPunctuation },
 				{ "addr:housenumber", Tags.GetNumbersFromRangeOrList },
 				{ "addr:unit", Tags.WithOrWithoutPunctuation },
-				{ "name", Tags.WithOrWithoutPunctuation },
+				{ "name", Tags.WithOrWithoutPunctuation }, // AND WITHOUT SPACES
 				{ "place", s => new []{ s } },
 				{ "waterway", s => new []{ s } }
 			};
 
 		private static Func<string, string[]> GetMatchingFunction(string key)
 		{
-			return IndexableTagKeys.TryGetValue(key, out var value) ? value : GetPartsFromList;
+			return IndexableAddressTagKeys.TryGetValue(key, out var value) ? value : GetPartsFromList;
 		}
 
 		public static string[] GetMatchingValues(Tag tag)
@@ -117,8 +117,8 @@ namespace OsmPipeline.Fittings
 				{ "man_made", new [] { "communications_tower", "tower", "lighthouse", "observatory", "pumping_station", "wastewater_plant", "water_tower", "works" } },
 				{ "power", new [] { "generator", "substation", "plant" } },
 				{ "tourism", null },
-				{ "amenity", new [] { "ferry_terminal", "fire_station", "library", "restaurant", "post_office", "townhall", "place_of_worship", "school", "arts_centre" } },
-				{ "shop", null }
+				{ "amenity", new [] { "ferry_terminal", "fire_station", "library", "restaurant", "post_office", "townhall", "place_of_worship", "school", "arts_centre", "shelter" } },
+				{ "shop", null },
 			};
 
 		public static bool IsMatchable(OsmGeo element)

@@ -1,6 +1,6 @@
-﻿using BAMCIS.GeoJSON;
-using NetTopologySuite.Geometries;
+﻿using NetTopologySuite.Geometries;
 using OsmSharp;
+using OsmSharp.Geo;
 using OsmSharp.Complete;
 using OsmSharp.Db;
 using OsmSharp.Tags;
@@ -8,19 +8,57 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using static OsmPipeline.Fittings.Tags;
+using ProjNet.CoordinateSystems;
 
 namespace OsmPipeline.Fittings
 {
 	public static class Geometry
 	{
-		public static string GetDistanceAndDirectionArrow(Position from, Position to)
+		public static CompleteWay[] Reduce(CompleteWay[] ways)
+		{
+			return ways.Select(w => Reduce(w)).ToArray();
+		}
+
+		public static CompleteWay Reduce(CompleteWay way)
+		{
+			var lineString = way.AsLineString();
+			var reducer = new NetTopologySuite.Precision.GeometryPrecisionReducer(new PrecisionModel() {  } );
+
+			NetTopologySuite.Simplify.DouglasPeuckerLineSimplifier.Simplify(way.GetCoordinates().ToArray(), .0004);
+
+			var geometry = (LineString)reducer.Reduce(lineString);
+			//way = 
+			return way;
+		}
+
+		public static LinearRing AsBoundingPolygon(CompleteRelation relation)
+		{
+			var thing = DefaultFeatureInterpreter.DefaultInterpreter.Interpret(relation).OfType<LinearRing>().First();
+			relation.Members.Where(r => r.Role == "outer");
+			return thing;
+		}
+
+		public static LineString AsLineString(this CompleteWay way)
+		{
+			var thing = DefaultFeatureInterpreter.DefaultInterpreter.Interpret(way);
+			return null; // new LineString(way.GetCoordinates().ToArray());
+		}
+
+		public static CompleteWay AsCompleteWay(this LineString linestring)
+		{
+			//return new cmop
+			//return new LineString(way.GetCoordinates().ToArray());
+			return null;
+		}
+
+		public static string GetDistanceAndDirectionArrow(Coordinate from, Coordinate to)
 		{
 			return (int)DistanceMeters(from, to) + "m" + GetDirectionArrow(from, to);
 		}
 
-		public static char GetDirectionArrow(Position from, Position to)
+		public static char GetDirectionArrow(Coordinate from, Coordinate to)
 		{
-			var theta = Math.Atan2(to.Latitude - from.Latitude, to.Longitude - from.Longitude);
+			var theta = Math.Atan2(to.Y - from.Y, to.X - from.X);
 			var slice = (int)((theta + Math.PI) / (2 * Math.PI) * 16);
 			var arrow = "←↙↙↓↓↘↘→→↗↗↑↑↖↖←"[slice];
 			return arrow;
@@ -394,29 +432,29 @@ namespace OsmPipeline.Fittings
 			throw new Exception("element wasn't a node, way or relation");
 		}
 
-		public static Position AsPosition(this ICompleteOsmGeo element)
+		public static Coordinate AsPosition(this ICompleteOsmGeo element)
 		{
-			if (element is Node node) return new Position(node.Longitude.Value, node.Latitude.Value);
+			if (element is Node node) return new Coordinate(node.Longitude.Value, node.Latitude.Value);
 			else if (element is CompleteWay way)
 			{
-				return new Position(way.Nodes.Average(n => n.Longitude.Value), way.Nodes.Average(n => n.Latitude.Value));
+				return new Coordinate(way.Nodes.Average(n => n.Longitude.Value), way.Nodes.Average(n => n.Latitude.Value));
 			}
 			else if (element is CompleteRelation relation)
 			{
 				// This isn't exact for relations. Good enough.
 				var positions = relation.Members.Select(m => AsPosition(m.Member));
 
-				return new Position(positions.Average(n => n.Longitude), positions.Average(n => n.Latitude));
+				return new Coordinate(positions.Average(n => n.X), positions.Average(n => n.Y));
 			}
 			throw new Exception("element wasn't a node, way or relation");
 		}
 
-		public static double MaxDistanceMeters(Position from, ICompleteOsmGeo to)
+		public static double MaxDistanceMeters(Coordinate from, ICompleteOsmGeo to)
 		{
 			return to.AsNodes().Max(n => DistanceMeters(n.AsPosition(), from));
 		}
 
-		public static double MinDistanceMeters(Position from, ICompleteOsmGeo to)
+		public static double MinDistanceMeters(Coordinate from, ICompleteOsmGeo to)
 		{
 			return to.AsNodes().Min(n => DistanceMeters(n.AsPosition(), from));
 		}
@@ -426,9 +464,31 @@ namespace OsmPipeline.Fittings
 			return DistanceMeters(AsPosition(left), AsPosition(right));
 		}
 
-		public static double DistanceMeters(Position left, Position right)
+		public static double DistanceMeters(Coordinate left, Coordinate right)
 		{
-			return DistanceMeters(left.Latitude, left.Longitude, right.Latitude, right.Longitude);
+			const string wkt4326 = "PARAM_MT[\"WGS 84\",DATUM[\"WGS_1984\",SPHEROID[\"WGS 84\",6378137,298.257223563,AUTHORITY[\"EPSG\",\"7030\"]],AUTHORITY[\"EPSG\",\"6326\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AUTHORITY[\"EPSG\",\"4326\"]]";
+			var transformer = ProjNet.IO.CoordinateSystems.CoordinateSystemWktReader.Parse(wkt4326);
+			//var (x1,y1) = transformer.Transform(left.X, left.Y);
+			//var (x2,y2) = transformer.Transform(right.X, right.Y);
+			//var c1 = new Coordinate(x1, y1);
+			//var c2 = new Coordinate(x2, y2);
+			//var other2 = c1.Distance(c2);
+
+			var csWgs84 = ProjNet.CoordinateSystems.GeographicCoordinateSystem.WGS84;
+			var cs27700 = ProjNet.IO.CoordinateSystems.CoordinateSystemWktReader.Parse(wkt4326); ;
+			var ctFactory = new ProjNet.CoordinateSystems.Transformations.CoordinateTransformationFactory();
+
+
+			var ct = ctFactory.CreateFromCoordinateSystems(csWgs84, new CoordinateSystemFactory() { }.CreateFromWkt(wkt4326));
+			//var mt = ct.MathTransform;
+
+			var geometryFactory = NetTopologySuite.NtsGeometryServices.Instance.CreateGeometryFactory(srid: 4326);
+			var a = geometryFactory.CreatePoint(left);
+			var b = geometryFactory.CreatePoint(right);
+			var other = a.Distance(b);
+
+			var distance = DistanceMeters(left.Y, left.X, right.Y, right.X);
+			return distance;
 		}
 
 		public static double DistanceMeters(double lat1, double lon1, double lat2, double lon2)
@@ -468,7 +528,7 @@ namespace OsmPipeline.Fittings
 			var stacks = elements.GroupBy(a => a.AsComplete(index).AsPosition())
 				.Select(stack => new
 				{
-					positions = new List<Position> { stack.Key },
+					positions = new List<Coordinate> { stack.Key },
 					nodes = stack.ToList()
 				})
 				.ToList();
@@ -555,9 +615,9 @@ namespace OsmPipeline.Fittings
 			}
 		}
 
-		public static CompleteWay[] CombineSegments(CompleteWay[] ways)
+		public static CompleteWay[] Disolve(CompleteWay[] ways, string idKey)
 		{
-			var highwaysGrouped = ways.GroupBy(h => h.Tags, new TagsCollectionComparer()).Select(g => g.ToList()).ToArray();
+			var highwaysGrouped = ways.GroupBy(h => new TagsCollection(h.Tags.Where(t => t.Key != idKey)), new TagsCollectionComparer()).Select(g => g.ToList()).ToArray();
 			var deadNodes = new HashSet<long>();
 
 			foreach (var byName in highwaysGrouped)
@@ -587,6 +647,7 @@ namespace OsmPipeline.Fittings
 							try
 							{
 								CombineSegments(intersection[i], intersection[j]);
+								intersection[i].Tags.AddOrAppend(idKey, intersection[j].Tags[idKey]);
 								byName.Remove(intersection[j]);
 								progress = true;
 							}
@@ -607,8 +668,6 @@ namespace OsmPipeline.Fittings
 
 		public static void CombineSegments(CompleteWay subject, CompleteWay reference)
 		{
-			if (!subject.Tags.Equals(reference.Tags)) throw new Exception("these tags are different, can't merge ways");
-
 			if (subject.Nodes.Last().Id == reference.Nodes.First().Id)
 			{
 				subject.Nodes = subject.Nodes.Concat(reference.Nodes.Skip(1)).ToArray();

@@ -1,6 +1,7 @@
 ﻿using OsmSharp;
 using OsmSharp.API;
 using OsmSharp.Changesets;
+using OsmSharp.Complete;
 using OsmSharp.Db;
 using System;
 using System.Collections.Generic;
@@ -49,14 +50,32 @@ namespace OsmPipeline.Fittings
 
 		public static Osm AsOsm(this IEnumerable<OsmGeo> elements, string generator = null, double? version = .6, Bounds bounds = null)
 		{
+			var types = elements.GroupBy(e => e.Type).ToDictionary();
+			var nodes = types.TryGetValue(OsmGeoType.Node, out var n) ? n.Cast<Node>().ToArray() : new Node[0];
+			var ways = types.TryGetValue(OsmGeoType.Way, out var w) ? w.Cast<Way>().ToArray() : new Way[0];
+			var relations = types.TryGetValue(OsmGeoType.Relation, out var r) ? r.Cast<Relation>().ToArray() : new Relation[0];
+
 			return new Osm()
 			{
-				Nodes = elements.OfType<Node>().ToArray(),
-				Ways = elements.OfType<Way>().ToArray(),
-				Relations = elements.OfType<Relation>().ToArray(),
+				Nodes = nodes,
+				Ways = ways,
+				Relations = relations,
 				Version = version,
 				Generator = generator,
 				Bounds = bounds ?? elements.OfType<Node>().AsBounds().ExpandBy(15)
+			};
+		}
+
+		public static Osm AsOsm(this IEnumerable<CompleteWay> elements, string generator = null, double? version = .6, Bounds bounds = null)
+		{
+			return new Osm()
+			{
+				Nodes = elements.SelectMany(w => w.Nodes).ToArray(),
+				Ways = elements.Select(e => e.ToSimple()).OfType<Way>().ToArray(),
+				Relations = new Relation[0],
+				Version = version,
+				Generator = generator,
+				Bounds = bounds ?? elements.SelectMany(w => w.Nodes).AsBounds().ExpandBy(15)
 			};
 		}
 
@@ -122,6 +141,23 @@ namespace OsmPipeline.Fittings
 		public static IEnumerable<T> SelectMany<T>(this IEnumerable<IEnumerable<T>> elements)
 		{
 			return elements.SelectMany(a => a);
+		}
+
+		public static double RatioWhere<T>(this IEnumerable<T> elements, Func<T, bool> predicate)
+		{
+			var yes = 0;
+			var no = 0;
+			foreach (var element in elements)
+			{
+				if (predicate(element)) yes++; else no++;
+			}
+
+			return 1.0 * yes / (yes + no);
+		}
+
+		public static IEnumerable<T> WhereDuplicate<T>(this IEnumerable<T> source)
+		{
+			return source.GroupBy(e => e).Where(g => g.Count() > 1).Select(g => g.Key);
 		}
 	}
 }

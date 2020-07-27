@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using BAMCIS.GeoJSON;
+using NetTopologySuite.Geometries;
 using OsmSharp;
 using OsmSharp.Changesets;
-using OsmSharp.Db;
 
 namespace OsmPipeline.Fittings
 {
@@ -69,7 +68,7 @@ namespace OsmPipeline.Fittings
 
 		private class MutableChange
 		{
-			public Position Position;
+			public Coordinate Position;
 			public readonly List<OsmGeo> Create = new List<OsmGeo>();
 			public readonly List<OsmGeo> Modify = new List<OsmGeo>();
 			public readonly List<OsmGeo> Delete = new List<OsmGeo>();

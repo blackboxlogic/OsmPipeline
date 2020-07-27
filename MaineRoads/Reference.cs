@@ -1,9 +1,10 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using System.IO;
 using System.Linq;
 using OsmPipeline.Fittings;
+using OsmSharp;
 using OsmSharp.API;
 using OsmSharp.Complete;
 using OsmSharp.Db;
@@ -14,25 +15,31 @@ namespace MaineRoads
 {
 	public static class Reference
 	{
-		public static IEnumerable<Osm> Generate()
+		public static CompleteWay[] Generate(string from, string to, Bounds scope = null)
 		{
-			var osm = FileSerializer.ReadXml<Osm>(@"ReferenceRaw.osm");
+			var osm = FileSerializer.ReadXmlCacheOrSource(to,
+				() => TranslateAndDisolve(from, scope));
+			JOSM.MarkAsNeverUpload(to);
+			return osm.GetElements().ToComplete().OfType<CompleteWay>().ToArray();
+		}
+
+		private static Osm TranslateAndDisolve(string from, Bounds scope = null)
+		{
+			var osm = FileSerializer.ReadXml<Osm>(from);
 			var index = OsmSharp.Db.Impl.Extensions.CreateSnapshotDb(new MemorySnapshotDb(osm.GetElements()));
-			var asD = osm.GetElements().ToDictionary(e => new OsmSharp.OsmGeoKey(e));
-
 			var translated = Translate(osm);
-			FileSerializer.WriteXml("ReferenceTranslated.osm", translated.AsOsm(index));
-
 			ReverseOneWays(translated);
+			var disolved = Geometry.Disolve(translated, "medot:objectid");
+			var scoped = disolved.Where(e => scope == null || scope.IsTouching(e));
 
-			var combined = Geometry.CombineSegments(translated);
-			// Object Id could be element id after combine()
-			FileSerializer.WriteXml("ReferenceTranslatedCombined.osm", combined.AsOsm(index));
+			// Hide the object UIDs in User, away from the tags.
+			foreach (var e in scoped)
+			{
+				e.UserName = e.Tags["medot:objectid"];
+				e.Tags.RemoveKey("medot:objectid");
+			}
 
-			var slices = combined.SliceRecusive(1000).ToDictionary();
-			var simpleSlices = slices.Select(kvp => kvp.Value.Select(e => e.ToSimple()).WithChildren(index).AsOsm(null, .6, kvp.Key));
-
-			return simpleSlices;
+			return scoped.AsOsm(index);
 		}
 
 		private static void ReverseOneWays(CompleteWay[] ways)
@@ -53,10 +60,11 @@ namespace MaineRoads
 		{
 			using (var translator = new OsmTagsTranslator.Translator(osm.GetElements()))
 			{
-				translator.AddLookup(@"C:\Users\Alex\Desktop\Maine_E911_Roads-shp\Lookups\Directions.json");
-				translator.AddLookup(@"C:\Users\Alex\Desktop\Maine_E911_Roads-shp\Lookups\StreetSuffixes.json");
-				translator.AddLookup(@"C:\Users\Alex\Desktop\Maine_E911_Roads-shp\Lookups\RoadClasses.json");
-				var sql = File.ReadAllText(@"C:\Users\Alex\Desktop\Maine_E911_Roads-shp\Queries\E911RoadsToOsmSchema.sql");
+				translator.AddLookup(@"Directions.json");
+				translator.AddLookup(@"StreetSuffixes.json");
+				translator.AddLookup(@"RoadClasses.json");
+				translator.AddLookup(@"RoutePrefixes.json");
+				var sql = File.ReadAllText(@"E911RoadsToOsmSchema.sql");
 				return translator.QueryElementsWithChildren(sql)
 					.ToComplete().OfType<CompleteWay>().ToArray();
 			};

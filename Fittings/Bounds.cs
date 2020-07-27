@@ -4,6 +4,8 @@ using System.Linq;
 using OsmSharp;
 using OsmSharp.API;
 using OsmSharp.Complete;
+using OsmSharp.Db;
+using OsmSharp.Db.Impl;
 
 namespace OsmPipeline.Fittings
 {
@@ -25,12 +27,21 @@ namespace OsmPipeline.Fittings
 			};
 		}
 
-		public static IEnumerable<KeyValuePair<Bounds, CompleteOsmGeo[]>> SliceRecusive(this CompleteWay[] elements, int maxElementsPerSlice = 1000, Bounds bounds = null)
+		public static Osm[] SliceRecusive(Osm osm, int maxElementsPerslice)
+		{
+			var index = OsmSharp.Db.Impl.Extensions.CreateSnapshotDb(new MemorySnapshotDb(osm.GetElements()));
+			var completeWays = index.GetComplete().OfType<CompleteWay>().ToArray();
+			var slices = completeWays.SliceRecusive(maxElementsPerslice).ToDictionary();
+			var simpleSlices = slices.Select(kvp => kvp.Value.Select(e => e.ToSimple()).WithChildren(index).AsOsm(null, .6, kvp.Key)).ToArray();
+			return simpleSlices;
+		}
+
+		public static IEnumerable<KeyValuePair<Bounds, CompleteWay[]>> SliceRecusive(this CompleteWay[] elements, int maxElementsPerSlice = 1000, Bounds bounds = null)
 		{
 			bounds = bounds ?? elements.AsBounds();
 			if (elements.Length <= maxElementsPerSlice)
 			{
-				yield return new KeyValuePair<Bounds, CompleteOsmGeo[]>(bounds, elements);
+				yield return new KeyValuePair<Bounds, CompleteWay[]>(bounds, elements);
 				yield break;
 			}
 
@@ -48,7 +59,7 @@ namespace OsmPipeline.Fittings
 			}
 		}
 
-		public static bool IsTouching(Bounds bounds, ICompleteOsmGeo geo)
+		public static bool IsTouching(this Bounds bounds, ICompleteOsmGeo geo)
 		{
 			switch (geo)
 			{
@@ -63,17 +74,17 @@ namespace OsmPipeline.Fittings
 			}
 		}
 
-		public static bool IsTouching(Bounds bounds, CompleteRelation relation)
+		public static bool IsTouching(this Bounds bounds, CompleteRelation relation)
 		{
 			return relation.Members.Any(m => IsTouching(bounds, m.Member));
 		}
 
-		public static bool IsTouching(Bounds bounds, CompleteWay way)
+		public static bool IsTouching(this Bounds bounds, CompleteWay way)
 		{
 			return way.Nodes.Any(n => IsTouching(bounds, n));
 		}
 
-		public static bool IsTouching(Bounds bounds, Node node)
+		public static bool IsTouching(this Bounds bounds, Node node)
 		{
 			return bounds.MaxLatitude >= node.Latitude
 				&& bounds.MinLatitude <= node.Latitude

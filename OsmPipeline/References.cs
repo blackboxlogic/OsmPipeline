@@ -31,7 +31,7 @@ namespace OsmPipeline
 				{ "CNT", "County" },
 				{ "S", "South" },
 				{ "St", "Saint" },
-				{ "NE", "North East" },
+				{ "NE", "Northeast" },
 				{ "04853", "North Haven" },
 				{ "P*", "Point" }
 			};
@@ -40,13 +40,13 @@ namespace OsmPipeline
 			new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
 				{
 					{ "N" , "North" },
-					{ "NE" , "North East" },
+					{ "NE" , "Northeast" },
 					{ "E" , "East" },
-					{ "SE" , "South East" },
+					{ "SE" , "Southeast" },
 					{ "S" , "South" },
-					{ "SW" , "South West" },
+					{ "SW" , "Southwest" },
 					{ "W" , "West" },
-					{ "NW" , "North West" },
+					{ "NW" , "Northwest" },
 					{ "" , "" },
 				};
 
