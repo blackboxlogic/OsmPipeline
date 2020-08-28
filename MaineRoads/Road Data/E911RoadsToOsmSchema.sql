@@ -2,15 +2,19 @@
 -- https://www.samuelbosch.com/2018/02/split-into-rows-sqlite.html
 -- https://en.wikipedia.org/wiki/List_of_Interstate_Highways_in_Maine
 
+-- TODO: these should be a separate, non-query script specific to this dataset, not this schema.
 -- Data Corrections
-Update elements set route_num = '' where route_num = '0';
 Update elements set SPEED = '' where speed in ('0', '2', '3', '253');
-Update elements set route_num = '202/4' where objectid = '145597' AND route_num = '2002/4';
-update elements set STREETNAME = 'Green' where objectid in ('25384', '131257') AND STREETNAME = 'Greene';
+Update elements set ROUTE_NUM = '' where route_num = '0';
+Update elements set ROUTE_NUM = '202/4' where objectid = '145597' AND route_num = '2002/4';
 update elements set ONEWAY = 'FT' where objectid in ('104293') and ONEWAY is null;
-update elements set streetname = 'William L Clarke Drive' where objectid in ('6225','22450','49879','76123','6693','67108','103602','19485','59216','138476','95558','113127') and streetname = 'William B Clarke Drive';
 update elements set RDCLASS = 'Paper Street' where objectid = '50784' and RDCLASS = 'Private'; -- Road should be east of where indicated.
+update elements set STREETNAME = 'Salt Spray Lane' where objectid in ('13800','67044','29755','143451') and streetname = 'Saltspray Lane'
+update elements set STREETNAME = 'Vallée Square' where objectid in ('115678') and streetname = 'Vallee Square'
+update elements set STREETNAME = 'William L Clarke Drive' where objectid in ('6225','22450','49879','76123','6693','67108','103602','19485','59216','138476','95558','113127') and streetname = 'William B Clarke Drive';
+update elements set STREETNAME = 'Green' where objectid in ('25384', '131257') AND STREETNAME = 'Greene';
 
+-- TODO about 'Mount' and 'Saint' prefixes
 -- Schema Translation
 WITH routes(xid, xtype, [ref]) AS (
 	-- Split RouteNum by /
