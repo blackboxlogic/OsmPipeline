@@ -194,10 +194,10 @@
     "Restaurant": {
         "amenity": "restaurant"
     },
-	"Solar Site": {
-		"power": "plant",
-		"plant:source": "solar",
-		"plant:method": "photovoltaic",
-		"plant:output:electricity": "yes"
-	}
+    "Solar Site": {
+        "power": "plant",
+        "plant:source": "solar",
+        "plant:method": "photovoltaic",
+        "plant:output:electricity": "yes"
+    }
 }
